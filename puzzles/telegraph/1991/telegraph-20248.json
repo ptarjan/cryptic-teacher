@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,29 @@
      }
     ]
    },
-   "solution": "FROMSCRATCH"
+   "solution": "FROMSCRATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How the infection started",
+      "at": 0,
+      "meaning": "a wound gets infected through a small cut in the skin, so the infection began from a little graze"
+     },
+     {
+      "text": "at the beginning",
+      "at": 26,
+      "meaning": "starting with nothing done, right from the start of the job"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An infection may begin from a little skin wound, and the idiom also means starting afresh from nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +75,57 @@
     "text": "Were we out getting the morning paper",
     "enumeration": "4"
    },
-   "solution": "REAM"
+   "solution": "REAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "paper",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 8,
+         "note": "the word we is put out of the word were, leaving only its remaining pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Were",
+         "at": 0
+        },
+        {
+         "words": "we",
+         "at": 5,
+         "gives": "WE"
+        }
+       ]
+      },
+      {
+       "words": "the morning",
+       "at": 20,
+       "gives": "AM",
+       "note": "AM is the usual abbreviation for morning, ante meridiem"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether they went out to buy the morning newspaper.",
+     "walkthrough": "'out' removes WE from WERE, leaving RE; AM follows. 'getting' is a link, and 'the morning paper' wants to be one phrase, but 'paper' alone is the definition.",
+     "definitionFit": "A ream is a standard quantity of paper, about five hundred sheets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "morning"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +139,43 @@
     "text": "Domestic, we're told. Produced here",
     "enumeration": "4"
    },
-   "solution": "MADE"
+   "solution": "MADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Produced here",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MADE",
+     "indicators": [
+      {
+       "text": "we're told",
+       "at": 10,
+       "note": "what we are told is heard rather than read, so a word is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Domestic",
+       "at": 0,
+       "gives": "MAID",
+       "note": "a domestic is a household servant, such as a maid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A household note that something was made on the premises.",
+     "walkthrough": "'Domestic' looks like an adjective but is a noun for a servant: a MAID, which sounds the same as the answer.",
+     "definitionFit": "Something produced in a given place was manufactured or created there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +189,42 @@
     "text": "A number mad with desire",
     "enumeration": "7"
    },
-   "solution": "CRAVING"
+   "solution": "CRAVING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "desire",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "number",
+       "at": 2,
+       "gives": "C",
+       "note": "C is the Roman numeral for one hundred, a number"
+      },
+      {
+       "words": "mad",
+       "at": 9,
+       "gives": "RAVING",
+       "note": "raving means wildly mad"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone driven wild by longing for something.",
+     "walkthrough": "'A number' is the Roman numeral C; 'mad' looks like part of the definition phrase 'mad with desire', but it gives RAVING, and 'with' is a link.",
+     "definitionFit": "A craving is a strong longing or yearning for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +238,45 @@
     "text": "Nonchalant cockney description of a shaggy dog",
     "enumeration": "4"
    },
-   "solution": "AIRY"
+   "solution": "AIRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nonchalant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cockney",
+       "at": 11,
+       "note": "London cockney speech drops the H at the start of words, so the leading letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "description of a shaggy dog",
+       "at": 19,
+       "gives": "HAIRY",
+       "note": "a shaggy dog could be described as hairy, covered in long fur"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Londoner describes a scruffy, long-haired dog in a casual way.",
+     "walkthrough": "Cockney speech, the accent of working-class east London, famously drops initial H, so HAIRY becomes the answer.",
+     "definitionFit": "Airy can mean casual or lighthearted, unconcerned, as in an airy wave of the hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +290,29 @@
     "text": "Gathers their edible",
     "enumeration": "7"
    },
-   "solution": "COCKLES"
+   "solution": "COCKLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gathers",
+      "at": 0,
+      "meaning": "a gather is a pucker or wrinkle in fabric, and cockle means to pucker"
+     },
+     {
+      "text": "edible",
+      "at": 14,
+      "meaning": "small edible shellfish sold at the seaside, so the second sense is shellfish one can eat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue as printed reads 'their'; it should be 'Gathers, they're edible', a double definition: puckers in cloth, and shellfish you can eat.",
+     "definitionFit": "Cockles are puckers or wrinkles in material, and also small bivalve shellfish eaten in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +326,29 @@
     "text": "Pacifism as symbolised by the Venus de Milo!",
     "enumeration": "11"
    },
-   "solution": "DISARMAMENT"
+   "solution": "DISARMAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pacifism",
+      "at": 0,
+      "meaning": "laying down weapons, the policy of giving up an army's arms"
+     },
+     {
+      "text": "as symbolised by the Venus de Milo!",
+      "at": 9,
+      "meaning": "the famous Greek statue has lost both its arms, so it is literally without arms"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Giving up weapons is a peace policy, and the armless Venus de Milo is a statue literally deprived of its arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +368,29 @@
      }
     ]
    },
-   "solution": "SECONDCLASS"
+   "solution": "SECONDCLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Further education",
+      "at": 0,
+      "meaning": "the class that comes after the first one, a next stage of schooling"
+     },
+     {
+      "text": "not very good",
+      "at": 25,
+      "meaning": "inferior, second-rate in quality"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Read literally the phrase is the next class up in school; as an idiom it means inferior or second-rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +404,28 @@
     "text": "Take pleasure in resembling",
     "enumeration": "4"
    },
-   "solution": "LIKE"
+   "solution": "LIKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take pleasure in",
+      "at": 0,
+      "meaning": "to enjoy something, be fond of it"
+     },
+     {
+      "text": "resembling",
+      "at": 17,
+      "meaning": "similar to, in the manner of"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The verb means to enjoy, and the preposition means similar to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +439,33 @@
     "text": "Kidology?",
     "enumeration": "11"
    },
-   "solution": "PAEDIATRICS"
+   "solution": "PAEDIATRICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kidology?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Kidology?",
+       "at": 0,
+       "note": "the word for teasing or bluffing, read as the study of kids: the medical science of children"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The branch of medicine dealing with children could jokingly be called the study of kids."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +479,33 @@
     "text": "If you will be a do-gooder, on your head be it!",
     "enumeration": "4"
    },
-   "solution": "HALO"
+   "solution": "HALO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "If you will be a do-gooder, on your head be it!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "If you will be a do-gooder, on your head be it!",
+       "at": 0,
+       "note": "the threatening idiom read literally: a saintly person wears a glowing ring above the head"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Saints and the virtuous are pictured with a ring of light around the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +529,33 @@
      }
     ]
    },
-   "solution": "KINGSIZEBED"
+   "solution": "KINGSIZEBED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's a lot of bunk!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "That's a lot of bunk!",
+       "at": 0,
+       "note": "bunk usually means nonsense, but here it is a bed, and a very big one"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "An extra-large bed is plenty of place to sleep, a lot of bunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +575,34 @@
      }
     ]
    },
-   "solution": "PAPERWEIGHT"
+   "solution": "PAPERWEIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It helps to keep down bills",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It helps to keep down bills",
+       "at": 0,
+       "note": "not reducing expenses, but a heavy object holding loose papers such as invoices on a desk"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A heavy desk ornament stops loose sheets, invoices included, from blowing away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bills"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +616,67 @@
     "text": "Think Imyselfam harbouring a spirit",
     "enumeration": "7"
    },
-   "solution": "IMAGINE"
+   "solution": "IMAGINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Think",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 6
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "am harbouring",
+         "at": 13,
+         "note": "to harbour is to shelter within, so one piece holds the other inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "myself",
+         "at": 7,
+         "gives": "ME",
+         "note": "the speaker referring to themself is me"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 27
+          },
+          {
+           "words": "spirit",
+           "at": 29,
+           "gives": "GIN",
+           "note": "gin is a spirit, a strong distilled drink"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker suspects they have a ghost, or a drop of gin, inside them.",
+     "walkthrough": "The printed text runs 'I myself am' together. 'am harbouring' puts A GIN inside ME, after I. 'spirit' suggests a ghost but is the drink.",
+     "definitionFit": "To imagine is to conceive or suppose, to think something up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +690,33 @@
     "text": "Gets in the post",
     "enumeration": "5"
    },
-   "solution": "EARNS"
+   "solution": "EARNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gets in the post",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Gets in the post",
+       "at": 0,
+       "note": "not receiving letters by mail, but being paid while holding a job or position"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Someone holding a job is paid a salary for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +730,61 @@
     "text": "Continued to think about retreating into the shade",
     "enumeration": "7"
    },
-   "solution": "RESUMED"
+   "solution": "RESUMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Continued",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 36,
+       "note": "one piece is put into the other, the shade surrounding it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the shade",
+       "at": 41,
+       "gives": "RED",
+       "note": "red is a shade, a colour"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retreating",
+         "at": 25,
+         "note": "going backwards, so the word is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "think about",
+         "at": 13,
+         "gives": "MUSE",
+         "note": "to muse is to ponder or think about"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone went on pondering after withdrawing into the shadows.",
+     "walkthrough": "'retreating' turns MUSE to ESUM; 'into' puts that inside RED. 'shade' suggests shadow, but it means colour.",
+     "definitionFit": "To resume is to carry on again after a break."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +798,48 @@
     "text": "Send one to, rather on the quiet!",
     "enumeration": "5"
    },
-   "solution": "REFER"
+   "solution": "REFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Send one to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 20,
+       "note": "the answer placed on, after, the letter for quiet makes the word for rather, so that letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rather",
+       "at": 13,
+       "gives": "PREFER",
+       "note": "would rather means prefer"
+      },
+      {
+       "words": "the quiet",
+       "at": 23,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, quiet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to pass someone on, discreetly if possible.",
+     "walkthrough": "Put P (piano, quiet) on the front of the answer and you get PREFER, 'rather'; so the answer is PREFER with P gone, signalled by 'on'.",
+     "definitionFit": "To refer someone is to direct or pass them on to another person for help."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +853,62 @@
     "text": "Sport is almost all men talk about",
     "enumeration": "5"
    },
-   "solution": "GAMES"
+   "solution": "GAMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "the talk goes around the trimmed word, surrounding it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "talk",
+       "at": 24,
+       "gives": "GAS",
+       "note": "gas is idle chatter, talk"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost all",
+         "at": 9,
+         "note": "the word men loses its final letter, so not quite all of it is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "at": 20
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sport is nearly all that men chat about.",
+     "walkthrough": "'almost all' cuts MEN to ME; 'about' puts GAS around it. 'talk about' reads as a phrase in the surface, but 'about' is the container signal.",
+     "definitionFit": "Games are sports, organised competitive play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +922,50 @@
     "text": "Delight in setting free a wild eagle",
     "enumeration": "4"
    },
-   "solution": "GLEE"
+   "solution": "GLEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "setting free",
+       "at": 11,
+       "note": "the letter a is released from the bird's name, removed from the pool"
+      },
+      {
+       "text": "wild",
+       "at": 26,
+       "note": "the remaining letters run wild, rearranged in any order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eagle",
+       "at": 31
+      },
+      {
+       "words": "a",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Joy at releasing an untamed bird of prey.",
+     "walkthrough": "'setting free' takes A out of EAGLE, leaving E, G, L, E; 'wild' scrambles those letters.",
+     "definitionFit": "Glee is joy, great merriment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +979,41 @@
     "text": "He gets through-though only semi-literate",
     "enumeration": "4"
    },
-   "solution": "EMIL"
+   "solution": "EMIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "gets through",
+       "at": 3,
+       "note": "the name passes through the hyphenated word, its letters sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "semi-literate",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man scrapes through, though he can barely read and write.",
+     "walkthrough": "'gets through' signals the name runs inside 'semi-literate', across the hyphen; 'though only' is linking. 'He' is a man's name in crossword style.",
+     "definitionFit": "Emil is a man's name, so it stands for a male person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "semi-literate"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1027,44 @@
     "text": "Risk losing a day, to one's annoyance",
     "enumeration": "5"
    },
-   "solution": "ANGER"
+   "solution": "ANGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "annoyance",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing a",
+       "at": 5,
+       "note": "the word for risk loses one letter, dropping it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Risk",
+       "at": 0,
+       "gives": "DANGER",
+       "note": "danger means risk or peril"
+      },
+      {
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Missing a day's work would be a hazard and an irritation.",
+     "definitionFit": "Anger is strong irritation or displeasure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1078,44 @@
     "text": "A barrier to an insect that is immovable",
     "enumeration": "7"
    },
-   "solution": "ADAMANT"
+   "solution": "ADAMANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "immovable",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "barrier",
+       "at": 2,
+       "gives": "DAM",
+       "note": "a dam is a barrier holding back water"
+      },
+      {
+       "words": "an insect",
+       "at": 13,
+       "gives": "ANT",
+       "note": "an ant is an insect"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An obstacle placed in an insect's path that will not budge.",
+     "definitionFit": "Adamant means unyielding, refusing to change one's mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1129,29 @@
     "text": "Refuse? Nonsense!",
     "enumeration": "7"
    },
-   "solution": "RUBBISH"
+   "solution": "RUBBISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuse?",
+      "at": 0,
+      "meaning": "... thrown away, waste"
+     },
+     {
+      "text": "Nonsense!",
+      "at": 8,
+      "meaning": "an exclamation dismissing something as untrue"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both household waste and foolish talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1165,56 @@
     "text": "Is drawn back inside towards the centre",
     "enumeration": "7"
    },
-   "solution": "INWARDS"
+   "solution": "INWARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "towards the centre",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 14,
+       "note": "one piece goes inside the other, enclosed by its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is",
+       "at": 0
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 9,
+         "note": "drawn back means the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drawn",
+         "at": 3
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is pulled back into the middle.",
+     "walkthrough": "'back' turns DRAWN into NWARD; 'inside' puts that between the I and S of 'Is'.",
+     "definitionFit": "Inwards means moving in the direction of the interior or middle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1228,29 @@
     "text": "Decisions made during various reigns?",
     "enumeration": "7"
    },
-   "solution": "RULINGS"
+   "solution": "RULINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decisions",
+      "at": 0,
+      "meaning": "official judgements, such as a court's verdicts"
+     },
+     {
+      "text": "made during various reigns?",
+      "at": 10,
+      "meaning": "the periods when monarchs held power, times of governing"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Official judgements are pronouncements, and periods of governing could be playfully called the acts of reigning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1264,43 @@
     "text": "Be on the turn or downright bad",
     "enumeration": "4"
    },
-   "solution": "EVIL"
+   "solution": "EVIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "downright bad",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on the turn",
+       "at": 3,
+       "note": "turning round means the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Be",
+       "at": 0,
+       "gives": "LIVE",
+       "note": "to be is to exist, to live"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something going off, or simply rotten.",
+     "walkthrough": "'on the turn' sounds like food going sour, but it reverses LIVE.",
+     "definitionFit": "Evil means wicked, morally very wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1314,40 @@
     "text": "Be a little thankful in the letter",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "letter",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Be",
+       "at": 0
+      },
+      {
+       "words": "a little thankful",
+       "at": 3,
+       "gives": "TA",
+       "note": "ta is a brief, informal British word for thanks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Show some gratitude in what you write to someone.",
+     "walkthrough": "TA is everyday British slang for thank you. 'letter' suggests correspondence but means a Greek letter.",
+     "definitionFit": "Beta is the second letter of the Greek alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1361,33 @@
     "text": "Firing this gun will come as a shock",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Firing this gun will come as a shock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Firing this gun will come as a shock",
+       "at": 0,
+       "note": "an electric weapon that immobilises its target, and also a word for to shock or daze"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The electroshock weapon is named for its effect, to daze or shock someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1401,44 @@
     "text": "Finished one day ahead",
     "enumeration": "4"
    },
-   "solution": "DONE"
+   "solution": "DONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Finished",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ahead",
+       "at": 17,
+       "note": "the day piece goes ahead of, in front of, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "day",
+       "at": 13,
+       "gives": "D"
+      },
+      {
+       "words": "one",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A task completed with one day to spare.",
+     "definitionFit": "Done means completed or over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1452,33 @@
     "text": "Way in which a man utters a curse?",
     "enumeration": "11"
    },
-   "solution": "MALEDICTION"
+   "solution": "MALEDICTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way in which a man utters a curse?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Way in which a man utters a curse?",
+       "at": 0,
+       "note": "split into two words, a man's manner of speaking, his ..., is also a solemn curse"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A malediction is a spoken curse, and split it describes a male way of speaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +1492,33 @@
     "text": "It never allows you to have the last word",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It never allows you to have the last word",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It never allows you to have the last word",
+       "at": 0,
+       "note": "a reflected sound repeats whatever you shout, so it always speaks after you"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A reflected sound repeats your words back, so it always speaks last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 30,
@@ -498,7 +1538,33 @@
      }
     ]
    },
-   "solution": "STRAPHANGER"
+   "solution": "STRAPHANGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "His complaint may be one of long standing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "His complaint may be one of long standing",
+       "at": 0,
+       "note": "a long-running grievance, read literally as a commuter standing for ages on a crowded train holding a strap"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A commuter who stands holding an overhead strap on a packed train grumbles about standing for long periods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
