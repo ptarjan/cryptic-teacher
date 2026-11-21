@@ -2982,6 +2982,20 @@ def without_edge_marks(lines, win):
 NUMBERED_LINE = re.compile(r"\d{1,2}\s+[A-Z\"'‘“]")
 
 
+#: r302: the Gale Sunday Times 2000-06 pages stand the first clue 85 px under its column's ACROSS/DOWN heading (2004-12-12:
+#: ACROSS ends y 3889, "1 He entertains Queen" starts 3974), over GAP's 80, so each column was cut after its heading and
+#: no clue was read ("no ACROSS and DOWN lists under the grid"). A column holding only its heading reaches this much further.
+HEADING_ROOM = 40
+
+
+def heading_room(kept, line, last):
+    """HEADING_ROOM when `kept` is one heading line alone and `line` (the column's next) is no stop, else 0."""
+    if len(kept) == 1 and clue_text.heading_of(kept[0][4]) in ("ACROSS", "DOWN") and not stops(line[4]) \
+            and re.match(r"\W{0,2}\d{1,2}\b", line[4]):
+        return HEADING_ROOM
+    return 0
+
+
 def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None, strip=None):
     """The clue columns under the grid (and with `third`, right of it; with
     `above`, over it; with `left`, left of it; with `lead`, first one left of
@@ -3045,7 +3059,7 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                 # GUARDIAN_NOTICE: the Guardian's last column opens on the prize winners' notice, its lines kept as
                 # a clue's carried tail, and the gap to the first numbered clue ended the column there: no clue read.
                 kept, last = [], None
-            if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > GAP) \
+            if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > GAP + heading_room(kept, line, last)) \
                     and not (closed and not stops(line[4]) and line[4] != NOTICE and last < closed[0]
                              and closed[1] < line[0] <= closed[1] + SOLUTION_GAP * GAP):
                 if not (line[0] - last <= DOWN_GAP and len(downs) == 1 and line is downs[0]
@@ -14243,9 +14257,16 @@ def sunday_band_due(row):
 SUNDAY_PAIR_YEARS = ("1985", "1989")
 #: The fewest numbered lines the cryptic list has in its column.
 SUNDAY_PAIR_LINES = 10
+#: The 2000-06 pages (r302: 2004-12-12, grid x 921-1641 from y 3798, the title over the columns to y 3790, ACROSS at x 237 over
+#: numbers at 188-208, DOWN at x 608 over numbers at 575-580, both headings at y 3850, the lists to y 5000) set the same two
+#: columns left of the grid with DOWN's numbers only 0.045 grids left of its heading, under SUNDAY_PAIR's 0.05: no DOWN
+#: column was found, so the page was read for its right-hand print only ("no ACROSS and DOWN lists under the grid"). The
+#: share of the grid's width the DOWN numbers' search stops short of the heading (`late`).
+SUNDAY_PAIR_LATE_YEARS = ("2000", "2006")
+SUNDAY_PAIR_LATE_GAP = 0.01
 
 
-def sunday_times_pair(img, gbox, title, key, paper):
+def sunday_times_pair(img, gbox, title, key, paper, late=False):
     """The PairLeft of a Gale Sunday Times 1985-89 page whose ACROSS and DOWN columns stand side by side left of its
     grid, both headings on one line, or None: no such pair of headings, or too few numbered lines in either column."""
     gx0, gy0, gx1, gy1 = gbox
@@ -14281,7 +14302,7 @@ def sunday_times_pair(img, gbox, title, key, paper):
 
     # ACROSS's numbers stand left of its heading, DOWN's a little left of its own.
     c1 = column(head, head[0] - 0.3 * gw, head[0])
-    c2 = column(down, down[0] - 0.3 * gw, down[0] - 0.05 * gw)
+    c2 = column(down, down[0] - 0.3 * gw, down[0] - (SUNDAY_PAIR_LATE_GAP if late else 0.05) * gw)
     if c1 is None or c2 is None or c2 - c1 < 0.2 * gw:
         return None
     out = PairLeft((max(0, c1 - SUNDAY_BAND_PAD), None, crop[1]))
@@ -15043,10 +15064,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if column is None and right_column is not None:
         column = right_column
     # A 1985-89 Gale Sunday Times page's cryptic list far left of its grid, the Quickie's beside it (sunday_times_pair).
+    late_pair = SUNDAY_PAIR_LATE_YEARS[0] <= d.name[:4] <= SUNDAY_PAIR_LATE_YEARS[1]
     if column is None and paper.key == "galesundaytimes" and (SUNDAY_PAIR_YEARS[0] <= d.name[:4] <= SUNDAY_PAIR_YEARS[1]
-                                                               or caption is not None) \
+                                                               or late_pair or caption is not None) \
             and side == "below" and top is None:
-        column = sunday_times_pair(img, gbox, sunday_caption_title(gbox) if caption is not None else hit["box"], key, paper)
+        column = sunday_times_pair(img, gbox, sunday_caption_title(gbox) if caption is not None else hit["box"], key, paper,
+                                   late=late_pair)
     # A 1985-89 Gale Sunday Times page whose one clue column stands left of its grid (sunday_times_right).
     if column is None and paper.key == "galesundaytimes" and (SUNDAY_RIGHT_YEARS[0] <= d.name[:4] <= SUNDAY_RIGHT_YEARS[1]
                                                                or caption is not None) \
