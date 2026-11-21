@@ -628,6 +628,11 @@ def read_done(row, done=None):
         # Read with the Down list beside the grid (right of it, the Across list under it) left out of the lists' cut
         # (SIDE_FIX 1).
         return False
+    if row and row.get("riseFix", 0) < RISE_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and "1960" <= (row.get("date") or "9") < "1980" \
+            and len(row.get("blank") or ()) >= 2 and "no clue read for it" in (row.get("why") or {}).values():
+        # Read with the wrapped lists' right column cut at the grid's top, its first Across clues above it lost (RISE_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1625,6 +1630,38 @@ def rules_head(inside, rule, lh, gl):
     return False
 
 
+#: Bumped when wrapped_cut takes the right column's first Across clues standing ABOVE the grid's top (rise_top): the 1960-88
+#: wrapped pages (the Across list under the grid carried on in the column beside it, which starts higher than the grid)
+#: lost those clues to the cut ("no clue read for it": the OCR and the VLM both read a strip that never held them).
+RISE_FIX = 1
+#: Most clue numbers rise_top takes above the grid's top, and the lines of gap it allows between two of them.
+RISE_NUMBERS = 12
+RISE_GAP = 4
+
+
+def rise_top(words, box, lh, top, down):
+    """`top` (the wrapped cut's top, the grid's) lifted to the first Across clue of the right column when it stands
+    above the grid: the clue numbers in the column's number x (the Down heading's) above `top` that run up in
+    steps, each number less than the one under it by six or fewer and a gap of RISE_GAP lines or less, from the
+    nearest number at or under `top` (the column's own, so a neighbour's text above is not taken)."""
+    x = down[0]
+    col = sorted((w for w in words if NUMBER_WORD.match(w[4]) and abs(w[0] - x) <= 14 and w[1] < down[1]),
+                 key=lambda w: w[1])
+    under = [w for w in col if w[1] >= top]
+    above = [w for w in col if w[1] < top]
+    if not under or not above:
+        return top
+    def value(w):
+        return int(w[4].rstrip(".,"))
+    nxt, got = under[0], []
+    for w in reversed(above):
+        if len(got) >= RISE_NUMBERS or nxt[1] - w[1] > RISE_GAP * lh or not 0 < value(nxt) - value(w) <= 6:
+            break
+        got.append(w)
+        nxt = w
+    return min(top, got[-1][1] - lh / 2) if got else top
+
+
 def wrapped_cut(words, box):
     """(box, masks) of the 1960-64 lists, printed in two page columns the grid's width each: the Across clues
     under the grid in the left one and carried on beside the grid in the right one, the Down heading standing in
@@ -1640,6 +1677,8 @@ def wrapped_cut(words, box):
     if not downs:
         return None
     top = box[1] - lh / 2
+    if RISE_FIX:
+        top = rise_top(words, box, lh, top, min(downs, key=lambda w: w[1]))
     inside = sorted((w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[3] > top
                      and not (box[0] <= (w[0] + w[2]) / 2 <= box[2] and box[1] <= (w[1] + w[3]) / 2 <= box[3])),
                     key=lambda w: w[1])
@@ -2387,7 +2426,8 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
-                "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX}, store)
+                "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
+                "riseFix": RISE_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

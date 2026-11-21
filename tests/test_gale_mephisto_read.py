@@ -126,7 +126,7 @@ check("a page read with 1-down blank before TAIL_FIX is due", False, gm.read_don
 check("a page read with 1-down blank at TAIL_FIX stands", True, gm.read_done({**part, "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX}))
 check("a page blank elsewhere is not due for TAIL_FIX", True, gm.read_done({**part, "blank": ["5-down"], "columnFix": gm.COLUMN_FIX}))
 check("a page blank before COLUMN_FIX is due", False, gm.read_done({**part, "blank": ["5-down"], "tailFix": gm.TAIL_FIX}))
-many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX, "strayFix": gm.STRAY_FIX, "gapFix": gm.GAP_FIX, "aboveFix": gm.ABOVE_FIX}
+many = {**part, "date": "1972-03-19", "blank": ["%d-down" % k for k in range(2, 8)], "tailFix": gm.TAIL_FIX, "columnFix": gm.COLUMN_FIX, "solutionFix": gm.SOLUTION_FIX, "vlmMissFix": gm.VLM_MISS_FIX, "stripFix": gm.STRIP_FIX, "strayFix": gm.STRAY_FIX, "gapFix": gm.GAP_FIX, "aboveFix": gm.ABOVE_FIX, "riseFix": gm.RISE_FIX}
 check("a 1970s page with 4+ blanks before MID_FIX is due", False, gm.read_done(many))
 check("a 1970s page with 4+ blanks at MID_FIX stands", True, gm.read_done({**many, "midFix": gm.MID_FIX}))
 check("a 1970s page with 4+ blanks before STRAY_FIX is due", False, gm.read_done({**many, "midFix": gm.MID_FIX, "strayFix": 0}))
@@ -170,6 +170,19 @@ check("a 1990s page 4+ blank with a clue never read, before SIDE_FIX, is due", F
 check("the same page at SIDE_FIX stands", True, gm.read_done({**_side, "sideFix": gm.SIDE_FIX}))
 check("a 1970s page is not due for SIDE_FIX", True, gm.read_done({**_side, "date": "1975-03-03"}))
 check("a 1990s page with no clue unread is not due for SIDE_FIX", True, gm.read_done({**_side, "why": {"2-down": "both read 'Zt'"}}))
+# RISE_FIX: the wrapped lists' right column's first Across clues above the grid's top are cut in.
+_rise = {**_above, "aboveFix": gm.ABOVE_FIX, "riseFix": 0, "date": "1973-10-28", "why": {"16-across": "no clue read for it"}}
+check("a 1970s page with a clue never read, before RISE_FIX, is due", False, gm.read_done(_rise))
+check("the same page at RISE_FIX stands", True, gm.read_done({**_rise, "riseFix": gm.RISE_FIX}))
+check("a 1990s page is not due for RISE_FIX", True, gm.read_done({**_rise, "date": "1993-03-03", "sideFix": gm.SIDE_FIX}))
+check("a page with no clue unread is not due for RISE_FIX", True, gm.read_done({**_rise, "why": {"16-across": "both read 'Zt'"}}))
+_rbox = (144, 1561, 966, 2396)
+_rw = [(983, 1470 + 26 * k, 1006, 1489 + 26 * k, n) for k, n in enumerate(["16", "18", "20"])]
+_rw += [(983, 1572, 1007, 1591, "24"), (983, 1598, 1007, 1617, "25"), (985, 1826, 1056, 1845, "Down")]
+_rw += [(1305, 1393, 1316, 1412, "2"), (1305, 1300, 1316, 1319, "3")]
+_rdown = (985, 1826, 1056, 1845, "Down")
+check("rise_top lifts the cut to the first clue number above the grid in the Down column", 1457, int(gm.rise_top(_rw, _rbox, 25, 1561 - 12, _rdown)))
+check("rise_top leaves the top when no number stands above it", 1549, int(gm.rise_top([w for w in _rw if w[4] not in ("16", "18", "20")], _rbox, 25, 1549, _rdown)))
 import gale_listener as _gl
 _sbox = (500, 100, 1400, 1000)
 _sw = [(1450, 150, 1530, 174, "Down")] + [(1450, 200 + 60 * k, 1475, 222 + 60 * k, str(k + 1)) for k in range(12)]
