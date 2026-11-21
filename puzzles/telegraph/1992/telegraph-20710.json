@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Vessel found in the kitchen bin, perhaps",
     "enumeration": "5"
    },
-   "solution": "LINER"
+   "solution": "LINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0,
+      "meaning": "a vessel is a ship, here a large passenger ocean ship"
+     },
+     {
+      "text": "found in the kitchen bin, perhaps",
+      "at": 7,
+      "meaning": "a plastic bag fitted inside a rubbish bin to keep it clean"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One word names both an ocean-going passenger ship and the bag lining a rubbish bin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,63 @@
     "text": "Fed up with tea-break? Just the reverse",
     "enumeration": "6"
    },
-   "solution": "DEFEAT"
+   "solution": "DEFEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reverse",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 4,
+         "note": "in a down entry, up means the word Fed is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fed",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "break",
+         "at": 16,
+         "note": "to break the word tea is to shatter its letters into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tired of their tea-break is told the opposite is true.",
+     "walkthrough": "'up' turns FED into DEF; 'break' rearranges TEA into EAT. 'Just the reverse' looks like an instruction to swap things, but 'reverse' is the definition, a setback.",
+     "definitionFit": "A reverse is a setback or loss in battle or sport, the same as being beaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +139,34 @@
     "text": "Union without a single member",
     "enumeration": "8"
    },
-   "solution": "MARRIAGE"
+   "solution": "MARRIAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Union without a single member",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Union without a single member",
+       "at": 0,
+       "note": "a union that has no single person in it, read as wedlock, whose two partners stop being single"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Wedlock is a union of two people, and once inside it neither partner is single any longer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Union"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +180,41 @@
     "text": "Note answer in book",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "book",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "RE",
+       "note": "re is the second note of the sol-fa scale"
+      },
+      {
+       "words": "answer",
+       "at": 5,
+       "gives": "SERVE",
+       "note": "to serve is to answer, as in 'that will answer the purpose'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A memo with a reply is tucked inside a volume.",
+     "definitionFit": "To book a table or seat is to arrange to hold it in advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +228,50 @@
     "text": "Challenged champion's delay about the final",
     "enumeration": "8"
    },
-   "solution": "DEFENDER"
+   "solution": "DEFENDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Challenged champion's",
+      "at": 0,
+      "note": "read as 'challenged champion is', the clue's 's standing for is"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 28,
+       "note": "about means the word for delay sits around the word for the final"
+      }
+     ],
+     "parts": [
+      {
+       "words": "delay",
+       "at": 22,
+       "gives": "DEFER",
+       "note": "to defer is to delay or postpone"
+      },
+      {
+       "words": "the final",
+       "at": 34,
+       "gives": "END",
+       "note": "the end is the final part of anything"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A title holder put off their final match.",
+     "walkthrough": "The 's on 'champion's' stands for 'is', linking definition to wordplay; 'about' signals the container.",
+     "definitionFit": "The title holder who must fight off a challenger is the one keeping the title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +285,40 @@
     "text": "Resolve sectarian differences",
     "enumeration": "9"
    },
-   "solution": "ASCERTAIN"
+   "solution": "ASCERTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resolve",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "differences",
+       "at": 18,
+       "note": "differences suggests the letters of sectarian being made different, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sectarian",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Settle disputes between religious factions.",
+     "definitionFit": "To resolve a question is to find out for certain, to establish the facts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Resolve"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +332,30 @@
     "text": "Coal-seam, perhaps, carrying water-borne hazards",
     "enumeration": "9"
    },
-   "solution": "MINELAYER"
+   "solution": "MINELAYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coal-seam, perhaps",
+      "at": 0,
+      "meaning": "a seam of coal is a stratum found in a pit, literally a pit's stratum"
+     },
+     {
+      "text": "carrying water-borne hazards",
+      "at": 20,
+      "meaning": "a naval ship that lays explosive devices at sea"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Split in two the word is a pit's stratum; whole it is a warship sowing explosives in the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "carrying"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +369,48 @@
     "text": "It's most desirable to enclose a wild animal",
     "enumeration": "5"
    },
-   "solution": "BEAST"
+   "solution": "BEAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wild animal",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to enclose",
+       "at": 20,
+       "note": "to enclose means the word for most desirable goes around the letter a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "most desirable",
+       "at": 5,
+       "gives": "BEST",
+       "note": "the best is the most desirable"
+      },
+      {
+       "words": "a",
+       "at": 31,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping a dangerous creature caged is the preferred course.",
+     "walkthrough": "'to enclose' puts A inside BEST.",
+     "definitionFit": "A brute or creature of the wild, an untamed four-legged animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enclose"
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +424,43 @@
     "text": "Duck, mate! Here comes a stone!",
     "enumeration": "4"
    },
-   "solution": "OPAL"
+   "solution": "OPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a stone",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Duck",
+       "at": 0,
+       "gives": "O",
+       "note": "a duck is a score of nothing in cricket, shaped like the letter O"
+      },
+      {
+       "words": "mate",
+       "at": 6,
+       "gives": "PAL",
+       "note": "a pal is a mate or friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend shouts a warning to dodge a rock being thrown.",
+     "walkthrough": "'Duck' looks like a warning to dodge, but it is zero, a cricket score of nought.",
+     "definitionFit": "This iridescent gemstone is a precious stone, the October birthstone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +474,34 @@
     "text": "Get ready for the night",
     "enumeration": "8"
    },
-   "solution": "REHEARSE"
+   "solution": "REHEARSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get ready for the night",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Get ready for the night",
+       "at": 0,
+       "note": "not preparing for bed but an actor's preparation for the opening night of a play"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Actors practise their play repeatedly before the first-night performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "night"
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +515,41 @@
     "text": "Quietly mention favour",
     "enumeration": "6"
    },
-   "solution": "PREFER"
+   "solution": "PREFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "favour",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quietly",
+       "at": 0,
+       "gives": "P",
+       "note": "p is piano, the musical term for quietly"
+      },
+      {
+       "words": "mention",
+       "at": 8,
+       "gives": "REFER",
+       "note": "to refer to something is to mention it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ask softly for a kindness.",
+     "definitionFit": "To favour one option over others is to like it more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "favour"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +563,43 @@
     "text": "Turn back before it erupts",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it erupts",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Turn back",
+       "at": 0,
+       "note": "turning back means the word for before is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "before",
+       "at": 10,
+       "gives": "ANTE",
+       "note": "ante is Latin for before, as in antenatal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning to retreat before a volcano blows.",
+     "walkthrough": "'Turn back' looks like a warning to flee; it reverses ANTE, Latin for before.",
+     "definitionFit": "Mount Etna in Sicily is Europe's most active volcano."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 13,
@@ -198,7 +613,59 @@
     "text": "Confirm tea laid out after five",
     "enumeration": "8"
    },
-   "solution": "VALIDATE"
+   "solution": "VALIDATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confirm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "after places the rearranged letters following the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "five",
+       "at": 27,
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 17,
+         "note": "out suggests the letters of tea laid being put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea laid",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks that tea has been set out by five o'clock.",
+     "walkthrough": "'out' rearranges TEA LAID into ALIDATE, which comes 'after' V.",
+     "definitionFit": "To validate something is to confirm it is genuine or correct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 14,
@@ -212,7 +679,43 @@
     "text": "Disorderly actors are plastered",
     "enumeration": "9"
    },
-   "solution": "ROUGHCAST"
+   "solution": "ROUGHCAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plastered",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Disorderly",
+       "at": 0,
+       "gives": "ROUGH",
+       "note": "rough can mean disorderly or rowdy"
+      },
+      {
+       "words": "actors",
+       "at": 11,
+       "gives": "CAST",
+       "note": "the cast is the group of actors in a play"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rowdy performers are drunk.",
+     "walkthrough": "'plastered' looks like slang for drunk, which suits the rowdy actors, but it means coated with plaster.",
+     "definitionFit": "To coat a wall with a coarse mix of lime and gravel is to give it a rough plaster finish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plastered"
+    }
+   }
   },
   {
    "number": 15,
@@ -226,7 +729,29 @@
     "text": "No simple mental condition",
     "enumeration": "7"
    },
-   "solution": "COMPLEX"
+   "solution": "COMPLEX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No simple",
+      "at": 0,
+      "meaning": "not simple, meaning intricate or complicated"
+     },
+     {
+      "text": "mental condition",
+      "at": 10,
+      "meaning": "a psychological fixation, as in an inferiority one"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is both an adjective for intricate and a noun for an obsessive psychological state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "simple"
+    }
+   }
   },
   {
    "number": 16,
@@ -240,7 +765,29 @@
     "text": "An event Jews won't forget or ignore",
     "enumeration": "8"
    },
-   "solution": "PASSOVER"
+   "solution": "PASSOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An event Jews won't forget",
+      "at": 0,
+      "meaning": "the spring festival commemorating the Exodus from Egypt"
+     },
+     {
+      "text": "ignore",
+      "at": 30,
+      "meaning": "to skip over or disregard, as two words"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The Jewish festival marking the Exodus shares its spelling with a phrase meaning to disregard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forget"
+    }
+   }
   },
   {
    "number": 17,
@@ -254,7 +801,34 @@
     "text": "It may pick and hold a lock",
     "enumeration": "7"
    },
-   "solution": "HAIRPIN"
+   "solution": "HAIRPIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It may pick and hold a lock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It may pick and hold a lock",
+       "at": 0,
+       "note": "a bent pin that can be used to pick a door lock and also holds a lock of hair in place"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A U-shaped pin keeps hair in place and is the classic improvised tool for picking a lock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 18,
@@ -268,7 +842,40 @@
     "text": "A frenzy of war cries and whirling blades",
     "enumeration": "8"
    },
-   "solution": "AIRSCREW"
+   "solution": "AIRSCREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "whirling blades",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "frenzy of",
+       "at": 2,
+       "note": "a frenzy is wild agitation, so the letters of war cries are tossed about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "war cries",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Battle shouts rise in a frenzy amid spinning swords.",
+     "definitionFit": "A propeller on an aircraft is a set of spinning blades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blades"
+    }
+   }
   },
   {
    "number": 19,
@@ -282,7 +889,53 @@
     "text": "Girl can put up a calendar",
     "enumeration": "7"
    },
-   "solution": "ALMANAC"
+   "solution": "ALMANAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "calendar",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "ALMA",
+       "note": "Alma is a girl's name"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put up",
+         "at": 9,
+         "note": "in a down entry, put up means the word can is written bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 5,
+         "gives": "CAN"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is able to hang up a calendar.",
+     "walkthrough": "'put up' looks like hanging the calendar; it reverses CAN to NAC.",
+     "definitionFit": "An almanac is a yearly calendar with astronomical and other information."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 20,
@@ -296,7 +949,29 @@
     "text": "Type of porcelain food container",
     "enumeration": "8"
    },
-   "solution": "EGGSHELL"
+   "solution": "EGGSHELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Type of porcelain",
+      "at": 0,
+      "meaning": "a very thin, delicate kind of china"
+     },
+     {
+      "text": "food container",
+      "at": 18,
+      "meaning": "the outer casing of a hen's egg, holding its food"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The thin casing of an egg gives its name to a very fine, translucent china."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 21,
@@ -310,7 +985,41 @@
     "text": "They may be jellied or else cooked",
     "enumeration": "4"
    },
-   "solution": "EELS"
+   "solution": "EELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They may be jellied",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 28,
+       "note": "cooked suggests the letters of else being doctored or rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "else",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish is either set in jelly or prepared some other way.",
+     "walkthrough": "Jellied eels are a traditional London East End dish.",
+     "definitionFit": "Snakelike fish are stewed and set in aspic in the London dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "else"
+    }
+   }
   },
   {
    "number": 22,
@@ -324,7 +1033,40 @@
     "text": "Harvest a new type of pear",
     "enumeration": "4"
    },
-   "solution": "REAP"
+   "solution": "REAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Harvest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "new type of",
+       "at": 10,
+       "note": "making a new type of the word pear means rearranging its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pear",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gather in a newly bred variety of fruit.",
+     "definitionFit": "To reap is to cut and gather a crop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 23,
@@ -338,7 +1080,34 @@
     "text": "A disposition of arms",
     "enumeration": "6"
    },
-   "solution": "AKIMBO"
+   "solution": "AKIMBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A disposition of arms",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A disposition of arms",
+       "at": 0,
+       "note": "not a military deployment of weapons but a way of holding the limbs, hands on hips and elbows out"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Standing with hands on hips and elbows bent outward is a particular placing of the limbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 24,
@@ -352,7 +1121,40 @@
     "text": "Feature of barley, used to make bread",
     "enumeration": "5"
    },
-   "solution": "BEARD"
+   "solution": "BEARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feature of barley",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "used to make",
+       "at": 19,
+       "note": "the letters of bread are used to make a different word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bread",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grain that goes into baking loaves.",
+     "definitionFit": "Barley ears bear long bristles, called awns, which together form its whiskery fringe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 25,
@@ -366,7 +1168,30 @@
     "text": "Train for Rugby, for example",
     "enumeration": "6"
    },
-   "solution": "SCHOOL"
+   "solution": "SCHOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Train",
+      "at": 0,
+      "meaning": "to train or educate someone"
+     },
+     {
+      "text": "Rugby, for example",
+      "at": 10,
+      "meaning": "Rugby is a famous English public ..., which gave its name to the sport"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To teach is to train; Rugby is a celebrated English place of education."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rugby"
+    }
+   }
   },
   {
    "number": 26,
@@ -380,7 +1205,59 @@
     "text": "Four in new search for data",
     "enumeration": "8"
    },
-   "solution": "ARCHIVES"
+   "solution": "ARCHIVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "data",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in means the numeral goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 8,
+         "note": "new suggests the letters of search being made new by rearranging"
+        }
+       ],
+       "parts": [
+        {
+         "words": "search",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "Four",
+       "at": 0,
+       "gives": "IV",
+       "note": "IV is the Roman numeral for four"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Four people take up a fresh hunt for information.",
+     "walkthrough": "'new' makes ARCHES from the fodder, and 'in' signals the numeral going inside.",
+     "definitionFit": "Archives are stored collections of records and documents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Four"
+    }
+   }
   },
   {
    "number": 27,
@@ -394,7 +1271,49 @@
     "text": "An embrace for Lady Grey",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grey",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embrace",
+       "at": 3,
+       "note": "an embrace means the word an wraps around the pronoun for a lady"
+      }
+     ],
+     "parts": [
+      {
+       "words": "An",
+       "at": 0,
+       "gives": "AN",
+       "note": "taken as written"
+      },
+      {
+       "words": "Lady",
+       "at": 15,
+       "gives": "SHE",
+       "note": "she is the pronoun for a lady"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hugs a titled woman called Lady Grey.",
+     "walkthrough": "'Lady Grey' reads as a name (and a tea), but splits: 'Lady' is SHE, 'Grey' the definition.",
+     "definitionFit": "Ashen means pale grey, the colour of ash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grey"
+    }
+   }
   },
   {
    "number": 28,
@@ -408,7 +1327,50 @@
     "text": "One in the club has whip-round for cheese",
     "enumeration": "9"
    },
-   "solution": "CAMEMBERT"
+   "solution": "CAMEMBERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 25,
+       "note": "round means the word for whip goes around the word for one in the club"
+      }
+     ],
+     "parts": [
+      {
+       "words": "whip",
+       "at": 20,
+       "gives": "CAT",
+       "note": "the cat o' nine tails is a whip, cat for short"
+      },
+      {
+       "words": "One in the club",
+       "at": 0,
+       "gives": "MEMBER",
+       "note": "a member is one who belongs to a club"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A club member organises a collection to buy cheese.",
+     "walkthrough": "'whip-round' looks like a collection of money for a gift, but the hyphenated word splits into a piece and a container signal.",
+     "definitionFit": "A soft, creamy French cheese from Normandy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "whip-round"
+    }
+   }
   }
  ]
 }
