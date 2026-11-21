@@ -164,6 +164,23 @@ check("above_cut masks the grid", [_abox], _ac[1] if _ac else None)
 check("above_cut needs the Down heading", None, gm.above_cut([w for w in _aw if w[4] != "Down"], _abox))
 check("above_cut needs the clue numbers", None, gm.above_cut(_aw[:3] + _aw[-1:], _abox))
 check("above_cut leaves lists under the grid alone", None, gm.above_cut([(1005, 2500, 1100, 2524, "Across"), (1005, 2900, 1090, 2924, "Down")] + _aw[3:], _abox))
+# SIDE_FIX: the Down list right of the grid (the Across list under it) is stitched to the lists' block.
+_side = {**_above, "aboveFix": gm.ABOVE_FIX, "date": "1990-02-25", "why": {"2-down": "no clue read for it"}, "sideFix": 0}
+check("a 1990s page 4+ blank with a clue never read, before SIDE_FIX, is due", False, gm.read_done(_side))
+check("the same page at SIDE_FIX stands", True, gm.read_done({**_side, "sideFix": gm.SIDE_FIX}))
+check("a 1970s page is not due for SIDE_FIX", True, gm.read_done({**_side, "date": "1975-03-03"}))
+check("a 1990s page with no clue unread is not due for SIDE_FIX", True, gm.read_done({**_side, "why": {"2-down": "both read 'Zt'"}}))
+import gale_listener as _gl
+_sbox = (500, 100, 1400, 1000)
+_sw = [(1450, 150, 1530, 174, "Down")] + [(1450, 200 + 60 * k, 1475, 222 + 60 * k, str(k + 1)) for k in range(12)]
+_sw += [(1460, 1000, 1500, 1022, "Across")]
+_sw += [(520 + 480 * c, 1100 + 60 * k, 545 + 480 * c, 1122 + 60 * k, str(k + 1 + 8 * c)) for c in range(2) for k in range(8)]
+_sw += [(600, 1100, 900, 1122, "Across")]
+_scut = ((480, 1050, 1420, 2000), [])
+_ss = gm.side_strip(_sw, _sbox, _scut, _gl)
+check("side_strip takes the Down column from its heading down to the last clue number", True,
+      _ss is not None and _ss[1] < 150 and 900 <= _ss[3] <= 990 and 1430 <= _ss[0] and _ss[2] - _ss[0] > 400)
+check("side_strip needs the Down heading beside the grid", None, gm.side_strip([w for w in _sw if w[4] != "Down"], _sbox, _scut, _gl))
 # GAP_FIX: the entry rules that open the Across list stand more than three lines under last week's answers beside the grid.
 _gbox = (100, 100, 500, 500)
 _gw = [(110, 520 + 24 * i, 180, 540 + 24 * i, "word") for i in range(2)]

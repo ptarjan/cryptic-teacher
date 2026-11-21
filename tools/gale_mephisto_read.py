@@ -622,6 +622,12 @@ def read_done(row, done=None):
             and len(row.get("blank") or ()) >= 4 and "no clue read for it" in (row.get("why") or {}).values():
         # Read with the lists printed above the grid not cut (ABOVE_FIX 1).
         return False
+    if row and row.get("sideFix", 0) < SIDE_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and "1989" <= (row.get("date") or "0") < "2005" \
+            and len(row.get("blank") or ()) >= 4 and "no clue read for it" in (row.get("why") or {}).values():
+        # Read with the Down list beside the grid (right of it, the Across list under it) left out of the lists' cut
+        # (SIDE_FIX 1).
+        return False
     return bool(row) and row.get("version") == VERSION and not (
         row.get("failed") and row.get("attempts", 1) < CRASH_LIMIT)
 
@@ -1975,6 +1981,80 @@ def tail_lines(words, left, x_cut, head_y, gl, note=False):
     return (int(min(w[0] for w in ws)) - 6, int(head[1]) - 6, int(x_cut), int(max(w[3] for w in ws)) + 6)
 
 
+#: Bumped when the Down list printed right of the grid, the Across list under it (the 1989-2004 pages), is stitched to
+#: the lists' cut (side_strip, side_block): the 1989-2004 pages left with four or more blank lights, "no clue read
+#: for it" (the Down clues were never in the block: 191 of the 1990-94 pages), are read again once.
+SIDE_FIX = 1
+
+
+def side_strip(words, box, cut, gl):
+    """(x0, y0, x1, y1) in page coordinates of the Down list printed right of the grid at `box` (its "Down" heading
+    just right of the grid's edge, within the grid's height, outside the lists' cut under the grid), or None. The
+    column is one Across column pitch wide (the cut's number columns give the pitch) and runs from the heading down
+    to the gap before last week's solution (tail_lines)."""
+    left, _, right, _ = cut[0]
+    lh = gl.line_height(words)
+    heads = [w for w in words if gl.heading(w[4]) == "DOWN" and 0 <= w[0] - box[2] <= 0.2 * (box[2] - box[0])
+             and box[1] - 4 * lh <= w[1] <= box[3] and not left <= w[0] < right - 2 * lh]
+    if not heads:
+        return None
+    head = min(heads, key=lambda w: w[1])
+    # The number columns' left edges: the x buckets (24 px) that four or more numbers stand in, adjacent ones joined.
+    buckets = collections.Counter(int(w[0] // 24) for w in words
+                                  if NUMBER_WORD.match(w[4]) and left <= w[0] < right and w[1] > cut[0][1])
+    cols = []
+    for k in sorted(k for k, n in buckets.items() if n >= 4):
+        if cols and k - cols[-1][-1] <= 1:
+            cols[-1].append(k)
+        else:
+            cols.append([k])
+    pitch = (cols[1][0] - cols[0][0]) * 24 if len(cols) > 1 else (right - left) / 2
+    if not 0.2 * (box[2] - box[0]) <= pitch <= 0.8 * (box[2] - box[0]):
+        return None
+    x1 = head[0] + pitch - 24
+    stops = [w[1] for w in words if gl.heading(w[4]) and head[0] - 30 <= w[0] < x1 and w[1] > head[1] + 6 * lh]
+    nums = sorted((w for w in words if NUMBER_WORD.match(w[4]) and abs(w[0] - head[0]) <= 30 and w[1] > head[1]), key=lambda w: w[1])
+    nums = [w for w in nums if not stops or w[1] < min(stops)]
+    last = None
+    for w in nums:
+        if last is not None and w[1] - last[1] > 6 * lh:
+            break
+        last = w
+    if last is None or last[1] - head[1] < 8 * lh:
+        return None
+    bottom = last[1] + 4 * lh
+    if stops:
+        bottom = min(bottom, min(stops) - 4)
+    return (int(head[0]) - 12, int(head[1]) - 6, int(x1), int(bottom))
+
+
+def side_block(img, key, words, cut, strip, gl):
+    """The lists' block (image, key) for `cut` with the Down strip (side_strip) stitched on the right of it, at the
+    block's top: the strip's own words (the page's, shifted) join the block's, so no second read runs. None when
+    the cut gives no block."""
+    from PIL import Image
+    block = gl.times_block(img, key, cut, words)
+    if not block:
+        return None
+    bimg, bkey = block
+    bwords = bare_stops(gl.page_words(bimg, bkey))
+    piece = img.crop(strip)
+    gap = 24
+    # The strip's heading stands level with the block's Across heading (the readers cut the page in bands by headings).
+    across = next((w for w in sorted(gl.headings(bwords), key=lambda w: w[1]) if gl.heading(w[4]) == "ACROSS"), None)
+    drop = max(0, int(across[1]) - 6) if across else 0
+    canvas = Image.new(bimg.mode, (bimg.width + gap + piece.width, max(bimg.height, drop + piece.height)), "white")
+    canvas.paste(bimg, (0, 0))
+    canvas.paste(piece, (bimg.width + gap, drop))
+    dx, dy = bimg.width + gap - strip[0], drop - strip[1]
+    inside = [(a + dx, b + dy, c + dx, d + dy, t) for a, b, c, d, t in words if strip[0] <= a and c <= strip[2] + 4
+              and strip[1] <= b and d <= strip[3]]
+    ckey = gl.image_key(canvas)
+    path = gl.OCR_CACHE / f"{ckey}.page.{gl.ocr_clues.reader_key('times')}.json"
+    gl.write_whole(path, json.dumps([list(w) for w in list(bwords) + inside]))
+    return canvas, ckey
+
+
 def lists_block(img, key, words, cut, gl):
     """The clue lists' block (image, key) for `cut`, the lists' foot read as the Mephisto prints it: when the Down
     heading and the first Down clues stand at the left column's foot (tail_strip), they are stitched over the right
@@ -2215,8 +2295,12 @@ def page_read(path, store=STORE, asker=None):
     # (the lists under it), not a second page column.
     wrapped = None if cut or day.isoformat() >= "1989" else wrapped_cut(words, found["box"])
     lefted = None if cut or wrapped else left_cut(words, found["box"])
+    plain = not (cut or wrapped or lefted)
     cut = cut or wrapped or lists_cut(words, found["box"])
-    if lefted:
+    sided = SIDE_FIX and plain and side_strip(words, found["box"], cut, gl)
+    if sided:
+        block = side_block(img, key, words, cut, sided, gl) or lists_block(img, key, words, cut, gl)
+    elif lefted:
         block = left_block(img, words, found["box"], lefted, gl) or lists_block(img, key, words, cut, gl)
     else:
         block = wrapped_block(img, words, found["box"], cut, gl) if wrapped else lists_block(img, key, words, cut, gl)
@@ -2303,7 +2387,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
-                "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX}, store)
+                "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
