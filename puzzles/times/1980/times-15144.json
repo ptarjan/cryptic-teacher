@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "What Antony asked of his friends, the theatregoers",
     "enumeration": "8"
    },
-   "solution": "AUDIENCE"
+   "solution": "AUDIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What Antony asked of his friends",
+      "at": 0,
+      "meaning": "Mark Antony's speech opens 'Friends, Romans, countrymen, lend me your ears': he asked them for a hearing"
+     },
+     {
+      "text": "the theatregoers",
+      "at": 34,
+      "meaning": "the people gathered in a theatre to watch a play"
+     }
+    ],
+    "explanation": {
+     "surface": "A quiz question about Mark Antony's famous speech, then a nod to the people watching Julius Caesar.",
+     "walkthrough": "In Shakespeare's Julius Caesar, Antony begins 'lend me your ears', asking the crowd to listen to him.",
+     "definitionFit": "One sense is a formal hearing granted to a speaker; the other is the assembled spectators at a performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "asked"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,61 @@
     "text": "Jack's over 9, anyhow, that's clear",
     "enumeration": "7"
    },
-   "solution": "ABSOLVE"
+   "solution": "ABSOLVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clear",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 7,
+       "note": "in a down clue, over puts the first piece above the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jack's",
+       "at": 0,
+       "gives": "ABS",
+       "note": "a jack is a sailor, an AB (able seaman); with the 's that gives AB'S"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "anyhow",
+         "at": 15,
+         "note": "anyhow means in any old order, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "9",
+         "at": 12,
+         "gives": "LOVE",
+         "note": "the answer to 9 across, O dear!"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor finds that, whatever happens, the matter is cleared up.",
+     "walkthrough": "'anyhow' jumbles LOVE (the answer to 9 across) to OLVE.",
+     "definitionFit": "To absolve someone is to clear them of guilt or blame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack's"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,10 +136,52 @@
    },
    "length": 9,
    "clue": {
-    "text": "Feet perhaps standing in :Hell",
+    "text": "Feet perhaps standing in Hell",
     "enumeration": "9"
    },
-   "solution": "DISTANCES"
+   "solution": "DISTANCES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feet perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "the posture word goes in the middle of the underworld's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hell",
+       "at": 25,
+       "gives": "DIS",
+       "note": "Dis is the classical underworld, and Dante's city of Hell"
+      },
+      {
+       "words": "standing",
+       "at": 13,
+       "gives": "STANCE",
+       "note": "a stance is a way of standing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's feet, perhaps, while standing in Hell.",
+     "walkthrough": "'in' is the container signal. Dis was the Roman god of the underworld, and Dante named his city of Hell after him.",
+     "definitionFit": "Lengths measured in feet are examples of measured spans between points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feet"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +195,32 @@
     "text": "Prince makes one cross",
     "enumeration": "7"
    },
-   "solution": "ELECTOR"
+   "solution": "ELECTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prince",
+      "at": 0,
+      "meaning": "the German princes who chose the Holy Roman Emperor held this title"
+     },
+     {
+      "text": "makes one cross",
+      "at": 7,
+      "meaning": "a voter marks one X on the ballot paper"
+     }
+    ],
+    "explanation": {
+     "surface": "A prince who manages to annoy someone.",
+     "walkthrough": "'cross' looks like 'angry', but it is the X marked on a ballot.",
+     "definitionFit": "Certain German princes chose the emperor, and anyone who votes marks a ballot paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +231,7 @@
    },
    "length": 7,
    "clue": {
-    "text": "Flier's jacket lieutenant and :1 wear",
+    "text": "Flier's jacket lieutenant and I wear",
     "enumeration": "4-3",
     "separators": [
      {
@@ -92,7 +240,57 @@
      }
     ]
    },
-   "solution": "COALTIT"
+   "solution": "COALTIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flier's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wear",
+       "at": 32,
+       "note": "the outer garment is worn by the officer and me, so it wraps around them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jacket",
+       "at": 8,
+       "gives": "COAT",
+       "note": "a coat is a jacket"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lieutenant",
+         "at": 15,
+         "gives": "LT"
+        },
+        {
+         "words": "I",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airman's jacket, worn by the lieutenant and by me.",
+     "walkthrough": "'wear' is the container signal: the jacket is what the officer and I wear. 'Flier's' means 'Flier is', so the definition is the bird.",
+     "definitionFit": "This small black-capped bird of the tit family is a flier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flier's"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +304,49 @@
     "text": "This month is about second deepest",
     "enumeration": "6"
    },
-   "solution": "INMOST"
+   "solution": "INMOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "deepest",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is about",
+       "at": 11,
+       "note": "the letters for this month go around the letters for second, so they sit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "This month",
+       "at": 0,
+       "gives": "INST",
+       "note": "inst., short for instant, means of the current month in old business letters"
+      },
+      {
+       "words": "second",
+       "at": 20,
+       "gives": "MO",
+       "note": "mo is a short moment, a second ('half a mo')"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that something this month concerns a second, profound matter.",
+     "walkthrough": "INST (instant, this month) goes about MO (a moment): IN(MO)ST.",
+     "definitionFit": "Innermost and inmost both describe the most central, profound part of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "month"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +360,69 @@
     "text": "Repeating it before imbibing at tea-time",
     "enumeration": "9"
    },
-   "solution": "ITERATIVE"
+   "solution": "ITERATIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Repeating",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "it",
+       "at": 10,
+       "gives": "IT"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "imbibing",
+         "at": 20,
+         "note": "the word for before drinks in, so contains, the later pieces"
+        }
+       ],
+       "parts": [
+        {
+         "words": "before",
+         "at": 13,
+         "gives": "ERE",
+         "note": "ere is an old word for before"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "at",
+           "at": 29,
+           "gives": "AT"
+          },
+          {
+           "words": "tea-time",
+           "at": 32,
+           "gives": "IV",
+           "note": "four o'clock is traditional tea-time, and four is IV in Roman numerals"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A habit of repeating it before having a drink at tea-time.",
+     "walkthrough": "'imbibing' is the container signal. Four o'clock is traditional British tea-time, hence the Roman numeral.",
+     "definitionFit": "Iterative processes are ones carried out again and again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "imbibing"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +436,72 @@
     "text": "Soldiers point guns upwards one fired inwards.",
     "enumeration": "7"
    },
-   "solution": "MILITIA"
+   "solution": "MILITIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soldiers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inwards",
+       "at": 38,
+       "note": "the later pieces are fired inwards, ending up inside the turned word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upwards",
+         "at": 20,
+         "note": "in a down clue, upwards means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "point guns",
+         "at": 9,
+         "gives": "AIM",
+         "note": "to point guns at a target is to aim"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 28,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "fired",
+         "at": 32,
+         "gives": "LIT",
+         "note": "lit means set on fire"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers point their guns upwards, and one fires inwards.",
+     "walkthrough": "'upwards' turns the word for point guns into MIA in this down clue, and 'inwards' sends one and fired inside it.",
+     "definitionFit": "A militia is a body of citizen soldiers raised in an emergency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +515,41 @@
     "text": "Reveals changes in a small number",
     "enumeration": "7"
    },
-   "solution": "SEVERAL"
+   "solution": "SEVERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a small number",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changes",
+       "at": 8,
+       "note": "changes means the letters of the word are altered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reveals",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reveals a few changes.",
+     "walkthrough": "'changes' rearranges REVEALS.",
+     "definitionFit": "Several means more than two but not many, a small number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reveals"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +563,76 @@
     "text": "Sue at length with X in case A's withdrawn support",
     "enumeration": "10"
    },
-   "solution": "SUSTENANCE"
+   "solution": "SUSTENANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "support",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 21,
+         "note": "the Roman ten is placed in the middle of the longer form of the girl's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sue at length",
+         "at": 0,
+         "gives": "SUSAN",
+         "note": "Sue is a short form of the name Susan, so Sue given at full length is Susan"
+        },
+        {
+         "words": "X",
+         "at": 19,
+         "gives": "TEN",
+         "note": "X is ten in Roman numerals"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "withdrawn",
+         "at": 33,
+         "note": "the letters A and S are taken away from the word case, leaving its remainder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "case",
+         "at": 24
+        },
+        {
+         "words": "A's",
+         "at": 29,
+         "gives": "AS",
+         "note": "A's gives the letters A and S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer drags out a suit against someone called X, in case support is withdrawn.",
+     "walkthrough": "'in' puts X inside the full name; 'withdrawn' takes A and S out of case, leaving CE to finish the word.",
+     "definitionFit": "Sustenance is food and nourishment that keeps a person going, a form of support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sue"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +646,31 @@
     "text": "O dear!",
     "enumeration": "4"
    },
-   "solution": "LOVE"
+   "solution": "LOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "O",
+      "at": 0,
+      "meaning": "a nought, the score of nothing in tennis"
+     },
+     {
+      "text": "dear",
+      "at": 2,
+      "meaning": "a term of endearment for a ... one"
+     }
+    ],
+    "explanation": {
+     "surface": "An exclamation of dismay, 'Oh dear!'",
+     "definitionFit": "Zero in tennis is called by this word, and a sweetheart is addressed with it too."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "O"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +698,54 @@
      }
     ]
    },
-   "solution": "LEADTOTHEALTAR"
+   "solution": "LEADTOTHEALTAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "be first",
+       "at": 12,
+       "gives": "LEAD",
+       "note": "to lead is to be in front, first in the race"
+      },
+      {
+       "words": "rum",
+       "at": 26,
+       "gives": "TOT",
+       "note": "a tot is a small measure of spirits, the sailor's traditional rum ration"
+      },
+      {
+       "words": "cure",
+       "at": 33,
+       "gives": "HEAL",
+       "note": "to heal is to cure"
+      },
+      {
+       "words": "a sailor",
+       "at": 38,
+       "gives": "TAR",
+       "note": "tar, an old word for a sailor (from tarpaulin)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's mate insists on first giving rum to cure an ailing sailor.",
+     "walkthrough": "'Mate' looks like a ship's officer, but it is the verb to marry.",
+     "definitionFit": "Taking a partner up the aisle of a church means marrying them, and to mate is to pair up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mate"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +759,59 @@
     "text": "Passage leading right into bar",
     "enumeration": "7"
    },
-   "solution": "EXCERPT"
+   "solution": "EXCERPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 22,
+       "note": "the opening letter is placed inside the word for bar"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bar",
+       "at": 27,
+       "gives": "EXCEPT",
+       "note": "bar means except, as in 'all bar one'"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leading",
+         "at": 8,
+         "note": "only the leading, first letter of the word right is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passage that leads right into a bar.",
+     "walkthrough": "R, the first letter of 'right', goes into EXCEPT ('bar' as in 'all bar one').",
+     "definitionFit": "An excerpt is a short extract quoted from a book or piece of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +825,61 @@
     "text": "The way Simon holds the scenery up",
     "enumeration": "9"
    },
-   "solution": "PROCEDURE"
+   "solution": "PROCEDURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 14,
+       "note": "the character's surname holds the turned scenery word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Simon",
+       "at": 8,
+       "gives": "PURE",
+       "note": "Simon Pure is a character in an 18th-century comedy, giving the phrase 'the real Simon Pure'"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 32,
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the scenery",
+         "at": 20,
+         "gives": "DECOR",
+         "note": "decor is stage scenery"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How Simon holds up the scenery.",
+     "walkthrough": "'up' turns the scenery word to ROCED in this down clue, and 'holds' puts it inside. 'The real Simon Pure' means the genuine article.",
+     "definitionFit": "A procedure is the established method or way of doing something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Simon"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +893,61 @@
     "text": "Wonder if vehicle's reversing in the distance",
     "enumeration": "7"
    },
-   "solution": "MIRACLE"
+   "solution": "MIRACLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wonder",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "the turned-round vehicle goes within the length of road"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the distance",
+       "at": 33,
+       "gives": "MILE",
+       "note": "a mile is a measure of distance"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "at": 20,
+         "note": "the vehicle is reversing, so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle's",
+         "at": 10,
+         "gives": "CAR",
+         "note": "a car is a vehicle; the 's is 'is'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It would be a wonder if a car were reversing far off in the distance.",
+     "walkthrough": "'reversing' turns the vehicle to RAC, and 'in' places it inside the distance.",
+     "definitionFit": "A miracle is an extraordinary event that causes wonder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +961,75 @@
     "text": "Alliance of 4 with one, on missing, the end of it'",
     "enumeration": "9"
    },
-   "solution": "COALITION"
+   "solution": "COALITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alliance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 27,
+         "note": "the bird's name is missing a letter, which is taken out of it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "4",
+         "at": 12,
+         "gives": "COALTIT",
+         "note": "the answer to 4 down, the flier"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "the end of",
+           "at": 36,
+           "note": "only the end, last letter of the word it is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 47
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 19,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "on",
+       "at": 24,
+       "gives": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A partnership of four with one more joining, minus the end of it.",
+     "walkthrough": "Remove T, the end of 'it', from COALTIT (4 down) to get COALIT, then add I and ON.",
+     "definitionFit": "A coalition is a union of parties or groups, an alliance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missing"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1043,45 @@
     "text": "Garland can be made of stone",
     "enumeration": "7"
    },
-   "solution": "FESTOON"
+   "solution": "FESTOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Garland",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "can be made",
+       "at": 8,
+       "note": "the letters of the two words can be made into something new, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of",
+       "at": 20
+      },
+      {
+       "words": "stone",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a decorative garland can be carved out of stone.",
+     "walkthrough": "'can be made' rearranges OF STONE.",
+     "definitionFit": "A festoon is a chain of flowers or ribbon hung in a curve, a type of garland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1095,42 @@
     "text": "Warning from former liberal",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former",
+       "at": 13,
+       "gives": "EX",
+       "note": "ex means former, as in ex-wife"
+      },
+      {
+       "words": "liberal",
+       "at": 20,
+       "gives": "AMPLE",
+       "note": "liberal means generous, ample"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning delivered by a one-time Liberal politician.",
+     "walkthrough": "'liberal' looks political, but it means generous.",
+     "definitionFit": "Punishing one person as an example serves as a warning to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1144,55 @@
     "text": "Colossal, it makes bird panic, losing head",
     "enumeration": "7"
    },
-   "solution": "TITANIC"
+   "solution": "TITANIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colossal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bird",
+       "at": 19,
+       "gives": "TIT",
+       "note": "a tit is a small songbird"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 31,
+         "note": "the word panic loses its head, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "panic",
+         "at": 24
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something enormous makes a little bird panic.",
+     "walkthrough": "PANIC losing its head, P, gives ANIC.",
+     "definitionFit": "Titanic means gigantic, like the Titans of Greek myth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "panic"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1206,41 @@
     "text": "Forward, the Scots' Own ! You have to belong",
     "enumeration": "7"
    },
-   "solution": "PERTAIN"
+   "solution": "PERTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "belong",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Forward",
+       "at": 0,
+       "gives": "PERT",
+       "note": "forward means cheeky, pert"
+      },
+      {
+       "words": "the Scots' Own",
+       "at": 9,
+       "gives": "AIN",
+       "note": "ain is the Scots word for own ('my ain folk')"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rallying cry to a Scottish regiment, 'Forward, the Scots' Own!', followed by a call to join up.",
+     "definitionFit": "To pertain is to be attached or relevant to something, to belong to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forward"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1254,49 @@
     "text": "Condition if one's caught by an Irish terrorist.",
     "enumeration": "7"
    },
-   "solution": "PROVISO"
+   "solution": "PROVISO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught by",
+       "at": 19,
+       "note": "the letters for one's are caught, held inside, the terrorist word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an Irish terrorist",
+       "at": 29,
+       "gives": "PROVO",
+       "note": "a Provo is a member of the Provisional IRA"
+      },
+      {
+       "words": "one's",
+       "at": 13,
+       "gives": "IS",
+       "note": "one's means one is, I plus S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A condition: if one is captured by an Irish terrorist.",
+     "walkthrough": "'caught by' is the container signal. Provo was the common name for a member of the Provisional IRA.",
+     "definitionFit": "A proviso is a clause stating a condition in an agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1310,31 @@
     "text": "One who burgled a famous hotel",
     "enumeration": "7"
    },
-   "solution": "RAFFLES"
+   "solution": "RAFFLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who burgled",
+      "at": 0,
+      "meaning": "A. J. ... was E. W. Hornung's gentleman cat burglar"
+     },
+     {
+      "text": "a famous hotel",
+      "at": 16,
+      "meaning": "the colonial-era hotel in Singapore where the Singapore Sling was invented"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who broke into a famous hotel.",
+     "definitionFit": "The name belongs both to a fictional gentleman thief and to Singapore's grand colonial hotel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "burgled"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,10 +1345,45 @@
    },
    "length": 7,
    "clue": {
-    "text": "Sniff brightly — coloured flowers",
+    "text": "Sniff brightly-coloured flowers",
     "enumeration": "7"
    },
-   "solution": "NOSEGAY"
+   "solution": "NOSEGAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flowers",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sniff",
+       "at": 0,
+       "gives": "NOSE",
+       "note": "to nose is to sniff about"
+      },
+      {
+       "words": "brightly-coloured",
+       "at": 6,
+       "gives": "GAY",
+       "note": "gay in its older sense means bright and colourful"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to smell some vivid blooms.",
+     "walkthrough": "'flowers' is the definition, not a verb.",
+     "definitionFit": "A nosegay is a small posy of sweet-smelling flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sniff"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1411,35 @@
      }
     ]
    },
-   "solution": "ASTHECROWFLIES"
+   "solution": "ASTHECROWFLIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How a rook moves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How a rook moves",
+       "at": 0,
+       "note": "a rook is a crow that flies straight, and the chess rook also moves only in straight lines"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chess question about how the castle travels across the board.",
+     "definitionFit": "The phrase means in a straight line, the direct path a crow takes in flight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1453,43 @@
     "text": "Bridge tips the wrong way. .",
     "enumeration": "4"
    },
-   "solution": "SPAN"
+   "solution": "SPAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bridge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "the wrong way",
+       "at": 12,
+       "note": "the word is set down the wrong way round, back to front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tips",
+       "at": 7,
+       "gives": "NAPS",
+       "note": "a nap is a racing tipster's most confident tip"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge that tilts the wrong way.",
+     "walkthrough": "NAPS ('tips', from horse racing) reads backwards.",
+     "definitionFit": "A span is the arch or stretch of a bridge between supports, and also the verb to bridge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1503,31 @@
     "text": "Stiff as Matthew's withered fig-tree",
     "enumeration": "10"
    },
-   "solution": "UNYIELDING"
+   "solution": "UNYIELDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stiff",
+      "at": 0,
+      "meaning": "rigid and inflexible"
+     },
+     {
+      "text": "as Matthew's withered fig-tree",
+      "at": 6,
+      "meaning": "in Matthew 21 Jesus curses a fig tree that bears no fruit and it withers"
+     }
+    ],
+    "explanation": {
+     "surface": "A comparison of something rigid with the barren fig tree in St Matthew's Gospel.",
+     "definitionFit": "Inflexible things refuse to bend, and a tree giving no fruit produces no crop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "withered"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1541,42 @@
     "text": "Make secure",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make secure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Make",
+       "at": 0,
+       "note": "make here invites remaking the letters of the following word into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secure",
+       "at": 5
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A simple instruction to make something safe.",
+     "walkthrough": "'Make' rearranges SECURE, and the whole clue also defines the answer.",
+     "definitionFit": "To save someone from danger is to bring them to safety, making them secure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1590,35 @@
     "text": "Relatively given to kissing …",
     "enumeration": "8"
    },
-   "solution": "COUSINLY"
+   "solution": "COUSINLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relatively given to kissing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Relatively given to kissing",
+       "at": 0,
+       "note": "kissing cousins are relatives close enough to greet each other with a kiss, so the clue describes behaving like a relative"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hint of someone fairly fond of kissing.",
+     "definitionFit": "The adjective means in the manner of a family member of the next generation sideways, as with kissing cousins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Relatively"
+    }
+   }
   }
  ]
 }
