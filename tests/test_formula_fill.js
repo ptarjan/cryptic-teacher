@@ -34,9 +34,9 @@ const from = SRC.indexOf("  function formulaHTML");
 const to = SRC.indexOf("\n  // ---------- a building block that costs", from);
 if (from < 0 || to < 0) throw new Error("app.js no longer holds formulaHTML");
 let out = new Set();
-const formulaHTML = new Function("esc", "groupSolved", "pieceOut", "armedFor", "ARMED_TEXT", "piecesLeft",
+const formulaHTML = new Function("esc", "groupSolved", "pieceOut", "armedFor", "ARMED_TEXT", "piecesLeft", "helpTarget",
   SRC.slice(from, to) + "\nreturn formulaHTML;")(
-  (s) => String(s), () => false, (e, i) => out.has(i), () => false, "armed", () => 1);
+  (s) => String(s), () => false, (e, i) => out.has(i), () => false, "armed", () => 1, () => null);
 // Strip until nothing changes, so a tag left over by one removal (CodeQL
 // js/incomplete-multi-character-sanitization) cannot survive.
 const strip = (html) => {
