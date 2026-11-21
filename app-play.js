@@ -1280,24 +1280,22 @@
 
   // ---------- the formula in the blocks rung ----------
   //
-  // Any piece, in any order: a chip in the blocks rung's formula hands over that
-  // one piece, the way "Next building block" hands over the next (it asks first
-  // when the piece has a question). Which pieces are out is pieceOut's,
-  // whichever way they came, so a piece cannot be charged for twice or shown
-  // twice. The chips only exist once the rung is open, so a chip never opens it
-  // (pickPiece's opening branch is kept for safety, not used by the panel).
-  const pickCosts = (e, i) => !!e && !groupSolved(e) && !isShown(e, "blocks") && !blocksFree(e, i);
-  function pickPiece(e, i) {
-    if (pieceOut(e, i) || i >= Math.min(PICKABLE, blockPieces(e).length)) return;
-    // A question about this very piece is moot: it has been told.
-    if (guessing && guessing.rung === "blocks" && guessing.step === i) guessing = null;
-    if (!isShown(e, "blocks")) {
-      if (!groupSolved(e) && blocksFree(e, i) && earnedRungs(e).indexOf("blocks") < 0) earnedRungs(e).push("blocks");
-      showHint(e, "blocks");
+  // Any piece, in any order, one at a time: the formula's blank chips are the
+  // question. Tapping one only makes it the current piece (it never spends);
+  // the solver then picks clue words and uses the one help button, or "Show me"
+  // for that chip alone. Which pieces are out is pieceOut's, whichever way they
+  // came, so a piece cannot be charged for twice or shown twice.
+  //
+  // Settles piece `at`. In turn it moves the count; out of turn the count must
+  // not jump over the pieces before it, so the piece is marked taken instead.
+  function settlePiece(e, at) {
+    if (at > nextPiece(e)) {
+      const key = entryKey(e);
+      piecesPicked[key] = (piecesPicked[key] || 0) | (1 << at);
+      saveState();
+    } else {
+      revealPiece(e, at);
     }
-    const key = entryKey(e);
-    piecesPicked[key] = (piecesPicked[key] || 0) | (1 << i);
-    saveState();
   }
 
   // Tiers, not a chain, and not a free-for-all either. Inside a tier the order
@@ -1366,27 +1364,23 @@
   }
 
   // The formula, drawn twice. Under the type rung (interactive false) it is a
-  // picture: every chip blank, role + letter count, no buttons. Under the
-  // building blocks rung (interactive true) it is that rung's picture of
-  // progress: a chip still blank is a button for its piece, and a chip whose
-  // piece is out (by the count or by a tap here) is filled in with the piece's
-  // letters (f.fills). The rung's piece list stays under it because it says WHY
-  // (the clue words and the note each piece comes from); the chip repeats only
-  // the letters, as the picture of the sum. A tap that would cost arms the chip
-  // first (confirmBlock), and the armed chip says so itself, as every other
-  // armed button does (Paul: "The required two tap should be uniformly on the
-  // button").
+  // picture: every chip blank, role + letter count, no buttons. In the Pieces
+  // step (interactive true) it is the question: a chip still blank is a button
+  // that makes its piece the current one (the one the pointing in the clue and
+  // "Show me" act on), and a chip whose piece is out (by the count or by a tap
+  // here) is filled in with the piece's letters (f.fills). The rung's piece list
+  // stays under it because it says WHY (the clue words and the note each piece
+  // comes from); the chip repeats only the letters, as the picture of the sum.
   function formulaHTML(e, f, interactive) {
-    const armed = interactive && f.chips.some((_, i) => armedFor(e, "piece-" + i));
+    const t = interactive && !groupSolved(e) ? helpTarget(e) : null;
+    const cur = t && t.rung === "blocks" ? t.step : -1;
     const chip = (i) => {
       const label = esc(f.chips[i]);
       // The type rung: a picture, every chip blank (role + letter count).
       if (!interactive) return `<span class="formula-chip">${label}</span>`;
       // A solved clue lists every piece (paced), so its chips are all filled too.
       if (groupSolved(e) || pieceOut(e, i)) return `<span class="formula-chip got">${esc(f.fills[i])}</span>`;
-      const a = armedFor(e, "piece-" + i);
-      return `<button type="button" class="formula-chip${a ? " arm-cost" : ""}" data-piece="${i}" data-arm="piece-${i}">${
-        a ? ARMED_TEXT : label}</button>`;
+      return `<button type="button" class="formula-chip${i === cur ? " cur" : ""}" data-piece="${i}">${label}</button>`;
     };
     // A word told once its chips are out (formulaOf's `when`): the letters a
     // step supplies, drops or makes. Blank on the type rung's picture.
@@ -1395,8 +1389,7 @@
     return `<div class="formula"><span class="formula-lead">${esc(f.lead)}</span> ${
       f.parts.map((p) => (typeof p === "string" ? word(p) : typeof p === "number" ? chip(p) : (told(p) ? p.show : p.hide) ? word(told(p) ? p.show : p.hide) : ""))
         .filter(Boolean).join(" ")}${
-      f.after ? ` <span class="formula-word">${esc(f.after)}</span>` : ""}${
-      !interactive || armed || !piecesLeft(e) ? "" : `<p class="muted">Tap a piece to see it.</p>`}</div>`;
+      f.after ? ` <span class="formula-word">${esc(f.after)}</span>` : ""}</div>`;
   }
 
   // ---------- a building block that costs takes two taps ----------
@@ -1430,9 +1423,9 @@
   // Paul: "Anything that immediately costs needs two." Every step (not only the
   // blocks), "Show me", Reveal one letter and the first reveal of the
   // answer go through this one rule and the one confirmBlock helper below.
-  function rungCosts(e, rung, tell) {
+  function rungCosts(e, rung, tell, at) {
     if (!e || groupSolved(e)) return false;
-    if (!isShown(e, rung)) return rung === "blocks" ? !blocksFree(e, 0) : true;
+    if (!isShown(e, rung)) return rung === "blocks" ? !blocksFree(e, at || 0) : true;
     return !!tell && earnedRungs(e).indexOf(rung) >= 0;
   }
   const blocksCost = (e, tell) => rungCosts(e, "blocks", tell);

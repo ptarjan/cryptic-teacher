@@ -72,16 +72,14 @@
         const on = currentEntry();
         if (!on) return;
         // Which piece this button is for. Only the blocks rung has more than
-        // one, and only its "next piece" button sets it; everything else asks
-        // its single question at step 0.
+        // one; everything else asks its single question at step 0.
         const at = b.step || 0;
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
         if (asked) {
           helpOn = null;
-          guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [],
-                       slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
+          guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [] };
           focusHint("guess");
-        } else if (b.rung && rungCosts(on, b.rung, false)) {
+        } else if (b.rung && rungCosts(on, b.rung, false, at)) {
           // Whatever was being asked is off the table: this button is the
           // solver saying they want this step instead, and a question left
           // hanging would be the one "Show me" answered.
@@ -156,11 +154,11 @@
   }
   const helpArm = (t) => t.asked ? t.rung + "-tell" : t.rung === "blocks" ? "blocks-" + t.step : t.rung;
   // Whether the question on the table has an answer ready to lock in: a word
-  // picked in the clue, or every slot of a matching question filled. A family
+  // picked in the clue. A family
   // chip is its own answer (one tap), so a choice question never has one.
   function lockReady(a) {
     if (!a || a.choices || !guessing) return false;
-    return a.pairs ? (guessing.slots || []).every((n) => n >= 0) : guessing.picked.length > 0;
+    return guessing.picked.length > 0;
   }
   function showMeHTML(e, t) {
     const name = esc(STEP_NAMES[t.rung] || t.rung);
@@ -187,7 +185,7 @@
     // A piece with no question in it — no fragment to point at, or no
     // letters to point at it with — is simply handed over. The rung still
     // moves forward by exactly one.
-    if (rung === "blocks") revealPiece(on, at);
+    if (rung === "blocks") settlePiece(on, at);
   }
   // Never a dead end: being told is a legitimate answer to "do you know this
   // yet?", and it costs what the step has always cost. Reads the entry, the
@@ -199,18 +197,18 @@
     if (!t) return;
     const a = t.asked ? currentAsk() : null;
     if (lockReady(a)) {
-      finishGuess(a.pairs ? gradeMatch(a, guessing.slots) : gradeGuess(a), a);
+      finishGuess(gradeGuess(a), a);
       return;
     }
     // The second click of a double-click on "Lock in" lands on the "Show me"
     // the answer left behind. It is the same gesture, so it starts nothing.
     if (ev && ev.detail > 1 && !armedFor(on, helpArm(t))) return;
     if (t.asked) {
-      if (rungCosts(on, t.rung, true) && !confirmBlock(on, helpArm(t), ev)) return;
+      if (rungCosts(on, t.rung, true, t.step) && !confirmBlock(on, helpArm(t), ev)) return;
       finishGuess(null, a);
       return;
     }
-    if (rungCosts(on, t.rung, false) && !confirmBlock(on, helpArm(t), ev)) return;
+    if (rungCosts(on, t.rung, false, t.step) && !confirmBlock(on, helpArm(t), ev)) return;
     openStep(on, t.rung, t.step);
     refreshAll();
   }
@@ -514,7 +512,6 @@
     const body = $("hint-body");
     const next = $("hint-next");
     let bodyHTML = "";
-    const nextSpec = [];
     let ask = null, tapping = false;
     // Whether Reveal answer is on offer: decided below, drawn in the help bar.
     let offerFill = false;
@@ -557,10 +554,13 @@
       // buttons, and that is only knowable from the question being asked now.
       ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && !ask) guessing = null;
-      tapping = !!(ask && !ask.choices && !ask.pairs && guessing && holder === e);
+      tapping = !!(ask && !ask.choices && guessing && holder === e);
       // The blocks rung as much of it as has been handed over. A solved clue
       // gets the lot: its score is settled, and the rest of the ladder is free
       // from that moment, so there is nothing left for the pacing to protect.
+      // Before the Pieces step is open its question carries the formula itself
+      // (one copy: the type step's picture gives way to it).
+      const formulaAsks = !!(ask && guessing.rung === "blocks" && !isShown(e, "blocks"));
       const paced = (s) => {
         // Each fact once: with the blocks listed above, the walkthrough keeps only
         // how they join.
@@ -570,7 +570,8 @@
         if (s.key === "type" && s.formula) {
           // After the rung's own line and its rule chip, not inside them.
           // Once the blocks rung is open it draws the same formula, as taps.
-          return isShown(e, "blocks") ? { ...s, formula: undefined, after: "" }
+          return isShown(e, "blocks") || formulaAsks
+            ? { ...s, formula: undefined, after: "" }
             : { ...s, after: formulaHTML(e, s.formula, false) };
         }
         if (s.key !== "blocks" || !s.pieces) return s;
@@ -630,7 +631,8 @@
       }
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
-        const q = guessHTML(ask, at + 1, steps[at].label, holder === e);
+        const fm = formulaAsks && steps[at].formula ? formulaHTML(e, steps[at].formula, true) : "";
+        const q = guessHTML(ask, at + 1, steps[at].label, holder === e, fm);
         bodyHTML += hintFocus === "guess" ? `<div id="hint-focus">${q}</div>` : q;
       }
 
@@ -652,24 +654,9 @@
       // earned by walking away from it.
       const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
       const open = togo.filter(({ s }) => rungAvailable(e, steps, s.key));
-      // The rest of a rung already open, and it leads: finishing what you
-      // started is the recommended move, ahead of buying the next rung. It is
-      // not a new rung and does not cost one — the price was paid when the rung
-      // was taken. Gone once the last piece is out, and never offered on a
-      // solved clue, whose whole ladder is already open and free.
+      // The rest of the Pieces step is not a button: the blank chips in its
+      // formula are, and "Show me" fills the current one (helpTarget).
       const left = !solved && isShown(e, "blocks") ? piecesLeft(e) : 0;
-      if (left) {
-        const total = blockPieces(e).length;
-        // The piece is already paid for, so the walk follows it: this button
-        // leads the row, and a light that skipped it would go dark in the
-        // middle of the one rung that takes several presses.
-        // The first piece not out, which is the count unless the formula took
-        // pieces ahead of it.
-        const next = nextPiece(e);
-        nextSpec.push({ rung: "blocks", step: next,
-          cls: nuxPointsAtRung() ? "rung-point" : "",
-          text: `Next building block · ${next + 1} of ${total}` });
-      }
       // The track: every step this clue has, in step order. Open steps are
       // filled (starred when the solver worked them out), available ones are
       // outlined, later tiers are dim. The current step, the one "Show me"
@@ -751,7 +738,7 @@
     setButtons($("hint-track"), trackSpec);
 
     const bodyWrote = setHTML(body, bodyHTML);
-    setButtons(next, nextSpec);
+    setButtons(next, []);
 
     // And once the answer is out, what did you make of it? Its own slot at the
     // foot of the panel, not the end of #hint-body: appended to the body it would
@@ -775,40 +762,6 @@
         $("gc-" + i).onclick = () => {
           const a = currentAsk();
           if (a && a.choices) finishGuess(gradeChoice(a, c), a);
-        };
-      });
-    } else if (ask && ask.pairs) {
-      // Either half may be tapped first. A chunk then a row, or a row then a
-      // chunk: both are one pairing, and a tap that only worked in one
-      // order would be a dead tap in the other. Whichever is tapped first is
-      // the one held.
-      ask.chips.forEach((c, i) => {
-        const el = $("gm-chip-" + i);
-        if (el) el.onclick = () => {
-          if (!currentAsk()) return;
-          if (guessing.heldSlot >= 0) {
-            guessing.slots[guessing.heldSlot] = i;
-            guessing.heldSlot = -1; guessing.held = -1;
-          } else {
-            guessing.held = guessing.held === i ? -1 : i;
-            guessing.heldSlot = -1;
-          }
-          renderHintPanel();
-        };
-      });
-      ask.pairs.forEach((p, i) => {
-        $("gm-slot-" + i).onclick = () => {
-          if (!currentAsk()) return;
-          // A slot with something in it gives it back; the pick-up is the
-          // undo, so there is no separate clear button to find.
-          if (guessing.slots[i] >= 0) {
-            guessing.held = guessing.slots[i]; guessing.slots[i] = -1; guessing.heldSlot = -1;
-          } else if (guessing.held >= 0) {
-            guessing.slots[i] = guessing.held; guessing.held = -1; guessing.heldSlot = -1;
-          } else {
-            guessing.heldSlot = guessing.heldSlot === i ? -1 : i;
-          }
-          renderHintPanel();
         };
       });
     } else if (ask) {

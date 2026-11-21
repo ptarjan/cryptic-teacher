@@ -292,31 +292,6 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       .filter((b) => b.clueFragment && b.gives && bare(b.clueFragment) !== bare(b.gives));
   };
 
-  // Two pairs is not a matching question: the last pairing is forced in any of
-  // them, and with two the first one IS the last, so placing one chunk placed
-  // the other. Those clues get the paced question instead. Asserted before the
-  // walk below so it opens its own clue and leaves no state behind.
-  {
-    let two = null;
-    for (const id of Object.keys(puzzles).sort()) {
-      for (const e of puzzles[id].entries || []) {
-        if (pairsOf(e).length !== 2) continue;
-        if (!openClue(id, e)) continue;
-        const b = climbTo(/building blocks/i);
-        if (!b) continue;
-        b.onclick();
-        two = { id, e, html: registry["hint-body"].innerHTML };
-        break;
-      }
-      if (two) break;
-    }
-    if (shape("a two-piece clue to check the floor against", two)) {
-      assert(!/id="gm-slot-\d+"/.test(two.html),
-        `a two-piece clue is asked a piece at a time, not matched (${two.id} ${
-          entryId(two.e)}): ` + two.html.slice(0, 300));
-    }
-  }
-
   let walked = null, tried = 0;
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
@@ -342,10 +317,9 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       // The pieces the matching question is made of: the app leaves out any
       // fragment that IS its own letters, because that chip pairs itself.
       const pairs = pairsOf(e);
-      if (pairs.length < 3) continue;
+      if (pairs.length < 2) continue;
       // Two pieces giving the same chunk are graded right either way round, so
       // "did this row get its own chip" is not a question about that clue.
-      if (pairs.filter((b, i) => pairs.findIndex((x) => x.gives === b.gives) !== i).length) continue;
       tried++;
       if (!openClue(id, e)) continue;
       const blocks = climbTo(/building blocks/i);
@@ -364,93 +338,31 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     + `(tried ${tried} clues with two or more locatable pieces)`);
   if (!walked) throw new Error("the blocks rung asks nothing — see the FAIL above");
 
-  // One question about the whole charade, not one click per piece. Every
-  // fragment gets a row, every chunk a chip, and nothing is paired up for you.
-  // Paced a click each, by the last piece the question would answer itself by
-  // elimination.
+  // One piece at a time, the formula line is the question: its blank chips are
+  // buttons, nothing is matched, and a right pick settles that piece for free.
   let html = panelHTML();
-  const idsIn = (re) => (html.match(re) || []).length;
-  assert(idsIn(/id="gm-slot-\d+"/g) === walked.pairs.length,
-    `a row per fragment (${walked.pairs.length}): ` + html);
-  assert(idsIn(/id="gm-chip-\d+"/g) === walked.pairs.length,
-    "and a chip per chunk, none of them spent yet: " + html);
-  walked.pairs.forEach((b) => assert(!html.includes(givesSpan(b.gives)),
-    `${b.gives} is on the strip to be placed, never placed for you: ` + html));
+  assert(/data-piece="0"/.test(html) && !/gm-slot|gm-chip/.test(html),
+    "the Pieces question is the formula's blank chips, with no matching form: " + html);
   {
     const bar = registry["hint-escape"].innerHTML;
     assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(bar),
-      "with rows still empty nothing is picked, so the help button is Show me and arms: " + bar);
+      "with nothing picked the help button is Show me and arms: " + bar);
   }
-
-  // Which chip is which, read off the markup rather than off the app's own
-  // ordering — a test that asked the app where it put things would agree with
-  // it however it was shuffled.
-  const chipAt = {};
-  String(html).replace(/id="gm-chip-(\d+)"[^>]*>([^<]*)</g,
-    (_, n, text) => { chipAt[text] = +n; return ""; });
-  assert(Object.keys(chipAt).length === walked.pairs.length,
-    "every chunk is legible on the strip: " + JSON.stringify(chipAt));
-  assert(walked.pairs.map((b) => chipAt[b.gives]).join() !== walked.pairs.map((_, i) => i).join(),
-    "the chunks are shuffled — in clue order the question is answered by reading "
-      + "straight down the rows: " + JSON.stringify(chipAt));
-
-  // Either order pairs. A row tapped with nothing in hand arms itself and waits
-  // for a chunk.
-  registry["gm-slot-0"].onclick();
-  assert(/id="gm-slot-0" class="gm-slot armed"/.test(panelHTML()),
-    "a row tapped first arms itself: " + panelHTML());
-  registry["gm-chip-" + chipAt[walked.pairs[0].gives]].onclick();
-  assert(/id="gm-slot-0" class="gm-slot on"/.test(panelHTML()),
-    "and the next chunk tapped lands in it: " + panelHTML());
-  // A pair made leaves the strip exactly where it was, the placed chunk's
-  // space kept and hidden. Closing the gap would slide the next chunk under the
-  // finger that had just placed one, wearing that finger's hover border — the
-  // page appearing to pick out the next answer.
-  {
-    const strip = (h) => ((String(h).match(/<p class="gm-chips">([\s\S]*?)<\/p>/) || [])[1] || "")
-      .match(/<button[^>]*>[^<]*<\/button>/g) || [];
-    const text = (b) => stripTags(b, "");
-    const after = strip(panelHTML());
-    assert(after.map(text).join("|") === strip(html).map(text).join("|"),
-      "placing a chunk moves no other chunk on the strip: "
-        + strip(html).map(text).join("|") + " became " + after.map(text).join("|"));
-    const spent = after.filter((b) => !/id="gm-chip-/.test(b));
-    assert(spent.length === 1 && /class="gc spent"/.test(spent[0]) && /disabled/.test(spent[0]),
-      "and the placed one stays as a dead placeholder, not a chip to tap: " + after.join(""));
-    const bare = fs.readFileSync(path.join(ROOT, "style.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
-    assert(/\.gm-chips \.gc\.spent\s*\{[^}]*visibility:\s*hidden/.test(bare),
-      "and it is hidden by visibility, which keeps its space, not display, which gives it up");
-  }
-  // Hand it back, so the walk below starts from the empty board it expects.
-  registry["gm-slot-0"].onclick();
-  registry["gm-chip-" + chipAt[walked.pairs[0].gives]].onclick();
-  assert(/id="gm-slot-0" class="gm-slot"/.test(panelHTML()),
-    "and tapping a filled row empties it again: " + panelHTML());
-
-  // Answer it, right, by pairing every row with its own chunk.
-  walked.pairs.forEach((b, i) => {
-    registry["gm-chip-" + chipAt[b.gives]].onclick();
-    registry["gm-slot-" + i].onclick();
-  });
+  const first = walked.pairs[0];
+  const toks = spanTokens(clueText(walked.e), first.clueFragment);
+  toks.forEach((n) => registry["gw-" + n].onclick());
   {
     const bar = registry["hint-escape"].innerHTML;
     assert(/id="guess-tell"[^>]*>Lock in</.test(bar) && !/id="guess-tell"[^>]*data-arm/.test(bar),
-      "a full board reads Lock in, free: " + bar);
+      "words picked read Lock in, free: " + bar);
   }
   registry["guess-tell"].onclick();
   dismissNext();
-
   html = panelHTML();
-  assert(!asking(), "answering it ends the question: " + html);
-  // The question covered every piece, so answering it settles every piece.
-  // Anything still paced here would be make-work.
-  walked.pairs.forEach((b) => assert(html.includes(givesSpan(b.gives)),
-    `${b.gives} is handed over with the rest of the split: ` + html));
-  assert(!rung(/next piece/i),
-    "and no piece is left to buy: " + registry["hint-rungs"].innerHTML);
+  assert(html.includes(givesSpan(first.gives)),
+    `${first.gives} is shown once its words are locked in: ` + html);
   assert(registry["scorebar"].innerHTML === walked.paid,
-    "nothing was bought — the question was answered right: "
-      + registry["scorebar"].innerHTML);
+    "nothing was bought — the pick was right: " + registry["scorebar"].innerHTML);
 
   // --- the panel only ever grows ---
   // A graded verdict on one rung, then a different rung asked for. Both the

@@ -402,7 +402,7 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
     next.onclick();
     if (body().includes('class="hint-step guess"')) reg["guess-tell"].onclick();
   }
-  assert(body().includes("gm-slot-"), "16D's blocks rung asks the matching question: " + body().slice(0, 300));
+  assert(body().includes("data-piece="), "16D's blocks rung asks on the formula chips: " + body().slice(0, 300));
   assert(!body().includes("worked out"), "and it is unanswered until something answers it");
 
   "EVALUATED".split("").forEach((c) => kd(key(c)));

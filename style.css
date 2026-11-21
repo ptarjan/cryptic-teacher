@@ -963,7 +963,7 @@ button:disabled:hover { border-color: var(--line); }
   padding: 2px 9px; cursor: pointer; }
 span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px solid var(--line, var(--muted)); cursor: default; }
 .formula-chip.got { color: var(--bg); background: var(--accent); border-style: solid; cursor: default; }
-.formula-chip.arm-cost { border-style: solid; border-color: var(--wrong); color: var(--wrong); }
+.formula-chip.cur { border-style: solid; border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: 1px; }
 .formula p, .formula ul { line-height: 1.4; }
 .hint-step .device-rule { display: block; margin-top: 4px; padding: 4px 8px;
   border-left: 3px solid var(--accent-soft); font-size: .88rem; color: var(--muted); }
@@ -1089,7 +1089,7 @@ span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px
    "What kind of clue is this?" read as two lines on an iPad. A button is the
    width of its words: the strip wraps instead. Same rule for the letter chunks
    of the matching question, which are a fixed width each. */
-#hint-next button, .gm-chips .gc { flex: 0 0 auto; }
+#hint-next button { flex: 0 0 auto; }
 /* Once the clue is solved the rest of the ladder costs nothing. The decision to
    open one is made at the button, so the button has to be the thing that says
    so — the meter line above it was already saying it and was still being missed. */
@@ -1255,34 +1255,6 @@ button.gw.still { cursor: pointer; border-color: var(--pick-fg); }
 /* Vertical only. The touch target has to stay ~38px tall, but every pixel of
    side padding is two off the column. */
 @media (pointer: coarse) { .gc { padding: 10px 10px; } }
-
-/* The chunks of the matching question are three or four uppercase letters, not
-   sentences, so they keep the wrapping strip: a two-column grid would give "F"
-   half the panel. */
-.gm-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
-.gm-chips .gc { white-space: nowrap; font-weight: 600; letter-spacing: .04em; }
-/* A placed chunk keeps its space so the strip never moves under the finger. */
-.gm-chips .gc.spent { visibility: hidden; }
-
-/* The matching question: one row per fragment of the clue, each with an empty
-   slot, and the letter chunks on the strip below. A chunk is picked up, then
-   dropped on a row; tapping a filled row puts it back. Both halves are real
-   buttons, so both are reachable by keyboard and both carry a touch target. */
-.gm-rows { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
-.gm-slot {
-  width: 100%; text-align: left; padding: 8px 10px;
-  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
-}
-/* An empty slot is where the work is, so it is the one that looks unfinished;
-   a filled one settles down and stops asking. */
-.gm-slot:not(.on) .gives { color: var(--muted); }
-.gm-slot.on { border-color: var(--accent); }
-/* A row tapped first is holding its place until a chunk arrives — the same
-   picked-up look the chunk itself wears, because it is the same held state. */
-.gm-slot.armed { border-color: var(--accent); background: var(--accent-soft); }
-/* The chunk in hand. It is the only state on the strip, and the only thing the
-   eye has to carry from the first tap to the second. */
-.gc.on { border-color: var(--accent); background: var(--accent-soft); }
 
 /* Grading, worn by the words. A count in a sentence cannot say WHICH words, and
    which words is the whole lesson — so the ones that were right keep the colour

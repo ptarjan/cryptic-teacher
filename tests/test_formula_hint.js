@@ -50,10 +50,17 @@ function open(storage) {
   const formula = () => formulas()[formulas().length - 1] || "";
   // The body's click handler is the one that reads data-piece, as for rule chips.
   const tapChip = (i) => reg["hint-body"].listeners.click[0]({ target: { dataset: { piece: String(i) } } });
+  // Show me on the current piece: free once the rung is paid for, else two taps.
+  const showMe = () => {
+    for (let g = 0; g < 2; g++) {
+      const bar = reg["hint-escape"].innerHTML;
+      if (/id="guess-tell"/.test(bar)) reg["guess-tell"].onclick();
+    }
+  };
   const settle = () => {
     for (let g = 0; g < 4; g++) {
       if (armedBtn()) armedBtn().onclick();
-      else if (asking()) reg["guess-tell"].onclick();
+      else if (asking() || /id="guess-tell"/.test(reg["hint-escape"].innerHTML)) reg["guess-tell"].onclick();
     }
   };
   // Take the rung whose button matches, buying it outright.
@@ -66,7 +73,7 @@ function open(storage) {
   };
   const chipsLeft = () => (formula().match(/data-piece="\d+"/g) || []).length;
   const chipsGot = () => (formula().match(/formula-chip got/g) || []).length;
-  return { d, reg, puz, row, body, asking, hints, armedBtn, formulas, formula, typeFormula, tapChip, settle, take, chipsLeft, chipsGot };
+  return { d, reg, puz, row, body, asking, hints, armedBtn, formulas, formula, typeFormula, tapChip, showMe, settle, take, chipsLeft, chipsGot };
 }
 
 const candidates = open().puz.entries.filter((e) => {
@@ -136,35 +143,23 @@ for (const e of candidates.slice(0, 80)) {
 
   // 3: the LAST piece first, out of order.
   t.tapChip(n - 1);
-  const asked = t.asking();
-  if (asked) {
-    check(t.hints() === h1 && t.chipsGot() === g0,
-      `chipAsksFirst (${id}): a chip with a question asks it and charges nothing`);
-    t.settle();
-  } else if (t.armedBtn() || /arm-cost/.test(t.formula())) {
-    check(t.formula().includes(ARMED), `chipAsksFirst (${id}): a costly chip arms and says so on itself`);
-    t.tapChip(n - 1);
-  }
+  check(t.hints() === h1 && t.chipsGot() === g0,
+    `chipAsksFirst (${id}): tapping a chip only makes it current and charges nothing`);
+  t.showMe();
   check(t.chipsGot() === g0 + 1 && t.hints() === h1,
     `fillsIn (${id}): the last chip is taken, adding no hint beyond the rung: ${h1} -> ${t.hints()}`);
   const got = (t.formula().match(/formula-chip got">([^<]*)</) || [])[1] || "";
   check(got && !/^(synonym|as written|abbreviation|selection|anagram|sound) \d+$/.test(got) && t.formula().match(/formula-chip got">[^<]+</g).length === g0 + 1,
     `fillsIn (${id}): a taken chip reads as its piece's text, not its blank (${got})`);
   t.tapChip(g0);
-  t.settle();
+  t.showMe();
   check(t.chipsGot() === g0 + 2 && t.hints() === h1,
     `fillsIn (${id}): a second chip, in the middle, adds no hint`);
-  const next = t.row().find((b) => /^Next building block · /.test(b.textContent || ""));
-  check(next && next.textContent === `Next building block · ${g0 + 2} of ${n}`,
-    `noRepeat (${id}): next building block is the first piece not out: ${next && next.textContent}`);
+  check(!t.row().some((b) => /^Next building block/.test(b.textContent || "")),
+    `noRepeat (${id}): there is no Next building block button`);
 
-  // The rest by the rung's own button: still no new hint.
-  for (let g = 0; g < n + 2; g++) {
-    const b = t.row().find((x) => x.onclick && !x.disabled && /^Next building block · /.test(x.textContent || ""));
-    if (!b) break;
-    b.onclick();
-    t.settle();
-  }
+  // The rest by Show me on the current chip: still no new hint.
+  for (let g = 0; g < n + 2 && t.chipsLeft(); g++) t.showMe();
   check(t.hints() === h1 && t.chipsLeft() === 0 && t.chipsGot() === n,
     `noRepeat (${id}): every piece out by either road, still the rung's own hint: ${h1} -> ${t.hints()}`);
   const listed = (t.body().match(/<li>/g) || []).length;

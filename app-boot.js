@@ -330,27 +330,19 @@
       const data = (ev.target && ev.target.dataset) || {};
       const rung = data.rule;
       const e = currentEntry();
-      // A chip in the blocks rung's formula: take that piece (pickPiece). A
-      // piece that would cost arms first, like every paid button.
+      // A blank chip in the Pieces formula only makes that piece the current
+      // one: its question (point at the words that give it) goes up if it has
+      // one, and "Show me" then acts on it alone. A tap never spends.
       if (data.piece !== undefined && e) {
         const i = Number(data.piece);
         const ann = annOf(e);
-        if (!ann || !Number.isInteger(i) || pieceOut(e, i)) return;
+        if (!ann || !Number.isInteger(i) || pieceOut(e, i) || isEntrySolved(e)) return;
         if (!rungAvailable(e, ladderSteps(ann, clueText(e)), "blocks")) return;
-        // Chips live in the blocks rung and go the way its "next piece" button
-        // does: if the piece has a question (point at the words that give it),
-        // ask it, and an answer earns the piece for nothing. Only "Show me"
-        // in the help bar, on that question, costs.
-        const asked = !isEntrySolved(e) && guessAsk(e, "blocks", i);
-        if (asked) {
-          guessing = { key: entryKey(e), rung: "blocks", step: i, picked: [],
-                       slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
-          focusHint("guess");
-          refreshAll();
-          return;
-        }
-        if (pickCosts(e, i) && !confirmBlock(e, "piece-" + i, ev)) return;
-        pickPiece(e, i);
+        const key = entryKey(e);
+        helpOn = { key, rung: "blocks", step: i };
+        guessing = guessAsk(e, "blocks", i)
+          ? { key, rung: "blocks", step: i, picked: [] } : null;
+        if (guessing) focusHint("guess");
         refreshAll();
         return;
       }

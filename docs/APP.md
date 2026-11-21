@@ -57,7 +57,7 @@ Terms used below:
   (filled with a star), available (outlined; tapping only CHOOSES the step: it
   opens its question, opens at once when that is free, or becomes the current
   step, heavier outline) or locked (dim, "– Name"). `#hint-meter` now holds
-  only the blog badge. Next building block stays in `#hint-next`. Tests read
+  only the blog badge. `#hint-next` is empty (no Next building block button): the Pieces formula's blank chips are the question. Tests read
   the old row shape through `registry["hint-rungs"]` in `tools/fake_dom.js`
   (a chip tap that only chose a step is followed by "Show me", and Reveal
   answer is appended from the help bar).
@@ -820,3 +820,5 @@ The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
   moves on.
 - The same "look it up" rule applies to data: `tools/series.py` is the only
   source of truth for what a series is.
+
+- **Pieces is the formula.** One blank chip in the formula is current; tapping a different blank chip makes it current and never spends. The solver taps clue words and uses the one help button ("Lock in" free while words are picked, "Show me" two-tap when none), which fills that one chip. A wrong Lock in opens the piece showing the right words and counts 1 hint, nothing red. There is no matching form and no paying by tapping a chip. A piece whose letters are printed in the clue stays free.

@@ -495,7 +495,6 @@
     const ask = guessAsk(e, guessing.rung, guessing.step);
     if (!ask) return null;
     if (ask.choices) return ask.answer ? ask : null;
-    if (ask.pairs) return ask;
     return (ask.target || []).length ? ask : null;
   }
 
@@ -509,12 +508,11 @@
 
   // Whether the walk has moved on to the check button: the question is one the
   // button grades, and everything it pointed at inside the question is done —
-  // every pointed word picked, or every pair slot filled. Selecting the words
+  // every pointed word picked. Selecting the words
   // is half the gesture; a light that stays on the question block leaves the
   // newcomer looking for what to press next.
   function nuxPointsCheck(ask) {
     if (!ask || ask.choices || !nuxPointing()) return false;
-    if (ask.pairs) return (guessing.slots || []).every((n) => n >= 0);
     const picked = guessing.picked || [];
     return picked.length > 0 && (ask.target || []).every((i) => picked.indexOf(i) >= 0);
   }

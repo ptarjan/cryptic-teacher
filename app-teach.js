@@ -1381,54 +1381,6 @@
     return b && b.clueFragment && b.gives ? b : null;
   }
 
-  // The whole charade at once, instead of a piece at a time.
-  //
-  // Handing pieces over one click each asks nothing. By the time the
-  // last one comes round the others are already placed, so "which words give
-  // H?" is answered by whatever words are left. Allocating every fragment to
-  // every chunk in one go is the move the solver actually has to make, and it
-  // cannot be done by elimination until the very last pair.
-  function matchAsk(e) {
-    const ann = annOf(e);
-    const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-    // The same exclusion the single-piece question makes: a fragment that IS
-    // its own letters is not a pairing, it is a chip with its answer written on
-    // it, and it would pair itself on sight.
-    const pairs = blockPieces(e)
-      .map((b) => ({ frag: b.clueFragment, gives: blockLetters(ann, b) }))
-      .filter((p) => p.frag && p.gives && bare(p.frag) !== bare(p.gives));
-    // Three is the smallest set with a decision in it. The last pairing of any
-    // matching question is forced — one chunk, one row, nothing to choose — and
-    // with two pairs the FIRST one is also the last, so placing one chunk
-    // would place the other: one tap dressed as a puzzle. Those clues ask the
-    // paced one-piece-at-a-time question below instead, which is a real
-    // question about every piece it names.
-    if (pairs.length < 3) return null;
-    // A fixed shuffle, not a random one: the panel is redrawn on every tap, and
-    // chips that jumped between taps would be a memory test of the wrong thing.
-    // Ordered by a hash of the chunk, so it holds still without holding state.
-    const h = (str) => { let n = 0; for (let i = 0; i < str.length; i++) n = (n * 31 + str.charCodeAt(i)) % 99991; return n; };
-    const chips = pairs.map((p) => p.gives).sort((a, b) => h(a) - h(b) || (a < b ? -1 : 1));
-    // One order in a hundred-odd comes back out in clue order, which reads as a
-    // puzzle that forgot to shuffle and can be answered straight down the list.
-    if (chips.join("|") === pairs.map((p) => p.gives).join("|")) {
-      const swap = chips[0]; chips[0] = chips[1]; chips[1] = swap;
-    }
-    return { prompt: "Match each part of the clue to the letters it gives.",
-             pairs, chips, step: 0 };
-  }
-
-  // Right or wrong per pairing, and a count — never which one was misplaced.
-  // The rung opens underneath with the whole split named, so saying it here as
-  // well is the page telling you twice.
-  function gradeMatch(ask, slots) {
-    const got = ask.pairs.filter((p, i) => slots[i] >= 0 && ask.chips[slots[i]] === p.gives).length;
-    const n = ask.pairs.length;
-    if (got === n) return { right: true, said: "Yes — every part matched correctly." };
-    if (!got) return { right: false, said: "None of those match. Here is how the clue breaks down." };
-    return { right: false, said: `${got} of the ${n} matched correctly — here is how the whole clue breaks down.` };
-  }
-
   // Which words of the clue a rung names. Kept apart from guessAsk because a
   // rung can be unaskable and still have named its words — a piece that is all
   // the clue has left has no question in it, and every word of it is
@@ -1580,10 +1532,6 @@
     } else if (rung === "indicators") {
       prompt = "Which words tell you what to do with the rest?";
     } else if (rung === "blocks") {
-      // The matching question covers the rung entire, so it is only ever the
-      // first thing asked; once a piece has been placed the rest are asked a
-      // piece at a time.
-      if (!at) { const m = matchAsk(e); if (m) return m; }
       const b = blockAskAt(e, at);
       if (!b) return null;
       const n = blockPieces(e).length;
@@ -1894,46 +1842,22 @@
   // families have nowhere else to live and keep their chips, and so does a linked
   // clue, whose own words are not the ones on display — see renderHintPanel.
   //
-  // For a matching question a chunk goes in the slot you last picked it up for. Two taps, both of them
-  // reversible: tapping a filled slot puts its chunk back on the strip, so
-  // nothing you try costs you anything until "Lock in".
-  function guessMatchHTML(ask) {
-    const slots = guessing.slots || [];
-    const rows = ask.pairs.map((p, i) => {
-      const at = slots[i];
-      const has = at >= 0;
-      const armed = !has && guessing.heldSlot === i;
-      return `<li><button type="button" id="gm-slot-${i}" class="gm-slot${
-        has ? " on" : ""}${armed ? " armed" : ""}">“${
-        esc(p.frag)}” → <span class="gives">${has ? esc(ask.chips[at]) : "?"}</span></button></li>`;
-    }).join("");
-    // A placed chunk leaves its space on the strip behind it, invisible. If the
-    // strip closed up instead, the next chunk would slide under the finger or
-    // pointer that just placed one and wear its hover border — which reads as
-    // the page picking the next answer out.
-    const chips = ask.chips.map((c, i) => slots.indexOf(i) >= 0
-      ? `<button type="button" class="gc spent" tabindex="-1" aria-hidden="true" disabled>${esc(c)}</button>`
-      : `<button type="button" id="gm-chip-${i}" class="gc${
-          guessing.held === i ? " on" : ""}">${esc(c)}</button>`).join("");
-    return `<ul class="gm-rows">${rows}</ul><p class="gm-chips">${chips}</p>`;
-  }
 
   // A question carries only what answers it: the words in the clue (or the
-  // family chips, or the matching strip). No button of its own: the one help
+  // family chips). No button of its own: the one help
   // button under the panel locks the picks in ("Lock in") or, with nothing
   // picked, shows the step ("Show me"); see helpTarget in app-paint.js. And
   // there is no "Skip for now", because a question is not a dialog: picking
   // another step, typing, or ignoring it is the skip.
-  function guessHTML(ask, position, label, inClue) {
+  function guessHTML(ask, position, label, inClue, formula) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
-      : ask.pairs ? guessMatchHTML(ask)
       : inClue ? ""
       : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung, ask.target);
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
-      <p>${ask.prompt}${inClue && !ask.choices && !ask.pairs
+      <p>${ask.prompt}${inClue && !ask.choices
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
-      ${answer}</div>`;
+      ${formula || ""}${answer}</div>`;
   }
 
   // Right, and which one you said — never what the right one was. The rung
@@ -2083,9 +2007,7 @@
   function advanceLadder(e) {
     const n = nextQuestion(e);
     if (!n) return false;
-    const asked = guessAsk(e, n.rung, n.step);
-    guessing = { key: entryKey(e), rung: n.rung, step: n.step, picked: [],
-                 slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
+    guessing = { key: entryKey(e), rung: n.rung, step: n.step, picked: [] };
     return true;
   }
 
@@ -2116,18 +2038,7 @@
     // The piece just settled goes up, and only that one (blocksAt holds how many
     // are out). Whether to go on to the next piece is the solver's call, and the
     // rung is theirs either way: a question is never a dead end.
-    // A matching question was asked about every piece at once, so every piece
-    // is settled by answering it — pacing what the question already covered
-    // would be make-work.
-    if (guessing.rung === "blocks") {
-      // A chip tapped out of turn settles that piece alone: the count must not
-      // jump over the pieces before it, so it is marked taken instead.
-      if (!ask.pairs && guessing.step > nextPiece(e)) {
-        piecesPicked[guessing.key] = (piecesPicked[guessing.key] || 0) | (1 << guessing.step);
-      } else {
-        revealPiece(e, ask.pairs ? blockPieces(e).length - 1 : guessing.step);
-      }
-    }
+    if (guessing.rung === "blocks") settlePiece(e, guessing.step);
     focusHint(guessing.rung);
     showHint(e, guessing.rung);
     guessing = null;
