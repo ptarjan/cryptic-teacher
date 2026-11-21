@@ -781,31 +781,30 @@ button:disabled:hover { border-color: var(--line); }
   border: none; padding: 0; pointer-events: none;
 }
 
+/* Only paper mode's own checks are ever on this row; off paper it is empty and
+   takes no space. Everything else that used to be here is in the title row's
+   menu (.menu-wrap). */
 .toolbar {
   display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
   margin: 10px 0 14px; font-size: .8rem;
 }
-/* Paper mode's switch: a checkbox among the checks it replaces, one tap
-   anywhere on the words. */
-.paper-toggle { display: inline-flex; gap: 4px; align-items: center; color: var(--muted); cursor: pointer; }
-/* This was an empty 10px spacer, which inside a 6px-gap flex row rendered as a
-   22px hole between "grid" and "clear entry" — wider than the gaps either side
-   of it and attached to nothing, so the row read as badly spaced rather than
-   grouped. It is a real division (checking vs destroying), so it is drawn as
-   one.
-
-   `margin-left: auto` sends everything after the rule to the far end of the row.
-   The two groups are not peers: the check buttons are what
-   you reach for constantly, the clear/reset pair is what you must not hit by
-   accident, and putting the whole row's slack between them says that with
-   distance instead of with a hairline. The right edge is a real edge to align
-   to — .left-col is 640px and a 15x40px grid is 619px, and every touch
-   breakpoint uncaps the cells so the grid takes the column — so the pair lands
-   under the grid's corner rather than floating in dead space. */
-.toolbar-gap {
-  flex: 0 0 1px; align-self: stretch; min-height: 1.3em;
-  background: var(--line); margin: 0 3px 0 auto;
+.toolbar:not(:has(.tool:not(.hidden))) { display: none; }
+/* The title row's menu: one button at the row's far end, a small panel under it.
+   Paper mode, clear word and reset puzzle are rare, and the last two destroy
+   work, so they sit behind a tap instead of on the solving path. */
+.menu-wrap { position: relative; margin-left: auto; align-self: center; }
+.menu-btn { font-size: 1rem; line-height: 1; padding: 4px 12px; letter-spacing: .1em; }
+.menu {
+  position: absolute; right: 0; top: calc(100% + 4px); z-index: 30; min-width: 11rem;
+  display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 8px;
+  background: var(--bg, #fff); border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: .88rem;
 }
+.menu.hidden { display: none; }
+.menu .tool { text-align: left; }
+.menu .paper-toggle { padding: 6px 4px; font-size: .88rem; }
+/* Paper mode's switch: a checkbox, one tap anywhere on the words. */
+.paper-toggle { display: inline-flex; gap: 4px; align-items: center; color: var(--muted); cursor: pointer; }
 
 /* A check must always report what it found — a silent check reads as a dead
    button. See announceCheck()/pulseCells() in app.js. */
@@ -1653,12 +1652,6 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 .clue-strip { display: none; }
 @media (max-width: 700px) {
   body { padding: env(safe-area-inset-top, 0px) 8px 40px; }
-  /* Six touch-sized buttons do not fit one phone line, and once the row wraps
-     there is no slack left to push anything into: `margin-left: auto` would
-     only strand the divider at the end of whichever line it landed on. Back to
-     a plain divider — at this width the two groups are separated by being on
-     different lines, which is the same job done by the wrap. */
-  .toolbar-gap { margin: 0 3px; }
   .layout { gap: 10px; }
   /* The clue panel is below the grid and the fold; this line is the selected
      clue where the eye already is. */
@@ -1874,9 +1867,6 @@ html.ct-boot #boot-grid { display: block; }
   background-size: calc((100% - 4px) / 15) calc((100% - 4px) / 15);
 }
 #boot-grid i, #boot-grid b, #boot-grid .bg-h { display: block; background: var(--line); opacity: .5; border-radius: 4px; }
-#boot-grid .bg-toolbar { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0 14px; }
-#boot-grid .bg-toolbar i { width: 60px; height: 28px; border-radius: 6px; }
-#boot-grid .bg-toolbar i.gap { width: 1px; height: 20px; margin: 0 3px; }
 #boot-grid .bg-hint { border: 1px solid var(--line); border-left: 4px solid var(--line);
   border-radius: 8px; padding: 12px 15px; margin-top: 4px; min-height: 120px; }
 #boot-grid .bg-hint b { height: 14px; margin: 10px 0; }
@@ -1886,10 +1876,7 @@ html.ct-boot #boot-grid { display: block; }
 #boot-grid .bg-lines b:nth-child(3n) { width: 80%; }
 #boot-grid .bg-lines b:nth-child(3n+1) { width: 92%; }
 @media (max-width: 1079px), (pointer: coarse) {
-  #boot-grid .bg-toolbar { gap: 8px; }
-  #boot-grid .bg-toolbar i { height: 36px; width: 68px; }
-  #boot-grid .bg-toolbar i.gap { height: 20px; width: 1px; }
-}
+      }
 /* The real title row wraps once there is less width (title, then the score line
    under it): measured 64px on an iPad, ~120px on a 390px phone. */
 @media (max-width: 1079px) { #boot-grid .bg-title { height: 63px; } }

@@ -272,7 +272,7 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   </p>
 </div>
 
-<!-- Boot skeleton: the same boxes as #app below (title row, grid, toolbar, hint
+<!-- Boot skeleton: the same boxes as #app below (title row, grid, hint
      panel, the two clue lists), in the same layout classes, so the real puzzle
      replaces it without the page moving. Sized in style.css (.bg-*). -->
 <div id="boot-grid" aria-hidden="true">
@@ -280,7 +280,6 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   <div class="layout">
     <div class="left-col">
       <div class="bg-wrap"><div class="bg-grid"></div></div>
-      <div class="bg-toolbar"><i></i><i></i><i></i><i></i><i class="gap"></i><i></i><i></i></div>
       <div class="bg-hint"><b></b><b></b><b class="short"></b></div>
     </div>
     <div class="clues-col">
@@ -308,6 +307,18 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
     <p id="puzzle-reprint" class="muted small-note hidden"></p>
     <div id="scorebar" title="Your score for this puzzle: the fewer hints you use, the better"></div>
     <span id="streak" title="Days in a row on which you finished a puzzle"></span>
+    <div class="menu-wrap" id="menu-wrap">
+      <button type="button" id="menu-btn" class="tool menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="puzzle-menu" aria-label="More options" title="More options">&hellip;</button>
+      <div id="puzzle-menu" class="menu hidden" role="group" aria-label="More options">
+        <!-- Paper mode's switch, on the puzzle it hides things from. On puts this
+             puzzle on paper and makes paper this device's default for new ones;
+             off hands everything back everywhere. See paper mode in app.js. -->
+        <label id="paper-switch" class="paper-toggle" title="No auto-check: nothing is ticked or marked as you type. Verify the whole grid at the end with “Is it right?”. Stays on for puzzles you start next on this device.">
+          <input type="checkbox" id="paper-toggle"> paper mode</label>
+        <button id="clear-entry" class="tool">clear word</button>
+        <button id="reset-puzzle" class="tool danger">reset puzzle</button>
+      </div>
+    </div>
   </div>
   <!-- Shown once, in the session that earns it, when the last square goes in.
        app.js fills it; empty and hidden otherwise. -->
@@ -322,19 +333,14 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
         <div id="grid" tabindex="0" aria-label="Crossword grid"></div>
       </div>
       <p id="hidden-message" class="hidden-message hidden" aria-live="polite"></p>
+      <!-- Only paper mode's own checks live on the page. Paper mode's switch, clear
+           word and reset puzzle are off the solving path, in the menu on the
+           title row. The row is empty (and takes no space) off paper. -->
       <div class="toolbar">
         <!-- Paper mode's checks: "Is it right?" only says solved / not (nothing marked, no count of wrong
              letters); "Show what's wrong" appears after a verdict and ends paper mode with Check grid. -->
         <button id="paper-done" class="tool hidden" title="Checks the whole grid and only says whether it is solved. Nothing is marked.">Is it right?</button>
         <button id="paper-reveal" class="tool hidden">Show what’s wrong</button>
-        <!-- Paper mode's switch, on the puzzle it hides things from. On puts this
-             puzzle on paper and makes paper this device's default for new ones;
-             off hands everything back everywhere. See paper mode in app.js. -->
-        <label id="paper-switch" class="paper-toggle" title="No auto-check: nothing is ticked or marked as you type. Verify the whole grid at the end with “Is it right?”. Stays on for puzzles you start next on this device.">
-          <input type="checkbox" id="paper-toggle"> paper mode</label>
-        <span class="toolbar-gap"></span>
-        <button id="clear-entry" class="tool">clear word</button>
-        <button id="reset-puzzle" class="tool danger">reset puzzle</button>
       </div>
       <div id="check-result" class="check-result" role="status" aria-live="polite"></div>
 

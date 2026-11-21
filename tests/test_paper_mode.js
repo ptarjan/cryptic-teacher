@@ -18,7 +18,7 @@
    4. doneCredits: "Is it right?" on a solved grid, or "Show what's wrong", ends paper mode for the puzzle, checks the grid,
       and credits every correct clue as solved with no rungs (solvedWith 0,
       the clean star), stamping the finish so the streak can count it.
-   5. switchInPuzzle: the one paper switch is in the puzzle's toolbar, not on
+   5. switchInPuzzle: the one paper switch is in the puzzle's menu, not on
       the puzzle list. Ticking it in a puzzle under way puts that puzzle on
       paper and makes paper the device default; unticking it hands every
       signal back and turns the default off. */
@@ -101,7 +101,7 @@ for (const paperOn of [true, false]) {
     check(/Paper mode/.test(t.reg["scorebar"].innerHTML), `paperTools (${tag}): the scorebar says paper mode is on`);
     check(!t.hidden("paper-done"),
       `paperTools (${tag}): I'm done shows`);
-    check(!t.hidden("clear-entry") && !t.hidden("reset-puzzle"), `paperTools (${tag}): Clear and Reset stay`);
+    check(!t.hidden("clear-entry") && !t.hidden("reset-puzzle"), `paperTools (${tag}): Clear and Reset stay (in the menu)`);
     check(!t.hidden("paper-switch") && t.reg["paper-toggle"].checked === true,
       `paperTools (${tag}): the switch is shown, ticked`);
 
@@ -170,6 +170,14 @@ for (const paperOn of [true, false]) {
   check(html.split('id="paper-toggle"').length === 2, "switchInPuzzle: one paper switch in the page");
   check(main.includes('id="paper-toggle"') && main.includes('id="paper-switch"'),
     "switchInPuzzle: it is inside the puzzle view");
+  // Menu, not toolbar: paper mode, clear word and reset puzzle are off the
+  // solving path, behind the button on the title row.
+  const menu = main.slice(main.indexOf('id="puzzle-menu"'), main.indexOf('<div class="layout">'));
+  check(menu.includes('id="paper-toggle"') && menu.includes('id="clear-entry"') && menu.includes('id="reset-puzzle"'),
+    "menu: paper mode, clear word and reset puzzle are in the title row's menu");
+  const bar = main.slice(main.indexOf('<div class="toolbar">'), main.indexOf('id="check-result"'));
+  check(!/paper-toggle|clear-entry|reset-puzzle/.test(bar) && /paper-done/.test(bar),
+    "menu: the solving-path toolbar holds only paper mode's own checks");
   const picker = html.slice(html.indexOf('id="picker-panel"'), html.indexOf('<main id="app"'));
   check(!/paper-toggle|paper-switch/.test(picker), "switchInPuzzle: and not on the puzzle list");
 
@@ -192,6 +200,26 @@ for (const paperOn of [true, false]) {
   check(off.on === false && !off.open[ID], "switchInPuzzle: unticking it takes the puzzle off paper and the default off");
   check(li.classList.contains("solved") && t.hidden("paper-done"),
     "switchInPuzzle: the tick and the checks come back");
+}
+
+// --- 6: the menu opens, closes on a choice, outside tap and Escape; Clear and Reset still work ---
+{
+  const t = open({});
+  const closed = () => t.hidden("puzzle-menu");
+  check(closed() && t.reg["menu-btn"].getAttribute("aria-expanded") === "false", "menu: ships closed");
+  t.reg["menu-btn"].onclick({});
+  check(!closed() && t.reg["menu-btn"].getAttribute("aria-expanded") === "true", "menu: the button opens it");
+  t.reg["menu-btn"].onclick({});
+  check(closed(), "menu: a second tap closes it");
+  t.reg["menu-btn"].onclick({});
+  t.d.docListeners["click"].forEach((f) => f({ target: t.reg["grid"] }));
+  check(closed(), "menu: a tap elsewhere closes it");
+  t.reg["menu-btn"].onclick({});
+  t.reg["menu-btn"].listeners.keydown.forEach((f) => f({ key: "Escape" }));
+  check(closed(), "menu: Escape closes it");
+  t.reg["menu-btn"].onclick({});
+  t.reg["puzzle-menu"].listeners.click.forEach((f) => f({ target: t.reg["clear-entry"] }));
+  check(closed(), "menu: choosing clear word closes it");
 }
 
 // --- verifyOnly: a full grid with one wrong letter says "not right", marks and credits nothing ---

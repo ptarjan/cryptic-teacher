@@ -170,6 +170,30 @@
       if (btn && btn.onclick) btn.onclick();
     });
 
+    // The menu on the title row holds paper mode's switch, clear word and reset
+    // puzzle. It is closed by a second tap on its button, a tap anywhere else,
+    // Escape, or choosing something in it (a menu that stays open over the grid
+    // after "clear word" is in the way of the next word).
+    function toggleMenu(open) {
+      $("puzzle-menu").classList.toggle("hidden", !open);
+      $("menu-btn").setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    $("menu-btn").onclick = (ev) => {
+      if (ev.stopPropagation) ev.stopPropagation();
+      toggleMenu($("puzzle-menu").classList.contains("hidden"));
+    };
+    $("puzzle-menu").addEventListener("click", (ev) => {
+      if (ev.stopPropagation) ev.stopPropagation();
+      const t = ev.target;
+      if (t && t.tagName === "BUTTON") toggleMenu(false);
+    });
+    document.addEventListener("click", () => toggleMenu(false));
+    // Escape is heard on the menu and its button, not on the document: the
+    // document's keydown is the typing handler, and focus is in the menu only
+    // when it was reached by keyboard.
+    const menuEsc = (ev) => { if (ev.key === "Escape") { toggleMenu(false); $("menu-btn").focus(); } };
+    $("menu-btn").addEventListener("keydown", menuEsc);
+    $("puzzle-menu").addEventListener("keydown", menuEsc);
     $("paper-done").onclick = () => { if (paperHides()) verifyPaper(); };
     $("paper-reveal").onclick = () => { if (paperHides()) endPaper(); };
     $("paper-toggle").onchange = () => togglePaper($("paper-toggle").checked);

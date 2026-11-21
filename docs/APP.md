@@ -258,9 +258,13 @@ Terms used below:
   survives only for paper mode's opt-in "Show what's wrong", which writes a
   sentence into `#check-result` and marks the wrong letters.
 - **Paper mode hides every right/wrong signal until "I'm done".** A
-  per-device switch in the puzzle's toolbar. On paper there is no tick, star or
+  per-device switch, in the puzzle menu (the "…" button at the end of the
+  title row, which also holds Clear word and Reset puzzle; `#menu-btn`,
+  `#puzzle-menu`, closed by a second tap, a tap elsewhere, Escape or a choice).
+  The only thing left in `.toolbar` is paper mode's own "Is it right?" and
+  "Show what's wrong", so off paper the row is empty and takes no space. On paper there is no tick, star or
   lock on a solved clue, no meter, ladder, reveal or vote, and one
-  "I'm done" button shows; Clear and Reset stay.
+  "I'm done" button shows; Clear word and Reset puzzle stay in the menu.
   "I'm done" is Check grid plus the end of paper mode for that puzzle.
   - **Hidden means unknown, in one place.** `isEntrySolved` answers false while
     the puzzle on screen is on paper (`lettersRight` is the raw fact), so every

@@ -301,7 +301,7 @@ const { ROOT, appSrc, assert, fs, path, readBuilt } = T;
   assert(/@media \(min-width: 1280px\)[^{]*\{[\s\S]*?#app \.clue-list\s*\{[^}]*overflow-y:\s*auto/.test(all),
     "style.css keeps the wide-screen layout with independently scrolling clue lists");
   assert(/@media \(min-width: 1280px\)[^{]*\{[\s\S]*?\.toolbar\s*\{[^}]*grid-column:\s*2;\s*grid-row:\s*1/.test(all),
-    "the wide layout puts the check toolbar top-right, never bottom-left");
+    "the wide layout puts the paper-mode check row top-right, never bottom-left");
 
   // --- and how big things are is asked about the pointer, not the width ---
   // As one query, an iPad shrinks when turned to the WIDER side: portrait

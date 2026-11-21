@@ -34,8 +34,10 @@ the site offers.
   ladder, but it costs one hint, like every paid button ("Tap again · 1 hint").
 - **Report a bad hint** is on every clue: two taps and a sentence, with the
   puzzle and clue filled in for you.
-- **Check** buttons (letter / entry / grid) mark wrong letters without
-  revealing answers.
+- A **menu** ("…" on the puzzle's title row) holds the rarely used controls,
+  off the solving path: paper mode, clear word and reset puzzle. Paper mode's
+  own "Is it right?" shows under the grid only while it is on. The grid itself
+  marks right, never wrong.
 - A gentle score: clues solved with no hints, steps shown, steps worked out, and a single hint count (a revealed letter is a hint).
 - A collapsible "How cryptic clues work" tutorial.
 - A **glossary of standard abbreviations**. The building-blocks rung links into
