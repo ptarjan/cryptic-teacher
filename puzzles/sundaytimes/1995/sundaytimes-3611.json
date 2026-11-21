@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Leave harbour on a bicycle?",
     "enumeration": "8"
    },
-   "solution": "CROSSBAR"
+   "solution": "CROSSBAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leave harbour",
+      "at": 0,
+      "meaning": "a ship leaving port must cross the sandbar across the harbour mouth"
+     },
+     {
+      "text": "on a bicycle?",
+      "at": 14,
+      "meaning": "the horizontal tube joining saddle post and handlebars on a bike frame"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense splits the answer into two words: to get out of harbour, a vessel crosses the bar, the sandbank at its entrance.",
+     "definitionFit": "The top tube of a man's bicycle frame is its crossbar; a sailing vessel leaving port passes over the bar at the harbour mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,29 @@
     "text": "Blue bomb?",
     "enumeration": "6"
    },
-   "solution": "COBALT"
+   "solution": "COBALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blue",
+      "at": 0,
+      "meaning": "a deep blue pigment or colour"
+     },
+     {
+      "text": "bomb?",
+      "at": 5,
+      "meaning": "a nuclear weapon jacketed in a metal that leaves heavy radioactive fallout"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Cobalt blue is a pigment shade, and a cobalt bomb is a hypothetical nuclear device salted with that metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bomb"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +107,36 @@
     "text": "Monkey goes for most of the fruit",
     "enumeration": "6"
    },
-   "solution": "ORANGE"
+   "solution": "ORANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monkey goes for most of the fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Monkey goes for most of the fruit",
+       "at": 0,
+       "note": "the orang, short for orang-utan, stands in for the fruit's name lacking only its final letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey grabs most of the fruit for itself.",
+     "walkthrough": "'Goes for' means 'stands for': ORANG (an ape, loosely a monkey) spells all of the citrus fruit except its last letter, E.",
+     "definitionFit": "A citrus fruit, whose name begins with the short form of the great ape's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +150,45 @@
     "text": "He may feel triumphant at saint's bedevilment",
     "enumeration": "8"
    },
-   "solution": "SATANIST"
+   "solution": "SATANIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He may feel triumphant at saint's bedevilment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bedevilment",
+       "at": 34,
+       "note": "to bedevil is to throw into confusion, so the letters of the preceding words are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at",
+       "at": 23
+      },
+      {
+       "words": "saint's",
+       "at": 26
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A devil-worshipper gloats when a holy man is tormented.",
+     "walkthrough": "The anagram signalled by 'bedevilment' uses AT and SAINTS (the S of the possessive counts here); the whole clue then describes a devil-worshipper relishing a saint's torment.",
+     "definitionFit": "A worshipper of the Devil would rejoice at the torment of a holy person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +202,59 @@
     "text": "Damaged oar going round pole in the river",
     "enumeration": "4"
    },
-   "solution": "ARNO"
+   "solution": "ARNO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "at": 12,
+       "note": "going round means the rearranged letters surround the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Damaged",
+         "at": 0,
+         "note": "damaged things are broken up, so these three letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "oar",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "pole",
+       "at": 24,
+       "gives": "N",
+       "note": "N is short for the north pole"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken oar floats round a punting pole in the river.",
+     "walkthrough": "'Damaged' rearranges OAR to ARO, and 'going round' places N inside it.",
+     "definitionFit": "The Arno is the Italian waterway flowing through Florence and Pisa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pole"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +268,37 @@
     "text": "Reduction in prices",
     "enumeration": "6"
    },
-   "solution": "PRECIS"
+   "solution": "PRECIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reduction in prices",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Reduction in prices",
+       "at": 0,
+       "note": "reads as a price cut, but means a shortened summary, whose letters are found rearranged in the word prices"
+      }
+     ]
+    },
+    "spelling": "PRÉCIS",
+    "explanation": {
+     "surface": "A shop announces a price cut.",
+     "walkthrough": "The surface suggests a sale; 'reduction' is instead a cut-down summary of a text, and its six letters are those of PRICES rearranged.",
+     "definitionFit": "A précis is a summary, a text reduced to its essentials."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Reduction"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +312,36 @@
     "text": "Cut out a part, in the theatre",
     "enumeration": "6"
    },
-   "solution": "RESECT"
+   "solution": "RESECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut out a part, in the theatre",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cut out a part, in the theatre",
+       "at": 0,
+       "note": "sounds like an actor's role being axed, but the theatre is an operating theatre where a surgeon removes tissue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A director drops a role from a stage production.",
+     "walkthrough": "The theatre is the hospital operating theatre, not a playhouse, and the part is part of an organ.",
+     "definitionFit": "To resect is to surgically remove a portion of an organ or bone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +355,49 @@
     "text": "One type of fish following another, moving crabwise",
     "enumeration": "8"
    },
-   "solution": "CRAWLING"
+   "solution": "CRAWLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moving crabwise",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 17,
+       "note": "following means the second fish is placed after the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One type of fish",
+       "at": 0,
+       "gives": "CRAW",
+       "note": "craw is a short form of crawfish, a freshwater crustacean"
+      },
+      {
+       "words": "another",
+       "at": 27,
+       "gives": "LING",
+       "note": "the ling is a long North Atlantic food fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One kind of fish trails behind another, scuttling sideways like a crab.",
+     "walkthrough": "Craw, a short form of crawfish (crayfish), counts as a fish here by its name. Crabs creep along the seabed, hence the definition.",
+     "definitionFit": "Crabs move by creeping slowly along the bottom on their legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crabwise"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +411,45 @@
     "text": "Dissipated peers die quicker",
     "enumeration": "8"
    },
-   "solution": "SPEEDIER"
+   "solution": "SPEEDIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quicker",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Dissipated",
+       "at": 0,
+       "note": "dissipated suggests dissolute lords but signals that the letters are scattered and reformed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "peers",
+       "at": 11
+      },
+      {
+       "words": "die",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dissolute lords die younger.",
+     "walkthrough": "'Dissipated' rearranges PEERS and DIE.",
+     "definitionFit": "More speedy means faster, a comparative of quick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dissipated"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +463,41 @@
     "text": "Showing off snake bite?",
     "enumeration": "8"
    },
-   "solution": "BOASTING"
+   "solution": "BOASTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Showing off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "snake",
+       "at": 12,
+       "gives": "BOA",
+       "note": "a boa is a large constricting snake"
+      },
+      {
+       "words": "bite",
+       "at": 18,
+       "gives": "STING",
+       "note": "a sting is an insect's bite or wound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake's bite shown off as a trophy.",
+     "definitionFit": "Bragging means talking in a way that shows off one's achievements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bite"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +511,67 @@
     "text": "Country home dubious asset — out of the way, note",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country home",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dubious",
+         "at": 13,
+         "note": "dubious means questionable or shaky, so the letters of the next word are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "out of the way",
+           "at": 29,
+           "note": "out of the way says one letter of the rearranged word is cleared aside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "asset",
+           "at": 21
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "at": 45,
+       "gives": "TE",
+       "note": "te is the seventh note of the sol-fa scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural mansion is a doubtful investment best got rid of.",
+     "walkthrough": "'Out of the way' drops one of the two Ss of ASSET, and 'dubious' rearranges the rest, ASET, to ESTA; TE is added. The clue leaves which letter goes unstated.",
+     "definitionFit": "A large country house with its grounds and land is called an estate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "asset"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +585,36 @@
     "text": "House in which no-one would enjoy living",
     "enumeration": "7"
    },
-   "solution": "CHARNEL"
+   "solution": "CHARNEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "House in which no-one would enjoy living",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "House in which no-one would enjoy living",
+       "at": 0,
+       "note": "describes a building whose residents are all dead: a vault for bones"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent's warning about an unlovable property.",
+     "walkthrough": "'Living' is the trap: nobody living there means the occupants are dead, as in a charnel house, a store for bones.",
+     "definitionFit": "A charnel house is a vault where the bones of the dead are kept."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "living"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +628,36 @@
     "text": "Might it be the sole inscription on a coin?",
     "enumeration": "6"
    },
-   "solution": "LEGEND"
+   "solution": "LEGEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Might it be the sole inscription on a coin?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Might it be the sole inscription on a coin?",
+       "at": 0,
+       "note": "split into two words it names the end of a leg, which is a foot's sole; whole, it is the lettering stamped round a coin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a coin carries only one inscription.",
+     "walkthrough": "'Sole' looks like 'only', but it is the underside of the foot, at the leg's end.",
+     "definitionFit": "The wording around the rim of a coin or medal is called its legend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sole"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +671,49 @@
     "text": "Expressed amusement seeing student thrown around",
     "enumeration": "8"
    },
-   "solution": "CHUCKLED"
+   "solution": "CHUCKLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expressed amusement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 42,
+       "note": "around means the thrown word goes about the student letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thrown",
+       "at": 35,
+       "gives": "CHUCKED",
+       "note": "chucked means thrown or tossed"
+      },
+      {
+       "words": "student",
+       "at": 27,
+       "gives": "L",
+       "note": "L is the learner plate letter, standing for a student"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Onlookers laughed to see a student tossed about.",
+     "walkthrough": "'Around' puts L inside CHUCKED.",
+     "definitionFit": "To laugh quietly is to show that something amuses you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +727,53 @@
     "text": "Leaves to rub back and cut tail off",
     "enumeration": "7"
    },
-   "solution": "BURDOCK"
+   "solution": "BURDOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 14,
+         "note": "back says the word rub is read in the other direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rub",
+         "at": 10,
+         "gives": "RUB"
+        }
+       ]
+      },
+      {
+       "words": "cut tail off",
+       "at": 23,
+       "gives": "DOCK",
+       "note": "to dock an animal is to cut its tail short"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to rub some leaves backwards and trim a tail.",
+     "walkthrough": "'Back' turns RUB into BUR. 'Leaves' stands for the plant itself, known for its broad leaves.",
+     "definitionFit": "Burdock is a weedy plant with huge leaves and hooked burrs, so it can be named by its foliage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +787,41 @@
     "text": "Vagrant queries a gentleman's style",
     "enumeration": "7"
    },
-   "solution": "ESQUIRE"
+   "solution": "ESQUIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a gentleman's style",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Vagrant",
+       "at": 0,
+       "note": "vagrant means wandering, so the letters of the next word wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "queries",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tramp asks about a gentleman's manners.",
+     "walkthrough": "'Vagrant' rearranges QUERIES.",
+     "definitionFit": "Esq. after a man's name is a courtesy title, the formal style for a gentleman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vagrant"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +835,41 @@
     "text": "Solo performance in the concert",
     "enumeration": "4"
    },
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Solo performance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in shows the answer sits inside the letters of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the concert",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soloist takes a turn during the concert.",
+     "walkthrough": "The answer lies in conCERT's opening letters after the C: c-ONCE-rt.",
+     "definitionFit": "Something done a single time only, as a solo is performed by one person a single time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "performance"
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +883,42 @@
     "text": "African tribesman is found in the shrubbery",
     "enumeration": "8"
    },
-   "solution": "BERBERIS"
+   "solution": "BERBERIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "found in the shrubbery",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "African tribesman",
+       "at": 0,
+       "gives": "BERBER",
+       "note": "the Berbers are a people of North Africa"
+      },
+      {
+       "words": "is",
+       "at": 18,
+       "gives": "IS",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A North African tribesman turns up hiding among the bushes.",
+     "walkthrough": "BERBER, of the North African people, plus IS gives the shrub, also called barberry.",
+     "definitionFit": "Berberis, or barberry, is a thorny garden shrub planted in borders and hedges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tribesman"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +932,42 @@
     "text": "Avoid being locked up because of this youth?",
     "enumeration": "8"
    },
-   "solution": "MISSPELT"
+   "solution": "MISSPENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this youth?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Avoid",
+       "at": 0,
+       "gives": "MISS",
+       "note": "to miss something is to avoid it"
+      },
+      {
+       "words": "being locked up",
+       "at": 6,
+       "gives": "PENT",
+       "note": "pent means penned or shut in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wasted youth could land you in jail.",
+     "walkthrough": "MISS plus PENT gives the misspent youth that might lead to prison. The grid prints MISSPELT, but the wordplay and the phrase 'misspent youth' both need N.",
+     "definitionFit": "A wasted youth is a misspent one, the stock phrase for years squandered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "locked"
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +981,59 @@
     "text": "National and public schoolboy holding skin-head",
     "enumeration": "8"
    },
-   "solution": "ESTONIAN"
+   "solution": "ESTONIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "National",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 30,
+       "note": "holding means the schoolboy word contains the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "public schoolboy",
+       "at": 13,
+       "gives": "ETONIAN",
+       "note": "an Etonian is a pupil of Eton, the famous English public school"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 43,
+         "note": "head means the first letter of the word skin"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skin",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A public schoolboy hangs on to a shaven-headed youth.",
+     "walkthrough": "'Holding' puts S, the head of 'skin', inside ETONIAN. Eton is a fee-paying English boarding school, which Britons call a public school.",
+     "definitionFit": "A citizen of Estonia is one of its nationals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1047,71 @@
     "text": "End of life, taking this and holding cross? Just so!",
     "enumeration": "4"
    },
-   "solution": "EXIT"
+   "solution": "EXIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End of life, taking this and holding cross? Just so!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 29,
+       "note": "holding means the pieces before it contain the cross"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "End of",
+           "at": 0,
+           "note": "end of picks the final letter of the word life"
+          }
+         ],
+         "parts": [
+          {
+           "words": "life",
+           "at": 7
+          }
+         ]
+        },
+        {
+         "words": "this",
+         "at": 20,
+         "gives": "IT",
+         "note": "it can stand for this, a thing just mentioned"
+        }
+       ]
+      },
+      {
+       "words": "cross",
+       "at": 37,
+       "gives": "X",
+       "note": "X is the shape of a cross"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Death is the final thing, taking up one's cross. Exactly so!",
+     "walkthrough": "'End of' takes E from life, IT follows, and 'holding' places X after the E. The whole clue also describes death, an exit from life.",
+     "definitionFit": "A departure from life, death is often called one's final exit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1125,41 @@
     "text": "Served a concoction with unfortunate result",
     "enumeration": "7"
    },
-   "solution": "ADVERSE"
+   "solution": "ADVERSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with unfortunate result",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "concoction",
+       "at": 9,
+       "note": "a concoction is something mixed up, so these letters are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Served a",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter served a strange dish, with unhappy consequences.",
+     "walkthrough": "'Concoction' rearranges SERVED A.",
+     "definitionFit": "Adverse effects are harmful or unfavourable ones, turning out badly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concoction"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1173,45 @@
     "text": "In the galley, I'm befuddled with beer",
     "enumeration": "6"
    },
-   "solution": "BIREME"
+   "solution": "BIREME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "galley",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "befuddled",
+       "at": 19,
+       "note": "befuddled means confused by drink, so the letters around it are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'm",
+       "at": 15
+      },
+      {
+       "words": "beer",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken rower admits he is fuddled with beer in the galley.",
+     "walkthrough": "'Befuddled' rearranges IM and BEER. 'Galley' looks like a ship's kitchen but is the oared ship itself.",
+     "definitionFit": "A bireme was an ancient galley with two banks of oars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "galley"
+    }
+   }
   },
   {
    "number": 23,
@@ -352,7 +1225,11 @@
     "text": "Uncle Dicky and go to central masses",
     "enumeration": "6"
    },
-   "solution": "NUCLEI"
+   "solution": "NUCLEI",
+   "annotationWithheld": {
+    "why": "'Uncle Dicky and go to central masses' as held: the anagram of UNCLE gives NUCLE, but no clue word supplies the final I (probably 'and I go to' with the I lost in transcription); no scan to confirm",
+    "clue": "Uncle Dicky and go to central masses"
+   }
   },
   {
    "number": 24,
@@ -366,7 +1243,59 @@
     "text": "Frisk in the briny at pier-end, with companion",
     "enumeration": "6"
    },
-   "solution": "SEARCH"
+   "solution": "SEARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frisk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the briny",
+       "at": 9,
+       "gives": "SEA",
+       "note": "the briny is a jokey name for the sea"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "at": 27,
+         "note": "end means the last letter of the word pier"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pier",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "companion",
+       "at": 37,
+       "gives": "CH",
+       "note": "CH stands for Companion of Honour, a British order"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bathers frolic in the sea at the end of the pier with a friend.",
+     "walkthrough": "'Frisk' looks like frolic; it is the police sense, to search a person. R is the pier's end.",
+     "definitionFit": "To pat someone down for hidden items is to search them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frisk"
+    }
+   }
   },
   {
    "number": 25,
@@ -380,7 +1309,70 @@
     "text": "Tree cover for Mid-west mountain needing soil",
     "enumeration": "8"
    },
-   "solution": "BESMIRCH"
+   "solution": "BESMIRCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soil",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cover for",
+       "at": 5,
+       "note": "cover for means the tree goes around the next pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tree",
+       "at": 0,
+       "gives": "BIRCH",
+       "note": "a birch is a slender tree with pale bark"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "Mid",
+           "at": 15,
+           "note": "mid picks out the middle letters of the word west"
+          }
+         ],
+         "parts": [
+          {
+           "words": "west",
+           "at": 19
+          }
+         ]
+        },
+        {
+         "words": "mountain",
+         "at": 24,
+         "gives": "M",
+         "note": "M is an abbreviation for mountain on maps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trees shelter a mountain in the American Midwest that needs fresh earth.",
+     "walkthrough": "'Mid' takes the two middle letters of 'west', and 'cover for' puts them and the mountain inside the tree. 'Soil' is the verb, not earth.",
+     "definitionFit": "To dirty or sully, whether a surface or a reputation, is to besmirch it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soil"
+    }
+   }
   },
   {
    "number": 26,
@@ -394,7 +1386,60 @@
     "text": "Doctor expected to arrive carrying large piece of computer hardware",
     "enumeration": "6"
    },
-   "solution": "NODULE"
+   "solution": "MODULE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "piece of computer hardware",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Doctor",
+       "at": 0,
+       "gives": "MO",
+       "note": "MO is a medical officer, an army doctor"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 26,
+         "note": "carrying means the word for expected contains the next letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expected to arrive",
+         "at": 7,
+         "gives": "DUE",
+         "note": "due means scheduled or expected"
+        },
+        {
+         "words": "large",
+         "at": 35,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor is due, bringing a big new component for the computer.",
+     "walkthrough": "'Carrying' puts the large letter inside the word for expected. The grid prints NODULE, but the wordplay and definition need M at the start.",
+     "definitionFit": "A module is a self-contained unit plugged into a larger system, as in a computer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 27,
@@ -408,7 +1453,30 @@
     "text": "Obliging lady giving us tea",
     "enumeration": "4"
    },
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obliging lady",
+      "at": 0,
+      "meaning": "a charwoman or cleaner, who obliges by doing housework"
+     },
+     {
+      "text": "tea",
+      "at": 24,
+      "meaning": "slang for a cup of tea, from Chinese cha"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British usage a char is a daily cleaning woman, once called 'a woman who obliges'; char is also old slang for tea.",
+     "definitionFit": "A cleaning woman is called a charlady, and British slang uses the same short word for a cuppa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obliging"
+    }
+   }
   },
   {
    "number": 28,
@@ -422,7 +1490,54 @@
     "text": "On the rocks, about to come back for a jacket",
     "enumeration": "6"
    },
-   "solution": "REEFER"
+   "solution": "REEFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "jacket",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the rocks",
+       "at": 3,
+       "gives": "REEF",
+       "note": "a reef is a ridge of rocks near the surface of the sea"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to come back",
+         "at": 20,
+         "note": "to come back means the word for about is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "at": 14,
+         "gives": "RE",
+         "note": "re means about or concerning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shipwrecked on the rocks, someone returns for a coat.",
+     "walkthrough": "'To come back' turns the two-letter word for about backwards. A reefer is also slang for a cannabis cigarette, but here it is the sailor's coat.",
+     "definitionFit": "A reefer is a thick double-breasted jacket of the kind worn by sailors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 29,
@@ -436,7 +1551,62 @@
     "text": "Dramatic account of farmworker grabbing her, none-the-less",
     "enumeration": "8"
    },
-   "solution": "THRILLER"
+   "solution": "THRILLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dramatic account",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabbing",
+       "at": 31,
+       "note": "grabbing means the farmworker holds the next piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "farmworker",
+       "at": 20,
+       "gives": "TILLER",
+       "note": "a tiller is someone who tills the soil"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "none-the-less",
+         "at": 45,
+         "note": "read as her with the E taken off, the clue's pun on nonetheless"
+        }
+       ],
+       "parts": [
+        {
+         "words": "her",
+         "at": 40
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thriller about a farmhand seizing a woman anyway.",
+     "walkthrough": "'None-the-less' is a pun on nonetheless, read as 'her' with an E removed; 'grabbing' puts what remains inside the farmworker.",
+     "definitionFit": "A suspense novel or film is an exciting, dramatic story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "none-the-less"
+    }
+   }
   },
   {
    "number": 30,
@@ -450,7 +1620,30 @@
     "text": "Making arrangements for the dog?",
     "enumeration": "6"
    },
-   "solution": "SETTER"
+   "solution": "SETTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Making arrangements",
+      "at": 0,
+      "meaning": "one who sets things out or arranges them"
+     },
+     {
+      "text": "the dog?",
+      "at": 24,
+      "meaning": "a breed of gun dog, such as the red Irish breed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is a person who sets, arranges things, as a crossword compiler does.",
+     "definitionFit": "Someone who arranges things sets them, and a long-haired gun dog breed shares the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Making"
+    }
+   }
   },
   {
    "number": 31,
@@ -464,7 +1657,48 @@
     "text": "Wave covering grain vessel",
     "enumeration": "8"
    },
-   "solution": "BRANDISH"
+   "solution": "BRANDISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wave",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 5,
+       "note": "covering is a link that puts the grain before the vessel"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grain",
+       "at": 14,
+       "gives": "BRAN",
+       "note": "bran is the husk of cereal grain"
+      },
+      {
+       "words": "vessel",
+       "at": 20,
+       "gives": "DISH",
+       "note": "a dish is a vessel for food"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone waves a bowl topped with cereal.",
+     "definitionFit": "To flourish a weapon or object in the air is to wave it about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   }
  ]
 }
