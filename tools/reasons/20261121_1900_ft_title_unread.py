@@ -19,4 +19,4 @@ def due(row):
     return fa.scan_queue.read_before(row, fa.scan_queue.when(REREAD)) and fa.unread_titles(row)
 
 
-REASON = Reason(TEXT, rank=2, unfiled_first=True, kept=True, due=due)
+REASON = Reason(TEXT, rank=2, unfiled_first=True, blanket=True, kept=True, due=due)

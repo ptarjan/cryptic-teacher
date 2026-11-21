@@ -45,6 +45,8 @@ check("ranked, passed, kept reasons pass", [],
 bad = P.registry_problems(("a", "z"), ("y",), {"a": 1}, ("a",), (), kept)
 check("unranked reasons are named", True, any("'z'" in p and "RANKS" in p for p in bad) and any("'y'" in p and "RANKS" in p for p in bad))
 check("an unkept UNFILED_FIRST reason is named", True, any("'z'" in p and "evidence_reason" in p for p in bad))
+check("an UNFILED_FIRST reason kept but neither blanket nor solution fix is named", True,
+      any("'k'" in p and "blanket=True" in p for p in P.registry_problems(("k",), (), {"k": 1}, (), (), lambda r: True)))
 check("a refused-before-its-fix style reason kept by evidence_reason needs no pass", [],
       P.registry_problems((), ("c",), {"c": 1}, (), (), lambda r: True))
 

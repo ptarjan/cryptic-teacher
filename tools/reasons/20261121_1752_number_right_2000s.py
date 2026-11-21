@@ -24,4 +24,4 @@ def due(row):
     return False
 
 
-REASON = Reason(TEXT, rank=2, unfiled_first=True, newest_landed=True, due=due)
+REASON = Reason(TEXT, rank=2, unfiled_first=True, newest_landed=True, blanket=True, due=due)

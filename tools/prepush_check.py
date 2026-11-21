@@ -98,7 +98,7 @@ def check_sources():
     return problems
 
 
-def registry_problems(unfiled_first, newest_landed, ranks, blanket, solution_fixes, kept):
+def registry_problems(unfiled_first, newest_landed, ranks, blanket, solution_fixes, kept, passes=lambda r: ()):
     """Every reason queued first is ranked, and is a blanket pass, a solution fix or a kept one."""
     problems = []
     for label, reasons in (("UNFILED_FIRST", unfiled_first), ("NEWEST_LANDED", newest_landed)):
@@ -109,6 +109,9 @@ def registry_problems(unfiled_first, newest_landed, ranks, blanket, solution_fix
                 problems.append(f"{label}: {r!r} is in neither BLANKET_PASSES nor SOLUTION_FIXES, "
                                 "and evidence_reason drops it at plan time")
     for r in unfiled_first:
+        if r not in blanket and r not in solution_fixes and not passes(r):
+            problems.append(f"UNFILED_FIRST: {r!r} is neither a blanket pass nor a solution fix "
+                            "(set blanket=True or solution_fix=True; tests/test_fix_reasons.py is red otherwise)")
         if not kept(r):
             problems.append(f"UNFILED_FIRST: {r!r} is not kept by evidence_reason (dropped at plan time, no log line)")
     return problems
@@ -133,7 +136,7 @@ def check_registry(eq, fa):
     import fix_reasons
     texts = [r.text for r in fix_reasons.registered().values()]
     return (registry_problems(eq.UNFILED_FIRST, eq.NEWEST_LANDED, fa.RANKS, fa.BLANKET_PASSES,
-                              fa.SOLUTION_FIXES, eq.evidence_reason)
+                              fa.SOLUTION_FIXES, eq.evidence_reason, fa.refusal_passes)
             + dropped_registered(texts, fa.BLANKET_PASSES, fa.SOLUTION_FIXES, eq.evidence_reason))
 
 
