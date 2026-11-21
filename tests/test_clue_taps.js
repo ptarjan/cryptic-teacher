@@ -51,6 +51,9 @@ if (e && other) {
   check(t.reg["hint-track"].children.every((b) => !/\bopen\b/.test(b.className || "")), `arrives (${entryId(e)}): the track shows no step open`);
 
   // --- 2: once per arrival ---
+  // There is no "Skip for now": the Letters wheel is what steps a question aside.
+  t.reg["hx-wheel"].onclick();
+  check(!t.asking(), "once: the Letters wheel puts the question away");
   t.key(e.solution[0]);
   check(!t.asking(), "once: a later render on the same clue does not ask again");
   t.key("Backspace");
