@@ -155,9 +155,12 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   // Which words the annotation calls the definition, counted off the clue's own
   // words. A wrong Lock in marks nothing, so the step's own highlight of the
   // definition is asserted separately below instead.
-  const defWords = defTexts(found.e.annotation)[0].split(/\s+/).length;
+  // Words only: the app does not make a tappable word of bare punctuation
+  // such as the "——?" in 'Reliant ——? You may find...'.
+  const wordy = (t) => t.split(/\s+/).filter((x) => /[A-Za-z0-9]/.test(x));
+  const defWords = wordy(defTexts(found.e.annotation)[0]).length;
   const defAt = clueText(found.e).slice(0, clueText(found.e).indexOf(defTexts(found.e.annotation)[0]))
-    .split(/\s+/).filter(Boolean).length;
+    .split(/\s+/).filter((x) => /[A-Za-z0-9]/.test(x)).length;
   const marks = Array.from({ length: defWords }, (_, i) => defAt + i);
   assert(marks.length >= 3, "the definition of " + clueText(found.e) + " is three words or more: "
     + JSON.stringify(marks));
