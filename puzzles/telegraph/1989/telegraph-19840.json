@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Teasing harmful to the elderly?",
     "enumeration": "8"
    },
-   "solution": "BADINAGE"
+   "solution": "BADINAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teasing",
+      "at": 0,
+      "meaning": "playful mocking banter between friends"
+     },
+     {
+      "text": "harmful to the elderly?",
+      "at": 8,
+      "meaning": "read whimsically as '...', something that does harm in old age"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether mocking someone does damage to old people.",
+     "walkthrough": "The second definition is a split-word joke: BAD IN AGE, harmful in old age.",
+     "definitionFit": "Banter of a light mocking kind is what friends exchange when they tease each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "harmful"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,51 @@
     "text": "Way to cook top of beef-and rear",
     "enumeration": "6"
    },
-   "solution": "BRAISE"
+   "solution": "BRAISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way to cook",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 12,
+         "note": "top of takes the first letter of the word, uppermost in a down entry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beef",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "rear",
+       "at": 28,
+       "gives": "RAISE",
+       "note": "to rear is to raise, as children or livestock"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A method of cooking the best of the beef and the hindquarters.",
+     "definitionFit": "Slow cooking in a little liquid in a covered pot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +130,39 @@
     "text": "Goes under, doctor admits",
     "enumeration": "6"
    },
-   "solution": "DROWNS"
+   "solution": "DROWNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Goes under",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 12,
+       "gives": "DR"
+      },
+      {
+       "words": "admits",
+       "at": 19,
+       "gives": "OWNS",
+       "note": "to own up is to admit, so owns means admits"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician confesses that a patient is sinking.",
+     "definitionFit": "Sinks below water and dies there, or is overwhelmed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +176,29 @@
     "text": "World character?",
     "enumeration": "6"
    },
-   "solution": "NATURE"
+   "solution": "NATURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "World",
+      "at": 0,
+      "meaning": "the natural world, the physical universe"
+     },
+     {
+      "text": "character",
+      "at": 6,
+      "meaning": "someone's essential temperament or disposition"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about global personality.",
+     "definitionFit": "The phenomena of the physical world, and also innate disposition, as in human temperament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +218,40 @@
      }
     ]
    },
-   "solution": "GHOSTTRAIN"
+   "solution": "GHOSTTRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the scary ride",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 13,
+       "note": "perhaps signals the letters may be arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Straight on",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keep going forwards to reach the frightening fairground attraction.",
+     "definitionFit": "Fairground attraction in which cars travel through a dark tunnel past spooky effects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Straight"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +265,43 @@
     "text": "Stoops of some Scandinavians, say",
     "enumeration": "6"
    },
-   "solution": "DEIGNS"
+   "solution": "DEIGNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stoops",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DEIGNS",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 30,
+       "note": "say tells us to hear the words as spoken, giving a word sounding the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some Scandinavians",
+       "at": 10,
+       "gives": "DANES",
+       "note": "Danes are people from Denmark, a Scandinavian country"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phrase about the stooping posture of certain Nordic people.",
+     "definitionFit": "To stoop, in the sense of lowering oneself to do something beneath one's dignity, is to condescend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stoops"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +315,31 @@
     "text": "Polish gentility",
     "enumeration": "8"
    },
-   "solution": "ELEGANCE"
+   "solution": "ELEGANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Polish",
+      "at": 0,
+      "meaning": "refinement, smoothness of manner"
+     },
+     {
+      "text": "gentility",
+      "at": 7,
+      "meaning": "refined good taste and grace"
+     }
+    ],
+    "explanation": {
+     "surface": "Upper-class manners of a person from Poland.",
+     "walkthrough": "The capital P suggests the nationality; it is refinement.",
+     "definitionFit": "Refined grace and style, both polish and genteel refinement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +353,41 @@
     "text": "Profit announced-and denied",
     "enumeration": "8"
    },
-   "solution": "GAINSAID"
+   "solution": "GAINSAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "denied",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Profit",
+       "at": 0,
+       "gives": "GAIN",
+       "note": "a gain is a profit"
+      },
+      {
+       "words": "announced",
+       "at": 7,
+       "gives": "SAID",
+       "note": "said means stated or announced"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A profit is declared and then contradicted.",
+     "definitionFit": "Contradicted or refused to admit, an old word for opposed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "announced"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +401,35 @@
     "text": "A strain at night",
     "enumeration": "8"
    },
-   "solution": "SERENADE"
+   "solution": "SERENADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A strain at night",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A strain at night",
+       "at": 0,
+       "note": "strain in its musical sense, a melody sung in the evening, not effort"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some effort or stress felt during the night.",
+     "definitionFit": "Music performed by a lover beneath a window in the evening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strain"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +443,40 @@
     "text": "These days an alternative to fostering",
     "enumeration": "8"
    },
-   "solution": "ADOPTION"
+   "solution": "ADOPTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fostering",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "These days",
+       "at": 0,
+       "gives": "AD",
+       "note": "AD, anno domini, marks the current era of years"
+      },
+      {
+       "words": "an alternative",
+       "at": 11,
+       "gives": "OPTION",
+       "note": "an option is one choice among others"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that nowadays one family route replaces temporary foster care.",
+     "definitionFit": "Taking a child into one's family and raising them is close in sense to fostering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +490,41 @@
     "text": "Elder rose in confusion",
     "enumeration": "6"
    },
-   "solution": "SENIOR"
+   "solution": "SENIOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elder",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confusion",
+       "at": 14,
+       "note": "confusion signals that the letters of the preceding words are jumbled up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rose in",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An older man flushed red, flustered.",
+     "walkthrough": "'rose in' is the fodder, rearranged under 'confusion'.",
+     "definitionFit": "An older person, or one of higher rank by age, is the one ahead in years."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +538,40 @@
     "text": "Notaries acting for young lady abroad",
     "enumeration": "8"
    },
-   "solution": "SENORITA"
+   "solution": "SENORITA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "young lady abroad",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "acting",
+       "at": 9,
+       "note": "acting suggests the letters perform a new role, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Notaries",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lawyers who certify documents stand in for an unmarried woman overseas.",
+     "definitionFit": "Spanish title for an unmarried girl, equivalent to Miss, used of a young woman in Spain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +585,40 @@
     "text": "Endlessly praising a cake ingredient",
     "enumeration": "6"
    },
-   "solution": "RAISIN"
+   "solution": "RAISIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cake ingredient",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "Endlessly",
+       "at": 0,
+       "note": "endlessly tells us to drop the first and last letters of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "praising",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praises a component of a bake without stopping.",
+     "definitionFit": "A dried grape, commonly added to fruit cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Endlessly"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +632,46 @@
     "text": "Dr Johnson's authority for way of speaking a line",
     "enumeration": "10"
    },
-   "solution": "DICTIONARY"
+   "solution": "DICTIONARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dr Johnson's authority",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "way of speaking",
+       "at": 27,
+       "gives": "DICTION",
+       "note": "diction is one's manner of enunciation"
+      },
+      {
+       "words": "a",
+       "at": 43,
+       "gives": "A"
+      },
+      {
+       "words": "line",
+       "at": 45,
+       "gives": "RY",
+       "note": "RY is short for railway, a railway line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The great lexicographer's source for how to deliver a sentence.",
+     "walkthrough": "Samuel Johnson compiled the famous 1755 English reference work of words.",
+     "definitionFit": "Johnson's great lexicon of 1755 was the standard reference for word meanings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +685,42 @@
     "text": "Mind baby? That was the originalidea",
     "enumeration": "10"
    },
-   "solution": "BRAINCHILD"
+   "solution": "BRAINCHILD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That was the originalidea",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mind",
+       "at": 0,
+       "gives": "BRAIN",
+       "note": "the brain is the organ of the mind"
+      },
+      {
+       "words": "baby",
+       "at": 5,
+       "gives": "CHILD",
+       "note": "a child is a baby or offspring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a baby to be careful, then credits the concept's origin.",
+     "walkthrough": "'originalidea' is the newspaper's run-together 'original idea'.",
+     "definitionFit": "Someone's own invention or creative notion, conceived in their head as if their offspring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mind"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +734,41 @@
     "text": "Rascal discovered by Milan opera house wit",
     "enumeration": "8"
    },
-   "solution": "SCALAWAG"
+   "solution": "SCALAWAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rascal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Milan opera house",
+       "at": 21,
+       "gives": "SCALA",
+       "note": "La Scala is the opera house in Milan"
+      },
+      {
+       "words": "wit",
+       "at": 39,
+       "gives": "WAG",
+       "note": "a wag is a joker or wit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue found by a comedian at La Scala.",
+     "definitionFit": "A mischievous scamp or rogue, also spelt scallywag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +782,42 @@
     "text": "Wader burning oxygen?",
     "enumeration": "8"
    },
-   "solution": "FLAMINGO"
+   "solution": "FLAMINGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wader",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "burning",
+       "at": 6,
+       "gives": "FLAMING",
+       "note": "flaming means on fire"
+      },
+      {
+       "words": "oxygen",
+       "at": 14,
+       "gives": "O",
+       "note": "O is the chemical symbol for oxygen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wading bird set alight with gas?",
+     "walkthrough": "Wader means a long-legged wading bird.",
+     "definitionFit": "Pink long-legged bird that feeds standing in shallow water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "burning"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +831,40 @@
     "text": "Coming out, met Green staggering",
     "enumeration": "8"
    },
-   "solution": "EMERGENT"
+   "solution": "EMERGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coming out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "staggering",
+       "at": 22,
+       "note": "staggering suggests unsteady movement, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "met Green",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leaving the pub, someone met a person named Green who was reeling.",
+     "definitionFit": "Arising or appearing, in the process of surfacing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +878,57 @@
     "text": "One hundred old boys stir tea and backbite",
     "enumeration": "10"
    },
-   "solution": "CALUMNIATE"
+   "solution": "CALUMNIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "backbite",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One hundred",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the Roman numeral for one hundred"
+      },
+      {
+       "words": "old boys",
+       "at": 12,
+       "gives": "ALUMNI",
+       "note": "alumni are former pupils of a school or college"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stir",
+         "at": 21,
+         "note": "stirring mixes up the letters of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hundred ex-pupils mix their drinks and gossip spitefully.",
+     "walkthrough": "'stir' rearranges TEA to ATE.",
+     "definitionFit": "To slander or speak maliciously about someone behind their back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +942,47 @@
     "text": "Describe great story in this newspaper?",
     "enumeration": "6"
    },
-   "solution": "DEPICT"
+   "solution": "DEPICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Describe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in places one piece within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "this newspaper",
+       "at": 24,
+       "gives": "DT",
+       "note": "DT is the Daily Telegraph, where the puzzle appeared"
+      },
+      {
+       "words": "great story",
+       "at": 9,
+       "gives": "EPIC",
+       "note": "an epic is a long heroic tale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Report a grand tale in the paper you are reading.",
+     "definitionFit": "To portray or represent in words or pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +996,36 @@
     "text": "American plant of the redskin?",
     "enumeration": "6"
    },
-   "solution": "TOMATO"
+   "solution": "TOMATO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American plant of the redskin?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "American plant of the redskin?",
+       "at": 0,
+       "note": "a New World plant whose fruit has a skin coloured red"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dated question about a crop of Native American people.",
+     "walkthrough": "The surface reads as Native Americans; it means a fruit with red skin.",
+     "definitionFit": "Plant native to the Americas bearing a red-skinned fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "redskin"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1039,47 @@
     "text": "Potter about on Sunday and dance amorously",
     "enumeration": "6"
    },
-   "solution": "SMOOCH"
+   "solution": "SMOOCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance amorously",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 13,
+       "note": "in a down entry, on means the second piece is placed after the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sunday",
+       "at": 16,
+       "gives": "S"
+      },
+      {
+       "words": "Potter about",
+       "at": 0,
+       "gives": "MOOCH",
+       "note": "to mooch is to wander aimlessly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Idle around on the weekend and then cuddle on the dance floor.",
+     "definitionFit": "To kiss and cuddle, or sway close together while dancing slowly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Potter"
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1093,42 @@
     "text": "The walls of Paris reveal foxy-faced creatures",
     "enumeration": "6"
    },
-   "solution": "LEMURS"
+   "solution": "LEMURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foxy-faced creatures",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The",
+       "at": 0,
+       "gives": "LE",
+       "note": "le is the French for the"
+      },
+      {
+       "words": "walls of Paris",
+       "at": 4,
+       "gives": "MURS",
+       "note": "murs is French for walls"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Parisian city walls expose some animals with pointed snouts.",
+     "walkthrough": "Both pieces are French, signalled by 'of Paris'.",
+     "definitionFit": "Madagascan primates have pointed, fox-like muzzles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "walls"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1148,41 @@
      }
     ]
    },
-   "solution": "TONEPOEM"
+   "solution": "TONEPOEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don Juan, for example",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about here means turned around, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Open tome",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unfold a big book about the legendary seducer.",
+     "walkthrough": "Don Juan is Richard Strauss's orchestral work, not only the libertine.",
+     "definitionFit": "Richard Strauss wrote an orchestral piece of that name, a symphonic work depicting a story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Don"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1196,31 @@
     "text": "Off-season for Gloucester's opener",
     "enumeration": "6"
    },
-   "solution": "WINTER"
+   "solution": "WINTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Off-season",
+      "at": 0,
+      "meaning": "the cold quiet time of year when tourism stops"
+     },
+     {
+      "text": "for Gloucester's opener",
+      "at": 11,
+      "meaning": "Richard, Duke of Gloucester, opens Shakespeare's Richard III with 'Now is the ___ of our discontent'"
+     }
+    ],
+    "explanation": {
+     "surface": "Gloucester's first batsman is unavailable in the closed months.",
+     "walkthrough": "The surface suggests Gloucestershire cricket; it is Shakespeare's Richard III.",
+     "definitionFit": "The coldest season is the slack time for resorts, and the word starts Richard's famous opening speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1234,52 @@
     "text": "English river is a party to a night-attack",
     "enumeration": "8"
    },
-   "solution": "CAMISADO"
+   "solution": "CAMISADO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "night-attack",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English river",
+       "at": 0,
+       "gives": "CAM",
+       "note": "the Cam flows through Cambridge"
+      },
+      {
+       "words": "is",
+       "at": 14,
+       "gives": "IS",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "words": "party",
+       "at": 19,
+       "gives": "DO",
+       "note": "a do is a party or celebration"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river in England takes part in a surprise assault after dark.",
+     "definitionFit": "Historical military term for an assault made at night, soldiers wearing shirts over armour to recognise one another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1293,51 @@
     "text": "This artist got it right with a circle!",
     "enumeration": "6"
    },
-   "solution": "GIOTTO"
+   "solution": "GIOTTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "right",
+         "at": 19,
+         "note": "set right, the letters are put into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "got it",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "a circle",
+       "at": 30,
+       "gives": "O",
+       "note": "O is round like a circle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter succeeded in drawing a perfect ring.",
+     "walkthrough": "Legend says this artist proved his skill by drawing a perfect circle freehand.",
+     "definitionFit": "Florentine painter of the early fourteenth century, famed for the Arena Chapel frescoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1357,34 @@
      }
     ]
    },
-   "solution": "EYETOOTH"
+   "solution": "EYETOOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Should one see the dentist with it?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Should one see the dentist with it?",
+       "at": 0,
+       "note": "seeing with the eye, and visiting a dentist with a canine, both fit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a certain dental problem needs a visit to the dentist.",
+     "definitionFit": "A canine of the upper jaw, beneath the eye, so one sees with an eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
