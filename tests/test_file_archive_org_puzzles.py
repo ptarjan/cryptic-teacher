@@ -5739,9 +5739,9 @@ check("a Gale FT page's third clue column is a window of its own right of the se
                         "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]}),
         f.ft_third_due({**_ftrow, "edition": "GaleTimes2004UKEnglish/2004-12-05",
                         "verdicts": [{"number": 1, "blank": {"19-down": "x", "21-down": "x"}}]})],
-       [f.ft_foot(types.SimpleNamespace(height=5564), (193, 4524, 963, 5290), (1776, 5000, 110)),
-        f.ft_foot(types.SimpleNamespace(height=9000), (193, 4524, 963, 5290), (1776, 5000, 110)),
-        f.ft_foot(types.SimpleNamespace(height=9000), (193, 4524, 963, 5290), (1776, 5600))],
+       [f.ft_foot(types.SimpleNamespace(height=5564, width=0), (193, 4524, 963, 5290), (1776, 5000, 110)),
+        f.ft_foot(types.SimpleNamespace(height=9000, width=0), (193, 4524, 963, 5290), (1776, 5000, 110)),
+        f.ft_foot(types.SimpleNamespace(height=9000, width=0), (193, 4524, 963, 5290), (1776, 5600))],
        f.RANKS[f.FT_THIRD] == 2 and f.FT_THIRD in f.BLANKET_PASSES and _eq_bp.evidence_reason(f.FT_THIRD) is not None
        and f.FT_THIRD in _eq_bp.FIX_LANDED and f.FT_THIRD in _eq_bp.UNFILED_FIRST])
 
