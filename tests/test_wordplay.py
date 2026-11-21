@@ -1026,4 +1026,30 @@ except w.WordplayError as err:
 check("derived letters quoted: the refusal says to quote the clue words that give them",
       "quote the clue words that give A" in _msg, _msg)
 
+# a quote that differs from the clue only in punctuation debris is the clue's run
+for _name, _q, _clue, _want in [
+        ("an HTML entity in the clue", "quarry", "Dig the quarry&gt;' for a find", "quarry"),
+        ("a multi-word quote across an entity", "the quarry for", "Dig the quarry&gt;' for a find", "the quarry&gt;' for"),
+        ("apostrophe forms", "e as", "Sees 'e 'as gone", "e 'as"),
+        ("a curly apostrophe", "dont", "Say don’t go", "don’t"),
+        ("a missing space after a stop", "elected MP", "Party elected.MP wins", "elected.MP"),
+        ("case", "ELECTED mp", "Party elected.MP wins", "elected.MP")]:
+    _n = {"words": _q}
+    try:
+        w.locate(_n, _clue)
+        check("quote tolerates debris: " + _name, _n["words"] == _want, _n["words"])
+    except w.WordplayError as _e:
+        check("quote tolerates debris: " + _name, False, str(_e))
+for _name, _q, _clue in [
+        ("a letter off", "tea", "Party the end the"),
+        ("a dropped word", "Down", "Go down the road"),
+        ("an added word", "Go down", "Down the road"),
+        ("two words run together", "teacher", "tea cher and more"),
+        ("a doubled word in the clue is not collapsed", "fire gun", "Fire the gun the gun")]:
+    try:
+        w.locate({"words": _q}, _clue)
+        check("quote still refused: " + _name, False, "accepted")
+    except w.WordplayError:
+        check("quote still refused: " + _name, True)
+
 raise SystemExit(fails > 0)

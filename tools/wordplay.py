@@ -133,6 +133,7 @@ import functools
 import itertools
 import math
 import json
+import html
 import re
 import sys
 import unicodedata
@@ -771,6 +772,34 @@ def _reordered_run(text, clue):
     return a, clue[a:b]
 
 
+_ENTITY = re.compile(r"&#?\w+;")
+_TOKEN = re.compile(r"[^\W_]+(?:'[^\W_]+)*")
+
+
+def _token_run(text, clue, nth, used):
+    """(offset, the clue's own characters) when `text` is the clue's words and only punctuation
+    differs: an HTML entity or stray mark in the clue ('quarry&gt;''), apostrophe forms ("'e 'as" for
+    "e as"), a missing space after a stop ('elected.MP' for 'elected MP'), case. Compares the runs of
+    letters and digits, so differing letters or an added/removed word ('tea'/'the', 'Go down'/'Down')
+    never match."""
+    if not isinstance(text, str):
+        return None
+    want = [t.casefold().replace("'", "") for t in _TOKEN.findall(fold_marks(html.unescape(text)))]
+    if not want:
+        return None
+    flat = _ENTITY.sub(lambda m: " " * len(m.group()), fold_marks(clue))
+    toks = [(m.group().casefold().replace("'", ""), m.start(), m.end()) for m in _TOKEN.finditer(flat)]
+    n = len(want)
+    hits = [(toks[i][1], toks[i + n - 1][2]) for i in range(len(toks) - n + 1)
+            if [t[0] for t in toks[i:i + n]] == want]
+    free = [h for h in hits if not any(h[0] < b and a < h[1] for a, b in used)]
+    pool = (free or hits) if nth == 1 else hits
+    if len(pool) < nth:
+        return None
+    a, b = pool[nth - 1]
+    return a, clue[a:b]
+
+
 def locate(node, clue, taken=()):
     """Fill `at` on every span of `node` from `clue`; `#n` suffixes pick the
     nth copy and come off the stored text.
@@ -817,6 +846,11 @@ def locate(node, clue, taken=()):
             folded = fold_marks(clue).lower()
             if len(folded) == len(clue):
                 at = find_at(folded, fold_marks(text).lower(), nth, used)
+        if at is None and "#" not in text:
+            run = _token_run(text, clue, nth, used)
+            if run:
+                at, text = run
+                span[key] = text
         if at is None and nth > 1 and "#" not in text:
             # '#2' for a word the clue prints once: the only copy there is.
             if len(re.findall(rf"(?<!\w){re.escape(text.lower())}(?!\w)", clue.lower())) == 1:
