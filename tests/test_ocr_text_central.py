@@ -54,6 +54,7 @@ ALLOWED = {
     ("definitions.py", "near_run"): "LOOKALIKES comparison key for locating a near-matching run of clue words",
     ("definitions.py", "_with_edges"): "LOOKALIKES comparison key when widening a span to the clue's punctuation",
     ("definitions.py", "damaged_run"): "LOOKALIKES comparison key when matching a quote that skips a word",
+    ("definitions.py", "nearest_span"): "LOOKALIKES comparison key when finding the clue run nearest a quote, for the refusal hint only; never written back",
     ("file_cryptonite.py", "mend_clue"): "restores characters Cryptonite lost to U+FFFD (cp1252 read as UTF-8); a source-encoding repair, not OCR normalisation",
     ("gale_listener.py", "lookalike"): "Greek-to-Latin comparison key between two readings; never written back",
     ("gale_listener.py", "<module>"): "the LOOKALIKE comparison table lookalike() uses",
