@@ -17,6 +17,8 @@ a thing a bad merge or a hurried edit has done:
   5. a file outside puzzles/ over 512 KB, not in tools/data/large_file_allowlist.json, that the push
      adds or changes against origin/master (check_file_sizes.py; the 1.6 MB source_clue_wrong.json
      was re-committed by a burn step, cd05aba, and CI was the first to say so);
+  6. a tests/*.py importing pytest: CI runs each test as a plain script and has no
+     pytest installed, so the file dies on import;
   4. the solution key or a paper's scan key moving from tools/data/keys.json: a moved key
      rereads every row read under the old one, so pin it (the *_PINS / *_FIX tables) or, when
      the reread is intended, rerun --write-keys.
@@ -229,6 +231,17 @@ def check_keys(fa):
     return key_problems(json.loads(KEYS.read_text(encoding="utf-8")), current_keys(fa))
 
 
+PYTEST_IMPORT = re.compile(r"^\s*(import|from)\s+pytest\b", re.M)
+
+
+def check_tests():
+    """Test files CI cannot run: it runs each as a plain script, without pytest."""
+    return [f"tests/{p.name}: imports pytest; CI runs tests as plain scripts with no pytest "
+            "(print ok/FAIL lines and exit 1 on a failure instead)"
+            for p in sorted((REPO / "tests").glob("*.py"))
+            if PYTEST_IMPORT.search(p.read_text(encoding="utf-8", errors="replace"))]
+
+
 def check_sizes():
     """Big files this push adds or changes against origin/master, via check_file_sizes."""
     sys.path.insert(0, str(TOOLS))
@@ -265,6 +278,7 @@ def main(argv):
     if eq is not None:
         problems += check_registry(eq, fa)
     problems += check_sizes()
+    problems += check_tests()
     problems += check_ruff()
     if fa is not None:
         try:
