@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Accumulation of electricity in storm",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Accumulation of electricity",
+      "at": 0,
+      "meaning": "an electrical build-up held on a body, as on a battery or a cloud"
+     },
+     {
+      "text": "storm",
+      "at": 31,
+      "meaning": "to storm a position is to rush at it in an attack"
+     }
+    ],
+    "explanation": {
+     "surface": "A thundercloud builds up static during a storm.",
+     "definitionFit": "Both senses belong to one word: the electric quantity stored on a body, and a headlong attack or rush, which is what storming means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,30 @@
     "text": "Enclose a division of the celestial sphere",
     "enumeration": "5"
    },
-   "solution": "HOUSE"
+   "solution": "HOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Enclose",
+      "at": 0,
+      "meaning": "to enclose something is to give it shelter or a home"
+     },
+     {
+      "text": "a division of the celestial sphere",
+      "at": 8,
+      "meaning": "astrologers split the sky into twelve sectors, each ruling part of life"
+     }
+    ],
+    "explanation": {
+     "surface": "An astronomer fences off one sector of the sky.",
+     "definitionFit": "As a verb the word means to shelter or contain; in astrology it names one of the twelve sectors the heavens are divided into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Enclose"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +107,41 @@
     "text": "Mineral needed in arboreal gardens",
     "enumeration": "7"
    },
-   "solution": "REALGAR"
+   "solution": "REALGAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the answer sits inside the run of letters across the words arboreal gardens"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arboreal gardens",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener says a certain mineral is required in tree-filled gardens.",
+     "walkthrough": "The run starts at the end of 'arboreal' and runs into 'gardens'.",
+     "definitionFit": "Realgar is an orange-red arsenic sulphide ore, a mineral once used as a pigment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arboreal"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +155,59 @@
     "text": "Battery parts with old copper in steel core, perhaps",
     "enumeration": "10"
    },
-   "solution": "ELECTRODES"
+   "solution": "ELECTRODES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Battery parts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in places the old coin inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 45,
+         "note": "perhaps signals that the letters of steel core are to be taken in some other order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "steel core",
+         "at": 33
+        }
+       ]
+      },
+      {
+       "words": "old copper",
+       "at": 19,
+       "gives": "D",
+       "note": "D is the abbreviation for the old British penny, a copper coin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A battery has terminals made using an ancient copper coin set in a steel core.",
+     "walkthrough": "'perhaps' rearranges STEEL CORE into ELECTROES, and 'in' puts D inside it. The old penny, written d, was a copper coin before decimal currency came in in 1971.",
+     "definitionFit": "Electrodes are the terminals through which current enters or leaves a battery cell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +221,52 @@
     "text": "Apparent difference in position, standard with a line showing latitude",
     "enumeration": "8"
    },
-   "solution": "PARALLAX"
+   "solution": "PARALLAX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Apparent difference in position",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "standard",
+       "at": 33,
+       "gives": "PAR",
+       "note": "par is the standard or normal level"
+      },
+      {
+       "words": "a",
+       "at": 47,
+       "gives": "A"
+      },
+      {
+       "words": "line",
+       "at": 49,
+       "gives": "L"
+      },
+      {
+       "words": "latitude",
+       "at": 62,
+       "gives": "LAX",
+       "note": "latitude as freedom from strictness is laxity, so lax"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A navigator draws a standard line to show latitude on a chart.",
+     "walkthrough": "'latitude' looks geographical but means leeway, giving LAX.",
+     "definitionFit": "In astronomy and optics the term names the shift an object seems to make when seen from two different viewpoints."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "latitude"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +286,34 @@
      }
     ]
    },
-   "solution": "POTENTIALENERGY"
+   "solution": "POTENTIALENERGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What may come from oil, say, that'll be released in fall",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What may come from oil, say, that'll be released in fall",
+       "at": 0,
+       "note": "stored power, such as that locked in fuel or in a raised weight, which is set free when the body drops"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about something got from oil that is set free when a thing drops.",
+     "definitionFit": "Physics names the energy a body holds by position or chemistry, as in a raised weight or a fuel, which is turned into motion when it falls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +327,29 @@
     "text": "Expression of annoyance from subjects in lab experiments",
     "enumeration": "4"
    },
-   "solution": "RATS"
+   "solution": "RATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expression of annoyance",
+      "at": 0,
+      "meaning": "an exclamation like drat or damn"
+     },
+     {
+      "text": "subjects in lab experiments",
+      "at": 29,
+      "meaning": "rodents commonly used for testing in laboratories"
+     }
+    ],
+    "explanation": {
+     "surface": "A scientist curses at the animals being tested.",
+     "definitionFit": "The plural rodent name doubles as a mild curse of irritation, and these animals are standard laboratory test subjects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +369,58 @@
      }
     ]
    },
-   "solution": "LINEARB"
+   "solution": "LINEARB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ancient script",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found in",
+         "at": 8,
+         "note": "found in places the article inside the word for a vessel"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "at": 17,
+         "gives": "LINER",
+         "note": "a liner is a large passenger ship"
+        },
+        {
+         "words": "Article",
+         "at": 0,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        }
+       ]
+      },
+      {
+       "words": "book",
+       "at": 25,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist finds an item in a pot and a book written in an old script.",
+     "definitionFit": "Linear B is the Mycenaean Greek syllabic writing found on Bronze Age clay tablets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +434,60 @@
     "text": "Gravity causes collapse, trapping a number",
     "enumeration": "9"
    },
-   "solution": "ACUTENESS"
+   "solution": "ACUTENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gravity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trapping",
+       "at": 25,
+       "note": "trapping means the number is held inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "collapse",
+         "at": 15,
+         "note": "to collapse is to fall apart, so the letters of causes are broken up and rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "causes",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "a number",
+       "at": 34,
+       "gives": "TEN",
+       "note": "ten is a number"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gravity makes something cave in, catching a number inside.",
+     "walkthrough": "'collapse' turns CAUSES into ACUESS, and 'trapping' holds TEN inside it after ACU. 'Gravity' looks like physics, but it means seriousness; the acute and grave accents add a wink.",
+     "definitionFit": "Gravity in the sense of severity or seriousness of a situation is matched by its sharpness or intensity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gravity"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +501,59 @@
     "text": "Apart from neon, including a natural gas",
     "enumeration": "6"
    },
-   "solution": "BUTANE"
+   "solution": "BUTANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "natural gas",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 17,
+       "note": "including means the letter a is held within the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Apart from",
+         "at": 0,
+         "gives": "BUT",
+         "note": "but means except or apart from"
+        },
+        {
+         "words": "neon",
+         "at": 11,
+         "gives": "NE",
+         "note": "Ne is the chemical symbol for neon"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 27,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist describes a natural gas, with neon set aside.",
+     "walkthrough": "'including' puts A into BUT + NE, between the two pieces.",
+     "definitionFit": "Butane is a hydrocarbon found in and extracted from natural gas deposits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "neon"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +567,60 @@
     "text": "Metal — cast it in less than a minute, perhaps",
     "enumeration": "8"
    },
-   "solution": "TITANIUM"
+   "solution": "TITANIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cast",
+       "at": 8,
+       "note": "cast, as metal is shaped in a mould, tells us to form the letters into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "it",
+       "at": 13
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less than",
+         "at": 19,
+         "note": "less than means a little is short, so the final letter of the phrase a minute is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a minute",
+         "at": 29
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foundry worker boasts of casting a piece of metal in under sixty seconds.",
+     "walkthrough": "'less than' cuts the E from A MINUTE to leave AMINUT; with IT those letters are 'cast' into the metal.",
+     "definitionFit": "Titanium is a strong, light, silvery transition metal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +634,60 @@
     "text": "Crew put in helium and nitrogen to increase altitude",
     "enumeration": "8"
    },
-   "solution": "HEIGHTEN"
+   "solution": "HEIGHTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "increase altitude",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "put in",
+         "at": 5,
+         "note": "put in means the crew goes inside the pair of element symbols"
+        }
+       ],
+       "parts": [
+        {
+         "words": "helium",
+         "at": 12,
+         "gives": "HE",
+         "note": "He is the chemical symbol for helium"
+        },
+        {
+         "words": "Crew",
+         "at": 0,
+         "gives": "EIGHT",
+         "note": "a rowing crew of eight oarsmen is called an eight"
+        }
+       ]
+      },
+      {
+       "words": "nitrogen",
+       "at": 23,
+       "gives": "N",
+       "note": "N is the chemical symbol for nitrogen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A balloon crew pumps in gases so the craft can climb higher.",
+     "walkthrough": "EIGHT, a rowing crew, goes between HE and N.",
+     "definitionFit": "To raise or make taller is to add altitude, a sense matched by making something higher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crew"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +701,45 @@
     "text": "Scientific device-one not working well, we hear",
     "enumeration": "5"
    },
-   "solution": "LASER"
+   "solution": "LASER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scientific device",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LASER",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 40,
+       "note": "we hear tells us the word is judged by its sound, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one not working well",
+       "at": 18,
+       "gives": "LAZER",
+       "note": "someone lazing about, a lazer, is not working hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken lab instrument is said to be idle.",
+     "walkthrough": "A 'lazer', one who lazes, is pronounced the same as the device.",
+     "definitionFit": "A laser is an optical instrument emitting a narrow, intense beam of coherent light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +759,36 @@
      }
     ]
    },
-   "solution": "ATOMICMASS"
+   "solution": "ATOMICMASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's the matter, fundamentally, in 10 or 16, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What's the matter, fundamentally, in 10 or 16, say",
+       "at": 0,
+       "note": "the amount of matter in one basic unit of an element such as the metals at 10 and 16"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worried question about what is wrong with two other entries.",
+     "walkthrough": "'What's the matter' sounds like concern but asks how much matter, at the level of atoms, the metals TITANIUM (10) and THORIUM (16) have.",
+     "definitionFit": "The figure gives the weight of one atom of an element, the matter at its fundamental level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "matter"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +816,36 @@
    "group": [
     "14-across",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He comes second here, and I can be found in fifty-third place",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He comes second here, and I can be found in fifty-third place",
+       "at": 0,
+       "note": "He and I are the chemical symbols of helium and iodine, numbers two and fifty-three in the chart of the chemical elements"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts that a man finished second and the speaker came fifty-third in a race.",
+     "walkthrough": "'He' and 'I' read as pronouns, but they are element symbols: helium has atomic number 2 and iodine 53.",
+     "definitionFit": "The chart arranges the chemical elements by atomic number, so helium is second and iodine fifty-third."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "He"
+    }
+   }
   },
   {
    "number": 14,
@@ -272,7 +859,40 @@
     "text": "Corruptly reproduce part of computer program",
     "enumeration": "9"
    },
-   "solution": "PROCEDURE"
+   "solution": "PROCEDURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of computer program",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Corruptly",
+       "at": 0,
+       "note": "corruptly suggests the letters of reproduce are garbled out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reproduce",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Copying a section of software dishonestly.",
+     "definitionFit": "In programming, a subroutine or self-contained block of instructions is called by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Corruptly"
+    }
+   }
   },
   {
    "number": 15,
@@ -309,7 +929,70 @@
     "text": "Unusually hot alcoholic spirit in which one's plunged metal",
     "enumeration": "7"
    },
-   "solution": "THORIUM"
+   "solution": "THORIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "metal",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unusually",
+         "at": 0,
+         "note": "unusually shows the letters of hot are set out in an odd order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hot",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "plunged",
+         "at": 46,
+         "note": "one plunged into the drink is put inside the word for that spirit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alcoholic spirit",
+         "at": 14,
+         "gives": "RUM",
+         "note": "rum is an alcoholic spirit"
+        },
+        {
+         "words": "one's",
+         "at": 40,
+         "gives": "I",
+         "note": "one is I, the Roman numeral, the 's being linking"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oddly hot rum into which someone dunks a piece of metal.",
+     "walkthrough": "'Unusually' turns HOT into THO; I, one, goes into RUM, with 'in which' only joining.",
+     "definitionFit": "Thorium is a radioactive metallic element of the actinide series."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1016,42 @@
    "group": [
     "17-down",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's how brainwaves get to the members",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 16,
+       "note": "somehow shows the letters of the phrase are put into an order not yet known"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Runs messy vote",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chaotic ballot is being run, and that is how ideas reach the party members.",
+     "walkthrough": "'members' suggests club or party members, but means limbs, which the brain's signals reach.",
+     "definitionFit": "The body's network of nerves carries the brain's signals to the limbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "members"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1065,40 @@
     "text": "Elementary particle featured in theme song",
     "enumeration": "5"
    },
-   "solution": "MESON"
+   "solution": "MESON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elementary particle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "featured in",
+       "at": 20,
+       "note": "featured in means the answer appears inside the run of letters across theme song"
+      }
+     ],
+     "parts": [
+      {
+       "words": "theme song",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny particle gets a mention in a show's theme tune.",
+     "definitionFit": "A meson is a subatomic particle made of a quark and an antiquark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "featured"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1112,60 @@
     "text": "Alloy chemist, in short, mixed with iron",
     "enumeration": "8"
    },
-   "solution": "NICHROME"
+   "solution": "NICHROME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alloy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mixed",
+       "at": 25,
+       "note": "mixed shows the letters are stirred together into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in short",
+         "at": 15,
+         "note": "in short means the word chemist is cut down to a shorter form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chemist",
+         "at": 6
+        },
+        {
+         "gives": "IST"
+        }
+       ]
+      },
+      {
+       "words": "iron",
+       "at": 36
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist briefly blends iron to make an alloy.",
+     "walkthrough": "'in short' cuts CHEMIST to CHEM; 'mixed' shuffles CHEM with IRON.",
+     "definitionFit": "Nichrome is a nickel-chromium alloy used for heating elements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mixed"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1185,31 @@
      }
     ]
    },
-   "solution": "MYEYE"
+   "solution": "MYEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Optical equipment I use",
+      "at": 0,
+      "meaning": "the speaker's own organ of sight"
+     },
+     {
+      "text": "Nonsense",
+      "at": 25,
+      "meaning": "an exclamation of disbelief, like rubbish or tosh"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone scoffs at the idea of the speaker using optical gear.",
+     "definitionFit": "Literally the phrase is the speaker's organ of sight; as an exclamation it means 'rubbish!', expressing disbelief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "equipment"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1223,52 @@
     "text": "Gold is layered thinly, primarily, for this",
     "enumeration": "4"
    },
-   "solution": "GILT"
+   "solution": "GILT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gold is layered thinly, primarily, for this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 24,
+       "note": "primarily means take the first letter of each of the words gold is layered thinly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gold",
+       "at": 0
+      },
+      {
+       "words": "is",
+       "at": 5
+      },
+      {
+       "words": "layered",
+       "at": 8
+      },
+      {
+       "words": "thinly",
+       "at": 16
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Gold is beaten into thin layers mainly for this purpose.",
+     "definitionFit": "The word means a thin coat of gold applied to a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1282,51 @@
     "text": "One can decontaminate Indian port with fire, perhaps",
     "enumeration": "8"
    },
-   "solution": "PURIFIER"
+   "solution": "PURIFIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One can decontaminate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Indian port",
+       "at": 22,
+       "gives": "PURI",
+       "note": "Puri is a coastal city in Odisha, eastern India"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 45,
+         "note": "perhaps hints that the letters of fire may be arranged otherwise"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fire",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Indian port might be cleansed by fire.",
+     "definitionFit": "A device or agent that removes contamination cleans, so it is named for making things pure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1340,45 @@
     "text": "A page with curve showing extreme position in orbit",
     "enumeration": "6"
    },
-   "solution": "APOGEE"
+   "solution": "APOGEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extreme position in orbit",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "page",
+       "at": 2,
+       "gives": "P"
+      },
+      {
+       "words": "curve",
+       "at": 12,
+       "gives": "OGEE",
+       "note": "an ogee is an S-shaped curve or moulding"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diagram on a page uses a curve to show the far point of an orbit.",
+     "definitionFit": "Apogee is the point in an orbit furthest from the Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curve"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1392,46 @@
     "text": "With George and me, experiment in study of space",
     "enumeration": "8"
    },
-   "solution": "GEOMETRY"
+   "solution": "GEOMETRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "study of space",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "George",
+       "at": 5,
+       "gives": "GEO",
+       "note": "Geo is a short form of the name George"
+      },
+      {
+       "words": "me",
+       "at": 16,
+       "gives": "ME"
+      },
+      {
+       "words": "experiment",
+       "at": 20,
+       "gives": "TRY",
+       "note": "a try is an attempt or experiment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "George and the speaker run an experiment on space.",
+     "definitionFit": "Geometry is the branch of mathematics dealing with shapes, sizes and spatial relations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "experiment"
+    }
+   }
   },
   {
    "number": 25,
