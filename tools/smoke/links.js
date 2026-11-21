@@ -162,7 +162,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     // something else at first" is not a leak of FIRST, nor "Mechanism:
     // cryptic definition" of CRYPT (app.js masks a label only where it is the
     // answer as a word).
-    const LADDER_PROSE = ["Indicator", "Definition", "Clue type", "Pieces", "Solution",
+    const LADDER_PROSE = [
       ...CLUE_TYPES.families.flatMap(f => [f.blurb, f.label]),
       ...CLUE_TYPES.types.flatMap(t => [t.blurb, t.label]),
       ...rungTemplateProse(appSrc).map(t => t.replace(/<[^>]*>|&[#\w]+;/g, " ")),
@@ -182,7 +182,13 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       ...[...appSrc.slice(appSrc.indexOf("const cutWords = "), appSrc.indexOf("const chipless = "))
         .matchAll(/"([^"$]*)"|`([^`$]*)/g)].map(m => m[1] || m[2]),
       "minus", "inside", "with", "for", "moved", "made from", "letter", "letters", "definition", "answer"]
-      .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);
+      .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean)
+      // Longest first: a short piece ("definition", from the word list above)
+      // cut out first would split a longer one ("Double or cryptic definition",
+      // "two definitions placed together") so it no longer matched, and its
+      // CRYPT or PLAY (in "playful") would read as a leak that is not there.
+      // The track's chip names are not in #hint-body, so they are not listed.
+      .sort((a, b) => b.length - a.length);
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       const where = `${cd.id} ${entryId(cd.e)} (${ans})`;
