@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "a Gale FT clue cut in its middle (first line's tail lost) kept over the reread's whole clue"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T05:17:00+00:00"
 HEAD = "across clues do not parse: cannot find a clue number"
 
 
