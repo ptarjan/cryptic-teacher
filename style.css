@@ -1626,15 +1626,20 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .left-col { flex: 1 1 640px; }
 }
 
-.clue-strip { display: none; }
 @media (max-width: 700px) {
   body { padding: env(safe-area-inset-top, 0px) 8px 40px; }
   .layout { gap: 10px; }
-  /* The clue panel is below the grid and the fold; this line is the selected
-     clue where the eye already is. */
-  .clue-strip { display: block; margin: 0 0 6px; font-size: 1.05rem; line-height: 1.3; }
-  .clue-strip:empty { display: none; }
-  .clue-strip b { margin-right: .3em; color: var(--accent); }
+  /* Step 9: the one clue, pinned. app-boot.js moves #hint-clue out of the panel
+     (below the fold) to sit above the grid in .left-col, and it sticks to the
+     top of the page while the grid and panel scroll under it. --vv-top is the
+     visual viewport's offset, so it follows the page when the iOS keyboard
+     pushes it. No ancestor sets overflow, so sticky has the whole page. */
+  #hint-clue {
+    position: sticky; top: max(env(safe-area-inset-top, 0px), var(--vv-top, 0px)); z-index: 5;
+    background: var(--bg); padding: 4px 0 6px; margin-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .left-col:has(> #hint-panel.hidden) > #hint-clue { display: none; }
 }
 
 /* ---------- wide screens: one fixed frame, no page scroll ----------

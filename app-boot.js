@@ -35,8 +35,39 @@
     });
   }
 
+  // Step 9: on a phone the selected clue lives above the grid, pinned, so it is
+  // on screen whatever the keyboard has done to the page; wider, it is the
+  // panel's first child as it always was. The words are found by id (gw-N), so
+  // moving the node loses nothing. Fake DOM elements have no parentNode, hence
+  // the guards.
+  function placeClueRow() {
+    const clue = $("hint-clue"), panel = $("hint-panel"), grid = $("grid-wrap");
+    if (!clue || !panel || !grid || !window.matchMedia) return;
+    const phone = matchMedia("(max-width: 700px)").matches;
+    const col = grid.parentNode;
+    if (phone) { if (col && clue.parentNode !== col) col.insertBefore(clue, grid); }
+    else if (clue.parentNode !== panel) panel.insertBefore(clue, panel.firstChild);
+  }
+  // iOS pans the visual viewport inside the layout viewport when the keyboard is
+  // up; position: sticky follows the layout viewport, so the row is told where
+  // the visible top is.
+  function trackVisualViewportTop() {
+    const vv = window.visualViewport;
+    if (!vv || !vv.addEventListener || !document.documentElement || !document.documentElement.style) return;
+    const write = () => document.documentElement.style.setProperty("--vv-top", (vv.offsetTop || 0) + "px");
+    vv.addEventListener("scroll", write);
+    vv.addEventListener("resize", write);
+    write();
+  }
+
   function boot() {
     bindFeedback();
+    placeClueRow();
+    if (window.matchMedia) {
+      const mq = matchMedia("(max-width: 700px)");
+      if (mq.addEventListener) mq.addEventListener("change", placeClueRow);
+    }
+    trackVisualViewportTop();
     $("btn-stats").onclick = () => { if (toggleStats()) beacon("stats"); };
     $("btn-stats-close").onclick = () => toggleStats(false);
     // #stats is the stats page as a link, which is what a toast points at.
@@ -303,7 +334,8 @@
     $("hint-pattern").addEventListener("mousedown", () => {
       const up = document.activeElement === $("kbd");
       focusKbd();
-      if (!up) scrollToHintPanel("hint-clue", "hint-panel", "hint-pattern");
+      // On a phone the clue row is pinned, not part of the panel's travel.
+      if (!up) scrollToHintPanel(clueIsPinned() ? "hint-pattern" : "hint-clue", "hint-panel", "hint-pattern");
     });
 
     // Everything else keeps a keyboard and never raises one. Picking a square is
@@ -316,7 +348,7 @@
     // buttons away and rebuilds them on every render. The mousedown listener
     // runs before the default focus transfer, so activeElement still says
     // whether the keyboard was up when the finger landed.
-    ["grid", "clues-across", "clues-down", "clues-unclued", "clues-offgrid", "hint-track", "hint-next", "hint-escape"].forEach((id) =>
+    ["grid", "clues-across", "clues-down", "clues-unclued", "clues-offgrid", "hint-track", "hint-next", "hint-escape", "hint-clue"].forEach((id) =>
       $(id).addEventListener("mousedown", keepKbd));
 
     // Bound here for the same reason, and to the list rather than to a row: the

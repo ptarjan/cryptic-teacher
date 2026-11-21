@@ -355,14 +355,6 @@
     return ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are ${what}. Our own full hint replaces them once we write it.">hints via ${name} · ours to come</span>`;
   }
 
-  // The selected clue on one line above the grid, for a phone, where the panel
-  // that carries it is below the fold. CSS shows it only at phone width.
-  function renderClueStrip(e) {
-    const el = $("clue-strip");
-    if (!el) return;
-    setHTML(el, e && !jigsaw ? `<b>${e.offGrid ? "" : esc(tag(e))}</b> ${plainClueHTML(holderOf(e))}` : "");
-  }
-
   // Paul 11-08: "I want to be able to select words right off the bat without a
   // click and then the definition without a click." Arriving at a clue asks the
   // ladder's first free question straight away, so its words are tappable with
@@ -469,7 +461,6 @@
 
   function renderHintPanel() {
     const e = currentEntry();
-    renderClueStrip(e);
     const panel = $("hint-panel");
     if (!e) {
       arrivedAt = null;

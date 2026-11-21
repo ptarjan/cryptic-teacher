@@ -49,6 +49,18 @@ const assert = (ok, msg) => { if (!ok) fails.push(msg); };
     await swipe(200, 700, 200);                  // read down it
     const scrolledPuzzle = await num("scrollY");
     assert(scrolledPuzzle > 0, "the puzzle page scrolls: " + scrolledPuzzle);
+    // ---- 3. step 9: one clue on the phone. The selected clue sits above the
+    // grid and stays at the top of the screen while the page scrolls; the plain
+    // #clue-strip it replaced is gone.
+    const pinned = await ev(`(() => {
+      const c = document.getElementById("hint-clue"), r = c.getBoundingClientRect();
+      return { strip: !!document.getElementById("clue-strip"), inCol: c.parentNode.classList.contains("left-col"),
+               sticky: getComputedStyle(c).position, top: r.top, shown: r.height > 0 };
+    })()`);
+    assert(!pinned.strip, "the plain clue strip is gone");
+    assert(pinned.inCol, "at phone width the clue row is moved out of the hint panel, above the grid");
+    assert(pinned.sticky === "sticky", "the clue row is sticky: " + pinned.sticky);
+    assert(!pinned.shown || Math.abs(pinned.top) <= 1, "after scrolling, the clue row is still at the top of the screen: " + pinned.top);
     await tab("puzzles");
     assert(await panelTop() === 0, "the list opens at its top, not where it was left: " + await panelTop());
     const before = await num("scrollY");

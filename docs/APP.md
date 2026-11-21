@@ -61,6 +61,17 @@ Terms used below:
   the old row shape through `registry["hint-rungs"]` in `tools/fake_dom.js`
   (a chip tap that only chose a step is followed by "Show me", and Reveal
   answer is appended from the help bar).
+- **One clue on the phone** (hints redesign step 9). At width 700px or less
+  `#hint-clue` is moved out of `#hint-panel` to sit just before `#grid-wrap` in
+  `.left-col` (`placeClueRow`, app-boot.js, at boot and on the media query's
+  change; wider screens keep it as the panel's first child) and is
+  `position: sticky` at the top of the page, so the clue stays on screen while
+  the grid and panel scroll under it. A `visualViewport` scroll/resize listener
+  writes the visible top into `--vv-top` so the row follows the page when the
+  iOS keyboard pans it. It is hidden with the panel. `visibleBand()` trims the
+  row's height off the top of the band; the letter strip's tap places
+  `#hint-pattern` rather than the clue; and a tap on the clue keeps the
+  keyboard (`keepKbd`). The old `#clue-strip` is gone.
 - **After solving** (`isEntrySolved`): the track keeps only the steps already
   open, and the help bar's "Show me", Reveal letter and Letters give way to one
   free button `#hx-how`, "How it works" (`howTap`). One tap calls `showHint` on
