@@ -8,7 +8,7 @@ Due: the Gale FT editions the 2000-09 held files show with 4+ lowercase non-word
 from fix_reasons import Reason
 
 TEXT = "a Gale FT page's clue columns cut at a fixed edge through their last words, clues filed cut"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-21T20:21:00+00:00"
 EDITIONS = frozenset(f"GaleFT{d[:4]}UKEnglish/{d}" for d in (
     "2003-12-09", "2003-12-10", "2003-01-29", "2003-01-31", "2003-06-20", "2003-06-25", "2004-06-02",
     "2008-11-24", "2008-11-07", "2001-12-04"))
