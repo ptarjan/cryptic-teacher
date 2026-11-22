@@ -20715,16 +20715,80 @@ def tele_head_top(d, img, hit, found, gbox):
     """The top (y) for the clue columns of Gale Telegraph page `d` (1990-2000) whose title box `hit` lies mid-list: the
     cryptic's heading row over it (telegraph_over_title), at least TELE_HEAD_RISE[0] over the box's top and within
     TELE_HEAD_RISE[1] of the grid's width, its left within the grid's left edge less its width; else None."""
-    if gbox is None or not TELE_HEAD_YEARS[0] <= d.name[:4] <= TELE_HEAD_YEARS[1]:
+    early = TELE_EARLY_YEARS[0] <= d.name[:4] <= TELE_EARLY_YEARS[1]
+    if gbox is None or not (early or TELE_HEAD_YEARS[0] <= d.name[:4] <= TELE_HEAD_YEARS[1]):
         return None
-    over = telegraph_over_title(d, img, hit, found, TELE_HEAD_YEARS)
+    over = tele_early_heading(d, img, hit, found) if early else telegraph_over_title(d, img, hit, found, TELE_HEAD_YEARS)
     if over is None:
         return None
     k, gw = img.width / SCAN_WIDTH, gbox[2] - gbox[0]
     rise = hit["box"][1] - over[1]
-    if rise < TELE_HEAD_RISE[0] * k or rise > TELE_HEAD_RISE[1] * gw or over[0] < gbox[0] - gw:
+    limit = TELE_EARLY_RISE if early else TELE_HEAD_RISE
+    if rise < limit[0] * k or rise > limit[1] * gw or over[0] < gbox[0] - gw:
         return None
     return max(0, over[1] - 10)
+
+
+#: The reason (tools/reasons/*tele_early_head.py) of a Gale Telegraph 1975-89 page whose grid read but whose clue lists were
+#: cut at the title box's top, mid-list (r304: 169 rows 1979-89, 1980-84 mostly, 10-16 of 28-32 clues laid, 1-across/1-down and
+#: the first clues of each list "no reading laid a clue on it"). Two scan shapes put the box mid-list: the title taken from a
+#: clue line (1983-10-25 box y 3162, 121-890 wide, the heading "No. 18,329 ACROSS / DOWN" at y 2861) or, since TELE_QUICK_TITLE,
+#: the block heading clue_block_heading found from the first run of six clue counts the page's wide band read (1984-12-19:
+#: block at y 3141, the band's reader returned no word over y 3190 of its 2256 px). telegraph_over_title cannot serve: it
+#: declines a title box over TELE_OVER_GAP above the SOLUTION heading, as these are, and its band is the page's whole width.
+#: tele_early_heading reads a narrow band (the left TELE_EARLY_WIDTH px, TELE_EARLY_REACH over the SOLUTION heading), the
+#: size the 1,500x1,290 title windows read whole, for the lone DOWN heading (and its ACROSS when read apart): a read-time
+#: change, no scan key moves.
+TELE_EARLY_YEARS = ("1975", "1989")
+TELE_EARLY_REACH, TELE_EARLY_WIDTH = 1600, 1300
+#: The heading stands at least this far (px at SCAN_WIDTH) over the box's top and at most this share of the grid's width.
+TELE_EARLY_RISE = (100, 1.6)
+
+
+def tele_early_heading(d, img, hit, found):
+    """The box of the cryptic's ACROSS/DOWN heading row on Gale Telegraph page `d` (1975-89), read from the strip over the
+    page's one SOLUTION heading, left of TELE_EARLY_WIDTH: the one lone DOWN word whose row is not the Quick's (the band ends
+    over the SOLUTION heading), its ACROSS word TELE_OVER_PAIR left of it, or, none on its row, placed where that stands.
+    None unless one reader finds exactly one such DOWN."""
+    sols = [s["box"] for s in (found or {}).get("solutions") or () if s.get("leaf") == hit.get("leaf") and s.get("box")]
+    if len(sols) != 1:
+        return None
+    sol, k = sols[0], img.width / SCAN_WIDTH
+    band = (0, max(0, int(sol[1] - TELE_EARLY_REACH * k)), min(img.width, int(TELE_EARLY_WIDTH * k)), int(sol[1] - 60 * k))
+    if band[3] - band[1] < 400 * k:
+        return None
+    for which in PAGE_READERS:
+        path = CROPS / "titles" / f"{d.parent.name}_{d.name}_head_{'_'.join(map(str, band))}.{reader_key(which)}.json"
+        words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
+        lines = printed_lines(words)
+        across = [w for ws in lines for w in ws if ACROSS_LINE.match(w[4])]
+        downs = [w for ws in lines for w in ws if _TELE_DOWN.match(w[4])]
+        if len(downs) != 1:
+            continue
+        dn = downs[0]
+        mates = [a for a in across if abs(a[1] - dn[1]) <= 40 * k and TELE_OVER_PAIR[0] * k <= dn[0] - a[0] <= TELE_OVER_PAIR[1] * k]
+        if len(mates) == 1:
+            return tuple(mates[0][:4])
+        if not [a for a in across if abs(a[1] - dn[1]) <= 40 * k]:
+            x0 = int(dn[0] - 376 * k)
+            return (max(0, x0), dn[1], x0 + int(110 * k), dn[3])
+    return None
+
+
+def tele_early_due(row):
+    """Whether Gale Telegraph ledger `row` (1975-89) holds a puzzle whose clue lists were cut mid-list: 4 or more lights
+    "no reading laid a clue on it", one of them numbered 1-3 (the lists' first clues), not complete, not written filed."""
+    rel = (row or {}).get("edition") or ""
+    if not re.match(r"GaleTelegraph(197[5-9]|198\d)UKEnglish/", rel) or "inputs" not in row:
+        return False
+    for v in row.get("verdicts") or ():
+        blank = v.get("blank")
+        if not isinstance(blank, dict) or v.get("complete") or not v.get("lights") or v.get("refused") or not v.get("unfiled"):
+            continue
+        none = [k for k, why in blank.items() if str(why).startswith("no reading laid a clue on it")]
+        if len(none) >= 4 and any(re.match(r"[123]-", k) for k in none):
+            return True
+    return False
 
 
 #: The reason, and its fix's time, of a Times page (Gale 1940-49) written unfiled with a light blank "no reading laid a clue
