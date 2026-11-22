@@ -628,6 +628,11 @@ def read_done(row, done=None):
         # Read with the Down list beside the grid (right of it, the Across list under it) left out of the lists' cut
         # (SIDE_FIX 1).
         return False
+    if row and row.get("headingGap", 0) < HEADING_GAP and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and row.get("file") in heading_gap_names():
+        # Read with the wrapped lists' cut stopped at the gap before the Across heading under the grid (HEADING_GAP 1):
+        # only the pages whose cut the fix changes (tools/data/mephisto_heading_gap.json).
+        return False
     if row and row.get("riseFix", 0) < RISE_FIX and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and "1960" <= (row.get("date") or "9") < "1980" \
             and len(row.get("blank") or ()) >= 2 and "no clue read for it" in (row.get("why") or {}).values():
@@ -1695,10 +1700,35 @@ def wrapped_cut(words, box):
         # beside the grid end first): the lists go on from them.
         opens = GAP_FIX and any(-lh < r[1] - w[1] < 12 * lh for r in inside if STOP_RULES.match(r[4]) and r[1] > box[3] + 3 * lh
                                 and abs(r[0] - left) < 4 * lh and rules_head(inside, r, lh, gl))
-        if w[1] - bottom > 3 * lh and not opens:
+        # HEADING_GAP: the Across heading under the grid stands below a gap of 4-11 lines (an advertisement or a bridge
+        # column's tail between it and the Down column's foot beside the grid): the lists go on to it, not stop at the gap.
+        reaches = HEADING_GAP and any(0 < r[1] - bottom < HEADING_GAP_LINES * lh and abs(r[0] - left) < 4 * lh
+                                      and gl.heading(r[4]) == "ACROSS" and r[1] > box[3] for r in inside)
+        if w[1] - bottom > 3 * lh and not opens and not (reaches and w[1] - bottom < HEADING_GAP_LINES * lh):
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), [tuple(int(v) for v in box)]
+
+
+#: Bumped when wrapped_cut goes on over the gap before an Across heading under the grid (HEADING_GAP_LINES lines at
+#: most; the 1988 pages' Down column ends beside the grid, an advertisement stands between it and the Across list under
+#: the grid): the pages before 1989 read with four or more blank lights, a clue never read, are read again once.
+HEADING_GAP = 1
+HEADING_GAP_LINES = 12
+HEADING_GAP_FILE = ROOT / "tools" / "data" / "mephisto_heading_gap.json"
+_HEADING_GAP_NAMES = None
+
+
+def heading_gap_names():
+    """The bare GALE_*.pdf names whose wrapped cut HEADING_GAP changes (a committed list nothing writes: found by
+    cutting every 1960-88 page left 4+ blank, a clue never read, with the fix off and on)."""
+    global _HEADING_GAP_NAMES
+    if _HEADING_GAP_NAMES is None:
+        try:
+            _HEADING_GAP_NAMES = frozenset(json.loads(HEADING_GAP_FILE.read_text()))
+        except (OSError, ValueError):
+            _HEADING_GAP_NAMES = frozenset()
+    return _HEADING_GAP_NAMES
 
 
 #: A line opening the notes or last week's answers under the early-1960s Down clues.
@@ -2427,7 +2457,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
-                "riseFix": RISE_FIX}, store)
+                "headingGap": HEADING_GAP, "riseFix": RISE_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

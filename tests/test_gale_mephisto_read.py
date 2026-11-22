@@ -139,7 +139,7 @@ _nostrip = {k: v for k, v in many.items() if k != "stripFix"}
 check("a page 4+ blank after VLM columns, before STRIP_FIX, is due", False, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2}))
 check("a page with 3 blank after VLM columns is not due for STRIP_FIX", True, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2, "blank": ["2-down", "3-down", "4-down"]}))
 check("a whole page is not due for STRIP_FIX", True, gm.read_done({**_nostrip, "midFix": gm.MID_FIX, "vlmColumns": 2, "whole": True}))
-_prior = {**many, "midFix": gm.MID_FIX, "vlmColumns": 2, "stripFix": gm.STRIP_FIX, "why": {"2-down": "no clue read for it"}}
+_prior = {**many, "midFix": gm.MID_FIX, "headingGap": gm.HEADING_GAP, "vlmColumns": 2, "stripFix": gm.STRIP_FIX, "why": {"2-down": "no clue read for it"}}
 check("a 1970s page 4+ blank with a clue never read, before PRIOR_FIX, is due", False, gm.read_done(_prior))
 check("the same page at PRIOR_FIX stands", True, gm.read_done({**_prior, "priorFix": gm.PRIOR_FIX}))
 check("a 1970s page 4+ blank, none unread, is not due for PRIOR_FIX", True, gm.read_done({**_prior, "why": {"2-down": "both read 'Zt', not a word"}}))
@@ -170,6 +170,16 @@ check("a 1990s page 4+ blank with a clue never read, before SIDE_FIX, is due", F
 check("the same page at SIDE_FIX stands", True, gm.read_done({**_side, "sideFix": gm.SIDE_FIX}))
 check("a 1970s page is not due for SIDE_FIX", True, gm.read_done({**_side, "date": "1975-03-03"}))
 check("a 1990s page with no clue unread is not due for SIDE_FIX", True, gm.read_done({**_side, "why": {"2-down": "both read 'Zt'"}}))
+# HEADING_GAP: the wrapped cut goes on over the gap before the Across heading under the grid.
+gm._HEADING_GAP_NAMES = frozenset({"x.pdf"})
+_hg = {**_side, "sideFix": gm.SIDE_FIX, "date": "1988-12-11", "headingGap": 0}
+check("a 1988 page 4+ blank with a clue never read, before HEADING_GAP, is due", False, gm.read_done(_hg))
+check("the same page at HEADING_GAP stands", True, gm.read_done({**_hg, "headingGap": gm.HEADING_GAP}))
+check("a page whose cut does not change is not due for HEADING_GAP", True, gm.read_done({**_hg, "file": "y.pdf"}))
+_gbox = (100, 100, 1000, 1000)
+_gw = [(100, 1030, 160, 1050, "Across"), (110, 1060, 140, 1080, "2"), (1100, 300, 1160, 320, "Down"), (1110, 330, 1130, 350, "1"),
+       (1110, 1130, 1140, 1150, "9")]
+check("wrapped_cut reaches an Across heading below a gap of five lines", True, gm.wrapped_cut(_gw, _gbox)[0][3] > 1070)
 # RISE_FIX: the wrapped lists' right column's first Across clues above the grid's top are cut in.
 _rise = {**_above, "aboveFix": gm.ABOVE_FIX, "riseFix": 0, "date": "1973-10-28", "why": {"16-across": "no clue read for it"}}
 check("a 1970s page with a clue never read, before RISE_FIX, is due", False, gm.read_done(_rise))
