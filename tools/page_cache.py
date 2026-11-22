@@ -20,7 +20,7 @@ its checks say so. A page is reused when all of these are what they were:
     missed; the reached code builds only per-page ones (a puzzle's own file,
     its blog facts, its card), which page_key covers;
   - the page's own inputs, which build_seo_pages.page_key() lists: its
-    puzzle file's bytes, the hash of the puzzle as the solver's view of it
+    puzzle file's git blob id (blob_id()), the hash of the puzzle as the solver's view of it
     gives it (the index row's "pageView": the solver's code is not in the
     build-wide key, only what it made of this puzzle, so a solver commit
     re-renders the pages whose view it changed), its blog-facts lines, the part of its index row
@@ -162,6 +162,30 @@ def derived(code):
             return [("app.js", "gone")]
 
 
+#: {ROOT-relative path: git blob id} of every tracked file git's own stat check
+#: (`ls-files -m`) calls unmodified, from fingerprint()'s listing: blob_id()
+#: answers from it without reading the file. Filled before the workers fork.
+_CLEAN = {}
+
+
+def blob_id(path):
+    """The git blob id of the bytes at `path`, None when there is no file.
+
+    A tracked file git calls unmodified gives its index entry's id, which git
+    keeps equal to the work-tree bytes (its stat check re-reads a file whose
+    stat moved, or one written in the second the index was); anything else
+    (dirty, untracked, outside ROOT, before a fingerprint()) is read and hashed
+    as git hashes a blob, so the same bytes give the same id either way."""
+    rel = puzzle_paths.relative(path, ROOT)
+    if rel in _CLEAN:
+        return _CLEAN[rel]
+    try:
+        data = Path(path).read_bytes()
+    except FileNotFoundError:
+        return None
+    return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+
+
 def fingerprint(texts=None):
     """A hash of the code a puzzle page runs and of the data files that code
     names. None outside a git checkout, which turns the store off."""
@@ -179,6 +203,8 @@ def fingerprint(texts=None):
             meta, path = line.split("\t", 1)
             blobs[path] = None if path in changed else meta.split()[1]
     blobs.update((p, None) for p in new if p)
+    _CLEAN.clear()
+    _CLEAN.update((p, b) for p, b in blobs.items() if b)
     h = hashlib.sha256(f"page-cache {VERSION}\0".encode())
     for k, v in sorted(code.items()):
         h.update(f"{k}\0{v}\0".encode("utf-8", "surrogateescape"))

@@ -2935,7 +2935,7 @@ def page_key(i):
     view = (meta.get(pid) or {}).get("pageView") or os.urandom(8).hex()
     for part in (fp, view, json.dumps(stub, sort_keys=True, default=str),
                  puzzle_paths.relative(path, ROOT) or str(path),
-                 hashlib.sha256(Path(path).read_bytes()).hexdigest(),
+                 page_cache.blob_id(path),
                  blog_fact_hashes().get(pid),
                  setter_rows(pid),
                  json.dumps(page_row(meta.get(pid)), sort_keys=True, default=str),
