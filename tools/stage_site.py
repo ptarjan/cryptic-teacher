@@ -37,6 +37,7 @@ written beside its shim and rewritten only when the shim's bytes change
 (SHIM_GZ_MANIFEST, cached with the shims), so a deploy compresses only what
 moved.
 """
+import fnmatch
 import gzip
 import hashlib
 import json
@@ -77,15 +78,63 @@ LINK = re.compile(r'''\b(?:src|href)="([^"]*)"|'''
                   r'''property="og:image"\s+content="([^"]*)"''')
 
 
+_WILD = re.compile(r"[*?\[]")
+
+
+def _walk(src, parts, rel, listing, found):
+    """Add to found every file under src/rel that the glob segments parts
+    name. Like Path.glob: * matches any name (dotfiles too), ** any depth of
+    real directories, and a file is a symlink's target if it points at one.
+    listing(dir) is one os.scandir per directory, kept, so the four
+    puzzles/ globs read the 90k-entry folder once and stat nothing: the
+    kind of an entry comes with the listing."""
+    if not parts:
+        return
+    head, rest = parts[0], parts[1:]
+    here = f"{rel}/{head}" if rel else head
+    if head == "**":
+        _walk(src, rest, rel, listing, found)
+        for name, entry in listing(rel):
+            if entry.is_dir(follow_symlinks=False):
+                _walk(src, parts, f"{rel}/{name}" if rel else name, listing, found)
+        return
+    if not _WILD.search(head):
+        if rest:
+            if (src / here).is_dir():
+                _walk(src, rest, here, listing, found)
+        elif (src / here).is_file():
+            found.add(here)
+        return
+    match = re.compile(fnmatch.translate(head)).match
+    for name, entry in listing(rel):
+        if not match(name):
+            continue
+        child = f"{rel}/{name}" if rel else name
+        if rest:
+            if entry.is_dir():
+                _walk(src, rest, child, listing, found)
+        elif entry.is_file():
+            found.add(child)
+
+
 def select(src):
     """The published files under src, as sorted relative paths with /."""
+    cache = {}
+
+    def listing(rel):
+        if rel not in cache:
+            try:
+                with os.scandir(src / rel if rel else src) as it:
+                    cache[rel] = [(e.name, e) for e in it]
+            except OSError:
+                cache[rel] = []
+        return cache[rel]
+
     found = set()
+    # Two globs may name one file (puzzles/*/index.html and
+    # puzzles/series/**/* both match puzzles/series/index.html): a set.
     for pattern in PUBLISH:
-        for f in src.glob(pattern):
-            # Two globs may name one file (puzzles/*/index.html and
-            # puzzles/series/**/* both match puzzles/series/index.html).
-            if f.is_file():
-                found.add(f.relative_to(src).as_posix())
+        _walk(src, pattern.split("/"), "", listing, found)
     return sorted(found)
 
 
