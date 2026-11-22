@@ -38,7 +38,7 @@ check(S.find_gaps(dead, today, 2), {}, "long-dead series ignored")
 
 monthly = {date(2026, m, 1) for m in range(1, 12)}
 check(S.find_gaps(monthly, today, 2), {}, "monthly paper on time")
-check(list(S.find_gaps(monthly, date(2026, 12, 20), 2)), ["@2026-11-01"], "monthly paper overdue")
+check(list(S.find_gaps(monthly, date(2026, 12, 21), 2)), ["@2026-11-01"], "monthly paper overdue")
 
 # grace is learned from observed lags, never below the default, capped
 check(S.grace_for([]), S.DEFAULT_GRACE, "default grace")

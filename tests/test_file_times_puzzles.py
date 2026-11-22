@@ -546,8 +546,8 @@ check('a Sunday between anchors a week a number apart follows the cadence',
       'Sun 11 Sun 18',
       got('SUNDAY_BETWEEN'))
 
-check('a Sunday past the last anchor stays undated',
-      'None',
+check('a Sunday just past the last anchor is dated by counting weeks from it (5004 is Jan 25)',
+      'Sun 01',
       got('SUNDAY_PAST'))
 
 check('a Jumbo gap holding a bank holiday stays undated',
