@@ -44,8 +44,8 @@ fails "a cache step removed" "$tmp/nocachestep.yml" "$table" "names cache step '
 # A row for a step that is gone.
 fails "a stale row" "$tmp/nocachestep.yml" "$table" "build/Restore the row cache: a budget row for a step pages.yml does not have"
 # A cache that globs puzzles/ again: actions/cache's save overflows on it.
-sed 's|^          path: .page-cache.tar$|          path: \|\n            puzzles/*/index.html\n            .page-cache.pickle|' "$wf" > "$tmp/bigglob.yml"
+sed 's|^          CB_PATH: .page-cache.tar$|          CB_PATH: \|\n            puzzles/*/index.html\n            .page-cache.pickle|' "$wf" > "$tmp/bigglob.yml"
 fails "a cache path globbing puzzles/" "$tmp/bigglob.yml" "$table" "build/Restore the puzzle pages: path 'puzzles/*/index.html' makes actions/cache list puzzles/"
-sed 's|^          path: .shim-cache.tar$|          path: puzzles/*.js.gz|' "$wf" > "$tmp/bigglob2.yml"
+sed 's|^          CB_PATH: .shim-cache.tar$|          CB_PATH: puzzles/*.js.gz|' "$wf" > "$tmp/bigglob2.yml"
 fails "a shim path globbing puzzles/" "$tmp/bigglob2.yml" "$table" "build/Save the puzzle shims: path 'puzzles/*.js.gz'"
 echo "test_step_budgets: all passed"

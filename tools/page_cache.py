@@ -238,7 +238,7 @@ def may_skip_save(rendered, fp, env=os.environ):
     this run's: the deploy's fast path leaves it unwritten (~11s of the page
     step) when the workflow will not pack it either.
 
-    pages.yml's Pack the puzzle pages runs after more than PAGE_STORE_SKIP_UP_TO
+    pages.yml's Save the puzzle pages runs after more than PAGE_STORE_SKIP_UP_TO
     pages were rendered, or when the restored store was saved under another
     page fingerprint. Only when neither holds is the pack skipped, and so only
     then is the pickle written for nothing: the next run renders the few pages

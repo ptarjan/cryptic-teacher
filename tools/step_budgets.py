@@ -149,11 +149,17 @@ def reads_corpus(step_text):
 BIG_DIRS = ("puzzles",)
 
 
+def is_cache_step(step_text):
+    """An actions/cache step, or one that starts it in the background
+    (tools/cache_bg.sh bg: its paths are the CB_PATH variable)."""
+    return "actions/cache" in step_text or "cache_bg.sh bg " in step_text
+
+
 def cache_paths(step_text):
-    """The path: entries of an actions/cache step's with:, one per line."""
+    """The path: entries of an actions/cache step's with: (or its CB_PATH:), one per line."""
     out, block = [], None
     for line in step_text.splitlines():
-        m = re.match(r"^(\s*)path:\s*(.*?)\s*$", line)
+        m = re.match(r"^(\s*)(?:CB_)?PATH:\s*(.*?)\s*$", line, re.I)
         if m:
             if m.group(2) in ("|", ">", "|-", ">-"):
                 block = len(m.group(1))
@@ -209,14 +215,14 @@ def lint(workflow=WORKFLOW, table=TABLE):
             if not how:
                 errors.append(f"{key} reads the whole corpus: its row needs \"cache\" (the actions/cache "
                               "steps it restores), \"incremental\" (how), or \"uncached\" (why it cannot be)")
-        if "actions/cache" in text:
+        if is_cache_step(text):
             for path in cache_paths(text):
                 big = globs_big_dir(path)
                 if big:
                     errors.append(f"{key}: path {path!r} makes actions/cache list {big}/, too many "
                                   "entries for @actions/glob (its save fails); cache one file "
                                   "made by tools/cache_tar.sh instead")
-        earlier = [n for j, n, t in steps[:at] if j == job and "actions/cache" in t]
+        earlier = [n for j, n, t in steps[:at] if j == job and is_cache_step(t)]
         for c in row.get("cache") or ():
             if c not in earlier:
                 errors.append(f"{key} names cache step {c!r}, which is not an actions/cache step "

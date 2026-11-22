@@ -142,6 +142,16 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      # Every cache below is restored and saved by tools/cache_bg.sh, a
+      # background process beside the steps that follow it, not a step of its
+      # own that holds the job: ~80s of restores and ~90s of saves in series
+      # before. It runs actions/cache's own node program, which needs the
+      # cache service's credentials, and only a node action is given those.
+      # The git store above and below stays an actions/cache step: it has to be
+      # here before the checkout and it is what makes the runner download
+      # actions/cache for this job.
+      - name: Expose the cache credentials
+        uses: ./.github/actions/cache-env
       # No Set up Node: nothing this job runs calls node (the smoke test is
       # tests.yml's), and the actions bring their own. It was 5s a run.
       # tools/og_palette.py, which make_og.sh runs on every card.
@@ -166,14 +176,13 @@ jobs:
       # restore-keys takes the newest. A stale or missing store is still
       # correct, just slow: a row is reused only when its key matches.
       - name: Restore the row cache
-        id: rowcache
-        uses: actions/cache/restore@v5
-        with:
-          path: |
+        env:
+          CB_KEY: row-cache-${{ github.sha }}
+          CB_RESTORE_KEYS: row-cache-
+          CB_PATH: |
             .git/ct-rows.sqlite*
             ~/.cache/cryptic-teacher/code_reach
-          key: row-cache-${{ github.sha }}
-          restore-keys: row-cache-
+        run: bash tools/cache_bg.sh bg restore rows
       # tools/clue_index.py's store of every puzzle file's clue keys, by git
       # blob: the authored puzzle's write checks that its clues are not a held
       # puzzle's (fetch_puzzle.check_not_copy), and without the store that
@@ -181,25 +190,84 @@ jobs:
       # path of the row cache: a cache's paths are part of its version, so
       # adding one would have emptied the row store for a run.
       - name: Restore the clue index
-        uses: actions/cache/restore@v5
-        with:
-          path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
-          key: clue-index-${{ github.sha }}
-          restore-keys: clue-index-
-      # (The puzzle pages' store, described at Unpack the puzzle pages below.)
+        env:
+          CB_KEY: clue-index-${{ github.sha }}
+          CB_RESTORE_KEYS: clue-index-
+          CB_PATH: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
+        run: bash tools/cache_bg.sh bg restore clue
+      # (The puzzle pages' store, described at Restore the puzzle pages below.)
       # Its key names this checkout's page fingerprint, computed here so the
       # restore and the save share one key (the restore misses it and falls
       # back to the newest store through restore-keys).
       - name: Name the puzzle pages' key
         id: pagefp
         run: echo "key=seo-pages-$(python3 tools/cache_warmth.py --fingerprint)-$GITHUB_SHA" >> "$GITHUB_OUTPUT"
+      # Last build's puzzle pages and their keys (tools/page_cache.py): a page
+      # is rendered again only when its puzzle file, index row, neighbours,
+      # card or stamped assets moved, or the code a puzzle page runs (what
+      # code_reach says its render reaches) or a data file that code names
+      # did; a fetcher, a test or a doc moves none of them. A push
+      # that files one puzzle re-renders a handful of the ~50k, not all of
+      # them. A cold cache renders everything, which is correct, just slow.
+      # Saved (Save the puzzle pages) only after a big re-render: saving ~67k
+      # pages takes about a minute, and a stale cache costs only the few pages
+      # each later push moved. Restored and unpacked here, ahead of Choose the
+      # build path, which needs to know the store is there.
       - name: Restore the puzzle pages
-        id: pagecache
-        uses: actions/cache/restore@v5
-        with:
-          path: .page-cache.tar
-          key: ${{ steps.pagefp.outputs.key }}
-          restore-keys: seo-pages-
+        env:
+          CB_KEY: ${{ steps.pagefp.outputs.key }}
+          CB_RESTORE_KEYS: seo-pages-
+          CB_PATH: .page-cache.tar
+          CB_UNPACK: "1"
+        run: bash tools/cache_bg.sh bg restore pages
+      # Last run's puzzles/<id>.js shims. A stored index row is reused only
+      # when the shim on disk is the one it wrote (fetch_puzzle.index_row_deps
+      # hashes it, by stat off tools/shim_record.py's record, which travels in
+      # the same tar), and a fresh checkout has none, so without these every one
+      # of the ~50k rows missed and was made again: the reindex's ~50s. A
+      # stale shim is never used: its row's key or deps no longer match, and
+      # the row and shim are written again. One tar file, not a glob over
+      # puzzles/ (see tools/cache_tar.sh), unpacked as soon as it is here.
+      # Started first: it is the longest of the restores, and the reindex
+      # waits for it.
+      - name: Restore the puzzle shims
+        env:
+          CB_KEY: puzzle-shims-${{ github.sha }}
+          CB_RESTORE_KEYS: puzzle-shims-
+          CB_PATH: .shim-cache.tar
+          CB_UNPACK: "1"
+        run: bash tools/cache_bg.sh bg restore shims
+      # The cards are ~570MB of PNGs (run 38460299301) that change a few files
+      # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
+      # their manifest between runs, and make_og.sh draws only the ones whose
+      # inputs have moved. A cold cache costs a full redraw and is correct, just
+      # slow. The key is per-commit so every run saves what it drew; restore-keys
+      # is what actually hits, taking the newest cache from any earlier commit.
+      - name: Restore the social cards
+        env:
+          CB_KEY: og-cards-${{ github.sha }}
+          CB_RESTORE_KEYS: og-cards-
+          CB_PATH: og
+        run: bash tools/cache_bg.sh bg restore cards
+      # The pages this deploy changes, for IndexNow once it is live. The cache
+      # carries the last build's page hashes; a cold one sends the recent
+      # sitemap (see tools/indexnow.py). Restored before the site checks
+      # start, since one of them reads it.
+      - name: Restore the IndexNow manifest
+        env:
+          CB_KEY: indexnow-${{ github.sha }}
+          CB_RESTORE_KEYS: indexnow-
+          CB_PATH: .indexnow
+        run: bash tools/cache_bg.sh bg restore indexnow
+      # What Choose the build path asks about (the stores' keys) and the
+      # authored puzzle's write reads (the clue index). The shims, cards and
+      # manifest, started above, are waited for where they are used.
+      - name: Wait for the row, clue and page caches
+        id: restored
+        run: |
+          bash tools/cache_bg.sh wait restore rows clue pages
+          echo "rowkey=$(bash tools/cache_bg.sh output rows cache-matched-key)" >> "$GITHUB_OUTPUT"
+          echo "pagekey=$(bash tools/cache_bg.sh output pages cache-matched-key)" >> "$GITHUB_OUTPUT"
       # A push that only added or edited puzzle files, against the commit the
       # last deploy shipped, takes the puzzle fast path (Paul 10-19: "like 1
       # minute for new puzzles that don't change the core code"): no warming
@@ -238,8 +306,8 @@ jobs:
           EVENT: ${{ github.event_name }}
           REPO: ${{ github.repository }}
           FULL: ${{ inputs.full || github.event.schedule == '41 9 * * *' }}
-          CACHED: ${{ steps.rowcache.outputs.cache-matched-key != '' && steps.pagecache.outputs.cache-matched-key != '' }}
-          PAGEKEY: ${{ steps.pagecache.outputs.cache-matched-key }}
+          CACHED: ${{ steps.restored.outputs.rowkey != '' && steps.restored.outputs.pagekey != '' }}
+          PAGEKEY: ${{ steps.restored.outputs.pagekey }}
         run: |
           set -uo pipefail
           full() { echo "full build: $1"; echo "fast=false" >> "$GITHUB_OUTPUT"; exit 0; }
@@ -316,22 +384,8 @@ jobs:
           --clues tools/data/authored_A001_clues.json --number 1
           --date 2026-07-29
           --annotated-by claude-opus-5-5
-      # Last run's puzzles/<id>.js shims. A stored index row is reused only
-      # when the shim on disk is the one it wrote (fetch_puzzle.index_row_deps
-      # hashes it, by stat off tools/shim_record.py's record, which travels in
-      # the same tar), and a fresh checkout has none, so without these every one
-      # of the ~50k rows missed and was made again: the reindex's ~50s. A
-      # stale shim is never used: its row's key or deps no longer match, and
-      # the row and shim are written again.
-      - name: Restore the puzzle shims
-        uses: actions/cache/restore@v5
-        with:
-          path: .shim-cache.tar
-          key: puzzle-shims-${{ github.sha }}
-          restore-keys: puzzle-shims-
-      # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
-      - name: Unpack the puzzle shims
-        run: bash tools/cache_tar.sh unpack .shim-cache.tar
+      - name: Wait for the puzzle shims
+        run: bash tools/cache_bg.sh wait restore shims
       # Then a restored shim the index no longer names (its puzzle deleted or
       # renamed since) is removed, so the site ships what a clean build would.
       # A cold row cache (any change to the code a row reaches) makes the
@@ -365,51 +419,18 @@ jobs:
       - name: Warm the row cache, slice 8 of 8
         if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 7/8
-      # The reindex is a few dozen seconds of the four cores, and the three
-      # steps below it (two cache restores and an unpack) are the network and
-      # a disk, none of which it reads or writes: it takes rows, shims and the
-      # puzzle files, they bring the cards, the IndexNow manifest and the
-      # stored pages. So it starts here, in the background, and the step that
-      # was its own (Build the puzzle shims and reindex) collects it after
-      # them. On the full path the warming slices above still ran before it.
+      # The reindex is a few dozen seconds of the four cores. It takes rows,
+      # shims and the puzzle files, and the cards and the IndexNow manifest,
+      # which may still be downloading, are none of its business. So it starts
+      # here, in the background, and Build the puzzle shims and reindex
+      # collects it after them. On the full path the warming slices above
+      # still ran before it.
       - name: Start the reindex
         run: bash tools/bg_job.sh start reindex python3 tools/fetch_puzzle.py --reindex
-      # The cards are ~570MB of PNGs (run 38460299301) that change a few files
-      # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
-      # their manifest between runs, and make_og.sh draws only the ones whose
-      # inputs have moved. A cold cache costs a full redraw and is correct, just
-      # slow. The key is per-commit so every run saves what it drew; restore-keys
-      # is what actually hits, taking the newest cache from any earlier commit.
-      - name: Restore the social cards
-        uses: actions/cache/restore@v5
-        with:
-          path: og
-          key: og-cards-${{ github.sha }}
-          restore-keys: og-cards-
-      # The pages this deploy changes, for IndexNow once it is live. The cache
-      # carries the last build's page hashes; a cold one sends the recent
-      # sitemap (see tools/indexnow.py). Restored before the site checks
-      # start, since one of them reads it.
-      - name: Restore the IndexNow manifest
-        uses: actions/cache/restore@v5
-        with:
-          path: .indexnow
-          key: indexnow-${{ github.sha }}
-          restore-keys: indexnow-
-      # Last build's puzzle pages and their keys (tools/page_cache.py): a page
-      # is rendered again only when its puzzle file, index row, neighbours,
-      # card or stamped assets moved, or the code a puzzle page runs (what
-      # code_reach says its render reaches) or a data file that code names
-      # did; a fetcher, a test or a doc moves none of them. A push
-      # that files one puzzle re-renders a handful of the ~50k, not all of
-      # them. A cold cache renders everything, which is correct, just slow.
-      # Restored here, saved (Save the puzzle pages) only after a big
-      # re-render: saving ~67k pages takes about a minute, and a stale cache
-      # costs only the few pages each later push moved.
-      # Restored up in the build (before Choose the build path), which needs
-      # to know the store is there; unpacked here.
-      - name: Unpack the puzzle pages
-        run: bash tools/cache_tar.sh unpack .page-cache.tar
+      # Restored since the job's start, beside the checkout's setup and the
+      # slices above.
+      - name: Wait for the social cards and the IndexNow manifest
+        run: bash tools/cache_bg.sh wait restore cards indexnow
       # Collects the reindex, then drops the shims it no longer names.
       - name: Build the puzzle shims and reindex
         run: |
@@ -476,11 +497,11 @@ jobs:
       - name: Generate the crawlable pages (puzzle push)
         id: pages_fast
         if: steps.scope.outputs.fast == 'true'
-        # Not writing the store (~11s) when Pack the puzzle pages will not pack
+        # Not writing the store (~11s) when Save the puzzle pages will not save
         # it: the same bar and the same fingerprint test as its condition
         # (page_cache.may_skip_save).
         env:
-          PAGE_STORE_MATCHED: ${{ steps.pagecache.outputs.cache-matched-key }}
+          PAGE_STORE_MATCHED: ${{ steps.restored.outputs.pagekey }}
           PAGE_STORE_SKIP_UP_TO: "800"
         run: python3 tools/build_seo_pages.py --reuse-first
       # Every page that is not a puzzle gets a card of its own title and
@@ -524,6 +545,78 @@ jobs:
           tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
           echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
           df -h / | tail -n 1
+      # The caches' saves, started now to run beside the upload (a network
+      # wait too) and collected by Wait for the cache saves. Each waits for the
+      # site checks' exit codes and saves only if both are 0, as the steps that
+      # followed Wait for the site checks did: a store from a build whose site
+      # failed its checks is not kept. Not gated on the deploy, which is a job
+      # of its own: every store is keyed on what made each entry (a blob, the
+      # code a page reaches), so a store from a build whose deploy then fails
+      # is reused only where it is still right. Choose the build path diffs
+      # against the live commit, which is older than any store, so it sees every
+      # change the store's build saw. Paths and keys match each restore
+      # exactly: they are part of the cache's version.
+      # The four below skip on a puzzle fast path that rendered 800 pages or
+      # fewer (the bar Save the puzzle pages uses): a handful of new rows,
+      # shims and cards is ~50s of packing and uploading, and the next run
+      # makes those few again until a full build (~20 a day) saves them.
+      - name: Save the row cache
+        if: ${{ !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800) }}
+        env:
+          CB_KEY: row-cache-${{ github.sha }}
+          CB_GATE: "1"
+          CB_PATH: |
+            .git/ct-rows.sqlite*
+            ~/.cache/cryptic-teacher/code_reach
+        run: bash tools/cache_bg.sh bg save rows
+      - name: Save the clue index
+        if: ${{ !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800) }}
+        env:
+          CB_KEY: clue-index-${{ github.sha }}
+          CB_GATE: "1"
+          CB_PATH: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
+        run: bash tools/cache_bg.sh bg save clue
+      # Packed first (tools/cache_tar.sh), by the same background process.
+      - name: Save the puzzle shims
+        if: ${{ !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800) }}
+        env:
+          CB_KEY: puzzle-shims-${{ github.sha }}
+          CB_GATE: "1"
+          CB_PACK: shims
+          CB_PATH: .shim-cache.tar
+        run: bash tools/cache_bg.sh bg save shims
+      - name: Save the social cards
+        if: ${{ !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800) }}
+        env:
+          CB_KEY: og-cards-${{ github.sha }}
+          CB_GATE: "1"
+          CB_PATH: og
+        run: bash tools/cache_bg.sh bg save cards
+      # Before the deploy, like the stores above: a deploy that then fails
+      # leaves these pages unannounced until they next change.
+      - name: Save the IndexNow manifest
+        env:
+          CB_KEY: indexnow-${{ github.sha }}
+          CB_GATE: "1"
+          CB_PATH: .indexnow
+        run: bash tools/cache_bg.sh bg save indexnow
+      # Only when this run rendered many pages (a code change, a cold cache):
+      # see Restore the puzzle pages. 800, not 2000: puzzle pushes each move a
+      # hundred-odd pages and, below the bar, nothing is saved, so the next
+      # push re-renders those and its own (run 39262958136 rendered 1781 pages
+      # for 29 puzzles, ~40s). Also whenever the store restored was saved under
+      # another page fingerprint (or under a key that names none): the key
+      # carries this run's, for tools/cache_warmth.py in the next build's
+      # Choose the build path, and a store whose key does not match its pages
+      # reads as cold.
+      - name: Save the puzzle pages
+        if: ${{ (fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800 || !contains(steps.restored.outputs.pagekey, steps.pages.outputs.fingerprint || steps.pages_fast.outputs.fingerprint || 'none')) }}
+        env:
+          CB_KEY: ${{ steps.pagefp.outputs.key }}
+          CB_GATE: "1"
+          CB_PACK: pages
+          CB_PATH: .page-cache.tar
+        run: bash tools/cache_bg.sh bg save pages
       - name: Upload the site
         uses: actions/upload-artifact@v6
         with:
@@ -550,26 +643,17 @@ jobs:
           path: indexnow-urls.txt
           retention-days: 1
           if-no-files-found: error
-      # What this run's caches carry to the next, saved once the site has
-      # passed its checks, beside the deploy job, which ships the site as soon
-      # as Keep the IndexNow list is done and does not wait for these. Steps of their own,
-      # not actions/cache's post-job saves: those run only when every step
-      # passed. Run 38370347047 saved no shims or clue index;
-      # 38376042604's reindex then took 119s instead of ~50s and its authored
-      # puzzle 31s. Paths match each restore exactly: they are part of the
-      # cache's version. tests/test_ci_checkout.sh checks each restore has its
-      # save.
-      # Saved without waiting for the deploy, which is now a job of its own:
-      # every store is keyed on what made each entry (a blob, the code a page
-      # reaches), so a store from a build whose deploy then failed is reused
-      # only where it is still right. Choose the build path diffs against the
-      # live commit, which is older than any store, so it sees every change
-      # the store's build saw.
-      # Not gated on the checks: the store is the checkout's, and it is good
-      # once the checkout succeeded. Gated on the deploy it was never saved
-      # while the build was failing (every run 2026-10-19 02:45 to 09:38), so
-      # each run restored the 02:45 store and fetched everything pushed since
-      # (Check out 35s against 6s warm, runs 39226527488, 39228388950).
+      # What this run's caches carry to the next. The saves were steps here,
+      # ~90s in series after the site was up, with the job still holding the
+      # "pages" group: the next build waited for them. They start before
+      # Upload the site (Save the ... steps, after Archive the site) and run
+      # beside it; Wait for the cache saves collects them. The git store is
+      # the one that stays a step. Saved even when an earlier step failed:
+      # the store is the checkout's, and it is good once the checkout
+      # succeeded. Gated on the deploy it was never saved while the build was
+      # failing (every run 2026-10-19 02:45 to 09:38), so each run restored the
+      # 02:45 store and fetched everything pushed since (Check out 35s against
+      # 6s warm, runs 39226527488, 39228388950).
       - name: Save the git store
         if: ${{ (!cancelled() && steps.checkout.outcome == 'success') }}
         uses: actions/cache/save@v5
@@ -579,65 +663,9 @@ jobs:
             .git/shallow
             .git/refs/ct
           key: git-store-${{ github.sha }}
-      # The five steps below skip on a puzzle fast path that rendered 800
-      # pages or fewer (the bar Save the puzzle pages uses): a handful of new
-      # rows, shims and cards is ~50s of packing and uploading, and the next
-      # run makes those few again until a full build (~20 a day) saves them.
-      - name: Save the row cache
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
-        uses: actions/cache/save@v5
-        with:
-          path: |
-            .git/ct-rows.sqlite*
-            ~/.cache/cryptic-teacher/code_reach
-          key: row-cache-${{ github.sha }}
-      - name: Save the clue index
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
-        uses: actions/cache/save@v5
-        with:
-          path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
-          key: clue-index-${{ github.sha }}
-      - name: Pack the puzzle shims
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
-        run: bash tools/cache_tar.sh pack shims .shim-cache.tar
-      - name: Save the puzzle shims
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
-        uses: actions/cache/save@v5
-        with:
-          path: .shim-cache.tar
-          key: puzzle-shims-${{ github.sha }}
-      - name: Save the social cards
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && !(steps.scope.outputs.fast == 'true' && fromJSON(steps.pages_fast.outputs.rendered || '0') <= 800)) }}
-        uses: actions/cache/save@v5
-        with:
-          path: og
-          key: og-cards-${{ github.sha }}
-      # Before the deploy, like the stores above: a deploy that then fails
-      # leaves these pages unannounced until they next change.
-      - name: Save the IndexNow manifest
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success') }}
-        uses: actions/cache/save@v5
-        with:
-          path: .indexnow
-          key: indexnow-${{ github.sha }}
-      # Last, and only when this run rendered
-      # many pages (a code change, a cold cache): see Restore the puzzle pages.
-      # 800, not 2000: puzzle pushes each move a hundred-odd pages and, below
-      # the bar, nothing is saved, so the next push re-renders those and its
-      # own (run 39262958136 rendered 1781 pages for 29 puzzles, ~40s).
-      # Also whenever the store restored was saved under another page
-      # fingerprint (or under a key that names none): the key carries this
-      # run's, for tools/cache_warmth.py in the next build's Choose the build
-      # path, and a store whose key does not match its pages reads as cold.
-      - name: Pack the puzzle pages
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && (fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800 || !contains(steps.pagecache.outputs.cache-matched-key, steps.pages.outputs.fingerprint || steps.pages_fast.outputs.fingerprint || 'none'))) }}
-        run: bash tools/cache_tar.sh pack pages .page-cache.tar
-      - name: Save the puzzle pages
-        if: ${{ (!cancelled() && steps.checks.outcome == 'success' && (fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800 || !contains(steps.pagecache.outputs.cache-matched-key, steps.pages.outputs.fingerprint || steps.pages_fast.outputs.fingerprint || 'none'))) }}
-        uses: actions/cache/save@v5
-        with:
-          path: .page-cache.tar
-          key: ${{ steps.pagefp.outputs.key }}
+      - name: Wait for the cache saves
+        if: ${{ !cancelled() }}
+        run: bash tools/cache_bg.sh wait save
       # The repo's caches are capped at 10GB and each run saves ~3.6GB under
       # a new key, so three runs filled it and GitHub evicted the oldest,
       # restores missed, and Save the git store and the shim build ran slow.
@@ -668,13 +696,19 @@ jobs:
   # needs the annotation check as well as the build: a failing check ships
   # nothing. A full check is validate, the nine annotate shards and requeue;
   # an incremental one skips the last two.
+  #
+  # It starts as soon as validate has passed, not when the shards and requeue
+  # have: a job that needs them waits for a runner only then, and with a
+  # few runs' shards queued (the repository's runners are shared by all of
+  # its jobs) that was 2.5 minutes between requeue ending and this job
+  # starting, run 45010712260. Started early, it holds its runner and the
+  # "Wait for the build's site" step below watches the shards, requeue and
+  # build through the jobs API, so the site still ships only when all of them
+  # passed.
   deploy:
     name: deploy
-    needs: [validate, annotate, requeue]
-    if: >-
-      ${{ !cancelled() && needs.validate.result == 'success'
-      && (needs.annotate.result == 'success' || needs.annotate.result == 'skipped')
-      && (needs.requeue.result == 'success' || needs.requeue.result == 'skipped') }}
+    needs: validate
+    if: ${{ !cancelled() && needs.validate.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 70
     concurrency:
@@ -690,13 +724,14 @@ jobs:
       id-token: write
     steps:
       # The deploy does not need the build job, only its site: the build's
-      # cache saves (~2.4 minutes of packing and uploading) ran in front of
-      # it, though the artifact was long uploaded. So this job starts with the
-      # checks and waits here for the build's "Keep the IndexNow list" step,
-      # the last one the site depends on (it follows the site checks and the
-      # upload). A build job that ends without reaching it ships nothing, and
-      # the run's other steps are skipped, not failed: the build's own failure
-      # is already the red.
+      # cache saves ran in front of it, though the artifact was long uploaded.
+      # So this job starts with the checks and waits here for the build's
+      # "Keep the IndexNow list" step, the last one the site depends on (it
+      # follows the site checks and the upload), and, in a full check, for the
+      # requeue job (which needs every annotate shard). A build job that ends
+      # without reaching it, or a check that failed, ships nothing, and the
+      # run's other steps are skipped, not failed: the failure is already the
+      # red.
       - name: Check out
         uses: actions/checkout@v5
         with:
@@ -710,7 +745,8 @@ jobs:
           REPO: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
           ATTEMPT: ${{ github.run_attempt }}
-        run: python3 tools/wait_for_build.py "$REPO" "$RUN_ID" "$ATTEMPT"
+          MODE: ${{ needs.validate.outputs.mode }}
+        run: python3 tools/wait_for_build.py "$REPO" "$RUN_ID" "$ATTEMPT" "$MODE"
       # GitHub's deploy sometimes stalls (deployment_in_progress, syncing_files,
       # then nothing until the action's 600s timeout; six runs on 2026-11-07,
       # e.g. 42358494050, 42358870222, 42356010055) while the next push's
