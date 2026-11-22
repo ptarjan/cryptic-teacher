@@ -13,6 +13,12 @@
 # cold: every puzzle page rendered again (runs 38498612588, 38499371632).
 # find lists the directory instead; the cache's path is just TAR.
 # tools/step_budgets.py lint refuses a cache path that globs puzzles/ again.
+#
+# The tar is zstd-compressed (the file keeps its .tar name). The cache service
+# then wraps one file it cannot shrink, and a restore writes that file, not an
+# uncompressed copy of every page (~3GB) before unpacking it: the restores of
+# several caches at once are bound by the runner's disk writes. tar reads
+# either form by itself, so a store packed uncompressed still unpacks.
 set -euo pipefail
 cd "${CACHE_TAR_ROOT:-$(dirname "$0")/..}"  # CACHE_TAR_ROOT: tests/test_cache_tar.sh
 case "${1:-}" in
@@ -34,7 +40,7 @@ case "${1:-}" in
       *) echo "$0: pack what? pages or shims, not '$2'" >&2; exit 2 ;;
     esac
     tmp="$3.$$.tmp"
-    list | tar --null -cf "$tmp" -T -
+    list | tar --null -cf - -T - | zstd -q -T0 -f -o "$tmp"
     mv "$tmp" "$3"
     echo "cache_tar: $(tar -tf "$3" | wc -l) file(s) in $3, $(( $(stat -c %s "$3") / 1000000 ))MB"
     ;;
