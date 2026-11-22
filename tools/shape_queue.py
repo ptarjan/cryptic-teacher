@@ -120,16 +120,41 @@ _has_cache = {}
 def _has(tried, sha):
     """True when commit `tried` already contains `sha`: the row was tried on code no older than
     the current annotate code, so a later commit to a REARM_SKIP path does not make it new.
-    58c703df9dc moved code_sha back from aad9da48dfb (clue_bag.py only) to bcd92a35b94 and so
-    rearmed every row tried in between (times-18, cryptic-22199 re-sent)."""
+    Verdicts persist in HAS_CACHE_PATH so separate processes do not repeat a history walk."""
     if not tried:
         return False
-    if (tried, sha) not in _has_cache:
-        import subprocess
-        r = subprocess.run(["git", "-C", str(PATH.parent), "merge-base", "--is-ancestor", sha, tried],
-                           check=False, capture_output=True)
-        _has_cache[(tried, sha)] = r.returncode == 0
-    return _has_cache[(tried, sha)]
+    key = f"{tried}:{sha}"
+    if key not in _has_cache:
+        if not _has_cache:
+            _has_cache.update(_load_has_cache())
+    if key not in _has_cache:
+        import git_ancestry
+        _has_cache[key] = git_ancestry.is_ancestor(PATH.parent, sha, tried)
+        _save_has_cache()
+    return _has_cache[key]
+
+
+HAS_CACHE_PATH = os.path.join(os.path.expanduser("~"), ".cache", "shape_queue_has.json")
+
+
+def _load_has_cache():
+    try:
+        with open(HAS_CACHE_PATH) as f:
+            d = json.load(f)
+        return {k: v for k, v in d.items() if isinstance(v, bool)}
+    except (OSError, ValueError, AttributeError):
+        return {}
+
+
+def _save_has_cache():
+    try:
+        os.makedirs(os.path.dirname(HAS_CACHE_PATH), exist_ok=True)
+        fd, tmp = tempfile.mkstemp(dir=os.path.dirname(HAS_CACHE_PATH))
+        with os.fdopen(fd, "w") as f:
+            json.dump(_has_cache, f)
+        os.replace(tmp, HAS_CACHE_PATH)
+    except OSError:
+        pass
 
 
 def exhausted():

@@ -3590,7 +3590,10 @@ def _deployed_usable(index):
     if not commit or not build.get("rows"):
         print("deployed index: carries no build stamp")
         return None
+    import git_ancestry
     try:
+        if git_ancestry.newer_than_by_a_day(puzzle_paths.PUZZLE_DIR.parent, commit, "HEAD"):
+            raise OSError("newer than HEAD")
         _git("merge-base", "--is-ancestor", commit, "HEAD")
     except (OSError, subprocess.CalledProcessError):
         print(f"deployed index: built at {commit[:11]}, not an ancestor of HEAD here")

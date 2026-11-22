@@ -174,6 +174,9 @@ def contains(built, head):
     """
     if not built or built == head:
         return built == head
+    import git_ancestry
+    if git_ancestry.newer_than_by_a_day(ROOT, head, built):
+        return False
     for _ in range(2):
         r = subprocess.run(["git", "merge-base", "--is-ancestor", head, built],
                            cwd=ROOT, capture_output=True)

@@ -72,9 +72,8 @@ def commits(ref, since=None, cursor=None):
 
 
 def _is_ancestor(a, b):
-    import subprocess
-    return subprocess.run(["git", "-C", ROOT, "merge-base", "--is-ancestor", a, b],
-                          capture_output=True).returncode == 0
+    import git_ancestry
+    return git_ancestry.is_ancestor(ROOT, a, b)
 
 
 def pairs_of(sha, parent):

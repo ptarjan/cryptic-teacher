@@ -72,7 +72,8 @@ def _load(store, prefix):
 
 
 def _is_ancestor(root, a, b):
-    return _git(root, "merge-base", "--is-ancestor", a, b, check=False).returncode == 0
+    import git_ancestry
+    return git_ancestry.is_ancestor(root, a, b)
 
 
 def _save(store, data):
