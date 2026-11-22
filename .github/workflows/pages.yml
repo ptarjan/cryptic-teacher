@@ -526,6 +526,11 @@ jobs:
           (python3 tools/indexnow.py changed . .indexnow/manifest.json indexnow-urls.txt "$RUNNER_TEMP/site.list" \
              > "$RUNNER_TEMP/indexnow.log" 2>&1; echo $? > "$RUNNER_TEMP/indexnow.rc") \
              < /dev/null > /dev/null 2>&1 &
+          # What fills the artifact, printed by Wait for the site checks; it
+          # gates nothing.
+          (python3 tools/site_size.py "$RUNNER_TEMP/site.list" --dupes \
+             > "$RUNNER_TEMP/size.log" 2>&1; echo $? > "$RUNNER_TEMP/size.rc") \
+             < /dev/null > /dev/null 2>&1 &
       # What actions/upload-pages-artifact does, minus its tar -v (a log line
       # per file, ~140k of them) and stored rather than deflated. The upload
       # is bound by compressing, not by the network: level 6 took 65s, level
@@ -537,11 +542,21 @@ jobs:
           tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
           echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
           df -h / | tail -n 1
-      # The caches' saves, started now to run beside the upload (a network
-      # wait too) and collected by Wait for the cache saves. Each waits for the
-      # site checks' exit codes and saves only if both are 0, as the steps that
-      # followed Wait for the site checks did: a store from a build whose site
-      # failed its checks is not kept. Not gated on the deploy, which is a job
+      - name: Upload the site
+        uses: actions/upload-artifact@v6
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+          compression-level: 0
+      # The caches' saves, started once the site is uploaded and collected by
+      # Wait for the cache saves. Not beside the upload: they share the
+      # runner's network and disk with it and slowed it by half, and the
+      # deploy waits for the upload while nothing waits for them but the next
+      # build. Each waits for the site checks' exit codes and saves only if
+      # both are 0: a store from a build whose site failed its checks is not
+      # kept. Not gated on the deploy, which is a job
       # of its own: every store is keyed on what made each entry (a blob, the
       # code a page reaches), so a store from a build whose deploy then fails
       # is reused only where it is still right. Choose the build path diffs
@@ -609,14 +624,6 @@ jobs:
           CB_PACK: pages
           CB_PATH: .page-cache.tar
         run: bash tools/cache_bg.sh bg save pages
-      - name: Upload the site
-        uses: actions/upload-artifact@v6
-        with:
-          name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
-          retention-days: 1
-          if-no-files-found: error
-          compression-level: 0
       # The background checks' results. A check that died without writing
       # its exit code (or hung) is caught by the timeout, and fails the
       # deploy the same way a broken link does.
@@ -624,8 +631,8 @@ jobs:
         id: checks
         timeout-minutes: 5
         run: |
-          while [ ! -f "$RUNNER_TEMP/links.rc" ] || [ ! -f "$RUNNER_TEMP/indexnow.rc" ]; do sleep 1; done
-          cat "$RUNNER_TEMP/indexnow.log" "$RUNNER_TEMP/links.log"
+          while [ ! -f "$RUNNER_TEMP/links.rc" ] || [ ! -f "$RUNNER_TEMP/indexnow.rc" ] || [ ! -f "$RUNNER_TEMP/size.rc" ]; do sleep 1; done
+          cat "$RUNNER_TEMP/indexnow.log" "$RUNNER_TEMP/links.log" "$RUNNER_TEMP/size.log"
           [ "$(cat "$RUNNER_TEMP/links.rc")" = 0 ] && [ "$(cat "$RUNNER_TEMP/indexnow.rc")" = 0 ]
       # The pages this deploy changes, for the deploy job's Ping IndexNow.
       - name: Keep the IndexNow list
@@ -637,9 +644,9 @@ jobs:
           if-no-files-found: error
       # What this run's caches carry to the next. The saves were steps here,
       # ~90s in series after the site was up, with the job still holding the
-      # "pages" group: the next build waited for them. They start before
-      # Upload the site (Save the ... steps, after Archive the site) and run
-      # beside it; Wait for the cache saves collects them. The git store is
+      # "pages" group: the next build waited for them. They start right after
+      # Upload the site (the Save the ... steps) and run beside the steps
+      # below; Wait for the cache saves collects them. The git store is
       # the one that stays a step. Saved even when an earlier step failed:
       # the store is the checkout's, and it is good once the checkout
       # succeeded. Gated on the deploy it was never saved while the build was
