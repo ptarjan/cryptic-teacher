@@ -113,6 +113,8 @@
     "warn": "only runs after the first Deploy to Pages attempt stalled and was cut at 300s; the action's own 600s timeout bounds it",
     "note": "a stalled GitHub deploy (6 runs on 2026-11-07); a normal deploy never reaches this step"},
   "deploy/Check out": {"seconds": 30},
+  "deploy/Wait for the build's site": {"seconds": 3600,
+    "note": "tools/wait_for_build.py: the deploy job starts with the checks and waits for the build job's site, so this is the build's own time (up to its 90-minute cap), bounded by the step's 60-minute timeout"},
   "deploy/Fetch the IndexNow list": {"seconds": 30},
   "deploy/Ping IndexNow": {"seconds": 30},
   "build/Save the git store": {"seconds": 45},

@@ -504,7 +504,8 @@ jobs:
           retention-days: 1
           if-no-files-found: error
       # What this run's caches carry to the next, saved once the site has
-      # passed its checks, before the deploy job ships it. Steps of their own,
+      # passed its checks, beside the deploy job, which ships the site as soon
+      # as Keep the IndexNow list is done and does not wait for these. Steps of their own,
       # not actions/cache's post-job saves: those run only when every step
       # passed. Run 38370347047 saved no shims or clue index;
       # 38376042604's reindex then took 119s instead of ~50s and its authored
@@ -622,9 +623,9 @@ jobs:
   # an incremental one skips the last two.
   deploy:
     name: deploy
-    needs: [build, validate, annotate, requeue]
+    needs: [validate, annotate, requeue]
     if: >-
-      ${{ !cancelled() && needs.build.result == 'success' && needs.validate.result == 'success'
+      ${{ !cancelled() && needs.validate.result == 'success'
       && (needs.annotate.result == 'success' || needs.annotate.result == 'skipped')
       && (needs.requeue.result == 'success' || needs.requeue.result == 'skipped') }}
     runs-on: ubuntu-latest
@@ -635,7 +636,34 @@ jobs:
     # (The string form: the page URL still shows, actions/deploy-pages reports
     # it on the deployment itself.)
     environment: github-pages
+    permissions:
+      contents: read
+      actions: read  # the wait below reads the build job's steps
+      pages: write
+      id-token: write
     steps:
+      # The deploy does not need the build job, only its site: the build's
+      # cache saves (~2.4 minutes of packing and uploading) ran in front of
+      # it, though the artifact was long uploaded. So this job starts with the
+      # checks and waits here for the build's "Keep the IndexNow list" step,
+      # the last one the site depends on (it follows the site checks and the
+      # upload). A build job that ends without reaching it ships nothing, and
+      # the run's other steps are skipped, not failed: the build's own failure
+      # is already the red.
+      - name: Check out
+        uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: tools
+      - name: Wait for the build's site
+        id: built
+        timeout-minutes: 60
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          ATTEMPT: ${{ github.run_attempt }}
+        run: python3 tools/wait_for_build.py "$REPO" "$RUN_ID" "$ATTEMPT"
       # GitHub's deploy sometimes stalls (deployment_in_progress, syncing_files,
       # then nothing until the action's 600s timeout; six runs on 2026-11-07,
       # e.g. 42358494050, 42358870222, 42356010055) while the next push's
@@ -644,6 +672,7 @@ jobs:
       # only if it failed. A retry that fails too leaves the run red.
       - name: Deploy to Pages
         id: deploy_first
+        if: ${{ steps.built.outputs.ready == 'true' }}
         continue-on-error: true
         uses: actions/deploy-pages@v5
         with:
@@ -652,13 +681,9 @@ jobs:
         if: ${{ steps.deploy_first.outcome == 'failure' }}
         id: deployment
         uses: actions/deploy-pages@v5
-      # tools/indexnow.py and the build's list of changed pages, for the ping.
-      - name: Check out
-        uses: actions/checkout@v5
-        with:
-          filter: blob:none
-          sparse-checkout: tools
+      # The build's list of changed pages, for the ping.
       - name: Fetch the IndexNow list
+        if: ${{ steps.built.outputs.ready == 'true' }}
         uses: actions/download-artifact@v7
         with:
           name: indexnow
@@ -666,6 +691,7 @@ jobs:
       # ping leaves the site deployed and the run red, with IndexNow's reply
       # in the log.
       - name: Ping IndexNow
+        if: ${{ steps.built.outputs.ready == 'true' }}
         run: python3 tools/indexnow.py ping indexnow-urls.txt
 
   # Every step's time against its budget in tools/data/deploy_budgets.json,
