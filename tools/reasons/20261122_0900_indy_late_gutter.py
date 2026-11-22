@@ -40,6 +40,8 @@ def due(row):
     if not re.match(r"GaleIndependent(200\d|201[0-4])UKEnglish/", rel) \
             or not fa.scan_queue.read_before(row, fa.scan_queue.when(REREAD)):
         return False
+    if fa.indy_under_split_due(row):
+        return False  # INDY_UNDER_SPLIT's own reread covers it
     for v in row.get("verdicts", ()):
         blank = v.get("blank")
         if v.get("refused") or v.get("skip") or not v.get("id") or v.get("number") is None or not isinstance(blank, dict):

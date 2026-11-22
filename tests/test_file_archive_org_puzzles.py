@@ -10391,12 +10391,13 @@ if _m3 == [True, False, False, True, False] and f.RANKS[f.INDY_THREE_MORE] == 2 
 else:
     print("FAIL a three-column Independent page seen only in a later cached window is due INDY_THREE_MORE", _m3)
     out += "\nFAILS 1"
-# r291 INDY_UNDER_SPLIT: three print columns under the grid, the first window of the old split holding two of them.
+# r291 INDY_UNDER_SPLIT: three print columns under the grid, the first window of the old split holding two of them
+# (a split whose first gutter is fine and second lies right of the third column's numbers is INDY_LATE_GUTTER's cut).
 _g4 = (173, 448, 893, 1167)
 _w4 = [[x, 1200 + 50 * k, x + 200, 1220 + 50 * k, str(k + 1)] for x in (170, 420, 671) for k in range(8)]
 _lines4 = [[tuple(w) for w in _w4]]
 if f.indy_under_columns(_lines4, _g4, (585, 957, 1399), 40) == (416, 667, 947) \
-        and f.indy_under_columns(_lines4, _g4, (300, 957, 1399), 40) == (300, 957, 1399) \
+        and f.indy_under_columns(_lines4, _g4, (300, 957, 1399), 40) == (300, 667, 947) \
         and f.indy_under_columns([_lines4[0][:16]], _g4, (585, 957, 1399), 40) == (585, 957, 1399):
     print("ok   an Independent page's first two columns under the grid are cut at their numbers (INDY_UNDER_SPLIT)")
 else:
