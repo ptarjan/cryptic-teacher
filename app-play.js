@@ -1191,20 +1191,20 @@
   // so the rung is no taller until the solver asks for it. `rulesOpen` holds
   // "<entry key>|<rung key>" for each rule opened by a tap on #hint-body.
   const rulesOpen = new Set();
-  // Quiet notes: before a clue is solved only its current step (the last clue
-  // step opened) shows its note; the others fold to one line. notesOpen holds
-  // what the solver chose instead: true unfolded, false folded. The key carries
-  // the current step, so every choice lapses when the next step opens. Session
-  // only, never saved.
-  const notesOpen = new Map();
+  // Quiet notes: before a clue is solved only one step's note shows, the one
+  // picked on the step track (the tabs). Without a pick it is the current step
+  // (the last clue step opened). tabPick holds the pick; its key carries the
+  // current step, so a pick lapses when the next step opens. Session only,
+  // never saved.
+  const tabPick = new Map();
   function currentStep(e) {
     const r = shownRungs(e).filter((k) => k !== ANSWER_RUNG);
     return r.length ? r[r.length - 1] : "";
   }
-  const noteKeyOf = (e, k) => entryKey(e) + "|" + currentStep(e) + "|" + k;
-  function noteFolded(e, k) {
-    const v = notesOpen.get(noteKeyOf(e, k));
-    return v === undefined ? k !== currentStep(e) : !v;
+  const tabKeyOf = (e) => entryKey(e) + "|" + currentStep(e);
+  function selectedStep(e) {
+    const k = tabPick.get(tabKeyOf(e));
+    return k && shownRungs(e).includes(k) ? k : currentStep(e);
   }
   function withRuleChip(html, rule, rung, open) {
     if (!rule) return html;

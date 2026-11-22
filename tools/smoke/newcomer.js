@@ -172,7 +172,7 @@ const btnNames = () => registry["hint-rungs"].children.map((b) => b.textContent)
   takeRung(last);
   const shown = registry["hint-body"].innerHTML;
   assert(shown.includes("hint-step"), "the chosen rung is revealed");
-  const stepCount = (shown.match(/class="hint-step(?: foldable(?: folded)?)?"/g) || []).length;
+  const stepCount = (shown.match(/class="hint-step"/g) || []).length;
   assert(stepCount === 1, `choosing rung "${wanted}" revealed ${stepCount} rungs, not just the one`);
   // out of order without renumbering: the rung keeps its ladder number
   assert(shown.includes(wanted.split(" · ")[0] + " · "), "rung keeps its ladder number: " + shown.slice(0, 120));

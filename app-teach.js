@@ -2047,10 +2047,10 @@
   // gone — it is deliberately not persisted — so without this the ladder reads
   // identically whether you earned five rungs or paid for five, and the one
   // number the site is for disappears as soon as you scroll.
-  // `fold` is given only before the clue is solved: { folded, name, verdict }.
-  // The note is then a button (the header, tapping it folds or unfolds) over a
-  // body that is always in the DOM, hidden when folded, so what it says stays
-  // findable and the verdict for this step stays with it. Solved: no fold.
+  // `fold` is given only before the clue is solved: { hidden, verdict }. Only
+  // the step picked on the track shows (the tabs); the others stay in the DOM,
+  // hidden, so what they say stays findable. The verdict for this step stays
+  // with its note. Solved: every note shows.
   function hintStepHTML(step, position, won, ruleOpen, fold) {
     const label = `<span class="step-label">${
       position} · ${esc(step.label)}${
@@ -2059,11 +2059,8 @@
     if (!fold) {
       return `<div id="hint-note-${esc(step.key)}" class="hint-step${won ? " won" : ""}">${label}</div>`;
     }
-    return `<div id="hint-note-${esc(step.key)}" class="hint-step${won ? " won" : ""} foldable${
-      fold.folded ? " folded" : ""}"><button type="button" class="note-fold" data-note="${
-      esc(step.key)}" aria-expanded="${fold.folded ? "false" : "true"}">${won ? "\u2605 " : ""}${
-      esc(fold.name)} ${fold.folded ? "\u25B8" : "\u25BE"}</button><div class="note-body"${
-      fold.folded ? " hidden" : ""}>${fold.verdict || ""}${label}</div></div>`;
+    return `<div id="hint-note-${esc(step.key)}"${fold.hidden ? " hidden" : ""} class="hint-step${
+      won ? " won" : ""}" role="tabpanel">${fold.verdict || ""}${label}</div>`;
   }
 
   // Where the answer's words break, read straight off the clue's own

@@ -48,11 +48,18 @@
       // A step that is already open: tapping it goes to its note, and costs
       // nothing because there is nothing left to take.
       if (b.note) {
+        // A tab must not take focus, or the keyboard drops (as the wheel's
+        // tiles); the note changes in place and the view stays put.
+        btn.onmousedown = (ev) => ev.preventDefault();
+        if (b.tab) {
+          btn.setAttribute("role", "tab");
+          btn.setAttribute("aria-selected", b.sel ? "true" : "false");
+        }
         btn.onclick = () => {
-          // A folded note opens first (in place), then the view goes to it.
+          // Before the solve this is a tab: it picks the note shown, in place.
           const cur = currentEntry();
-          if (cur && !isEntrySolved(cur) && noteFolded(cur, b.note)) {
-            notesOpen.set(noteKeyOf(cur, b.note), true);
+          if (cur && !isEntrySolved(cur) && selectedStep(cur) !== b.note) {
+            tabPick.set(tabKeyOf(cur), b.note);
             renderHintPanel();
           }
           const n = $("hint-note-" + b.note);
@@ -625,7 +632,7 @@
         let chunk = "";
         const verdict = lastGuess && lastGuess.rung === s.key ? verdictHTML(lastGuess, tapping) : "";
         const fold = solved ? null
-          : { folded: noteFolded(e, s.key), name: STEP_NAMES[s.key] || s.label, verdict };
+          : { hidden: s.key !== selectedStep(e), verdict };
         if (!fold) chunk += verdict;
         chunk += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0,
           rulesOpen.has(entryKey(e) + "|" + s.key), fold);
@@ -682,7 +689,8 @@
         const tint = hue[s.key] ? " " + hue[s.key] : "";
         if (isShown(e, s.key)) {
           const worked = earnedRungs(e).indexOf(s.key) >= 0;
-          trackSpec.push({ note: s.key, label: s.label, cls: "step open" + (worked ? " worked" : "") + tint,
+          const tab = !solved, sel = tab && s.key === selectedStep(e);
+          trackSpec.push({ note: s.key, tab, sel, label: s.label, cls: "step open" + (worked ? " worked" : "") + (sel ? " sel" : "") + tint,
             text: worked ? "★ " + name : name,
             title: worked ? "Worked out: tap to see its note" : "Open: tap to see its note" });
           return;

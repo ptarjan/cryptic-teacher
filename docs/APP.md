@@ -236,14 +236,15 @@ Terms used below:
 
 ### Quiet notes
 
-- **Before a clue is solved, only its current step's note is open.** The
-  current step is the last clue step opened (`currentStep`, not the answer
-  rung). Every other note folds to one line, a button naming the step
-  (`.note-fold`, starred when worked out). The full text stays in the DOM,
-  hidden, so leak checks still read it. Tapping a note, or an open step chip in
-  the track, unfolds it in place (`notesOpen`, session only, keyed by the
-  current step, so it lapses when the next step opens). On a solved clue
-  nothing folds.
+- **Before a clue is solved, exactly one step's note shows.** The step
+  track is the tab bar: each open step's word is a tab (`role=tab`,
+  `aria-selected`, keeping its colour), and tapping it shows that step's note
+  in place. The selection defaults to the current step (the last clue step
+  opened, `currentStep`, not the answer rung) and follows it when the next step
+  opens; a tab the solver picked (`tabPick`, session only, keyed by the current
+  step) holds until then. The other notes stay in the DOM, hidden, so leak
+  checks still read them. Tabs never take focus, so the keyboard stays up. On a
+  solved clue every note shows and the track only scrolls to them.
 
 ### Highlighting
 

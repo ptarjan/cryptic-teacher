@@ -211,7 +211,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
         // prose is cut out, each piece leaving a break: "built from any" reads
         // as OMAN, and no clue put it there.
         let bare = registry["hint-body"].innerHTML
-          .replace(/<span class="(?:step-label|formula-lead)">[^<]*<\/span>|<button type="button" class="note-fold"[^>]*>[^<]*<\/button>/g, " ")
+          .replace(/<span class="(?:step-label|formula-lead)">[^<]*<\/span>/g, " ")
           // A block or chip boundary is a break, not a join: the muted note
           // "...a hundred" then the chip "The last sheep..." read as HUNDREDTH
           // though no learner sees them run together. Inline emphasis tags
@@ -768,7 +768,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       // on it opens the rule with its lesson link.
       const inds = (s.e.annotation.indicators || []);
       if (inds.length && inds.every((i) => i.note)) {
-        const rungOf = (h) => (h.split(/<div [^>]*class="hint-step(?: foldable)?(?: folded)?">/)
+        const rungOf = (h) => (h.split(/<div [^>]*class="hint-step"[^>]*>/)
           .find((sec) => sec.includes("Spot the indicator words")) || "")
           .replace(/<\/div>[\s\S]*$/, "");
         const rulesIn = (h) => h.match(/<span class="device-rule">[\s\S]*?<\/span>/g) || [];
@@ -791,7 +791,6 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
             `${s.id} ${entryId(s.e)}: a second tap closes the rule again`);
         }
         const rest = rung
-          .replace(/<button type="button" class="note-fold"[^>]*>[^<]*<\/button><div class="note-body"[^>]*>/, "")
           .replace(/<span class="step-label">[^<]*<\/span>/, "")
           .replace(/<ul class="ind-notes">[\s\S]*?<\/ul>/, "").trim();
         assert(!rest, `${s.id} ${entryId(s.e)}: every indicator has a note, so the rung ` +
