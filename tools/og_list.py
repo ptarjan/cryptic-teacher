@@ -30,6 +30,7 @@ drawing), but a card is redrawn only if its HTML came out different.
 import contextlib
 import functools
 import sys
+import time
 
 import fetch_puzzle
 import make_og_card
@@ -57,7 +58,13 @@ def card_row(path):
     return ok, make_og_card.card_key(path.stem) if ok else None
 
 
+def took(what, since):
+    """One phase's seconds on stderr, for the deploy log."""
+    print(f"og_list: {what} by {time.monotonic() - since:.1f}s", file=sys.stderr, flush=True)
+
+
 def main(argv):
+    started = time.monotonic()
     limit = int(argv[0])
     salt = make_og_card._salt().hexdigest()
     files = puzzle_paths.puzzle_files()
@@ -72,15 +79,19 @@ def main(argv):
     eligible = [p for p in wanted if p in keys]
     make_og_card.eligible = lambda: eligible
     make_og_card.card_key = lambda pid: keys[pid]
+    took(f"the rows of {len(wanted)} card(s)", started)
     with contextlib.redirect_stdout(sys.stderr):
         make_og_card.prune()
+        took("the prune", started)
         adopted = make_og_card.adopt_legacy()
         if adopted:
             print(f"og_list: took {adopted} card(s) drawn under the old key as current")
+        took("the legacy adopt", started)
     for i, pid in enumerate(make_og_card.stale()):
         if i >= limit:
             break
         print(pid)
+    took("the stale list", started)
     return 0
 
 

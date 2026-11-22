@@ -3378,6 +3378,7 @@ def reindex():
     # puzzles need not pay for 57k. Ratings are relative to the whole corpus, so
     # a scoped index carries none.
     only = {i for i in os.environ.get("CT_REINDEX_IDS", "").split(",") if i}
+    _phase("start")
     import row_cache
     if only:
         puzzles = [index_row(f) for f in puzzle_files() if f.stem in only]
@@ -3401,6 +3402,7 @@ def reindex():
     except Exception as err:  # any raise: the index is written without ratings, never not at all
         print(f"difficulty scoring skipped: {type(err).__name__}: {err}")
         ratings, snitch = {}, {}
+    _phase("rows and difficulty")
 
     big = puzzle_tags.big_grids([(row["id"], row["series"], row.pop("area")) for row in puzzles])
     import renamed_ids
@@ -3473,8 +3475,23 @@ def reindex():
              "unlisted": unlisted}
     if not only:
         index["build"] = index_build()
+    _phase("tags, reprints, order")
     write_index(index)
+    _phase("write")
     return index
+
+
+_PHASE = [None]
+
+
+def _phase(what):
+    """reindex()'s seconds since the last phase, on stderr, when
+    row_cache.TIMES_ENV is set (the deploy sets it)."""
+    import row_cache
+    now = time.monotonic()
+    if os.environ.get(row_cache.TIMES_ENV) and _PHASE[0] is not None:
+        print(f"reindex: {what} {now - _PHASE[0]:.1f}s", file=sys.stderr, flush=True)
+    _PHASE[0] = now
 
 
 #: The live site, whose puzzles/index.json the deploy builds in full.
@@ -4412,8 +4429,10 @@ def main(argv):
         if not (plain_reindex_allowed() or os.environ.get("CT_REINDEX_IDS")):
             print(f"refusing a plain --reindex on this machine.\n{FULL_SCAN_ADVICE}", file=sys.stderr)
             return 2
+        t0 = time.monotonic()
         index = reindex()
-        print(f"indexed {len(index['puzzles'])} puzzle(s); latest = {index['latest']}")
+        print(f"indexed {len(index['puzzles'])} puzzle(s); latest = {index['latest']}"
+              f" ({time.monotonic() - t0:.1f}s)")
         return 0
     if argv[0] == "--reindex-changed":
         rebuilt = reindex_changed()

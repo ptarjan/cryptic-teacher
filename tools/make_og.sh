@@ -137,6 +137,7 @@ case "${1:-}" in
     # indistinguishable from nothing being stale, and every puzzle after the one
     # it died on silently keeps a stale card while the run reports success.
     list="$(python3 "$REPO/tools/og_list.py" "${OG_LIMIT:-600}")"
+    echo "og_list: $(printf '%s\n' $list | grep -c . || true) card(s) to draw"
     batch=()
     for n in $list; do
       batch+=("$n")

@@ -80,6 +80,10 @@ jobs:
     # Without a cap a hung step holds the pages concurrency group, and so every
     # deploy behind it, for GitHub's 6 hours.
     timeout-minutes: 90
+    # Each row-cache map and reindex phase prints its seconds
+    # (tools/row_cache.py TIMES_ENV): what a slow step's time went to.
+    env:
+      CT_ROW_TIMES: "1"
     steps:
       # The runner's free disk is shared by the checkout (~1GB tree plus up to
       # 1.5GB git store), the restored caches and the site, and run

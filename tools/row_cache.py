@@ -30,6 +30,7 @@ runs in full and says why on stderr. Rows unused for PRUNE_DAYS are dropped.
 """
 import hashlib
 import json
+import os
 import pickle
 import sqlite3
 import subprocess
@@ -319,6 +320,21 @@ def _peak_mb():
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024
 
 
+#: Set (pages.yml sets it) to print each map's phases on stderr: which part of a
+#: deploy step's seconds is the code key, the listing, the store, the deps.
+TIMES_ENV = "CT_ROW_TIMES"
+_LOADED = time.monotonic()
+
+
+def _times(ns, n, miss, marks):
+    """One line of a map's phase seconds, when TIMES_ENV is set."""
+    if not os.environ.get(TIMES_ENV):
+        return
+    parts = ", ".join(f"{name} {b - a:.1f}s" for (_, a), (name, b) in zip(marks, marks[1:]))
+    print(f"row cache for {ns}: {n} rows, {miss} made; {parts} (ended {marks[-1][1] - _LOADED:.1f}s"
+          " after row_cache loaded)", file=sys.stderr, flush=True)
+
+
 class TooManyMisses(Exception):
     """cached_map found more missing rows than its `max_miss` allows."""
 
@@ -354,12 +370,16 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     through once; the rows made here are held until they are reached."""
     assert not (lazy and deps), "lazy rows are not checked against deps"
     paths = list(paths)
+    marks = [("start", time.monotonic())]
     try:
         conn = _open()
         code = code_for(name, fn.__name__, roots, salt)
+        marks.append(("code key", time.monotonic()))
         blobs = _blobs(paths, listed)
         keys = {p: _key(code, p, b) for p, b in blobs.items()}
+        marks.append(("blobs", time.monotonic()))
         stored, moved = _lookup(conn, code, keys, vals=not lazy)
+        marks.append(("lookup", time.monotonic()))
     except (OSError, sqlite3.Error) as err:
         print(f"row cache for {name}.{fn.__name__}: {err!r}; computing every row", file=sys.stderr)
         if prepare:
@@ -378,6 +398,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                 out[p] = row
                 continue
         miss.append(p)
+    marks.append(("deps check", time.monotonic()))
     if max_miss is not None and len(miss) > max_miss:
         # Before anything is made: a cache-key change must not silently turn
         # a cheap step into a whole-corpus scan (`max_miss`: raise instead).
@@ -476,6 +497,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                 # A lazy map with no deadline still goes a batch at a time, each
                 # packed as it is made, never every made row held whole.
                 n = BATCH if budget.deadline() is None else batch_size(budget.left(), spent_s / done)
+    marks.append(("make", time.monotonic()))
     try:
         with conn:
             store(unstored)
@@ -509,6 +531,8 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
         print(f"row cache for {name}.{fn.__name__}: could not store {len(miss)} rows: {err!r}", file=sys.stderr)
     finally:
         conn.close()
+    marks.append(("store", time.monotonic()))
+    _times(f"{name}.{fn.__name__}", len(paths), len(miss), marks)
     if lazy:
         return _reached(paths, out, {keys[p]: moved.get(keys[p], keys[p]) for p in paths if p not in missed},
                         keys, packed, fn)

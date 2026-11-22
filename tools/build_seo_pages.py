@@ -3205,8 +3205,11 @@ def outputs(check=False, shard=None, shards=None, first=False):
 
     blocks, found, facts = {}, {}, []
     fp = page_cache.fingerprint()
+    took("the page fingerprint", started)
     stored = page_cache.load() if fp else {}
+    took("the page store's load", started)
     blog_fact_hashes()  # once, before the workers fork
+    took("the blog-fact hashes", started)
     _PAGES = solved, series_neighbours(stubs), meta, check, fp, stored
     keep, reused, why = {}, 0, collections.Counter()
     if shard:
@@ -3232,6 +3235,7 @@ def outputs(check=False, shard=None, shards=None, first=False):
         got, missed = reuse_first(len(solved))
         took("the reuse check", started)
         got.update(zip(missed, parallel.pmap(puzzle_page_job, missed)))
+        took(f"the render of {len(missed)} page(s)", started)
         results = [got[j] for j in range(len(solved))]
     else:
         results = parallel.pmap(puzzle_page_job, range(len(solved)))
@@ -3263,6 +3267,7 @@ def outputs(check=False, shard=None, shards=None, first=False):
                 out.write(f"fingerprint={fp}\n")
         if not check and not page_cache.may_skip_save(len(solved) - reused, fp):
             page_cache.save(keep)
+            took("the page store's save", started)
     took("the puzzle pages", started)
 
     def rest():
@@ -3286,9 +3291,20 @@ def outputs(check=False, shard=None, shards=None, first=False):
         yield from sitemaps(idx, [f"{BASE}/showcase/{slug}/"
                                   for slug, *_, full in secs if full])
         yield home
+    # Each kind of page's seconds, by the first part of its path under the
+    # site: which of them the step's "other pages" time goes to.
+    spent, last = collections.Counter(), time.monotonic()
     for p, text in rest():
         claim(p)
         yield p, write_output(p, text, check)
+        now = time.monotonic()
+        rel = p.relative_to(ROOT).parts
+        kind_of = rel[0] if rel[0] != "puzzles" or len(rel) < 3 else (
+            "puzzles/series" if rel[1] == "series" else "puzzles/<id>")
+        spent[kind_of] += now - last
+        last = now
+    print("build_seo_pages: other pages by kind: " + ", ".join(
+        f"{k} {v:.1f}s" for k, v in spent.most_common(8)), file=sys.stderr)
     took("the other pages", started)
 
 

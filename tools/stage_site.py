@@ -128,7 +128,9 @@ def publish(src):
     """select(src) with every shim swapped for its .gz, compressing the
     shims whose .gz is missing or stale."""
     global _GZ
+    t0 = time.monotonic()
     files = select(src)
+    print(f"stage_site: selected {len(files)} files in {time.monotonic() - t0:.1f}s", file=sys.stderr)
     shims = [f for f in files if SHIM.fullmatch(f)]
     if not shims:
         return files
@@ -143,6 +145,7 @@ def publish(src):
     finally:
         _GZ = None
     path.write_text(json.dumps(done, sort_keys=True, separators=(",", ":")), encoding="utf-8")
+    print(f"stage_site: {len(shims)} shims' .gz checked by {time.monotonic() - t0:.1f}s", file=sys.stderr)
     return sorted(published(f) for f in files)
 
 
