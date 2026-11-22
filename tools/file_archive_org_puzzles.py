@@ -9417,7 +9417,10 @@ def filed_number(d, found, hit):
     # A filed number off its date's by less than the slack (3302 on 1977-10-26 for 3502) still strands the titles
     # between its neighbours, or holds the number of a title on its right date: the puzzles filed in date order
     # that keep step with their neighbours' offsets (Held.steady) stand for the neighbours instead.
-    if number is None and paper is FT and ("out of date order" in (why or "") or "already filed for" in (why or "")) \
+    # TELE_ORDER_STEADY: the Gale Telegraph's 1980-84 run is nearly all unfiled, so one misread title filed (18106 on
+    # 1984-06-12, the page's 18166) is the only neighbour 60 titles of the spring are placed against.
+    if number is None and (paper is FT or paper is GALE_TELEGRAPH) \
+            and ("out of date order" in (why or "") or "already filed for" in (why or "")) \
             and abs(n - paper.expected(day)) <= paper.slack:
         steady = Held.of(held).steady(paper.expected)
         if len(steady) < len(held):
