@@ -67,7 +67,7 @@ with tempfile.TemporaryDirectory() as d:
 # key it passed (reused_from_store), and hands back exactly the indexes it
 # cannot (which then go to the workers).
 real, real_store = b.reuse_page, b.reused_from_store
-b.reuse_page = lambda i: (("page", i), f"k{i}", "w") if i % 3 else (None, f"k{i}", "w")
+b.reuse_page = lambda i, apply=True: (("page", i), f"k{i}", "w") if i % 3 else (None, f"k{i}", "w")
 b.reused_from_store = lambda i, key: ("page", i, key)
 try:
     got, missed = b.reuse_first(10)
