@@ -58,8 +58,8 @@
         btn.onclick = () => {
           // Before the solve this is a tab: it picks the note shown, in place.
           const cur = currentEntry();
-          if (cur && !isEntrySolved(cur) && selectedStep(cur) !== b.note) {
-            tabPick.set(tabKeyOf(cur), b.note);
+          if (cur && b.tab && !b.sel) {
+            tabPick.set(tabKeyOf(cur), { note: b.note, sig: pendingSig() });
             renderHintPanel();
           }
           const n = $("hint-note-" + b.note);
@@ -67,6 +67,10 @@
         };
         el.appendChild(btn);
         return;
+      }
+      if (b.tab) {
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-selected", b.sel ? "true" : "false");
       }
       if (b.arm) btn.setAttribute("data-arm", b.arm);
       if (b.disabled) { btn.disabled = true; el.appendChild(btn); return; }
@@ -542,7 +546,7 @@
 
     const body = $("hint-body");
     const next = $("hint-next");
-    let bodyHTML = "";
+    let bodyHTML = "", pendingHTML = "", pendingFront = false;
     let ask = null, tapping = false;
     // Whether Reveal answer is on offer: decided below, drawn in the help bar.
     let offerFill = false;
@@ -593,7 +597,11 @@
       // buttons, and that is only knowable from the question being asked now.
       ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && !ask) guessing = null;
-      tapping = !!(ask && !ask.choices && guessing && holder === e);
+      // One panel at a time, like tabs. A question or the wheel on the table
+      // is the front panel until a step's tab is picked; with nothing pending
+      // the front panel is the picked step's note, else the last one opened.
+      pendingFront = !solved && !!(ask || wheelOn === key) && !pickedStep(e);
+      tapping = !!(ask && !ask.choices && guessing && holder === e && pendingFront);
       // The blocks rung as much of it as has been handed over. A solved clue
       // gets the lot: its score is settled, and the rest of the ladder is free
       // from that moment, so there is nothing left for the pacing to protect.
@@ -631,9 +639,7 @@
         // be read side by side against the explanation, for as long as you like.
         let chunk = "";
         const verdict = lastGuess && lastGuess.rung === s.key ? verdictHTML(lastGuess, tapping) : "";
-        const fold = solved ? null
-          : { hidden: s.key !== selectedStep(e), verdict };
-        if (!fold) chunk += verdict;
+        const fold = { hidden: pendingFront || s.key !== selectedStep(e), verdict };
         chunk += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0,
           rulesOpen.has(entryKey(e) + "|" + s.key), fold);
         // The verdict travels with the rung it judged, so the anchor goes round
@@ -648,7 +654,7 @@
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
         const fm = formulaAsks && steps[at].formula ? formulaHTML(e, steps[at].formula, true) : "";
         const q = guessHTML(ask, at + 1, steps[at].label, holder === e, fm);
-        bodyHTML += hintFocus === "guess" ? `<div id="hint-focus">${q}</div>` : q;
+        pendingHTML += hintFocus === "guess" ? `<div id="hint-focus">${q}</div>` : q;
       }
 
 
@@ -689,16 +695,17 @@
         const tint = hue[s.key] ? " " + hue[s.key] : "";
         if (isShown(e, s.key)) {
           const worked = earnedRungs(e).indexOf(s.key) >= 0;
-          const tab = !solved, sel = tab && s.key === selectedStep(e);
+          const tab = true, sel = !pendingFront && s.key === selectedStep(e);
           trackSpec.push({ note: s.key, tab, sel, label: s.label, cls: "step open" + (worked ? " worked" : "") + (sel ? " sel" : "") + tint,
             text: worked ? "★ " + name : name,
             title: worked ? "Worked out: tap to see its note" : "Open: tap to see its note" });
           return;
         }
         if (open.some((o) => o.s.key === s.key)) {
-          trackSpec.push({ rung: s.key, label: s.label,
+          trackSpec.push({ rung: s.key, label: s.label, tab: true,
+            sel: pendingFront && !!ask && guessing.rung === s.key,
             cls: "step avail" + tint + (s.key === lead && !left ? " lead" : "")
-              + (target && target.rung === s.key ? " cur" + (!solved && !selectedStep(e) ? " sel" : "") : "")
+              + (target && target.rung === s.key ? " cur" + (pendingFront && ask && guessing.rung === s.key ? " sel" : "") : "")
               + (s.key === lead && !left && nuxFreeRung(e, s.key, solved) ? " rung-point" : ""),
             text: name });
           return;
@@ -716,7 +723,8 @@
     // The wheel sits where the question would, under whatever the ladder has
     // shown: while it is open there is no question (see arriveAt above).
     const wheelOpen = wheelOn === key && !solved;
-    if (wheelOpen) bodyHTML += wheelHTML(e, ann);
+    if (wheelOpen) pendingHTML += wheelHTML(e, ann);
+    if (pendingHTML) bodyHTML += `<div class="hint-pending" role="tabpanel"${pendingFront ? "" : " hidden"}>${pendingHTML}</div>`;
     drawWheelToggle(!solved, wheelOpen);
     // Written last, because whether its words are targets is decided by whether a
     // question ended up being asked. A linked clue is the exception and keeps the

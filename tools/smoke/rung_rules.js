@@ -2,7 +2,7 @@
 // Part of tools/smoke_test.js: required in order, on the harness' shared object.
 "use strict";
 const T = require("./harness");
-const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismissNext, entryId, fs,
+const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, defTexts, dismissNext, entryId, fs,
   isAsking, panelHTML, pickerRowFor, registry, shape } = T;
 // --- nothing is charged for without being offered first ---
 // A rung asks even when what is left to point at IS the answer. Skipping the
@@ -46,6 +46,24 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   assert(registry["hint-body"].innerHTML.includes("hint-step guess"),
     "and it asks before it tells, even when the answer is the whole clue ("
       + clueText(found.e) + "): " + registry["hint-body"].innerHTML);
+
+  // --- the step track is a tab bar: one panel at a time ---
+  // The question on the table is the front panel and the only one showing;
+  // once the step is opened its note is, and the question is gone. Picking a
+  // tab swaps panels and never leaves two showing.
+  const shown = () => (registry["hint-body"].innerHTML.match(/<div[^>]*role="tabpanel"[^>]*>/g) || [])
+    .filter((t) => !/\shidden[\s>]/.test(t)).length;
+  const tabs = () => registry["hint-track"].children.filter((b) => b.getAttribute && b.getAttribute("role") === "tab");
+  assert(shown() === 1,
+    "a pending question is the one panel showing: " + registry["hint-body"].innerHTML);
+  assert(/class="hint-pending" role="tabpanel">/.test(registry["hint-body"].innerHTML),
+    "and it is the question's panel: " + registry["hint-body"].innerHTML);
+  registry["guess-tell"].onclick();
+  confirmArmed();
+  const afterTell = registry["hint-body"].innerHTML;
+  assert(shown() === 1, "after the step opens there is still exactly one panel: " + afterTell);
+  assert(tabs().length >= 1 && tabs().some((b) => b.getAttribute("aria-selected") === "true"),
+    "the open step's tab is selected");
 }
 
 // --- every ladder names its precise type, double and cryptic definitions included ---

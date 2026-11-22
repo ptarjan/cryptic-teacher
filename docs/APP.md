@@ -238,15 +238,21 @@ Terms used below:
 
 ### Quiet notes
 
-- **Before a clue is solved, exactly one step's note shows.** The step
-  track is the tab bar: each open step's word is a tab (`role=tab`,
-  `aria-selected`, keeping its colour), and tapping it shows that step's note
-  in place. The selection defaults to the current step (the last clue step
-  opened, `currentStep`, not the answer rung) and follows it when the next step
-  opens; a tab the solver picked (`tabPick`, session only, keyed by the current
-  step) holds until then. The other notes stay in the DOM, hidden, so leak
-  checks still read them. Tabs never take focus, so the keyboard stays up. On a
-  solved clue every note shows and the track only scrolls to them.
+- **The step track is a tab bar: exactly one panel shows below it.** The
+  track is `role=tablist` and each step button is a `role=tab` with
+  `aria-selected`; the panels are `role=tabpanel`. A step's note is its panel;
+  the pending question (with its formula) or the open wheel is one more panel.
+  A pending question or wheel is in front until the solver picks an open step's
+  tab; the question's own step button is the selected tab then. With nothing
+  pending the front panel is the picked step's note, else the current step (the
+  last clue step opened, `currentStep`, not the answer rung). The same holds
+  after the solve: the tabs stay and the default is the last opened step. A
+  verdict lives inside the note of the rung it judged, so it shows only with
+  that tab. A pick (`tabPick`, session only, keyed by the current step) lapses
+  when the next step opens or a question or the wheel appears. Picking a tab
+  hides the question, so the clue's words stop being tappable until it is back
+  in front. The other panels stay in the DOM, hidden, so leak checks still
+  read them. Tabs never take focus, so the keyboard stays up.
 
 ### Highlighting
 

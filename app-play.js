@@ -1202,9 +1202,16 @@
     return r.length ? r[r.length - 1] : "";
   }
   const tabKeyOf = (e) => entryKey(e) + "|" + currentStep(e);
+  // What is pending on the clue (a question, or the wheel): a pick is only
+  // good while this is unchanged, so asking a question or opening the wheel
+  // brings that panel back to the front.
+  const pendingSig = () => (guessing ? guessing.rung + ":" + (guessing.step || 0) : "") + "|" + (wheelOn || "");
+  function pickedStep(e) {
+    const p = tabPick.get(tabKeyOf(e));
+    return p && p.sig === pendingSig() && shownRungs(e).includes(p.note) ? p.note : "";
+  }
   function selectedStep(e) {
-    const k = tabPick.get(tabKeyOf(e));
-    return k && shownRungs(e).includes(k) ? k : currentStep(e);
+    return pickedStep(e) || currentStep(e);
   }
   function withRuleChip(html, rule, rung, open) {
     if (!rule) return html;
