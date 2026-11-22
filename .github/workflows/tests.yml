@@ -183,6 +183,15 @@ jobs:
     strategy:
       # Every shard runs to the end. A red shard must not hide a second one.
       fail-fast: false
+      # The repository's runners (about twenty at once on the free plan) are
+      # shared with the site build, and GitHub hands them out first come,
+      # first served, with no priority. With master always having a suite
+      # running and one pending, eleven shards of up to 45 minutes plus the
+      # nightly smoke's six slices held nearly every runner, and each job on
+      # the way to a deploy (validate, build, the annotate shards) waited
+      # minutes for one. Six at a time leaves the deploy path its runners; a
+      # suite takes longer, and a pending one folds in more commits.
+      max-parallel: 6
       matrix:
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     # A run that stops making progress otherwise sits on GitHub's 6h default,

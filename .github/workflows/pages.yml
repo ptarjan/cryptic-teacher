@@ -12,20 +12,23 @@
 # pages built the same way, and a broken test must never block a deploy.
 name: Build and deploy the site
 
-# Puzzle-data pushes (the burn's "Annotate", "File" and "Update" commits) do not
-# start this workflow: the paths-ignore list below is the one tests.yml and
-# check.yml use. check.yml checks such a push in about a minute and, when it
-# passes, dispatches this workflow on master. Everything else (code, workflows,
-# docs) starts it directly.
-#
+# Every push to master starts this workflow, the burn's puzzle-data pushes
+# ("Annotate", "File", "Update") included: validate checks the puzzles changed
+# since the live commit, and the deploy ships nothing unless that passes.
+# There is no paths-ignore and no hop through check.yml. The repository's
+# runners are shared by every job (the free plan runs about twenty at once)
+# and tests.yml and the nightly smoke keep most of them busy, so a job that
+# only dispatched this workflow waited minutes for a runner before the build
+# had even been asked for. tests.yml still ignores the burn paths.
+
 # One build at a time and, separately, one deploy at a time: the build job is
 # in the concurrency group "pages" and the deploy job in "pages-deploy". With
 # cancel-in-progress false GitHub keeps the running job and ONE pending job per
 # group, and a newer pending job replaces an older one before it takes a
-# runner. So a burst of dispatches folds into one build of the newest master,
+# runner. So a burst of pushes folds into one build of the newest master,
 # and nothing queues up. cancel-in-progress must stay false: cancelling the
 # running build on every push meant no build ever reached the deploy. A
-# dispatch that lands while a build is already checking out is fine: the newer
+# push that lands while a build is already checking out is fine: the newer
 # pending build picks the commit up.
 #
 # Two groups, not one workflow-wide group, so the next build starts while
@@ -39,18 +42,6 @@ name: Build and deploy the site
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - "puzzles/**/*.json"
-      - "puzzles/**/*.blog"
-      - "tools/data/source_clue_wrong/*.json"
-      - "tools/data/source_answer_wrong.json"
-      - "tools/data/setter_error.json"
-      - "tools/data/blog_disagree/*.json"
-      - "tools/data/shape_reannotate.json"
-      - "tools/annotation_backlog.json"
-      - "tools/data/blog_compare.json"
-      - "tools/data/blog_facts/inputs.sha256"
-      - "tools/data/corroboration_ledger.json"
   schedule:
     - cron: "41 9 * * *"
   workflow_dispatch:
@@ -289,9 +280,8 @@ jobs:
         run: |
           set -uo pipefail
           full() { echo "full build: $1"; echo "fast=false" >> "$GITHUB_OUTPUT"; exit 0; }
-          # A push, or a dispatch from check.yml, which is how most
-          # puzzle-only pushes get here. Only the daily tick (or full=true) and
-          # a cold cache take the full path by choice.
+          # A push (puzzle-only pushes included) or a dispatch. Only the daily
+          # tick (or full=true) and a cold cache take the full path by choice.
           case "$EVENT" in
             push) ;;
             workflow_dispatch|schedule) [ "$FULL" != true ] || full "a full run was asked for" ;;
@@ -902,7 +892,7 @@ jobs:
           # The diff base is the commit the live site was built from. A deploy
           # only ships after its validate passed, so everything up to that
           # commit has been checked, and the diff covers all that came since:
-          # the burn's puzzle pushes (which do not start this workflow) as well
+          # the burn's puzzle pushes as well
           # as code. One validate runs and one waits (its group), but a
           # run's annotate and requeue can overlap the next run's validate;
           # requeue, the one job that pushes, has a

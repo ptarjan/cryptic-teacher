@@ -5,15 +5,13 @@
 # (github.event.before), so there is no run-history search and nothing here
 # depends on what another run did or when. One job, no waits.
 #
-# tests.yml and pages.yml ignore these paths, so neither starts on a burn push.
-# A `full` verdict on a push of only these paths dispatches tests.yml, once the
-# check is green. The `build` job below dispatches pages.yml at the start, beside
-# the check, which is how the puzzles go live: pages.yml's own validate job
-# runs the annotation check on every puzzle changed since the live commit, and
-# its deploy ships nothing unless that passes. The schema and integrity checks
-# here (which the burn's pre-push hook has already run on the file) no longer
-# gate the build: they turn this workflow red, and the build does not wait
-# for them (~2 minutes of the push's time to live).
+# tests.yml ignores these paths, so it does not start on a burn push; a `full`
+# verdict on a push of only these paths dispatches it, once the check is green.
+# pages.yml starts on the push itself, which is how the puzzles go live: its
+# validate job runs the annotation check on every puzzle changed since the
+# live commit, and its deploy ships nothing unless that passes. The schema and
+# integrity checks here (which the burn's pre-push hook has already run on the
+# file) do not gate the build: they turn this workflow red only.
 #
 # Keep the paths in step with tools/ci_scope.py (puzzle and .blog files, the
 # validate_scope ENTRY_TABLES, QUEUE_STATE and BACKLOG, ci_scope.DERIVED_DATA).
@@ -39,53 +37,6 @@ permissions:
   contents: read
 
 jobs:
-  # pages.yml ignores these paths too, so these puzzles only go live when it is
-  # dispatched, and it is dispatched here, first: a job of its own with no
-  # needs, so it is not behind the checks or the file-size job. It builds and
-  # deploys master's tip, always, not only when none is queued: its
-  # concurrency group keeps one pending run and replaces an older pending
-  # one, and a run already checking out is fine, since the newer pending run
-  # picks this commit up. A push that also touched other paths started
-  # pages.yml itself.
-  build:
-    name: start the site build
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      actions: write
-    env:
-      GH_TOKEN: ${{ github.token }}
-      GH_REPO: ${{ github.repository }}
-    steps:
-      - name: Start the site build
-        env:
-          BEFORE: ${{ github.event.before }}
-        run: |
-          set -uo pipefail
-          # The files the push changed, from the API: this job has no checkout.
-          # A list that cannot be read counts as puzzle files only: an extra
-          # run folds into the pending one.
-          if [ "${BEFORE//0/}" = "" ]; then
-            files=$(gh api "repos/$GH_REPO/commits/$GITHUB_SHA" --paginate --jq '.files[].filename') || files=""
-          else
-            files=$(gh api "repos/$GH_REPO/compare/$BEFORE...$GITHUB_SHA" --paginate --jq '.files[].filename') || files=""
-          fi
-          only=true
-          while read -r f; do
-            [ -n "$f" ] || continue
-            case "$f" in
-              puzzles/*.json|puzzles/*.blog|tools/data/source_clue_wrong/*.json|tools/data/source_answer_wrong.json) ;;
-              tools/data/setter_error.json|tools/data/blog_disagree/*.json|tools/data/shape_reannotate.json) ;;
-              tools/annotation_backlog.json|tools/data/blog_compare.json|tools/data/blog_facts/inputs.sha256|tools/data/corroboration_ledger.json) ;;
-              *) only=false ;;
-            esac
-          done <<< "$files"
-          if [ "$only" = true ]; then
-            gh workflow run pages.yml --ref master
-          else
-            echo "the push touched other paths: pages.yml started itself"
-          fi
-
   check:
     name: check
     runs-on: ubuntu-latest

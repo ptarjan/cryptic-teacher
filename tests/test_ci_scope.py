@@ -133,41 +133,39 @@ class Wiring(unittest.TestCase):
         self.assertIn('.result == "success"', body)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class PagesPushScope(unittest.TestCase):
-    """pages.yml: puzzle-data pushes do not start it; check.yml dispatches it."""
+    """pages.yml starts on every push; tests.yml skips the burn paths check.yml runs on."""
 
-    @staticmethod
-    def _ignored(text):
-        block = text[text.index("paths-ignore:"):]
-        block = block[: block.index("\n  schedule:") if "\n  schedule:" in block else block.index("\n  pull_request:")]
-        return re.findall(r'- "([^"]+)"', block)
+    WF = ROOT / ".github/workflows"
 
-    def test_pages_and_tests_ignore_the_same_paths_as_check_runs_on(self):
-        wf = ROOT / ".github/workflows"
-        pages = self._ignored((wf / "pages.yml").read_text(encoding="utf-8"))
-        tests = self._ignored((wf / "tests.yml").read_text(encoding="utf-8"))
-        check = (wf / "check.yml").read_text(encoding="utf-8")
+    def test_tests_ignore_the_paths_check_runs_on(self):
+        tests = (self.WF / "tests.yml").read_text(encoding="utf-8")
+        block = tests[tests.index("paths-ignore:"):]
+        block = block[: block.index("\n  pull_request:")]
+        check = (self.WF / "check.yml").read_text(encoding="utf-8")
         check_paths = re.findall(r'- "([^"]+)"', check[check.index("paths:"):check.index("permissions:")])
-        self.assertTrue(pages)
-        self.assertEqual(pages, tests)
-        self.assertEqual(pages, check_paths)
+        self.assertTrue(check_paths)
+        self.assertEqual(re.findall(r'- "([^"]+)"', block), check_paths)
 
-    def test_pages_has_one_workflow_group_and_no_scope_job(self):
-        text = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
-        self.assertRegex(text, r"(?m)^concurrency:\n  group: pages\n  cancel-in-progress: false$")
-        self.assertNotIn("needs.scope", text)
-        self.assertNotIn("*/15", text)
+    def test_pages_starts_on_every_push_and_nothing_dispatches_it(self):
+        pages = (self.WF / "pages.yml").read_text(encoding="utf-8")
+        trigger = pages[pages.index("\non:\n"):pages.index("\n  schedule:")]
+        self.assertNotIn("paths", trigger)
+        check = (self.WF / "check.yml").read_text(encoding="utf-8")
+        self.assertNotIn("workflow run pages.yml", check)
 
-    def test_check_dispatches_pages_after_a_green_check(self):
-        text = (ROOT / ".github/workflows/check.yml").read_text(encoding="utf-8")
-        self.assertIn("gh workflow run pages.yml --ref master", text)
-        self.assertIn("needs: check", text)
+    def test_pages_jobs_fold_in_their_own_groups(self):
+        pages = (self.WF / "pages.yml").read_text(encoding="utf-8")
+        for group in ("pages", "pages-deploy", "pages-check"):
+            self.assertRegex(pages, rf"(?m)^    concurrency:\n      group: {group}\n      cancel-in-progress: false$")
+        self.assertNotIn("needs.scope", pages)
+        self.assertNotIn("*/15", pages)
 
     def test_code_since_the_deploy_is_full_even_when_the_last_push_is_puzzles(self):
         since_deploy = [("M", "tools/ci_scope.py"), ("M", P)]
         self.assertEqual(verdict(since_deploy), "full")
         self.assertEqual(verdict([("M", P)]), "fast")
+
+
+if __name__ == "__main__":
+    unittest.main()
