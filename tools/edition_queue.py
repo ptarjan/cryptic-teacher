@@ -1410,7 +1410,7 @@ def only_evidence(paper, scans, reads, out=None):
     # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
     # Paul 11-14: so do the scans a kept FIX_LANDED reread waits on (fix_landed_reread): 933 of the first 2,000
     # reads needed a scan at 1,000+ of 24,000 (SIDES_HEADED: none started in 6 h); fix_rereads_forward orders them.
-    fixed = {rel for u in reads if year_evidence(u) or fix_landed_reread(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.IOS_TITLES, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_HEADINGS, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.FT_NOISY_TITLE)
+    fixed = {rel for u in reads if year_evidence(u) or is_fix_reread(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SUNDAY_NUMBER, fa.WINNERS_NUMBER, fa.SUNDAY_WEEKLY, fa.TELEQUICK, fa.TELEPAIR, fa.TELEPRIZE, fa.TELE_GRID, fa.TELEGRAPH_DATED, fa.GUARDIAN_SET, fa.FT_RIGHT, fa.TELEGRAPH_NEXT_DAY, fa.TELEGRAPH_HOSTED, fa.TELEGRAPH_PRIZE_DAY, fa.TELEGRAPH_SATURDAY, fa.TELEGRAPH_WHOLE, fa.INDEPENDENT_HEADINGS, fa.IOS_TITLES, fa.IOS_ENTRY_LINES, fa.SUNTEL_BY, fa.SUNTEL_BARE, fa.FT_HEADINGS, fa.FT_SMALL_TEXT, fa.FT_TITLE_GLUED, fa.FT_NOISY_TITLE, fa.FT_NOISY_TITLE)
              for rel in u.get("needs") or ()}
     scans = [{**u, "fix": True} if u["rel"] in fixed and u["reason"] == "scan stale" else u for u in scans]
     if gated and out is not None:
@@ -2120,7 +2120,7 @@ def fix_rereads_forward(out):
     # at 1,359-3,700 behind ~300 older NEWEST_LANDED rereads of the same capped non-Times slots
     # (CT_NON_TIMES_BESIDE_TIMES = 2, ~900 s a Sunday Telegraph read): not one "start read" in 10-18 hours.
     fix = [u for u in out if other(u)
-           and ((u.get("rank", 9) > 1 and (fix_landed_reread(u) or (u.get("kind") == "scan" and u.get("fix"))))
+           and ((u.get("rank", 9) > 1 and (is_fix_reread(u) or (u.get("kind") == "scan" and u.get("fix"))))
                 or (u.get("kind") == "read" and u.get("reason") in FIRST_FIXES))]
     if not fix:
         return out

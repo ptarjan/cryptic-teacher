@@ -4458,6 +4458,12 @@ def _flaky(n_bad, exc):
             raise exc
         return x * 2
     return f
+# 11-22: an UNFILED_FIRST-only reason (not in FIX_LANDED) of a non-Times paper led nothing: fix_rereads_forward
+# moves it ahead of the paper's never-read units like a FIX_LANDED one.
+_uf = {"paper": "galeindependent", "kind": "read", "rank": 2, "reason": eq.UNFILED_FIRST[-1], "rel": "u"}
+_nr = {"paper": "telegraph", "kind": "read", "rank": 1, "reason": "never read", "rel": "n"}
+check("fix_rereads_forward: an UNFILED_FIRST reread of another paper goes ahead of never-read units", ["u", "n"],
+      [u["rel"] for u in eq.fix_rereads_forward([_nr, _uf])])
 _sleep, eq.time.sleep = eq.time.sleep, lambda s: None
 try:
     check("ledger_retry: EAGAIN twice then answers", (4, 3), (eq.ledger_retry(_flaky(2, BlockingIOError(11, "again")), 2), len(_calls)))
