@@ -2696,8 +2696,11 @@ def fills_gpu(unit):
     if reason.startswith(fa.FOOTER_TITLE):
         return False  # 10-29: ~18 min of whole-page OCR before any ask; 6 counted as fills held the feed shut, GPU ~1%
     # Never-read reads of any paper, fix-landed rereads and canary-proven rereads ask the VLM.
+    # 11-22: registry fix reasons (tools/reasons/, unfiled_first without fix_landed) were no fill: the feed's
+    # never-read picks took the slots the reserve holds, and 170 Telegraph early-heading and 42 Independent
+    # side-right rereads (plan index ~2,000) saw no start in 2 h while never-read reads behind them started.
     return (unit["rank"] <= 1 or "before its fix" in reason or reason in FIX_LANDED
-            or canary_proven(unit))
+            or is_fix_reread(unit) or canary_proven(unit))
 
 
 #: Reasons of rereads that finish on CPU alone (answers_only, no VLM ask): they never feed the GPU.

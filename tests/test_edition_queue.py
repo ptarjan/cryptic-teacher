@@ -3607,6 +3607,10 @@ check("fills_gpu: answers-linked rereads are CPU-only, never-read and fix-landed
       (eq.fills_gpu(_al), eq.fills_gpu(_fx), eq.fills_gpu(_ft[0]), eq.fills_gpu(_cp)))
 check("gpu_fill: answers-linked rereads ranked first do not fill, the never-read ones behind them do", ["t0", "fx"],
       [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in [_al, _cp, _ft[0], _fx]], set(), set(), _none, _none, 2, False, 0, 2)])
+# 11-22: a registry fix reason (unfiled_first, not fix_landed) feeds the VLM like the fix-landed ones.
+_reg = [r for r in eq.UNFILED_FIRST if r not in eq.FIX_LANDED and not r.startswith(eq.CPU_ONLY) and not r.startswith(eq.LOW_ASK)][-1:]
+check("fills_gpu: an unfiled-first fix reread not in FIX_LANDED feeds", [True] * len(_reg),
+      [eq.fills_gpu({"paper": "telegraph", "kind": "read", "rank": 2, "reason": r, "needs": []}) for r in _reg])
 # Paul 10-22: Times solution rereads (1-3 asks each) held all 18 slots, the GPU ~27% busy. They are no fill,
 # so the FT never-read reads behind them are, and the reserve holds slots for those; nor are they cpu-only
 # (no cpu-only cap on them) or answers-linked (no batching).
