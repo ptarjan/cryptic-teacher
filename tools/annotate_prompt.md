@@ -144,6 +144,7 @@ in a double definition each definition's note says what that sense means.
   forms in the grammar (`rebus`, `comp`, `move`, `reverse`): use them, never a
   fodder-plus-deleted-letter or `ana(del(...))` stand-in, which says a letter was added.
   A reverse clue keeps its `def`; its leaf's note says how the pieces make the clue words.
+  An `ana(...)` is refused inside `sub`, a selection or `sound`: its letters have no order there.
 - **Trimmed synonym** ("jumps without limits" = BOUNCES less its ends, OUNCE): a
   deletion, `del<without limits>([jumps]BOUNCES, B, S)`, never `middle`/`first`/`last`
   (those say the letters are printed in the clue). A halving stays `first<half of>`.
