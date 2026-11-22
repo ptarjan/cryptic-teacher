@@ -146,24 +146,29 @@ def gzip_shim(rel):
     """Write src/rel.gz unless the manifest says it already holds rel's
     bytes; (rel, md5 of rel)."""
     src, manifest = _GZ
-    js, gz = src / rel, src / (rel + ".gz")
+    js = f"{src}/{rel}"
+    gz = js + ".gz"
     # A .gz newer than its shim, with the shim's digest on record, was made
     # from these bytes: a shim written since (a changed puzzle) is newer than
     # the .gz and is read. ~90k shims are ~500MB to read and hash on every
     # deploy otherwise. tar keeps whole seconds, which keeps the order.
+    # Plain os.stat on str paths: Path.stat() costs several times as much per
+    # call, and this runs 180k times.
     known = manifest.get(rel)
     if known:
         try:
-            if gz.stat().st_mtime >= js.stat().st_mtime:
+            if os.stat(gz).st_mtime >= os.stat(js).st_mtime:
                 return rel, known
         except OSError:
             pass
-    data = js.read_bytes()
+    with open(js, "rb") as f:
+        data = f.read()
     digest = hashlib.md5(data).hexdigest()
-    if manifest.get(rel) != digest or not gz.is_file():
-        tmp = gz.with_name(gz.name + ".tmp")
+    if manifest.get(rel) != digest or not os.path.isfile(gz):
+        tmp = gz + ".tmp"
         # mtime=0: the same shim always makes the same bytes.
-        tmp.write_bytes(gzip.compress(data, 9, mtime=0))
+        with open(tmp, "wb") as f:
+            f.write(gzip.compress(data, 9, mtime=0))
         os.replace(tmp, gz)
     return rel, digest
 
@@ -190,7 +195,7 @@ def publish(src):
         manifest = {}
     _GZ = src, manifest
     try:
-        done = dict(parallel.pmap(gzip_shim, shims))
+        done = dict(parallel.pmap(gzip_shim, shims, chunksize=512))
     finally:
         _GZ = None
     path.write_text(json.dumps(done, sort_keys=True, separators=(",", ":")), encoding="utf-8")
@@ -249,19 +254,39 @@ def target(page, url):
     return posixpath.join(t, "index.html") if path.endswith("/") or not t else t
 
 
-#: (out, staged) for page_missing(), set by check() before its workers fork.
+#: (out, staged, verdicts) for page_missing(), set by check() before its workers fork.
 _CHECK = None
+
+
+LINK_BYTES = re.compile(LINK.pattern.encode())
+
+
+def _rooted(url):
+    """True if url names the same file from every page."""
+    return url.startswith("/") or url.startswith(ORIGIN + "/") or url == ORIGIN
 
 
 def page_missing(page):
     """The broken links on one staged page, as check() reports them."""
-    out, staged = _CHECK
-    text = (out / page).read_text(encoding="utf-8", errors="replace")
+    out, staged, seen = _CHECK
+    with open(out / page, "rb") as f:
+        raw = f.read()
     missing = []
-    for m in LINK.finditer(text):
-        url = m.group(1) if m.group(1) is not None else m.group(2)
-        t = target(page, url)
-        if t is not None and t not in staged:
+    page_dir = posixpath.dirname(page)
+    for m in LINK_BYTES.finditer(raw):
+        # Matched on bytes (no decode of the whole page); the URL between two
+        # ASCII quotes decodes the same alone as in place.
+        url = (m.group(1) if m.group(1) is not None else m.group(2)).decode("utf-8", "replace")
+        # The nav links of every page are the same few dozen: a rooted URL
+        # does not depend on the page, so one verdict serves them all.
+        # Verdicts are kept per worker.
+        where = "" if _rooted(url) else page_dir
+        key = where, url
+        ok = seen.get(key)
+        if ok is None:
+            t = target(posixpath.join(where, "x"), url)
+            ok = seen[key] = t is None or t in staged
+        if not ok:
             missing.append(f"{page} -> {url}")
     return missing
 
@@ -271,7 +296,7 @@ def check(out, staged):
     to a directory without its trailing slash counts as broken on purpose:
     Pages answers it with a redirect, not the page."""
     global _CHECK
-    _CHECK = out, staged
+    _CHECK = out, staged, {}
     pages = sorted(p for p in staged if p.endswith(".html"))
     missing = [line for lines in parallel.pmap(page_missing, pages) for line in lines]
     _CHECK = None
