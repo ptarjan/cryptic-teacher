@@ -153,6 +153,24 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
         run: bash tools/bg_job.sh start probe bash tools/probe_path.sh "$RUNNER_TEMP/probe"
+      # Last run's puzzles/<id>.js shims. A stored index row is reused only
+      # when the shim on disk is the one it wrote (fetch_puzzle.index_row_deps
+      # hashes it), and a fresh checkout has none, so without these every one
+      # of the ~50k rows missed and was made again: the reindex's ~50s. A
+      # stale shim is never used: its row's key or deps no longer match, and
+      # the row and shim are written again.
+      - name: Restore the puzzle shims
+        uses: actions/cache/restore@v5
+        with:
+          path: .shim-cache.tar
+          key: puzzle-shims-${{ github.sha }}
+          restore-keys: puzzle-shims-
+      # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
+      # Unpacked in the background (12s a run in the foreground), beside the
+      # restores that follow; Start the reindex waits for it, the one step
+      # that reads the shims.
+      - name: Unpack the puzzle shims
+        run: bash tools/bg_job.sh start unpack-shims bash tools/cache_tar.sh unpack .shim-cache.tar
       # tools/row_cache.py's store: each puzzle's index row, difficulty inputs
       # and card facts, keyed on its file's git blob and the code that made
       # them, so the reindex and the card list re-read only the puzzles a push
@@ -196,6 +214,53 @@ jobs:
           path: .page-cache.tar
           key: ${{ steps.pagefp.outputs.key }}
           restore-keys: seo-pages-
+      # Last build's puzzle pages and their keys (tools/page_cache.py): a page
+      # is rendered again only when its puzzle file, index row, neighbours,
+      # card or stamped assets moved, or the code a puzzle page runs (what
+      # code_reach says its render reaches) or a data file that code names
+      # did; a fetcher, a test or a doc moves none of them. A push
+      # that files one puzzle re-renders a handful of the ~50k, not all of
+      # them. A cold cache renders everything, which is correct, just slow.
+      # Restored here, saved (Save the puzzle pages) only after a big
+      # re-render: saving ~67k pages takes about a minute, and a stale cache
+      # costs only the few pages each later push moved.
+      # Restored up in the build (before Choose the build path), which needs
+      # to know the store is there; unpacked here.
+      # Unpacked in the background (13s in the foreground) while the build
+      # path is chosen and the cards restore; Build the puzzle shims and
+      # reindex waits for it, before anything reads the pages.
+      - name: Unpack the puzzle pages
+        run: bash tools/bg_job.sh start unpack-pages bash tools/cache_tar.sh unpack .page-cache.tar
+      # app.js reads the glossary from a <script> tag, so the file has to exist
+      # before anything hashes it. That is this early because --reindex restamps
+      # index.html on its way past, not only the stamping step further down.
+      - name: Build the glossary table
+        run: python3 tools/build_abbreviations.py
+      # puzzles/index.* and the ?v= stamp index.html points at them with are
+      # generated from the puzzle files, so the build regenerates them here
+      # rather than trusting whatever was committed. The pre-reset backfill
+      # commits ONE puzzle per push on purpose, without the index, and rebuilds
+      # it only in its republish step at the end of the night — so every commit
+      # in between carries an index that does not describe the tree, and the
+      # smoke test failed the deploy for it (2026-09-15, everyman-4168). Before
+      # the pages and the stamps, both of which read what this writes.
+      #
+      # The same command builds puzzles/<id>.js from puzzles/<series>/<year>/<id>.json first.
+      # A clone has only the .json files, and app.js loads a puzzle by injecting
+      # a <script> tag — it cannot fetch(), because the site is openable from
+      # file://. The two are one step rather than two because the index hashes
+      # the shim bytes, so indexing without building is not a thing that can be
+      # correct.
+      # Our own puzzle is built from its clues rather than committed (see
+      # tests/test_build_authored_puzzle.py). Its series is unlisted in
+      # tools/series.py, so the reindex below files it where only ?p=authored-1
+      # finds it. Before the reindex, which builds its shim.
+      - name: Build the authored puzzle
+        run: >-
+          python3 tools/build_authored_puzzle.py
+          --clues tools/data/authored_A001_clues.json --number 1
+          --date 2026-07-29
+          --annotated-by claude-opus-5-5
       # A push that only added or edited puzzle files, against the commit the
       # last deploy shipped, takes the puzzle fast path (Paul 10-19: "like 1
       # minute for new puzzles that don't change the core code"): no warming
@@ -269,51 +334,6 @@ jobs:
           esac
           echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/probe/puzzles.txt") puzzle file(s) since $base"
           echo "fast=true" >> "$GITHUB_OUTPUT"
-      # app.js reads the glossary from a <script> tag, so the file has to exist
-      # before anything hashes it. That is this early because --reindex restamps
-      # index.html on its way past, not only the stamping step further down.
-      - name: Build the glossary table
-        run: python3 tools/build_abbreviations.py
-      # puzzles/index.* and the ?v= stamp index.html points at them with are
-      # generated from the puzzle files, so the build regenerates them here
-      # rather than trusting whatever was committed. The pre-reset backfill
-      # commits ONE puzzle per push on purpose, without the index, and rebuilds
-      # it only in its republish step at the end of the night — so every commit
-      # in between carries an index that does not describe the tree, and the
-      # smoke test failed the deploy for it (2026-09-15, everyman-4168). Before
-      # the pages and the stamps, both of which read what this writes.
-      #
-      # The same command builds puzzles/<id>.js from puzzles/<series>/<year>/<id>.json first.
-      # A clone has only the .json files, and app.js loads a puzzle by injecting
-      # a <script> tag — it cannot fetch(), because the site is openable from
-      # file://. The two are one step rather than two because the index hashes
-      # the shim bytes, so indexing without building is not a thing that can be
-      # correct.
-      # Our own puzzle is built from its clues rather than committed (see
-      # tests/test_build_authored_puzzle.py). Its series is unlisted in
-      # tools/series.py, so the reindex below files it where only ?p=authored-1
-      # finds it. Before the reindex, which builds its shim.
-      - name: Build the authored puzzle
-        run: >-
-          python3 tools/build_authored_puzzle.py
-          --clues tools/data/authored_A001_clues.json --number 1
-          --date 2026-07-29
-          --annotated-by claude-opus-5-5
-      # Last run's puzzles/<id>.js shims. A stored index row is reused only
-      # when the shim on disk is the one it wrote (fetch_puzzle.index_row_deps
-      # hashes it), and a fresh checkout has none, so without these every one
-      # of the ~50k rows missed and was made again: the reindex's ~50s. A
-      # stale shim is never used: its row's key or deps no longer match, and
-      # the row and shim are written again.
-      - name: Restore the puzzle shims
-        uses: actions/cache/restore@v5
-        with:
-          path: .shim-cache.tar
-          key: puzzle-shims-${{ github.sha }}
-          restore-keys: puzzle-shims-
-      # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
-      - name: Unpack the puzzle shims
-        run: bash tools/cache_tar.sh unpack .shim-cache.tar
       # Then a restored shim the index no longer names (its puzzle deleted or
       # renamed since) is removed, so the site ships what a clean build would.
       # A cold row cache (any change to the code a row reaches) makes the
@@ -355,7 +375,9 @@ jobs:
       # was its own (Build the puzzle shims and reindex) collects it after
       # them. On the full path the warming slices above still ran before it.
       - name: Start the reindex
-        run: bash tools/bg_job.sh start reindex python3 tools/fetch_puzzle.py --reindex
+        run: |
+          bash tools/bg_job.sh wait unpack-shims
+          bash tools/bg_job.sh start reindex python3 tools/fetch_puzzle.py --reindex
       # The cards are ~570MB of PNGs (run 38460299301) that change a few files
       # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
       # their manifest between runs, and make_og.sh draws only the ones whose
@@ -378,24 +400,11 @@ jobs:
           path: .indexnow
           key: indexnow-${{ github.sha }}
           restore-keys: indexnow-
-      # Last build's puzzle pages and their keys (tools/page_cache.py): a page
-      # is rendered again only when its puzzle file, index row, neighbours,
-      # card or stamped assets moved, or the code a puzzle page runs (what
-      # code_reach says its render reaches) or a data file that code names
-      # did; a fetcher, a test or a doc moves none of them. A push
-      # that files one puzzle re-renders a handful of the ~50k, not all of
-      # them. A cold cache renders everything, which is correct, just slow.
-      # Restored here, saved (Save the puzzle pages) only after a big
-      # re-render: saving ~67k pages takes about a minute, and a stale cache
-      # costs only the few pages each later push moved.
-      # Restored up in the build (before Choose the build path), which needs
-      # to know the store is there; unpacked here.
-      - name: Unpack the puzzle pages
-        run: bash tools/cache_tar.sh unpack .page-cache.tar
       # Collects the reindex, then drops the shims it no longer names.
       - name: Build the puzzle shims and reindex
         run: |
           bash tools/bg_job.sh wait reindex
+          bash tools/bg_job.sh wait unpack-pages
           python3 tools/prune_shims.py
       # Before the pages, which point a puzzle at its own card only if the file
       # is already on disk — built the other way round, a new puzzle would
@@ -410,6 +419,15 @@ jobs:
         run: bash tools/make_og.sh --all
         env:
           OG_LIMIT: "120"
+      # The cards are most of the artifact (~3GB of ~4.6) and are final once
+      # drawn, so they are archived now, in the background, while the pages
+      # render (68s a puzzle push) instead of after them. Archive the site
+      # appends everything else to this tar. The names are the ones the site
+      # list gives ("./og/<n>.png").
+      - name: Start archiving the social cards
+        run: |
+          find og -maxdepth 1 \( -type f -o -type l \) -name '*.png' | LC_ALL=C sort | sed 's|^|./|' > "$RUNNER_TEMP/og.list"
+          bash tools/bg_job.sh start ogtar tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/og.list"
       # A cold render of the ~60k puzzle pages costs ~8.4ms a page (run 42540698988:
       # 9954 pages a shard of 6 in 84s plus 7s startup = 93-96s, over the 90s budget;
       # it was ~62s when the corpus was ~54k). A page-code change makes every build
@@ -503,7 +521,9 @@ jobs:
       # directories included), which is all deploy-pages reads.
       - name: Archive the site
         run: |
-          tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
+          bash tools/bg_job.sh wait ogtar
+          grep -vxE './og/[^/]+[.]png' "$RUNNER_TEMP/site.list" > "$RUNNER_TEMP/rest.list" || true
+          tar --dereference --no-recursion -rf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/rest.list"
           echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
           df -h / | tail -n 1
       - name: Upload the site
