@@ -6,10 +6,12 @@ for the run's annotation check to have passed.
 
 Writes ready=true to $GITHUB_OUTPUT once the build job's READY_STEP has
 succeeded (the site is uploaded and its checks passed) and, when MODE (the
-validate job's `mode` output) is "full", the requeue job has succeeded too:
-it needs every annotate shard, so it succeeds only if they all did. Writes
-ready=false when the build job ended without getting there or a shard or
-requeue failed, and exits 0 either way: the failure is the run's red, and the
+validate job's `mode` output) is "full", every annotate shard has succeeded.
+The requeue job (which pushes the allowance raises the shards flagged) is not
+waited for: it needs the shards and runs after them, and the site's content
+does not depend on it, so it stays off the path to the live site. Writes
+ready=false when the build job ended without getting there or a shard
+failed, and exits 0 either way: the failure is the run's red, and the
 deploy job only decides whether to ship. The deploy job starts when validate
 has passed, long before the shards and the build are done, so this is where
 it waits for them.
@@ -23,6 +25,8 @@ import time
 #: The last build step the deployed site depends on.
 READY_STEP = "Keep the IndexNow list"
 POLL_SECONDS = 2
+#: The annotate matrix's size in pages.yml.
+SHARDS = 12
 
 
 def run_jobs(repo, run_id, attempt):
@@ -47,21 +51,16 @@ def verdict(job):
 
 def check_verdict(jobs, mode):
     """True (the annotation check passed), False (it failed), None (still going)
-    for the run's jobs. Only a full check has shards and a requeue; the jobs of a
-    later stage are not in the API until the stage before has finished, so an
-    absent requeue is not a skipped one."""
+    for the run's jobs. Only a full check has shards. All of them exist once
+    validate has passed, but a missing one counts as still going, not as
+    passed."""
     if mode != "full":
         return True
-    for job in jobs:
-        if job.get("name", "").startswith("annotate") and job.get("status") == "completed" \
-                and job.get("conclusion") not in ("success", "skipped"):
-            return False
-    for job in jobs:
-        if job.get("name") == "requeue":
-            if job.get("status") != "completed":
-                return None
-            return job.get("conclusion") == "success"
-    return None
+    shards = [j for j in jobs if j.get("name", "").startswith("annotate")]
+    if any(j.get("status") == "completed" and j.get("conclusion") != "success" for j in shards):
+        return False
+    done = [j for j in shards if j.get("status") == "completed"]
+    return True if len(done) >= SHARDS else None
 
 
 def verdict_of(jobs, mode):

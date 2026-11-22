@@ -709,15 +709,17 @@ jobs:
   # The deploy, a job of its own in its own concurrency group (see the top of
   # this file), so the next build need not wait for GitHub's ~110s here. It
   # needs the annotation check as well as the build: a failing check ships
-  # nothing. A full check is validate, the nine annotate shards and requeue;
-  # an incremental one skips the last two.
+  # nothing. A full check is validate and the annotate shards; an incremental
+  # one skips the shards. The requeue job after the shards is not part of the
+  # guard: it only files what the shards flagged, and queued behind other
+  # runs' jobs for runners it held the deploy back 9 minutes.
   #
   # It starts as soon as validate has passed, not when the shards and requeue
   # have: a job that needs them waits for a runner only then, and with a
   # few runs' shards queued (the repository's runners are shared by all of
   # its jobs) that was 2.5 minutes between requeue ending and this job
   # starting, run 45010712260. Started early, it holds its runner and the
-  # "Wait for the build's site" step below watches the shards, requeue and
+  # "Wait for the build's site" step below watches the shards and the
   # build through the jobs API, so the site still ships only when all of them
   # passed.
   deploy:
@@ -742,8 +744,8 @@ jobs:
       # cache saves ran in front of it, though the artifact was long uploaded.
       # So this job starts with the checks and waits here for the build's
       # "Keep the IndexNow list" step, the last one the site depends on (it
-      # follows the site checks and the upload), and, in a full check, for the
-      # requeue job (which needs every annotate shard). A build job that ends
+      # follows the site checks and the upload), and, in a full check, for
+      # every annotate shard. A build job that ends
       # without reaching it, or a check that failed, ships nothing, and the
       # run's other steps are skipped, not failed: the failure is already the
       # red.
