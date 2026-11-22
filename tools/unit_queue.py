@@ -348,6 +348,8 @@ def tick(queue, dry=False):
         mod.after_tick(Ledger(queue), now)
     if not dry and getattr(mod, "SLOTS", 0) and not running and not started and not waiting:
         sweep_trees(mod)
+    if not dry:
+        sweep_idle_trees()
     return 0
 
 
@@ -355,9 +357,32 @@ def sweep_trees(mod):
     """The queue is at rest: drop its idle slot trees (tools/tree_sweep.py), so
     full checkouts do not sit on the disk between runs."""
     import tree_sweep
-    root = os.environ.get("CT_WORKTREE_ROOT") or str(Path.home() / ".cryptic-teacher")
     try:
-        tree_sweep.sweep(main_checkout(), root, [f"{mod.TREE}-{n}" for n in range(1, mod.SLOTS + 1)], log=log)
+        tree_sweep.sweep(main_checkout(), tree_sweep.worktree_root(),
+                         [f"{mod.TREE}-{n}" for n in range(1, mod.SLOTS + 1)], log=log)
+    except (OSError, subprocess.SubprocessError) as e:  # a failed sweep must never fail the tick
+        log(f"tree_sweep: {e}")
+
+
+#: sweep_idle_trees runs at most this often, whichever queue ticks.
+IDLE_SWEEP_EVERY = 3600
+
+
+def sweep_idle_trees():
+    """Drop every job tree (not only this queue's) whose job has not run for
+    tree_sweep.IDLE_HOURS: a daily or hand-started job's full checkout would
+    otherwise sit on the disk until its next run. At most hourly."""
+    import tree_sweep
+    stamp = STATE / "idle_sweep.stamp"
+    root = Path(tree_sweep.worktree_root())
+    try:
+        if not root.is_dir() or time.time() - stamp.stat().st_mtime < IDLE_SWEEP_EVERY:
+            return
+    except FileNotFoundError:
+        pass
+    try:
+        stamp.touch()
+        tree_sweep.sweep_idle(main_checkout(), root, log=log)
     except (OSError, subprocess.SubprocessError) as e:  # a failed sweep must never fail the tick
         log(f"tree_sweep: {e}")
 
