@@ -81,11 +81,12 @@ SITE_INERT_FILES = {
 #: which no build step runs).
 TOOLS_MODULE = re.compile(r"tools/[^/]+\.py")
 #: A static file of the site the browser loads (the stylesheet, a script, an
-#: icon, the homepage): --code-ok treats it as a module is treated. Puzzle
+#: icon, the homepage), a build shell script or the build workflow: --code-ok treats it as a module is treated. Puzzle
 #: pages only link them by a stamped URL that the stored pages are rewritten
 #: for (tools/page_cache.py LINKED_ONLY), and a file the pages are made from
 #: moves the page fingerprint, which tools/cache_warmth.py then reads as cold.
-SITE_STATIC = re.compile(r"(?:[^/]+\.(?:js|css|svg|png|ico|html)|sync/[^/]+\.js)")
+SITE_STATIC = re.compile(r"(?:[^/]+\.(?:js|css|svg|png|ico|html)|sync/[^/]+\.js"
+                         r"|tools/[^/]+\.sh|\.github/workflows/pages\.yml)")
 
 
 def site_inert(path):

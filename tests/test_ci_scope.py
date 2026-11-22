@@ -43,10 +43,10 @@ class Decide(unittest.TestCase):
         self.assertEqual(code([("M", P), ("M", "tools/fix_shape_notes.py")]), ("code", "tools/fix_shape_notes.py"))
         self.assertEqual(code([("M", P), ("A", "tools/new.py"), ("M", "tests/x.py")])[0], "code")
         self.assertEqual(code([("M", P)])[0], "fast")
-        for path in ("tools/data/other.json", "tools/sub/x.py", "tools/make_og.sh"):
+        for path in ("tools/data/other.json", "tools/sub/x.py", ".github/workflows/other.yml"):
             self.assertEqual(code([("M", P), ("M", "tools/x.py"), ("M", path)])[0], "full", path)
         self.assertEqual(code([("D", P), ("M", "tools/x.py")])[0], "full")
-        for path in ("style.css", "app-core.js", "index.html", "sync/merge.js"):
+        for path in ("style.css", "app-core.js", "index.html", "sync/merge.js", "tools/make_og.sh", ".github/workflows/pages.yml"):
             self.assertEqual(code([("M", P), ("M", path)]), ("code", path), path)
         # Without it a module is full, as before.
         self.assertEqual(S.decide([("M", P), ("M", "tools/x.py")], site=True)[0], "full")
