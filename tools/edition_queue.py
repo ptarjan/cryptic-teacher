@@ -5157,7 +5157,7 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
         # env, hosts default from CT_YIELD_HOSTS and the VLM's /metrics); its probes run on a thread.
         self.ceiling_ctl = mem_gate.ceiling_controller(f"{vlm_reader.URLS[0]}/metrics" if vlm_reader.URLS else None)
         if self.ceiling_ctl:
-            clamped = mem_gate.clamp_ceiling_start()
+            clamped = mem_gate.clamp_ceiling_start(running=sum(1 for u, _ in self.adopted.values() if u["kind"] != "fetch"))
             if clamped:
                 log(clamped)
             log(f"ceiling controller on: host {self.ceiling_ctl.host}, metrics {self.ceiling_ctl.metrics}, every {self.ceiling_ctl.every} s")

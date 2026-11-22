@@ -208,9 +208,21 @@ def cool_after(cur, new, swap_mb, now, cool_until):
     return cool_until
 
 
-def clamp_ceiling_start(start=None, log=None):
-    """At a queue start: a stored ceiling file over `start` (CEILING_START) is lowered to it, so a relaunch
-    ramps up from there; returns the line to log, or None."""
+def start_ceiling(stored, start, running=0):
+    """The ceiling a queue starts at: `stored` (the file's) lowered to `start` (CEILING_START), or to the
+    `running` units it took over from the image before it when those are more: they already hold their
+    memory, so a ceiling at their count starts a unit only as one of them ends. Never over `stored`.
+    11-22 03:10-04:10 UTC: four reloads in an hour each clamped 16-20 running units to a ceiling of 12 and
+    the +2 ramp took 6-28 min to come back: 15.3 units on average under a ceiling of 18.
+    CT_CEILING_START_KEEP=0 turns the running count off (always `start`)."""
+    keep = running if os.environ.get("CT_CEILING_START_KEEP", "1") != "0" else 0
+    return min(stored, max(start, keep or 0))
+
+
+def clamp_ceiling_start(start=None, log=None, running=0):
+    """At a queue start: a stored ceiling file over start_ceiling() is lowered to it, so a relaunch with
+    nothing running ramps up from `start` (CEILING_START) and a reload keeps what its `running` units
+    already are; returns the line to log, or None."""
     start = CEILING_START if start is None else start
     path = os.path.expanduser(os.environ.get("CT_UNIT_CEILING_FILE") or CEILING_FILE)
     try:
@@ -218,14 +230,41 @@ def clamp_ceiling_start(start=None, log=None):
             stored = int(f.read().split()[0])
     except (OSError, ValueError, IndexError):
         return None
-    if stored <= start:
+    new = start_ceiling(stored, start, running)
+    if stored <= new:
         return None
     try:
         with open(path, "w") as f:
-            f.write(f"{start}\n")
+            f.write(f"{new}\n")
     except OSError:
         return None
+    if new > start:
+        return f"ceiling: stored {stored} clamped to {new} at start, the {running} units taken over (not {start}: they already run)"
     return f"ceiling: stored {stored} clamped to {start} at start (ramps up from there)"
+
+
+#: The swap cool-down's end is kept beside the ceiling file (epoch seconds), so a reload or a new slice
+#: goes on with it: 11-21 20:23 a slice restart ended a cool-down early and the ceiling left 8 at once.
+def cool_path():
+    return os.path.expanduser(os.environ.get("CT_UNIT_CEILING_FILE") or CEILING_FILE) + ".cool"
+
+
+def cool_left(now=None, path=None):
+    """Seconds of a stored swap cool-down still to run (0: none, unreadable, or longer than SWAP_COOL)."""
+    try:
+        with open(path or cool_path()) as f:
+            left = float(f.read().split()[0]) - (time.time() if now is None else now)
+    except (OSError, ValueError, IndexError):
+        return 0
+    return left if 0 < left <= SWAP_COOL else 0
+
+
+def cool_store(seconds, now=None, path=None):
+    try:
+        with open(path or cool_path(), "w") as f:
+            f.write(f"{(time.time() if now is None else now) + seconds:.0f}\n")
+    except OSError:
+        pass
 
 
 _SWAP_SEEN = [None]
@@ -298,7 +337,8 @@ class CeilingController:
         self.thread = None
         self.lines = []
         self.swapped = None
-        self.cool_until = None  # no step up before this (monotonic) after VM swap stepped down
+        left = cool_left()  # (a cool-down the image before this one started goes on)
+        self.cool_until = time.monotonic() + left if left else None  # no step up before this (monotonic) after VM swap stepped down
         self.running = None  # unit children running, given to poll() by the queue (None: unknown)
 
     def _swap_rate(self):
@@ -334,7 +374,10 @@ class CeilingController:
                            int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), swap,
                            faults, low, self.running)
         now = time.monotonic()
+        was = self.cool_until
         self.cool_until = cool_after(cur, new, swap, now, self.cool_until)
+        if self.cool_until is not None and self.cool_until != was:
+            cool_store(self.cool_until - now)
         avail = available()
         held = step_up_held(cur, new, now, self.cool_until, avail)
         if held is None and new == cur and swap and swap > SWAP_HOLD_MB and ceiling_step(

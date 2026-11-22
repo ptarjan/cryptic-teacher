@@ -2947,8 +2947,23 @@ _cf = os.path.join(tempfile.mkdtemp(), "unit_ceiling")
 os.environ["CT_UNIT_CEILING_FILE"] = _cf
 with open(_cf, "w") as _f:
     _f.write("32\n")
+check("start_ceiling: the start value, or the units taken over when more, never over the stored one",
+      (12, 12, 18, 16, 10, 12),
+      (mg.start_ceiling(32, 12), mg.start_ceiling(32, 12, 5), mg.start_ceiling(32, 12, 18), mg.start_ceiling(16, 12, 20),
+       mg.start_ceiling(10, 12, 20), mg.start_ceiling(12, 12, 0)))
+_cool = os.path.join(tempfile.mkdtemp(), "c.cool")
+mg.cool_store(600, 1000, _cool)
+check("cool_store/cool_left: a stored cool-down goes on; over, absurd or missing is none",
+      (500, 0, 0, 0),
+      (mg.cool_left(1100, _cool), mg.cool_left(1700, _cool), mg.cool_left(1000 - mg.SWAP_COOL, _cool), mg.cool_left(0, _cool + ".none")))
 check("clamp_ceiling_start: a stored 32 is lowered to the start value and logged",
       (True, 12), (bool(mg.clamp_ceiling_start(12)), mg.unit_ceiling()))
+with open(_cf, "w") as _f:
+    _f.write("20\n")
+check("clamp_ceiling_start: with 18 units taken over a stored 20 is lowered to 18, not the start value",
+      (True, 18), ("18 units taken over" in mg.clamp_ceiling_start(12, running=18), mg.unit_ceiling()))
+with open(_cf, "w") as _f:
+    _f.write("12\n")
 check("clamp_ceiling_start: a stored value at or under the start is left", (None, 12), (mg.clamp_ceiling_start(12), mg.unit_ceiling()))
 del os.environ["CT_UNIT_CEILING_FILE"]
 check("vm_short: low MemAvailable or busy swap", (True, True, False),
