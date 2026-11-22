@@ -125,6 +125,38 @@ def entry_rows_moved(old_text, new_text):
         return None
 
 
+#: Keyed by puzzle id, a row speaking of that puzzle alone (the twin the
+#: validator reads for a held book file, corroborate.py): a changed, added or
+#: removed key moves just that puzzle's check, and a puzzle the commit deleted
+#: has none left to check. The burn's renumbering commits rewrite it.
+TWINS = "tools/data/book_twins.json"
+#: {old id: new id}: only fetchers the check's reach touches read it, never a
+#: puzzle's own check, so a row added moves nothing; one changed or dropped is
+#: not told apart from a rewrite, and stays a full check.
+RENAMED = "tools/data/renamed_ids.json"
+
+
+def keys_moved(old_text, new_text):
+    """The keys of a flat id table an edit added, dropped or changed, or None
+    when either text is not a JSON object."""
+    try:
+        old, new = json.loads(old_text), json.loads(new_text)
+        if not isinstance(old, dict) or not isinstance(new, dict):
+            return None
+        return {k for k in set(old) | set(new) if old.get(k) != new.get(k)}
+    except (ValueError, TypeError):
+        return None
+
+
+def rows_only_added(old_text, new_text):
+    """Whether an edit of a flat id table only added keys."""
+    try:
+        old, new = json.loads(old_text), json.loads(new_text)
+        return isinstance(old, dict) and isinstance(new, dict) and all(k in new and new[k] == v for k, v in old.items())
+    except (ValueError, TypeError, AttributeError):
+        return False
+
+
 def backlog_tightened(old_text, new_text):
     """The puzzle ids whose allowance the backlog lowered, or None when anything
     else moved: a raised or new allowance, a field added or dropped, or text
@@ -207,7 +239,18 @@ def decide(changes, base_text=None, head_text=None, resolve=None):
     check, edited = [], {}
     moved_ids = set()
     rows = set()
+    twins = set()
     for st, path in changes:
+        if path in (TWINS, RENAMED) and st == "M" and base_text:
+            old = base_text(path)
+            new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
+            if old is not None and path == RENAMED and rows_only_added(old, new):
+                continue
+            moved = keys_moved(old, new) if old is not None and path == TWINS else None
+            if moved is None:
+                return "full", f"{path} changed, a file the check reads"
+            twins |= moved
+            continue
         if path.startswith(UNREAD) or path in QUEUE_STATE or path in PROMPTS:
             continue
         if entry_table_change(path, st) and base_text:
@@ -277,6 +320,8 @@ def decide(changes, base_text=None, head_text=None, resolve=None):
         if gone:
             return "full", "an allowance or entry table row names a puzzle with no file: " + ", ".join(gone[:3])
         check.extend(found[s] for s in sorted(found))
+    if twins - stems:
+        check.extend(f for _, f in sorted(git_puzzle_paths(twins - stems).items()) if f not in check)
     if edited:
         before = reached(edited)
         after = head

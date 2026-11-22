@@ -90,6 +90,12 @@ expect("an added row, puzzle unchanged", rows(more), "files")
 assert rows(more)[1] == [P]
 expect("a row removed", rows('{"times-1/2-down": ["type", "b"]}', [("M", P)]), "full", "times-21.json")
 expect("a new shard with its puzzle", v.decide([("A", T), ("M", P)], lambda p: None, lambda p: more, where), "files")
+TW = "tools/data/book_twins.json"
+RN = "tools/data/renamed_ids.json"
+expect("a twin dropped, renamed_ids row added (a renumbering)",
+       v.decide([("M", TW), ("M", RN), ("A", P)], lambda p: '{"book-1": "t-1", "book-2": "t-2"}' if p == TW else '{"a": "b"}',
+                lambda p: '{"book-2": "t-2"}' if p == TW else '{"a": "b", "c": "d"}', where), "files")
+expect("a renamed_ids row changed", v.decide([("M", RN)], lambda p: '{"a": "b"}', lambda p: '{"a": "z"}'), "full", "renamed_ids.json")
 expect("a table that is not json", rows("{", [("M", P)]), "full", "times-21.json")
 expect("the authored clues",v.decide([("M", "tools/data/authored_A001_clues.json")]), "full", "authored_A001_clues.json")
 expect("the workflow", v.decide([("M", ".github/workflows/pages.yml")]), "full", "pages.yml")
