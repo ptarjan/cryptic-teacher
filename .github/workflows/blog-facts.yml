@@ -116,7 +116,10 @@ jobs:
               # fact it gives: this run writes nothing and the reseeded fetch's save is
               # read by the next run.
               echo "::warning::no post cache for $b (its fetch workflow has not saved one); dispatching $wf to reseed, writing nothing this run"
-              gh workflow run "$wf" || echo "::warning::could not dispatch $wf"
+              # PUSH_TOKEN, not github.token: a run dispatched with github.token
+              # fires no workflow_run when it completes, so blog-chain would never file
+              # what the reseeded fetch found.
+              GH_TOKEN="${{ secrets.PUSH_TOKEN || github.token }}" gh workflow run "$wf" || echo "::warning::could not dispatch $wf"
               echo "missing=$b" >> "$GITHUB_OUTPUT"
               continue
             fi
