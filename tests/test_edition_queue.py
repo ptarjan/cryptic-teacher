@@ -2923,6 +2923,11 @@ check("ceiling_step: severe swap, low Windows free or double faults halve toward
       (mg.ceiling_step(32, 9000, 10, swap_mb=mg.SEVERE_SWAP_MB + 1), mg.ceiling_step(32, 900, 10),
        mg.ceiling_step(32, 9000, 10, faults=mg.FAULTS_DOWN * 2 + 1), mg.ceiling_step(12, 9000, 10, swap_mb=3549),
        mg.ceiling_step(20, 9000, 10, swap_mb=mg.SEVERE_SWAP_MB)))
+check("hold_step_up: a step up waits out a swap cool-down and a short VM; downs and roomy ups pass",
+      (20, 16, 20, 22, 20, 22),
+      (mg.hold_step_up(20, 22, 100, 200, 16 * G), mg.hold_step_up(20, 16, 100, 200, 0),
+       mg.hold_step_up(20, 22, 300, 200, mg.FLOOR), mg.hold_step_up(20, 22, 300, None, 16 * G),
+       mg.hold_step_up(20, 22, 300, None, mg.FLOOR + mg.UNIT), mg.hold_step_up(20, 22, 300, None, None)))
 _cf = os.path.join(tempfile.mkdtemp(), "unit_ceiling")
 os.environ["CT_UNIT_CEILING_FILE"] = _cf
 with open(_cf, "w") as _f:

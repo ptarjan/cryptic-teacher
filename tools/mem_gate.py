@@ -172,6 +172,26 @@ def ceiling_step(ceiling, free_mb, cpu, lo=8, hi=24, cpu_hi=90, cpu_lo=80, swap_
     return max(lo, min(hi, new))
 
 
+#: After VM swap steps the ceiling down it does not step up again for SWAP_COOL seconds, and never while
+#: the VM's own MemAvailable is under FLOOR + VM_UP_UNITS units (11-21 18:03-18:11: swap 118 MB/min
+#: stepped 18 -> 16, swap read 0 for two probes, it climbed 16 -> 22 in six minutes as the new units grew
+#: to 700-900 MB each, then 357 MB/min swap halved it to 11). CT_SWAP_COOL / CT_VM_UP_UNITS override.
+SWAP_COOL = int(os.environ.get("CT_SWAP_COOL") or 1800)
+VM_UP_UNITS = int(os.environ.get("CT_VM_UP_UNITS") or 4)
+
+
+def hold_step_up(cur, new, now, cool_until, vm_avail):
+    """`new` unless it is a step up while a swap cool-down runs (now < cool_until) or the VM has under
+    FLOOR + VM_UP_UNITS x UNIT available (vm_avail bytes; None: no figure, no hold); then `cur`."""
+    if new <= cur:
+        return new
+    if cool_until is not None and now < cool_until:
+        return cur
+    if vm_avail is not None and vm_avail < FLOOR + VM_UP_UNITS * UNIT:
+        return cur
+    return new
+
+
 def clamp_ceiling_start(start=None, log=None):
     """At a queue start: a stored ceiling file over `start` (CEILING_START) is lowered to it, so a relaunch
     ramps up from there; returns the line to log, or None."""
@@ -262,6 +282,7 @@ class CeilingController:
         self.thread = None
         self.lines = []
         self.swapped = None
+        self.cool_until = None  # no step up before this (monotonic) after VM swap stepped down
         self.running = None  # unit children running, given to poll() by the queue (None: unknown)
 
     def _swap_rate(self):
@@ -296,6 +317,10 @@ class CeilingController:
         new = ceiling_step(cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
                            int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), swap,
                            faults, low, self.running)
+        now = time.monotonic()
+        if (swap or 0) > SWAP_DOWN_MB:
+            self.cool_until = now + SWAP_COOL
+        new = hold_step_up(cur, new, now, self.cool_until, available())
         if new != cur:
             path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
             try:
