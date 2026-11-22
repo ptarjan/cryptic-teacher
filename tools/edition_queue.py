@@ -4882,7 +4882,7 @@ class _RankPicker:
                 continue
             if (self.reason_cap and u["kind"] != "fetch" and u.get("reason") and ukey not in self.fill_keys
                     and self.reason_live.get(u["reason"], 0) >= low_yield_cap(u["reason"], self.reason_cap, self.vlm_busy()) and self.others_wait(u["reason"])):
-                self.reason_capped.append((self.reason_live[u["reason"]], u["reason"]))
+                self.reason_capped.append((self.reason_live.get(u["reason"], 0), u["reason"]))
                 continue  # waits (not dropped): other work starts first
             if self.urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
                 continue
