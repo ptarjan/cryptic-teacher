@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -45,7 +48,11 @@
    "group": [
     "1-across",
     "15-down"
-   ]
+   ],
+   "annotationWithheld": {
+    "why": "OCR clue 'General population with performance 6D?' has 'performance' inserted from another clue; blog gives 'General population with 6D?' but no scan to confirm",
+    "clue": "General population with performance 6D?"
+   }
   },
   {
    "number": 2,
@@ -59,7 +66,11 @@
     "text": "Astrugglein thewoman A H H O E losing battle with 6D?",
     "enumeration": "7"
    },
-   "solution": "HEAVIER"
+   "solution": "HEAVIER",
+   "annotationWithheld": {
+    "why": "OCR clue 'Astrugglein thewoman A H H O E losing battle with 6D?' is garbled; blog gives 'A struggle in the woman losing battle with 6D?' but no scan to confirm",
+    "clue": "Astrugglein thewoman A H H O E losing battle with 6D?"
+   }
   },
   {
    "number": 3,
@@ -73,7 +84,75 @@
     "text": "What's let out with 6D was around current leader in this group",
     "enumeration": "9"
    },
-   "solution": "WAISTBAND"
+   "solution": "WAISTBAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's let out with 6D",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 27,
+         "note": "the word was is wrapped around the symbol for current, so 'around' marks containment"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was",
+         "at": 23,
+         "gives": "WAS",
+         "note": "taken as written"
+        },
+        {
+         "words": "current",
+         "at": 34,
+         "gives": "I",
+         "note": "I is the physics symbol for electric current"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "at": 42,
+         "note": "the leader in a word is its opening letter, here of the word this"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "at": 52
+        }
+       ]
+      },
+      {
+       "words": "group",
+       "at": 57,
+       "gives": "BAND",
+       "note": "a band is a group of musicians"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling remark about something that encircled the head of a pop group.",
+     "walkthrough": "A trouser waist band has to be let out when its wearer develops a spare tyre (6 Down, a roll of belly fat).",
+     "definitionFit": "The fabric strip at the top of trousers is what a tailor loosens when the wearer gains weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +166,41 @@
     "text": "Elizabethan favourite died a dissolute man",
     "enumeration": "5"
    },
-   "solution": "DRAKE"
+   "solution": "DRAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elizabethan favourite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "died",
+       "at": 22,
+       "gives": "D",
+       "note": "d is the standard abbreviation for died, as in genealogies"
+      },
+      {
+       "words": "a dissolute man",
+       "at": 27,
+       "gives": "RAKE",
+       "note": "a rake is a man of loose, debauched habits"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courtier of Elizabeth I who died a debauched libertine.",
+     "walkthrough": "Sir Francis Drake was a seafarer high in Elizabeth I's favour.",
+     "definitionFit": "Sir Francis, the Tudor navigator and privateer, enjoyed the queen's special favour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +214,66 @@
     "text": "City gives up yen in sincere performance",
     "enumeration": "7"
    },
-   "solution": "RECITAL"
+   "solution": "RECITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "performance",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "the shortened word city goes inside the synonym for sincere, so 'in' signals containment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sincere",
+       "at": 21,
+       "gives": "REAL",
+       "note": "real feelings are sincere, genuine ones"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "gives up",
+         "at": 5,
+         "note": "the word city surrenders one letter, so 'gives up' marks a deletion"
+        }
+       ],
+       "parts": [
+        {
+         "words": "City",
+         "at": 0,
+         "gives": "CITY"
+        },
+        {
+         "words": "yen",
+         "at": 14,
+         "gives": "Y",
+         "note": "Y is the abbreviation for the Japanese yen"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's financial sacrifice described as part of a heartfelt show.",
+     "walkthrough": "'gives up' removes the Y (yen) from CITY to leave CIT, which 'in' puts inside REAL.",
+     "definitionFit": "A concert or a reading given by a soloist is a kind of show put on for an audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yen"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +306,11 @@
      }
     ]
    },
-   "solution": "SPARETYRE"
+   "solution": "SPARETYRE",
+   "annotationWithheld": {
+    "why": "OCR clue is cut to 'D?'; blog gives 'Furious with Port Corporation' but no scan to confirm",
+    "clue": "D?"
+   }
   },
   {
    "number": 7,
@@ -148,7 +324,29 @@
     "text": "To the opposite position with 6D",
     "enumeration": "5"
    },
-   "solution": "ROUND"
+   "solution": "ROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To the opposite position",
+      "at": 0,
+      "meaning": "to turn something about so it faces the other way, as in turning a car about"
+     },
+     {
+      "text": "with 6D",
+      "at": 25,
+      "meaning": "someone carrying a spare tyre of belly fat is plump and circular in shape"
+     }
+    ],
+    "explanation": {
+     "surface": "A direction to turn about, given alongside a mention of belly fat.",
+     "definitionFit": "The word means facing the other way as an adverb, and plump or circular as an adjective for a person with a paunch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +366,54 @@
      }
     ]
    },
-   "solution": "ATLARGE"
+   "solution": "ATLARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not confined",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 21,
+         "note": "in a down clue the word for cheers is read upwards, so 'up' signals reversal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheers",
+         "at": 14,
+         "gives": "TA",
+         "note": "ta is British informal for thanks, like cheers"
+        }
+       ]
+      },
+      {
+       "words": "size",
+       "at": 29,
+       "gives": "LARGE",
+       "note": "large is a clothing size"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thanked for providing clothes roomy enough for a paunch.",
+     "walkthrough": "'up' turns TA, British slang for thanks, to AT; the closing words picture a large size made to fit a spare tyre (6 Down).",
+     "definitionFit": "An escaped prisoner still free and roaming is said to be loose, not caught or held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +427,56 @@
     "text": "Caliph with 6D denied last Arab girl",
     "enumeration": "6"
    },
-   "solution": "FATIMA"
+   "solution": "FATIMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arab girl",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "6D",
+       "at": 12,
+       "gives": "FAT",
+       "note": "the spare tyre of 6 Down is a roll of fat"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "denied last",
+         "at": 15,
+         "note": "the word for caliph is refused its final letter, so 'denied last' marks a deletion"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caliph",
+         "at": 0,
+         "gives": "IMAM",
+         "note": "an imam is a Muslim leader, and the title was used of caliphs"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Muslim ruler, overweight and refused the last word, set beside an Arab girl.",
+     "walkthrough": "'denied last' drops the final M of IMAM to leave IMA.",
+     "definitionFit": "Fatima, daughter of the Prophet Muhammad, gives a common Arabic name for women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +490,58 @@
     "text": "Conservative has blue-patterned garment",
     "enumeration": "8"
    },
-   "solution": "CHASUBLE"
+   "solution": "CHASUBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for Conservative in British politics"
+      },
+      {
+       "words": "has",
+       "at": 13,
+       "gives": "HAS",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "patterned",
+         "at": 22,
+         "note": "a pattern rearranges the letters of the word blue into a new design"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blue",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician owns a blue garment with a design on it.",
+     "walkthrough": "'patterned' rearranges BLUE to make UBLE.",
+     "definitionFit": "A chasuble is the sleeveless outer vestment worn by a priest celebrating Mass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "patterned"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +555,45 @@
     "text": "Matter is resolved in abuse",
     "enumeration": "8"
    },
-   "solution": "MISTREAT"
+   "solution": "MISTREAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "abuse",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "resolved",
+       "at": 10,
+       "note": "a matter that is resolved is sorted out, so the letters are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Matter",
+       "at": 0
+      },
+      {
+       "words": "is",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute is settled in a case about cruel treatment.",
+     "walkthrough": "'resolved' rearranges MATTER IS into the answer.",
+     "definitionFit": "To treat someone badly is to ill-use them, as a verb meaning the same as abuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resolved"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +607,42 @@
     "text": "Bear from Death River",
     "enumeration": "6"
    },
-   "solution": "ENDURE"
+   "solution": "ENDURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Death",
+       "at": 10,
+       "gives": "END",
+       "note": "one's end is one's death"
+      },
+      {
+       "words": "River",
+       "at": 16,
+       "gives": "URE",
+       "note": "the Ure is a river in Yorkshire, a crossword favourite"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grizzly emerging from a river named after death.",
+     "walkthrough": "'Bear' is the verb meaning put up with, not the animal; the Ure is a river in North Yorkshire.",
+     "definitionFit": "To put up with or tolerate hardship is to bear it, a verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,10 +653,52 @@
    },
    "length": 4,
    "clue": {
-    "text": "Anynumberbannedfrom stadium environs",
+    "text": "Any number banned from stadium environs",
     "enumeration": "4"
    },
-   "solution": "AREA"
+   "solution": "AREA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "environs",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "banned from",
+       "at": 11,
+       "note": "the letter for any number is excluded from the word for stadium, marking a deletion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stadium",
+       "at": 23,
+       "gives": "ARENA",
+       "note": "an arena is a sports stadium"
+      },
+      {
+       "words": "Any number",
+       "at": 0,
+       "gives": "N",
+       "note": "n stands for an unspecified number in mathematics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds are barred from a sports ground and its surroundings.",
+     "walkthrough": "'banned from' takes N out of ARENA.",
+     "definitionFit": "The surroundings or neighbourhood of a place make up its district or zone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +712,41 @@
     "text": "Moan noisily, having to suffer with 6D",
     "enumeration": "9"
    },
-   "solution": "BELLYACHE"
+   "solution": "BELLYACHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moan noisily",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "6D",
+       "at": 36,
+       "gives": "BELLY",
+       "note": "the spare tyre of 6 Down is a roll of fat on the stomach"
+      },
+      {
+       "words": "to suffer",
+       "at": 21,
+       "gives": "ACHE",
+       "note": "to ache is to suffer pain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone groans loudly because they are in pain from their paunch.",
+     "walkthrough": "The spare tyre (6 Down) is a fat stomach, giving the first part.",
+     "definitionFit": "To grumble or complain loudly is an informal sense of the word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +760,11 @@
     "text": "Graduate, having left noodle abuse to cook, swiftly developed 6",
     "enumeration": "9"
    },
-   "solution": "BALLOONED"
+   "solution": "BALLOONED",
+   "annotationWithheld": {
+    "why": "OCR clue has 'abuse' inserted and '6' for '6D'; blog gives 'Graduate, having left noodle to cook, swiftly developed 6D' but no scan to confirm",
+    "clue": "Graduate, having left noodle abuse to cook, swiftly developed 6"
+   }
   },
   {
    "number": 15,
@@ -307,7 +805,11 @@
    "group": [
     "16-across",
     "6-across"
-   ]
+   ],
+   "annotationWithheld": {
+    "why": "OCR clue has 'traitor in communist' inserted from 17 Down; blog gives 'Keen to neck Pedigree, lads when blotto see changes with 6D' but no scan to confirm",
+    "clue": "Keen to neck Pedigree, lads when blotto see changes traitor in communist with 6D"
+   }
   },
   {
    "number": 16,
@@ -321,7 +823,59 @@
     "text": "Old Shankar buried in Massachusetts region",
     "enumeration": "7"
    },
-   "solution": "MORAVIA"
+   "solution": "MORAVIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "region",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "buried in",
+       "at": 12,
+       "note": "the old sitar player is put deep inside the state abbreviation, so 'buried in' marks containment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Massachusetts",
+       "at": 22,
+       "gives": "MA",
+       "note": "MA is the postal abbreviation for Massachusetts"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old",
+         "at": 0,
+         "gives": "O"
+        },
+        {
+         "words": "Shankar",
+         "at": 4,
+         "gives": "RAVI",
+         "note": "Ravi Shankar was the Indian sitar virtuoso"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The aged sitar player Ravi Shankar is laid to rest in a part of Massachusetts.",
+     "walkthrough": "Moravia is the eastern region of the Czech Republic.",
+     "definitionFit": "Moravia is a historic part of the Czech lands, a geographical area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shankar"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +889,48 @@
     "text": "Son of Welsh Secretary, traitor in communist group",
     "enumeration": "7"
    },
-   "solution": "APPARAT"
+   "solution": "APPARAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "communist group",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Son of Welsh",
+       "at": 0,
+       "gives": "AP",
+       "note": "ap is the Welsh prefix meaning son of, as in surnames"
+      },
+      {
+       "words": "Secretary",
+       "at": 13,
+       "gives": "PA",
+       "note": "a PA, a personal assistant, is a secretary"
+      },
+      {
+       "words": "traitor",
+       "at": 24,
+       "gives": "RAT",
+       "note": "a rat is a traitor or deserter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh politician's son, a secretary, is exposed as a turncoat in a Marxist cell.",
+     "walkthrough": "Ap is the Welsh 'son of', like Mac in Scottish names.",
+     "definitionFit": "The Soviet party machine and its officials were known by this Russian word for apparatus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Secretary"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +944,43 @@
     "text": "Tragic heroine totalled in 2002",
     "enumeration": "4"
    },
-   "solution": "MIMI"
+   "solution": "MIMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tragic heroine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "totalled",
+       "at": 15,
+       "note": "a car totalled is wrecked, so the Roman figures are smashed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "2002",
+       "at": 27,
+       "gives": "MMII",
+       "note": "2002 in Roman numerals is MMII"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tragic heroine was killed in a car crash in 2002.",
+     "walkthrough": "Mimi is the doomed seamstress of Puccini's opera La Bohème.",
+     "definitionFit": "Puccini's consumptive seamstress dies at the end of La Bohème, an operatic victim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "totalled"
+    }
+   }
   },
   {
    "number": 19,
@@ -360,10 +991,62 @@
    },
    "length": 7,
    "clue": {
-    "text": "Gifted performer Farah to? restrain happy tears",
+    "text": "Gifted performer Farah to restrain happy tears",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gifted performer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to restrain",
+       "at": 23,
+       "note": "the runner's first name holds the jumbled letters inside it, so restraint marks containment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Farah",
+       "at": 17,
+       "gives": "MO",
+       "note": "Mo Farah is the British Olympic distance runner"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "happy",
+         "at": 35,
+         "note": "happy tears are put into a cheerful new order, signalling an anagram"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tears",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mo Farah, a gifted athlete, tries to hold back tears of joy.",
+     "walkthrough": "'happy' rearranges TEARS to AESTR, held inside MO; Mo Farah is a British Olympic champion runner.",
+     "definitionFit": "A virtuoso musician or conductor is called by this Italian word for master."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Farah"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1060,11 @@
     "text": "First to extract following to timeless gunge Cornish island",
     "enumeration": "6"
    },
-   "solution": "FRESCO"
+   "solution": "FRESCO",
+   "annotationWithheld": {
+    "why": "OCR clue 'First to extract following to timeless gunge Cornish island' mixes in 21 Down; blog gives 'Artistic work brings following to timeless Cornish island' but no scan to confirm",
+    "clue": "First to extract following to timeless gunge Cornish island"
+   }
   },
   {
    "number": 21,
@@ -391,7 +1078,11 @@
     "text": "Reduce 6D first to extract following to timeless gunge",
     "enumeration": "5"
    },
-   "solution": "SLIME"
+   "solution": "SLIME",
+   "annotationWithheld": {
+    "why": "OCR clue has 'following to timeless' inserted from 20 Across; blog gives 'Reduce 6D first to extract gunge' but no scan to confirm",
+    "clue": "Reduce 6D first to extract following to timeless gunge"
+   }
   },
   {
    "number": 22,
@@ -405,7 +1096,59 @@
     "text": "One spoils old guitar carried in both hands to Post Office",
     "enumeration": "8"
    },
-   "solution": "POLLUTER"
+   "solution": "POLLUTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One spoils",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Post Office",
+       "at": 47,
+       "gives": "PO"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carried in",
+         "at": 22,
+         "note": "the instrument is held inside the pair of hand letters, so being carried marks containment"
+        }
+       ],
+       "parts": [
+        {
+         "words": "both hands",
+         "at": 33,
+         "gives": "LR",
+         "note": "L and R stand for left and right hands"
+        },
+        {
+         "words": "old guitar",
+         "at": 11,
+         "gives": "LUTE",
+         "note": "the lute is an early plucked instrument like a guitar"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ruins an antique guitar by carrying it in both hands to the post office.",
+     "walkthrough": "The definition reads as 'one (who) spoils'.",
+     "definitionFit": "Someone who contaminates or fouls the environment spoils it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spoils"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1162,49 @@
     "text": "Landowner one with 6D as it appears!",
     "enumeration": "5"
    },
-   "solution": "LAIRD"
+   "solution": "LAIRD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Landowner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 14,
+       "note": "the letter for one sits with, held inside, the word for belly fat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "6D",
+       "at": 19,
+       "gives": "LARD",
+       "note": "the spare tyre of 6 Down is lard, slang for body fat"
+      },
+      {
+       "words": "one",
+       "at": 10,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landowner, plainly overweight, is described as he looks.",
+     "walkthrough": "A laird is a Scottish landowner; lard is slang for body fat, the spare tyre of 6 Down.",
+     "definitionFit": "In Scotland the owner of a landed estate is given this title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1224,36 @@
      }
     ]
    },
-   "solution": "TVDINNER"
+   "solution": "TVDINNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The Cross-Dressers' Banquet?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The Cross-Dressers' Banquet?",
+       "at": 0,
+       "note": "TV is the old abbreviation for transvestite, so a meal for cross-dressers is a dinner for TVs, punning on a ready meal eaten in front of the television"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what a feast for cross-dressers might be called.",
+     "walkthrough": "TV can stand for transvestite as well as television; the joke is that a humble tray meal is no banquet.",
+     "definitionFit": "A pre-packaged ready meal heated and eaten in front of the television."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cross-Dressers'"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1267,70 @@
     "text": "Fools close to Avishai bring sacred text into Hell",
     "enumeration": "6"
    },
-   "solution": "IDIOTS"
+   "solution": "IDIOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fools",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 6,
+         "note": "the close of a word is its last letter, here of the name Avishai"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Avishai",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 41,
+         "note": "the abbreviation for scripture is brought into the word for Hell, marking containment"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hell",
+         "at": 46,
+         "gives": "DIS",
+         "note": "Dis is the classical underworld, Hell"
+        },
+        {
+         "words": "sacred text",
+         "at": 29,
+         "gives": "OT",
+         "note": "OT is the Old Testament"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fools near a man named Avishai drag scripture into the underworld.",
+     "walkthrough": "'close to' takes I from Avishai; 'into' puts OT inside DIS, the underworld of Roman myth.",
+     "definitionFit": "Fools and idiots are both stupid people, plural nouns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 26,
@@ -464,7 +1341,7 @@
    },
    "length": 6,
    "clue": {
-    "text": "Informationin Vogue shows last and worst part",
+    "text": "Information in Vogue shows last and worst part",
     "enumeration": "3,3",
     "separators": [
      {
@@ -473,7 +1350,49 @@
      }
     ]
    },
-   "solution": "FAGEND"
+   "solution": "FAGEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "last and worst part",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "the word for information is placed in the word for vogue, signalling containment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vogue",
+       "at": 15,
+       "gives": "FAD",
+       "note": "a fad is a passing vogue or craze"
+      },
+      {
+       "words": "Information",
+       "at": 0,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Data in a fashion magazine reveals the tail end of something.",
+     "walkthrough": "Vogue is the fashion craze, not the magazine; gen is British slang for information; a fag end is a cigarette stub.",
+     "definitionFit": "The stub of a smoked cigarette, and so figuratively the unwanted remnant of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vogue"
+    }
+   }
   },
   {
    "number": 27,
@@ -493,7 +1412,43 @@
      }
     ]
    },
-   "solution": "TEDDYBOY"
+   "solution": "TEDDYBOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "50s thug",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sexy underwear",
+       "at": 12,
+       "gives": "TEDDY",
+       "note": "a teddy is a one-piece lingerie garment"
+      },
+      {
+       "words": "wow",
+       "at": 29,
+       "gives": "BOY",
+       "note": "boy! is an exclamation of surprise like wow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A 1950s hoodlum caught wearing saucy lingerie draws an exclamation.",
+     "walkthrough": "Teddy boys were 1950s British youths in Edwardian-style dress, associated with gang violence.",
+     "definitionFit": "A 1950s British youth in drape jacket and drainpipes, often seen as a hooligan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "underwear"
+    }
+   }
   }
  ]
 }
