@@ -377,6 +377,12 @@ def fits_between(series, a, da, b, db):
     return due <= b - a - 1 <= could
 
 
+#: Prize series with exactly one number a week, so a number past the newest
+#: dated one is dated by counting weeks (the Jumbo adds bank-holiday numbers).
+STRICT_WEEKLY = ("sundaytimes", "mephisto")
+MAX_EXTRAPOLATED = 3
+
+
 def date_weekly(series, numbers, listing, blog, notes):
     """{number: date} for one weekly prize series.
 
@@ -426,7 +432,17 @@ def date_weekly(series, numbers, listing, blog, notes):
         left = sum(1 for n in numbers if a < n < b)
         notes.append(f"{series}: {left} undated between {a} ({confirmed[a]}) and {b} "
                      f"({confirmed[b]}): {b - a} numbers in {(confirmed[b] - confirmed[a]).days} days")
+    # A number just past the newest anchor, in a series that prints every week
+    # and never skips one, is the anchor's day plus a week for each number. The
+    # blog posts a prize puzzle a week after it ran, so the post-date fallback
+    # (file_blog_puzzles.every_day) would date it a week late.
+    if order and series in STRICT_WEEKLY:
+        top = order[-1]
+        for n in numbers:
+            if top < n <= top + MAX_EXTRAPOLATED and n not in out:
+                out[n] = confirmed[top] + WEEK * (n - top)
     ends = [n for n in numbers if not order or n < order[0] or n > order[-1]]
+    ends = [n for n in ends if n not in out]
     if ends:
         notes.append(f"{series}: {len(ends)} undated outside the anchors "
                      f"({min(ends)}..{max(ends)})")

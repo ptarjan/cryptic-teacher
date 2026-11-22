@@ -192,6 +192,8 @@ MIN_LIGHT = 3
 #: Blog slugs put the puzzle number first: times-29572-…, qc-1255-by-hurley,
 #: monthly-club-special-20231-…. The title is the fallback when it does not.
 NUMBER_IN = re.compile(r"(\d{3,5})")
+#: A bare year, which a slug may carry where the puzzle's number belongs.
+YEAR_NUMBER = re.compile(r"(?:19|20)\d\d")
 #: A month and its year, which a slug or title may print before the number:
 #: april-2015-club-monthly-20175. The year is not the puzzle's number.
 MONTH_YEAR = re.compile(r"(?i)\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?[\W_]+(?:19|20)\d\d\b")
@@ -313,9 +315,12 @@ def puzzle_number(post):
     t = NUMBER_IN.search(MONTH_YEAR.sub("", re.sub(r"(?<=\d),\s?(?=\d{3}\b)", "", title)))
     if (not m or int(m.group(1)) == post.get("id")
             or (t and one_slip(m.group(1), t.group(1)))
-            or (t and len(t.group(1)) > len(m.group(1)) and t.group(1).endswith(m.group(1)))):
-        # The last test is WordPress's slug for a thousands comma:
-        # "Times 28,373" is times-28-373-..., whose first number is 373.
+            or (t and len(t.group(1)) > len(m.group(1)) and t.group(1).endswith(m.group(1)))
+            or (t and len(t.group(1)) == 5 and YEAR_NUMBER.fullmatch(m.group(1)))):
+        # The third test is WordPress's slug for a thousands comma:
+        # "Times 28,373" is times-28-373-..., whose first number is 373. The
+        # fourth is a slug naming a year ("...championship-2026-semi-final...")
+        # over a title that leads with the number ("29703 Times Crossword ...").
         m = t
     if not m:
         m = QUICK_NUMBER.search(title) or QUICK_NUMBER.search(post.get("slug", ""))

@@ -633,6 +633,17 @@ check('a Mephisto setter is read from the blogger intro or the title, never from
       captured(snippet_mephisto_setter))
 
 
+# A Sunday number past the newest anchor is dated by counting weeks, not by its
+# post (a prize puzzle is blogged a week after it ran); the Jumbo is not.
+_d = datetime.date
+_notes = []
+check("sundaytimes past the anchor counts weeks",
+      {5241: _d(2026, 11, 8), 5242: _d(2026, 11, 15)},
+      F.date_weekly("sundaytimes", [5241, 5242], {5241: _d(2026, 11, 8)}, {}, _notes))
+check("timesjumbo past the anchor stays undated",
+      {1816: _d(2026, 10, 31)},
+      F.date_weekly("timesjumbo", [1816, 1817], {1816: _d(2026, 10, 31)}, {}, _notes))
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
