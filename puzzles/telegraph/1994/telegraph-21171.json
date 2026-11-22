@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,31 @@
      }
     ]
    },
-   "solution": "SHORTCUT"
+   "solution": "SHORTCUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bob",
+      "at": 0,
+      "meaning": "a bob is a hairstyle cropped level and brief"
+     },
+     {
+      "text": "a way to save time",
+      "at": 10,
+      "meaning": "a quicker route or method than the usual one"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone discovered how to get somewhere faster.",
+     "definitionFit": "A bob is a cropped haircut, and a quicker route that saves time is the other sense of the same phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +77,70 @@
     "text": "Had included odd pieces of cake (a quarter) that had been cut",
     "enumeration": "6"
    },
-   "solution": "HACKED"
+   "solution": "HACKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included",
+       "at": 4,
+       "note": "the word had holds the other letters within it, as something included is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Had",
+       "at": 0,
+       "gives": "HAD",
+       "note": "taken as written"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "odd pieces of",
+           "at": 13,
+           "note": "the first and third letters of the word cake, its odd-numbered positions"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cake",
+           "at": 27
+          }
+         ]
+        },
+        {
+         "words": "a quarter",
+         "at": 33,
+         "gives": "E",
+         "note": "E, east, is one of the four compass quarters"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slice of cake has been taken out of a whole one.",
+     "walkthrough": "'odd pieces of' takes C and K from 'cake'; with E (a compass quarter) they sit inside HAD.",
+     "definitionFit": "Something hacked has been chopped roughly, so it is a past-tense synonym for being cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +154,49 @@
     "text": "Car perhaps, one spotted by bishop outside",
     "enumeration": "5"
    },
-   "solution": "RACER"
+   "solution": "RACER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Car perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 35,
+       "note": "the bishop's letters stand on either side, enclosing the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bishop",
+       "at": 28,
+       "gives": "RR",
+       "note": "RR, Right Reverend, is the title abbreviation for a bishop"
+      },
+      {
+       "words": "one spotted",
+       "at": 13,
+       "gives": "ACE",
+       "note": "an ace is the single spot on a die or playing card"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop notices a car going past.",
+     "walkthrough": "A bishop is styled the Right Reverend, abbreviated RR; the ace is the 'one' marked with a single spot on dice and cards.",
+     "definitionFit": "A racer is a vehicle built for competing in speed contests, a car being one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +210,41 @@
     "text": "Fickle person coming from a clean home",
     "enumeration": "9"
    },
-   "solution": "CHAMELEON"
+   "solution": "CHAMELEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fickle person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "coming from",
+       "at": 14,
+       "note": "the letters of the phrase are worked into something new, emerging from it in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clean home",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A changeable character raised in a tidy household.",
+     "walkthrough": "'coming from' rearranges CLEANHOME; 'a' is a link word.",
+     "definitionFit": "The lizard that changes colour gives its name to anyone who alters opinions to suit company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +258,60 @@
     "text": "US author found the gold hidden with more gold",
     "enumeration": "7"
    },
-   "solution": "THOREAU"
+   "solution": "THOREAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US author",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hidden",
+         "at": 25,
+         "note": "the gold is tucked away inside the word the, held within it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 16,
+         "gives": "THE",
+         "note": "taken as written"
+        },
+        {
+         "words": "gold",
+         "at": 20,
+         "gives": "OR",
+         "note": "OR is the heraldic term for gold"
+        }
+       ]
+      },
+      {
+       "words": "more gold",
+       "at": 37,
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American writer strikes it rich twice over.",
+     "walkthrough": "OR (heraldic gold) goes inside THE, then AU (gold's chemical symbol) follows. Henry David Thoreau wrote Walden.",
+     "definitionFit": "Henry David Thoreau was a nineteenth-century American essayist and naturalist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +325,64 @@
     "text": "Infer that most of the bird is in the river",
     "enumeration": "6"
    },
-   "solution": "DEDUCE"
+   "solution": "DEDUCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Infer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "at": 28,
+       "note": "the shortened bird sits within the river's letters, placed in the middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the river",
+       "at": 34,
+       "gives": "DEE",
+       "note": "the Dee is a river in Britain, a crossword favourite"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 11,
+         "note": "the bird loses its final letter, leaving only most of it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "at": 23,
+         "gives": "DUCK",
+         "note": "a duck is a water bird"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deduction that a duck is swimming in the river.",
+     "walkthrough": "'most of' drops the bird's last letter and 'is in' sets the rest inside the Dee, a river in Wales and Scotland; 'that' is a link.",
+     "definitionFit": "To deduce is to reach a conclusion by reasoning, which is what inferring means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +396,49 @@
     "text": "Hang down, nothing will fall out",
     "enumeration": "5"
    },
-   "solution": "DROOP"
+   "solution": "DROOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hang down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 29,
+       "note": "the fall's letters lie outside, enclosing the zero"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fall",
+       "at": 24,
+       "gives": "DROP",
+       "note": "to drop is to fall"
+      },
+      {
+       "words": "nothing",
+       "at": 11,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Let something sag, and nothing will tumble from it.",
+     "walkthrough": "'out' puts DROP outside O, giving DR-O-OP.",
+     "definitionFit": "To droop is to sag or hang limply downward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +452,45 @@
     "text": "Create odd sort of architectural style",
     "enumeration": "9"
    },
-   "solution": "DECORATED"
+   "solution": "DECORATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "architectural style",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sort of",
+       "at": 11,
+       "note": "to sort letters is to rearrange them, so the two words are shuffled together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Create",
+       "at": 0
+      },
+      {
+       "words": "odd",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Invent a strange kind of building design.",
+     "walkthrough": "'odd' looks like the anagram signal, but it is fodder: 'sort of' rearranges CREATE plus ODD.",
+     "definitionFit": "Decorated Gothic is the name of the ornate English church-building period of the fourteenth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +504,49 @@
     "text": "Drinking vessel on table in the kitchen",
     "enumeration": "8"
    },
-   "solution": "CUPBOARD"
+   "solution": "CUPBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drinking vessel on table in the kitchen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 16,
+       "note": "in a down clue one piece sits on top of the other, so the vessel comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drinking vessel",
+       "at": 0,
+       "gives": "CUP",
+       "note": "a cup is a drinking vessel"
+      },
+      {
+       "words": "table",
+       "at": 19,
+       "gives": "BOARD",
+       "note": "a board is a table, as in bed and board"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A mug placed on the kitchen table.",
+     "walkthrough": "In a down entry 'on' means the first piece stands above the second; the whole clue also describes where crockery is kept.",
+     "definitionFit": "A cupboard is the kitchen storage unit where cups and plates are shelved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +560,65 @@
     "text": "Bill's repeated first-class backing for a tree",
     "enumeration": "6"
    },
-   "solution": "ACACIA"
+   "solution": "ACACIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a tree",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeated",
+         "at": 7,
+         "note": "the bill's abbreviation is given twice in succession"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bill's",
+         "at": 0,
+         "gives": "AC",
+         "note": "AC, account, is a bill"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 28,
+         "note": "first-class is turned round so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "first-class",
+         "at": 16,
+         "gives": "AI",
+         "note": "A1 means first-class, with the 1 read as the letter I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's bill gets backed twice as a first-rate forestry purchase.",
+     "walkthrough": "'repeated' gives ACAC; 'backing' turns A1 (written AI) into IA.",
+     "definitionFit": "The acacia is a thorny wattle of warm climates, a genus of trees and shrubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +632,52 @@
     "text": "Too confusing, range used by aural instrument",
     "enumeration": "8"
    },
-   "solution": "OTOSCOPE"
+   "solution": "OTOSCOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aural instrument",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confusing",
+         "at": 4,
+         "note": "the letters of the short word are mixed up, as confused things are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Too",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "range",
+       "at": 15,
+       "gives": "SCOPE",
+       "note": "scope means range or extent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ear device baffles with too much range.",
+     "walkthrough": "'Too' looks like an adverb, but it is the fodder that 'confusing' scrambles; 'used by' is a link.",
+     "definitionFit": "An otoscope is the lighted device a doctor uses to look into the ear canal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +691,64 @@
     "text": "Relief about heartless power of one woman",
     "enumeration": "8"
    },
-   "solution": "REPRIEVE"
+   "solution": "REPRIEVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 7,
+       "gives": "RE",
+       "note": "re means about, concerning"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 13,
+         "note": "the inside of the word power is removed, keeping only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "power",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 32,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "woman",
+       "at": 36,
+       "gives": "EVE",
+       "note": "Eve is the first woman in Genesis"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's power wanes, bringing relief.",
+     "walkthrough": "'heartless' keeps P and R from 'power'.",
+     "definitionFit": "A reprieve is a temporary respite or cancellation of punishment, a relief from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +776,30 @@
    "group": [
     "12-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Table, perhaps",
+      "at": 0,
+      "meaning": "a table is one example of household tables and chairs"
+     },
+     {
+      "text": "something taken for granted",
+      "at": 21,
+      "meaning": "an idiom for anything so familiar nobody notices it"
+     }
+    ],
+    "explanation": {
+     "surface": "A table is so familiar nobody notices it any more.",
+     "definitionFit": "Literally a table is one item among chairs and sofas; idiomatically the phrase means a fixture so familiar it is overlooked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +838,45 @@
      }
     ]
    },
-   "solution": "TIGERMOTH"
+   "solution": "TIGERMOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rolling round",
+       "at": 16,
+       "note": "the letters tumble about, rolled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tight",
+       "at": 10
+      },
+      {
+       "words": "Rome",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot gets drunk on a whirl around the Italian capital.",
+     "walkthrough": "'got' is a link; 'Flier' covers both the vintage biplane and the moth, and 'rolling round' scrambles the two words together.",
+     "definitionFit": "The Tiger Moth is a classic biplane, and also a moth, so either way it flies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +890,41 @@
     "text": "Want to see Dennis around",
     "enumeration": "9"
    },
-   "solution": "NEEDINESS"
+   "solution": "NEEDINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 19,
+       "note": "the letters are moved about, scattered into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "see Dennis",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wishing to visit Dennis nearby.",
+     "walkthrough": "'around' rearranges SEEDENNIS; 'to' is a link word.",
+     "definitionFit": "Neediness is a state of poverty or lack, which is one sense of want as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +944,41 @@
      }
     ]
    },
-   "solution": "JOYRIDER"
+   "solution": "JOYRIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "driver of stolen vehicle",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pleasure",
+       "at": 0,
+       "gives": "JOY",
+       "note": "joy is pleasure"
+      },
+      {
+       "words": "horseman",
+       "at": 9,
+       "gives": "RIDER",
+       "note": "a rider is a horseman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider's delight came from a car thief.",
+     "definitionFit": "A joyrider takes a car without permission and drives it for thrills."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "horseman"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +998,43 @@
      }
     ]
    },
-   "solution": "FORGINGAHEAD"
+   "solution": "FORGINGAHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moving steadily on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "counterfeiting",
+       "at": 20,
+       "gives": "FORGING",
+       "note": "forging is making fakes, counterfeiting"
+      },
+      {
+       "words": "only one side of the coin",
+       "at": 35,
+       "gives": "AHEAD",
+       "note": "a coin has a head and a tail, so one side is a head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forger progresses by faking just one face of a coin.",
+     "walkthrough": "Heads and tails are the two sides of a coin, so one side gives A HEAD.",
+     "definitionFit": "To forge ahead is an idiom for making steady progress onward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "counterfeiting"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1048,41 @@
     "text": "No object in troubling Melissa",
     "enumeration": "7"
    },
-   "solution": "AIMLESS"
+   "solution": "AIMLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No object",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "troubling",
+       "at": 13,
+       "note": "to trouble is to stir up, so the name's letters are disturbed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Melissa",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There is no reason to bother Melissa.",
+     "walkthrough": "'troubling' rearranges MELISSA; 'in' is a link word.",
+     "definitionFit": "Aimless means without purpose, lacking any goal or aim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1096,30 @@
     "text": "Lives for clothes?",
     "enumeration": "6"
    },
-   "solution": "UNDIES"
+   "solution": "UNDIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lives",
+      "at": 0,
+      "meaning": "whimsically read, someone who lives does the opposite of dying, an un-dying"
+     },
+     {
+      "text": "clothes?",
+      "at": 10,
+      "meaning": "informal word for underwear"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Read as un-dies, the word humorously means does not die, that is, lives; it is also slang for underwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lives"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1139,43 @@
      }
     ]
    },
-   "solution": "DRYROT"
+   "solution": "DRYROT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to bring the house down?",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boring",
+       "at": 0,
+       "gives": "DRY",
+       "note": "dry means dull, boring"
+      },
+      {
+       "words": "rubbish",
+       "at": 7,
+       "gives": "ROT",
+       "note": "rot means rubbish, nonsense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious, trashy show that brings the house down.",
+     "walkthrough": "'bring the house down' usually means a show earns rapturous applause; here it is literal, a fungus that rots timber.",
+     "definitionFit": "Dry rot is a timber-decaying fungus that can make a building collapse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1189,30 @@
     "text": "Mark two",
     "enumeration": "5"
    },
-   "solution": "TWAIN"
+   "solution": "TWAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0,
+      "meaning": "Mark ..., the pen name of Samuel Clemens"
+     },
+     {
+      "text": "two",
+      "at": 5,
+      "meaning": "an archaic word for two"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Samuel Clemens wrote as Mark Twain, and the old word for a pair is the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1232,44 @@
      }
     ]
    },
-   "solution": "MAINLINE"
+   "solution": "MAINLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sea route used by trains!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sea",
+       "at": 0,
+       "gives": "MAIN",
+       "note": "the main is the open sea"
+      },
+      {
+       "words": "route",
+       "at": 4,
+       "gives": "LINE",
+       "note": "a line is a route, as a railway line"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A sea lane for trains, absurdly.",
+     "walkthrough": "'the main' is an old word for the sea; the whole clue also describes a railway's trunk route.",
+     "definitionFit": "A main line is the principal railway track between major stations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Sea"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1283,49 @@
     "text": "Learning about one European banker",
     "enumeration": "5"
    },
-   "solution": "LOIRE"
+   "solution": "LOIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European banker",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "the learning's letters go round the other, about it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Learning",
+       "at": 0,
+       "gives": "LORE",
+       "note": "lore is learning, traditional knowledge"
+      },
+      {
+       "words": "one",
+       "at": 15,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar studies a single European financier.",
+     "walkthrough": "A 'banker' in crosswords is often a river, something with banks; here a French river.",
+     "definitionFit": "The Loire is France's longest river, so a European waterway with banks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "banker"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1339,30 @@
     "text": "Favour man pressing a suit",
     "enumeration": "8"
    },
-   "solution": "ADVOCATE"
+   "solution": "ADVOCATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Favour",
+      "at": 0,
+      "meaning": "to support or recommend"
+     },
+     {
+      "text": "man pressing a suit",
+      "at": 7,
+      "meaning": "a lawyer pursuing a case in court"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To argue for something is to support it, and a barrister arguing a lawsuit carries the same title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1376,59 @@
     "text": "Draw forth priest, Italian, going round chapter",
     "enumeration": "6"
    },
-   "solution": "ELICIT"
+   "solution": "ELICIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Draw forth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "at": 28,
+       "note": "the two joined words encircle the chapter's letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "priest",
+         "at": 11,
+         "gives": "ELI",
+         "note": "Eli is the priest in the Book of Samuel"
+        },
+        {
+         "words": "Italian",
+         "at": 19,
+         "gives": "IT",
+         "note": "It is short for Italian, as in gin and It"
+        }
+       ]
+      },
+      {
+       "words": "chapter",
+       "at": 40,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest and an Italian circle a chapter to draw something out.",
+     "walkthrough": "Eli was the priest who raised Samuel; ELI and IT together surround C.",
+     "definitionFit": "To elicit is to draw out a response or information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1442,30 @@
     "text": "Raggedly-dressed child might be found at sea",
     "enumeration": "6"
    },
-   "solution": "URCHIN"
+   "solution": "URCHIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Raggedly-dressed child",
+      "at": 0,
+      "meaning": "a scruffy street child"
+     },
+     {
+      "text": "might be found at sea",
+      "at": 23,
+      "meaning": "the spiny marine creature, a sea creature of that name"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A ragged mischievous youngster shares a name with the spiny echinoderm called the sea version."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1479,48 @@
     "text": "Mounting excitement will point to us to think in French",
     "enumeration": "8"
    },
-   "solution": "SUSPENSE"
+   "solution": "SUSPENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mounting excitement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "point",
+       "at": 25,
+       "gives": "S",
+       "note": "S, south, is a compass point"
+      },
+      {
+       "words": "us",
+       "at": 34,
+       "gives": "US",
+       "note": "taken as written"
+      },
+      {
+       "words": "think in French",
+       "at": 40,
+       "gives": "PENSE",
+       "note": "pense is French for thinks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Excitement builds as someone points to us and thinks in French.",
+     "walkthrough": "S (a compass point) goes to US, then PENSE, French for 'thinks'.",
+     "definitionFit": "Suspense is growing tension and anticipation, which is excitement on the rise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   }
  ]
 }
