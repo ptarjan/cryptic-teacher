@@ -50,6 +50,14 @@ def main():
     args = ap.parse_args()
 
     if args.done:
+        # Deleting a key that does not exist succeeds, so a key typed without
+        # its "r:" prefix used to print "deleted" and leave the report queued.
+        # Take the bare form, and refuse a key that is not in the queue.
+        if not args.done.startswith(PREFIX):
+            args.done = PREFIX + args.done
+        if args.done not in {k["name"] for k in kv.list_keys(prefix=PREFIX)}:
+            raise SystemExit(f"{args.done} is not in the queue: copy the key printed under the "
+                             "report, r: included (tools/reports.py lists them)")
         gone = kv.delete_key(args.done)
         if gone is not True:
             raise SystemExit(f"could not delete {args.done}: {gone}")
