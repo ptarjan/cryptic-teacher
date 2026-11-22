@@ -4132,6 +4132,7 @@ def indy_under(img, grid, right, rapid, key, margin):
 #: first window holding two, the gutters are cut just left of the second and third heads and the last window ends a
 #: pitch and a tenth right of the third head (INDY_UNDER_GAP, INDY_UNDER_END).
 INDY_UNDER_GAP, INDY_UNDER_END = 4, 1.1
+INDY_LATE_GUTTER = True
 
 
 def indy_under_columns(lines, grid, split, margin):
@@ -4141,6 +4142,13 @@ def indy_under_columns(lines, grid, split, margin):
     words = [w for ws in lines for w in ws]
     heads = [g[len(g) // 2] for g in indy_starts(words, gx0 - margin, split[1], gy1, gy1 + 1.8 * (gx1 - gx0))
              if len(g) >= INDY_COLUMN_MIN]
+    if len(heads) == 3 and INDY_LATE_GUTTER and heads[1] >= split[0] and heads[2] < split[1]:
+        # INDY_LATE_GUTTER: the second gutter lies right of the third column's numbers (3 evenly pitched heads, the first
+        # gutter fine): those numbers joined the second column's window and their clues laid on no light.
+        pitch = (heads[1] - heads[0], heads[2] - heads[1])
+        if abs(pitch[0] - pitch[1]) <= 0.25 * max(pitch) and min(pitch) >= 150:
+            return (split[0], heads[2] - INDY_UNDER_GAP, min(split[2], int(heads[2] + INDY_UNDER_END * pitch[1])))
+        return split
     if len(heads) != 3 or not heads[1] < split[0]:
         return split
     pitch = (heads[1] - heads[0], heads[2] - heads[1])
