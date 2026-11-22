@@ -3618,6 +3618,8 @@ check("gpu_fill: low-ask solution rereads ranked first do not fill, the never-re
       [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in _lo + _ft], set(), set(), _none, _none, 0, False, 0, 2)])
 # 10-29: ~100 reads of one fix reason took all 20 unit slots (18 min OCR each, no VLM asks): one reason is capped.
 _rc_old = os.environ.pop("CT_REASON_CAP", None)
+check("shallow_bar: 14 other asks by default, never under the feed target",
+      (14, 20), (vlm_reader.shallow_bar(4), vlm_reader.shallow_bar(20)))
 check("low_yield_cap: a low-yield reason runs at a third of the cap, at least 1; others and cap 0 unchanged",
       (2, 1, 6, 0, 6),
       (eq.low_yield_cap("never read (Gale fetch)", 6), eq.low_yield_cap("never read (Gale fetch)", 2),

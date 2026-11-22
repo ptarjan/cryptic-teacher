@@ -815,11 +815,31 @@ def feed_target():
     return max(n, slots() + PIPELINE)
 
 
+#: Asks of other reads in the spool under which a read still waits here for its own answers
+#: (CT_VLM_SHALLOW; never under feed_target()). A read that ends deferred runs again from its OCR once
+#: its asks are answered: 125 s a run on 11-22 04:13-04:48 UTC, when 92 reads ended deferred in 35 min and
+#: took 31% of all unit time (9-17% the day before). 80 of those 92 deferred behind 8 or more other asks
+#: and 3 behind 4-7, so the old bar of 4 no longer met them. The drainer clears ~7 asks a minute: behind 14
+#: the answers come in about 2 min, no longer than the second run, and the wait burns no CPU (the VLM
+#: slows when the host's CPU is pegged). SPOOL_WAIT still bounds the wait.
+SHALLOW = 14
+
+
+def shallow_bar(target=None):
+    """The count of other reads' spooled asks under which the spool is shallow: CT_VLM_SHALLOW (default
+    SHALLOW), at least `target` (feed_target())."""
+    target = feed_target() if target is None else target
+    try:
+        return max(target, int(os.environ.get("CT_VLM_SHALLOW", SHALLOW)))
+    except ValueError:
+        return max(target, SHALLOW)
+
+
 def spool_shallow(keys):
-    """Whether the spool's asks other than `keys` are below feed_target(): the drainer is short of
-    work and comes to `keys` within seconds."""
+    """Whether the spool's asks other than `keys` are below shallow_bar(): the drainer comes to
+    `keys` within about a minute, sooner than this read would run again from its OCR."""
     mine = set(keys)
-    return len([k for k in spooled() if k not in mine]) < feed_target()
+    return len([k for k in spooled() if k not in mine]) < shallow_bar()
 
 
 def answered(key):
