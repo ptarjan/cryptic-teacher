@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "A good deal at the auction sale?",
     "enumeration": "4"
    },
-   "solution": "LOTS"
+   "solution": "LOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A good deal",
+      "at": 0,
+      "meaning": "a good deal, a great quantity"
+     },
+     {
+      "text": "at the auction sale",
+      "at": 12,
+      "meaning": "at an auction each numbered item put up for sale is a lot"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A large amount is colloquially plenty or loads, and the items sold under the hammer at auctions are numbered lots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,49 @@
     "text": "Helen's mother died in the field",
     "enumeration": "4"
    },
-   "solution": "LEDA"
+   "solution": "LEDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Helen's mother",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in says the abbreviation for died is placed within the word for field"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the field",
+       "at": 23,
+       "gives": "LEA",
+       "note": "a lea is a meadow or grassy field in poetic usage"
+      },
+      {
+       "words": "died",
+       "at": 15,
+       "gives": "D",
+       "note": "D is the standard abbreviation for died, as in genealogies"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family history noting that Helen's mother perished out in the field.",
+     "walkthrough": "In Greek myth Helen of Troy was the daughter of Zeus and the mortal queen of Sparta, who was visited by the god in the form of a swan.",
+     "definitionFit": "In Greek legend the Spartan queen seduced by Zeus as a swan bore Helen of Troy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +125,30 @@
     "text": "Heel producing on inventory",
     "enumeration": "4"
    },
-   "solution": "LIST"
+   "solution": "LIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heel",
+      "at": 0,
+      "meaning": "of a ship, to heel is to lean over to one side"
+     },
+     {
+      "text": "inventory",
+      "at": 18,
+      "meaning": "an inventory is an itemised catalogue of goods"
+     }
+    ],
+    "explanation": {
+     "surface": "A shoe heel is somehow producing a stock inventory.",
+     "definitionFit": "A ship that leans to one side is said to heel or tilt, and a catalogue of items is an enumerated record."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heel"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +162,44 @@
     "text": "Meat which may be cooked in ovens",
     "enumeration": "7"
    },
-   "solution": "VENISON"
+   "solution": "VENISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "may be cooked",
+       "at": 11,
+       "note": "cooked suggests the letters that follow are worked up into a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 25
+      },
+      {
+       "words": "ovens",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note: this meat is the kind you might roast in ovens.",
+     "definitionFit": "Deer flesh eaten as food is called by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +213,35 @@
     "text": "A forecaster must look to the heavens",
     "enumeration": "10"
    },
-   "solution": "ASTROLOGER"
+   "solution": "ASTROLOGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A forecaster must look to the heavens",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A forecaster must look to the heavens",
+       "at": 0,
+       "note": "reads like a weather forecaster watching the sky, but the forecaster predicts the future from the stars and planets"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weather forecasters have to keep an eye on the sky.",
+     "definitionFit": "A horoscope writer predicts people's fortunes by studying the positions of stars and planets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forecaster"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +255,49 @@
     "text": "The beauty appears without wrinkles",
     "enumeration": "10"
    },
-   "solution": "COMELINESS"
+   "solution": "COMELINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The beauty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 19,
+       "note": "without in its old sense of outside means the word for appears goes around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appears",
+       "at": 11,
+       "gives": "COMES",
+       "note": "comes, as in arrives or shows up, means appears"
+      },
+      {
+       "words": "wrinkles",
+       "at": 27,
+       "gives": "LINES",
+       "note": "lines on the face are wrinkles"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beauty who shows up with no wrinkles at all.",
+     "walkthrough": "'Without' looks like 'lacking', but in its older sense it means 'outside', so the word for appears wraps around the wrinkles.",
+     "definitionFit": "Attractiveness of appearance in a person is called by this rather old-fashioned noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +311,40 @@
     "text": "Set apart for Easter-egg making",
     "enumeration": "9"
    },
-   "solution": "SEGREGATE"
+   "solution": "SEGREGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Set apart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "making",
+       "at": 25,
+       "note": "making here means the letters are made into a new word by rearranging them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Easter-egg",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sorting chocolate so some is put aside for producing Easter eggs.",
+     "definitionFit": "To separate people or things and keep them isolated from others is to set them apart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Easter-egg"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +358,41 @@
     "text": "Figure refuse should bring money",
     "enumeration": "4"
    },
-   "solution": "CASH"
+   "solution": "CASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "money",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Figure",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, so a figure"
+      },
+      {
+       "words": "refuse",
+       "at": 7,
+       "gives": "ASH",
+       "note": "ash is the waste left after burning, so refuse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion that a rubbish figure ought to fetch some money.",
+     "definitionFit": "Notes and coins in hand are ready money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "refuse"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +406,41 @@
     "text": "Perfectly happy just to read when camping",
     "enumeration": "9"
    },
-   "solution": "CONTENTED"
+   "solution": "CONTENTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perfectly happy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to read",
+       "at": 21,
+       "gives": "CON",
+       "note": "to con is an old word for to study or read carefully"
+      },
+      {
+       "words": "when camping",
+       "at": 29,
+       "gives": "TENTED",
+       "note": "tented describes someone housed under canvas, as when camping"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A camper perfectly happy just to sit and read in the tent.",
+     "definitionFit": "Being satisfied and at ease with one's lot is being perfectly happy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +454,47 @@
     "text": "Beginning to absorb the Left and that's very surprising",
     "enumeration": "9"
    },
-   "solution": "STARTLING"
+   "solution": "STARTLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very surprising",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to absorb",
+       "at": 10,
+       "note": "to absorb means the word for beginning takes the other letter into itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Beginning",
+       "at": 0,
+       "gives": "STARTING",
+       "note": "starting means beginning"
+      },
+      {
+       "words": "Left",
+       "at": 24,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician starting to absorb the Left, which is a shock.",
+     "definitionFit": "Something astonishing or alarming that makes one jump is very surprising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +508,43 @@
     "text": "Degenerate rock-climber",
     "enumeration": "3"
    },
-   "solution": "ROT"
+   "solution": "ROT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Degenerate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "climber",
+       "at": 16,
+       "note": "in a down clue a climber goes upwards, so the word for rock is read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rock",
+       "at": 11,
+       "gives": "TOR",
+       "note": "a tor is a rocky outcrop on a hill, as on Dartmoor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rock-climber who has gone to the bad.",
+     "walkthrough": "'Rock-climber' reads as one sportsman; split it: a TOR (a craggy hilltop) 'climbs', reading upwards in this down entry.",
+     "definitionFit": "To decay or decompose is to degenerate, as fruit does when it goes off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +558,41 @@
     "text": "No servicemen's standard",
     "enumeration": "4"
    },
-   "solution": "NORM"
+   "solution": "NORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "standard",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No",
+       "at": 0,
+       "gives": "NO",
+       "note": "taken as written"
+      },
+      {
+       "words": "servicemen's",
+       "at": 3,
+       "gives": "RM",
+       "note": "RM stands for the Royal Marines, British servicemen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that servicemen are below standard.",
+     "definitionFit": "A usual level or expected pattern is the standard against which things are judged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "servicemen's"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +606,31 @@
     "text": "Desert animal",
     "enumeration": "3"
    },
-   "solution": "RAT"
+   "solution": "RAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Desert",
+      "at": 0,
+      "meaning": "to desert one's friends or side is to inform on or abandon them"
+     },
+     {
+      "text": "animal",
+      "at": 7,
+      "meaning": "a rodent is an animal"
+     }
+    ],
+    "explanation": {
+     "surface": "Something living in the desert.",
+     "definitionFit": "A turncoat who abandons his side is said to do this, and the long-tailed rodent is a familiar creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Desert"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +644,40 @@
     "text": "A hole most may well find sickening",
     "enumeration": "9"
    },
-   "solution": "LOATHSOME"
+   "solution": "LOATHSOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sickening",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "may well",
+       "at": 12,
+       "note": "may well suggests the letters could quite possibly be found in some other order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A hole most",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most people would find a hole in something disgusting.",
+     "definitionFit": "Something repulsive and detestable is sickening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hole"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +697,54 @@
      }
     ]
    },
-   "solution": "LENDINGOUT"
+   "solution": "LENDINGOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Temporarily providing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 37,
+       "note": "in sets one piece inside the other"
+      },
+      {
+       "text": "No, quite the reverse",
+       "at": 51,
+       "note": "says the containment just described is the wrong way round, so the hooligan surrounds the extremity"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hooligan",
+       "at": 28,
+       "gives": "LOUT",
+       "note": "a lout is a rough, uncouth hooligan"
+      },
+      {
+       "words": "extremity",
+       "at": 40,
+       "gives": "ENDING",
+       "note": "an ending is an extremity, the end point of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A charity lending to a hooligan in dire straits, or is it the other way round?",
+     "walkthrough": "Taken literally the hooligan would go inside the extremity; 'No, quite the reverse' flips the containment, so the extremity sits inside the hooligan.",
+     "definitionFit": "Handing something over for a set period to be returned is providing it temporarily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremity"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +758,11 @@
     "text": "Bond, given in welcome, set about the guys!",
     "enumeration": "9"
    },
-   "solution": "AGREEMENT"
+   "solution": "AGREEMENT",
+   "annotationWithheld": {
+    "why": "Bond, given in welcome, set about the guys! (9): MEN inside GREET gives GREMENT plus an A that no clue word supplies ('given' cannot be A); the clue as held looks short of a word such as 'a', and no source confirms it",
+    "clue": "Bond, given in welcome, set about the guys!"
+   }
   },
   {
    "number": 15,
@@ -260,7 +776,42 @@
     "text": "He's lit on a solution to the downfall",
     "enumeration": "9"
    },
-   "solution": "HAILSTONE"
+   "solution": "HAILSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the downfall",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "solution",
+       "at": 14,
+       "note": "a solution is a dissolving or working out, so the letters before are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He's lit on a",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective has hit on the answer to someone's ruin.",
+     "walkthrough": "'Downfall' sounds like ruin but here means something falling down from the sky.",
+     "definitionFit": "A pellet of ice falling from storm clouds is literally a downfall of precipitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "downfall"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +825,41 @@
     "text": "A woman writing articles in Spanish and French",
     "enumeration": "4"
    },
-   "solution": "ELLA"
+   "solution": "ELLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "articles in Spanish",
+       "at": 16,
+       "gives": "EL",
+       "note": "el is the Spanish masculine definite article"
+      },
+      {
+       "words": "French",
+       "at": 40,
+       "gives": "LA",
+       "note": "la is the French feminine definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who writes pieces in Spanish and French.",
+     "definitionFit": "This is a female given name, as of the jazz singer Fitzgerald."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +873,44 @@
     "text": "Merging in, aren't seen to get on board",
     "enumeration": "7"
    },
-   "solution": "ENTRAIN"
+   "solution": "ENTRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "get on board",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Merging",
+       "at": 0,
+       "note": "merging means the letters are blended together into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 8
+      },
+      {
+       "words": "aren't",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Traffic merging in, apparently invisible, as people climb aboard.",
+     "definitionFit": "To board a railway carriage, as troops do, is to get on board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Merging"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +924,42 @@
     "text": "Need time to organise the place",
     "enumeration": "7"
    },
-   "solution": "WANTAGE"
+   "solution": "WANTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Need",
+       "at": 0,
+       "gives": "WANT",
+       "note": "a want is a need or lack"
+      },
+      {
+       "words": "time",
+       "at": 5,
+       "gives": "AGE",
+       "note": "an age is a long period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who needs time to organise a venue.",
+     "walkthrough": "WANTAGE is a market town in Oxfordshire, England, birthplace of King Alfred.",
+     "definitionFit": "This English market town in Oxfordshire is a place on the map."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organise"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +973,42 @@
     "text": "Residential areas, as the egghead says",
     "enumeration": "7"
    },
-   "solution": "ESTATES"
+   "solution": "ESTATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Residential areas",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "egghead",
+       "at": 26,
+       "gives": "E",
+       "note": "read as egg-head, the head or first letter of the word egg"
+      },
+      {
+       "words": "says",
+       "at": 34,
+       "gives": "STATES",
+       "note": "states means says or declares"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Housing developments, as described by an intellectual.",
+     "walkthrough": "'Egghead' looks like an intellectual; split it into 'egg' and 'head', the first letter of egg.",
+     "definitionFit": "Housing developments built as a planned group of homes are residential areas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "egghead"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1022,51 @@
     "text": "Wooden, sanctimonious, and heartless nurse",
     "enumeration": "4"
    },
-   "solution": "PINE"
+   "solution": "PINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wooden",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sanctimonious",
+       "at": 8,
+       "gives": "PI",
+       "note": "pi is a short slang form of pious, so sanctimonious"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 27,
+         "note": "heartless means the middle of nurse is removed, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nurse",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stiff, self-righteous, unfeeling nurse.",
+     "definitionFit": "Furniture made of a softwood timber is wooden, the word used as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wooden"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1080,55 @@
     "text": "America backing the prodigal will hold things up",
     "enumeration": "9"
    },
-   "solution": "SUSPENDER"
+   "solution": "SUSPENDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "will hold things up",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 8,
+         "note": "backing means the abbreviation for America goes in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "America",
+         "at": 0,
+         "gives": "US",
+         "note": "US is the abbreviation for the United States, America"
+        }
+       ]
+      },
+      {
+       "words": "the prodigal",
+       "at": 16,
+       "gives": "SPENDER",
+       "note": "a prodigal is a wasteful spender"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "America supporting the prodigal will stall progress.",
+     "walkthrough": "'Hold things up' suggests delay, but a garter belt holds stockings up.",
+     "definitionFit": "A garter strap literally keeps stockings or socks raised, so it is a holder-up of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1142,41 @@
     "text": "Born in Greece a Hellene, evidently",
     "enumeration": "3"
    },
-   "solution": "NEE"
+   "solution": "NEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Born",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in says the answer is sitting inside the words a little further on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hellene, evidently",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone born in Greece is plainly a Hellene.",
+     "walkthrough": "The run straddles the end of 'Hellene' and the start of 'evidently'.",
+     "definitionFit": "This French word, used before a married woman's maiden name, means born."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Greece"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1190,30 @@
     "text": "Dull floor-covering",
     "enumeration": "3"
    },
-   "solution": "MAT"
+   "solution": "MAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0,
+      "meaning": "a matt surface is dull, without shine"
+     },
+     {
+      "text": "floor-covering",
+      "at": 5,
+      "meaning": "a rug or small piece of carpet covers the floor"
+     }
+    ],
+    "explanation": {
+     "surface": "A drab rug.",
+     "definitionFit": "A non-shiny finish is a variant spelling of matt, and a rug at the door is a small floor-covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dull"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1227,43 @@
     "text": "Only some in a guest-house make complaint",
     "enumeration": "4"
    },
-   "solution": "AGUE"
+   "solution": "AGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Only some",
+       "at": 0,
+       "note": "Only some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a guest-house",
+       "at": 13,
+       "gives": "AGUE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Just a few guests at a boarding house grumble.",
+     "walkthrough": "The draft took 'make complaint' as the definition, but the answer is a noun, an illness; 'make' is a link (some make, i.e. form, the answer).",
+     "definitionFit": "A fever with fits of shivering, malarial in origin, is an illness, which is a complaint in the medical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1277,40 @@
     "text": "Agreed on a cocktail as the non-alcoholic drink",
     "enumeration": "9"
    },
-   "solution": "ORANGEADE"
+   "solution": "ORANGEADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the non-alcoholic drink",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cocktail",
+       "at": 12,
+       "note": "a cocktail is a mixture, so these letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Agreed on a",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Friends settle on a cocktail but end up with a soft drink.",
+     "definitionFit": "A fizzy soft drink flavoured with citrus fruit is non-alcoholic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cocktail"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1324,31 @@
     "text": "Entrance the spectators",
     "enumeration": "4"
    },
-   "solution": "GATE"
+   "solution": "GATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Entrance",
+      "at": 0,
+      "meaning": "a way in through a fence or wall is an entrance"
+     },
+     {
+      "text": "the spectators",
+      "at": 9,
+      "meaning": "the number of people attending a match is the crowd or attendance"
+     }
+    ],
+    "explanation": {
+     "surface": "Delighting the onlookers.",
+     "definitionFit": "A hinged barrier is an entrance, and a football crowd figure is the attendance at the match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Entrance"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1362,43 @@
     "text": "Insubstantial though sound nest",
     "enumeration": "4"
    },
-   "solution": "AIRY"
+   "solution": "AIRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insubstantial",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AIRY",
+     "indicators": [
+      {
+       "text": "sound",
+       "at": 21,
+       "note": "sound here signals that the word for nest is pronounced like the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nest",
+       "at": 27,
+       "gives": "EYRIE",
+       "note": "an eyrie is an eagle's nest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Flimsy, though the nest is solid.",
+     "definitionFit": "Something light, delicate and lacking substance is insubstantial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1412,40 @@
     "text": "Having set a spread, partakes of it",
     "enumeration": "4"
    },
-   "solution": "EATS"
+   "solution": "EATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "partakes of it",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spread",
+       "at": 13,
+       "note": "spread, as in scattered, means the letters are arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "set a",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having laid a feast, the host joins in.",
+     "definitionFit": "Taking food from a meal is consuming it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1459,31 @@
     "text": "A poet's hound",
     "enumeration": "4"
    },
-   "solution": "HUNT"
+   "solution": "HUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A poet",
+      "at": 0,
+      "meaning": "Leigh ... was an English Romantic poet and essayist"
+     },
+     {
+      "text": "hound",
+      "at": 9,
+      "meaning": "to hound is to pursue or chase relentlessly"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet's dog.",
+     "definitionFit": "Leigh Hunt was a Romantic poet, and to hound a quarry is to chase it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hound"
+    }
+   }
   },
   {
    "number": 30,
@@ -470,7 +1497,43 @@
     "text": "Choose to talk-they make one cross!",
     "enumeration": "10"
    },
-   "solution": "ELECTORATE"
+   "solution": "ELECTORATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they make one cross",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Choose",
+       "at": 0,
+       "gives": "ELECT",
+       "note": "to elect is to choose, especially by vote"
+      },
+      {
+       "words": "to talk",
+       "at": 7,
+       "gives": "ORATE",
+       "note": "to orate is to talk, making a speech"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being told to choose and to speak makes someone angry.",
+     "walkthrough": "'Cross' looks like 'angry'; voters mark ballot papers with a cross (X).",
+     "definitionFit": "Voters as a body mark their ballot papers with an X, so they make a cross."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   }
  ]
 }
