@@ -1,11 +1,9 @@
 """TELE_ORDER_STEADY: a Telegraph title is placed among the steady filed numbers, not a misread one."""
 import datetime
-import os
-import sys
 import unittest
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tools"))
-import file_archive_org_puzzles as fa  # noqa: E402
+import _path  # puzzles tools/ on sys.path
+import file_archive_org_puzzles as fa
 
 
 def held_1984():
