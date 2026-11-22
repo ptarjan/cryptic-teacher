@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Condition under which a horse races",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0,
+      "meaning": "a clause added to a contract or bill as a proviso or stipulation"
+     },
+     {
+      "text": "under which a horse races",
+      "at": 10,
+      "meaning": "the jockey sitting on the horse's back during a race"
+     }
+    ],
+    "explanation": {
+     "surface": "A racing rule setting the terms on which a horse may run.",
+     "walkthrough": "The surface asks for racing terms; the second definition is read literally, the person on top of the horse.",
+     "definitionFit": "A proviso attached to a document is a rider, and the jockey a horse carries is equally its rider."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Condition"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,31 @@
     "text": "Did some more upholstering when fully better",
     "enumeration": "9"
    },
-   "solution": "RECOVERED"
+   "solution": "RECOVERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Did some more upholstering",
+      "at": 0,
+      "meaning": "put new fabric on a chair or sofa"
+     },
+     {
+      "text": "fully better",
+      "at": 32,
+      "meaning": "restored to health"
+     }
+    ],
+    "explanation": {
+     "surface": "An upholsterer finishes reupholstering on getting well again.",
+     "definitionFit": "A sofa given new fabric has been re-covered, and a patient restored to health has recuperated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "upholstering"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +110,47 @@
     "text": "False teeth be put in as an investment",
     "enumeration": "9"
    },
-   "solution": "DEBENTURE"
+   "solution": "DEBENTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an investment",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 15,
+       "note": "put in signals that the word be is placed inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "False teeth",
+       "at": 0,
+       "gives": "DENTURE",
+       "note": "a denture is a set of false teeth"
+      },
+      {
+       "words": "be",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dentures put forward as a sound place for savings.",
+     "walkthrough": "'False' looks like an anagram signal, but 'False teeth' is a single unit defining dentures; 'put in' is the container signal.",
+     "definitionFit": "A debenture is a bond or loan certificate issued by a company, a form of investment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "False"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +164,29 @@
     "text": "Call and make a clear vibrant sound",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "RING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0,
+      "meaning": "telephone someone"
+     },
+     {
+      "text": "make a clear vibrant sound",
+      "at": 9,
+      "meaning": "chime as a bell does"
+     }
+    ],
+    "explanation": {
+     "surface": "Telephoning someone and the bell chiming clearly.",
+     "definitionFit": "To phone someone is one sense, and a bell's resonant chime is another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +200,35 @@
     "text": "Used to cover the cracks",
     "enumeration": "9"
    },
-   "solution": "WALLPAPER"
+   "solution": "WALLPAPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Used to cover the cracks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Used to cover the cracks",
+       "at": 0,
+       "note": "read as decorating: patterned paper pasted over a room's surfaces hides the cracks in the plaster"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remedy for hiding faults, figuratively papering over problems.",
+     "definitionFit": "Decorative paper hung on interior walls conceals blemishes and fissures in the plaster beneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cracks"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +248,34 @@
      }
     ]
    },
-   "solution": "WEATHERBEATEN"
+   "solution": "WEATHERBEATEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Defeated by the elements",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Defeated by the elements",
+       "at": 0,
+       "note": "read literally: beaten by wind and rain, rather than the sense of worn and seasoned"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vanquished by the forces of nature.",
+     "definitionFit": "A face or building worn and roughened by exposure to wind and rain is described this way, and literally it is beaten by the elements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +289,40 @@
     "text": "Half pictured an ancient Briton",
     "enumeration": "4"
    },
-   "solution": "PICT"
+   "solution": "PICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an ancient Briton",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Half",
+       "at": 0,
+       "note": "half picks out the first four of the eight letters of the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pictured",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Half of a picture shows an early Briton.",
+     "definitionFit": "The Picts were an ancient people of what is now northern Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pictured"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +336,33 @@
     "text": "Consolation for 29?",
     "enumeration": "5"
    },
-   "solution": "PRIZE"
+   "solution": "PRIZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Consolation for 29?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Consolation for 29?",
+       "at": 0,
+       "note": "refers to the answer at 29 across: the one who is beaten may receive a token award, the consolation one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small comfort offered to someone.",
+     "definitionFit": "A consolation award is given to a runner-up who did not win."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +376,40 @@
     "text": "Managed to get central heating at the farm",
     "enumeration": "5"
    },
-   "solution": "RANCH"
+   "solution": "RANCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "farm",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Managed",
+       "at": 0,
+       "gives": "RAN",
+       "note": "ran means managed, as in ran a business"
+      },
+      {
+       "words": "central heating",
+       "at": 15,
+       "gives": "CH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Installing central heating on a farmstead.",
+     "definitionFit": "A ranch is a large farm, especially for cattle in America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Managed"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +423,40 @@
     "text": "Chartered accountant finds waste-paper container for a private room",
     "enumeration": "5"
    },
-   "solution": "CABIN"
+   "solution": "CABIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a private room",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chartered accountant",
+       "at": 0,
+       "gives": "CA"
+      },
+      {
+       "words": "waste-paper container",
+       "at": 27,
+       "gives": "BIN",
+       "note": "a bin holds discarded paper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant discovers a wastebasket in his own private office.",
+     "definitionFit": "A cabin is a small private compartment, as on a ship or train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finds"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +470,30 @@
     "text": "It's a disease love",
     "enumeration": "9"
    },
-   "solution": "AFFECTION"
+   "solution": "AFFECTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a disease",
+      "at": 5,
+      "meaning": "an ... is, in medical usage, a condition or ailment of the body"
+     },
+     {
+      "text": "love",
+      "at": 15,
+      "meaning": "fondness or warm attachment"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry remark that being in love is a kind of illness.",
+     "definitionFit": "Medicine uses the word for a bodily disorder, while everyday speech uses it for tender fondness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +517,35 @@
      }
     ]
    },
-   "solution": "FRESHAIRFIEND"
+   "solution": "FRESHAIRFIEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is he devilish with windows!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Is he devilish with windows!",
+       "at": 0,
+       "note": "a fiend is a devil, and one who throws windows open for outdoor air is fiendish about ventilation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who behaves wickedly around windows.",
+     "definitionFit": "An enthusiast who insists on open windows and outdoor air is jokingly called this kind of fanatic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "devilish"
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +559,48 @@
     "text": "Sell, and close after five",
     "enumeration": "4"
    },
-   "solution": "VEND"
+   "solution": "VEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sell",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "after places the word for close behind the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "five",
+       "at": 22,
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
+      },
+      {
+       "words": "close",
+       "at": 10,
+       "gives": "END",
+       "note": "close means end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper sells and shuts up shop after five o'clock.",
+     "definitionFit": "To vend is to offer goods for sale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +614,41 @@
     "text": "He set about making a rope",
     "enumeration": "5"
    },
-   "solution": "SHEET"
+   "solution": "SHEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a rope",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 7,
+       "note": "about signals that the letters of the words are moved around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He set",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man sets to work making a rope.",
+     "walkthrough": "'about' rearranges HESET into the answer. On a sailing boat, a sheet is not a sail but the rope controlling one.",
+     "definitionFit": "In sailing, the line attached to a sail's corner for trimming it is called a sheet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +662,29 @@
     "text": "Become entangled in the network",
     "enumeration": "4"
    },
-   "solution": "MESH"
+   "solution": "MESH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Become entangled",
+      "at": 0,
+      "meaning": "to engage or interlock, as gear teeth do"
+     },
+     {
+      "text": "the network",
+      "at": 20,
+      "meaning": "a net or grid of interlaced threads"
+     }
+    ],
+    "explanation": {
+     "surface": "Something getting caught up in a net.",
+     "definitionFit": "Gears that interlock are said to engage this way, and a woven net is made of the same interlaced fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +698,48 @@
     "text": "Against losing a part of the poem",
     "enumeration": "5"
    },
-   "solution": "VERSE"
+   "solution": "VERSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of the poem",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing",
+       "at": 8,
+       "note": "losing signals that the letter a is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Against",
+       "at": 0,
+       "gives": "AVERSE",
+       "note": "averse means opposed to, against"
+      },
+      {
+       "words": "a",
+       "at": 15,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opposed to losing a bit of a poem.",
+     "walkthrough": "'Against' is not VERSUS here but AVERSE; dropping the A leaves a stanza.",
+     "definitionFit": "A verse is a stanza or section of a poem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Against"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +753,32 @@
     "text": "Prone to mendacity",
     "enumeration": "5"
    },
-   "solution": "LYING"
+   "solution": "LYING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prone",
+      "at": 0,
+      "meaning": "... flat, face down"
+     },
+     {
+      "text": "mendacity",
+      "at": 9,
+      "meaning": "the telling of untruths"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone inclined to tell untruths.",
+     "walkthrough": "'Prone to' looks like 'inclined to', but 'Prone' means stretched out flat and 'to' is a link.",
+     "definitionFit": "Lying flat on the ground and telling untruths share one word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Prone"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +798,31 @@
      }
     ]
    },
-   "solution": "UNEARTHLYHOUR"
+   "solution": "UNEARTHLYHOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ridiculous time",
+      "at": 0,
+      "meaning": "an absurdly early or late hour of the day"
+     },
+     {
+      "text": "on another planet?",
+      "at": 16,
+      "meaning": "read literally: an hour not of the Earth, so alien"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering about odd hours of the day on some other world.",
+     "definitionFit": "Getting up at an ungodly early hour is idiomatically this phrase, and literally it means a period of time not of our world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "planet"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +836,33 @@
     "text": "Who to blame when we make mistakes?",
     "enumeration": "9"
    },
-   "solution": "OURSELVES"
+   "solution": "OURSELVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Who to blame when we make mistakes?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Who to blame when we make mistakes?",
+       "at": 0,
+       "note": "when we slip up, honesty says the fault is our own"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whom to blame when errors occur.",
+     "definitionFit": "The reflexive pronoun for we names the people responsible for our own errors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +882,43 @@
      }
     ]
    },
-   "solution": "REDSETTER"
+   "solution": "REDSETTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "colourful",
+       "at": 10,
+       "gives": "RED",
+       "note": "red is a colour, so colourful"
+      },
+      {
+       "words": "compiler",
+       "at": 20,
+       "gives": "SETTER",
+       "note": "a setter is someone who compiles crosswords"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Barker as the name of a flamboyant crossword compiler.",
+     "walkthrough": "'Barker' looks like a surname but defines a dog: the Irish red setter.",
+     "definitionFit": "A red setter is a breed of dog, and dogs bark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barker"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +938,35 @@
      }
     ]
    },
-   "solution": "DRESSDESIGNER"
+   "solution": "DRESSDESIGNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who fashions perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One who fashions perhaps",
+       "at": 0,
+       "note": "fashions read as the clothes trade: someone who creates garments and styles"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A maker or shaper of things, in a general sense.",
+     "definitionFit": "A couturier who creates frocks and gowns literally works in fashion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fashions"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +980,30 @@
     "text": "People in a hurry",
     "enumeration": "4"
    },
-   "solution": "RACE"
+   "solution": "RACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0,
+      "meaning": "a group of people of common descent or ethnicity"
+     },
+     {
+      "text": "in a hurry",
+      "at": 7,
+      "meaning": "to rush or dash at speed"
+     }
+    ],
+    "explanation": {
+     "surface": "A crowd of folk rushing about.",
+     "definitionFit": "A nation or ethnic group is one sense, and to dash at speed is another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1017,31 @@
     "text": "It is made to measure for the monarch",
     "enumeration": "5"
    },
-   "solution": "RULER"
+   "solution": "RULER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It is made to measure",
+      "at": 0,
+      "meaning": "a straight edge marked in units for measuring length"
+     },
+     {
+      "text": "the monarch",
+      "at": 26,
+      "meaning": "a king or queen"
+     }
+    ],
+    "explanation": {
+     "surface": "A garment tailored especially for the king.",
+     "definitionFit": "A graduated measuring stick and a sovereign who governs share this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "measure"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1055,40 @@
     "text": "Dance around having been thrashed",
     "enumeration": "5"
    },
-   "solution": "CANED"
+   "solution": "CANED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having been thrashed",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 6,
+       "note": "around signals that the letters of the word are turned about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dance",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dancing about after receiving a beating.",
+     "definitionFit": "Being beaten with a stick or cane, as in old schools, is to be thrashed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dance"
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1102,29 @@
     "text": "Material to pack tightly",
     "enumeration": "5"
    },
-   "solution": "STUFF"
+   "solution": "STUFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0,
+      "meaning": "cloth or substance in general"
+     },
+     {
+      "text": "to pack tightly",
+      "at": 9,
+      "meaning": "to cram or fill something full"
+     }
+    ],
+    "explanation": {
+     "surface": "Fabric being crammed into a case.",
+     "definitionFit": "Fabric or matter generally is one sense, and to cram full is the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1138,30 @@
     "text": "Just a lake",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0,
+      "meaning": "only, nothing more than"
+     },
+     {
+      "text": "a lake",
+      "at": 5,
+      "meaning": "a pond or lake, especially in poetry or place names"
+     }
+    ],
+    "explanation": {
+     "surface": "A dismissive description: only a pond.",
+     "definitionFit": "The adjective means nothing more than, and the noun is an old word for a lake, as in Windermere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1175,39 @@
     "text": "In favour of a long, narrow canoe",
     "enumeration": "4"
    },
-   "solution": "PROA"
+   "solution": "PROA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "long, narrow canoe",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In favour of",
+       "at": 0,
+       "gives": "PRO",
+       "note": "pro means in favour of"
+      },
+      {
+       "words": "a",
+       "at": 13,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone supporting the use of a slender canoe.",
+     "definitionFit": "A proa is a Malay or Pacific sailing boat with a long narrow hull and an outrigger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1221,56 @@
     "text": "Stone-work on almost everything!",
     "enumeration": "4"
    },
-   "solution": "OPAL"
+   "solution": "OPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stone",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "at": 6,
+       "gives": "OP",
+       "note": "OP is short for opus, a work"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost signals that the word for everything loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everything",
+         "at": 21,
+         "gives": "ALL",
+         "note": "all means everything"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Masonry laid on almost everything.",
+     "definitionFit": "An opal is an iridescent gemstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stone-work"
+    }
+   }
   },
   {
    "number": 26,
@@ -462,7 +1290,30 @@
      }
     ]
    },
-   "solution": "LONGRANGE"
+   "solution": "LONGRANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Covering a great distance",
+      "at": 0,
+      "meaning": "able to travel or reach far, as a missile or aircraft"
+     },
+     {
+      "text": "well into thefuture",
+      "at": 26,
+      "meaning": "planning or forecasting far ahead"
+     }
+    ],
+    "explanation": {
+     "surface": "A forecast that reaches both far away and far ahead.",
+     "walkthrough": "The printed 'thefuture' is a typesetting slip for 'the future'.",
+     "definitionFit": "A far-reaching missile and a far-ahead forecast are both described with this compound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -476,7 +1327,35 @@
     "text": "Turning point?",
     "enumeration": "5"
    },
-   "solution": "PIVOT"
+   "solution": "PIVOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turning point?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Turning point?",
+       "at": 0,
+       "note": "read literally: the spot on which something rotates, rather than a moment of change"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decisive moment in a story.",
+     "definitionFit": "A fulcrum or axle on which something rotates is literally a point of turning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Turning"
+    }
+   }
   },
   {
    "number": 28,
@@ -496,7 +1375,32 @@
      }
     ]
    },
-   "solution": "REDHANDED"
+   "solution": "REDHANDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Caught thus",
+      "at": 0,
+      "meaning": "caught in the act of wrongdoing"
+     },
+     {
+      "text": "with diamonds and hearts only",
+      "at": 12,
+      "meaning": "a card player holding only cards of the two scarlet suits"
+     }
+    ],
+    "explanation": {
+     "surface": "A card cheat caught while holding a suspicious hand.",
+     "walkthrough": "In a pack of cards, diamonds and hearts are the red suits, so a hand of nothing else is literally all red.",
+     "definitionFit": "Being caught in the act is the idiom, and literally a hand of only scarlet-suited cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 29,
@@ -510,7 +1414,33 @@
     "text": "Might he want to change roles with the winner?",
     "enumeration": "5"
    },
-   "solution": "LOSER"
+   "solution": "LOSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Might he want to change roles with the winner?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Might he want to change roles with the winner?",
+       "at": 0,
+       "note": "the person beaten in a contest would gladly swap places with the victor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether the runner-up envies the champion.",
+     "definitionFit": "The defeated party in a contest naturally wishes to trade places with the victor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
