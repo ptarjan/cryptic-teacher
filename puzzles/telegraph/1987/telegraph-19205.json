@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,60 @@
     "text": "Sediment is back in warehouse",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sediment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in places the turned word inside the storehouse word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "warehouse",
+       "at": 20,
+       "gives": "DEPOT",
+       "note": "a depot is a storehouse or warehouse"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 12,
+         "note": "back tells us to read the little word is from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 9,
+         "gives": "IS"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble about silt that has turned up inside a storage building.",
+     "walkthrough": "'back' turns IS into SI, and 'in' puts SI inside DEPOT.",
+     "definitionFit": "A deposit is matter laid down by water, the settled layer at the bottom of a river or glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +100,41 @@
     "text": "I depart to scatter flies",
     "enumeration": "7"
    },
-   "solution": "DIPTERA"
+   "solution": "DIPTERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flies",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to scatter",
+       "at": 9,
+       "note": "to scatter means the letters of I depart are thrown about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I depart",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announces their departure in order to drive away the insects.",
+     "walkthrough": "'flies' looks like a verb, but it is the noun: the insect order.",
+     "definitionFit": "Diptera is the zoological order of two-winged insects, the true flies such as houseflies and mosquitoes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flies"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +145,7 @@
    },
    "length": 15,
    "clue": {
-    "text": "Proper art Titian turned out in un this capacity",
+    "text": "Proper art Titian turned out in this capacity",
     "enumeration": "8,7",
     "separators": [
      {
@@ -64,7 +154,41 @@
      }
     ]
    },
-   "solution": "PORTRAITPAINTER"
+   "solution": "PORTRAITPAINTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proper art Titian turned out in this capacity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "turned out",
+       "at": 18,
+       "note": "turned out means the letters of the three words are produced in a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Proper art Titian",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "The Venetian master produced genuine art while working as a painter of faces.",
+     "walkthrough": "The whole clue is both definition and wordplay: Titian painted many likenesses, and his name with PROPER ART rearranges to the answer.",
+     "definitionFit": "Titian was famous for his likenesses of popes and kings, so this is the role in which he made proper art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +202,34 @@
     "text": "Depression in the mining industry",
     "enumeration": "4"
    },
-   "solution": "SUMP"
+   "solution": "SUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Depression in the mining industry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Depression in the mining industry",
+       "at": 0,
+       "note": "reads like an economic slump among miners, but means a physical hollow at the bottom of a mine shaft where water drains"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A sump is a pit at the lowest point of a mine where water collects to be pumped out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Depression"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,10 +240,38 @@
    },
    "length": 7,
    "clue": {
-    "text": "Long time no see 'this bishop?",
+    "text": "Long time no see this bishop?",
     "enumeration": "7"
    },
-   "solution": "TITULAR"
+   "solution": "TITULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Long time no see this bishop?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Long time no see this bishop?",
+       "at": 0,
+       "note": "the greeting 'long time no see' is reread as a churchman who has never had a diocese of his own"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A bishop's see is his diocese; one holding the rank in name only, with no real see, has this title.",
+     "definitionFit": "A titular bishop holds the title of an extinct diocese but governs no flock, a bishop in name only."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +285,49 @@
     "text": "Weariness is revolutionary within trade-expansion",
     "enumeration": "7"
    },
-   "solution": "BOREDOM"
+   "solution": "BOREDOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weariness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 27,
+       "note": "within puts the radical word inside the word for a business upturn"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trade-expansion",
+       "at": 34,
+       "gives": "BOOM",
+       "note": "a boom is a period of rapid growth in trade"
+      },
+      {
+       "words": "revolutionary",
+       "at": 13,
+       "gives": "RED",
+       "note": "a Red is a communist revolutionary"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Economic growth is so dull it feels like a political uprising inside it.",
+     "walkthrough": "'within' places RED inside BOOM.",
+     "definitionFit": "Boredom is the tired, listless state of having nothing interesting to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +341,49 @@
     "text": "Fortunate, even without so much in retirement",
     "enumeration": "7"
    },
-   "solution": "BLESSED"
+   "solution": "BLESSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fortunate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in places the smaller amount inside the place of rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "retirement",
+       "at": 35,
+       "gives": "BED",
+       "note": "going to bed is retiring for the night, so bed stands for retirement"
+      },
+      {
+       "words": "without so much",
+       "at": 16,
+       "gives": "LESS",
+       "note": "having less is going without so much"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone counts their luck while living on less after leaving work.",
+     "walkthrough": "'retirement' suggests leaving work, but here it is retiring to BED; 'in' puts LESS inside it.",
+     "definitionFit": "To be blessed is to be lucky or favoured, enjoying good fortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +397,41 @@
     "text": "Sheets of paper lying about before noon",
     "enumeration": "4"
    },
-   "solution": "REAM"
+   "solution": "REAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sheets of paper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 22,
+       "gives": "RE",
+       "note": "re is a short word meaning about or concerning"
+      },
+      {
+       "words": "before noon",
+       "at": 28,
+       "gives": "AM",
+       "note": "a.m. stands for ante meridiem, before midday"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pages left scattered about on a desk in the morning.",
+     "walkthrough": "'lying' only joins the pieces to the definition.",
+     "definitionFit": "A ream is a stationery quantity of five hundred sheets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +451,35 @@
      }
     ]
    },
-   "solution": "DRILLINGMACHINE"
+   "solution": "DRILLINGMACHINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boring thing to train recruits?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Boring thing to train recruits?",
+       "at": 0,
+       "note": "sounds like a tedious parade-ground routine for new soldiers, but describes a device that bores holes"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "To drill recruits is to train them; 'boring' means making holes, not dull.",
+     "definitionFit": "A drilling machine is a powered tool for boring holes in metal, wood or rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +493,45 @@
     "text": "Get wind of mistrial after I leave",
     "enumeration": "7"
    },
-   "solution": "MISTRAL"
+   "solution": "MISTRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wind",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leave",
+       "at": 29,
+       "note": "leave says the named letter departs from the legal word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mistrial",
+       "at": 12
+      },
+      {
+       "words": "I",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hears rumours of a botched court case once they have quit.",
+     "walkthrough": "'Get wind of' reads as one phrase, but 'wind' alone is the definition.",
+     "definitionFit": "The mistral is a cold northerly wind that blows down the Rhône valley into southern France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +551,34 @@
      }
     ]
    },
-   "solution": "PUREMATHEMATICS"
+   "solution": "PUREMATHEMATICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Science of simple fractions, perhaps?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Science of simple fractions, perhaps?",
+       "at": 0,
+       "note": "simple is read as unmixed or abstract, and fractions as a sample topic of the theoretical number discipline"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Pure mathematics is the study of number and form for its own sake, without practical application."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "simple"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +592,41 @@
     "text": "Organ left in Essex, for example",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Essex, for example",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Organ",
+       "at": 0,
+       "gives": "EAR",
+       "note": "the ear is an organ of hearing"
+      },
+      {
+       "words": "left",
+       "at": 6,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church organ installed somewhere in the county of Essex.",
+     "walkthrough": "Essex is not the county here but the title: the Earl of Essex, such as Elizabeth I's favourite.",
+     "definitionFit": "Essex is one of the noble titles of a British peer of that rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Essex"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +640,49 @@
     "text": "No work in Derbyshire town? That's the finish!",
     "enumeration": "5"
    },
-   "solution": "GLOSS"
+   "solution": "GLOSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "finish",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "No",
+       "at": 0,
+       "note": "No tells us to drop the work from the town name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Derbyshire town",
+       "at": 11,
+       "gives": "GLOSSOP",
+       "note": "Glossop is a market town in Derbyshire, northern England"
+      },
+      {
+       "words": "work",
+       "at": 3,
+       "gives": "OP",
+       "note": "op, short for opus, is a work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town in Derbyshire with no jobs is all over.",
+     "walkthrough": "GLOSSOP is a town in Derbyshire, an English county; 'No' removes OP from it.",
+     "definitionFit": "A gloss is a shiny surface coating, the final finish of paint or varnish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +696,29 @@
     "text": "A disgrace to speak indistinctly",
     "enumeration": "4"
    },
-   "solution": "SLUR"
+   "solution": "SLUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A disgrace",
+      "at": 0,
+      "meaning": "an insult or stain on someone's reputation"
+     },
+     {
+      "text": "speak indistinctly",
+      "at": 14,
+      "meaning": "to run words together when talking"
+     }
+    ],
+    "explanation": {
+     "surface": "A drunk's mumbling brings shame on them.",
+     "definitionFit": "Both senses fit: an aspersion cast on someone, and to mumble words so they run into one another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +732,40 @@
     "text": "Way to tear such a piece off?",
     "enumeration": "5"
    },
-   "solution": "STRIP"
+   "solution": "STRIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "such a piece",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Way",
+       "at": 0,
+       "gives": "ST",
+       "note": "St is the abbreviation for Street, a way"
+      },
+      {
+       "words": "tear",
+       "at": 7,
+       "gives": "RIP",
+       "note": "to rip is to tear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A method for ripping a section off something.",
+     "definitionFit": "A strip is a long narrow piece, the kind torn off a sheet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +779,35 @@
     "text": "Ploughman's course?",
     "enumeration": "5"
    },
-   "solution": "LUNCH"
+   "solution": "LUNCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ploughman's course?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ploughman's course?",
+       "at": 0,
+       "note": "suggests the track a farmer follows across a field, but means the meal named after him in pubs"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A ploughman's is a British pub meal of bread, cheese and pickle.",
+     "definitionFit": "The midday meal is the one where a ploughman's of bread and cheese is served."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,10 +818,49 @@
    },
    "length": 7,
    "clue": {
-    "text": "One who finds a way rise",
+    "text": "One who flies a way rise",
     "enumeration": "7"
    },
-   "solution": "AVIATOR"
+   "solution": "AVIATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who flies",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 14,
+       "gives": "A"
+      },
+      {
+       "words": "way",
+       "at": 16,
+       "gives": "VIA",
+       "note": "via is Latin for way or road"
+      },
+      {
+       "words": "rise",
+       "at": 20,
+       "gives": "TOR",
+       "note": "a tor is a rocky hill or rise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller takes to the air by a route that climbs.",
+     "definitionFit": "An aviator is a pilot, someone who operates an aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +874,40 @@
     "text": "Daily run laid out",
     "enumeration": "7"
    },
-   "solution": "DIURNAL"
+   "solution": "DIURNAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Daily",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 15,
+       "note": "out signals that the letters of run laid are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "run laid",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An everyday jog has been mapped out.",
+     "definitionFit": "Diurnal means happening every day, or active during daytime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "laid"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +921,35 @@
     "text": "Tip given to hatter",
     "enumeration": "7"
    },
-   "solution": "CAPSIZE"
+   "solution": "CAPSIZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tip given to hatter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tip given to hatter",
+       "at": 0,
+       "note": "reads as a gratuity handed to a milliner, but splits as the head measurement a hat maker needs"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Split as CAP SIZE it is what a hatter is told; as one word it means to tip over.",
+     "definitionFit": "To capsize is to overturn, as a boat tips over in the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +963,56 @@
     "text": "E.g.Derby form with initial signs of improved competence",
     "enumeration": "7"
    },
-   "solution": "CLASSIC"
+   "solution": "CLASSIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "E.g.Derby",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "form",
+       "at": 10,
+       "gives": "CLASS",
+       "note": "a form is a school class"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initial signs of",
+         "at": 20,
+         "note": "initial signs of tells us to take the opening letter of each following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "improved",
+         "at": 37
+        },
+        {
+         "words": "competence",
+         "at": 46
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school form shows the first signs of getting better at a horse-racing event.",
+     "walkthrough": "The Derby is a famous English flat horse race at Epsom, one of the five races called the Classics.",
+     "definitionFit": "The Derby is one of the British Classics, the five major races for three-year-old horses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1026,39 @@
     "text": "Ability to understand others and pay them properly",
     "enumeration": "7"
    },
-   "solution": "EMPATHY"
+   "solution": "EMPATHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ability to understand others",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "properly",
+       "at": 42,
+       "note": "properly suggests sorting the letters of pay them into the right order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pay them",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fellow feeling, and paying people fairly.",
+     "definitionFit": "Empathy is the capacity to share and feel another person's emotions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1072,40 @@
     "text": "This point could be claimed",
     "enumeration": "7"
    },
-   "solution": "DECIMAL"
+   "solution": "DECIMAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This point",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 11,
+       "note": "could be hints the word claimed may become something else once its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "claimed",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a certain argument might be asserted.",
+     "definitionFit": "A decimal point separates whole numbers from fractions in a written number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 19,
@@ -356,7 +1119,31 @@
     "text": "Despair in Slough?",
     "enumeration": "7"
    },
-   "solution": "DESPOND"
+   "solution": "DESPOND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Despair",
+      "at": 0,
+      "meaning": "hopelessness or dejection"
+     },
+     {
+      "text": "Slough?",
+      "at": 11,
+      "meaning": "the bog in Pilgrim's Progress, a swamp of hopelessness"
+     }
+    ],
+    "explanation": {
+     "surface": "Gloom in a dreary English town.",
+     "walkthrough": "Slough looks like the Berkshire town; it is the Slough of Despond, the bog of despair in Bunyan's Pilgrim's Progress.",
+     "definitionFit": "The word is an old term for hopelessness, and Bunyan named his swamp of despair after it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slough"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1157,59 @@
     "text": "Throat-medicine for cheerleader in fresh insult",
     "enumeration": "7"
    },
-   "solution": "LINCTUS"
+   "solution": "LINCTUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Throat-medicine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in places the single letter inside the rearranged word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fresh",
+         "at": 35,
+         "note": "fresh means insult is made anew with its letters rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insult",
+         "at": 41
+        }
+       ]
+      },
+      {
+       "words": "cheerleader",
+       "at": 20,
+       "gives": "C",
+       "note": "the leader, or first letter, of cheer is C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cough remedy is offered to a cheerleader amid a new taunt.",
+     "walkthrough": "'fresh' makes LINTUS from INSULT, and 'in' puts C (the first letter of cheer) inside it.",
+     "definitionFit": "Linctus is a thick syrupy cough mixture to soothe a sore throat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheerleader"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1223,41 @@
     "text": "Greedy for a tanner?",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greedy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "words": "tanner",
+       "at": 13,
+       "gives": "VID",
+       "note": "a tanner was old British slang for a sixpence, written VI d in Roman numerals plus d for pence"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eager to get hold of a small coin.",
+     "walkthrough": "A tanner was a sixpenny coin in pre-1971 British money; six pence is VI D.",
+     "definitionFit": "Avid means eager or keen, hungry to have something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tanner"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1271,41 @@
     "text": "A ship-wreck affected",
     "enumeration": "5"
    },
-   "solution": "APISH"
+   "solution": "APISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "affected",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wreck",
+       "at": 7,
+       "note": "wreck signals that the letters of a ship are smashed up and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A ship",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel's ruin moved someone deeply.",
+     "walkthrough": "'affected' suggests emotionally moved, but here means imitative, like a monkey.",
+     "definitionFit": "Apish behaviour copies others foolishly, so it is mannered and put on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1319,41 @@
     "text": "Part of relic on a religious symbol",
     "enumeration": "4"
    },
-   "solution": "ICON"
+   "solution": "ICON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a religious symbol",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "at": 0,
+       "note": "Part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "relic on",
+       "at": 8,
+       "gives": "ICON",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fragment of a holy relic serves as an emblem of faith.",
+     "definitionFit": "An icon is a sacred image of Christ or a saint, venerated in Orthodox churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1367,46 @@
     "text": "River a number of sailors love",
     "enumeration": "4"
    },
-   "solution": "ARNO"
+   "solution": "ARNO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "words": "number of sailors",
+       "at": 8,
+       "gives": "RN",
+       "note": "RN, the Royal Navy, is a body of sailors"
+      },
+      {
+       "words": "love",
+       "at": 26,
+       "gives": "O",
+       "note": "love is nil in tennis, so the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river that a crew of seamen adore.",
+     "walkthrough": "The Arno is the river through Florence and Pisa.",
+     "definitionFit": "The Arno is a river of Tuscany flowing through Florence to the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1420,59 @@
     "text": "Taking exercise in outskirts of Southend, bowled along",
     "enumeration": "4"
    },
-   "solution": "SPED"
+   "solution": "SPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bowled along",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the gym-class letters inside the outer pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "at": 19,
+         "note": "outskirts of means only the outer letters of the town name are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Southend",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "words": "exercise",
+       "at": 7,
+       "gives": "PE",
+       "note": "PE is physical education, exercise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working out on the edge of an Essex resort drove fast along the road.",
+     "walkthrough": "'outskirts of' gives S and D, the first and last letters of Southend.",
+     "definitionFit": "To bowl along is to travel quickly and smoothly, which is what speeding means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowled"
+    }
+   }
   },
   {
    "number": 26,
@@ -460,7 +1492,43 @@
      }
     ]
    },
-   "solution": "SATURATIONPOINT"
+   "solution": "SATURATIONPOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Limit of endurance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "stormy",
+       "at": 48,
+       "note": "stormy suggests the letters are tossed about as in a tempest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "out in rain",
+       "at": 19
+      },
+      {
+       "words": "at spot",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Caught in a downpour at a weather-beaten place, someone reaches the end of their tether.",
+     "definitionFit": "Saturation point is the stage beyond which nothing more can be absorbed or tolerated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -474,7 +1542,32 @@
     "text": "Brief nursery-rhyme?",
     "enumeration": "7"
    },
-   "solution": "CURSORY"
+   "solution": "CURSORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brief",
+      "at": 0,
+      "meaning": "short and hasty, done quickly"
+     },
+     {
+      "text": "nursery-rhyme?",
+      "at": 6,
+      "meaning": "a word that rhymes with nursery"
+     }
+    ],
+    "explanation": {
+     "surface": "A short children's verse.",
+     "walkthrough": "'nursery-rhyme' looks like a children's song but means a word rhyming with nursery.",
+     "definitionFit": "Cursory means hasty and superficial, and the word chimes with nursery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nursery-rhyme"
+    }
+   }
   },
   {
    "number": 28,
@@ -488,7 +1581,51 @@
     "text": "Variety of odd jewels to make a fair attraction",
     "enumeration": "7"
    },
-   "solution": "DODGEMS"
+   "solution": "DODGEMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fair attraction",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Variety of",
+         "at": 0,
+         "note": "variety of suggests an assortment, so the letters of odd are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "odd",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "jewels",
+       "at": 15,
+       "gives": "GEMS",
+       "note": "gems are jewels"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mixed bag of strange jewellery becomes a sideshow.",
+     "definitionFit": "Dodgems are bumper cars, a ride at funfairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   }
  ]
 }
