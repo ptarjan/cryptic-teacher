@@ -45,6 +45,11 @@ const TALLY_MEMO = new Map();
 const TALLY_MEMO_MS = 5 * 60 * 1000;
 
 const INDEX_URL = "https://cryptic.paultarjan.com/puzzles/index.json";
+// Which push service a subscription belongs to, for the log; never the endpoint itself.
+function pushService(sub) {
+  const h = String((sub && sub.endpoint) || "");
+  return /apple\.com/.test(h) ? "apple" : /googleapis\.com/.test(h) ? "fcm" : "other";
+}
 const PUZZLE_URL = "https://cryptic.paultarjan.com/?p=";
 // A phone that has not opened the site in half a year has stopped solving. The
 // page re-registers on every load, so a device still in use never reaches this.
@@ -601,13 +606,23 @@ export default {
 
       for (const id of owed) {
         const p = byId.get(id);
-        const status = await send(sub, JSON.stringify({
-          title: CTNotify.title(p, papers),
-          body: [p.setter && `Set by ${p.setter}`,
-                 p.difficulty && p.difficulty.band].filter(Boolean).join(" \u00b7 "),
-          url: PUZZLE_URL + p.id,
-          tag: p.id,
-        }), vapid);
+        // One bad subscriber must not skip the rest: the puzzle is already in
+        // n:seen, so anyone skipped here would never get it.
+        let status;
+        try {
+          status = await send(sub, JSON.stringify({
+            title: CTNotify.title(p, papers),
+            body: [p.setter && `Set by ${p.setter}`,
+                   p.difficulty && p.difficulty.band].filter(Boolean).join(" \u00b7 "),
+            url: PUZZLE_URL + p.id,
+            tag: p.id,
+          }), vapid);
+        } catch (err) {
+          status = null;
+          console.log(`push ${p.series} ${p.id} ${pushService(sub)} error ${(err && err.name) || "Error"}`);
+          continue;
+        }
+        console.log(`push ${p.series} ${p.id} ${pushService(sub)} ${status}`);
         // The subscription is gone — app deleted, or the browser rotated it.
         // Nothing else in this run can reach it either.
         if (GONE(status)) { await env.SAVES.delete(k.name); break; }

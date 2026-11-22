@@ -62,6 +62,8 @@
     "hint-blocks", "hint-walkthrough", "hint-answer",
     "check", "entry", "half", "done",
     "picker", "stats", "sync", "notify", "feedback",
+    // A push notification was tapped (sw.js adds &src=push to its URL).
+    "push-open",
     // Sent by landing.js, not app.js: on a /puzzles/<id>/ answers page, the
     // clue a search visitor came for was found and marked, and its "solve the
     // rest with hints" line was followed. The second over the first is how

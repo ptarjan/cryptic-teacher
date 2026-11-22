@@ -288,7 +288,9 @@ self.addEventListener("push", (event) => {
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  const url = (event.notification.data && event.notification.data.url) || "./";
+  const raw = (event.notification.data && event.notification.data.url) || "./";
+  // src=push lets the page count the tap as its own event ("push-open").
+  const url = raw + (raw.indexOf("?") < 0 ? "?" : "&") + "src=push";
   const scope = new URL("./", self.location).href;
   // A tab already on the site is the one with the solver's grid in it, so the
   // notification steers that tab instead of opening a second copy of the app.
