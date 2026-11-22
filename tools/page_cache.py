@@ -23,7 +23,8 @@ its checks say so. A page is reused when all of these are what they were:
     puzzle file's git blob id (blob_id()), the hash of the puzzle as the solver's view of it
     gives it (the index row's "pageView": the solver's code is not in the
     build-wide key, only what it made of this puzzle, so a solver commit
-    re-renders the pages whose view it changed), its blog-facts lines, the part of its index row
+    re-renders the pages whose view it changed), its blog-facts sidecar's
+    blob id, the part of its index row
     the page prints (build_seo_pages.page_row()), its pager
     neighbours and whether its card is on disk;
   - every stamped asset URL the render asked for (asset(): the card's ?v=,

@@ -92,9 +92,10 @@ import quotes  # curl(): clue text is stored straight, shown curled
 import series as series_meta  # what each series IS; see tools/series.py
 import showcase  # which puzzles /showcase/ picks, and why
 from fetch_puzzle import (  # one glob, one reader for every tool
-    blog_annotation, blog_fact_hashes, has_blog_hints, puzzle_files, read_puzzle_file, read_puzzle_view,
+    blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, read_puzzle_view,
     with_blog_facts)
 import puzzle_paths  # one puzzles/ for every tool
+import blog_store  # sidecar_of(): the blog-facts file beside a puzzle file
 import page_cache  # last build's puzzle pages, reused when nothing moved
 import annotation  # ABBR_ASKED: the abbreviation lookups a page re-checks
 import parallel  # the corpus across the cores
@@ -2936,7 +2937,7 @@ def page_key(i):
     for part in (fp, view, json.dumps(stub, sort_keys=True, default=str),
                  puzzle_paths.relative(path, ROOT) or str(path),
                  page_cache.blob_id(path),
-                 blog_fact_hashes().get(pid),
+                 page_cache.blob_id(blog_store.sidecar_of(path)),
                  setter_rows(pid),
                  json.dumps(page_row(meta.get(pid)), sort_keys=True, default=str),
                  json.dumps(neighbours[i], sort_keys=True, default=str),
@@ -3208,8 +3209,6 @@ def outputs(check=False, shard=None, shards=None, first=False):
     took("the page fingerprint", started)
     stored = page_cache.load() if fp else {}
     took("the page store's load", started)
-    blog_fact_hashes()  # once, before the workers fork
-    took("the blog-fact hashes", started)
     _PAGES = solved, series_neighbours(stubs), meta, check, fp, stored
     keep, reused, why = {}, 0, collections.Counter()
     if shard:
