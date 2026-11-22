@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""The code lint CI runs (tests.yml, "generated files are current"). It was the
-code half of the pre-push hook, which is gone; these are the checks only it ran.
+"""The code lint CI runs (tests.yml, "generated files are current").
 
     python3 tools/code_checks.py
 

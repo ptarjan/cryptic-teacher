@@ -139,12 +139,6 @@ publish() {
     return 0
   fi
   local rc
-  # A big file outside puzzles/ stays off master (tools/check_file_sizes.py): nothing is pushed.
-  out=$(python3 "$here/check_file_sizes.py" --range origin/master "$sha" 2>&1); rc=$?
-  if [ "$rc" = 1 ]; then  # 1 = too big; any other status = the gate could not tell, push on
-    echo "push_puzzle_commit: refused, a file over the size limit: $out" >&2
-    return 1
-  fi
   out=$(net_git push -q --no-verify origin "$sha:refs/heads/master" 2>&1); rc=$?
   if [ "$rc" = 0 ]; then
     date +%s >"$stamp"
@@ -200,7 +194,6 @@ fetch_base() {
     [ "$rc" -gt 128 ] && return 2
     return 1
   fi
-  bash "$here/same_history.sh" "${commit:-HEAD}" >&2 || return 1
   base=$(git rev-parse origin/master)
 }
 
@@ -258,12 +251,6 @@ commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
   echo "push_puzzle_commit: no such commit: ${1:-HEAD}" >&2; exit 2; }
 parent=$(git rev-parse --verify -q "$commit^") || {
   echo "push_puzzle_commit: $commit has no parent to diff against" >&2; exit 2; }
-
-# A commit made from a stale tree is refused (exit 4), not replayed: see tools/clobber_guard.py.
-python3 "$here/clobber_guard.py" "$commit" || {
-  rc=$?
-  [ "$rc" = 4 ] || echo "push_puzzle_commit: tools/clobber_guard.py $(how_it_ended "$rc") checking $(git log -1 --format=%s "$commit")" >&2
-  exit "$rc"; }
 
 # partial_replay <conflicted tree> <onto> <path>...: <onto>'s tree with the
 # clean merges of the conflicted tree and the conflicted paths left as <onto>

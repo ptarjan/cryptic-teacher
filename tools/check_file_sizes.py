@@ -6,8 +6,8 @@
     python3 tools/check_file_sizes.py --range BASE HEAD   # only files HEAD adds/changes vs BASE
     python3 tools/check_file_sizes.py --staged [--unstage] # only what is staged (--unstage drops them)
 
---range and --staged are the cheap gates for a push or a commit (prepush_check.py, the jobs'
-commit and push functions): they weigh only the changed blobs and ignore stale allowlist entries.
+--range and --staged are the cheap gates for a push or a commit (the jobs'
+commit functions): they weigh only the changed blobs and ignore stale allowlist entries.
 
 Git stores a whole new blob for each change of a file, so a big file that many
 jobs rewrite (tools/data/source_clue_wrong.json and blog_disagree.json were each

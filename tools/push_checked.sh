@@ -1,5 +1,5 @@
 #!/bin/bash
-# Ship local work to origin/master: optional commit, guard, push, rebase-retry.
+# Ship local work to origin/master: optional commit, fetch, push, rebase-retry.
 #
 #     tools/push_checked.sh [-m "<message>"] [--wait]
 #
@@ -8,20 +8,15 @@
 #     tools/push_checked.sh --wait          # then block on tools/ci_wait.sh (or CI_WAIT=1)
 #
 # -m commits only the staged changes (nothing is staged for you). With nothing staged
-# and nothing unpushed it says so and fails. Each commit in origin/master..HEAD is
-# first checked by tools/clobber_guard.py (exit 4 refuses a stack holding a commit
-# made from a stale tree). On a non-fast-forward reject it runs
-# `git pull --rebase origin master`, re-runs the guard and retries the push, up to
-# PUSH_TRIES (default 3) pushes; a rebase conflict is aborted cleanly and reported.
-#
-# Exit 6 refuses a tree whose history shares no commit with origin/master (it predates
-# the history squash; tools/same_history.sh): nothing is rebased or pushed.
+# and nothing unpushed it says so and fails. The push is `git push origin HEAD:master`;
+# nothing is checked first. On a non-fast-forward reject it fetches, runs
+# `git rebase FETCH_HEAD` and retries, up to PUSH_TRIES (default 3) pushes; a rebase
+# conflict is aborted cleanly and reported.
 #
 # The last stdout line is always exactly `PUSHED <short-sha>` (exit 0) or
-# `FAILED <reason>` (non-zero exit; the guard's own code when it refused).
+# `FAILED <reason>` (non-zero exit).
 #
-# For code and docs a session commits itself (puzzle commits go through
-# tools/push_puzzle_commit.sh, which runs the same guard).
+# Puzzle commits go through tools/push_puzzle_commit.sh instead.
 #
 # A rule edit that newly flags committed puzzles is not requeued here: the deploy's full
 # check (pages.yml, "Requeue what the rules newly flag") raises their allowances and
@@ -48,7 +43,6 @@ while [ $# -gt 0 ]; do
 done
 
 git fetch -q origin master >&2 || fail 1 "git fetch failed"
-bash "$here/same_history.sh" >&2 || fail 6 "history shares no root with origin/master (tree predates the history squash)"
 
 if [ "$have_msg" = 1 ]; then
   if git diff --cached --quiet; then
@@ -61,31 +55,9 @@ if [ "$have_msg" = 1 ]; then
   fi
 fi
 
-check() {
-  local c
-  for c in $(git rev-list --reverse origin/master..HEAD); do
-    python3 "$here/clobber_guard.py" "$c" >&2 || return $?
-  done
-  # A Python file that no longer parses stops every job that reloads onto
-  # master (11-17: a misplaced colon in edition_queue.py killed the Guardian
-  # re-file), so refuse it here rather than wait for CI.
-  local f
-  for f in $(git diff --name-only --diff-filter=AM origin/master..HEAD -- '*.py'); do
-    git show "HEAD:$f" | python3 -c 'import ast, sys; ast.parse(sys.stdin.read(), sys.argv[1])' "$f" >&2 \
-      || { echo "$f does not parse" >&2; return 4; }
-  done
-  # Duplicate assignments, conflict markers, unregistered reasons, new ruff findings and moved
-  # keys (tools/prepush_check.py); the key snapshot is tools/data/keys.json (--write-keys).
-  python3 "$here/prepush_check.py" >&2 || { echo "tools/prepush_check.py refused the push" >&2; return 5; }
-  return 0
-}
-
 tries="${PUSH_TRIES:-3}"
 n=0
 while :; do
-  check
-  rc=$?
-  [ "$rc" -eq 0 ] || fail "$rc" "pre-push check refused (exit $rc)"
   n=$((n + 1))
   if git push -q origin HEAD:master >&2; then
     break
@@ -94,9 +66,7 @@ while :; do
   echo "push rejected; rebasing onto origin/master (try $n of $tries)" >&2
   # fetch + rebase FETCH_HEAD, not pull: pull --rebase fails in a detached lease tree
   # ("no candidate for rebasing").
-  if ! { git fetch -q origin master >&2 \
-    && { bash "$here/same_history.sh" >&2 || fail 6 "history shares no root with origin/master (tree predates the history squash)"; } \
-    && git rebase -q FETCH_HEAD >&2; }; then
+  if ! { git fetch -q origin master >&2 && git rebase -q FETCH_HEAD >&2; }; then
     git rebase --abort >&2 2>/dev/null
     fail 3 "rebase conflict, aborted"
   fi

@@ -24,8 +24,7 @@ which evidence_reason keeps too), newest_landed (NEWEST_LANDED), fix_landed (FIX
 it though it is on no other list; implied by unfiled_first). `due` is asked by fix_reason() first of
 all, in file order; leave it None for a reason another function names. tests/test_fix_reasons.py
 checks the lists against a frozen copy of the pre-registry values, and each registered reason's list
-membership. Keys: a registered module is not reached by a scan, so no scan or solution key moves
-(tools/prepush_check.py checks).
+membership. Keys: a registered module is not reached by a scan, so no scan or solution key moves.
 """
 import functools
 import importlib.util
