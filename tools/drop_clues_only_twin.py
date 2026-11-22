@@ -12,7 +12,10 @@ tools/commit_puzzles.sh calls this for every puzzle it commits, so no filer
 leaves the stale reading behind (times-26591, 11-17). Prints each path it
 staged for removal (git rm: index and tree). A twin is kept, and reported on
 stderr, when it holds anything the puzzle lacks: the puzzle has no full grid
-and clues, or has no clue text where the twin has one. The conflict resolver
+and clues, or has no clue text where the twin has one. Whatever
+the twin holds that an entry lacks (its blog answers, merge()) is written into
+the puzzle and staged before the twin goes; --force drops a twin whose clue text
+differs, but still keeps one whose blog answers fit no entry. The conflict resolver
 (tools/resolve_promotion_conflict.py) carries re-read clue text for a racing
 write; this is the plain case, and a difference is for a person to judge.
 """
@@ -59,6 +62,36 @@ def problems(puzzle, twin):
     return out
 
 
+def squash(text):
+    """A clue's letters and digits alone: the two readings of one clue differ in spacing, dashes, markers."""
+    return "".join(c for c in (text or "").lower() if c.isalnum())
+
+
+def merge(puzzle, twin):
+    """(changed, unplaced): carry what the twin's lights hold and the puzzle's
+    entries lack into the puzzle (puzzle edited in place). A clues-only light
+    carries a clue, a length and a `blogAnswer` (cluesOnlyLight); the clue and
+    length the puzzle has, so the blog's answer is what moves, onto the one
+    entry whose clue reads the same (letters and digits only) and whose length
+    the answer fits. A light that names no such entry, or two, is `unplaced`."""
+    changed, unplaced = False, []
+    entries = puzzle.get("entries") or []
+    for direction in DIRECTIONS:
+        for light in (twin.get("clues") or {}).get(direction) or []:
+            answer = light.get("blogAnswer")
+            if not answer:
+                continue
+            key = squash((light.get("clue") or {}).get("text"))
+            at = [e for e in entries if squash((e.get("clue") or {}).get("text")) == key
+                  and e.get("direction") == direction and e.get("length") == len(answer)]
+            if len(at) != 1:
+                unplaced.append(f"{direction} {answer}")
+            elif at[0].get("blogAnswer") is None:
+                at[0]["blogAnswer"] = answer
+                changed = True
+    return changed, unplaced
+
+
 def main(argv):
     force = "--force" in argv
     argv = [a for a in argv if a != "--force"]
@@ -76,9 +109,20 @@ def main(argv):
             held = json.loads((ROOT / twin).read_text(encoding="utf-8"))
         except (OSError, ValueError) as err:
             why = [f"unreadable ({err})"]
+            puzzle = None
         else:
             why = problems(puzzle, held)
-        if why and not force:
+        forced = force and puzzle is not None
+        if puzzle is not None and (not why or forced):
+            # Nothing the twin holds is lost: its blog answers go into the puzzle first.
+            changed, unplaced = merge(puzzle, held)
+            if unplaced:
+                why = why + [f"blog answers with no entry: {', '.join(unplaced)}"]
+                forced = False
+            elif changed:
+                (ROOT / name).write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+                subprocess.run(["git", "add", "--", name], cwd=ROOT, check=True)
+        if why and not forced:
             kept += 1
             print(f"KEPT {twin}: {'; '.join(why)}", file=sys.stderr)
             continue

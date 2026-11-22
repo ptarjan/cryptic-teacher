@@ -94,4 +94,22 @@ check "the filed puzzle's clues-only twin is gone" "$(ls clues_only/cryptic | tr
 check "the twin went in the puzzle's commit" \
   "$(git show --name-status --format=%s HEAD | tr '\t\n' '  ')" "File cryptic-7 D clues_only/cryptic/cryptic-7.json A puzzles/cryptic/2026/cryptic-7.json "
 
+# The twin's blog answers move into the puzzle first (read differently, so --force
+# is what drops it); one that fits no entry keeps the twin.
+cat > ../fetch_clues.sh <<'SH'
+for id in "$@"; do
+  echo "{\"id\":\"$id\",\"entries\":[{\"number\":1,\"direction\":\"down\",\"length\":3,\"clue\":{\"text\":\"Near WC1,for a start\"}}]}" > "puzzles/cryptic/2026/$id.json"
+done
+SH
+twin_of() { echo "{\"id\":\"$1\",\"clues\":{\"down\":[{\"clue\":{\"text\":\"Near WC1, for a start +\"},\"length\":3,\"blogAnswer\":\"$2\"}]}}" > "clues_only/cryptic/$1.json"; }
+twin_of cryptic-10 ABC; twin_of cryptic-11 ABCD
+git add clues_only && git commit -qm "twins" && git push -q origin master
+tools/publish_fetched.sh bash ../fetch_clues.sh cryptic-10 cryptic-11
+check "a twin whose blog answer fits is dropped" "$(ls clues_only/cryptic | tr '\n' ' ')" "cryptic-11.json "
+check "its blog answer is in the puzzle" \
+  "$(python3 -c "import json;print(json.load(open('puzzles/cryptic/2026/cryptic-10.json'))['entries'][0]['blogAnswer'])")" "ABC"
+check "the merge went in the puzzle's commit" \
+  "$(git log --format=%s -1 -- puzzles/cryptic/2026/cryptic-10.json)" "File cryptic-10"
+check "nothing is left uncommitted" "$(git status --porcelain -- clues_only | tr '\n' ' ')" ""
+
 [ "$fails" = 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
