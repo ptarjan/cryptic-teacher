@@ -237,31 +237,9 @@ jobs:
           CB_PATH: .shim-cache.tar
           CB_UNPACK: "1"
         run: bash tools/cache_bg.sh bg restore shims
-      # The cards are ~570MB of PNGs (run 38460299301) that change a few files
-      # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
-      # their manifest between runs, and make_og.sh draws only the ones whose
-      # inputs have moved. A cold cache costs a full redraw and is correct, just
-      # slow. The key is per-commit so every run saves what it drew; restore-keys
-      # is what actually hits, taking the newest cache from any earlier commit.
-      - name: Restore the social cards
-        env:
-          CB_KEY: og-cards-${{ github.sha }}
-          CB_RESTORE_KEYS: og-cards-
-          CB_PATH: og
-        run: bash tools/cache_bg.sh bg restore cards
-      # The pages this deploy changes, for IndexNow once it is live. The cache
-      # carries the last build's page hashes; a cold one sends the recent
-      # sitemap (see tools/indexnow.py). Restored before the site checks
-      # start, since one of them reads it.
-      - name: Restore the IndexNow manifest
-        env:
-          CB_KEY: indexnow-${{ github.sha }}
-          CB_RESTORE_KEYS: indexnow-
-          CB_PATH: .indexnow
-        run: bash tools/cache_bg.sh bg restore indexnow
       # What Choose the build path asks about (the stores' keys) and the
-      # authored puzzle's write reads (the clue index). The shims, cards and
-      # manifest, started above, are waited for where they are used.
+      # authored puzzle's write reads (the clue index). The shims are waited for
+      # where they are used; the cards and manifest start after them.
       - name: Wait for the row, clue and page caches
         id: restored
         run: |
@@ -386,6 +364,34 @@ jobs:
           --annotated-by claude-opus-5-5
       - name: Wait for the puzzle shims
         run: bash tools/cache_bg.sh wait restore shims
+      # The cards (~1.2GB) and the IndexNow manifest start only now, once the
+      # shims are here. Started with the others they shared the runner's
+      # bandwidth with the row, clue, page and shim restores that the reindex
+      # waits for (the Wait step took 103s in run 45018185497, with 3.6GB in
+      # flight); nothing reads the cards until Draw the social cards, after the
+      # reindex, which gives their download that time to itself.
+      # The cards are ~570MB of PNGs (run 38460299301) that change a few files
+      # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
+      # their manifest between runs, and make_og.sh draws only the ones whose
+      # inputs have moved. A cold cache costs a full redraw and is correct, just
+      # slow. The key is per-commit so every run saves what it drew; restore-keys
+      # is what actually hits, taking the newest cache from any earlier commit.
+      - name: Restore the social cards
+        env:
+          CB_KEY: og-cards-${{ github.sha }}
+          CB_RESTORE_KEYS: og-cards-
+          CB_PATH: og
+        run: bash tools/cache_bg.sh bg restore cards
+      # The pages this deploy changes, for IndexNow once it is live. The cache
+      # carries the last build's page hashes; a cold one sends the recent
+      # sitemap (see tools/indexnow.py). Restored before the site checks
+      # start, since one of them reads it.
+      - name: Restore the IndexNow manifest
+        env:
+          CB_KEY: indexnow-${{ github.sha }}
+          CB_RESTORE_KEYS: indexnow-
+          CB_PATH: .indexnow
+        run: bash tools/cache_bg.sh bg restore indexnow
       # Then a restored shim the index no longer names (its puzzle deleted or
       # renamed since) is removed, so the site ships what a clean build would.
       # A cold row cache (any change to the code a row reaches) makes the
@@ -427,8 +433,8 @@ jobs:
       # still ran before it.
       - name: Start the reindex
         run: bash tools/bg_job.sh start reindex python3 tools/fetch_puzzle.py --reindex
-      # Restored since the job's start, beside the checkout's setup and the
-      # slices above.
+      # Restored since the shims arrived, beside the slices above and the
+      # reindex started here.
       - name: Wait for the social cards and the IndexNow manifest
         run: bash tools/cache_bg.sh wait restore cards indexnow
       # Collects the reindex, then drops the shims it no longer names.
