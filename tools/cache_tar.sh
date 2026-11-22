@@ -25,10 +25,11 @@ case "${1:-}" in
           [ -f .page-cache.pickle ] && printf '%s\0' .page-cache.pickle
           return 0
         } ;;
-      shims)  # the puzzle shims, their gzipped copies and that manifest
+      shims)  # the puzzle shims, their gzipped copies, that manifest and
+              # tools/shim_record.py's record of the shims' hashes
         list() {
           find puzzles -maxdepth 1 -type f \( -name '*.js' -o -name '*.js.gz' \
-            -o -name shims.gz.json \) -print0
+            -o -name shims.gz.json -o -name shims.md5.json \) -print0
         } ;;
       *) echo "$0: pack what? pages or shims, not '$2'" >&2; exit 2 ;;
     esac

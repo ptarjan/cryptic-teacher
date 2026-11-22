@@ -65,6 +65,7 @@ import daily_fetch  # the walk and refresh loop the numbered fetchers share
 import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # where each file lives; see tools/puzzle_paths.py
+import shim_record  # each shim's hash, vouched for by its stat
 import deleted_paths  # the commit that last deleted a path; see tools/deleted_paths.py
 from clue_index import ClueIndex, StoredClueIndex, clue_keys  # which puzzles share clues
 import groups  # linked answers; see tools/groups.py
@@ -3243,12 +3244,21 @@ def index_row_deps(path, row):
     """What index_row() read or wrote besides the puzzle file
     (tools/row_cache.py): the puzzle's blog facts, whether a blog found a
     nina in it, and the shim on disk, so a deleted or overwritten shim is
-    written again."""
+    written again. The shim's hash comes off tools/shim_record.py, which
+    reads only the shims whose stat moved."""
+    return blog_fact_hash(path), row["id"] in puzzle_tags.blogged_ninas(), shim_record.md5(shim_path(path))
+
+
+def index_rows(paths, **kw):
+    """row_cache.cached_map() of index_row over `paths` (kw: its other
+    options), then the shim hashes it took kept for the next run
+    (shim_record.save), raise or not."""
+    import row_cache
     try:
-        shim = hashlib.md5(shim_path(path).read_bytes()).hexdigest()[:8]
-    except FileNotFoundError:
-        shim = None
-    return blog_fact_hash(path), row["id"] in puzzle_tags.blogged_ninas(), shim
+        return row_cache.cached_map("fetch_puzzle", index_row, paths,
+                                    roots={"index_row_deps"}, deps=index_row_deps, **kw)
+    finally:
+        shim_record.save()
 
 
 def blog_fact_hash(path):
@@ -3331,11 +3341,9 @@ def warm_rows(i, n):
     first, each storing its rows as it ends, so the reindex step after them
     finds every row and only merges. Same keys as reindex() asks for, so the
     rows are the ones it reuses."""
-    import row_cache
     import difficulty
     paths = sorted(puzzle_files())[i::n]
-    row_cache.cached_map("fetch_puzzle", index_row, paths,
-                         roots={"index_row_deps"}, deps=index_row_deps)
+    index_rows(paths)
     difficulty.warm_rows(paths)
     print(f"warmed {len(paths)} puzzle file(s), slice {i}/{n}")
 
@@ -3386,9 +3394,8 @@ def reindex():
         # The rows first, so the miss guard stops a local cold rebuild before
         # the (also expensive) corpus-wide scoring starts.
         try:
-            puzzles = row_cache.cached_map("fetch_puzzle", index_row, puzzle_files(),
-                                           roots={"index_row_deps"}, deps=index_row_deps,
-                                           max_miss=None if full_reindex_allowed() else FULL_SCAN_MISSES)
+            puzzles = index_rows(puzzle_files(),
+                                 max_miss=None if full_reindex_allowed() else FULL_SCAN_MISSES)
         except row_cache.TooManyMisses as err:
             raise SystemExit(f"refusing a local full scan: {err}.\n{FULL_SCAN_ADVICE}")
     try:
@@ -3961,9 +3968,7 @@ def _merge_rows(index, changed):
     """Make the rows of the puzzle files `changed` and swap them into index
     (a new puzzle added in date order), keeping each one's difficulty and
     big-grid tag from its old row; write the index. Returns how many."""
-    import row_cache
-    rows = row_cache.cached_map("fetch_puzzle", index_row, changed,
-                                roots={"index_row_deps"}, deps=index_row_deps)
+    rows = index_rows(changed)
     old = {r["id"]: r for key in ("puzzles", "unlisted") for r in index[key]}
     fresh = {}
     for row in rows:

@@ -305,7 +305,8 @@ jobs:
           --annotated-by claude-opus-5-5
       # Last run's puzzles/<id>.js shims. A stored index row is reused only
       # when the shim on disk is the one it wrote (fetch_puzzle.index_row_deps
-      # hashes it), and a fresh checkout has none, so without these every one
+      # hashes it, by stat off tools/shim_record.py's record, which travels in
+      # the same tar), and a fresh checkout has none, so without these every one
       # of the ~50k rows missed and was made again: the reindex's ~50s. A
       # stale shim is never used: its row's key or deps no longer match, and
       # the row and shim are written again.

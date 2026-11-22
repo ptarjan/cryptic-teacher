@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # tools/cache_tar.sh round trip on a small tree: pack takes exactly the files
 # each deploy cache carried as a glob (puzzles/*/index.html and the page
-# store; puzzles/*.js, *.js.gz, shims.gz.json) with their mtimes, unpack puts
+# store; puzzles/*.js, *.js.gz, shims.gz.json, shims.md5.json) with their mtimes, unpack puts
 # them back and removes the tar, and a missing tar is a cold cache, not an error.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -19,6 +19,7 @@ echo store > "$tmp/a/.page-cache.pickle"
 echo shim > "$tmp/a/puzzles/times-1.js"
 echo gz > "$tmp/a/puzzles/times-1.js.gz"
 echo '{}' > "$tmp/a/puzzles/shims.gz.json"
+echo '{}' > "$tmp/a/puzzles/shims.md5.json"
 echo '{}' > "$tmp/a/puzzles/index.json"               # not a shim
 touch -d 2020-01-02 "$tmp/a/puzzles/times-1.js.gz"
 fail() { echo "test_cache_tar: $*" >&2; exit 1; }
@@ -28,7 +29,7 @@ bash "$tool" pack pages "$tmp/pages.tar" >/dev/null
 [ "$(listed "$tmp/pages.tar")" = ".page-cache.pickle puzzles/cryptic/index.html puzzles/times-1/index.html puzzles/times-2/index.html " ] \
   || fail "pages packed: $(listed "$tmp/pages.tar")"
 bash "$tool" pack shims "$tmp/shims.tar" >/dev/null
-[ "$(listed "$tmp/shims.tar")" = "puzzles/shims.gz.json puzzles/times-1.js puzzles/times-1.js.gz " ] \
+[ "$(listed "$tmp/shims.tar")" = "puzzles/shims.gz.json puzzles/shims.md5.json puzzles/times-1.js puzzles/times-1.js.gz " ] \
   || fail "shims packed: $(listed "$tmp/shims.tar")"
 
 # Unpack into a fresh checkout: the files come back, mtimes kept, tar gone.
@@ -37,7 +38,7 @@ mkdir -p "$tmp/b/puzzles"
 cp "$tmp/pages.tar" "$tmp/b/.page-cache.tar"
 cp "$tmp/shims.tar" "$tmp/b/.shim-cache.tar"
 bash "$tool" unpack .page-cache.tar | grep "4 file(s)" >/dev/null || fail "unpack pages count"
-bash "$tool" unpack .shim-cache.tar | grep "3 file(s)" >/dev/null || fail "unpack shims count"
+bash "$tool" unpack .shim-cache.tar | grep "4 file(s)" >/dev/null || fail "unpack shims count"
 [ ! -e "$tmp/b/.page-cache.tar" ] && [ ! -e "$tmp/b/.shim-cache.tar" ] || fail "tar left behind"
 cmp -s "$tmp/a/puzzles/times-2/index.html" "$tmp/b/puzzles/times-2/index.html" || fail "page differs"
 cmp -s "$tmp/a/.page-cache.pickle" "$tmp/b/.page-cache.pickle" || fail "store differs"
