@@ -705,6 +705,39 @@ def requote(value, tidy, old, new):
     return value
 
 
+#: A post may run this many days after its puzzle's print day.
+POST_LAG = 3
+
+
+def typo_twins(claims, recs, dates):
+    """Move a post that claims another puzzle's number to the number it meant.
+
+    Two posts titled alike ("Times Cryptic No 29694 - oopsie doopsie" the day
+    before the real 29694) claim one number, and neither fits the sequence
+    wrong, since the number it meant is simply missing from it. The listing
+    knows each number's print day, and a post comes out on or just after it:
+    the claimant posted before the number's print day cannot be that puzzle.
+    It is renumbered when exactly one slip of its number is unclaimed and was
+    printed on its post's day (or up to POST_LAG days before it).
+    """
+    for (series, number), claim in list(claims.items()):
+        printed = dates.get((series, number))
+        if len(claim) < 2 or not printed:
+            continue
+        early = [c for c in claim
+                 if datetime.date.fromisoformat(recs[c[0]["post_id"]]["date"]) < printed]
+        if not early or len(early) == len(claim):
+            continue
+        for row, dated in early:
+            posted = datetime.date.fromisoformat(recs[row["post_id"]]["date"])
+            fit = [n for n in slips(number) if (series, n) not in claims
+                   and dates.get((series, n))
+                   and 0 <= (posted - dates[(series, n)]).days <= POST_LAG]
+            if len(fit) == 1:
+                claim.remove((row, dated))
+                claims[(series, fit[0])] = [(dict(row, number=fit[0], titled=row["number"]), dated)]
+
+
 def every_day(claims, recs, dates):
     """`dates` with every claimed number dated: a dated series' number the
     source proved nothing for takes its post's day, and any still blank takes
@@ -795,6 +828,7 @@ def run(source, grids, parsed, write=True, newest=None):
         claims[(series, number)].append((dict(row, number=number, titled=row["number"]), dated))
         taken[series].add(number)
 
+    typo_twins(claims, recs, source.print_dates(recs.values(), {})[0])
     renumbered = {row["post_id"]: row["number"]
                   for claim in claims.values() for row, _ in claim if row.get("titled")}
     dates, notes = source.print_dates(recs.values(), renumbered)

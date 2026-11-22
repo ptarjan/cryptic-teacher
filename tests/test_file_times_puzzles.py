@@ -644,6 +644,17 @@ check("timesjumbo past the anchor stays undated",
       {1816: _d(2026, 10, 31)},
       F.date_weekly("timesjumbo", [1816, 1817], {1816: _d(2026, 10, 31)}, {}, _notes))
 
+# Two posts claiming one number: the one posted before the number's print day
+# is the typo, and takes the unclaimed slip that was printed on its post's day.
+_row = lambda pid, n: {"post_id": pid, "number": n}
+_recs = {"a": {"date": "2026-11-06"}, "b": {"date": "2026-11-14"}}
+_claims = {("times", 29694): [(_row("a", 29694), True), (_row("b", 29694), True)]}
+_dates = {("times", 29693): _d(2026, 11, 6), ("times", 29694): _d(2026, 11, 7)}
+B.typo_twins(_claims, _recs, _dates)
+check("a twin posted before its number's print day takes the missing slip",
+      {("times", 29694): ["b"], ("times", 29693): ["a"]},
+      {k: [r["post_id"] for r, _ in v] for k, v in _claims.items()})
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
