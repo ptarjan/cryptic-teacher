@@ -51,6 +51,7 @@ REPRINTS = {
         (("ftcryptic-13761", "ftcryptic-14223"), "Jason rerun, one clue reworded"),
         (("ftcryptic-14853", "ftcryptic-14947"), "Aardvark rerun, one clue reworded"),
         (("ftcryptic-15011", "ftcryptic-15128"), "Dante rerun, one clue reworded"),
+        (("ftcryptic-16713", "ftcryptic-17496"), "Chalmie rerun, four clues reworded"),
         (("ftcryptic-16776", "ftcryptic-16806"), "Basilisk rerun, one clue reworded"),
         (("ftcryptic-16016", "ftcryptic-18479"), "Orense memorial rerun after his death in 2026-08"),
         (("independent-8933", "independent-9036"), "Quixote rerun, one clue reworded"),
