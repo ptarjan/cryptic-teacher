@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Apathy is where the cause of discrimination lies",
     "enumeration": "12"
    },
-   "solution": "INDIFFERENCE"
+   "solution": "INDIFFERENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Apathy",
+      "at": 0,
+      "meaning": "lack of interest or concern"
+     },
+     {
+      "text": "where the cause of discrimination lies",
+      "at": 10,
+      "meaning": "telling things apart rests on their being unalike, so the cause sits '...', read as two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that apathy is at the root of prejudice.",
+     "definitionFit": "Unconcern is a synonym of apathy; split in two, the answer says discrimination's cause lies within dissimilarity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discrimination"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,30 @@
     "text": "Patient he may be, but lacking any authority",
     "enumeration": "7"
    },
-   "solution": "INVALID"
+   "solution": "INVALID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Patient he may be",
+      "at": 0,
+      "meaning": "a sick person under care, a noun"
+     },
+     {
+      "text": "lacking any authority",
+      "at": 23,
+      "meaning": "not valid, having no legal force, an adjective"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sickly who also has no power to act.",
+     "definitionFit": "A noun meaning a chronically sick person, and an adjective meaning void or not legally binding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +108,53 @@
     "text": "I'd go up to the Durham area to eat",
     "enumeration": "4"
    },
-   "solution": "DINE"
+   "solution": "DINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "eat",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "go up",
+         "at": 4,
+         "note": "in a down clue going up means the letters are read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'd",
+         "at": 0,
+         "gives": "ID",
+         "note": "taken as written, the apostrophe dropped"
+        }
+       ]
+      },
+      {
+       "words": "the Durham area",
+       "at": 13,
+       "gives": "NE",
+       "note": "NE, the north-east of England, where Durham lies"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heading north to Durham for a meal.",
+     "walkthrough": "'go up' turns ID into DI; Durham is a county in north-east England, abbreviated NE.",
+     "definitionFit": "To dine is to have a meal, a formal synonym of eating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +168,41 @@
     "text": "Theresultofa tremblingague fit?",
     "enumeration": "7"
    },
-   "solution": "FATIGUE"
+   "solution": "FATIGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Theresultofa tremblingague fit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trembling",
+       "at": 13,
+       "note": "something trembling shakes about, so these letters are jumbled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ague fit",
+       "at": 22
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A bout of shivering fever leaves you worn out.",
+     "walkthrough": "The letters of AGUE FIT are rearranged; the whole clue also describes the answer, since a feverish fit leaves one exhausted.",
+     "definitionFit": "Exhaustion is the natural aftermath of a shaking bout of fever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +222,43 @@
      }
     ]
    },
-   "solution": "EARRING"
+   "solution": "EARRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It may depend on a piercing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hearing",
+       "at": 28,
+       "gives": "EAR",
+       "note": "an ear is the organ, or faculty, of hearing"
+      },
+      {
+       "words": "sound",
+       "at": 36,
+       "gives": "RING",
+       "note": "to ring is to sound, as a bell does"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jewel that hangs from a pierced lobe beside the organ of hearing.",
+     "walkthrough": "'depend' is used in its literal sense of hanging down.",
+     "definitionFit": "Jewellery that hangs from a hole pierced in the lobe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "depend"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +272,40 @@
     "text": "Being in the middle of a vessel",
     "enumeration": "4"
    },
-   "solution": "ESSE"
+   "solution": "ESSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in the middle of",
+       "at": 6,
+       "note": "the letters wanted sit at the centre of the word vessel, inside its outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vessel",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something existing deep within a ship or container.",
+     "definitionFit": "Latin for 'to be', used in philosophy for existence or essential nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Being"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +319,59 @@
     "text": "For an apprentice in a company certain redundancy results from it",
     "enumeration": "7"
    },
-   "solution": "CLOSURE"
+   "solution": "CLOSURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "redundancy results from it",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 18,
+         "note": "the learner is placed inside the company abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a company",
+         "at": 21,
+         "gives": "CO",
+         "note": "CO, the abbreviation for company"
+        },
+        {
+         "words": "an apprentice",
+         "at": 4,
+         "gives": "L",
+         "note": "L, a learner, as on a learner driver's plate"
+        }
+       ]
+      },
+      {
+       "words": "certain",
+       "at": 31,
+       "gives": "SURE",
+       "note": "sure means certain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apprentice is assured that his firm will soon be laying people off.",
+     "walkthrough": "L is the learner sign British novice drivers display.",
+     "definitionFit": "When a firm shuts down its workers lose their jobs, so job losses follow a shutdown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +385,31 @@
     "text": "Insipid as a novel without people",
     "enumeration": "13"
    },
-   "solution": "CHARACTERLESS"
+   "solution": "CHARACTERLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insipid",
+      "at": 0,
+      "meaning": "dull, lacking distinctive qualities"
+     },
+     {
+      "text": "a novel without people",
+      "at": 11,
+      "meaning": "a book with no figures in its story, read literally as having no persons"
+     }
+    ],
+    "explanation": {
+     "surface": "Calling a book dull because it has nobody in it.",
+     "definitionFit": "Lacking personality means dull; literally, a story without any figures in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "people"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +429,30 @@
      }
     ]
    },
-   "solution": "SELECTCOMPANY"
+   "solution": "SELECTCOMPANY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elite",
+      "at": 0,
+      "meaning": "a choice, exclusive group, a noun"
+     },
+     {
+      "text": "advice to potential investors in equities",
+      "at": 6,
+      "meaning": "a broker might tell a shareholder to choose a firm, read as an instruction"
+     }
+    ],
+    "explanation": {
+     "surface": "A tip from the top people to anyone buying stocks.",
+     "definitionFit": "An exclusive set of people; also, read literally, an order to pick a firm whose shares to buy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +472,53 @@
      }
     ]
    },
-   "solution": "HAVENOT"
+   "solution": "HAVENOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One without wealth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "refuge",
+       "at": 38,
+       "gives": "HAVEN",
+       "note": "a haven is a safe place of shelter"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 48,
+         "note": "the word to is turned round so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "at": 45,
+         "gives": "TO",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor man still has somewhere safe to go.",
+     "walkthrough": "'turn' reverses TO into OT; 'nevertheless has a' and the final 'to' are link words.",
+     "definitionFit": "The poor are called the have-nots, those lacking possessions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +532,54 @@
     "text": "Gentleman knocked back fish and meat loaf",
     "enumeration": "7"
    },
-   "solution": "RISSOLE"
+   "solution": "RISSOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "meat loaf",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocked back",
+         "at": 10,
+         "note": "drinks knocked back go down in one; here the word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gentleman",
+         "at": 0,
+         "gives": "SIR",
+         "note": "SIR, the title or address for a gentleman"
+        }
+       ]
+      },
+      {
+       "words": "fish",
+       "at": 23,
+       "gives": "SOLE",
+       "note": "sole is a flatfish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentleman downing his fish dinner and a meat dish.",
+     "walkthrough": "'knocked back' reverses SIR to RIS.",
+     "definitionFit": "A small cake of minced meat, a fried patty much like a little meat loaf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +593,31 @@
     "text": "List one way then the other, or just list?",
     "enumeration": "4"
    },
-   "solution": "ROLL"
+   "solution": "ROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "List one way then the other",
+      "at": 0,
+      "meaning": "a ship tilting to each side in turn"
+     },
+     {
+      "text": "just list",
+      "at": 32,
+      "meaning": "a register of names"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled question about a ship heeling over.",
+     "definitionFit": "A ship rocks from side to side; also a register of names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "List"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +631,38 @@
     "text": "A profit for the second year running?",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for the second year running",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "profit",
+       "at": 2,
+       "gives": "GAIN",
+       "note": "a gain is a profit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company reports making money two years in a row.",
+     "definitionFit": "Once more, a second time, as when profits repeat a year later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +676,31 @@
     "text": "Current safety device attached to a bomb",
     "enumeration": "4"
    },
-   "solution": "FUSE"
+   "solution": "FUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Current safety device",
+      "at": 0,
+      "meaning": "a wire that melts to break an electrical circuit if the current is too high"
+     },
+     {
+      "text": "attached to a bomb",
+      "at": 22,
+      "meaning": "the cord or detonator that sets off an explosive"
+     }
+    ],
+    "explanation": {
+     "surface": "A safety gadget fitted to an explosive device.",
+     "definitionFit": "A circuit-breaking wire in a plug, and the detonating cord or mechanism of a bomb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +714,43 @@
     "text": "Rows marked by the sound of weeping",
     "enumeration": "5"
    },
-   "solution": "TIERS"
+   "solution": "TIERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rows",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TIERS",
+     "indicators": [
+      {
+       "text": "the sound of",
+       "at": 15,
+       "note": "the answer is a word that sounds the same as the one for weeping"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weeping",
+       "at": 28,
+       "gives": "TEARS",
+       "note": "tears are what weeping sheds"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lines of people heard crying.",
+     "definitionFit": "Ranks or stepped layers, as in seating arranged one above another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rows"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +764,30 @@
     "text": "Angry enough to change sides",
     "enumeration": "5"
    },
-   "solution": "CROSS"
+   "solution": "CROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Angry",
+      "at": 0,
+      "meaning": "annoyed, bad-tempered"
+     },
+     {
+      "text": "change sides",
+      "at": 16,
+      "meaning": "to go over to the opposing side"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone so annoyed they defect.",
+     "definitionFit": "Annoyed is a synonym; and crossing over means switching to the other party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +801,40 @@
     "text": "Pain-killer supplied cash-on-delivery by a German",
     "enumeration": "7"
    },
-   "solution": "CODEINE"
+   "solution": "CODEINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pain-killer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cash-on-delivery",
+       "at": 21,
+       "gives": "COD",
+       "note": "COD is the abbreviation for cash on delivery"
+      },
+      {
+       "words": "a German",
+       "at": 41,
+       "gives": "EINE",
+       "note": "eine is the German word for 'a' (feminine)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drug delivered to a German customer, paid for at the door.",
+     "definitionFit": "An opium-derived drug used to relieve pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +848,49 @@
     "text": "Habit of man about to prepare for war",
     "enumeration": "7"
    },
-   "solution": "GARMENT"
+   "solution": "GARMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Habit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "the man's letters go round, about, the war-preparing word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "man",
+       "at": 9,
+       "gives": "GENT",
+       "note": "gent is short for gentleman, a man"
+      },
+      {
+       "words": "prepare for war",
+       "at": 22,
+       "gives": "ARM",
+       "note": "to arm is to equip for fighting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The kit of a soldier getting ready for battle.",
+     "definitionFit": "A habit is a garb, such as a monk's robe: an item of clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Habit"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +904,45 @@
     "text": "Articulate Cockney toff raised in surprising circumstances",
     "enumeration": "7"
    },
-   "solution": "EYEBROW"
+   "solution": "EYEBROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "raised in surprising circumstances",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYEBROW",
+     "indicators": [
+      {
+       "text": "Articulate Cockney",
+       "at": 0,
+       "note": "spoken in a Cockney accent, which drops the initial H"
+      }
+     ],
+     "parts": [
+      {
+       "words": "toff",
+       "at": 19,
+       "gives": "HIGHBROW",
+       "note": "a toff is an upper-class person, loosely a highbrow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-spoken Londoner raised in unexpected surroundings.",
+     "walkthrough": "A Cockney (traditional East London) accent drops H, so 'highbrow' comes out as 'ighbrow'.",
+     "definitionFit": "One lifts the arch of hair over the eye when startled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +956,31 @@
     "text": "He no longer plays the role of Shylock",
     "enumeration": "7"
    },
-   "solution": "EXACTOR"
+   "solution": "EXACTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He no longer plays the role",
+      "at": 0,
+      "meaning": "a former performer, one who has given up the stage"
+     },
+     {
+      "text": "Shylock",
+      "at": 31,
+      "meaning": "Shakespeare's moneylender who demands his pound of flesh, a type of one who extorts"
+     }
+    ],
+    "explanation": {
+     "surface": "A retired player who once took the part of the merchant's creditor.",
+     "walkthrough": "Shylock is the usurer in The Merchant of Venice.",
+     "definitionFit": "Split, a retired performer; whole, one who demands payment harshly, like a usurer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1000,34 @@
      }
     ]
    },
-   "solution": "WOLFCUB"
+   "solution": "WOLFCUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Young pack animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Young pack animal",
+       "at": 0,
+       "note": "both a young beast of a hunting pack and a junior Scout in a pack"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young creature from a hunting group.",
+     "definitionFit": "A whelp of a wild canine, and a junior member of the Scout movement, whose units are called packs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1041,40 @@
     "text": "What hungry Italians stir too carelessly",
     "enumeration": "7"
    },
-   "solution": "RISOTTO"
+   "solution": "RISOTTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What hungry Italians stir too carelessly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "carelessly",
+       "at": 30,
+       "note": "done without care, so these letters are thrown together in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stir too",
+       "at": 21
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Ravenous Italians stirring their dinner pot too roughly.",
+     "definitionFit": "An Italian rice dish that is stirred constantly while cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1088,41 @@
     "text": "Bovine type votes for socialism",
     "enumeration": "7"
    },
-   "solution": "REDPOLL"
+   "solution": "REDPOLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bovine type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "socialism",
+       "at": 22,
+       "gives": "RED",
+       "note": "red is the colour of socialism"
+      },
+      {
+       "words": "votes",
+       "at": 12,
+       "gives": "POLL",
+       "note": "a poll is a vote or count of votes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breed of cattle backed by left-wing voters.",
+     "definitionFit": "A hornless red breed of English cattle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "votes"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1142,30 @@
      }
     ]
    },
-   "solution": "TOELINE"
+   "solution": "TOELINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conform",
+      "at": 0,
+      "meaning": "to obey the rules, from the idiom 'toe the line'"
+     },
+     {
+      "text": "pointed shoe fashion",
+      "at": 11,
+      "meaning": "the shape of the front of a shoe, read literally"
+     }
+    ],
+    "explanation": {
+     "surface": "Following the trend for sharp-toed footwear.",
+     "definitionFit": "Toeing the line means obeying the rules; read literally, the contour at a shoe's tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1179,43 @@
     "text": "Burden of the angelic message to Bethlehem's shepherds",
     "enumeration": "4"
    },
-   "solution": "LOAD"
+   "solution": "LOAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Burden",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "angelic",
+       "at": 14,
+       "gives": "LO",
+       "note": "Lo! is the angel's exclamation to the shepherds in the Authorised Version of Luke"
+      },
+      {
+       "words": "message",
+       "at": 22,
+       "gives": "AD",
+       "note": "an ad is an advertisement, a message"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The gist of what the angel told the shepherds near Bethlehem.",
+     "walkthrough": "'Burden' also means the main theme of a message, misleading towards the gist of the angel's words.",
+     "definitionFit": "A weight carried is a synonym of burden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Burden"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1229,30 @@
     "text": "Slip under a microscope",
     "enumeration": "5"
    },
-   "solution": "SLIDE"
+   "solution": "SLIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slip",
+      "at": 0,
+      "meaning": "to skid or slither"
+     },
+     {
+      "text": "under a microscope",
+      "at": 5,
+      "meaning": "the glass plate placed under a microscope lens"
+     }
+    ],
+    "explanation": {
+     "surface": "A slip-up while examining something closely.",
+     "definitionFit": "To skid is a synonym; and the glass plate holding a specimen for viewing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1266,40 @@
     "text": "Shed tears for little Penny",
     "enumeration": "4"
    },
-   "solution": "WEEP"
+   "solution": "WEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shed tears",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "little",
+       "at": 15,
+       "gives": "WEE",
+       "note": "wee is Scots for small"
+      },
+      {
+       "words": "Penny",
+       "at": 22,
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crying over a little girl called Penny.",
+     "definitionFit": "To cry is to shed tears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1313,42 @@
     "text": "Nail that \"Travel by Rail\" poster",
     "enumeration": "4"
    },
-   "solution": "BRAD"
+   "solution": "BRAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nail",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Travel by Rail",
+       "at": 11,
+       "gives": "BR",
+       "note": "a slogan of British Rail, abbreviated BR"
+      },
+      {
+       "words": "poster",
+       "at": 27,
+       "gives": "AD",
+       "note": "an ad is an advertisement such as a poster"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to pin up a railway advertisement.",
+     "walkthrough": "British Rail ran Britain's railways until the 1990s.",
+     "definitionFit": "A brad is a thin small-headed tack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nail"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1362,30 @@
     "text": "Story spun by spinsters",
     "enumeration": "4"
    },
-   "solution": "YARN"
+   "solution": "YARN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Story",
+      "at": 0,
+      "meaning": "a tale, often a tall one"
+     },
+     {
+      "text": "spun by spinsters",
+      "at": 6,
+      "meaning": "spinsters originally spun thread on the wheel"
+     }
+    ],
+    "explanation": {
+     "surface": "A tale told by unmarried women.",
+     "definitionFit": "A tale, especially a long rambling one; also thread spun for knitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1399,39 @@
     "text": "Is a crit rewritten to be derisive?",
     "enumeration": "7"
    },
-   "solution": "SATIRIC"
+   "solution": "SATIRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "derisive",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rewritten",
+       "at": 10,
+       "note": "a piece rewritten has its contents rearranged, so these letters change order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is a crit",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a revised review is mocking.",
+     "definitionFit": "Mocking through ridicule, as in satire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +1445,42 @@
     "text": "No allowance was made by Antony for his Roman countrymen",
     "enumeration": "7"
    },
-   "solution": "ORATION"
+   "solution": "ORATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "made by Antony for his Roman countrymen",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No",
+       "at": 0,
+       "gives": "O",
+       "note": "O, a zero, nothing"
+      },
+      {
+       "words": "allowance",
+       "at": 3,
+       "gives": "RATION",
+       "note": "a ration is a fixed allowance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Antony made no special provision for his fellow Romans.",
+     "walkthrough": "Mark Antony's 'Friends, Romans, countrymen' speech in Julius Caesar is the formal address meant.",
+     "definitionFit": "A formal public speech, as Antony gave at Caesar's funeral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "allowance"
+    }
+   }
   },
   {
    "number": 30,
@@ -500,7 +1500,30 @@
      }
     ]
    },
-   "solution": "TRADEBALANCE"
+   "solution": "TRADEBALANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shop-counter scales",
+      "at": 0,
+      "meaning": "weighing scales used in a shop, read literally"
+     },
+     {
+      "text": "affect variations in the British pound",
+      "at": 20,
+      "meaning": "the gap between a nation's imports and exports moves the currency's value"
+     }
+    ],
+    "explanation": {
+     "surface": "Shop scales that influence the value of sterling.",
+     "definitionFit": "Literally a weighing machine for commerce; also a country's net exports, which move its exchange rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
