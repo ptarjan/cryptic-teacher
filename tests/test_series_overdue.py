@@ -40,9 +40,14 @@ monthly = {date(2026, m, 1) for m in range(1, 12)}
 check(S.find_gaps(monthly, today, 2), {}, "monthly paper on time")
 check(list(S.find_gaps(monthly, date(2026, 12, 21), 2)), ["@2026-11-01"], "monthly paper overdue")
 
+# a fortnightly Friday paper is judged by its interval, not as a weekly one with every other week missing
+fortnight = {date(2026, 11, 13) - timedelta(14 * n) for n in range(0, 27)}
+check(S.expected_weekdays(fortnight, today), set(), "fortnightly paper has no weekly weekdays")
+check(S.find_gaps(fortnight, today, 2), {}, "fortnightly paper on time in its off week")
+
 # grace is learned from observed lags, never below the default, capped
 check(S.grace_for([]), S.DEFAULT_GRACE, "default grace")
-check(S.grace_for([5] * 10), 5, "learned grace")
+check(S.grace_for([5] * 10), 6, "learned grace, a day past the usual lag")
 check(S.grace_for([99] * 10), S.MAX_GRACE, "capped grace")
 
 # observe: first run seeds, second records lag

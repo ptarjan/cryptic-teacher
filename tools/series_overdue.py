@@ -42,7 +42,7 @@ WINDOW = 14
 YEAR = 365
 DEAD_AFTER = 90
 SHARE = 0.6
-WEEKLY_MIN = 20  # a weekday must occur in this many of the year's ~52 weeks
+WEEKLY_MIN = 36  # a weekday must occur in this many of the year's ~52 weeks (a fortnightly paper has ~26)
 DEFAULT_GRACE = 2
 MAX_GRACE = 14
 LAG_KEEP = 60  # observed lags kept per series
@@ -91,7 +91,8 @@ def grace_for(lags):
         return DEFAULT_GRACE
     s = sorted(lags)
     p90 = s[min(len(s) - 1, int(0.9 * len(s)))]
-    return max(DEFAULT_GRACE, min(MAX_GRACE, p90))
+    # +1: a puzzle that always lands N days late is first seen on day N or just after it.
+    return max(DEFAULT_GRACE, min(MAX_GRACE, p90 + 1))
 
 
 def find_gaps(dates, today, grace):
