@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Without locks, so in an anxious state",
     "enumeration": "10"
    },
-   "solution": "DISTRESSED"
+   "solution": "DISTRESSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Without locks",
+      "at": 0,
+      "meaning": "read playfully as DIS- plus a word for having tresses, i.e. stripped of one's hair"
+     },
+     {
+      "text": "in an anxious state",
+      "at": 18,
+      "meaning": "upset and worried"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first definition is whimsical: 'dis-' as an undoing prefix plus 'tressed' (having tresses, or locks of hair) suggests someone with their hair removed.",
+     "definitionFit": "The playful sense is someone deprived of their hair; the ordinary sense is someone upset, worried or suffering anguish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,29 @@
     "text": "Speed, causing dismay",
     "enumeration": "4"
    },
-   "solution": "DASH"
+   "solution": "DASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speed",
+      "at": 0,
+      "meaning": "a rush or sprint, as in making a quick run"
+     },
+     {
+      "text": "dismay",
+      "at": 15,
+      "meaning": "to dishearten, as when hopes are crushed"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A sprint is a quick run, and to crush someone's hopes is to dishearten them, both senses of the same short word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "causing"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +107,58 @@
     "text": "Pottery shop carrying a new variety",
     "enumeration": "9"
    },
-   "solution": "STONEWARE"
+   "solution": "STONEWARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pottery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 13,
+       "note": "a shop that carries goods holds something within it, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shop",
+       "at": 8,
+       "gives": "STORE",
+       "note": "a store is a shop"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "variety",
+         "at": 28,
+         "note": "a new variety suggests the letters of the words a new in a different arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a new",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crockery shop stocks a fresh range of goods.",
+     "walkthrough": "'variety' scrambles A NEW into NEWA before 'carrying' puts it inside the shop.",
+     "definitionFit": "Stoneware is a dense, hard-fired kind of ceramic ware, so it is one type of pottery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +172,29 @@
     "text": "Equestrian appendage",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Equestrian",
+      "at": 0,
+      "meaning": "a horseman or horsewoman"
+     },
+     {
+      "text": "appendage",
+      "at": 11,
+      "meaning": "a clause added to a document or bill"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One sense is a person on horseback; the other is a clause tacked onto a legal document or parliamentary bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appendage"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +208,41 @@
     "text": "One of the family goes ahead",
     "enumeration": "7"
    },
-   "solution": "STEPSON"
+   "solution": "STEPSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of the family",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "goes",
+       "at": 18,
+       "gives": "STEPS",
+       "note": "steps means goes, walks"
+      },
+      {
+       "words": "ahead",
+       "at": 23,
+       "gives": "ON",
+       "note": "on means ahead, onward, as in go on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative pushes forward in front of the others.",
+     "definitionFit": "A spouse's son from an earlier marriage is a member of the household by remarriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +256,11 @@
     "text": "Slip out in time to write a letter tea Greek",
     "enumeration": "7"
    },
-   "solution": "EPSILON"
+   "solution": "EPSILON",
+   "annotationWithheld": {
+    "why": "Clue as held, 'Slip out in time to write a letter tea Greek', is garbled: the parse needs an anagram of SLIP inside EON with a definition 'Greek letter', but 'tea' and the word order break it and no source gives the printed text.",
+    "clue": "Slip out in time to write a letter tea Greek"
+   }
   },
   {
    "number": 6,
@@ -114,7 +274,35 @@
     "text": "No back-handed honour!",
     "enumeration": "4"
    },
-   "solution": "PALM"
+   "solution": "PALM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No back-handed honour!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "No back-handed honour!",
+       "at": 0,
+       "note": "a token of victory that is also the inner face of the hand, which is the opposite of its back"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A palm leaf was a token of victory (to bear the palm), and the palm of the hand is the inner face, the opposite side from the back.",
+     "definitionFit": "The victor's prize is a frond worn in triumph, and the same word names the inner face of the hand rather than its back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "back-handed"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +316,40 @@
     "text": "Unsuitable for a girl",
     "enumeration": "5"
    },
-   "solution": "AMISS"
+   "solution": "AMISS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unsuitable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 15,
+       "gives": "A"
+      },
+      {
+       "words": "girl",
+       "at": 17,
+       "gives": "MISS",
+       "note": "miss is a young woman or girl"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is not right for a young woman.",
+     "definitionFit": "Something wrong or out of order is improper, inappropriate, unsuitable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +363,35 @@
     "text": "Well he won't exert himself",
     "enumeration": "10"
    },
-   "solution": "MALINGERER"
+   "solution": "MALINGERER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well he won't exert himself",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Well he won't exert himself",
+       "at": 0,
+       "note": "someone in perfectly good health who still refuses to work, feigning illness"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Well' looks like an interjection opening a sentence, but it means in good health: the shirker pretends to be ill.",
+     "definitionFit": "A shirker feigns sickness to avoid duty, so although healthy they do no work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +405,40 @@
     "text": "Corrupted, but decent if refer med",
     "enumeration": "8"
    },
-   "solution": "INFECTED"
+   "solution": "INFECTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Corrupted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "refer med",
+       "at": 25,
+       "note": "reformed means formed again, so the letters of the words decent if are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "decent if",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tainted who could become decent if they changed their ways.",
+     "walkthrough": "The scanned text splits the anagram signal into two pieces; read as one word it means formed anew.",
+     "definitionFit": "Tainted or contaminated, as a wound or computer file can be, is a sense of corrupted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +452,29 @@
     "text": "Bore could not get a seat",
     "enumeration": "5"
    },
-   "solution": "STOOD"
+   "solution": "STOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bore",
+      "at": 0,
+      "meaning": "endured, put up with"
+     },
+     {
+      "text": "could not get a seat",
+      "at": 5,
+      "meaning": "remained upright for lack of a chair"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To bear something is to tolerate it, and passengers with no chair remained on their feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bore"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +488,52 @@
     "text": "13 tail off, and that's characteristic",
     "enumeration": "9"
    },
-   "solution": "ESSENTIAL"
+   "solution": "ESSENTIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "characteristic",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "13",
+       "at": 0,
+       "gives": "ESSEN",
+       "note": "the answer to 13-across, the German city in the Ruhr"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 8,
+         "note": "off means wrong or awry, so the letters of tail are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tail",
+         "at": 3
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's tail goes off, which is typical.",
+     "walkthrough": "'13' points to the answer to 13-across; 'off' turns TAIL into TIAL.",
+     "definitionFit": "An essential quality is intrinsic, fundamental to the nature of a thing, so it is characteristic of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +547,59 @@
     "text": "It's true accepting proportional representation is giving satisfaction",
     "enumeration": "8"
    },
-   "solution": "REPRISAL"
+   "solution": "REPRISAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "giving satisfaction",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 10,
+       "note": "something accepting another thing takes it in, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It's true",
+       "at": 0,
+       "gives": "REAL",
+       "note": "real means genuine, true"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "proportional representation",
+         "at": 20,
+         "gives": "PR",
+         "note": "PR is the standard abbreviation for proportional representation, an electoral system"
+        },
+        {
+         "words": "is",
+         "at": 48,
+         "gives": "IS"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A voting reformer argues that a fairer electoral system brings contentment.",
+     "walkthrough": "Satisfaction here is the old sense of redress for a wrong, as in demanding satisfaction in a duel; 'accepting' puts PR and IS inside.",
+     "definitionFit": "Retaliation is taking revenge for an injury, the redress once called satisfaction, so it is a noun phrase sense of giving redress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "satisfaction"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +613,42 @@
     "text": "German city acquiring French art with foreign money",
     "enumeration": "5"
    },
-   "solution": "ESSEN"
+   "solution": "ESSEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "French art",
+       "at": 22,
+       "gives": "ES",
+       "note": "es is French for 'art' as in 'thou art', the verb"
+      },
+      {
+       "words": "foreign money",
+       "at": 38,
+       "gives": "SEN",
+       "note": "a sen is a small coin of Japan and other Asian countries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city in Germany buys French paintings with overseas cash.",
+     "walkthrough": "'art' is not painting but the old verb form 'thou art', which in French is 'tu es'.",
+     "definitionFit": "Essen is an industrial city in the Ruhr region of Germany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "art"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +662,48 @@
     "text": "A feeling for the right technique following study",
     "enumeration": "10"
    },
-   "solution": "CONSCIENCE"
+   "solution": "CONSCIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A feeling for the right",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 34,
+       "note": "following means the second word comes after the first in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "study",
+       "at": 44,
+       "gives": "CON",
+       "note": "to con is to study or learn by heart"
+      },
+      {
+       "words": "technique",
+       "at": 24,
+       "gives": "SCIENCE",
+       "note": "science means skill or technique, as in the science of boxing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sense of what is correct comes once you have learnt the method.",
+     "definitionFit": "The moral sense that tells right from wrong is an inner feeling guiding behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +717,39 @@
     "text": "Too vain maybe to get much applause",
     "enumeration": "7"
    },
-   "solution": "OVATION"
+   "solution": "OVATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "much applause",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "maybe",
+       "at": 9,
+       "note": "maybe suggests a possible version of the words too vain, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Too vain",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer is too conceited to receive a standing reception.",
+     "definitionFit": "Sustained, enthusiastic clapping from an audience is a standing tribute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +763,33 @@
     "text": "Nomination in brief",
     "enumeration": "8"
    },
-   "solution": "INITIALS"
+   "solution": "INITIALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nomination in brief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Nomination in brief",
+       "at": 0,
+       "note": "a name shortened to its first letters, a naming given in abbreviated form"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The first letters of someone's names are their name given in short form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nomination"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +804,31 @@
     "enumeration": "7",
     "countFrom": "grid"
    },
-   "solution": "NOTABLE"
+   "solution": "NOTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Striking",
+      "at": 0,
+      "meaning": "remarkable, worthy of attention"
+     },
+     {
+      "text": "ineffective",
+      "at": 17,
+      "meaning": "split as ..., incapable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense splits the word into two: NOT ABLE.",
+     "definitionFit": "Remarkable things stand out, and read as two words the answer means incapable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Striking"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +848,35 @@
      }
     ]
    },
-   "solution": "BANKCLERK"
+   "solution": "BANKCLERK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A person who finds work telling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A person who finds work telling",
+       "at": 0,
+       "note": "a bank employee at the counter is called a teller, so their work is telling in a different sense from being significant"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'telling' looks like 'significant' or 'revealing', but it is the job of a teller, who counts out money at a bank counter.",
+     "definitionFit": "A cashier in a bank is a teller, whose daily work is counting out money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "telling"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +890,42 @@
     "text": "Observe the top man can be trying!",
     "enumeration": "7"
    },
-   "solution": "SEEKING"
+   "solution": "SEEKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trying",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Observe",
+       "at": 0,
+       "gives": "SEE",
+       "note": "to see is to observe"
+      },
+      {
+       "words": "the top man",
+       "at": 8,
+       "gives": "KING",
+       "note": "a king is the man at the top of a kingdom"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watching the boss can be wearing.",
+     "walkthrough": "'trying' looks like an adjective meaning tiresome, but it is the participle of try, as in trying to find.",
+     "definitionFit": "Looking for or attempting something, as in trying to do it, is searching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trying"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +939,40 @@
     "text": "Rotten ingrate so hard",
     "enumeration": "7"
    },
-   "solution": "GRANITE"
+   "solution": "GRANITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hard",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Rotten",
+       "at": 0,
+       "note": "rotten means spoilt or decayed, so the letters of ingrate are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ingrate",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thankless person is so unfeeling.",
+     "definitionFit": "A very tough igneous rock, often used figuratively for something unyielding and hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rotten"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +987,39 @@
     "enumeration": "7",
     "countFrom": "grid"
    },
-   "solution": "ANDANTE"
+   "solution": "ANDANTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhat slow",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "An",
+       "at": 0
+      },
+      {
+       "words": "Italian writer",
+       "at": 3,
+       "gives": "DANTE",
+       "note": "Dante Alighieri, the Italian poet who wrote the Divine Comedy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian author is a bit sluggish.",
+     "definitionFit": "A musical tempo marking meaning at a moderate walking pace, rather slow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slow"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1033,59 @@
     "text": "Individual charging a spender about two hundred",
     "enumeration": "7"
    },
-   "solution": "ACCUSER"
+   "solution": "ACCUSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Individual charging",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 30,
+       "note": "about means around, so one piece is placed round the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A"
+        },
+        {
+         "words": "spender",
+         "at": 22,
+         "gives": "USER",
+         "note": "a user is one who uses up or consumes, a spender"
+        }
+       ]
+      },
+      {
+       "words": "two hundred",
+       "at": 36,
+       "gives": "CC",
+       "note": "CC is two hundred in Roman numerals, C being one hundred"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big spender running up two hundred is charged.",
+     "walkthrough": "'about' wraps the two hundred inside A plus the spender; a user consumes or spends resources.",
+     "definitionFit": "One who brings a charge against someone is a person making an accusation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charging"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1099,41 @@
     "text": "Old people confined to bed want nice nightwear",
     "enumeration": "5"
    },
-   "solution": "ICENI"
+   "solution": "ICENI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "confined to",
+       "at": 11,
+       "note": "confined to says the letters are held inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nice nightwear",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly folk stuck in bed would like attractive pyjamas.",
+     "walkthrough": "The Iceni were an ancient British tribe led by Boudicca against the Romans.",
+     "definitionFit": "A tribe of ancient Britain is a people from long ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1147,48 @@
     "text": "Young swimmer always to be seen around lake",
     "enumeration": "5"
    },
-   "solution": "ELVER"
+   "solution": "ELVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Young swimmer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 32,
+       "note": "around means the first piece goes round the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "always",
+       "at": 14,
+       "gives": "EVER",
+       "note": "ever means always"
+      },
+      {
+       "words": "lake",
+       "at": 39,
+       "gives": "L",
+       "note": "L is the standard abbreviation for lake on maps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster in the pool is constantly found near the lake.",
+     "definitionFit": "A young eel is a fish in its early stage, so a young swimmer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1202,47 @@
     "text": "Soundness of article about clerical employment",
     "enumeration": "8"
    },
-   "solution": "ACCURACY"
+   "solution": "ACCURACY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soundness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "article",
+       "at": 13,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "words": "about",
+       "at": 21,
+       "gives": "C",
+       "note": "C is short for circa, Latin for about"
+      },
+      {
+       "words": "clerical employment",
+       "at": 27,
+       "gives": "CURACY",
+       "note": "a curacy is the office of a curate, a junior priest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An essay on a priest's job asks how sound it is.",
+     "definitionFit": "Correctness and precision are what make an argument sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1256,11 @@
     "text": "Loot for the sovereign in general",
     "enumeration": "5"
    },
-   "solution": "RIFLE"
+   "solution": "RIFLE",
+   "annotationWithheld": {
+    "why": "Clue as held, 'Loot for the sovereign in general', gives no parse for RIFLE beyond 'Loot': 'for the sovereign in general' builds nothing, and no source gives a printed text that does.",
+    "clue": "Loot for the sovereign in general"
+   }
   },
   {
    "number": 26,
@@ -416,7 +1274,29 @@
     "text": "To agitate could mean gaol!",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To agitate",
+      "at": 0,
+      "meaning": "to mix or rouse up"
+     },
+     {
+      "text": "gaol",
+      "at": 22,
+      "meaning": "slang for prison"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To rouse or mix is one sense; the other is British slang for jail, as in doing time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "agitate"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1311,41 @@
     "enumeration": "9",
     "countFrom": "grid"
    },
-   "solution": "NOVELTIES"
+   "solution": "NOVELTIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Newfangled ideas",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fiction",
+       "at": 34,
+       "gives": "NOVEL",
+       "note": "a novel is a work of fiction"
+      },
+      {
+       "words": "come out even",
+       "at": 17,
+       "gives": "TIES",
+       "note": "ties means draws, finishes level"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh concepts emerge in a work of fiction.",
+     "definitionFit": "New and unusual things or ideas are innovations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 28,
@@ -445,7 +1359,29 @@
     "text": "Ocean-going vessels moving quickly",
     "enumeration": "5"
    },
-   "solution": "FLEET"
+   "solution": "FLEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ocean-going vessels",
+      "at": 0,
+      "meaning": "a navy's ships together"
+     },
+     {
+      "text": "moving quickly",
+      "at": 20,
+      "meaning": "swift, fast"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A navy's group of ships at sea, and an adjective meaning swift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 29,
@@ -459,7 +1395,41 @@
     "text": "A person entitled to order real change",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A person entitled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "change",
+       "at": 32,
+       "note": "change says the letters of real are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "real",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a title demands real reform.",
+     "definitionFit": "A British nobleman ranking above a viscount holds a title, so he is literally entitled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "entitled"
+    }
+   }
   },
   {
    "number": 30,
@@ -479,7 +1449,33 @@
      }
     ]
    },
-   "solution": "TEARJERKER"
+   "solution": "TEARJERKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This is enough to make one weep!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "This is enough to make one weep!",
+       "at": 0,
+       "note": "a sentimental film or story designed to bring on crying"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A sentimental film or book designed to make audiences cry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enough"
+    }
+   }
   }
  ]
 }
