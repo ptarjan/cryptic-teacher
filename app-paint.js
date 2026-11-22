@@ -698,7 +698,7 @@
         if (open.some((o) => o.s.key === s.key)) {
           trackSpec.push({ rung: s.key, label: s.label,
             cls: "step avail" + tint + (s.key === lead && !left ? " lead" : "")
-              + (target && target.rung === s.key ? " cur" : "")
+              + (target && target.rung === s.key ? " cur" + (!solved && !selectedStep(e) ? " sel" : "") : "")
               + (s.key === lead && !left && nuxFreeRung(e, s.key, solved) ? " rung-point" : ""),
             text: name });
           return;

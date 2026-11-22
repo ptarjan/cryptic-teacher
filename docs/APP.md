@@ -53,7 +53,9 @@ Terms used below:
 - **The step track** (`#hint-track`) replaced the numbered button row, the
   locked buttons and the meter sentence. One chip per step the clue has, in
   step order, named Indicator, Definition, Clue type, Pieces, Solution: open
-  (filled in its highlight colour; tapping scrolls to its note), worked out
+  (outlined; tapping selects it as a tab and scrolls to its note; the selected
+  tab, or the current step before any is open, is filled in its colour with a
+  3px bottom bar, and its note carries a left accent in that colour), worked out
   (filled with a star), available (outlined; tapping only CHOOSES the step: it
   opens its question, opens at once when that is free, or becomes the current
   step, heavier outline) or locked (dim, "– Name"). `#hint-meter` now holds
