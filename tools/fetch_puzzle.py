@@ -3246,31 +3246,75 @@ def index_row_deps(path, row):
     nina in it, and the shim on disk, so a deleted or overwritten shim is
     written again. The shim's hash comes off tools/shim_record.py, which
     reads only the shims whose stat moved."""
-    return blog_fact_hash(path), row["id"] in puzzle_tags.blogged_ninas(), shim_record.md5(shim_path(path))
+    return sidecar_blob(path), row["id"] in puzzle_tags.blogged_ninas(), shim_record.md5(shim_path(path))
+
+
+#: A map over more puzzle files than this lists the sidecars' blob ids off
+#: git (sidecar_blob) rather than reading each: the listing is a fixed ~1s.
+SIDECAR_LISTING_MIN = 2000
 
 
 def index_rows(paths, **kw):
     """row_cache.cached_map() of index_row over `paths` (kw: its other
-    options), then the shim hashes it took kept for the next run
-    (shim_record.save), raise or not."""
+    options), with the sidecars' blob ids listed for it when there are many,
+    then the shim hashes it took kept for the next run (shim_record.save),
+    raise or not."""
     import row_cache
+    paths = list(paths)
+    if len(paths) > SIDECAR_LISTING_MIN:
+        _SIDECAR_BLOBS.update(_clean_sidecar_blobs())
     try:
         return row_cache.cached_map("fetch_puzzle", index_row, paths,
                                     roots={"index_row_deps"}, deps=index_row_deps, **kw)
     finally:
+        _SIDECAR_BLOBS.clear()
         shim_record.save()
 
 
-def blog_fact_hash(path):
-    """blog_fact_hashes()'s value for the puzzle file `path`, off the one
-    sidecar beside it (the one blog_store.row_for reads), None with none: a
-    --reindex-changed of 40 files hashed all ~33k sidecars (7.5 of its ~17
-    fixed CPU-s) for the rows of those 40."""
+#: {sidecar path under the repo: git blob id} of each tracked sidecar git
+#: calls unmodified, held only while index_rows() runs.
+_SIDECAR_BLOBS = {}
+
+
+def _clean_sidecar_blobs():
+    """{path under the repo: git blob id} of every tracked blog-facts sidecar
+    git's own stat check (`ls-files -m`) calls unmodified; {} outside a git
+    checkout."""
+    import puzzle_integrity  # lazy: it imports this module
     import blog_store
+    spec = f"{puzzle_paths.PUZZLE_DIR.name}/*{blog_store.SUFFIX}"
     try:
-        return hashlib.sha1(blog_store.sidecar_of(path).read_bytes()).hexdigest()[:16]
+        listed = puzzle_integrity._git("ls-files", "-s", "-z", "--", spec)
+        dirty = set(puzzle_integrity._git("ls-files", "-m", "-z", "--", spec))
+    except (OSError, subprocess.CalledProcessError):
+        return {}
+    out = {}
+    for rec in listed:
+        meta, name = rec.split("\t", 1)
+        _mode, blob, stage = meta.split()
+        if stage == "0" and name not in dirty:
+            out[name] = blob
+    return out
+
+
+def sidecar_blob(path):
+    """The git blob id of the blog-facts sidecar beside the puzzle file `path`
+    (the one blog_store.row_for reads), None with none. A tracked sidecar git
+    calls unmodified gives its index entry's id, which names its exact bytes
+    (git re-reads a file whose stat moved, or one written in the second its
+    index was); a dirty, untracked or unlisted one is read and hashed as git
+    hashes a blob, so the same bytes give the same id either way."""
+    import blog_store
+    side = blog_store.sidecar_of(path)
+    if _SIDECAR_BLOBS:
+        hit = _SIDECAR_BLOBS.get(puzzle_paths.relative(side, puzzle_paths.PUZZLE_DIR.parent))
+        if hit:
+            return hit
+    try:
+        data = side.read_bytes()
     except FileNotFoundError:
         return None
+    return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
 
 
 def reprint_name(series, number):
