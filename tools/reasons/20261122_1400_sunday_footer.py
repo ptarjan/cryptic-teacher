@@ -10,7 +10,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "a Gale Sunday Times 2000-02 page pending no grid, its folio line (number and STYLE) read as a clue, dropped since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-22T13:55:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):

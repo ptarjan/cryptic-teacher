@@ -9,7 +9,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose clue columns stood left of its grid under a wide title, read from them since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD = "2026-11-22T13:55:00+00:00"  # placeholder: the push minute (UTC)
 #: Set while due() asks fix_reason about the row, so the registry's call back here answers False.
 _ASKING = []
 
