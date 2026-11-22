@@ -9,7 +9,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose third clue column's numbers stood in the second window, its second gutter cut at them since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD = "2026-11-22T09:10:00+00:00"  # placeholder: the push minute (UTC)
 INDY_LATE_MIN = 5
 
 
