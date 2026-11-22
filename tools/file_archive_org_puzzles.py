@@ -14960,6 +14960,19 @@ def number_grid_due(row):
         and scan_queue.read_before(row, scan_queue.when(REREAD_NUMBER_GRID))
 
 
+#: A Gale Sunday Times page of 2000-02 whose ACROSS column runs down to the page's folio line, "54-STYLE" (the page
+#: number and the Style section's name, in the column's own print), read as a clue numbered 54 with no words: the list
+#: held a clue naming no light, the grid was backsolved from it and found none ("no grid: the search found no grid", ~60
+#: pages, 2000-08 to 2002-08, where the lists read since SUNDAY_PAIR_LATE).
+SUNDAY_FOOTER_YEARS = ("2000", "2002")
+SUNDAY_FOOTER = re.compile(r"^\W*\d{1,3}\W*STY[\w.]{0,4}\W*$", re.I)
+
+
+def sunday_footer_cut(text):
+    """`text` without the lines that are a folio, a page number and "STYLE" and nothing more."""
+    return "\n".join(ln for ln in text.splitlines() if not SUNDAY_FOOTER.match(ln.strip()))
+
+
 def sunday_times_beside(paper, side):
     """Whether Gale Sunday Times page of `paper` has its grid right of its clue columns (side "left": the title
     right of the grid): the columns run on past left_bottom's cut, to the page's foot."""
@@ -15559,6 +15572,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         texts = {k: first_clue_set(t) for k, t in texts.items()}
     texts = {k: t if k == "vlm" else ocr_clues.unworn(t) for k, t in texts.items()}
     texts.update(reprints)
+    if paper.key == "galesundaytimes" and SUNDAY_FOOTER_YEARS[0] <= d.name[:4] <= SUNDAY_FOOTER_YEARS[1]:
+        texts = {k: sunday_footer_cut(t) for k, t in texts.items()}
     if paper.key == "galeindependent":
         texts = {k: banner_cut(t) for k, t in texts.items()}
     # A Beelzebub's bars read from the lists too: the bar set whose lights lie on the listed numbers and lengths.
