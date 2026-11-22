@@ -3,6 +3,8 @@
 
     python3 tools/drop_clues_only_twin.py puzzles/<series>/<year>/<id>.json ...
     python3 tools/drop_clues_only_twin.py --all      # every id held both ways
+    python3 tools/drop_clues_only_twin.py --force puzzles/<series>/<year>/<id>.json
+                                                     # drop it though it holds more
 
 One id, one state (tools/clues_only.py): a puzzle filed under puzzles/ leaves
 clues_only/<series>/<id>.json. apply_solution's promotion drops it, and
@@ -58,6 +60,8 @@ def problems(puzzle, twin):
 
 
 def main(argv):
+    force = "--force" in argv
+    argv = [a for a in argv if a != "--force"]
     if argv == ["--all"]:
         have = {p.name: p for p in (ROOT / "clues_only").glob("*/*.json")}
         argv = [str(p.relative_to(ROOT)) for p in sorted((ROOT / "puzzles").glob("*/*/*.json"))
@@ -74,7 +78,7 @@ def main(argv):
             why = [f"unreadable ({err})"]
         else:
             why = problems(puzzle, held)
-        if why:
+        if why and not force:
             kept += 1
             print(f"KEPT {twin}: {'; '.join(why)}", file=sys.stderr)
             continue

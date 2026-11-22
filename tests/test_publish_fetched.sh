@@ -22,7 +22,7 @@ ident() { git config user.email nobody@example.com; git config user.name test; }
 git init -q --bare -b master origin.git
 git clone -q origin.git seed 2>/dev/null && cd seed && ident || exit 1
 mkdir -p tools puzzles/cryptic/2026
-cp "$ROOT/tools/publish_fetched.sh" "$ROOT/tools/push_puzzle_commit.sh" "$ROOT/tools/same_history.sh" "$ROOT/tools/clobber_guard.py" tools/
+cp "$ROOT/tools/publish_fetched.sh" "$ROOT/tools/push_puzzle_commit.sh" "$ROOT/tools/same_history.sh" "$ROOT/tools/clobber_guard.py" "$ROOT/tools/drop_clues_only_twin.py" tools/
 echo '{"id":"cryptic-1"}' > puzzles/cryptic/2026/cryptic-1.json
 git add -A && git commit -qm base && git push -q origin master
 cd .. && git clone -q origin.git burn && git clone -q origin.git upstream
@@ -84,5 +84,14 @@ tools/publish_fetched.sh bash -c 'bash ../fetch.sh cryptic-6; exit 7'
 check "the fetch's own failure is returned" "$?" "7"
 check "what a failed fetch wrote reached origin" \
   "$(git cat-file -t origin/master:puzzles/cryptic/2026/cryptic-6.json)" "blob"
+
+# A puzzle filed under puzzles/ takes its clues-only copy in the same commit.
+mkdir -p clues_only/cryptic
+echo '{"id":"cryptic-7","twin":true}' > clues_only/cryptic/cryptic-7.json
+git add clues_only && git commit -qm "twin" && git push -q origin master
+tools/publish_fetched.sh bash ../fetch.sh cryptic-7
+check "the filed puzzle's clues-only twin is gone" "$(ls clues_only/cryptic | tr '\n' ' ')" ""
+check "the twin went in the puzzle's commit" \
+  "$(git show --name-status --format=%s HEAD | tr '\t\n' '  ')" "File cryptic-7 D clues_only/cryptic/cryptic-7.json A puzzles/cryptic/2026/cryptic-7.json "
 
 [ "$fails" = 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

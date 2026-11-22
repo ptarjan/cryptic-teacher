@@ -32,8 +32,16 @@ while IFS= read -r path; do
   verb=File; git cat-file -e "HEAD:$path" 2>/dev/null && verb=Update
   [ -e "$path" ] || verb=Drop
   id=$(basename "$path" .json)
+  # One id, one state: a puzzle filed under puzzles/ takes its clues-only copy
+  # (clues_only/<series>/<id>.json) in the same commit. --force: the integrity
+  # check (FILED) fails on a twin left behind even when its reading differs
+  # (independent-8413); the copy stays in history.
+  twins=()
+  if [ "$verb" = File ] && [[ "$path" == puzzles/* ]]; then
+    mapfile -t twins < <(python3 "$(dirname "$0")/drop_clues_only_twin.py" --force "$path" 2>/dev/null)
+  fi
   git add -A -- "$path" &&
-    git commit -q -m "$verb $id" -- "$path" || {
+    git commit -q -m "$verb $id" -- "$path" ${twins[@]+"${twins[@]}"} || {
     echo "publish_fetched: could not commit $path" >&2; refused=1; continue; }
   "$(dirname "$0")/push_puzzle_commit.sh" && continue
   # --keep: undo only this commit's file; anything else dirty in the tree stays.
