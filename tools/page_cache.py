@@ -206,6 +206,24 @@ def load():
         return {}
 
 
+def may_skip_save(rendered, fp, env=os.environ):
+    """Whether the store on disk, the one this run restored, may stand in for
+    this run's: the deploy's fast path leaves it unwritten (~11s of the page
+    step) when the workflow will not pack it either.
+
+    pages.yml's Pack the puzzle pages runs after more than PAGE_STORE_SKIP_UP_TO
+    pages were rendered, or when the restored store was saved under another
+    page fingerprint. Only when neither holds is the pack skipped, and so only
+    then is the pickle written for nothing: the next run renders the few pages
+    this one did, as a store that is a few runs stale always has. PAGE_STORE_MATCHED
+    is the matched cache key; unset (a local build, the full path), the store is
+    always written."""
+    matched, limit = env.get("PAGE_STORE_MATCHED", ""), env.get("PAGE_STORE_SKIP_UP_TO", "")
+    if not (matched and fp and limit.isdigit()):
+        return False
+    return rendered <= int(limit) and fp in matched
+
+
 def save(entries):
     tmp = STORE.with_suffix(f".{os.getpid()}.tmp")
     with open(tmp, "wb") as f:

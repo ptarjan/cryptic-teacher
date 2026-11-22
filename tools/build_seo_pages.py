@@ -3261,7 +3261,7 @@ def outputs(check=False, shard=None, shards=None, first=False):
                 # In Save the puzzle pages' cache key, where the next build's
                 # tools/cache_warmth.py reads it back.
                 out.write(f"fingerprint={fp}\n")
-        if not check:
+        if not check and not page_cache.may_skip_save(len(solved) - reused, fp):
             page_cache.save(keep)
     took("the puzzle pages", started)
 
@@ -3409,19 +3409,31 @@ def orphans(files):
     Anything that does not fit the shape is returned as a leftover rather than
     removed — an unexpected file under puzzles/ is a question, not a target.
     """
-    series_dir = puzzle_paths.PUZZLE_DIR / "series"
-    sources = {p.parent.parent for p in puzzle_paths.puzzle_files()}
-    wanted = {p.parent for p in files} | {series_dir} | sources
+    # Strings and scandir, not Paths: ~70k directories, and Path objects built,
+    # hashed and sorted for each were ~8s of a ~10s step (run 44984839816).
+    # scandir's entries know their type without a stat. The same candidates,
+    # the same tests, the same answer.
+    series_dir = os.fspath(puzzle_paths.PUZZLE_DIR / "series")
+    sources = {os.path.dirname(os.path.dirname(os.fspath(p))) for p in puzzle_paths.puzzle_files()}
+    wanted = {os.path.dirname(os.fspath(p)) for p in files} | {series_dir} | sources
     dead, unexpected = [], []
+
+    def consider(entry):
+        if entry.path in wanted or not entry.is_dir():
+            return
+        (dead if os.listdir(entry.path) == ["index.html"] else unexpected).append(Path(entry.path))
+
+    with os.scandir(puzzle_paths.PUZZLE_DIR) as top:
+        for entry in top:
+            consider(entry)
     # series/<series>/<year>/ is the one nested shape, so it gets the same test.
-    for d in sorted([*puzzle_paths.PUZZLE_DIR.iterdir(), *series_dir.glob("*/*")]):
-        if not d.is_dir() or d in wanted:
-            continue
-        if [x.name for x in d.iterdir()] == ["index.html"]:
-            dead.append(d)
-        else:
-            unexpected.append(d)
-    return dead, unexpected
+    if os.path.isdir(series_dir):
+        with os.scandir(series_dir) as listed:
+            for each in [e.path for e in listed if e.is_dir()]:
+                with os.scandir(each) as years:
+                    for entry in years:
+                        consider(entry)
+    return sorted(dead), sorted(unexpected)
 
 
 def shard_arg(argv):

@@ -16,7 +16,7 @@ import time
 
 #: The last build step the deployed site depends on.
 READY_STEP = "Keep the IndexNow list"
-POLL_SECONDS = 5
+POLL_SECONDS = 2
 
 
 def build_job(repo, run_id, attempt):

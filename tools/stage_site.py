@@ -98,6 +98,17 @@ def gzip_shim(rel):
     bytes; (rel, md5 of rel)."""
     src, manifest = _GZ
     js, gz = src / rel, src / (rel + ".gz")
+    # A .gz newer than its shim, with the shim's digest on record, was made
+    # from these bytes: a shim written since (a changed puzzle) is newer than
+    # the .gz and is read. ~90k shims are ~500MB to read and hash on every
+    # deploy otherwise. tar keeps whole seconds, which keeps the order.
+    known = manifest.get(rel)
+    if known:
+        try:
+            if gz.stat().st_mtime >= js.stat().st_mtime:
+                return rel, known
+        except OSError:
+            pass
     data = js.read_bytes()
     digest = hashlib.md5(data).hexdigest()
     if manifest.get(rel) != digest or not gz.is_file():

@@ -129,7 +129,9 @@ jobs:
           auth=$(printf 'x-access-token:%s' "${TOKEN:-}" | base64 -w0)
           git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
             fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
-          git checkout -q --force -B master refs/remotes/origin/master
+          # Writing ~54k files is inflating and writing, which parallel checkout
+          # spreads over the cores (checkout.workers=0 is one per core).
+          git -c checkout.workers=0 checkout -q --force -B master refs/remotes/origin/master
           git update-ref refs/ct/base HEAD
           echo "git store: $(du -sm .git/objects | cut -f1)MB"
       - name: Set up Python
@@ -141,6 +143,16 @@ jobs:
       # tools/og_palette.py, which make_og.sh runs on every card.
       - name: Install Pillow
         run: pip install pillow
+      # The network and git half of Choose the build path (tools/probe_path.sh:
+      # the live commit, a blobless fetch of its trees, the diff), started in the
+      # background so it runs while the four cache restores below download,
+      # instead of after them. 23s of the critical path. The step that
+      # decides reads what it found.
+      - name: Start the build path probe
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: bash tools/bg_job.sh start probe bash tools/probe_path.sh "$RUNNER_TEMP/probe"
       # tools/row_cache.py's store: each puzzle's index row, difficulty inputs
       # and card facts, keyed on its file's git blob and the code that made
       # them, so the reindex and the card list re-read only the puzzles a push
@@ -234,14 +246,15 @@ jobs:
             *) full "a $EVENT run" ;;
           esac
           [ "$CACHED" = true ] || full "no restored row or page cache"
-          # The live site's commit, from the deployments (one call; it used to
-          # be a walk over the last runs' jobs, 6 to 18s). Dispatch runs deploy
-          # too now, which that walk (push runs only) could not see.
-          base=$(python3 tools/last_deploy.py "$REPO") || full "no successful deploy to diff against"
-          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-          GIT_TERMINAL_PROMPT=0 git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
-            fetch --no-tags --no-recurse-submodules --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
-          verdict=$(GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py decide --site --code-ok "$base") || full "could not diff against $base"
+          # The live site's commit, its blobless fetch and the diff against it
+          # were made while the caches downloaded (Start the build path probe,
+          # tools/probe_path.sh, which says what each answer means). One call
+          # to the deployments finds the commit; it used to be a walk over the
+          # last runs' jobs, 6 to 18s. Dispatch runs deploy too now, which
+          # that walk (push runs only) could not see.
+          bash tools/bg_job.sh wait probe || full "the build path probe died"
+          verdict=$(cat "$RUNNER_TEMP/probe/verdict" 2>/dev/null) || full "the build path probe left no verdict"
+          base=$(cat "$RUNNER_TEMP/probe/base" 2>/dev/null || true)
           case "$verdict" in
             fast) ;;
             code\ *)
@@ -251,10 +264,10 @@ jobs:
               warmth=$(python3 tools/cache_warmth.py "$fp")
               [ "$warmth" = warm ] || full "$verdict, and the stores are $warmth"
               echo "the row and page stores fit this code" ;;
+            full\ *) full "${verdict#full }" ;;
             *) full "$verdict" ;;
           esac
-          GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py files "$base" > "$RUNNER_TEMP/puzzles.txt" || full "too many puzzles changed since $base"
-          echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/puzzles.txt") puzzle file(s) since $base"
+          echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/probe/puzzles.txt") puzzle file(s) since $base"
           echo "fast=true" >> "$GITHUB_OUTPUT"
       # app.js reads the glossary from a <script> tag, so the file has to exist
       # before anything hashes it. That is this early because --reindex restamps
@@ -334,10 +347,15 @@ jobs:
       - name: Warm the row cache, slice 8 of 8
         if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 7/8
-      - name: Build the puzzle shims and reindex
-        run: |
-          python3 tools/fetch_puzzle.py --reindex
-          python3 tools/prune_shims.py
+      # The reindex is a few dozen seconds of the four cores, and the three
+      # steps below it (two cache restores and an unpack) are the network and
+      # a disk, none of which it reads or writes: it takes rows, shims and the
+      # puzzle files, they bring the cards, the IndexNow manifest and the
+      # stored pages. So it starts here, in the background, and the step that
+      # was its own (Build the puzzle shims and reindex) collects it after
+      # them. On the full path the warming slices above still ran before it.
+      - name: Start the reindex
+        run: bash tools/bg_job.sh start reindex python3 tools/fetch_puzzle.py --reindex
       # The cards are ~570MB of PNGs (run 38460299301) that change a few files
       # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
       # their manifest between runs, and make_og.sh draws only the ones whose
@@ -350,19 +368,16 @@ jobs:
           path: og
           key: og-cards-${{ github.sha }}
           restore-keys: og-cards-
-      # Before the pages, which point a puzzle at its own card only if the file
-      # is already on disk — built the other way round, a new puzzle would
-      # advertise the site card instead of its own.
-      # A card is redrawn only when the HTML it is screenshot from changes
-      # (make_og_card.card_key), so a push redraws the cards of the puzzles it
-      # touched and an edit to the drawing code redraws only the cards whose
-      # picture it moved. OG_LIMIT caps one run's drawing at ~1s a card so a
-      # change that does move every card (a template redesign) drains over
-      # later runs instead of holding this deploy past its budget.
-      - name: Draw the social cards
-        run: bash tools/make_og.sh --all
-        env:
-          OG_LIMIT: "120"
+      # The pages this deploy changes, for IndexNow once it is live. The cache
+      # carries the last build's page hashes; a cold one sends the recent
+      # sitemap (see tools/indexnow.py). Restored before the site checks
+      # start, since one of them reads it.
+      - name: Restore the IndexNow manifest
+        uses: actions/cache/restore@v5
+        with:
+          path: .indexnow
+          key: indexnow-${{ github.sha }}
+          restore-keys: indexnow-
       # Last build's puzzle pages and their keys (tools/page_cache.py): a page
       # is rendered again only when its puzzle file, index row, neighbours,
       # card or stamped assets moved, or the code a puzzle page runs (what
@@ -377,6 +392,24 @@ jobs:
       # to know the store is there; unpacked here.
       - name: Unpack the puzzle pages
         run: bash tools/cache_tar.sh unpack .page-cache.tar
+      # Collects the reindex, then drops the shims it no longer names.
+      - name: Build the puzzle shims and reindex
+        run: |
+          bash tools/bg_job.sh wait reindex
+          python3 tools/prune_shims.py
+      # Before the pages, which point a puzzle at its own card only if the file
+      # is already on disk — built the other way round, a new puzzle would
+      # advertise the site card instead of its own.
+      # A card is redrawn only when the HTML it is screenshot from changes
+      # (make_og_card.card_key), so a push redraws the cards of the puzzles it
+      # touched and an edit to the drawing code redraws only the cards whose
+      # picture it moved. OG_LIMIT caps one run's drawing at ~1s a card so a
+      # change that does move every card (a template redesign) drains over
+      # later runs instead of holding this deploy past its budget.
+      - name: Draw the social cards
+        run: bash tools/make_og.sh --all
+        env:
+          OG_LIMIT: "120"
       # A cold render of the ~60k puzzle pages costs ~8.4ms a page (run 42540698988:
       # 9954 pages a shard of 6 in 84s plus 7s startup = 93-96s, over the 90s budget;
       # it was ~62s when the corpus was ~54k). A page-code change makes every build
@@ -425,6 +458,12 @@ jobs:
       - name: Generate the crawlable pages (puzzle push)
         id: pages_fast
         if: steps.scope.outputs.fast == 'true'
+        # Not writing the store (~11s) when Pack the puzzle pages will not pack
+        # it: the same bar and the same fingerprint test as its condition
+        # (page_cache.may_skip_save).
+        env:
+          PAGE_STORE_MATCHED: ${{ steps.pagecache.outputs.cache-matched-key }}
+          PAGE_STORE_SKIP_UP_TO: "800"
         run: python3 tools/build_seo_pages.py --reuse-first
       # Every page that is not a puzzle gets a card of its own title and
       # description, so these are drawn from the pages and come after them.
@@ -434,16 +473,6 @@ jobs:
         run: bash tools/make_og.sh --pages
       - name: Stamp the assets
         run: python3 tools/stamp_assets.py
-      # The pages this deploy changes, for IndexNow once it is live. The cache
-      # carries the last build's page hashes; a cold one sends the recent
-      # sitemap (see tools/indexnow.py). Restored before the site checks
-      # start, since one of them reads it.
-      - name: Restore the IndexNow manifest
-        uses: actions/cache/restore@v5
-        with:
-          path: .indexnow
-          key: indexnow-${{ github.sha }}
-          restore-keys: indexnow-
       # Only the site goes up, not the checkout: tools/stage_site.py names
       # what PUBLISH covers as a tar file list, and tar reads those files
       # where they are. It used to hard-link all ~138k into _site/ first,
