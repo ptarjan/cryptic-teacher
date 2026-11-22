@@ -210,10 +210,12 @@ jobs:
       # same checks. "Only puzzle files" is tools/ci_scope.py's answer (the
       # one tests.yml's fast path uses, asked with --site so that tests,
       # docs and the other workflows, which the build never reads, do not
-      # count): any other path, a deleted puzzle, more
-      # than MAX_FILES puzzles, a manual or scheduled run, no deploy to diff
-      # against or no restored row and page caches (a cold build is what the
-      # slices and shards are for) is the full path below.
+      # count). Any other change (a deleted or renamed puzzle, more than
+      # MAX_FILES puzzles, no deploy to diff against, a workflow or data
+      # edit) takes the same path when the stores are warm, by the
+      # tools/cache_warmth.py check below. A manual full or scheduled run, or
+      # no restored row and page caches (a cold build is what the slices and
+      # shards are for), is the full path below.
       # A tools/*.py module or a static file of the site (style.css, app-*.js,
       # an icon) among the changes is not by itself the full path
       # (ci_scope --code-ok answers "code"). A stylesheet or script edit moves
@@ -259,19 +261,30 @@ jobs:
           bash tools/bg_job.sh wait probe || full "the build path probe died"
           verdict=$(cat "$RUNNER_TEMP/probe/verdict" 2>/dev/null) || full "the build path probe left no verdict"
           base=$(cat "$RUNNER_TEMP/probe/base" 2>/dev/null || true)
+          # The probe's verdict only says what moved since the live commit.
+          # What makes the slices and shards worth running is a cold store,
+          # and the stores say that themselves (cache_warmth.py), whatever
+          # moved: a renumbered puzzle (a deleted file plus an added one) or a
+          # workflow edit used to send a build down the full path, nine shard
+          # steps that each spent ~27s loading the stores to reuse nearly
+          # every page (run 45007344321). Only the plain puzzle push skips
+          # the check, since nothing the stores are keyed on moved.
+          why=""
           case "$verdict" in
             fast) ;;
-            code\ *)
-              echo "tools/ modules moved since $base: ${verdict#code }"
-              # seo-pages-<page fingerprint>-<sha>; an older key carries none.
-              fp=$(printf '%s' "$PAGEKEY" | sed -nE 's/^seo-pages-([0-9a-f]{64})-[0-9a-f]{40}$/\1/p')
-              warmth=$(python3 tools/cache_warmth.py "$fp")
-              [ "$warmth" = warm ] || full "$verdict, and the stores are $warmth"
-              echo "the row and page stores fit this code" ;;
-            full\ *) full "${verdict#full }" ;;
-            *) full "$verdict" ;;
+            code\ *) why="tools/ modules moved since $base: ${verdict#code }" ;;
+            full\ *) why="${verdict#full }" ;;
+            *) why="$verdict" ;;
           esac
-          echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/probe/puzzles.txt") puzzle file(s) since $base"
+          if [ -n "$why" ]; then
+            echo "not a plain puzzle push: $why"
+            # seo-pages-<page fingerprint>-<sha>; an older key carries none.
+            fp=$(printf '%s' "$PAGEKEY" | sed -nE 's/^seo-pages-([0-9a-f]{64})-[0-9a-f]{40}$/\1/p')
+            warmth=$(python3 tools/cache_warmth.py "$fp")
+            [ "$warmth" = warm ] || full "$why, and the stores are $warmth"
+            echo "the row and page stores fit this code"
+          fi
+          echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/probe/puzzles.txt" 2>/dev/null || echo 0) puzzle file(s) since ${base:-?}"
           echo "fast=true" >> "$GITHUB_OUTPUT"
       # app.js reads the glossary from a <script> tag, so the file has to exist
       # before anything hashes it. That is this early because --reindex restamps
