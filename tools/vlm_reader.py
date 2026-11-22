@@ -822,7 +822,11 @@ def feed_target():
 #: and 3 behind 4-7, so the old bar of 4 no longer met them. The drainer clears ~7 asks a minute: behind 14
 #: the answers come in about 2 min, no longer than the second run, and the wait burns no CPU (the VLM
 #: slows when the host's CPU is pegged). SPOOL_WAIT still bounds the wait.
-SHALLOW = 14
+#: 11-22 04:52-05:25 UTC at 14: reads ended deferred fell from 31% to 8.5% of unit time, but a read that
+#: wrote took 238-290 s (122 s before), writes per unit-hour went 6.53 -> 5.65 and asks 65 -> 56 per
+#: 10 min: the waiting read held its slot as long as a second run would have. Back to the feed target
+#: (4); the cut in asks is made at their source instead (edition_queue.low_yield_cap).
+SHALLOW = 4
 
 
 def shallow_bar(target=None):

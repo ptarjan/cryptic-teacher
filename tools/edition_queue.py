@@ -2744,11 +2744,17 @@ def reason_cap_for(ceiling):
 LOW_YIELD = ("never read (Gale fetch)",)
 
 
-def low_yield_cap(reason, cap):
+def low_yield_cap(reason, cap, vlm_busy=False):
     """The most units of `reason` at once while other work waits: `cap` (reason_cap_for; 0 = off), or
-    for a LOW_YIELD reason a third of it (CT_LOW_YIELD_DIV), at least 1."""
+    for a LOW_YIELD reason a third of it (CT_LOW_YIELD_DIV), at least 1, and none at all while the VLM
+    has a backlog (`vlm_busy`: asks spooled at or over the feed target). 11-22 00:00-04:50 UTC: Mephisto
+    Gale-fetch reads made 505 of 1,527 VLM asks (33%, 5.0 an edition against 2.1-4.1 for the dailies)
+    for 3.4% of their reads filed, while 80 of 92 deferred reads waited behind 8+ spooled asks: with the
+    VLM busy their asks only delay the asks of pages that file. They start again once the spool is short."""
     if not cap or not (reason or "").startswith(LOW_YIELD):
         return cap
+    if vlm_busy and os.environ.get("CT_LOW_YIELD_BUSY", "0") != "1":
+        return 0
     try:
         div = max(1, int(os.environ.get("CT_LOW_YIELD_DIV", "3")))
     except ValueError:
@@ -4539,6 +4545,10 @@ class _SlotBalancer:
                 f"(unit ceiling {mem_gate.unit_ceiling()})" if self.scan_wide else
                 f"scan pool: back to {self.pools['scan']}, reads are ready or nothing waits on a scan")
 
+    def vlm_busy(self):
+        """Whether the VLM has a backlog: asks spooled at or over the feed target (low_yield_cap)."""
+        return len(self.queued) >= vlm_feed_target()
+
     def count_reasons(self):
         # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
         # and the VLM got no asks. While other reads wait, units of one reason run at most reason_cap at once.
@@ -4586,7 +4596,7 @@ class _SlotBalancer:
             self.non_times_bound[0] = self.non_times_capped
             reason_hit = self.reason_capped[0] if self.reason_capped else None
             if reason_hit and reason_hit != self.reason_cap_logged[0]:
-                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {low_yield_cap(reason_hit[1], self.reason_cap)}); other work starts")
+                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {low_yield_cap(reason_hit[1], self.reason_cap, self.vlm_busy())}); other work starts")
             self.reason_cap_logged[0] = reason_hit
 
     def log_bounds(self):
@@ -4743,7 +4753,7 @@ class _RankPicker:
         # 10-30: a read whose reason is at its cap is not ready: the walk skips it while a scan waits, so
         # counting it held every scan back as "fed" for reads that could not start (load 8 on 28 threads).
         return [v for v, k in self.read_cands if k not in self.tried and k not in self.busy and not self.waits(v) and not self.vlm_waits(v)
-                and not (self.reason_cap and v.get("reason") and self.reason_live.get(v["reason"], 0) >= low_yield_cap(v["reason"], self.reason_cap))]
+                and not (self.reason_cap and v.get("reason") and self.reason_live.get(v["reason"], 0) >= low_yield_cap(v["reason"], self.reason_cap, self.vlm_busy()))]
 
     def fed(self, u):
         """Whether scan `u` only feeds a backlog: the next full read pool
@@ -4871,7 +4881,7 @@ class _RankPicker:
                 self.cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
                 continue
             if (self.reason_cap and u["kind"] != "fetch" and u.get("reason") and ukey not in self.fill_keys
-                    and self.reason_live.get(u["reason"], 0) >= low_yield_cap(u["reason"], self.reason_cap) and self.others_wait(u["reason"])):
+                    and self.reason_live.get(u["reason"], 0) >= low_yield_cap(u["reason"], self.reason_cap, self.vlm_busy()) and self.others_wait(u["reason"])):
                 self.reason_capped.append((self.reason_live[u["reason"]], u["reason"]))
                 continue  # waits (not dropped): other work starts first
             if self.urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
