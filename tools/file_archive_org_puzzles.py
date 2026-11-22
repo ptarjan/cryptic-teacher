@@ -3858,6 +3858,19 @@ def ft_rise(paper, grid, title):
     return min(FT_RISE_MAX, max(RIGHT_RISE, int(grid[1] - title[1] + FT_RISE_PAD)))
 
 
+#: INDY_SIDE_RIGHT: the Gale Independent 2000-04 page whose grid stands left of its title (locate_grid's "left") with the
+#: clue columns right of the grid, under the title (2001-02-26 No 4480: grid x 270-1364, title 1391-2192, ACROSS at 1533, three
+#: columns from x 1391): only the Times-family pages read the strip right of a "left" grid, the Independent's were read from a
+#: crop left of it (0-247 px, no words: "too few neighbouring white cells" and "no reading parses", ~48 pages 2001-03).
+INDY_SIDE_YEARS = ("2000", "2004")
+
+
+def indy_side_right(paper, d, gbox, title):
+    """Whether the Independent page `d` (grid `gbox`, title box `title`) has its clue columns right of a grid left of its title."""
+    return paper.key == "galeindependent" and INDY_SIDE_YEARS[0] <= d.name[:4] <= INDY_SIDE_YEARS[1] \
+        and gbox is not None and bool(title) and title[0] >= gbox[2] - 40 and title[2] - title[0] >= 0.6 * (gbox[2] - gbox[0])
+
+
 def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE, roomy=False):
     """(x1, bottom) of the two clue columns right of `grid`, or None when the
     clues are not there: they are only when the page ends too soon under the
@@ -15287,7 +15300,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # SUNTEL_SIDE_RIGHT: the Gale Sunday Telegraph 1995-2000's page the same (1998-09-20: grid x 210-956, title 1149-1578).
     sunday_top = side == "left" and paper.key == "galesundaytimes" and band_beside is None and column is None \
         and SUNDAY_BAND_YEARS[0] <= d.name[:4] <= SUNDAY_BAND_YEARS[1] and sunday_top_page(gbox, hit["box"])
-    if side == "left" and (paper.key in ("times", "gale", "galeft", "galesundaytelegraph") or sunday_top) \
+    if side == "left" and (paper.key in ("times", "gale", "galeft", "galesundaytelegraph") or sunday_top
+                           or indy_side_right(paper, d, gbox, hit["box"])) \
             and not paper.four and not third:
         right = right_columns(img, gbox, SUNDAY_TOP_SPAN if sunday_top else RIGHT_SPAN_LEFT,
                               ft_rise(paper, gbox, hit["box"]),
