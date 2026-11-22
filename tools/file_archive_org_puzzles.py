@@ -13750,7 +13750,27 @@ def located_loose(d, img, title, right=False):
                 and again[0][2] >= found[0][2] - 4 and again[0][3] >= found[0][3] - 4 \
                 and not shaped_on(img, again[0]) and loose_shaped(img, again[0]):
             return again
+    # INDY_SIDE_GRID: the 2000-04 Independent page whose grid under the title locate_grid's LIVE_OVER_SOLUTION rule gave up for a
+    # photograph left of the title that is no lattice (2001-02-26 No 4480: grid x 1797-2517 under the title, the "left" box x 270-1364
+    # a picture 1.5 times as wide, "too few neighbouring white cells"): the grid under the title is the live one.
+    if found[1] == "left" and found[0] is not None and not right and paper_of(d).key == "galeindependent" \
+            and INDY_SIDE_YEARS[0] <= d.name[:4] <= INDY_SIDE_YEARS[1] and not box_lattice(img, found[0]):
+        under = indy_title_grid(img, title)
+        if under is not None and box_lattice(img, under):
+            return under, "below"
     return found
+
+
+def indy_title_grid(img, title):
+    """The grid-shaped ink under `title` (locate_grid's "below" crop and tests, without its solution-dwarfing rule), or None."""
+    x0, _, x1, y1 = title
+    crop = (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + int(1.3 * (x1 - x0)) + 80))
+    if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
+        return None
+    box = footed(img, ink_in(img, crop, ("top",)))
+    if box is None or box[1] <= crop[1] + 2 or box[0] > x1 + 120 or not shaped_on(img, box):
+        return None
+    return box
 
 
 def box_lattice(img, box):
