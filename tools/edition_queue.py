@@ -2978,6 +2978,58 @@ def key_of(unit):
     return unit["kind"], unit["paper"], unit["rel"]
 
 
+#: A read or scan killed for running past its limit is not started again for OVERRUN_HOLD seconds, doubled
+#: for each kill of it so far, at most OVERRUN_HOLD_MAX (11-20/21: two Gale FT reads, 1993-07-09 and
+#: 1993-07-22, were started 38 times in two days and each time held a unit slot at 100% of a core for the
+#: whole 3600 s limit: 23 unit-hours on 11-21, 1 slot in 8 with the ceiling at 8). Kept in a file, so a
+#: re-exec or a new slice keeps the hold; keyed by the unit's reason too, so a fix that re-dues it under
+#: a new reason is tried at once. CT_OVERRUN_HOLD overrides (0 = off).
+OVERRUN_HOLD = int(os.environ.get("CT_OVERRUN_HOLD") or 6 * 3600)
+OVERRUN_HOLD_MAX = 7 * 86400
+
+
+def overrun_path():
+    return Path(os.environ.get("HOME") or "/tmp") / ".cache" / "corpus_queue" / "overruns.json"
+
+
+def overrun_key(unit):
+    return "|".join((unit["kind"], unit["paper"], unit["rel"], unit.get("reason") or ""))
+
+
+def overrun_note(store, key, now):
+    """`store` ({key: [kills, when last]}) with one more kill of `key` at `now` (epoch seconds)."""
+    return {**store, key: [(store.get(key) or [0, 0])[0] + 1, now]}
+
+
+def overrun_hold(entry, now, hold=None):
+    """Seconds left before a unit killed `entry[0]` times, last at `entry[1]`, may start again: `hold`
+    (OVERRUN_HOLD) after the first kill, doubled for each one more, never over OVERRUN_HOLD_MAX. 0: start."""
+    hold = OVERRUN_HOLD if hold is None else hold
+    if not entry or hold <= 0:
+        return 0
+    kills, last = entry
+    return max(0, last + min(OVERRUN_HOLD_MAX, hold * 2 ** min(kills - 1, 20)) - now)
+
+
+def overruns_load(path=None):
+    try:
+        got = json.loads((path or overrun_path()).read_text())
+        return {k: [int(v[0]), float(v[1])] for k, v in got.items()} if isinstance(got, dict) else {}
+    except (OSError, ValueError, TypeError, IndexError):
+        return {}
+
+
+def overruns_save(store, path=None):
+    path = path or overrun_path()
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(store, indent=0, sort_keys=True))
+        os.replace(tmp, path)
+    except OSError:
+        pass
+
+
 def scan_share(ceiling, reads_due):
     """The most scans at once while reads are due: a third of the unit ceiling, at least 1.
     None when no read waits (scans keep their whole pool)."""
@@ -4253,6 +4305,11 @@ class _Children:
                      unit_limit(unit, self.read_seconds) if unit["kind"] == "read" else self.scan_seconds)
             if time.monotonic() - t0 > limit:
                 log(f"{unit['kind']} {unit['rel']}{batch_note(unit)} ran past {limit}s; killed, left for the next run")
+                if unit["kind"] in ("read", "scan") and unit["paper"] != "listener" and pid not in self.overrun_pids:
+                    # (noted once a kill; read again first, so another queue's notes are kept)
+                    self.overrun_pids.add(pid)
+                    self.overruns = overrun_note({**self.overruns, **overruns_load()}, overrun_key(unit), time.time())
+                    overruns_save(self.overruns)
                 try:
                     os.killpg(pid, signal.SIGKILL)
                 except ProcessLookupError:
@@ -4774,6 +4831,14 @@ class _RankPicker:
                 break  # (the media share noted down this pass: nothing more starts until it answers)
             if not may_start() or free[uslot] <= 0 or ukey in tried:
                 continue
+            if self.overruns and overrun_key(u) in self.overruns:
+                wait = overrun_hold(self.overruns[overrun_key(u)], time.time())
+                if wait > 0:
+                    # Not this run: `tried` also keeps it out of the VLM feed's picks (gpu_fill).
+                    self.tried.add(ukey)
+                    log(f"overrun hold: {u['kind']} {u['rel']} was killed at its limit {self.overruns[overrun_key(u)][0]} time(s); "
+                        f"not started again for {wait / 3600:.1f} h ({u.get('reason') or 'no reason'})")
+                    continue
             if non_times_held(u, self.times_papers, self.times_due, self.non_times_live, NON_TIMES_BESIDE_TIMES):
                 self.non_times_capped = True  # Times first: the slots left are for its scans and reads
                 continue
@@ -4928,6 +4993,8 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
         self.scanned, self.scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
         self.outcomes = {}
         self.losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
+        self.overruns = overruns_load()  # overrun_key(unit): [kills at its limit, when last] (overrun_hold)
+        self.overrun_pids = set()
         self.unbatched = set()  # keys of the editions of a batch that ended deferred: read alone from then on (batch_mates)
         # Paul 10-13: "If the vision model is down and you need it just go onto
         # the next scan and do it when it is back". The reads that ended deferred

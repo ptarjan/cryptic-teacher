@@ -2928,6 +2928,14 @@ check("hold_step_up: a step up waits out a swap cool-down and a short VM; downs 
       (mg.hold_step_up(20, 22, 100, 200, 16 * G), mg.hold_step_up(20, 16, 100, 200, 0),
        mg.hold_step_up(20, 22, 300, 200, mg.FLOOR), mg.hold_step_up(20, 22, 300, None, 16 * G),
        mg.hold_step_up(20, 22, 300, None, mg.FLOOR + mg.UNIT), mg.hold_step_up(20, 22, 300, None, None)))
+check("step_up_held: names the cool-down or the short VM; None for a down step or a roomy up",
+      (True, True, None, None, None),
+      ("cool-down, 100 s left" in mg.step_up_held(20, 22, 100, 200, 16 * G), "available" in mg.step_up_held(20, 22, 300, None, mg.FLOOR),
+       mg.step_up_held(20, 16, 100, 200, 0), mg.step_up_held(20, 22, 300, 200, 16 * G), mg.step_up_held(20, 22, 300, None, None)))
+check("cool_after: only a swap step-down starts the cool-down; swap read at the floor or a CPU step-down leaves it",
+      (1000 + mg.SWAP_COOL, 500, None, 500),
+      (mg.cool_after(16, 8, mg.SWAP_DOWN_MB + 1, 1000, 500), mg.cool_after(8, 8, mg.SWAP_DOWN_MB + 1, 1000, 500),
+       mg.cool_after(16, 14, 0, 1000, None), mg.cool_after(8, 10, None, 1000, 500)))
 _cf = os.path.join(tempfile.mkdtemp(), "unit_ceiling")
 os.environ["CT_UNIT_CEILING_FILE"] = _cf
 with open(_cf, "w") as _f:
@@ -2957,6 +2965,20 @@ M = 1 << 20
 _ps =[(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
 check("tree_rss: a unit is charged with its children and theirs", {10: 230 * M, 20: 70 * M},
       mg.tree_rss([10, 20, 99], _ps))
+_ov = eq.overrun_note(eq.overrun_note({}, "k", 1000), "k", 5000)
+check("overrun_note: counts the kills of a key and keeps the last time", {"k": [2, 5000]}, _ov)
+check("overrun_hold: the hold doubles a kill, is capped, ends, and is off at 0 or with no entry",
+      (3600, 7200 - 100, 0, eq.OVERRUN_HOLD_MAX, 0, 0),
+      (eq.overrun_hold([1, 1000], 1000, 3600), eq.overrun_hold([2, 1000], 1100, 3600), eq.overrun_hold([1, 1000], 4600, 3600),
+       eq.overrun_hold([40, 1000], 1000, 3600), eq.overrun_hold([3, 1000], 1000, 0), eq.overrun_hold(None, 1000, 3600)))
+check("overrun_key: the reason is part of it, so a re-due under a new reason starts at once",
+      (True, False),
+      (eq.overrun_key({"kind": "read", "paper": "ft", "rel": "a/b", "reason": "x"}) == "read|ft|a/b|x",
+       eq.overrun_key({"kind": "read", "paper": "ft", "rel": "a/b", "reason": "y"}) in {"read|ft|a/b|x": [1, 0]}))
+_ovp = Path(tempfile.mkdtemp()) / "sub" / "overruns.json"
+eq.overruns_save(_ov, _ovp)
+check("overruns_save/load: round trip; a missing file is empty", ({"k": [2, 5000.0]}, {}),
+      (eq.overruns_load(_ovp), eq.overruns_load(_ovp.with_name("none.json"))))
 check("unit_costs: the largest unit of a kind, at least UNIT_MIN; kinds none runs are absent",
       {"read": 230 * M, "scan": 900 * M, "fetch archive.org": mg.UNIT_MIN},
       mg.unit_costs({10: "read", 20: "read", 30: "scan", 40: "fetch archive.org"}, _ps))

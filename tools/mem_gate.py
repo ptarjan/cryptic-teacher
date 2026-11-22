@@ -180,16 +180,32 @@ SWAP_COOL = int(os.environ.get("CT_SWAP_COOL") or 1800)
 VM_UP_UNITS = int(os.environ.get("CT_VM_UP_UNITS") or 4)
 
 
-def hold_step_up(cur, new, now, cool_until, vm_avail):
-    """`new` unless it is a step up while a swap cool-down runs (now < cool_until) or the VM has under
-    FLOOR + VM_UP_UNITS x UNIT available (vm_avail bytes; None: no figure, no hold); then `cur`."""
+def step_up_held(cur, new, now, cool_until, vm_avail):
+    """Why a step up from `cur` to `new` is held, or None (not a step up, or nothing holds it): a swap
+    cool-down still running (now < cool_until), or the VM with under FLOOR + VM_UP_UNITS x UNIT available
+    (vm_avail bytes; None: no figure, no hold)."""
     if new <= cur:
-        return new
+        return None
     if cool_until is not None and now < cool_until:
-        return cur
+        return f"swap cool-down, {int(cool_until - now)} s left"
     if vm_avail is not None and vm_avail < FLOOR + VM_UP_UNITS * UNIT:
-        return cur
-    return new
+        return f"VM has {vm_avail >> 20} MB available, under {(FLOOR + VM_UP_UNITS * UNIT) >> 20} MB"
+    return None
+
+
+def hold_step_up(cur, new, now, cool_until, vm_avail):
+    """`new` unless it is a step up that step_up_held() holds; then `cur`."""
+    return cur if step_up_held(cur, new, now, cool_until, vm_avail) else new
+
+
+def cool_after(cur, new, swap_mb, now, cool_until):
+    """The swap cool-down's end after a probe: now + SWAP_COOL when VM swap (over SWAP_DOWN_MB a minute)
+    actually stepped the ceiling down (new < cur), else `cool_until` unchanged. 11-21 19:41-20:21: the
+    ceiling sat at its floor of 8 for 40 min with nothing logged, each probe that read the swap-in of
+    pages a past storm had pushed out starting the 30 min again though nothing could step down."""
+    if new < cur and (swap_mb or 0) > SWAP_DOWN_MB:
+        return now + SWAP_COOL
+    return cool_until
 
 
 def clamp_ceiling_start(start=None, log=None):
@@ -318,9 +334,17 @@ class CeilingController:
                            int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), swap,
                            faults, low, self.running)
         now = time.monotonic()
-        if (swap or 0) > SWAP_DOWN_MB:
-            self.cool_until = now + SWAP_COOL
-        new = hold_step_up(cur, new, now, self.cool_until, available())
+        self.cool_until = cool_after(cur, new, swap, now, self.cool_until)
+        avail = available()
+        held = step_up_held(cur, new, now, self.cool_until, avail)
+        if held is None and new == cur and swap and swap > SWAP_HOLD_MB and ceiling_step(
+                cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
+                int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), 0, faults, low, self.running) > cur:
+            held = f"VM swap traffic {swap} MB/min, over {SWAP_HOLD_MB}"
+        if held:
+            self.lines.append(f"ceiling: step up from {cur} held: {held} (win free {free} MB, cpu {cpu}%, "
+                              f"swap {swap} MB/min, faults {faults}/s)")
+        new = hold_step_up(cur, new, now, self.cool_until, avail)
         if new != cur:
             path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
             try:
