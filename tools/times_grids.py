@@ -938,6 +938,29 @@ def choices(rec):
 
 
 def pruned_choices(rec):
+    """_pruned_choices(rec), for a record whose linked answers may leave a
+    light's direction unsaid ("12/20", "3/19"): each way to give the unsaid
+    lights a direction is pruned as a record of its own, and the survivors of
+    all of them are the choices. Every choice names its lights' directions,
+    which is what with_split() reads. None when any of them cannot be pruned
+    (a guessed continuation, a barred grid)."""
+    unsaid = [(gi, i) for gi, g in enumerate(rec.get("unsplit") or ())
+              for i, (_n, d) in enumerate(g["lights"]) if d is None]
+    if not unsaid:
+        return _pruned_choices(rec)
+    out = []
+    for ways in itertools.product(("across", "down"), repeat=len(unsaid)):
+        groups = [dict(g, lights=[list(x) for x in g["lights"]]) for g in rec["unsplit"]]
+        for (gi, i), way in zip(unsaid, ways):
+            groups[gi]["lights"][i][1] = way
+        got = _pruned_choices(dict(rec, unsplit=groups))
+        if got is None:
+            return None
+        out += got
+    return out
+
+
+def _pruned_choices(rec):
     """choices(rec), cut down before the product is taken, for a record whose
     full product is over MAX_SPLITS (toughie-638: four 3-light groups, 3,000
     splits; toughie-1420: five pairs, 630). Each group keeps only splits that

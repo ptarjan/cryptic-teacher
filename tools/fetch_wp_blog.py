@@ -225,6 +225,15 @@ def fetch_category(blog, cid, name, since=None, pages_cap=None, full=False):
             part.write_text(json.dumps(p, ensure_ascii=False), encoding="utf-8")
             part.replace(blog.posts / f"{p['id']}.json")
             media_manifest.record_post(blog.posts, p)
+        # A post edited since it was cached (retitled, corrected) is stored
+        # again from the page already in hand, and read again by its parsers.
+        for p in posts:
+            if p["id"] in have and media_manifest.edited_recently(blog.posts, p):
+                part = blog.posts / f".{p['id']}.json.part"
+                part.write_text(json.dumps(p, ensure_ascii=False), encoding="utf-8")
+                part.replace(blog.posts / f"{p['id']}.json")
+                media_manifest.record_post(blog.posts, p)
+                print(f"  {name}: post {p['id']} was edited, cached again", flush=True)
         new += len(fresh)
         if not fresh and not full:
             break

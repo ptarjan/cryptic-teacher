@@ -247,7 +247,32 @@ def read_counted(lines):
             break
     if answer is None and enum:
         answer = answer_by_count(lines, enum, clue)
+    if answer is None and enum:
+        answer = wrapped_answer(lines, enum, clue)
     return clue, enum, answer
+
+
+def wrapped_answer(lines, enum, clue):
+    """An answer the blog's table cell wrapped over lines ("TAKE DOWN" over
+    "A PEG" under (5,4,1,3)): the first run of consecutive all-capital lines
+    that spells the count. A run a letter out is kept as the blog printed it,
+    for tools/data/blog_answers.json to correct, where a lone line a letter
+    out is refused."""
+    want = sum(int(n) for n in re.findall(r"\d+", enum))
+    runs, run = [], []
+    for ln in lines:
+        if ln is not clue and WHOLE_ANSWER.fullmatch(ln.strip()):
+            run.append(" ".join(ln.split()))
+        else:
+            runs.append(run)
+            run = []
+    runs.append(run)
+    for slip in (0, 1):
+        for run in runs:
+            printed = " ".join(run)
+            if len(run) > 1 and abs(len(re.sub(r"[^A-Z]", "", printed)) - want) == slip:
+                return printed
+    return None
 
 
 def complete(lines, bare=False):
@@ -335,6 +360,13 @@ def read_entries(rendered, bare=False):
     return entries, unsplit
 
 
+def light_count(rec):
+    """The lights a record has: its entries, and each light of a linked answer
+    the post prints whole (`unsplit`, "12/20 BURNT UMBER"), whose letters the
+    grid shares out (times_grids.split_by) and which has no entry yet."""
+    return len(rec["entries"]) + sum(len(g["lights"]) for g in rec.get("unsplit") or ())
+
+
 def parse_post(post, category_id):
     """One cached post to its record, or None if it is not a weekday FT."""
     if category_id not in post.get("categories", []):
@@ -381,7 +413,7 @@ def parse(write=True):
         if rec is None:
             continue
         lo, hi = PLAUSIBLE
-        (recs if lo <= len(rec["entries"]) <= hi else odd).append(rec)
+        (recs if lo <= light_count(rec) <= hi else odd).append(rec)
     if write:
         CACHE.mkdir(parents=True, exist_ok=True)
         tmp = CACHE / "parsed.tmp"
@@ -486,6 +518,19 @@ def file(write=True, limit=None):
     rows = [json.loads(line) for line in (CACHE / "grids.jsonl").open(encoding="utf-8")]
     rows.sort(key=lambda r: (r["date"], r["post_id"]), reverse=True)
     fits = ftp.sequence_window([r for r in recs.values() if r.get("number")])
+    # A title typed with a slip ("15,526" over 18,526, the 2017 puzzle's number)
+    # sits out of the sequence at its date: it takes the one number a slip away
+    # that fits, as the other blogs' filers do (file_blog_puzzles.retyped).
+    taken = {r["number"] for r in recs.values() if r.get("number") and fits(r["date"], r["number"])}
+    renumbered = {}
+    for r in sorted(recs.values(), key=lambda r: (r["date"], r["post_id"])):
+        if r.get("number") and not fits(r["date"], r["number"]):
+            n = file_blog_puzzles.retyped(r, fits, taken)
+            if n:
+                renumbered[r["post_id"]] = n
+                taken.add(n)
+    recs = {k: dict(r, number=renumbered.get(k, r.get("number"))) for k, r in recs.items()}
+    rows = [dict(r, number=renumbered.get(r["post_id"], r.get("number"))) for r in rows]
     posted = [r for r in recs.values()
               if r.get("number") and fits(r["date"], r["number"])]
     dates = print_dates(posted + filed_without_post(posted))

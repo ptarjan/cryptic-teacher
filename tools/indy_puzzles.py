@@ -168,7 +168,7 @@ def parse(write=True):
         if rec is None:
             continue
         lo, hi = ft.PLAUSIBLE
-        (recs if lo <= len(rec["entries"]) <= hi else odd).append(rec)
+        (recs if lo <= ft.light_count(rec) <= hi else odd).append(rec)
     if write:
         CACHE.mkdir(parents=True, exist_ok=True)
         tmp = CACHE / "parsed.tmp"

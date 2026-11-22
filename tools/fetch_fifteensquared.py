@@ -183,6 +183,11 @@ def fetch_posts(cat_id, name, pages_max=None):
         rows, pages = get("posts", categories=cat_id, per_page=PER_PAGE, page=page,
                           _fields="id,date,link,title,content,categories")
         fresh = [r for r in rows if r["id"] not in have]
+        for row in rows:    # an edit to a recent post (a retitle) replaces its cached copy
+            if row["id"] in have and media_manifest.edited_recently(POSTS, row):
+                store(POSTS, row["id"], row)
+                media_manifest.record_post(POSTS, row)
+                print(f"  {name}: post {row['id']} was edited, cached again", flush=True)
         if not fresh and page > 1 and held + new >= PER_PAGE * (pages - 1):
             break
         for row in fresh:

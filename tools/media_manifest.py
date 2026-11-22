@@ -17,7 +17,8 @@ that took it for "nothing there" would fetch everything again.
     python3 tools/gale_inbox.py build-manifest         # once, walks the Gale editions
     python3 tools/media_manifest.py build posts-fifteensquared  # once each, reads every post
 
-A blog's post cache (<blog>/posts/<id>.json, never rewritten) has one,
+A blog's post cache (<blog>/posts/<id>.json, rewritten only when a post under
+REFRESH_DAYS old was edited at the blog: edited_recently) has one,
 posts-<blog>, that its fetcher appends to (record_post) with what a reader
 looks a post up by. A parser that turns posts into records keeps a cursor
 into it (unread, advance) and reads only the posts added since its last run;
@@ -412,6 +413,32 @@ def post_row(post):
     return {"id": int(post["id"]), "date": post.get("date") or "", "title": title or "",
             "link": post.get("link") or "", "slug": post.get("slug") or "",
             "categories": post.get("categories") or []}
+
+
+#: A post this young is compared with its cached copy each time the fetcher
+#: sees it again: a blogger retitles or corrects a post in the days after it
+#: goes up ("Times 29,694" became 29,693) and the cache would keep the first
+#: text. Older posts are taken as settled.
+REFRESH_DAYS = 14
+
+
+def edited_recently(posts_dir, post, today=None):
+    """Is `post`, a row the blog just served, under REFRESH_DAYS old and
+    different in title or content from the copy cached? The row is already in
+    hand, so a refresh costs a read of one cached file and no request."""
+    import datetime
+    today = today or datetime.date.today()
+    try:
+        age = today - datetime.date.fromisoformat((post.get("date") or "")[:10])
+    except ValueError:
+        return False
+    if age > datetime.timedelta(days=REFRESH_DAYS):
+        return False
+    try:
+        held = json.loads((Path(posts_dir) / f"{post['id']}.json").read_text(encoding="utf-8"))
+    except (FileNotFoundError, ValueError):
+        return False
+    return any(held.get(k) != post.get(k) for k in ("title", "content"))
 
 
 def record_post(posts_dir, post):
