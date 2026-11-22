@@ -122,13 +122,11 @@ check "a new puzzle's rows go with it" "0" "$(field NEW)"
 python3 - <<'PY'
 import json, sys
 sys.path.insert(0, "tools")
-from json_merge import dump_lines
-from pathlib import Path
 import sharded_table
 rows = sharded_table.load("source_clue_wrong")
 rows["times-16348/1-across"] = ["Served", "Printed",
                                 "OCR misread: simulated by test_discard_clue_rows"]
-p.write_text(dump_lines(rows))
+sharded_table.save("source_clue_wrong", rows)
 PY
 git -c user.name=t -c user.email=t@t commit -qam sibling
 discard_puzzle "$PID"

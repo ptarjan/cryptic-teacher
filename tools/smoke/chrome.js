@@ -67,7 +67,11 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
     "every clue family in clue_types.json declares its corpus count: " + JSON.stringify(fams.map((f) => [f.name, f.n])));
 
   const seen = {};
+  // A puzzle that is not a cryptic (index style "straight") is left out, as
+  // tools/clue_types.py --recount leaves it out: its definitions are not a cryptic's.
+  const straightIds = new Set((global.CRYPTIC_INDEX.puzzles || []).filter((p) => p.style === "straight").map((p) => p.id));
   pp.puzzleFiles()
+    .filter((f) => !straightIds.has(path.basename(f, ".json")))
     .forEach((f) => {
       const puz = pp.readView(f);  // the shim form: a file stores no `type`
       (puz.entries || []).forEach((e) => {
