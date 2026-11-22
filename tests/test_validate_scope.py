@@ -93,6 +93,10 @@ expect("a new shard with its puzzle", v.decide([("A", T), ("M", P)], lambda p: N
 expect("a table that is not json", rows("{", [("M", P)]), "full", "times-21.json")
 expect("the authored clues",v.decide([("M", "tools/data/authored_A001_clues.json")]), "full", "authored_A001_clues.json")
 expect("the workflow", v.decide([("M", ".github/workflows/pages.yml")]), "full", "pages.yml")
+FLOW = "name: x\njobs:\n  build:\n    steps:\n      - run: a\n  # note\n  validate:\n    steps:\n      - run: check\n  deploy:\n    steps:\n      - run: d\n"
+expect("a build-job edit of the workflow", v.decide([("M", ".github/workflows/pages.yml")], lambda p: FLOW, lambda p: FLOW.replace("run: a", "run: b")), "files")
+expect("a deploy-job edit of the workflow", v.decide([("M", ".github/workflows/pages.yml")], lambda p: FLOW, lambda p: FLOW.replace("run: d", "run: e")), "files")
+expect("a validate-job edit of the workflow", v.decide([("M", ".github/workflows/pages.yml")], lambda p: FLOW, lambda p: FLOW.replace("run: check", "run: other")), "full", "runs the check")
 expect("a reached module with no old text", v.decide([("M", "tools/validate_annotations.py")]), "full", "old text")
 expect("a comment in the validator", decide([("M", "tools/validate_annotations.py")], src + "\n# a comment\n"), "files")
 expect("a new rule", decide([("M", "tools/validate_annotations.py")], src.replace("POOL_MIN = 200", "POOL_MIN = 7")),

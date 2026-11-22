@@ -54,6 +54,9 @@ QUEUE_STATE = ("tools/data/shape_reannotate.json",)
 #: the smoke cache's INERT list (tools/ci_cache.js).
 PROMPTS = ("tools/annotate_prompt.md", "tools/annotate_bag_prompt.md")
 WORKFLOW = ".github/workflows/pages.yml"
+#: The jobs of WORKFLOW that run the check. An edit of any other job (the
+#: build, the deploy, the budgets) cannot change a puzzle's answer.
+CHECK_JOBS = ("validate", "annotate")
 _HEAD = []
 
 
@@ -162,6 +165,21 @@ def backlog_moved(old_text, new_text):
         return None
 
 
+def check_jobs_text(text):
+    """The CHECK_JOBS blocks of a workflow, comments and blank lines dropped:
+    equal texts mean an edit left every step that runs the check alone."""
+    out, keep = [], False
+    for line in text.splitlines():
+        m = re.match(r"  ([\w-]+):\s*$", line)
+        if m:
+            keep = m.group(1) in CHECK_JOBS
+        elif re.match(r"\S", line):
+            keep = False  # a top-level key: the jobs block is over
+        if keep and line.strip() and not line.lstrip().startswith("#"):
+            out.append(line.rstrip())
+    return "\n".join(out)
+
+
 def git_puzzle_paths(stems):
     """{stem: path} for each puzzle id in `stems` that has a puzzle file at HEAD,
     from git's tree rather than the disk (the CI checkout is sparse)."""
@@ -222,7 +240,17 @@ def decide(changes, base_text=None, head_text=None, resolve=None):
                 return "full", f"{st} {path}"
             continue
         if path == WORKFLOW:
-            return "full", f"{path} changed"
+            # Only an edit of the jobs that run the check can move an answer.
+            # Every edit used to be a full check, and while one waited on the
+            # live deploy (the diff base) every push behind it ran twelve
+            # shards too, which kept the runners busy and the deploy waiting.
+            old = base_text(path) if base_text and st == "M" else None
+            if old is None:
+                return "full", f"{path} changed"
+            new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
+            if check_jobs_text(old) != check_jobs_text(new):
+                return "full", f"{path} changed in a job that runs the check"
+            continue
         m = re.fullmatch(r"tools/([^/]+)\.py", path)
         if m:
             if m.group(1) not in modules:
