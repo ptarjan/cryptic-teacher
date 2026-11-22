@@ -2735,6 +2735,27 @@ def reason_cap_for(ceiling):
     return max(0, v)
 
 
+#: Reasons whose units rarely end in a filed puzzle run at a third of the per-reason cap while other
+#: work waits (low_yield_cap). 11-21/22, over 1,042 Gale-fetch Mephisto reads: 35 wrote a puzzle (3.4%),
+#: 907 left lights blank (median 45% of a page's lights, "no clue read for it"), each result taking ~2.4
+#: unit runs; they held their cap of 6 slots in 18, 27% of all unit time, at ~0.75 unit-hours a filed
+#: puzzle against ~0.17 for the dailies' never-read reads and their scans. CT_LOW_YIELD_DIV overrides
+#: the divisor (1 = the plain cap).
+LOW_YIELD = ("never read (Gale fetch)",)
+
+
+def low_yield_cap(reason, cap):
+    """The most units of `reason` at once while other work waits: `cap` (reason_cap_for; 0 = off), or
+    for a LOW_YIELD reason a third of it (CT_LOW_YIELD_DIV), at least 1."""
+    if not cap or not (reason or "").startswith(LOW_YIELD):
+        return cap
+    try:
+        div = max(1, int(os.environ.get("CT_LOW_YIELD_DIV", "3")))
+    except ValueError:
+        div = 3
+    return max(1, cap // div)
+
+
 def vlm_feed_reads():
     """The most gpu_fill reads running at once: CT_VLM_FEED_READS (default 8). A fill spends 100-500 s
     on OCR before its first ask and then makes only a few, so keeping the VLM fed takes many reads in
@@ -4565,7 +4586,7 @@ class _SlotBalancer:
             self.non_times_bound[0] = self.non_times_capped
             reason_hit = self.reason_capped[0] if self.reason_capped else None
             if reason_hit and reason_hit != self.reason_cap_logged[0]:
-                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {self.reason_cap}); other work starts")
+                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {low_yield_cap(reason_hit[1], self.reason_cap)}); other work starts")
             self.reason_cap_logged[0] = reason_hit
 
     def log_bounds(self):
@@ -4722,7 +4743,7 @@ class _RankPicker:
         # 10-30: a read whose reason is at its cap is not ready: the walk skips it while a scan waits, so
         # counting it held every scan back as "fed" for reads that could not start (load 8 on 28 threads).
         return [v for v, k in self.read_cands if k not in self.tried and k not in self.busy and not self.waits(v) and not self.vlm_waits(v)
-                and not (self.reason_cap and v.get("reason") and self.reason_live.get(v["reason"], 0) >= self.reason_cap)]
+                and not (self.reason_cap and v.get("reason") and self.reason_live.get(v["reason"], 0) >= low_yield_cap(v["reason"], self.reason_cap))]
 
     def fed(self, u):
         """Whether scan `u` only feeds a backlog: the next full read pool
@@ -4850,7 +4871,7 @@ class _RankPicker:
                 self.cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
                 continue
             if (self.reason_cap and u["kind"] != "fetch" and u.get("reason") and ukey not in self.fill_keys
-                    and self.reason_live.get(u["reason"], 0) >= self.reason_cap and self.others_wait(u["reason"])):
+                    and self.reason_live.get(u["reason"], 0) >= low_yield_cap(u["reason"], self.reason_cap) and self.others_wait(u["reason"])):
                 self.reason_capped.append((self.reason_live[u["reason"]], u["reason"]))
                 continue  # waits (not dropped): other work starts first
             if self.urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):

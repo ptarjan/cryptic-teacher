@@ -2053,6 +2053,13 @@ check("a read whose needed scan has not begun starts without waiting for it, and
       ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s1"]))
 check("a unit past its limit is killed, the others not held up", (False, True, True),
       (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, not released_early))
+_held = eq.overruns_load()
+check("the unit killed at its limit is noted once for the overrun hold, with its reason in the key",
+      ([1], True), ([v[0] for k, v in _held.items() if k.startswith("read|times|slow|")],
+                    all(eq.overrun_hold(v, time.time()) > 0 for v in _held.values())))
+# The cases below run "slow" again: the note is this case's, not theirs (11-22: it held their "slow" too,
+# and "a TERM ends the running units" got rc 0 from a dispatch with nothing to start).
+eq.overrun_path().unlink(missing_ok=True)
 log.unlink(missing_ok=True)
 fake(sleep={"n1": 1.0})
 eq.plan = lambda papers, cache=None, reread=None, out=None: (
@@ -3596,6 +3603,10 @@ check("gpu_fill: low-ask solution rereads ranked first do not fill, the never-re
       [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in _lo + _ft], set(), set(), _none, _none, 0, False, 0, 2)])
 # 10-29: ~100 reads of one fix reason took all 20 unit slots (18 min OCR each, no VLM asks): one reason is capped.
 _rc_old = os.environ.pop("CT_REASON_CAP", None)
+check("low_yield_cap: a low-yield reason runs at a third of the cap, at least 1; others and cap 0 unchanged",
+      (2, 1, 6, 0, 6),
+      (eq.low_yield_cap("never read (Gale fetch)", 6), eq.low_yield_cap("never read (Gale fetch)", 2),
+       eq.low_yield_cap("never read", 6), eq.low_yield_cap("never read (Gale fetch)", 0), eq.low_yield_cap(None, 6)))
 _rc = [eq.reason_cap_for(20), eq.reason_cap_for(3)]
 os.environ["CT_REASON_CAP"] = "0"
 _rc.append(eq.reason_cap_for(20))
