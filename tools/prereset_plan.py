@@ -275,14 +275,21 @@ def rush_disarmed(stamp, week_pct, now):
 
 def rush_notify(home, name, pct, say, now=None, due=True, text=None, sleep=None):
     """Wake our room once per window when meter `name` reaches RUSH_SPENT and
-    a reset is `due`; the stamp goes when it falls, so the next window wakes it
-    again. While the owner is asleep (`sleep`, tools/awake.py) the wake waits (no
+    a reset is `due`; when it falls, the stamp goes with one all-clear wake, so
+    the next window wakes it again. While the owner is asleep (`sleep`, tools/awake.py) the wake waits (no
     stamp) for the morning."""
     mark = home / RUSH_SPENT_STAMP.format(name)
     if pct is None:
         return False
     if pct < RUSH_SPENT:
-        mark.unlink(missing_ok=True)
+        # The room still holds the spent-meter wake as if it stood: once the
+        # meter falls (a manual reset), say so once, or it repeats a stale
+        # "nearly used up" to the owner.
+        if mark.exists():
+            mark.unlink(missing_ok=True)
+            say(f"The {name} meter is back down to {pct:g}%: the earlier warning that the rush "
+                "had spent it no longer holds, and the burn carries on.")
+            return True
         return False
     if not due or mark.exists() or quiet(time.time() if now is None else now, sleep):
         return False
@@ -1643,11 +1650,11 @@ def width_self_test():
                 os.environ.pop("CT_MAIN_CHECKOUT", None)
             else:
                 os.environ["CT_MAIN_CHECKOUT"] = saved
-    # rush_notify: once per window, again after the meter falls
+    # rush_notify: once per window, an all-clear once when it falls, again next window
     import tempfile
     with tempfile.TemporaryDirectory() as tmp:
         said = []
-        seq = [("weekly", 98, 0), ("weekly", 99, 1), ("weekly", 100, 0), ("weekly", 40, 0),
+        seq = [("weekly", 98, 0), ("weekly", 99, 1), ("weekly", 100, 0), ("weekly", 40, 1), ("weekly", 30, 0),
                ("weekly", 99, 1), ("weekly", None, 0)]
         noon = 1793563200  # 2026-11-01 12:00 Pacific: outside the night
         for name, pct, sent in seq:
