@@ -528,7 +528,7 @@ jobs:
              < /dev/null > /dev/null 2>&1 &
           # What fills the artifact, printed by Wait for the site checks; it
           # gates nothing.
-          (python3 tools/site_size.py "$RUNNER_TEMP/site.list" --dupes \
+          (python3 tools/site_size.py "$RUNNER_TEMP/site.list" \
              > "$RUNNER_TEMP/size.log" 2>&1; echo $? > "$RUNNER_TEMP/size.rc") \
              < /dev/null > /dev/null 2>&1 &
       # What actions/upload-pages-artifact does, minus its tar -v (a log line
@@ -537,19 +537,35 @@ jobs:
       # 1 40s and still came out at 1.05GB (run 38370347047). Same name and layout (one
       # artifact.tar in an artifact called github-pages, members ./-relative,
       # directories included), which is all deploy-pages reads.
+      # Written to /dev/shm, the runner's RAM, not its disk: the tar is
+      # several GB written once and read once by the upload, and the disk's
+      # write rate was most of this step. If it does not fit there, it is
+      # written to the disk instead.
       - name: Archive the site
+        id: archive
         run: |
-          tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
-          echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
-          df -h / | tail -n 1
+          free -m | sed -n 2p
+          df -h /dev/shm | tail -n 1
+          tar_path=/dev/shm/artifact.tar
+          if ! tar --dereference --no-recursion -cf "$tar_path" -T "$RUNNER_TEMP/site.list"; then
+            echo "the site does not fit in /dev/shm; archiving it to the disk"
+            rm -f "$tar_path"
+            tar_path="$RUNNER_TEMP/artifact.tar"
+            tar --dereference --no-recursion -cf "$tar_path" -T "$RUNNER_TEMP/site.list"
+          fi
+          echo "artifact.tar: $(( $(stat -c %s "$tar_path") / 1000000 ))MB in $tar_path"
+          echo "tar=$tar_path" >> "$GITHUB_OUTPUT"
       - name: Upload the site
         uses: actions/upload-artifact@v6
         with:
           name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
+          path: ${{ steps.archive.outputs.tar }}
           retention-days: 1
           if-no-files-found: error
           compression-level: 0
+      # The RAM the archive held, back for the cache saves below.
+      - name: Drop the archive
+        run: rm -f "${{ steps.archive.outputs.tar }}"
       # The caches' saves, started once the site is uploaded and collected by
       # Wait for the cache saves. Not beside the upload: they share the
       # runner's network and disk with it and slowed it by half, and the
