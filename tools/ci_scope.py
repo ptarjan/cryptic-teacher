@@ -7,7 +7,7 @@
     python3 tools/ci_scope.py decide --site BASE  # the same, for pages.yml's build:
                                                SITE_INERT paths do not count either
     python3 tools/ci_scope.py decide --site --code-ok BASE
-    -> "code <path>"                           as fast, but tools/*.py modules or the site's
+    -> "code <path>"                           as fast, but files under tools/ or the site's
                                                static files (style.css, app-*.js ...) moved too:
                                                pages.yml then asks tools/cache_warmth.py
                                                whether its stores still fit that code
@@ -79,7 +79,13 @@ SITE_INERT_FILES = {
 #: is the live commit, ~20 minutes behind master, and a tools/ edit lands in
 #: most such windows (run 43385445065: full for tools/fix_shape_notes.py,
 #: which no build step runs).
-TOOLS_MODULE = re.compile(r"tools/[^/]+\.py")
+#: Anything under tools/ counts, at any depth and of any kind (a data table, a
+#: smoke script): a file the build reads moves the code keys the stores are
+#: checked against (row_cache's data salt, page_cache's named data files), and
+#: one it does not read moves nothing. The burn jobs rewrite book_twins.json,
+#: blog_answers.json and the like all day, and each one used to send the next
+#: build down the 18-minute full path (runs 44983556461, 44980902460).
+TOOLS_MODULE = re.compile(r"tools/.+")
 #: A static file of the site the browser loads (the stylesheet, a script, an
 #: icon, the homepage), a build shell script or the build workflow: --code-ok treats it as a module is treated. Puzzle
 #: pages only link them by a stamped URL that the stored pages are rewritten
@@ -89,8 +95,14 @@ SITE_STATIC = re.compile(r"(?:[^/]+\.(?:js|css|svg|png|ico|html)|sync/[^/]+\.js"
                          r"|tools/[^/]+\.sh|\.github/workflows/pages\.yml)")
 
 
+#: A workflow other than pages.yml: the build never reads it (the daily jobs
+#: edit their own all day).
+OTHER_WORKFLOW = re.compile(r"\.github/workflows/(?!pages\.yml$)[^/]+\.ya?ml")
+
+
 def site_inert(path):
-    return path.startswith(SITE_INERT_DIRS) or path in SITE_INERT_FILES
+    return (path.startswith(SITE_INERT_DIRS) or path in SITE_INERT_FILES
+            or bool(OTHER_WORKFLOW.fullmatch(path)))
 
 
 def decide(changes, base_text=None, head_text=None, site=False, code_ok=False):
