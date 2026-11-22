@@ -629,7 +629,7 @@ jobs:
       && (needs.annotate.result == 'success' || needs.annotate.result == 'skipped')
       && (needs.requeue.result == 'success' || needs.requeue.result == 'skipped') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 70
     concurrency:
       group: pages-deploy
       cancel-in-progress: false
