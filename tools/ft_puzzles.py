@@ -537,7 +537,35 @@ def file(write=True, limit=None):
     claims = collections.Counter(r["number"] for r in recs.values() if r.get("number"))
     skipped, filed = collections.Counter(), []
     on_disk = None  # read only once a puzzle is built, which most nights none is
+    # Filed puzzles go first, so a redate that moves a run of them is settled
+    # before a new puzzle is checked against its neighbours' dates.
+    rows.sort(key=lambda r: not (r.get("number") and puzzle_path(SERIES, r["number"]).exists()))
+    pending = []
+
+    def flush_redates():
+        """Write the queued redates. Each is checked against its neighbours as
+        they stand, so a run moving earlier only passes lowest number first
+        and one moving later highest first: try again until none moves, and
+        skip (and say why) the ones that never do."""
+        todo = list(pending)
+        pending.clear()
+        while todo:
+            stuck = []
+            for number, held, fix in todo:
+                try:
+                    write_puzzle_file(puzzle_path(SERIES, number), {**held, **fix})
+                except ValueError as e:     # puzzle_integrity.RefusedWrite
+                    stuck.append((number, held, fix, e))
+            if len(stuck) == len(todo):
+                for number, _, _, e in stuck:
+                    skipped[f"redate refused: {str(e).split(': ', 1)[-1][:120]}"] += 1
+                    print(f"ft_puzzles: ftcryptic-{number} left as filed: {e}", file=sys.stderr)
+                return
+            todo = [(n, h, f) for n, h, f, _ in stuck]
+
     for row in rows:
+        if pending and not (row.get("number") and puzzle_path(SERIES, row["number"]).exists()):
+            flush_redates()
         number = row.get("number")
         if not number:
             skipped["no puzzle number"] += 1
@@ -566,7 +594,7 @@ def file(write=True, limit=None):
                 skipped["already filed, clues tidied"] += 1
                 fix["entries"] = tidied["entries"]
             if fix and write:
-                write_puzzle_file(puzzle_path(SERIES, number), {**held, **fix})
+                pending.append((number, held, fix))
         elif limit is not None and len(filed) >= limit:
             skipped["past --limit"] += 1
         else:
@@ -589,6 +617,7 @@ def file(write=True, limit=None):
                     continue
             on_disk[key] = puzzle["id"]
             filed.append(puzzle["id"])
+    flush_redates()
     return filed, skipped
 
 
