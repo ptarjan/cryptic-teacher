@@ -2945,11 +2945,30 @@ def page_key(i):
     return h.hexdigest()
 
 
-def reuse_page(i):
+def restamp(path, moved, check):
+    """The stored page's text with each moved asset's old ?v= value replaced by
+    the new one, written to `path` unless `check`; None when an old stamp is
+    not in the page (then it is rendered). `moved` is [(rel, old absolute URL)].
+    Every form of the URL (absolute, relative, in og:image or the JSON-LD)
+    ends in "<rel>?v=<hash>", so replacing that is the render with the new
+    hash: a stamp is the only thing an asset's bytes reach in a page."""
+    text = Path(path).read_bytes().decode("utf-8")
+    for rel, url in moved:
+        old, new = f"{rel}?v={url.rsplit('?v=', 1)[1]}", f"{rel}?v={_asset(rel).rsplit('?v=', 1)[1]}"
+        if old not in text:
+            return None
+        text = text.replace(old, new)
+    if not check:
+        Path(path).write_bytes(text.encode("utf-8"))
+    return text
+
+
+def reuse_page(i, apply=True):
     """(result, key, why) for puzzle page i of the solved list: `result` is the
     stored page's puzzle_page_job() result when every check passes (its key,
-    the stamped assets it asked for, the abbreviation pairs it looked up, the
-    file on disk), else None and `why` names the check that failed. Shared by
+    the abbreviation pairs it looked up, the file on disk), the stamps of the
+    assets it asked for rewritten when they moved (`apply`), else None and
+    `why` names the check that failed. Shared by
     puzzle_page_job() and the parent-side first pass (reuse_first)."""
     solved, neighbours, meta, check, fp, stored = _PAGES
     path = puzzle_paths.PUZZLE_DIR / solved[i][1]["id"] / "index.html"
@@ -2964,17 +2983,29 @@ def reuse_page(i):
     row = meta.get(solved[i][1]["id"])
     if hit:
         asked, digest, blocks, cands, lex, found, file_facts, abbrs = hit
-        if not all(_asset(rel) == url for rel, url in asked):
-            why = f"asset:{series}"
-        elif not all((pair in annotation.abbreviation_pairs()) == known for pair, known in abbrs):
+        moved = [(rel, url) for rel, url in asked if _asset(rel) != url]
+        if not all((pair in annotation.abbreviation_pairs()) == known for pair, known in abbrs):
             why = f"abbr:{series}"
         elif page_cache.file_hash(path) == digest:
+            reused, stale, why = True, False, None
+            if moved:
+                # Only a stamp moved: the stored page is the render with the
+                # old ?v= values, so the new ones are written into it. The
+                # parent's first pass (apply=False) leaves that to a worker.
+                if not apply:
+                    return None, key, f"asset:{series}"
+                text = restamp(path, moved, check)
+                if text is None:
+                    return None, key, f"asset:{series}"
+                digest = page_cache.text_hash(text)
+                asked = tuple((rel, _asset(rel)) for rel, _ in asked)
+                reused, stale, why = False, True, f"asset:{series}"
             if lex != indicator_lexicon_hash():  # the lexicon moved, not the page
                 found = indicator_found(cands)
-                hit = (asked, digest, blocks, cands, indicator_lexicon_hash(), found, file_facts,
-                       abbrs)
-            return ((path, False, blocks, found, showcase.with_meta(file_facts, row),
-                     (key, hit, True, None)), key, why)
+                lex = indicator_lexicon_hash()
+            hit = (asked, digest, blocks, cands, lex, found, file_facts, abbrs)
+            return ((path, stale, blocks, found, showcase.with_meta(file_facts, row),
+                     (key, hit, reused, why)), key, why or "")
         else:
             why = f"file:{series}"
     return None, key, why
@@ -2984,7 +3015,7 @@ def reuse_verdict(i):
     """reuse_page(i) as a worker sends it back: the stored entry's key when
     page i can be reused, else None. A key is 64 characters; the result it
     stands for carries the page's clue blocks and candidates."""
-    reused, key, _ = reuse_page(i)
+    reused, key, _ = reuse_page(i, apply=False)
     return key if reused else None
 
 

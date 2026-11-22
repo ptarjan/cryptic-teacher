@@ -198,8 +198,12 @@ jobs:
       # than MAX_FILES puzzles, a manual or scheduled run, no deploy to diff
       # against or no restored row and page caches (a cold build is what the
       # slices and shards are for) is the full path below.
-      # A tools/*.py module among the changes is not by itself the full path
-      # (ci_scope --code-ok answers "code"): tools/cache_warmth.py then asks
+      # A tools/*.py module or a static file of the site (style.css, app-*.js,
+      # an icon) among the changes is not by itself the full path
+      # (ci_scope --code-ok answers "code"). A stylesheet or script edit moves
+      # only the ?v= stamps the pages link it by, which the stored pages are
+      # rewritten for (build_seo_pages.restamp), so it is a puzzle-push
+      # build: no re-render, no shards. tools/cache_warmth.py then asks
       # the restored stores whether they hold this code's rows and were saved
       # under this code's page fingerprint, and only a cold store sends the
       # build down the full path. Before that, any module edit since the live

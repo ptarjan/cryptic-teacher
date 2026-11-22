@@ -103,7 +103,7 @@ same("the indicator lexicon, re-matched per stored page",
      fp(blob_of={"tools/data/lexicons/indicators.json": Z}))
 same("the blocks lexicon, read only to stamp an asset each page re-checks",
      fp(blob_of={"tools/data/lexicons/blocks.json": Z, "tools/data/lexicons/abbreviations.json": Z}))
-moved("the stylesheet", fp(blob_of={"style.css": Z}))
+same("the stylesheet, linked by a stamp the stored pages are rewritten for", fp(blob_of={"style.css": Z}))
 same("the budgets table, a test, a doc", fp(blob_of={"tools/data/deploy_budgets.json": Z,
                                                       "tests/test_validate_scope.sh": Z, "docs/APP.md": Z}))
 same("setter_error.json, keyed per puzzle in page_key", fp(blob_of={"tools/data/setter_error.json": Z}))
@@ -114,7 +114,7 @@ paths = ["tools/data/lexicons/indicators.json", "style.css", "index.html", "docs
          "puzzles/times/2002/times-21965.json", "puzzles/times/2002/times-21965.blog", "tools/fetch_puzzle.py",
          "tools/data/deploy_budgets.json", "tools/data/clue_types.json", "tools/data/lexicons/blocks.json"]
 got = pc.inputs(code, paths)
-assert got == ["style.css", "tools/data/clue_types.json"], f"test_page_cache: inputs {got}"
+assert got == ["tools/data/clue_types.json"], f"test_page_cache: inputs {got}"
 
 # A page's key holds the part of its index row the page prints (page_row),
 # so a reindex that moves only the difficulty index, its basis, the tags or
@@ -225,4 +225,32 @@ if "wildly" not in ipg or "novel" in ipg:
 fresh = changed(index=0.5, tags=["big-grid"])
 if showcase.with_meta(showcase.file_facts(puz), fresh) != showcase.facts(puz, fresh):
     sys.exit("test_page_cache: a reused page's showcase facts are not the fresh row's")
+
+# A stored page whose linked assets moved is rewritten to the render the new
+# stamps give: the old ?v= values, in every form the page carries them, become
+# the new ones and nothing else changes.
+import tempfile
+stamps = {"style.css": "11111111", "og/x-1.png": "22222222"}
+real_asset = B._asset
+B._asset = lambda rel: f"{B.BASE}/{rel}?v={stamps[rel]}"
+try:
+    def render():
+        return B.relative_links(
+            f'<link href="{B._asset("style.css")}"><meta property="og:image" content="{B._asset("og/x-1.png")}">\n'
+            f'<script>{{"image": "{B._asset("og/x-1.png")}"}}</script>', B.PUZZLE_ROOT)
+    old_text = render()
+    asked = [(rel, B._asset(rel)) for rel in sorted(stamps)]
+    stamps = {"style.css": "33333333", "og/x-1.png": "22222222"}
+    moved = [(rel, url) for rel, url in asked if B._asset(rel) != url]
+    assert [rel for rel, _ in moved] == ["style.css"], moved
+    with tempfile.TemporaryDirectory() as d:
+        f = Path(d) / "index.html"
+        f.write_bytes(old_text.encode("utf-8"))
+        got = B.restamp(f, moved, False)
+        if got != render() or f.read_bytes() != render().encode("utf-8"):
+            sys.exit("test_page_cache: a restamped page is not the render with the new stamps")
+        if B.restamp(f, moved, False) is not None:
+            sys.exit("test_page_cache: a page lacking the old stamp was restamped")
+finally:
+    B._asset = real_asset
 print("test_page_cache: all passed")

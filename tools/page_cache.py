@@ -13,8 +13,8 @@ its checks say so. A page is reused when all of these are what they were:
     a comment leaves every page reusable; an edit to anything a puzzle page
     runs re-renders them all;
   - the data that code names: every tracked file, outside the per-page
-    inputs below and tools/*.py, whose file name is a string constant in a
-    reached definition (indicators.json, style.css, og.png ...), by its git
+    inputs below, LINKED_ONLY and tools/*.py, whose file name is a string
+    constant in a reached definition (indicators.json ...), by its git
     blob sha, a dirty or untracked one by its content. A file only a comment
     or docstring mentions is not read. A name built at run time would be
     missed; the reached code builds only per-page ones (a puzzle's own file,
@@ -108,6 +108,13 @@ NAMED = re.compile(r"Constant\(value='(?:[^'\\]*/)?([\w.\-]+\.(?:json|tsv|txt|md
 #: app.js's comments or its browser code leaves every page reusable.
 DERIVED = {"app.js"}
 TOOLS_PY = re.compile(r"tools/[^/]+\.py")
+#: Files a puzzle page only links, by a stamped URL (build_seo_pages.asset()):
+#: the page is made from the URL, which each stored entry records and
+#: build_seo_pages.reuse_page() compares and rewrites, never from the file's
+#: bytes. So they are not in the build-wide key: a stylesheet edit re-stamps
+#: the stored pages in place instead of rendering all of them again.
+LINKED_ONLY = {"style.css", "analytics.js", "appnav.js", "landing.js", "og.png",
+               "favicon.svg", "favicon.ico", "apple-touch-icon.png"}
 
 
 def _per_page(path):
@@ -134,7 +141,8 @@ def inputs(code, paths):
     (the code itself is hashed by definition) and not a per-page input."""
     names = {m for v in code.values() for m in NAMED.findall(v)}
     return sorted(p for p in paths if p.rsplit("/", 1)[-1] in names
-                  and p not in DERIVED and not _per_page(p) and not TOOLS_PY.fullmatch(p))
+                  and p not in DERIVED and not _per_page(p) and not TOOLS_PY.fullmatch(p)
+                  and p not in LINKED_ONLY)
 
 
 def derived(code):

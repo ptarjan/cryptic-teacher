@@ -7,7 +7,8 @@
     python3 tools/ci_scope.py decide --site BASE  # the same, for pages.yml's build:
                                                SITE_INERT paths do not count either
     python3 tools/ci_scope.py decide --site --code-ok BASE
-    -> "code <path>"                           as fast, but tools/*.py modules moved too:
+    -> "code <path>"                           as fast, but tools/*.py modules or the site's
+                                               static files (style.css, app-*.js ...) moved too:
                                                pages.yml then asks tools/cache_warmth.py
                                                whether its stores still fit that code
     python3 tools/ci_scope.py files BASE      # BASE = last commit whose tests-passed was green
@@ -79,6 +80,12 @@ SITE_INERT_FILES = {
 #: most such windows (run 43385445065: full for tools/fix_shape_notes.py,
 #: which no build step runs).
 TOOLS_MODULE = re.compile(r"tools/[^/]+\.py")
+#: A static file of the site the browser loads (the stylesheet, a script, an
+#: icon, the homepage): --code-ok treats it as a module is treated. Puzzle
+#: pages only link them by a stamped URL that the stored pages are rewritten
+#: for (tools/page_cache.py LINKED_ONLY), and a file the pages are made from
+#: moves the page fingerprint, which tools/cache_warmth.py then reads as cold.
+SITE_STATIC = re.compile(r"(?:[^/]+\.(?:js|css|svg|png|ico|html)|sync/[^/]+\.js)")
 
 
 def site_inert(path):
@@ -115,7 +122,8 @@ def decide(changes, base_text=None, head_text=None, site=False, code_ok=False):
                 return "full", f"{st} {path}"
         elif path == BACKLOG and st == "M" and base_text:
             backlog = (base_text(path), head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8"))
-        elif code_ok and st in ("A", "M", "D") and TOOLS_MODULE.fullmatch(path):
+        elif code_ok and st in ("A", "M", "D") and (TOOLS_MODULE.fullmatch(path)
+                                                    or SITE_STATIC.fullmatch(path)):
             code.append(path)
         else:
             return "full", f"{st} {path}"
