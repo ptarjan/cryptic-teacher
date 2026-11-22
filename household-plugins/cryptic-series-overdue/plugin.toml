@@ -1,0 +1,11 @@
+about    = "Overdue-series alarm: reads the live puzzle index, wakes the room only when a series has a new missing expected day (tools/series_overdue.py)"
+room     = "cryptic-crosswords"
+# 06:00 America/Chicago = 05:00 in the scheduler's own zone (America/Edmonton), once a day.
+# Compute only (one index fetch, seconds): no model call. The state file
+# ~/.cache/cryptic-series-overdue.json remembers which gaps were announced, so a gap wakes
+# the room once and a quiet day wakes nobody. Reasoning is in tools/series_overdue.py.
+schedule = "0 5 * * *"
+where    = "container"
+run      = "~/github/cryptic-teacher/tools/series_overdue.sh"
+log      = "~/github/cryptic-teacher/.series_overdue.log"
+timeout  = 300
