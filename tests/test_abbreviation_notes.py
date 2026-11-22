@@ -173,6 +173,12 @@ apart = {"op": "homophone", "spelt": "X", "parts": [{"op": "charade", "parts": [
     {"words": "Richard", "at": 0, "gives": "DICK"}, {"words": "edward", "at": 30, "gives": "TATER"}]}]}
 A.merge_sounded_charade(apart, clue)
 check("leaves apart in the clue stay a charade", apart["parts"][0].get("op") == "charade")
+hw = {"op": "homophone", "spelt": "FILIP", "parts": [{"words": "Philip", "at": 0, "gives": "FILIP"}]}
+A.hear_the_clue_word(hw)
+check("a one-word sounded leaf hears the clue's own word", hw["parts"][0]["gives"] == "PHILIP", hw)
+hw2 = {"op": "homophone", "spelt": "DAHLIAS", "parts": [{"words": "belonging to Wooster's aunt", "at": 0, "gives": "DAHLIAS"}]}
+A.hear_the_clue_word(hw2)
+check("a multi-word sounded leaf is left alone", hw2["parts"][0]["gives"] == "DAHLIAS", hw2)
 rep = A.name_repeated_pieces([{"clueFragment": "new", "gives": "N"}, {"gives": "N"}, {"gives": "Q"}])
 check("a repeated bare piece takes the first one's words", rep[1].get("clueFragment") == "new" and rep[1].get("note"), rep)
 check("a new bare piece is left alone", not rep[2].get("clueFragment"), rep)

@@ -1102,6 +1102,7 @@ def from_model(m, entry, puzzle=None):
         fill_palindrome_fodder(out["wordplay"], defs, want)
         drop_vacuous_sound(out["wordplay"])
         merge_sounded_charade(out["wordplay"], clue)
+        hear_the_clue_word(out["wordplay"])
     elif notes:
         raise wordplay.WordplayError(
             f"notes {sorted(notes)} name no definition, and there is no `wp`: a note is keyed by "
@@ -1175,6 +1176,29 @@ def drop_vacuous_sound(tree):
                 parts[i] = leaf
                 continue
         drop_vacuous_sound(p)
+
+
+def hear_the_clue_word(tree):
+    """sound<ind>([Philip]FILIP, FILIP): a leaf whose clue words are ONE word and
+    whose `gives` repeats the spelt answer has put the answer where the word said
+    aloud belongs (annotate audit 11-22: 'soundsLike and gives are the same letters').
+    The word heard is the clue's own word, so the leaf's `gives` becomes its
+    letters ([Philip]PHILIP, FILIP). Several words, or a word already equal to
+    the spelling, are left alone: nothing says what was heard there."""
+    import wordplay
+    if not isinstance(tree, dict):
+        return
+    parts = tree.get("parts") or []
+    if tree.get("op") == "homophone" and tree.get("spelt") and len(parts) == 1:
+        leaf = parts[0]
+        words = leaf.get("words")
+        if ("op" not in leaf and isinstance(words, str) and re.fullmatch(r"[^\W\d_]+['’]?s?", words.strip())
+                and _letters(wordplay.leaf_letters(leaf)) == _letters(tree["spelt"])
+                and _letters(words) != _letters(tree["spelt"]) and len(_letters(words)) > 2):
+            leaf["gives"] = _letters(words)
+        return
+    for p in parts:
+        hear_the_clue_word(p)
 
 
 SOUND_LINK_WORDS = frozenset((
