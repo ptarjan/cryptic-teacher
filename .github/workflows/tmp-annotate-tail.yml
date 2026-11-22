@@ -1,0 +1,26 @@
+name: tmp-annotate-tail
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  annotate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [9, 10, 11]
+    env:
+      VALIDATE_JOBS: "4"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: >-
+          python3 tools/build_authored_puzzle.py
+          --clues tools/data/authored_A001_clues.json --number 1
+          --date 2026-07-29
+          --annotated-by claude-opus-5-5
+      - run: python3 tools/validate_annotations.py --shard ${{ matrix.shard }}/12 --drift-out "$RUNNER_TEMP/drift.json"
