@@ -81,7 +81,7 @@ Terms used below:
   tap and what was open stays open. The "Good clue?" vote (`#hint-vote`) sits
   under the bar. The save format is unchanged.
 - **One help bar** (`#hint-escape`, a wrapping row under the panel): one help
-  button `#guess-tell` (accent colour), Reveal letter, Letters and a "…". While
+  button `#guess-tell` (accent colour), Reveal letter, Letters and a "More". While
   words are picked (or a board is full) it reads "Lock in": free, no `data-arm`.
   With nothing picked it reads "Show me", the only way to pay for the
   explanation: it reveals the current step (the question on the table, else the
@@ -95,7 +95,7 @@ Terms used below:
   costs 1 hint, with no verdict, no marked clue copy, no red and no "Not X"
   line for a wrong clue family. The first lock-in on a step is the one that
   can earn it: a wrong piece then a right one keeps Pieces paid
-  (`tools/smoke/rung_rules.js`). The "…" (always in the markup, `hidden` until
+  (`tools/smoke/rung_rules.js`). "More" (always in the markup, `hidden` until
   tapped) holds Reveal answer, Report a bad hint and the blog link; Reveal
   answer moves into the bar row when no step is left to show.
 - **Locked rungs are shown disabled, not hidden**, so the solver sees what is

@@ -112,7 +112,7 @@
   // ---------- the help bar ----------
   //
   // One row under the panel: the help button, Reveal letter, and a
-  // "…" that holds the rare things (Reveal answer while there are steps left
+  // "More" button that holds the rare things (Reveal answer while there are steps left
   // to show, Report a bad hint, the blog's write-up). The step buttons above
   // only choose (see setButtons); they never spend.
   //
@@ -135,7 +135,7 @@
   // The button keeps the id the question's own tell button had (#guess-tell):
   // the id is what the keyboard-focus restore and the checks find it by.
   let helpOn = null;     // { key, rung, step }: a chosen step with no question
-  let helpMore = null;   // the entry key whose "…" is open
+  let helpMore = null;   // the entry key whose "More" is open
   const STEP_NAMES = { indicators: "Indicator", definition: "Definition",
                        type: "Clue type", blocks: "Pieces", walkthrough: "Solution" };
   const HOW_TEXT = "How it works";
@@ -394,7 +394,7 @@
     // no "(counts against your score)" rider, because the button's own armed
     // text already says "1 hint". Reveal answer stands in the row where there
     // is no step left to show (or no explanation at all), and waits in the
-    // "…" while "Show me" still has something to give. The "…" is in the
+    // "More" while "Show me" still has something to give. "More" is in the
     // markup either way, only hidden: what it holds is never news, and a
     // report being written keeps it open.
     const { key, ann, solved, offerFill } = st;
@@ -413,7 +413,7 @@
       + (helpT ? "" : fill + (fill ? " " : ""))
       + (howLeft ? `<button id="hx-how" class="small help-show">${HOW_TEXT}</button> ` : "")
       + (canReveal ? letterBtnHTML(e) + " " : "")
-      + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" aria-label="More help">…</button>`
+      + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" >${moreOpen ? "Less \u25B4" : "More \u25BE"}</button>`
       + `<div class="help-more"${moreOpen ? "" : " hidden"}>${moreHTML}</div>`;
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = letterTap;
@@ -424,7 +424,7 @@
         const on = currentEntry();
         const k = on ? entryKey(on) : null;
         helpMore = helpMore === k ? null : k;
-        // Closing the "…" puts an unsent report away with it.
+        // Closing "More" puts an unsent report away with it.
         if (!helpMore && report && report.phase !== "sent") report = null;
         renderHintPanel();
       };
