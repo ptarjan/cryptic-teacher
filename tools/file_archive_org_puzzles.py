@@ -2011,6 +2011,25 @@ INDY_RIGHT_YEARS = ("2011", "2013")
 INDY_RIGHT_PITCH_MIN, INDY_RIGHT_CLIP = 300, 8
 
 
+#: INDY_WIDE_LEAD: a Gale Independent 2005-08 Saturday page whose title box (x 160-190, 1830 px wide) runs over a grid
+#: set in from it (x 810-1550) has its ACROSS and DOWN columns LEFT of the grid (x 200 and 530) and the Concise right of
+#: it. The plain window's overhang() (INDY_OVER_PLAIN, 11-15) took the Concise's print under the grid's right edge for a
+#: third column under the grid, so the window was cut under the grid (the Concise: "no clue words", "no ACROSS and DOWN
+#: lists under the grid") and the lead window from x 0 that filed 2007-01-13 and -20 on 11-11 was never read (~45 pages
+#: refused "no reading parses"). Such a page keeps the lead window: no overhang.
+INDY_WIDE_LEAD = "Independent page whose clue columns stood left of its grid under a wide title, read from them since"
+INDY_WIDE_LEAD_YEARS = ("2005", "2008")
+INDY_WIDE_LEAD_RATIO = 2.0
+
+
+def indy_wide_lead(paper, d, gbox, title):
+    """Whether the Independent page `d` (grid `gbox`, title box `title`) has a title INDY_WIDE_LEAD_RATIO grids' widths wide
+    over a grid set in from its left edge (indented_column()): its clue columns left of the grid, never a third one under it."""
+    return paper.key == "galeindependent" and INDY_WIDE_LEAD_YEARS[0] <= d.name[:4] <= INDY_WIDE_LEAD_YEARS[1] \
+        and gbox is not None and bool(title) and title[2] - title[0] >= INDY_WIDE_LEAD_RATIO * (gbox[2] - gbox[0]) \
+        and indented_column(title, gbox) is not None
+
+
 def indy_rise(paper, d):
     """The `rise` of right_columns for a Gale Independent page of 2011-13 (INDY_RIGHT_RISE), else RIGHT_RISE."""
     if paper.key == "galeindependent" and INDY_RIGHT_YEARS[0] <= d.name[:4] <= INDY_RIGHT_YEARS[1]:
@@ -15292,7 +15311,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # second and third. right_columns() took the strip over the solution box (no reading parses) and the plain
     # window's two columns cut the third off at the gutter: every down clue past the 5th stood blank (INDY_OVER_PLAIN).
     if kind == "plain" and paper.key == "galeindependent" and side == "below" and top is None and not sides \
-            and not column and not third and not paper.four and not two_columns_only(paper, d):
+            and not column and not third and not paper.four and not two_columns_only(paper, d) \
+            and not indy_wide_lead(paper, d, gbox, hit["box"]):
         over = overhang(img, gbox)
     if right and paper.key == "galeft":
         right = ft_foot(img, gbox, right)
