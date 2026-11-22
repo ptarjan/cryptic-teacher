@@ -140,6 +140,9 @@ in a double definition each definition's note says what that sense means.
   holding the clue words once (never `cd([a], [b])`), with a note, no letters. The note
   describes the reading and never names the answer (no "= ANSWER"). Two
   readings in two stretches is a double definition instead.
+  Before typing `cd`, run the answer's letters through the clue's: a run that spans the
+  words (even across a word join, "whitE PICtures" = EPIC) is a hidden word, `hid`, whose
+  definition is the clue's other end; the check refuses a `cd` whose clue holds its answer.
 - **Rebus**, **composite anagram**, **move** and **reverse clue** have their own
   forms in the grammar (`rebus`, `comp`, `move`, `reverse`): use them, never a
   fodder-plus-deleted-letter or `ana(del(...))` stand-in, which says a letter was added.
