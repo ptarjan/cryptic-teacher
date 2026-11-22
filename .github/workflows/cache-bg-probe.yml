@@ -1,0 +1,41 @@
+name: Probe background cache
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            tools
+            .github
+      - uses: actions/cache/restore@v5
+        with:
+          path: nothing-here
+          key: probe-nothing-${{ github.run_id }}
+      - uses: ./.github/actions/cache-env
+      - name: Save and restore in the background
+        run: |
+          set -x
+          ls /home/runner; ls "$RUNNER_TEMP/../_actions/actions/cache" || true
+          mkdir -p data
+          head -c 300000000 /dev/urandom > data/a.bin
+          head -c 300000000 /dev/urandom > data/b.bin
+          CB_PATH=data/a.bin CB_KEY="probe-$GITHUB_RUN_ID" bash tools/bg_job.sh start s1 bash tools/cache_bg.sh save s1
+          CB_PATH=data/b.bin CB_KEY="probe-b-$GITHUB_RUN_ID" bash tools/bg_job.sh start s2 bash tools/cache_bg.sh save s2
+          date +%T
+          bash tools/bg_job.sh wait s1; bash tools/bg_job.sh wait s2
+          date +%T
+          cp data/a.bin /tmp/a.ref; cp data/b.bin /tmp/b.ref; rm -rf data
+          CB_PATH=data/a.bin CB_KEY="probe-x-$GITHUB_RUN_ID" CB_RESTORE_KEYS="probe-" bash tools/bg_job.sh start r1 bash tools/cache_bg.sh restore r1
+          CB_PATH=data/b.bin CB_KEY="probe-b-$GITHUB_RUN_ID" bash tools/bg_job.sh start r2 bash tools/cache_bg.sh restore r2
+          bash tools/bg_job.sh wait r1; bash tools/bg_job.sh wait r2
+          date +%T
+          ls -la data
+          cmp data/b.bin /tmp/b.ref && echo B-OK
+          echo "matched r1: $(bash tools/cache_bg.sh output r1 cache-matched-key)"
+          echo "matched r2: $(bash tools/cache_bg.sh output r2 cache-matched-key)"

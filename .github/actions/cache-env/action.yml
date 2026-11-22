@@ -1,0 +1,8 @@
+name: Expose the cache credentials
+description: >-
+  Copies the runner's cache service credentials into the job's environment, so
+  tools/cache_bg.sh can run actions/cache's own restore and save as background
+  processes. A node action sees them; a run step does not.
+runs:
+  using: node24
+  main: index.js
