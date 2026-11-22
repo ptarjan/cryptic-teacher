@@ -552,6 +552,11 @@
     "clue": {
      "$ref": "#/$defs/clue"
     },
+    "blogAnswer": {
+     "description": "A blog post's own answer to this clue, carried over from the clues-only record the puzzle replaced (tools/drop_clues_only_twin.py): a cross-check on a solve, never its truth, and no part of the grid.",
+     "type": "string",
+     "pattern": "^[A-Z]+$"
+    },
     "solution": {
      "description": "The letters the grid holds, A-Z: the answer, or what its `alteration` makes of it. Absent when the puzzle has no answers yet.",
      "type": "string",
