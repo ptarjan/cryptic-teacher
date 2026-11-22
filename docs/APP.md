@@ -772,7 +772,9 @@ times as long. So:
   cached row checks on disk: the reindex's rows hash the shim they wrote
   (`index_row_deps`), so pages.yml carries `puzzles/*.js` too (without it
   every index row missed on every run), and removes any restored shim the
-  new index does not name. The authored puzzle's copy check reads
+  new index does not name. The shim cache also carries
+  `tools/shim_record.py`'s record of each shim's hash at its size and
+  whole-second mtime, so the check reads only the shims whose stat moved. The authored puzzle's copy check reads
   `tools/clue_index.py`'s store under `~/.cache`, carried the same way.
 - **The puzzle pages are reused, not re-rendered.** pages.yml restores
   last build's `puzzles/<id>/index.html` files and `tools/page_cache.py`'s
