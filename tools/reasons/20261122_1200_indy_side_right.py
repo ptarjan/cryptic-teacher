@@ -7,7 +7,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent 2000-04 page whose grid stood left of its title, its clue columns right of the grid read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD = "2026-11-22T12:00:00+00:00"  # placeholder: the push minute (UTC)
 
 
 def due(row):
