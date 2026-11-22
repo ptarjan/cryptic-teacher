@@ -376,48 +376,70 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
   // A wrong piece, then a right one: the rung stays paid. The wrong lock-in is
   // shown the piece as "Show me" would (1 hint, no verdict); a right lock-in on
   // the NEXT piece must not hand the rung back as earned.
+  //
+  // Driven as the screen is: the clue's words are boxes in #hint-clue, and the
+  // next piece is asked by tapping its blank chip in the Pieces formula (there
+  // is no "Next piece" button). Piece n is buildingBlocks(a)[n], the list the
+  // formula's data-piece numbers. A clue with a joined dash is skipped, so its
+  // boxes are exactly its whitespace words (app.js clueTokens only splits there).
   {
     const bareW = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-    const pickable = () => [...registry["hint-body"].innerHTML.matchAll(/id="gw-(\d+)"/g)].map((m) => +m[1]);
+    const pickable = () => [...registry["hint-clue"].innerHTML.matchAll(/id="gw-(\d+)"/g)].map((m) => +m[1]);
+    const blanks = () => [...registry["hint-body"].innerHTML.matchAll(/<button[^>]*class="formula-chip( cur)?"[^>]*data-piece="(\d+)"/g)]
+      .map((m) => ({ cur: !!m[1], n: +m[2] }));
+    const tapChip = (n) => registry["hint-body"].listeners.click.forEach((fn) => fn({ target: { dataset: { piece: String(n) } } }));
+    // The box numbers of a fragment's words, or null unless it is whole words
+    // written once in the clue.
     const fragWords = (e, b) => {
-      const clue = clueText(e), at = clue.indexOf(b.clueFragment);
-      if (at < 0) return null;
-      const before = clue.slice(0, at).split(/\s+/).filter(Boolean).length;
-      return Array.from({ length: b.clueFragment.split(/\s+/).filter(Boolean).length }, (_, i) => before + i);
+      const clue = clueText(e), frag = b && b.clueFragment;
+      const at = frag ? clue.indexOf(frag) : -1;
+      if (at < 0 || clue.indexOf(frag, at + 1) >= 0) return null;
+      const toks = [];
+      const re = /\S+/g;
+      let m;
+      while ((m = re.exec(clue))) toks.push({ i: m.index, end: m.index + m[0].length });
+      const hit = toks.map((t, n) => ({ t, n })).filter(({ t }) => t.i < at + frag.length && at < t.end);
+      if (!hit.length || hit[0].t.i !== at || hit[hit.length - 1].t.end !== at + frag.length) return null;
+      return hit.map(({ n }) => n);
     };
     let walked = null, tried = 0;
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation;
         if (!a || a.redo || defTexts(a).length > 1) continue;
-        const bl = APP_BLOCKS.buildingBlocks(a).filter((b) => b.clueFragment && clueText(e).split(b.clueFragment).length === 2
+        if (/[-‐-―](?=[^\s\-‐-―])/.test(clueText(e))) continue;
+        const all = APP_BLOCKS.buildingBlocks(a);
+        const asks = all.filter((b) => b.clueFragment && clueText(e).split(b.clueFragment).length === 2
           && bareW(b.clueFragment) !== bareW(APP_BLOCKS.blockLetters(a, b)));
-        if (bl.length !== 2 || tried++ > 400 || !open(id, e)) continue;
+        if (asks.length !== 2 || tried++ > 400 || !open(id, e)) continue;
         const rungBtn = climbToBlocks();
         if (!rungBtn) continue;
         rungBtn.onclick();
         if (!asking()) continue;
-        const first = fragWords(e, bl[0]);
-        const wrongPick = pickable().find((i) => first && first.indexOf(i) < 0);
+        const cur = blanks().find((c) => c.cur);
+        const first = cur && fragWords(e, all[cur.n]);
+        const wrongPick = first ? pickable().find((i) => first.indexOf(i) < 0) : undefined;
         if (wrongPick === undefined) continue;
         const cold = registry["scorebar"].innerHTML;
         registry["gw-" + wrongPick].onclick();
         registry["guess-tell"].onclick();
         const paid = registry["scorebar"].innerHTML;
-        const next = rung(/next piece/i);
+        const next = blanks().find((c) => c.n !== cur.n);
         if (!next || paid === cold) continue;
-        next.onclick();
+        tapChip(next.n);
         if (!asking()) continue;
-        const second = fragWords(e, bl[1]);
+        const second = fragWords(e, all[next.n]);
         if (!second || !second.every((i) => pickable().indexOf(i) >= 0)) continue;
         second.forEach((i) => registry["gw-" + i].onclick());
         registry["guess-tell"].onclick();
-        walked = { id, e, paid, after: registry["scorebar"].innerHTML };
+        walked = { id, e, paid, after: registry["scorebar"].innerHTML,
+          right: registry["hint-body"].innerHTML.includes("guess-verdict right") };
         break;
       }
       if (walked) break;
     }
     if (shape("a two-piece clue asked piece by piece", walked)) {
+      assert(walked.right, `${walked.id} ${entryId(walked.e)}: the second piece's own words are graded right`);
       assert(walked.after === walked.paid,
         `${walked.id} ${entryId(walked.e)}: a right piece after a wrong one keeps Pieces paid, `
           + `neither refunded nor charged again: ${walked.paid} then ${walked.after}`);
