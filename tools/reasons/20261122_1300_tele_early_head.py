@@ -10,7 +10,7 @@ heading. tele_head_top now reads, for 1975-89, a narrow band over the SOLUTION h
 from fix_reasons import Reason
 
 TEXT = "Gale Telegraph 1975-89 page whose clue lists began mid-list (the first clues laid on no light), the columns' top set at its heading since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-22T12:46:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
