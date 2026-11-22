@@ -507,6 +507,10 @@ def sundays_back(n, end=None):
     return [(end - timedelta(weeks=i)).strftime("%y%m%d") for i in range(n)]
 
 
+# First feed date that replays old puzzles (the paper's cryptic ended 2026-10-31).
+RERUNS_FROM = "261101"
+
+
 def newest_held_number(series):
     """The highest puzzle number on disk for one series, read from file names."""
     root = puzzle_path(series, 1).parent.parent
@@ -533,7 +537,9 @@ def latest():
                 raise
             continue
         newest = newest_held_number(puzzle["series"])
-        if newest and puzzle["number"] < newest:
+        if ymd >= RERUNS_FROM or (newest and puzzle["number"] < newest):
+            # (The date test catches Sundays, whose replayed 2023 numbers sit
+            # above the old Sunday sequence's 1,9xx and so pass the number test.)
             # A rerun: the paper's cryptic ended with No. 12,501 on 2026-10-31,
             # and from 2026-11-01 the feed replays the 2023 puzzles (No. 11,561
             # on) under new dates. Filing one would date a 2023 puzzle 2026.
@@ -577,6 +583,10 @@ def backfill(ymds):
             missing += 1
             continue
         if puzzle["id"] in have:
+            skipped += 1
+        elif ymd >= RERUNS_FROM:
+            # The feed replays 2023 puzzles under 2026 dates: not new, not ours.
+            print(f"skip {ymd}: rerun {puzzle['id']} (feed replays old puzzles)")
             skipped += 1
         else:
             try:
