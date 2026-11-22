@@ -25,12 +25,8 @@
 #     after it still go: origin's version stands, and each puzzle it filed
 #     asks for its source to be read again (scan_queue.py conflicted), which
 #     files over origin's; a commit nothing re-reads is kept under
-#     refs/durable/conflicts/ and the room is told. One origin's pre-push
-#     refuses (made by older code than origin's: durable_refused) is set
-#     aside the same way, kept under refs/durable/refused/, and its source is
-#     read again once the tree has moved to origin's code. So no commit can
-#     hold the tree on old code, and DURABLE_RESYNC's move is tried after a
-#     failed checkpoint too.
+#     refs/durable/conflicts/ and the room is told. DURABLE_RESYNC's move is
+#     tried after a failed checkpoint too.
 #   * SIGTERM, SIGINT or SIGHUP (tools/corpus_queue.py stop, a container
 #     stop) TERMs the command, waits up to DURABLE_STOP_GRACE seconds (default
 #     60) for it to end, KILLs it if not, checkpoints, and exits 143.
@@ -84,8 +80,6 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
     rc=$?
     if [ "$rc" = 3 ]; then
       durable_set_aside "$c"
-    elif [ "$rc" = 4 ]; then
-      durable_refused "$c"
     elif [ "$rc" != 0 ]; then
       echo "durable: push of $(git log -1 --format=%s "$c") failed; it stays committed here and is retried at the next checkpoint"
       durable_push_failed "$c"
@@ -97,8 +91,7 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
 }
 
 # A push that fails the same way every time leaves every checkpoint failing
-# (10-13, 5 hours and 777 commits: the pre-push refusing a shape the job's old
-# code still wrote, now settled by durable_refused; still possible: origin
+# (10-13, 5 hours and 777 commits; still possible: origin
 # unreachable, the push-gate worktree broken, a pre-push that crashes). The
 # backstop: the streak is counted in the git
 # dir (a durable_background publish runs in a subshell) and the room is told
@@ -112,7 +105,7 @@ durable_push_failed() {  # durable_push_failed <commit>: count the failed checkp
   echo "$n" >"$f"
   [ "$n" = "$DURABLE_ALERT_AFTER" ] || return 0
   . "$_durable_dir/alert.sh" 2>/dev/null &&
-    alert "durable: ${_durable_what:-a job} in $PWD has failed $n checkpoints in a row: \"$(git log -1 --format=%s "$1")\" will not push, so $(git rev-list --count "${_durable_pushed:-origin/master}..HEAD" 2>/dev/null) commit(s) wait unpushed and the tree cannot move to origin/master's code. Push them by hand (tools/push_puzzle_commit.sh) or fix what the pre-push refuses."
+    alert "durable: ${_durable_what:-a job} in $PWD has failed $n checkpoints in a row: \"$(git log -1 --format=%s "$1")\" will not push, so $(git rev-list --count "${_durable_pushed:-origin/master}..HEAD" 2>/dev/null) commit(s) wait unpushed and the tree cannot move to origin/master's code. Push them by hand (tools/push_puzzle_commit.sh)."
 }
 
 durable_set_aside() {  # durable_set_aside <commit>: a commit that conflicts with origin/master
@@ -127,102 +120,6 @@ durable_set_aside() {  # durable_set_aside <commit>: a commit that conflicts wit
       alert "durable: \"$subj\" conflicts with origin/master and is not all re-readable, so origin's version stands and the commit is kept as refs/durable/conflicts/$c; merge it from a worktree. $out"
   fi
   printf '%s\n' "$out"
-}
-
-# A commit the pre-push refuses (push_puzzle_commit.sh's REFUSED) is judged by
-# origin/master's code, so it will never push as it stands: the job made it
-# with older code than origin's (10-13: a pass started before a format change
-# wrote the old shape, every checkpoint failed on it and the tree never moved
-# to the code that writes the new one, 5 hours, 781 commits). So it is settled
-# like a conflict: kept as refs/durable/refused/<commit> (nothing is
-# discarded) and the ones after it still go. With every commit settled the
-# resync moves the tree to origin/master, and only then (durable_reread_refused)
-# each puzzle it filed asks for its source to be read again (scan_queue.py
-# conflicted ... pushRefused): asked before the move, a unit started off the
-# old tree could read it again with the old code and be refused again. The
-# re-read files the puzzle again with origin's code, off the readings cached
-# for its crops (~/.cache/archive_org_crops/rapid, solution_reads, Trove's
-# zone readings), so nothing is OCR'd again unless the new code crops anew.
-# The commits waiting for the move are listed in the git dir
-# (durable-refused), so a durable_background publish, or a run dropped before
-# its move, leaves them to the next move. A reading refused twice asks no
-# second re-read (request_reread asks once per reading): that one, and one
-# nothing re-reads, is alerted.
-durable_refused() {  # durable_refused <commit>: a commit origin's pre-push refuses
-  local c="$1"
-  # 11-14: a batch of TLS fills and stale-code Times rereads was refused whole,
-  # and the fills waited for a hand refile. The guard names the paths it
-  # rolled back: the rest is pushed as its own commit, only those are kept.
-  durable_split_refused "$c" && return 0
-  git update-ref "refs/durable/refused/$c" "$c"
-  echo "$c" >>"$(git rev-parse --git-path durable-refused)"
-  echo "durable: origin's pre-push refuses $(git log -1 --format=%s "$c") (made with older code); kept as refs/durable/refused/$c, and its source is read again once the tree is on origin's code"
-  # A job that never moves its tree (no DURABLE_RESYNC) asks now: whatever
-  # reads it again runs from another tree.
-  [ -n "${DURABLE_RESYNC:-}" ] || durable_reread_refused
-}
-
-durable_split_tree() {  # durable_split_tree <from> <to> <path>...: <from>'s tree with <to>'s version of each path
-  local from="$1" to="$2" idx p entry mode sha
-  shift 2
-  idx="$(mktemp -d)/index"
-  GIT_INDEX_FILE=$idx git read-tree "$from" || return 1
-  for p in "$@"; do
-    entry=$(git ls-tree "$to" -- "$p")
-    if [ -n "$entry" ]; then
-      read -r mode _ sha _ <<<"$entry"
-      GIT_INDEX_FILE=$idx git update-index --add --cacheinfo "$mode,$sha,$p" || return 1
-    else
-      GIT_INDEX_FILE=$idx git update-index --force-remove -- "$p" || return 1
-    fi
-  done
-  GIT_INDEX_FILE=$idx git write-tree
-}
-
-durable_split_commit() {  # durable_split_commit <tree> <parent> <commit>: <commit>'s message on <tree>, "Update N puzzles" recounted
-  local n
-  n=$(git diff --no-renames --name-only "$2" "$1" -- 'puzzles/*.json' | wc -l)
-  git log -1 --format=%B "$3" | sed "1s/^Update [0-9]* puzzles/Update $n puzzles/" |
-    GIT_AUTHOR_NAME=$(git log -1 --format=%an "$3") GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$3") \
-    GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$3") git commit-tree "$1" -p "$2"
-}
-
-durable_split_refused() {  # durable_split_refused <commit>: push what the guard accepts, keep the rest; status 1 when it cannot split
-  local c="$1" parent hit=() okt badt ok bad rc
-  parent=$(git rev-parse -q --verify "$c^") || return 1
-  mapfile -t hit < <(python3 "$_durable_dir/clobber_guard.py" --paths "$c" 2>/dev/null | grep .)
-  [ "${#hit[@]}" -gt 0 ] || return 1
-  [ "$(git diff --no-renames --name-only "$parent" "$c" | wc -l)" -gt "${#hit[@]}" ] || return 1
-  okt=$(durable_split_tree "$c^{tree}" "$parent" "${hit[@]}") || return 1
-  badt=$(durable_split_tree "$parent^{tree}" "$c" "${hit[@]}") || return 1
-  ok=$(durable_split_commit "$okt" "$parent" "$c") || return 1
-  bad=$(durable_split_commit "$badt" "$parent" "$c") || return 1
-  bash "$_durable_dir/push_puzzle_commit.sh" "$ok"
-  rc=$?
-  if [ "$rc" = 3 ]; then durable_set_aside "$ok"; elif [ "$rc" != 0 ]; then return 1; fi
-  git update-ref "refs/durable/refused/$bad" "$bad"
-  echo "$bad" >>"$(git rev-parse --git-path durable-refused)"
-  echo "durable: origin's pre-push refuses ${#hit[@]} of the files in $(git log -1 --format=%s "$c") (made with older code): $(git log -1 --format=%s "$ok") pushed; $(git log -1 --format=%s "$bad") kept as refs/durable/refused/$bad, and its source is read again once the tree is on origin's code"
-  [ -n "${DURABLE_RESYNC:-}" ] || durable_reread_refused
-  return 0
-}
-
-durable_reread_refused() {  # after a move: ask the re-reads of the refused commits
-  local f c subj out
-  f="$(git rev-parse --git-path durable-refused)"
-  [ -s "$f" ] || return 0
-  for c in $(sort -u "$f"); do
-    subj="$(git log -1 --format=%s "$c")"
-    if out="$(python3 "$_durable_dir/scan_queue.py" conflicted "$c" pushRefused 2>&1)"; then
-      echo "durable: $subj, refused by the pre-push, is read again with $(git rev-parse --short HEAD)'s code:"
-    else
-      echo "durable: $subj, refused by the pre-push, is not all read again; kept as refs/durable/refused/$c:"
-      . "$_durable_dir/alert.sh" 2>/dev/null &&
-        alert "durable: origin/master's pre-push refused \"$subj\" from ${_durable_what:-a job} in $PWD and not all of it is re-readable (or a re-read was refused again), so it is kept as refs/durable/refused/$c and the job moved on to origin's code. Fix what the pre-push refuses, or file it by hand. $out"
-    fi
-    printf '%s\n' "$out"
-  done
-  rm -f "$f"
 }
 
 # A publish (commit, push, move) run beside the next command, so a job
@@ -366,7 +263,7 @@ durable_resync() {  # move the tree to origin/master; nothing is lost if it cann
     move="git reset -q --keep $onto 2>/dev/null"
   # Already on the target with nothing unpushed: the move is a no-op, but `reset --keep` / a rebase
   # re-stats the whole index and rereads every racy-stat file of puzzles/ (11-15: the live queue read
-  # ~2 GB/min of disk, swap). Skip it; the rest (batch bookkeeping, refused rereads) still runs.
+  # ~2 GB/min of disk, swap). Skip it; the rest (batch bookkeeping) still runs.
   if [ -z "$pending" ] && [ "$(git rev-parse -q --verify HEAD)" = "$(git rev-parse -q --verify "$onto")" ]; then
     move=true
   fi
@@ -384,6 +281,5 @@ durable_resync() {  # move the tree to origin/master; nothing is lost if it cann
   _durable_pushed=""
   [ "$(git rev-parse -q --verify "$onto" 2>/dev/null)" = "$(git rev-parse -q --verify origin/master)" ] ||
     _durable_pushed="$(git rev-parse -q --verify "$onto")"
-  durable_reread_refused
   return 0
 }
