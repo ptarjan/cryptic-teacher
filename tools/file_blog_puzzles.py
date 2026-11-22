@@ -115,6 +115,8 @@ CAUSE_OF = {words: key for key, words in CAUSES.items()}
 #: {"post_id", "series", "number", "cause"}, cause a CAUSES key or "filed".
 #: Rewritten whole by every writing run, so it is always the last run's word.
 FILINGS = "filings.jsonl"
+#: How far back the run names the posts it could not file.
+RECENT_UNFILED = datetime.timedelta(days=21)
 
 
 DAY = datetime.timedelta(days=1)
@@ -880,6 +882,14 @@ def run(source, grids, parsed, write=True, newest=None):
     print(f"already filed {kept}")
     for why, n in skipped.most_common():
         print(f"  skipped {n}: {why}")
+    # The counts alone never say which puzzle a skip was: name the recent posts
+    # the sequence check or a doubled number kept off the site.
+    recent = (datetime.date.today() - RECENT_UNFILED).isoformat()
+    for r in sorted(ledger.values(), key=lambda r: str(r["number"])):
+        rec = recs.get(r["post_id"]) or {}
+        if r["cause"] in ("out-of-sequence", "claimed-twice") and rec.get("date", "") >= recent:
+            print(f"  unfiled {r['cause']}: {r['series']} {r['number']} "
+                  f"(post {r['post_id']}, {rec.get('date')}, {rec.get('slug')})")
     if redated:
         print(f"{'would redate' if not write else 'redated'} {sum(redated.values())}: "
               + ", ".join(f"{s} {n}" for s, n in sorted(redated.items())))
