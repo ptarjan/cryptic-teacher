@@ -57,13 +57,18 @@ run() {  # run restore|save NAME: the foreground body of a background job
   : > "$out"
   : > "$out.state"
   echo "cache_bg: $mode $CB_KEY with node $("$node" --version)"
+  local t0=$SECONDS
   env "INPUT_PATH=${CB_PATH:?}" "INPUT_KEY=${CB_KEY:?}" "INPUT_RESTORE-KEYS=${CB_RESTORE_KEYS:-}" \
     INPUT_ENABLECROSSOSARCHIVE=false "INPUT_FAIL-ON-CACHE-MISS=false" "INPUT_LOOKUP-ONLY=false" \
     "GITHUB_OUTPUT=$out" "GITHUB_STATE=$out.state" \
     "$node" "$entry"
+  local t1=$SECONDS
   if [ "$mode" = restore ] && [ -n "${CB_UNPACK:-}" ]; then
     bash "$here/cache_tar.sh" unpack "$CB_PATH"
   fi
+  # Where a restore's or save's seconds went: the cache service (download or
+  # upload, with the archive's own tar) and then the tar of loose files.
+  echo "cache_bg: $mode $name: cache service $(( t1 - t0 ))s, tar $(( SECONDS - t1 ))s"
   return 0
 }
 
