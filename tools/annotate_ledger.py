@@ -51,6 +51,7 @@ counted per clue over the clues still to annotate, not per hour over a fixed 7 d
 the counts are the page's own recorded nights (tools/progress.py), not a scrape.
 """
 import argparse
+import contextlib
 import datetime
 import json
 import os
@@ -70,6 +71,10 @@ STATE = pathlib.Path(os.environ.get("ANNOTATE_WAKE_STATE", CACHE / "annotate_cos
 # The no-lever book is tracked repo data (11-19): the room's settled causes survive a cache wipe.
 NO_LEVER = pathlib.Path(os.environ.get("ANNOTATE_NO_LEVER", REPO / "tools" / "data" / "annotate_no_lever.json"))
 OLD_NO_LEVER = CACHE / "annotate_no_lever.json"   # where the book lived until 11-19: migrated once
+# A --no-lever run edits the repo file of whichever checkout it ran in, but the burn reads its own
+# worktree, which is reset to origin/master on every commit: until that edit is pushed, the burn
+# never sees it. Every record is also kept here, outside any checkout, and read with the repo book.
+PENDING_NO_LEVER = pathlib.Path(os.environ.get("ANNOTATE_NO_LEVER_PENDING", CACHE / "annotate_no_lever_pending.json"))
 NO_LEVER_RISE = 1.5   # a no-lever cause wakes again when its $/clue passes this x the recorded
 NO_LEVER_DAYS = 14    # ...or when this many days have passed since the record's date
 FIX_COST_PER_INVESTIGATION = 6.0   # each earlier look at a cause adds this to its assumed fix cost
@@ -230,9 +235,18 @@ def read_no_lever():
         except (OSError, ValueError):
             pass
     try:
-        return json.loads(NO_LEVER.read_text())
+        book = json.loads(NO_LEVER.read_text())
     except (OSError, ValueError):
-        return {}
+        book = {}
+    try:
+        pending = json.loads(PENDING_NO_LEVER.read_text())
+    except (OSError, ValueError):
+        pending = {}
+    for key, rec in pending.items():
+        # The newer record wins: a pushed re-investigation must not be undone by an older pending one.
+        if isinstance(rec, dict) and (rec.get("date") or "") >= ((book.get(key) or {}).get("date") or ""):
+            book[key] = rec
+    return book
 
 
 def muted(rec, per_clue, now=None, wall=None):
@@ -284,6 +298,14 @@ def mark_no_lever(cause, rows, commit, now=None):
                 book[key] = rec
                 NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
                 NO_LEVER.write_text(json.dumps(book, indent=1) + "\n")
+                try:
+                    pending = json.loads(PENDING_NO_LEVER.read_text())
+                except (OSError, ValueError):
+                    pending = {}
+                pending[key] = rec
+                with contextlib.suppress(OSError):
+                    PENDING_NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
+                    PENDING_NO_LEVER.write_text(json.dumps(pending, indent=1) + "\n")
                 return dict(rec, key=key)
     return None
 

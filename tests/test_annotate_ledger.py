@@ -20,6 +20,7 @@ import annotate_ledger as L
 CLUES_LEFT = 1000
 L.clues_left = lambda mean_clues, days=None: CLUES_LEFT  # set via left(n) below
 L.NO_LEVER = pathlib.Path("/nonexistent/annotate_no_lever.json")
+L.PENDING_NO_LEVER = pathlib.Path("/nonexistent/annotate_no_lever_pending.json")
 
 fails = 0
 def check(got, want, what):
@@ -131,6 +132,18 @@ with tempfile.TemporaryDirectory() as d:
     r1 = L.mark_no_lever("rule:a", rows5, (None, None, None), now)
     r2 = L.mark_no_lever("rule:a", rows5, (None, None, None), now)
     check((r1["count"], r2["count"]), (1, 2), "re-marking the same key counts the investigation")
+    # The burn's worktree has only the pushed repo book: a record from another checkout reaches it
+    # through the pending book outside every checkout.
+    saved_p = L.PENDING_NO_LEVER
+    L.PENDING_NO_LEVER = d / "pending.json"
+    L.mark_no_lever("rule:a", rows5, (None, None, None), now)
+    L.NO_LEVER = d / "burn" / "nl.json"
+    L.NO_LEVER.parent.mkdir()
+    L.NO_LEVER.write_text(json.dumps({"rule:a": {"date": "2000-01-01", "count": 1}}))
+    check(L.read_no_lever()["rule:a"]["count"], 3, "a pending record newer than the repo book's wins")
+    L.NO_LEVER.write_text(json.dumps({"rule:a": {"date": "2999-01-01", "count": 9}}))
+    check(L.read_no_lever()["rule:a"]["count"], 9, "an older pending record never undoes a newer pushed one")
+    L.PENDING_NO_LEVER = saved_p
     L.NO_LEVER, L.OLD_NO_LEVER = saved
 left(1000)
 
