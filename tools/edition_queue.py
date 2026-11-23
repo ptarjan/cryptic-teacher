@@ -1705,7 +1705,10 @@ def hold_refusal_rereads(scans, reads, out=None):
     # Nor are the named fixes' (reason in FIX_LANDED): Paul 11-13, "Things you're fixing should be at the front
     # of the queue". 3,548 of them (SIDES_READ, INDY_LINKS, SUNDAY_GRID, ...) were held behind 23,941 never-read
     # units, 0 in the plan. Only the generic "... cured since" / "refused X before its fix" rereads are held.
+    # Nor a crash's (11-23): a crashed page was never read at all, and its crash was fixed in code
+    # (Gale Independent 1999-02..03's 30 pages waited behind every never-read unit after placed()'s fix).
     held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])
+            and t[3]["reason"] != "refused crashed before its fix"
             and not (t[3]["reason"] in FIX_LANDED and not t[3]["reason"].endswith((" before its fix", " cured since")))
             and t[3]["paper"] != "listener" and (t[3]["paper"] not in named or canary_failed(t[3]))]
     if not held:
