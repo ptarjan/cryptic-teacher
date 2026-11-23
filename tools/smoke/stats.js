@@ -104,11 +104,16 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   // the row charges, so the light leaves the ladder for the grid: work it out
   // and type it in, which is the one way of finishing a clue that costs nothing.
   let typing = false;
+  const trace = [];
   for (let i = 0; i < 12 && !typing; i += 1) {
+    trace.push(((press.registry["hint-rungs"].children[0] || {}).textContent || "-").slice(0, 40)
+      + " | " + nuxLine(press.registry).slice(0, 50)
+      + " | " + String(press.registry["hint-body"].innerHTML || "").replace(/<[^>]*>/g, " ").slice(-60));
     if (/into the highlighted squares/.test(nuxLine(press.registry))) { typing = true; break; }
     if (!pressTake()) break;
   }
-  assert(typing, "the walk ends by asking them for the answer: " + nuxLine(press.registry));
+  assert(typing, "the walk ends by asking them for the answer: " + nuxLine(press.registry)
+    + " on " + (press.registry["puzzle-title"] || {}).textContent + " via " + trace.join(" >> "));
   assert(/they make [A-Z]/.test(nuxLine(press.registry)),
     "and it gives them the answer to type, so the lesson is where it goes: " + nuxLine(press.registry));
   assert(/walk-point/.test(press.registry["hint-pattern"].innerHTML || ""),
