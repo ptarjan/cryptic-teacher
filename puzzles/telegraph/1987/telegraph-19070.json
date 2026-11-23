@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "The oceans supply a source of power",
     "enumeration": "5"
    },
-   "solution": "MAINS"
+   "solution": "MAINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The oceans",
+      "at": 0,
+      "meaning": "the main is a poetic word for the open sea, so the oceans are the high seas"
+     },
+     {
+      "text": "a source of power",
+      "at": 18,
+      "meaning": "the domestic electricity supply from the grid"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that the seas could be tapped for energy.",
+     "definitionFit": "Poets call the open sea the main, and the household electricity supply is also called by this plural word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oceans"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,31 @@
     "text": "Instruction to lay more off",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Instruction",
+      "at": 0,
+      "meaning": "a period of teaching"
+     },
+     {
+      "text": "to lay more off",
+      "at": 12,
+      "meaning": "to put more off is to put ..., read as two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to someone to cut back on what they pile on.",
+     "walkthrough": "The second definition splits the answer into LESS ON: laying more off means laying less on.",
+     "definitionFit": "A school class is a period of teaching, and laying less on is the same as taking more off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +108,52 @@
     "text": "Two fools take in a murderer",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a murderer",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "Two",
+         "at": 0,
+         "note": "the number tells us to write the fools word twice in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fools",
+         "at": 4,
+         "gives": "ASS",
+         "note": "an ass is a fool"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 15,
+       "gives": "IN",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of idiots give shelter to a killer.",
+     "definitionFit": "An assassin is a killer, especially of a prominent person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +167,42 @@
     "text": "Got up, had a meal and was in thepink",
     "enumeration": "7"
    },
-   "solution": "ROSEATE"
+   "solution": "ROSEATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in thepink",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Got up",
+       "at": 0,
+       "gives": "ROSE",
+       "note": "rose is the past tense of rise, to get up"
+      },
+      {
+       "words": "had a meal",
+       "at": 8,
+       "gives": "ATE",
+       "note": "ate means had a meal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rose, breakfasted and felt in perfect health.",
+     "walkthrough": "'In the pink' suggests good health, but here it is literal: rose-coloured.",
+     "definitionFit": "Roseate means rosy-coloured, a pale pink shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thepink"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +216,40 @@
     "text": "Mad enough to break the saucepan",
     "enumeration": "8"
    },
-   "solution": "CRACKPOT"
+   "solution": "CRACKPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "break",
+       "at": 14,
+       "gives": "CRACK",
+       "note": "to crack is to break"
+      },
+      {
+       "words": "saucepan",
+       "at": 24,
+       "gives": "POT",
+       "note": "a pot is a cooking pan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone angry enough to smash the kitchen pans.",
+     "definitionFit": "A crackpot is an eccentric or crazy person, used here as an adjective meaning crazy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +269,30 @@
      }
     ]
    },
-   "solution": "BLUEPETER"
+   "solution": "BLUEPETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Main message",
+      "at": 0,
+      "meaning": "a flag signal at sea (the main): the flag raised to show a ship is about to sail"
+     },
+     {
+      "text": "broadcast to children",
+      "at": 13,
+      "meaning": "a long-running BBC children's television programme"
+     }
+    ],
+    "explanation": {
+     "surface": "A nautical signal relayed to youngsters.",
+     "definitionFit": "The blue-and-white flag hoisted before sailing shares its name with a famous British children's TV show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +316,30 @@
      }
     ]
    },
-   "solution": "TAKEASHOT"
+   "solution": "TAKEASHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Photograph",
+      "at": 0,
+      "meaning": "to photograph is to snap a picture"
+     },
+     {
+      "text": "what the armed bandit may do",
+      "at": 11,
+      "meaning": "a gunman may fire his gun"
+     }
+    ],
+    "explanation": {
+     "surface": "A camera and a gun both 'shoot'.",
+     "definitionFit": "Shooting a picture and shooting a gun share one phrase meaning to fire or snap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +353,30 @@
     "text": "Material for military exercises",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0,
+      "meaning": "a strong twilled cotton fabric"
+     },
+     {
+      "text": "military exercises",
+      "at": 13,
+      "meaning": "parade-ground training for soldiers"
+     }
+    ],
+    "explanation": {
+     "surface": "Fabric used for soldiers' training.",
+     "definitionFit": "Drill is a hard-wearing cotton cloth and also soldiers' marching practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +390,48 @@
     "text": "Many a politician is wet",
     "enumeration": "4"
    },
-   "solution": "DAMP"
+   "solution": "DAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wet",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Many",
+       "at": 0,
+       "gives": "D",
+       "note": "D is the Roman numeral for 500, a large number"
+      },
+      {
+       "words": "a",
+       "at": 5,
+       "gives": "A"
+      },
+      {
+       "words": "politician",
+       "at": 7,
+       "gives": "MP",
+       "note": "MP stands for Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that lots of politicians are feeble.",
+     "walkthrough": "'Wet' in British slang means feeble, which the surface plays on; the definition is the literal sense, moist.",
+     "definitionFit": "Something slightly moist is described by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wet"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +455,30 @@
      }
     ]
    },
-   "solution": "INASTATE"
+   "solution": "INASTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where the citizen has a right to be",
+      "at": 0,
+      "meaning": "a citizen belongs within a nation"
+     },
+     {
+      "text": "tense",
+      "at": 36,
+      "meaning": "agitated or anxious"
+     }
+    ],
+    "explanation": {
+     "surface": "Musing on a citizen's rights, with a grammatical aside.",
+     "definitionFit": "A citizen lives within a nation, and someone flustered is said to be worked up in this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +495,30 @@
      "toxophilists"
     ]
    },
-   "solution": "ARCHER"
+   "solution": "ARCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of the toxophilists",
+      "at": 0,
+      "meaning": "a toxophilite is a lover of archery, so one of them shoots a bow"
+     },
+     {
+      "text": "of Ambridge",
+      "at": 24,
+      "meaning": "Ambridge is the village in the BBC radio soap about a farming family of this name"
+     }
+    ],
+    "explanation": {
+     "surface": "An archery enthusiast from a fictional village.",
+     "definitionFit": "A bowman, and also a member of the family in the long-running BBC Radio 4 soap set in Ambridge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ambridge"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +532,35 @@
     "text": "Where to lay our responsibility",
     "enumeration": "4"
    },
-   "solution": "ONUS"
+   "solution": "ONUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where to lay our responsibility",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Where to lay our responsibility",
+       "at": 0,
+       "note": "the place we lay a duty is upon ourselves, which split as two words gives a word for a burden"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of who should carry the blame.",
+     "walkthrough": "Split the answer as ON US: it is where we lay a burden, and the whole word means burden.",
+     "definitionFit": "A duty or burden someone must bear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +580,41 @@
      }
     ]
    },
-   "solution": "TOPSPEED"
+   "solution": "TOPSPEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The fastest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "best",
+       "at": 16,
+       "gives": "TOP",
+       "note": "top means best"
+      },
+      {
+       "words": "stuff to get high on",
+       "at": 21,
+       "gives": "SPEED",
+       "note": "speed is slang for amphetamine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drug talk about the finest stimulant.",
+     "definitionFit": "Maximum velocity is the fastest rate something can go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +628,29 @@
     "text": "Pharmacist may provide such a container",
     "enumeration": "9"
    },
-   "solution": "DISPENSER"
+   "solution": "DISPENSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pharmacist",
+      "at": 0,
+      "meaning": "a chemist who makes up prescriptions"
+     },
+     {
+      "text": "such a container",
+      "at": 23,
+      "meaning": "a device that releases set amounts, like a soap holder"
+     }
+    ],
+    "explanation": {
+     "surface": "A chemist who supplies medicine in a pack.",
+     "definitionFit": "A chemist hands out medicines, and a device that releases measured amounts shares the name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +670,30 @@
      }
     ]
    },
-   "solution": "BIGBANG"
+   "solution": "BIGBANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The result of a bombshell",
+      "at": 0,
+      "meaning": "the loud explosion when a bomb goes off"
+     },
+     {
+      "text": "recent City practices",
+      "at": 29,
+      "meaning": "the 1986 deregulation of the London Stock Exchange (the City)"
+     }
+    ],
+    "explanation": {
+     "surface": "Shocking news upending financial dealings.",
+     "definitionFit": "A huge explosion, and the nickname for the 1986 shake-up of London's financial district, known as the City."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bombshell"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +707,46 @@
     "text": "He sings the first few notes with sonorous quality",
     "enumeration": "8"
    },
-   "solution": "BARITONE"
+   "solution": "BARITONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He sings",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "few notes",
+       "at": 19,
+       "gives": "BAR",
+       "note": "a bar of music holds a few notes"
+      },
+      {
+       "words": "the first",
+       "at": 9,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "sonorous quality",
+       "at": 34,
+       "gives": "TONE",
+       "note": "tone is the quality of a sound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer opening with a rich, resonant phrase.",
+     "definitionFit": "A male singer whose voice lies between tenor and bass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +760,30 @@
     "text": "Colonist who is fully paid up",
     "enumeration": "7"
    },
-   "solution": "SETTLER"
+   "solution": "SETTLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colonist",
+      "at": 0,
+      "meaning": "a pioneer who takes up land in a new country"
+     },
+     {
+      "text": "who is fully paid up",
+      "at": 9,
+      "meaning": "one who settles a bill pays it"
+     }
+    ],
+    "explanation": {
+     "surface": "A pioneer who owes nothing.",
+     "definitionFit": "A pioneer making a home in new territory, and someone who clears a debt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paid"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +797,40 @@
     "text": "Eton is an unusual place to find an Eastern European",
     "enumeration": "8"
    },
-   "solution": "ESTONIAN"
+   "solution": "ESTONIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eastern European",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 11,
+       "note": "unusual signals that these letters come in an odd order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eton is an",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finding a Baltic native at the elite English school would be rare.",
+     "walkthrough": "'unusual' rearranges ETON IS AN. Eton is a famous English private school.",
+     "definitionFit": "A native of Estonia, a Baltic state in eastern Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +844,41 @@
     "text": "Once more a righteous man is in opposition",
     "enumeration": "7"
    },
-   "solution": "AGAINST"
+   "solution": "AGAINST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in opposition",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Once more",
+       "at": 0,
+       "gives": "AGAIN",
+       "note": "again means once more"
+      },
+      {
+       "words": "a righteous man",
+       "at": 10,
+       "gives": "ST",
+       "note": "ST is the abbreviation for saint, a holy person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good man takes a contrary stance again.",
+     "definitionFit": "Being opposed to something means standing contrary to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "righteous"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +892,30 @@
     "text": "Just playing the game",
     "enumeration": "8"
    },
-   "solution": "SPORTING"
+   "solution": "SPORTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0,
+      "meaning": "fair and generous"
+     },
+     {
+      "text": "playing the game",
+      "at": 5,
+      "meaning": "taking part in sport"
+     }
+    ],
+    "explanation": {
+     "surface": "Merely joining in.",
+     "definitionFit": "A fair-minded opponent is generous, and someone taking part in a sport is active in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +929,41 @@
     "text": "African tribesmen, each claiming to be sanctimonious",
     "enumeration": "4"
    },
-   "solution": "IMPI"
+   "solution": "IMPI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African tribesmen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "each claiming to be",
+       "at": 19,
+       "gives": "IM",
+       "note": "each would say 'I am', contracted"
+      },
+      {
+       "words": "sanctimonious",
+       "at": 39,
+       "gives": "PI",
+       "note": "pi is slang for pious or sanctimonious"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tribesmen all professing their own holiness.",
+     "walkthrough": "Each tribesman says I'M PI. An impi is a Zulu regiment.",
+     "definitionFit": "A body of Zulu warriors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +977,30 @@
     "text": "Instant credit",
     "enumeration": "4"
    },
-   "solution": "TICK"
+   "solution": "TICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Instant",
+      "at": 0,
+      "meaning": "a moment, as in 'just a moment'"
+     },
+     {
+      "text": "credit",
+      "at": 8,
+      "meaning": "buying on account, British informal"
+     }
+    ],
+    "explanation": {
+     "surface": "Immediate loans.",
+     "definitionFit": "A moment is British slang 'a second', and buying 'on' this means buying on credit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Instant"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1014,42 @@
     "text": "Hazel carries it to puss and her kittens",
     "enumeration": "6"
    },
-   "solution": "CATKIN"
+   "solution": "CATKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hazel carries it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "puss",
+       "at": 20,
+       "gives": "CAT",
+       "note": "a cat is a puss"
+      },
+      {
+       "words": "her kittens",
+       "at": 29,
+       "gives": "KIN",
+       "note": "a mother's kittens are her kin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Hazel bringing something to a cat and her litter.",
+     "walkthrough": "Hazel looks like a woman's name; it is the tree, which bears these flowers.",
+     "definitionFit": "The hazel tree bears dangling flower spikes called lambs' tails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hazel"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1063,30 @@
     "text": "Coal burning fast on such days",
     "enumeration": "5"
    },
-   "solution": "EMBER"
+   "solution": "EMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coal burning",
+      "at": 0,
+      "meaning": "a glowing bit of fuel in a dying fire"
+     },
+     {
+      "text": "fast on such days",
+      "at": 13,
+      "meaning": "... days are Christian days of fasting and prayer"
+     }
+    ],
+    "explanation": {
+     "surface": "Fuel glowing during fasting days.",
+     "definitionFit": "A glowing remnant of a fire, and the church's quarterly fasting days."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1100,30 @@
     "text": "Part of the foot regiments should be on parade",
     "enumeration": "6"
    },
-   "solution": "INSTEP"
+   "solution": "INSTEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of the foot",
+      "at": 0,
+      "meaning": "the arched middle of the foot"
+     },
+     {
+      "text": "regiments should be on parade",
+      "at": 17,
+      "meaning": "marching together in time"
+     }
+    ],
+    "explanation": {
+     "surface": "Soldiers' feet and their marching.",
+     "definitionFit": "The arch of the foot, and troops marching in time are said to keep step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1147,30 @@
      }
     ]
    },
-   "solution": "INNOTIME"
+   "solution": "INNOTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Never",
+      "at": 0,
+      "meaning": "at no moment at all, read literally"
+     },
+     {
+      "text": "instantaneously",
+      "at": 6,
+      "meaning": "very quickly"
+     }
+    ],
+    "explanation": {
+     "surface": "Contradictory timing.",
+     "definitionFit": "Read literally the phrase means at no moment, but idiomatically it means very quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1184,30 @@
     "text": "Intends to make money",
     "enumeration": "5"
    },
-   "solution": "MEANS"
+   "solution": "MEANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intends",
+      "at": 0,
+      "meaning": "plans or has in mind"
+     },
+     {
+      "text": "money",
+      "at": 16,
+      "meaning": "wealth or resources"
+     }
+    ],
+    "explanation": {
+     "surface": "Planning to earn cash.",
+     "definitionFit": "To intend is to have in mind, and a person of resources has wealth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1221,40 @@
     "text": "Restaurant where I meet Stan by arrangement",
     "enumeration": "9"
    },
-   "solution": "ESTAMINET"
+   "solution": "ESTAMINET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Restaurant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "by arrangement",
+       "at": 29,
+       "note": "by arrangement means these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I meet Stan",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Agreeing to meet a friend at a diner.",
+     "walkthrough": "'by arrangement' rearranges I MEET STAN.",
+     "definitionFit": "A small French cafe selling food and drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
