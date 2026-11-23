@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,41 @@
     "text": "Attempt a portion of beef for two",
     "enumeration": "6"
    },
-   "solution": "EFFORT"
+   "solution": "EFFORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attempt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "portion of",
+       "at": 10,
+       "note": "portion of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beef for two",
+       "at": 21,
+       "gives": "EFFORT",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to serve a shared helping of beef for two diners.",
+     "definitionFit": "An effort is a try at doing something, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +81,64 @@
     "text": "Resident abroad subsequently heading off round Pennsylvania",
     "enumeration": "5"
    },
-   "solution": "EXPAT"
+   "solution": "EXPAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resident abroad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 41,
+       "note": "round says the shortened word is placed around the state abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 29,
+         "note": "heading off says the first letter of the word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "subsequently",
+         "at": 16,
+         "gives": "NEXT",
+         "note": "next means afterwards, subsequently"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "Pennsylvania",
+       "at": 47,
+       "gives": "PA",
+       "note": "PA is the standard abbreviation for the US state of Pennsylvania"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living overseas later sets out on a trip around Pennsylvania.",
+     "walkthrough": "'heading off' removes the first letter of the synonym, and 'round' wraps what is left around the state's postal code.",
+     "definitionFit": "Short for expatriate, someone who lives outside their native country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +158,59 @@
      }
     ]
    },
-   "solution": "FIREALARM"
+   "solution": "FIREALARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "warning device",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "installed by",
+       "at": 16,
+       "note": "installed by says one piece is fitted inside the word for company"
+      }
+     ],
+     "parts": [
+      {
+       "words": "company",
+       "at": 29,
+       "gives": "FIRM",
+       "note": "a firm is a business company"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Genuine",
+         "at": 0,
+         "gives": "REAL",
+         "note": "real means genuine"
+        },
+        {
+         "words": "article",
+         "at": 8,
+         "gives": "A",
+         "note": "a is the indefinite article in grammar"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An authentic item fitted by a business serves as an alarm unit.",
+     "walkthrough": "'installed by' means fitted inside: the genuine article goes into the company after its first two letters.",
+     "definitionFit": "A fire alarm is a device that sounds to alert people to a blaze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +224,60 @@
     "text": "Supremes singer, one entertaining trendy musician",
     "enumeration": "7"
    },
-   "solution": "ROSSINI"
+   "solution": "ROSSINI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musician",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 21,
+       "note": "entertaining in the sense of hosting, holding a guest within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Supremes singer",
+         "at": 0,
+         "gives": "ROSS",
+         "note": "Diana Ross was lead singer of the Supremes"
+        },
+        {
+         "words": "one",
+         "at": 17,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
+      },
+      {
+       "words": "trendy",
+       "at": 34,
+       "gives": "IN",
+       "note": "in means fashionable, trendy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Motown star hosts a fashionable fellow performer.",
+     "walkthrough": "Diana Ross fronted the 1960s Motown group the Supremes; 'entertaining' has her plus the numeral hosting the trendy word.",
+     "definitionFit": "Gioachino Rossini was an Italian opera composer, a classical musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +291,40 @@
     "text": "Helpful type, like close relative",
     "enumeration": "8"
    },
-   "solution": "ASSISTER"
+   "solution": "ASSISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Helpful type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like",
+       "at": 14,
+       "gives": "AS",
+       "note": "as means like, in the same way"
+      },
+      {
+       "words": "close relative",
+       "at": 19,
+       "gives": "SISTER",
+       "note": "a sister is a close family relative"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A helpful person is described as being like a sibling.",
+     "definitionFit": "Someone who assists is a helper, a helpful type of person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +344,40 @@
      }
     ]
    },
-   "solution": "SOCRATICMETHOD"
+   "solution": "SOCRATICMETHOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "education system",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "revolutionised",
+       "at": 18,
+       "note": "revolutionised means completely changed, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Teach-sir dot com",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A website promising teachers a radical overhaul of the schools.",
+     "definitionFit": "The Socratic method is a way of teaching by question and answer, a classroom approach named after an ancient philosopher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionised"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +397,46 @@
      }
     ]
    },
-   "solution": "INTRUTH"
+   "solution": "INTRUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "actually",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "part of the Bible",
+       "at": 4,
+       "gives": "NT",
+       "note": "NT is the New Testament, one part of the Bible"
+      },
+      {
+       "words": "Old Testament book",
+       "at": 23,
+       "gives": "RUTH",
+       "note": "Ruth is a book of the Old Testament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that one section of scripture really is an Old Testament book.",
+     "definitionFit": "Both are adverbs meaning really or in fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +450,63 @@
     "text": "Giant container not quite big enough for storing it",
     "enumeration": "5"
    },
-   "solution": "TITAN"
+   "solution": "TITAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "storing",
+       "at": 41,
+       "note": "storing says the shortened word holds the other piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite big enough",
+         "at": 16,
+         "note": "not quite big enough says the word is cut short by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "container",
+         "at": 6,
+         "gives": "TANK",
+         "note": "a tank is a large container for liquid"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "it",
+       "at": 49,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge container turns out to be slightly too small to store something.",
+     "walkthrough": "'not quite big enough' drops the container's last letter, and 'storing' puts IT inside; 'for' only joins.",
+     "definitionFit": "A titan is a person or thing of huge size, from the race of giant gods in Greek myth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Giant"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +520,42 @@
     "text": "More than one scripture teacher N makes sound R S improvements?",
     "enumeration": "9"
    },
-   "solution": "REMASTERS"
+   "solution": "REMASTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "makes sound R S improvements",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "scripture",
+       "at": 14,
+       "gives": "RE",
+       "note": "RE is religious education, school scripture lessons"
+      },
+      {
+       "words": "teacher",
+       "at": 24,
+       "gives": "MASTERS",
+       "note": "a master is a schoolteacher; 'More than one' makes it plural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several religious studies teachers seem to be getting better at acoustics.",
+     "walkthrough": "'More than one' asks for the plural of the teacher word.",
+     "definitionFit": "Remastering an old recording improves its audio quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +583,41 @@
      }
     ]
    },
-   "solution": "STRAIGHTASADIE"
+   "solution": "STRAIGHTASADIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "honest",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "String of high grades",
+       "at": 0,
+       "gives": "STRAIGHTAS",
+       "note": "straight As is a run of top marks"
+      },
+      {
+       "words": "TV newslady",
+       "at": 31,
+       "gives": "ADIE",
+       "note": "Kate Adie is a well-known BBC television news reporter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newsreader is rewarded with top marks for being truthful.",
+     "walkthrough": "Kate Adie was the BBC's chief news correspondent, famous in Britain for reporting from war zones.",
+     "definitionFit": "Straight as a die is an idiom for completely truthful and upright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +631,42 @@
     "text": "Patricia's terribly dependent on others",
     "enumeration": "9"
    },
-   "solution": "PARASITIC"
+   "solution": "PARASITIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dependent on others",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "terribly",
+       "at": 11,
+       "note": "terribly suggests the name's letters are badly jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Patricia's",
+       "at": 0,
+       "gives": "PATRICIAS",
+       "note": "the name with its S, all as fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is said to be awfully reliant on other people.",
+     "definitionFit": "A parasite lives off a host, so a parasitic person sponges on others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +680,35 @@
     "text": "Art of piano playing?",
     "enumeration": "5"
    },
-   "solution": "TATUM"
+   "solution": "TATUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Art of piano playing?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Art of piano playing?",
+       "at": 0,
+       "note": "read 'Art' as a first name: the jazz pianist called Art, rather than the skill of playing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the skill of playing the piano.",
+     "definitionFit": "Art Tatum was an American jazz pianist celebrated for his virtuosity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Art"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +722,61 @@
     "text": "Worker returns carrying garment for empress",
     "enumeration": "7"
    },
-   "solution": "TSARINA"
+   "solution": "TSARINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "empress",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 15,
+       "note": "carrying says the reversed word holds the garment inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "at": 7,
+         "note": "returns says the word for worker is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Worker",
+         "at": 0,
+         "gives": "ANT",
+         "note": "an ant is a worker insect"
+        }
+       ]
+      },
+      {
+       "words": "garment",
+       "at": 24,
+       "gives": "SARI",
+       "note": "a sari is a garment worn by Indian women"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer comes back holding a robe fit for a ruler.",
+     "walkthrough": "'returns' makes TNA, and 'carrying' has it hold the Indian garment.",
+     "definitionFit": "A tsarina was the wife of a Russian tsar, an empress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Worker"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +790,72 @@
     "text": "Ex-student starts to make notes, getting in usual mess",
     "enumeration": "7"
    },
-   "solution": "ALUMNUS"
+   "solution": "ALUMNUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ex-student",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting in",
+       "at": 33,
+       "note": "getting in says those letters are put inside the jumbled word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mess",
+         "at": 50,
+         "note": "mess means a muddle, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "usual",
+         "at": 44
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 11,
+         "note": "starts to says take the opening letters of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "make",
+         "at": 21
+        },
+        {
+         "words": "notes",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil begins jotting things down amid the usual chaos.",
+     "walkthrough": "'mess' scrambles USUAL to ALUUS, and 'getting in' puts M and N (from 'starts to') in the middle.",
+     "definitionFit": "An alumnus is a former pupil or graduate of a school or college."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +879,28 @@
      }
     ]
    },
-   "solution": "PLAYINGWITHFIRE"
+   "solution": "PLAYINGWITHFIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Taking risks",
+      "at": 0
+     },
+     {
+      "text": "as a pyromaniac may be?",
+      "at": 14
+     }
+    ],
+    "explanation": {
+     "surface": "A fire-raiser is described as a gambler.",
+     "definitionFit": "The idiom means doing something dangerous; literally, someone obsessed with starting blazes toys with flames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -282,7 +914,42 @@
     "text": "Musical piece making clergyman bitter?",
     "enumeration": "9"
    },
-   "solution": "PASTORALE"
+   "solution": "PASTORALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musical piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "clergyman",
+       "at": 21,
+       "gives": "PASTOR",
+       "note": "a pastor is a minister of a church"
+      },
+      {
+       "words": "bitter",
+       "at": 31,
+       "gives": "ALE",
+       "note": "bitter is a kind of British beer, an ale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tune that sours a vicar's mood.",
+     "walkthrough": "'bitter' looks like an adjective but is the British pub beer.",
+     "definitionFit": "A pastorale is an instrumental composition evoking rural life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 15,
@@ -296,7 +963,46 @@
     "text": "Religious woman I first invited out is D E overwhelmed",
     "enumeration": "9"
    },
-   "solution": "INUNDATED"
+   "solution": "INUNDATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "overwhelmed",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 16,
+       "gives": "I"
+      },
+      {
+       "words": "Religious woman",
+       "at": 0,
+       "gives": "NUN",
+       "note": "a nun is a woman in a religious order"
+      },
+      {
+       "words": "invited out",
+       "at": 24,
+       "gives": "DATED",
+       "note": "to have dated someone is to have asked them out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man confesses he asked a nun on a date and is swamped by it.",
+     "walkthrough": "'first' puts the I before the religious woman.",
+     "definitionFit": "Inundated literally means flooded, and figuratively swamped, overwhelmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -316,7 +1022,35 @@
      }
     ]
    },
-   "solution": "SUMMERTIMEBLUES"
+   "solution": "SUMMERTIMEBLUES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eddie Cochran's case of seasonal affective disorder?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Eddie Cochran's case of seasonal affective disorder?",
+       "at": 0,
+       "note": "the rock singer's famous song title read as a gloom that comes with one season of the year"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rock'n'roll star suffers from winter depression.",
+     "walkthrough": "Seasonal affective disorder usually strikes in winter, so a hot-season version is the twist.",
+     "definitionFit": "Eddie Cochran's 1958 rock hit was about the frustrations of a teenager in the holidays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1064,39 @@
     "text": "Football team leaping over net",
     "enumeration": "7"
    },
-   "solution": "EVERTON"
+   "solution": "EVERTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Football team",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "leaping",
+       "at": 14,
+       "note": "leaping suggests the letters jump about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "over net",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's shot sails over the goal net.",
+     "definitionFit": "Everton is an English Premier League club from Liverpool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1110,56 @@
     "text": "Nationality is given during birth, possibly",
     "enumeration": "7"
    },
-   "solution": "BRITISH"
+   "solution": "BRITISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nationality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "given during",
+       "at": 15,
+       "note": "given during says the short word is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 35,
+         "note": "possibly says the word's letters may be arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "birth",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Citizenship is granted at the moment of being born.",
+     "walkthrough": "'possibly' rearranges the letters into BRITH, and 'given during' puts the short word inside.",
+     "definitionFit": "Being from Britain is a nationality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1173,42 @@
     "text": "Bully journalists at work",
     "enumeration": "7"
    },
-   "solution": "OPPRESS"
+   "solution": "OPPRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bully",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "at": 21,
+       "gives": "OP",
+       "note": "op is short for opus, a musical work"
+      },
+      {
+       "words": "journalists",
+       "at": 6,
+       "gives": "PRESS",
+       "note": "the press means journalists collectively"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters at their jobs are accused of intimidation.",
+     "walkthrough": "'Bully' is a verb here.",
+     "definitionFit": "To oppress is to treat harshly, to tyrannise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bully"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1222,29 @@
     "text": "Pen used by American writer",
     "enumeration": "5"
    },
-   "solution": "POUND"
+   "solution": "POUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pen",
+      "at": 0
+     },
+     {
+      "text": "American writer",
+      "at": 12
+     }
+    ],
+    "explanation": {
+     "surface": "An enclosure is borrowed by a US author.",
+     "definitionFit": "A pound is an animal enclosure; Ezra Pound was an American poet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pen"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1258,42 @@
     "text": "Editor's repaired valves",
     "enumeration": "7"
    },
-   "solution": "TRIODES"
+   "solution": "TRIODES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "valves",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "repaired",
+       "at": 9,
+       "note": "repaired means put back together, so the letters are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Editor's",
+       "at": 0,
+       "gives": "EDITORS",
+       "note": "the word with its S, all as fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the newspaper has fixed the radio's electronic components.",
+     "definitionFit": "Triodes are thermionic tubes with three electrodes, known in Britain as valves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repaired"
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1307,28 @@
     "text": "Tomatoes can be a bit off",
     "enumeration": "5"
    },
-   "solution": "SEEDY"
+   "solution": "SEEDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tomatoes can be",
+      "at": 0
+     },
+     {
+      "text": "a bit off",
+      "at": 16
+     }
+    ],
+    "explanation": {
+     "surface": "Tomatoes may be slightly past their best.",
+     "definitionFit": "Full of pips describes tomatoes; shabby or slightly unwell is the other sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1342,61 @@
     "text": "Grown-up: one having endlessly boring time",
     "enumeration": "5"
    },
-   "solution": "ADULT"
+   "solution": "ADULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grown-up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 10,
+       "gives": "A",
+       "note": "a means one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 21,
+         "note": "endlessly says the final letter of the word is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boring",
+         "at": 31,
+         "gives": "DULL",
+         "note": "dull means boring"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 38,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up is someone having an endlessly tedious time.",
+     "walkthrough": "'endlessly' trims DULL to DUL.",
+     "definitionFit": "An adult is a fully grown person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1410,42 @@
     "text": "Shaw character idle, do you say?",
     "enumeration": "9"
    },
-   "solution": "DOOLITTLE"
+   "solution": "DOOLITTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shaw character",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DOOLITTLE",
+     "indicators": [
+      {
+       "text": "do you say",
+       "at": 21,
+       "note": "do you say signals that the phrase is to be heard spoken rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "idle",
+       "at": 15,
+       "gives": "DOLITTLE",
+       "note": "to do little is to be idle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a character in a Shaw play is lazy.",
+     "definitionFit": "Eliza and Alfred Doolittle are characters in George Bernard Shaw's play Pygmalion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1459,29 @@
     "text": "Risk way to bring about appeasement",
     "enumeration": "8"
    },
-   "solution": "ENDANGER"
+   "solution": "ENDANGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Risk",
+      "at": 0
+     },
+     {
+      "text": "way to bring about appeasement",
+      "at": 5
+     }
+    ],
+    "explanation": {
+     "surface": "A gamble taken to make peace.",
+     "walkthrough": "The second definition is read as two words, a way of calming someone: stop their fury.",
+     "definitionFit": "To put in danger is to risk; ending someone's wrath placates them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1495,50 @@
     "text": "Reluctant to pen unconventional yarn",
     "enumeration": "6"
    },
-   "solution": "SHODDY"
+   "solution": "SHODDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yarn",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to pen",
+       "at": 10,
+       "note": "to pen means to enclose, so one word holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reluctant",
+       "at": 0,
+       "gives": "SHY",
+       "note": "shy means reluctant, unwilling"
+      },
+      {
+       "words": "unconventional",
+       "at": 17,
+       "gives": "ODD",
+       "note": "odd means unconventional, strange"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is unwilling to write about an unusual story.",
+     "walkthrough": "'yarn' looks like a tale but is wool: shoddy is yarn made from recycled rags.",
+     "definitionFit": "Shoddy is a cheap fibre made by shredding old woollen cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "yarn"
+    }
+   }
   }
  ]
 }
