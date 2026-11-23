@@ -170,8 +170,8 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       // (DEVICE_RULES, FAMILY_RULES) are written once for every clue too:
       // "often flags the playful kind" is not a leak of FLAG.
       "rule", "More in the lesson",
-      // The help buttons' fixed words ("Show me" sits in the help bar under the panel; "How it works" replaces it on a solved clue).
-      "Show me", "How it works", "Reveal letter", "Reveal answer", "Letters", "Tap again · 1 hint", "worked out",
+      // The help buttons' fixed words ("Show me" sits in the help bar under the panel).
+      "Show me", "Reveal letter", "Reveal answer", "Letters", "Tap again · 1 hint", "worked out",
       // The blog badge's provisional note (blogHintsBadge in app.js).
       "ours to come",
       ...[...appSrc.slice(appSrc.indexOf("const DEVICE_RULES = {"), appSrc.indexOf("const SELECT_OPS"))
@@ -708,11 +708,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
           }
           takeRung(btns[0]);
         }
-        // A solved clue (its crossers filled it) has no rungs to take: its steps
-        // are opened by the one free "How it works" button (hints UI step 10).
-        if (/id="hx-how"/.test(registry["hint-escape"].innerHTML) && registry["hx-how"] && registry["hx-how"].onclick) {
-          registry["hx-how"].onclick();
-        }
+        // (A solved clue's shut steps are free tabs, so the loop above opens them too.)
         checkMarks(id, e);
       }
     }

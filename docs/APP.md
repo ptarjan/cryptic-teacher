@@ -74,13 +74,12 @@ Terms used below:
   row's height off the top of the band; the letter strip's tap places
   `#hint-pattern` rather than the clue; and a tap on the clue keeps the
   keyboard (`keepKbd`). The old `#clue-strip` is gone.
-- **After solving** (`isEntrySolved`): the track keeps only the steps already
-  open, and the help bar's "Show me", Reveal letter and Letters give way to one
-  free button `#hx-how`, "How it works" (`howTap`). One tap calls `showHint` on
-  every step still shut, in ladder order; it is free because a solved clue's
-  hint count is frozen (`hintsCharged`), carries no `data-arm` and no cost
-  text, and disappears once nothing is left to open. Nothing opens before the
-  tap and what was open stays open. The "Good clue?" vote (`#hint-vote`) sits
+- **After solving** (`isEntrySolved`): every step stays on the track. The
+  open ones are tabs as before; each one still shut is a free `avail` tab whose
+  tap goes through `openStep` (no question, no `data-arm`, no cost text: a
+  solved clue's hint count is frozen, `hintsCharged`) and becomes the selected
+  tab. The help bar's "Show me", Reveal letter and Letters go. Nothing opens
+  before a tap and what was open stays open. The "Good clue?" vote (`#hint-vote`) sits
   under the bar. The save format is unchanged.
 - **One help bar** (`#hint-escape`, a wrapping row under the panel): one help
   button `#guess-tell` (accent colour), Reveal letter, Letters and a "More". While
@@ -94,8 +93,13 @@ Terms used below:
   "Check my answer" (`#guess-check` is gone) and no "Skip for now": choosing
   another step is the skip. A right Lock in (`finishGuess`) opens the step as
   worked out with the green verdict; a wrong one opens it as Show me does and
-  costs 1 hint, with no verdict, no marked clue copy, no red and no "Not X"
-  line for a wrong clue family. The first lock-in on a step is the one that
+  costs 1 hint, with no marked clue copy, no red and no "Not X" line for a
+  wrong clue family, only a plain `.step-result.miss` "Not quite — this is the
+  right one." over the step. Every lock-in is kept in `lastGuess` (Show me
+  clears it), and the next question's panel opens with
+  `carriedResultHTML`: "✓ <Step>: right" or "<Step>: not quite — the right one
+  is under its tab", because a right answer moves straight on and its verdict
+  goes behind its tab. The first lock-in on a step is the one that
   can earn it: a wrong piece then a right one keeps Pieces paid
   (`tools/smoke/rung_rules.js`). "More" (always in the markup, `hidden` until
   tapped) holds Reveal answer, Report a bad hint and the blog link; Reveal
@@ -248,7 +252,7 @@ Terms used below:
   last clue step opened, `currentStep`, not the answer rung). The same holds
   after the solve: the tabs stay and the default is the last opened step. A
   verdict lives inside the note of the rung it judged, so it shows only with
-  that tab. A pick (`tabPick`, session only, keyed by the current step) lapses
+  that tab; the one-line carried result heads the next question. A pick (`tabPick`, session only, keyed by the current step) lapses
   when the next step opens or a question or the wheel appears. Picking a tab
   hides the question, so the clue's words stop being tappable until it is back
   in front. The other panels stay in the DOM, hidden, so leak checks still

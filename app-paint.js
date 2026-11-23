@@ -149,21 +149,6 @@
   let helpMore = null;   // the entry key whose "More" is open
   const STEP_NAMES = { indicators: "Indicator", definition: "Definition",
                        type: "Clue type", blocks: "Pieces", walkthrough: "Solution" };
-  const HOW_TEXT = "How it works";
-  // After solving: every step still shut opens, in ladder order, in one tap.
-  // Free, because a solved clue's score is frozen (hintsCharged); what was
-  // already open stays as it was and nothing opens before this tap.
-  function howTap() {
-    const on = currentEntry();
-    const ann = on && annOf(on);
-    if (!on || !ann || !isEntrySolved(on)) return;
-    const shut = ladderSteps(ann, clueText(on)).filter((x) => !isShown(on, x.key));
-    guessing = null;
-    helpOn = null;
-    shut.forEach((x) => showHint(on, x.key));
-    if (shut.length) focusHint(shut[0].key);
-    refreshAll();
-  }
   function helpTarget(e) {
     const ann = e && annOf(e);
     if (!ann) return null;
@@ -216,8 +201,8 @@
     showHint(on, rung);
     // A piece with no question in it — no fragment to point at, or no
     // letters to point at it with — is simply handed over. The rung still
-    // moves forward by exactly one.
-    if (rung === "blocks") settlePiece(on, at);
+    // moves forward by exactly one. A solved clue shows every piece already.
+    if (rung === "blocks" && !isEntrySolved(on)) settlePiece(on, at);
   }
   // Never a dead end: being told is a legitimate answer to "do you know this
   // yet?", and it costs what the step has always cost. Reads the entry, the
@@ -412,24 +397,19 @@
     const escape = $("hint-escape");
     if (helpMore && helpMore !== key) helpMore = null;
     const canReveal = canCheck() && !solved;
-    // Solved: the row of step buttons and "Show me" give way to one free "How
-    // it works" while any step is still shut (howTap opens them all).
-    const steps = ann ? ladderSteps(ann, clueText(e)) : [];
-    const howLeft = !!(solved && steps.some((x) => !isShown(e, x.key)));
+    // Solved: "Show me" goes; the steps still shut are free tabs on the track.
     const helpT = ann && !solved ? helpTarget(e) : null;
     const fill = offerFill ? fillHTML(e) : "";
     const moreOpen = helpMore === key || !!(report && report.key === key);
     const moreHTML = (helpT ? fill : "") + reportHTML() + blogLinkHTML(e, ann);
     const escapeHTML = (helpT ? showMeHTML(e, helpT) + " " : "")
       + (helpT ? "" : fill + (fill ? " " : ""))
-      + (howLeft ? `<button id="hx-how" class="small help-show">${HOW_TEXT}</button> ` : "")
       + (canReveal ? letterBtnHTML(e) + " " : "")
       + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" >${moreOpen ? "Less \u25B4" : "More \u25BE"}</button>`
       + `<div class="help-more"${moreOpen ? "" : " hidden"}>${moreHTML}</div>`;
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = letterTap;
       if (helpT) $("guess-tell").onclick = showMeTap;
-      if (howLeft) $("hx-how").onclick = howTap;
       if (fill) $("hx-entry").onclick = fillTap;
       $("hx-more").onclick = () => {
         const on = currentEntry();
@@ -653,7 +633,11 @@
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
         const fm = formulaAsks && steps[at].formula ? formulaHTML(e, steps[at].formula, true) : "";
-        const q = guessHTML(ask, at + 1, steps[at].label, holder === e, fm);
+        // How the last lock-in went heads the next question, whose panel is
+        // now the one in front (carriedResultHTML).
+        const carried = lastGuess ? carriedResultHTML(lastGuess,
+          lastGuess.rung === "blocks" ? "That piece" : STEP_NAMES[lastGuess.rung] || lastGuess.rung) : "";
+        const q = carried + guessHTML(ask, at + 1, steps[at].label, holder === e, fm);
         pendingHTML += hintFocus === "guess" ? `<div id="hint-focus">${q}</div>` : q;
       }
 
@@ -688,9 +672,6 @@
       const hue = { indicators: "ind", definition: "def", type: "typ" };
       const lead = open.length ? open[0].s.key : null;
       steps.forEach((s) => {
-        // Solved: only the open steps stay (they scroll to their notes); the
-        // unopened ones are what "How it works" in the help bar replaces.
-        if (solved && !isShown(e, s.key)) return;
         const name = trackNames[s.key] || s.label;
         const tint = hue[s.key] ? " " + hue[s.key] : "";
         if (isShown(e, s.key)) {
@@ -699,6 +680,14 @@
           trackSpec.push({ note: s.key, tab, sel, label: s.label, cls: "step open" + (worked ? " worked" : "") + (sel ? " sel" : "") + tint,
             text: worked ? "★ " + name : name,
             title: worked ? "Worked out: tap to see its note" : "Open: tap to see its note" });
+          return;
+        }
+        // Solved: every step left is a free tab, the same as the open ones
+        // beside it. Tapping it opens the step and shows it (openStep: a
+        // solved clue's count is frozen, so nothing arms and nothing is asked).
+        if (solved) {
+          trackSpec.push({ rung: s.key, label: s.label, tab: true, sel: false,
+            cls: "step avail" + tint, text: name, title: "Free now: tap to see this step" });
           return;
         }
         if (open.some((o) => o.s.key === s.key)) {

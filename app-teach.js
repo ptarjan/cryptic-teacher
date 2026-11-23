@@ -1804,7 +1804,14 @@
   // panel holds two copies of the same clue — the live one at the top and this
   // graded one further down — and the solver is being told to tap words while
   // looking at a set of identical words that do not answer to a tap. The count and the verdict survive; only the duplicate goes.
+  //
+  // A wrong lock-in has no red and no marked copy (Paul 11-20, "I picked the
+  // one that just showed the right thing"), but it is still an answer, and the
+  // solver needs to know which way it went (Paul 11-22, "I still need to see if
+  // I got it right"): one plain line, above the step that now shows the right
+  // words.
   function verdictHTML(g, quiet) {
+    if (!g.mk.right) return `<p class="step-result miss">Not quite \u2014 this is the right one.</p>`;
     const fresh = g.fresh ? " fresh" : "";
     g.fresh = false;
     return `<div class="guess-result${fresh}"><p class="guess-verdict ${
@@ -1933,6 +1940,18 @@
     return { ...v, right: false };
   }
 
+  // The last lock-in's result, carried onto the next question. A right answer
+  // moves straight on to the next question, and the step it judged (with its
+  // full verdict) goes behind its tab, so without this line the solver would
+  // never see whether they were right (Paul 11-22). The same line follows a
+  // wrong one onto the next question they pick. Its step's tab keeps the
+  // lasting mark: a star when worked out.
+  function carriedResultHTML(g, name) {
+    const right = !!g.mk.right;
+    return `<p class="step-result ${right ? "right" : "miss"}">${right ? "\u2713 " : ""}${esc(name)}: ${
+      right ? "right" : "not quite \u2014 the right one is under its tab"}</p>`;
+  }
+
   // The marked clue is the same words in a different place. The question sits at
   // the bottom of the panel, under everything already bought; the verdict belongs
   // beside the rung it judged, which is wherever that rung falls in the ladder.
@@ -2008,13 +2027,13 @@
     const e = currentEntry();
     if (!e || entryKey(e) !== guessing.key) { guessing = null; return; }
     const from = flipCapture();
-    // Only a right answer has a verdict to show. A wrong lock-in is shown the
-    // step exactly as "Show me" shows it (Paul 11-20): no sentence, no marked
-    // copy of the clue, nothing red, and the picks simply give way to the
-    // step's own highlights.
+    // Every lock-in has a verdict to keep; "Show me" (no verdict) has none. A
+    // wrong lock-in is shown the step as "Show me" shows it (Paul 11-20): no
+    // marked copy of the clue, nothing red, the picks give way to the step's
+    // own highlights, and one plain "Not quite" line (verdictHTML) says so.
     const right = !!(verdict && verdict.right);
-    lastGuess = right ? { key: guessing.key, rung: guessing.rung, fresh: true,
-                          tokens: ask.tokens, known: ask.known, mk: verdict } : null;
+    lastGuess = verdict ? { key: guessing.key, rung: guessing.rung, step: guessing.step, fresh: true,
+                            tokens: ask.tokens, known: ask.known, mk: verdict } : null;
     // Earned means every piece taken was pointed at correctly. A rung asked in
     // pieces must not turn into three chances to have already won it, so a
     // wrong one — or a "Show me" — takes it back off the free list, and a

@@ -1333,6 +1333,15 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
 @media (prefers-reduced-motion: reduce) {
   .guess-result.fresh .guess-verdict.right { animation: none; }
 }
+/* How the last lock-in went, one line: carried onto the next question, and above
+   the step a wrong one opened. Right wears the right verdict's tint; a miss is
+   plain muted text, never red. */
+.step-result { margin: 4px 0 8px; font-weight: 600; line-height: 1.4; }
+.step-result.right {
+  width: fit-content; color: var(--def-fg); background: var(--def-bg);
+  padding: 3px 10px; border-radius: 1em;
+}
+.step-result.miss { color: var(--muted, #666); }
 
 mark.def { background: var(--def-bg); color: var(--def-fg); padding: var(--band-pad) 2px; border-radius: 3px; }
 /* second half of a double definition — same family, distinguishable */

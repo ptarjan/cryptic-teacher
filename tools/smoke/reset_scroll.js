@@ -619,19 +619,25 @@ registry["reset-puzzle"].onclick();
   solo.solution.split("").forEach((ch) => kd(ev(ch)));
   assert(/clue-done clean/.test(registry["hint-clue"].innerHTML),
     "typed it cold: " + registry["hint-clue"].innerHTML);
-  // Step 10: the row of step buttons is gone; one free "How it works" stands
-  // in the help bar, with no cost text and nothing red.
-  assert(!registry["hint-rungs"].children.some((b) => b.onclick),
-    "solving removes the row of step buttons: " + registry["hint-rungs"].children.map((b) => b.textContent).join(" | "));
+  // Solved: every step stays on the track as a free tab (no "Show me", no
+  // separate "How it works"), with no cost text and nothing red.
+  const tabs = registry["hint-track"].children.filter((b) => b.onclick);
+  assert(tabs.length && tabs.every((b) => /\bavail\b/.test(b.className || "") && !b.disabled),
+    "solving leaves every step as a free tab: " + registry["hint-track"].children.map((b) => b.className + ":" + b.textContent).join(" | "));
   const bar = registry["hint-escape"].innerHTML;
-  assert(/id="hx-how"[^>]*>How it works</.test(bar) && !/data-arm|arm-cost|1 hint/.test(bar),
-    "solving leaves one free How it works button: " + bar);
+  assert(!/id="guess-tell"|id="hx-how"|data-arm|arm-cost|1 hint/.test(bar),
+    "and nothing in the help bar costs: " + bar);
   assert(!/hint-step/.test(registry["hint-body"].innerHTML), "nothing opens by itself on a cold solve");
 
-  // Read the lot, walkthrough included, in one tap, and the score must not move.
+  // Read the lot, walkthrough included, tab by tab, and the score must not move.
   const before = registry["scorebar"].innerHTML;
-  registry["hx-how"].onclick();
-  assert(/hint-step/.test(registry["hint-body"].innerHTML), "the rungs really did open");
+  for (let i = 0; i < 9; i++) {
+    const shut = registry["hint-track"].children.find((b) => b.onclick && /\bavail\b/.test(b.className || ""));
+    if (!shut) break;
+    shut.onclick();
+  }
+  assert(!registry["hint-track"].children.some((b) => /\bavail\b/.test(b.className || "")), "every tab opened");
+  assert(/id="hint-note-walkthrough"/.test(registry["hint-body"].innerHTML), "the rungs really did open, walkthrough included");
   assert(/clue-done clean/.test(registry["hint-clue"].innerHTML),
     "studying a solved clue is free: " + registry["hint-clue"].innerHTML);
   assert(registry["scorebar"].innerHTML === before,

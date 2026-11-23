@@ -11,7 +11,7 @@
       charges nothing; the second tap reveals and charges one.
    2. timeoutDisarms: left alone for the arm window, the button goes back.
    3. elsewhereDisarms: a click on anything else puts it back too.
-   4. freeIsOneTap: on a solved clue "How it works" opens every step on one tap, unarmed. */
+   4. freeIsOneTap: on a solved clue a step still shut is a free tab: one tap opens it, unarmed. */
 "use strict";
 const { boot } = require("../tools/fake_dom.js");
 
@@ -116,19 +116,24 @@ check(asked + outright > 0, `found a clue whose blocks can cost (asked ${asked},
     for (const ch of e.solution) t.key(ch);
     // A leg typed in alone leaves its group unsolved (the score is not frozen).
     if (!(solvedN() > s0)) continue;
-    // Solved: the help bar is one free "How it works" (step 10), no step buttons.
-    if (!/id="hx-how"[^>]*>How it works</.test(t.bar())) continue;
+    // Solved: the steps still shut stay on the track as free tabs, like the
+    // open ones; no "Show me" and no separate "How it works" button.
+    const tabs = () => t.reg["hint-track"].children;
+    const pieces = tabs().find((b) => b.onclick && b.textContent === "Pieces" && /\bavail\b/.test(b.className || ""));
+    if (!pieces) continue;
     const before = t.hints();
-    const how = /<button id="hx-how"([^>]*)>([^<]*)</.exec(t.bar()) || [];
-    check(!t.blocksOpen() && how[2] === "How it works" && !/arm-cost/.test(how[1]),
-      `freeIsOneTap (${entryId(e)}): before the tap nothing is open, and the button carries no cost text: ${JSON.stringify(how.slice(1))}`);
-    t.reg["hx-how"].onclick();
-    check(!t.armedBtn() && t.blocksOpen() && t.hints() === before && !/id="hx-how"/.test(t.bar()),
-      `freeIsOneTap (${entryId(e)}): one tap opens every step, unarmed, no charge (armed ${!!t.armedBtn()}, blocksOpen ${t.blocksOpen()}, hints ${before} -> ${t.hints()}, how still there ${/id="hx-how"/.test(t.bar())})`);
+    check(!t.blocksOpen() && !/id="guess-tell"|id="hx-how"|arm-cost/.test(t.bar())
+      && pieces.getAttribute && pieces.getAttribute("role") === "tab",
+      `freeIsOneTap (${entryId(e)}): before the tap Pieces is shut, a tab, and nothing in the bar costs: ${t.bar()}`);
+    pieces.onclick();
+    check(!t.armedBtn() && t.blocksOpen() && t.hints() === before,
+      `freeIsOneTap (${entryId(e)}): one tap on the tab opens it, unarmed, no charge (armed ${!!t.armedBtn()}, blocksOpen ${t.blocksOpen()}, hints ${before} -> ${t.hints()})`);
+    check(tabs().some((b) => b.textContent === "Pieces" && /\bopen\b/.test(b.className || "") && /\bsel\b/.test(b.className || "")),
+      `freeIsOneTap (${entryId(e)}): and its tab is now the open, selected one: ${tabs().map((b) => b.className).join("|")}`);
     done = true;
     break;
   }
-  check(done, "freeIsOneTap: found a solved clue offering How it works");
+  check(done, "freeIsOneTap: found a solved clue with Pieces still shut");
 }
 
 console.log(failures ? `${failures} FAILURE(S)` : "all passed");

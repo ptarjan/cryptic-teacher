@@ -199,14 +199,27 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
   assert(marks.length >= 3, "the definition of " + clueText(found.e) + " is three words or more: "
     + JSON.stringify(marks));
 
-  assert(/guess-verdict right/.test(verdict(marks.slice(0, -1))),
-    "stopping one word short of the definition's optional end is right on "
-      + clueText(found.e) + " (" + defTexts(found.e.annotation)[0] + ")");
+  {
+    const right = verdict(marks.slice(0, -1));
+    assert(/guess-verdict right/.test(right),
+      "stopping one word short of the definition's optional end is right on "
+        + clueText(found.e) + " (" + defTexts(found.e.annotation)[0] + ")");
+    // Paul 11-22, "When I lock in I still need to see if I got it right when
+    // going to the next tab": a right answer moves on to the next question,
+    // and that question's panel opens with how the last one went.
+    const pending = /<div class="hint-pending" role="tabpanel">([\s\S]*)$/.exec(right);
+    if (pending) {
+      assert(/<p class="step-result right">✓ Definition: right<\/p>/.test(pending[1]),
+        "the next question carries the right verdict on " + clueText(found.e) + ": " + pending[1]);
+    }
+  }
   {
     const wrong = verdict(marks.slice(1));
     assert(!/guess-verdict/.test(wrong) && wrong.includes("hint-step"),
-      "but dropping a word that carries the meaning opens the step with no verdict on "
+      "but dropping a word that carries the meaning opens the step with no red verdict on "
         + clueText(found.e) + ": " + wrong);
+    assert(/<div id="hint-note-definition" class="hint-step" role="tabpanel"><p class="step-result miss">Not quite/.test(wrong),
+      "and one plain \"Not quite\" line heads the step it opened: " + wrong);
     assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
       "and the step's own highlights show where the definition was");
   }

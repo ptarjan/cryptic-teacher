@@ -14,9 +14,12 @@ the site offers.
   words picked it reads "Lock in" and is free; with nothing picked it reads
   "Show me", costs 1 hint and takes two taps (there is no "Check my answer" and
   no "Skip for now", picking another step is the skip). A right Lock in opens
-  the step as worked out, with the green verdict. A wrong Lock in opens it
-  exactly as Show me does and costs 1 hint: no verdict, no miss marks, no red,
-  and a wrong clue family has no "Not X" line. A wrong piece followed by a
+  the step as worked out, with the green verdict, and moves on to the next
+  question, which opens with a "✓ Definition: right" line so the result is never
+  lost behind the tab. A wrong Lock in opens it as Show me does and costs 1
+  hint: no miss marks and no red, only a plain "Not quite — this is the right
+  one." line over the step (and "Definition: not quite" on the next question
+  picked); a wrong clue family has no "Not X" line. A wrong piece followed by a
   right one keeps Pieces paid. A rung you worked out is scored separately from
   one you bought.
 - **A piece with only one possible answer is handed over, not asked.** If the
@@ -28,10 +31,10 @@ the site offers.
   Tapping a chip only chooses the step; the help bar button ("Show me") is what reveals it. In Pieces, the formula line is the question: tap a blank chip to make it current, tap clue words and Lock in, or Show me fills just that chip.
 - **One clue on the phone.** On a phone the selected clue is pinned to the top of the screen above the grid, so it stays in view and tappable (its words are the picker) while you scroll the grid and hints, and with the keyboard up. Tapping it never raises or drops the keyboard. Wider screens keep the clue in the hint panel.
 - **One letter wheel per clue.** A "Letters" toggle beside the answer boxes opens one wheel on any unsolved clue, whatever its type, and is never a hint. It opens empty from the toggle, or dealt with the fodder on its own when Pieces shows a whole-answer anagram (a part-anagram deals nothing), and it replaces the question at the end of the hint body. While it is open the clue's own words are its picker. Crossing off every tile of a dealt wheel finishes Pieces.
-- **Solving the clue unlocks every rung for free.** The help bar then becomes one free
-  "How it works" button (no red, no cost text) in place of the step buttons; one tap
-  opens every step in order. Whatever was open stays open, nothing opens by itself,
-  and the "Good clue?" vote sits under it.
+- **Solving the clue unlocks every rung for free.** Every step stays on the tab bar;
+  the ones not yet open are free tabs (no red, no cost text) that open with one tap.
+  "Show me" leaves the help bar. Whatever was open stays open, nothing opens by
+  itself, and the "Good clue?" vote sits under it.
 - **The indicator and type rungs end on a rule chip.** Tapping the small "rule"
   chip at the end of the rung opens a line that says
   what that device's words usually mean in any clue, with other words that do
