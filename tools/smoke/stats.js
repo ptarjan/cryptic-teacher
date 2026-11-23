@@ -110,6 +110,17 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
       + " | " + nuxLine(press.registry).slice(0, 50)
       + " | " + String(press.registry["hint-body"].innerHTML || "").replace(/<[^>]*>/g, " ").slice(-60));
     if (/into the highlighted squares/.test(nuxLine(press.registry))) { typing = true; break; }
+    // Only the charging rungs left in the row and the line still on the ladder:
+    // the blocks rung is open with pieces to come, and its free move is the one
+    // help button filling the next piece (a clue with several pieces, as the
+    // newest puzzle can be, is not finished by the rung press alone).
+    const lead = ((press.registry["hint-rungs"].children[0] || {}).textContent || "");
+    if (/Full walkthrough|Reveal/.test(lead) && press.registry["guess-tell"]
+        && /id="guess-tell"/.test(press.registry["hint-escape"].innerHTML)
+        && !/Full walkthrough|Reveal|Lock in/.test(press.registry["guess-tell"].textContent || "")) {
+      press.registry["guess-tell"].onclick();
+      continue;
+    }
     if (!pressTake()) break;
   }
   assert(typing, "the walk ends by asking them for the answer: " + nuxLine(press.registry)
