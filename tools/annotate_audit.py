@@ -364,7 +364,23 @@ def _new_state():
             "turns": collections.OrderedDict(),      # message id -> (usage, after first check)
             "calls": {}, "check_ids": set(), "check_outs": [], "writes": {},
             "tool_errors": collections.Counter(), "memory": False, "validator_reads": 0,
-            "max_tokens": 0, "t_check": None}
+            "max_tokens": 0, "t_check": None,
+            "t_prev": None, "active_s": 0.0, "active_after_check_s": 0.0}
+
+
+RESUME_MARK = "You were stopped from outside"
+
+
+def _ts(t):
+    return datetime.datetime.fromisoformat(t.replace("Z", "+00:00"))
+
+
+def _is_resume(rec):
+    """The record that resumes a session stopped from outside: the queued enqueue or the user
+    message carrying the restart notice. The idle gap before it is not work."""
+    c = rec.get("content") if rec.get("type") == "queue-operation" else (rec.get("message") or {}).get("content")
+    return rec.get("type") in ("queue-operation", "user") and isinstance(c, (str, list)) \
+        and _text(c).lstrip().startswith(RESUME_MARK)
 
 
 def _advance(st, path, offset, kind):
@@ -392,6 +408,17 @@ def _advance(st, path, offset, kind):
             if rec.get("timestamp"):
                 st["t1"] = rec["timestamp"]
                 st["t0"] = st["t0"] or st["t1"]
+                # active time: gaps between consecutive records, minus the idle gap that ends
+                # at a resume after an outside stop (a stop may sit hours before --resume)
+                now = _ts(rec["timestamp"])
+                prev = st.get("t_prev")
+                if prev is not None and not _is_resume(rec) and now > prev:
+                    gap = (now - prev).total_seconds()
+                    st["active_s"] += gap
+                    if st.get("t_check"):
+                        st["active_after_check_s"] += gap
+                if prev is None or now > prev or _is_resume(rec):
+                    st["t_prev"] = now
             msg = rec.get("message") or {}
             if rec.get("type") == "user":
                 content = msg.get("content")
@@ -456,12 +483,8 @@ def _finish(st, templates, retired=()):
         start=datetime.datetime.fromisoformat(t0.replace("Z", "+00:00")),
         model=model, turns=len(turns),
         puzzles=len(bag_ids(first_user)) or 1, clues=clues_written(writes),
-        wall_min=(datetime.datetime.fromisoformat(t1.replace("Z", "+00:00"))
-                  - datetime.datetime.fromisoformat(t0.replace("Z", "+00:00"))).total_seconds() / 60,
-        wall_after_check_min=(
-            (datetime.datetime.fromisoformat(t1.replace("Z", "+00:00"))
-             - datetime.datetime.fromisoformat(st["t_check"].replace("Z", "+00:00"))).total_seconds() / 60
-            if st.get("t_check") else 0.0),
+        wall_min=st["active_s"] / 60,
+        wall_after_check_min=st["active_after_check_s"] / 60 if st.get("t_check") else 0.0,
         cost=None if any(c is None for c, _ in costs) else sum(c for c, _ in costs),
         cost_after_check=sum(c or 0 for c, after in costs if after),
         turns_after_check=sum(1 for _, after in costs if after),
@@ -528,7 +551,7 @@ def bag_reports(out):
 _CACHE_DIR = pathlib.Path(os.environ.get("CT_MTIME_CACHE_DIR") or pathlib.Path.home() / ".cache" / "ct-mtime")
 _SESSION_CACHE_FILE = _CACHE_DIR / "audit-sessions.pickle"
 _LOCK_FILE = _CACHE_DIR / "annotate_audit.lock"
-_CACHE_VERSION = 3
+_CACHE_VERSION = 4
 KEEP_CACHE_DAYS = 10
 _SESSION_CACHE = {}     # (path, kind) -> {"ino", "size", "offset", "mtime", "state"}
 _cache_loaded = False

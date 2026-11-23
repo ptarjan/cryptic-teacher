@@ -213,4 +213,23 @@ check(round(a.pooled(rows, "cost", "puzzles"), 4), round(3.0 / 11, 4), "cost per
 check(round(a.pooled(rows, "cost", "clues"), 4), 0.1, "cost per clue is pooled over clues")
 check(a.pooled([solo(1.0, 10, 0)], "cost", "clues"), None, "a session with no clues counted is left out")
 
+# Wall time is active time: the idle gap before a resume after an outside stop is not counted.
+import json, tempfile
+def rec(t, typ, **kw):
+    return json.dumps({"type": typ, "timestamp": t, **kw}) + "\n"
+asst = lambda t, i: rec(t, "assistant", message={"id": i, "model": "m", "content": [], "usage": {}})
+stop = "You were stopped from outside (the job restarted or hit its time limit). Redo it."
+with tempfile.TemporaryDirectory() as d:
+    f = os.path.join(d, "s.jsonl")
+    with open(f, "w") as fh:
+        fh.write(rec("2026-11-22T22:00:00Z", "user", message={"role": "user", "content": a.BAG_PREFIX + " x: a-1."}))
+        fh.write(asst("2026-11-22T22:02:00Z", "m1"))
+        fh.write(asst("2026-11-22T22:05:00Z", "m2"))
+        fh.write(rec("2026-11-23T06:00:00Z", "queue-operation", operation="enqueue", content=stop))
+        fh.write(rec("2026-11-23T06:00:00.3Z", "user", message={"role": "user", "content": stop}))
+        fh.write(asst("2026-11-23T06:03:00Z", "m3"))
+    st = a._new_state()
+    a._advance(st, f, 0, "annotate")
+    check(round(a._finish(st, {}, ())["wall_min"], 2), 8.0, "wall time skips the idle gap before a resume")
+
 sys.exit(1 if fails else 0)
