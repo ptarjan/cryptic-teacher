@@ -34,7 +34,10 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   // sequence, so it is walked end to end once: dialog, hole over one button,
   // press, and the page comes back up. A scrim that outlived the press would
   // leave the site dark for a solver who did exactly what it asked.
+  // Pinned to one committed puzzle: the walk's pieces and rungs depend on the
+  // puzzle's own clues, so the newest one (which changes nightly) must not steer it.
   const press = require("../fake_dom.js").boot({
+    query: "?p=quiptic-1396",
     storage: { "ct:seen": JSON.stringify({ last: today, days: 1 }) } });
   press.registry["welcome-go"].onclick();
   const litRung = () => press.registry["hint-rungs"].children.filter(
