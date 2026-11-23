@@ -114,8 +114,8 @@ check("two different supplied letters are no one omission", True, hm.entry_lette
 trestle = entry(6, "down", "Struggled time for women's support", "TRESTLE",
                 {"op": "deletion", "parts": [
                     {"op": "substitution", "parts": [{"words": "Struggled", "gives": "WRESTLED"},
-                                                     {"words": "time", "gives": "T"},
-                                                     {"words": "women's", "gives": "W"}]},
+                                                     {"words": "women's", "gives": "W"},
+                                                     {"words": "time", "gives": "T"}]},
                     {"gives": "D", "note": "the extra letter"}]},
                 {"kind": "extra", "letter": "D"})
 check("substitution then extra letter dropped", False, hm.letter_problems(seen(trestle), trestle))
