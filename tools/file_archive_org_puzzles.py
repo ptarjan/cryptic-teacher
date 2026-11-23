@@ -9195,6 +9195,26 @@ def sunday_count_off(n, day, held):
     return None
 
 
+#: How many days either side a filed Independent counts its number from (indy_count_off).
+INDY_COUNT_DAYS = 60
+
+
+def indy_count_off(n, day, held):
+    """Why No `n` cannot be the Independent (a daily, six issues a week) of `day`: it is more than STEADY_TOLERANCE
+    off what the nearest steady filed puzzle within INDY_COUNT_DAYS either side counts to (3626 on 1999-03-22, 250
+    under 3877 the day after, in order with a near neighbour only 1999-02 held: a 7 read as a 2); None when it
+    keeps step or has no neighbour near enough to count from. A title the count implies is not asked."""
+    steady = Held.of(held).steady(GALE_INDEPENDENT.expected)
+    for near in neighbours(day, steady):
+        if not near or abs((near[0] - day).days) > INDY_COUNT_DAYS:
+            continue
+        want = near[1] + (issues_between(near[0], day) if near[0] < day else -issues_between(day, near[0]))
+        if abs(n - want) > STEADY_TOLERANCE:
+            return (f"No {n} on {day} is {abs(n - want)} from the {want} the filed No {near[1]} of {near[0]} "
+                    f"counts to: a misread title")
+    return None
+
+
 def placed(n, day, held, vouched=False):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
@@ -9438,12 +9458,17 @@ def filed_number(d, found, hit):
     # that keep step with their neighbours' offsets (Held.steady) stand for the neighbours instead.
     # TELE_ORDER_STEADY: the Gale Telegraph's 1980-84 run is nearly all unfiled, so one misread title filed (18106 on
     # 1984-06-12, the page's 18166) is the only neighbour 60 titles of the spring are placed against.
-    if number is None and (paper is FT or paper is GALE_TELEGRAPH) \
+    # INDY_ORDER_STEADY: the same for the Gale Independent (1999-02..03 newly fetched: 3626 filed for 1999-03-22, the
+    # page's 3876, stranded 30 titles of 3845-3873).
+    if number is None and (paper is FT or paper is GALE_TELEGRAPH or paper is GALE_INDEPENDENT) \
             and ("out of date order" in (why or "") or "already filed for" in (why or "")) \
             and abs(n - paper.expected(day)) <= paper.slack:
         steady = Held.of(held).steady(paper.expected)
         if len(steady) < len(held):
             number, why = placed(n, day, steady, vouched)
+    if number is not None and paper is GALE_INDEPENDENT:
+        why = indy_count_off(number, day, held)
+        number = None if why else number
     if number is not None and paper is GALE_SUNDAY_TIMES:
         why = sunday_count_off(number, day, held)
         number = None if why else number
