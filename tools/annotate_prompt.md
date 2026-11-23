@@ -36,6 +36,7 @@ a clue not done yet, `{"withheld": "<why>"}` for one you cannot annotate honestl
   crossing and printed answer; correct a crossing `(MODEL)` answer the same way). Never
   ship a hedged hint for one ("unconfirmed", "placeholder", "usually spelt" a near-twin):
   it is refused and solved again, so leave the clue null.
+- In `walkthrough`, never write "jokingly", "somehow", "close enough" or "if you squint" in your own voice (refused): say what the pun does ("the pawnbroker is called 'uncle'"), not that it is a joke.
 - When `source.retrievedFrom` is `newspaper` or `book`, clues are OCR and a letter can
   be misread ("judge" for "fudge"). If the answer and wordplay need a word a letter or
   two off, give `"printedClue": ["<clue as printed, no count>", "OCR misread: <what the wordplay needs>"]`

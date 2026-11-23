@@ -104,6 +104,7 @@ import shape_queue
 from groups import entry_id
 import series
 import validate_annotations
+from validate_walkthrough import walkthrough_hedges
 import wordplay
 from apply_annotations import (
     annotate_only, apply_also, current_view, default_input, move_alteration, normalize, view_path)
@@ -1372,6 +1373,34 @@ def mend_cryptic_definition_notes(path, pending):
     return sorted(set(changed), key=changed.index)
 
 
+def mend_jokingly(path, pending):
+    """Drop the word "jokingly" from each walkthrough written in the model's shape that uses it in
+    its own voice; the entry ids changed. It is pure filler ("the pawnbroker is jokingly called
+    'uncle'" says the same without it) and the one hedge validate_walkthrough.HEDGES refuses the
+    model for over and over: 23 of the 23 hedge refusals in the 11-23 burn were this word. A
+    walkthrough whose clue prints the word, or that quotes it, is left to the detector."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        entries = read_puzzle_file(path)["entries"]
+    except (ValueError, OSError, KeyError, TypeError):
+        return []
+    clues = {entry_id(e): str((e.get("clue") or {}).get("text") or "").lower() for e in entries}
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        walk = a.get("walkthrough") if isinstance(a, dict) and annotation.is_model(a) else None
+        if not (isinstance(walk, str) and eid in clues and "jokingly" not in clues[eid]):
+            continue
+        new = re.sub(r"(^|(?<=[.!?]) )jokingly,? (\w)", lambda m: m[1] + m[2].upper(),
+                     re.sub(r"\s+jokingly\b(?![\w'\"’”])", "", walk, flags=re.I),
+                     flags=re.I)
+        if new != walk and not walkthrough_hedges(new, clues[eid]):
+            a["walkthrough"] = new
+            changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def mend_thin_definition_notes(path, pending):
     """Drop, in each clue written in the model's shape with one `def`, the `notes` entry for the
     definition's words when it is under 25 characters (validate_annotations: "definition note ... is
@@ -1785,6 +1814,10 @@ def main(argv):
         if cdn:
             print(f"cryptic definition notes holding the answer's letters inside a longer "
                   f"word, blanked to ... in {pending.name}: {', '.join(cdn)}\n")
+        jk = mend_jokingly(path, pending)
+        if jk:
+            print(f"walkthroughs using the hedge 'jokingly', the word dropped in {pending.name}: "
+                  f"{', '.join(jk)}\n")
         thin = mend_thin_definition_notes(path, pending)
         if thin:
             print(f"definition notes too thin to say anything, dropped in {pending.name}: "
