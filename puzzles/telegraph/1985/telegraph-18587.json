@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Minister to lean a particular way",
     "enumeration": "4"
    },
-   "solution": "TEND"
+   "solution": "TEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minister to",
+      "at": 0,
+      "meaning": "to minister to someone is to look after or care for them"
+     },
+     {
+      "text": "lean a particular way",
+      "at": 12,
+      "meaning": "to have an inclination or tendency in some direction"
+     }
+    ],
+    "explanation": {
+     "surface": "A clergyman with leanings in one direction.",
+     "definitionFit": "Both senses share one verb: caring for someone, and having an inclination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,56 @@
     "text": "So it takes most of the day to make a soft drink",
     "enumeration": "4"
    },
-   "solution": "SODA"
+   "solution": "SODA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soft drink",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "So",
+       "at": 0,
+       "gives": "SO",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 12,
+         "note": "most of a word means it loses its final letter here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "day",
+         "at": 24,
+         "gives": "DAY",
+         "note": "the word day itself"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something takes nearly a whole day to produce a fizzy drink.",
+     "walkthrough": "The surface reads 'it' as a task taking nearly all day; really 'most of' is the trimming signal, and 'it takes', 'the' and 'to make' are links.",
+     "definitionFit": "Soda water and fizzy pop are non-alcoholic carbonated beverages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +133,34 @@
     "text": "It is said to restrain a bartender",
     "enumeration": "4"
    },
-   "solution": "WHEN"
+   "solution": "WHEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It is said to restrain a bartender",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It is said to restrain a bartender",
+       "at": 0,
+       "note": "the word a drinker utters while a barman pours, to tell him to stop pouring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that keeps a barman in check.",
+     "walkthrough": "'Say when' is the barman's invitation: the drinker answers with this word when the glass is full enough.",
+     "definitionFit": "Drinkers being served say this word to signal that the pouring should stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +174,48 @@
     "text": "Knotted boy's tie — that was Bunter's trouble",
     "enumeration": "7"
    },
-   "solution": "OBESITY"
+   "solution": "OBESITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that was Bunter's trouble",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Knotted",
+       "at": 0,
+       "note": "a knotted necktie is twisted up, so the letters of the boy's tie are tangled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy's",
+       "at": 8,
+       "gives": "BOYS",
+       "note": "the word boy with its S kept as a letter"
+      },
+      {
+       "words": "tie",
+       "at": 14,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolboy's tie has been knotted, and that was the fat boy's problem.",
+     "walkthrough": "Billy Bunter is the famously greedy, overweight schoolboy of Frank Richards's Greyfriars stories; here the S of 'boy's' counts as a letter.",
+     "definitionFit": "Bunter was famously fat, and excessive body weight is the condition named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Knotted"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +229,35 @@
     "text": "Green Isle brownie?",
     "enumeration": "10"
    },
-   "solution": "LEPRECHAUN"
+   "solution": "LEPRECHAUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Green Isle brownie?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Green Isle brownie?",
+       "at": 0,
+       "note": "a brownie is a household sprite of folklore, and the Green Isle is Ireland, so this asks for an Irish sprite"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chocolate cake from an emerald island.",
+     "walkthrough": "'brownie' suggests a cake or a junior Girl Guide; in folklore it is a small helpful goblin, and the Emerald or Green Isle is Ireland.",
+     "definitionFit": "An Irish fairy cobbler of legend is the Emerald Isle's own little sprite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "brownie"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +271,69 @@
     "text": "For fear of aliens, I get inside a phone-box that is out of order",
     "enumeration": "10"
    },
-   "solution": "XENOPHOBIA"
+   "solution": "XENOPHOBIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fear of aliens",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "get inside",
+       "at": 22,
+       "note": "the letter I, from the word I, goes into the middle of the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "out of order",
+           "at": 53,
+           "note": "a phone-box out of order is broken, so its letters with A are mixed up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "phone-box",
+           "at": 35,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "at": 33,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 20,
+       "note": "the pronoun I gives the letter I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scared of foreigners hides in a broken telephone kiosk.",
+     "walkthrough": "'out of order' shuffles A PHONEBOX to XENOPHOBA, and 'get inside' puts I in it before the last letter; 'that is' is a link.",
+     "definitionFit": "The Greek roots mean dread of strangers, a hostility or fear towards people from other countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aliens"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +347,71 @@
     "text": "Forward rivet loose after rough seas",
     "enumeration": "9"
    },
-   "solution": "ASSERTIVE"
+   "solution": "ASSERTIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Forward",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "the rivet letters come after the seas letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rough",
+         "at": 26,
+         "note": "rough seas are churned up, so those letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seas",
+         "at": 32,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "loose",
+         "at": 14,
+         "note": "a loose rivet has worked free, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rivet",
+         "at": 8,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's rivet comes loose after a stormy passage.",
+     "walkthrough": "'rough' and 'loose' each signal their own anagram, and 'after' sets the rivet letters behind the seas letters even though the clue names the rivet first.",
+     "definitionFit": "A forward person is bold and pushy, putting themselves confidently in front."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forward"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +425,63 @@
     "text": "Stop the heartless sergeant-major going out",
     "enumeration": "4"
    },
-   "solution": "STEM"
+   "solution": "STEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going out",
+       "at": 34,
+       "note": "the sergeant-major letters go on the outside, around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sergeant-major",
+       "at": 19,
+       "gives": "SM"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 9,
+         "note": "the middle letter of the word is removed, its heart taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 5,
+         "gives": "THE",
+         "note": "the word the itself"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drill sergeant is told to halt as he leaves.",
+     "walkthrough": "'heartless' drops the middle letter of 'the', and 'going out' means the sergeant-major's letters stand outside; 'Stop' is a verb, as in stopping a flow.",
+     "definitionFit": "To stem a flow is to check or halt it, as in stemming bleeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stop"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +495,29 @@
     "text": "Kind of western pasta",
     "enumeration": "9"
    },
-   "solution": "SPAGHETTI"
+   "solution": "SPAGHETTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind of western",
+      "at": 0,
+      "meaning": "an Italian-made cowboy film of the 1960s is so called"
+     },
+     {
+      "text": "pasta",
+      "at": 16,
+      "meaning": "long thin strings of pasta"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Italian-made cowboy films were nicknamed after the long noodles, which are also simply a pasta type."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "western"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +531,53 @@
     "text": "What doctor gives is a kind of aid and classical knowledge",
     "enumeration": "9"
    },
-   "solution": "DIAGNOSIS"
+   "solution": "DIAGNOSIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What doctor gives",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "a kind of",
+         "at": 21,
+         "note": "a kind of aid is a variant of it, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aid",
+         "at": 31,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "classical knowledge",
+       "at": 39,
+       "gives": "GNOSIS",
+       "note": "gnosis is the Greek word for knowledge, especially spiritual knowledge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's verdict combines help with learning from the ancients.",
+     "walkthrough": "'a kind of' rearranges AID to DIA; 'is' and 'and' are links.",
+     "definitionFit": "A physician identifies an illness and tells the patient what it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +591,41 @@
     "text": "For common sentimentality, proceed with ring",
     "enumeration": "3"
    },
-   "solution": "GOO"
+   "solution": "GOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "common sentimentality",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "proceed",
+       "at": 27,
+       "gives": "GO",
+       "note": "to go is to proceed"
+      },
+      {
+       "words": "ring",
+       "at": 40,
+       "gives": "O",
+       "note": "the letter O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Moving forward with a wedding ring calls for mawkish feeling.",
+     "definitionFit": "Gooey sentiment is slushy, cloying emotion, the informal word for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +639,30 @@
     "text": "Tunes affected manners",
     "enumeration": "4"
    },
-   "solution": "AIRS"
+   "solution": "AIRS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tunes",
+      "at": 0,
+      "meaning": "melodies or songs"
+     },
+     {
+      "text": "affected manners",
+      "at": 6,
+      "meaning": "putting on ... means pretentious behaviour"
+     }
+    ],
+    "explanation": {
+     "surface": "Melodies and pretentious behaviour.",
+     "definitionFit": "An air is a melody; putting on airs means acting pretentiously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +676,11 @@
     "text": "Work-unit set in outer Glasgow",
     "enumeration": "3"
    },
-   "solution": "ERG"
+   "solution": "ERG",
+   "annotationWithheld": {
+    "why": "'Work-unit set in outer Glasgow' (3) for ERG: no parse gives ERG from 'set in outer Glasgow' (outer letters G, W), and a search of the exact text found nothing; likely an OCR misread",
+    "clue": "Work-unit set in outer Glasgow"
+   }
   },
   {
    "number": 13,
@@ -212,7 +694,41 @@
     "text": "Fight in French bar",
     "enumeration": "9"
    },
-   "solution": "ENCOUNTER"
+   "solution": "ENCOUNTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in French",
+       "at": 6,
+       "gives": "EN",
+       "note": "en is French for in"
+      },
+      {
+       "words": "bar",
+       "at": 16,
+       "gives": "COUNTER",
+       "note": "a counter is the bar in a pub or shop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brawl inside a Parisian bar.",
+     "definitionFit": "An encounter is a clash or skirmish between opposing forces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +742,60 @@
     "text": "Cause great irritation as pater flounders in river",
     "enumeration": "10"
    },
-   "solution": "EXASPERATE"
+   "solution": "EXASPERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cause great irritation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 42,
+       "note": "the jumbled letters sit inside the river's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 45,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon, south-west England"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flounders",
+         "at": 32,
+         "note": "to flounder is to struggle clumsily, so these letters are thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as pater",
+         "at": 23,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father thrashes about in the water, which is very annoying.",
+     "walkthrough": "'flounders' is the anagram signal and 'in' puts the result inside the Devon river; flounders are also flatfish, which suits the river picture.",
+     "definitionFit": "To exasperate is to infuriate or annoy intensely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flounders"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +809,30 @@
     "text": "Composed as a poet's works can be?",
     "enumeration": "9"
    },
-   "solution": "COLLECTED"
+   "solution": "COLLECTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Composed",
+      "at": 0,
+      "meaning": "calm and self-possessed"
+     },
+     {
+      "text": "as a poet's works can be?",
+      "at": 9,
+      "meaning": "a poet's complete works gathered into one volume"
+     }
+    ],
+    "explanation": {
+     "surface": "A calm poet and the published edition of his poems.",
+     "definitionFit": "Calm and self-possessed is one sense; poems gathered into one edition is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Composed"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +846,60 @@
     "text": "Reserved bun to chew before finale",
     "enumeration": "9"
    },
-   "solution": "UNBENDING"
+   "solution": "UNBENDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reserved",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 21,
+       "note": "the chewed letters come before the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to chew",
+         "at": 13,
+         "note": "chewing a bun mashes it up, so its letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bun",
+         "at": 9,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "finale",
+       "at": 28,
+       "gives": "ENDING",
+       "note": "a finale is an ending"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saves a bread roll to eat before the show's climax.",
+     "walkthrough": "'to chew' signals the anagram of 'bun' and 'before' puts it ahead of the finale; 'Reserved' means stiff and unyielding, not booked.",
+     "definitionFit": "A reserved, stiff person is unyielding and inflexible in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reserved"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +913,32 @@
     "text": "Pop or wine?",
     "enumeration": "4"
    },
-   "solution": "HOCK"
+   "solution": "HOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pop",
+      "at": 0,
+      "meaning": "to pop something is British slang for pawning it"
+     },
+     {
+      "text": "wine?",
+      "at": 7,
+      "meaning": "a German white wine from the Rhine"
+     }
+    ],
+    "explanation": {
+     "surface": "A fizzy drink or something stronger?",
+     "walkthrough": "'Pop' looks like fizzy drink; in British slang it means to pawn, and the pawnbroker's is 'in hock'. HOCK is also a British name for Rhine wine.",
+     "definitionFit": "Putting goods in pawn and a German Rhenish white wine share the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pop"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +958,49 @@
      }
     ]
    },
-   "solution": "EARLOBE"
+   "solution": "EARLOBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Setting for a clip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 33,
+       "note": "in an across entry, one piece placed on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nobleman",
+       "at": 36,
+       "gives": "EARL",
+       "note": "an earl is a British nobleman"
+      },
+      {
+       "words": "decoration",
+       "at": 22,
+       "gives": "OBE",
+       "note": "the OBE (Order of the British Empire) is a British honour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peer wears a hair clip or an honour.",
+     "walkthrough": "'clip' suggests a hair clip, but the setting is where a clip-on earring sits; 'on' places the decoration after the nobleman, and 'or' is a link.",
+     "definitionFit": "A clip-on earring is fastened to the soft lower flesh of the ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clip"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1014,46 @@
     "text": "Taste for curiosities needs a learner, in effect",
     "enumeration": "7"
    },
-   "solution": "VIRTUAL"
+   "solution": "VIRTUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in effect",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Taste for curiosities",
+       "at": 0,
+       "gives": "VIRTU",
+       "note": "virtu is a love of fine objects or curios"
+      },
+      {
+       "words": "a",
+       "at": 28
+      },
+      {
+       "words": "learner",
+       "at": 30,
+       "gives": "L",
+       "note": "L is the learner driver plate in the UK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collector of curios requires a novice, in practice.",
+     "walkthrough": "VIRTU (also vertu) means a taste for art and curios; L is the British learner driver's plate.",
+     "definitionFit": "Something virtual is so in essence or practice, though not formally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learner"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1067,52 @@
     "text": "Text-summary by Head of English is scrupulously exact",
     "enumeration": "7"
    },
-   "solution": "PRECISE"
+   "solution": "PRECISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scrupulously exact",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Text-summary",
+       "at": 0,
+       "gives": "PRECIS",
+       "note": "a precis is a summary of a text"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "at": 16,
+         "note": "the first letter of the word English, its head"
+        }
+       ],
+       "parts": [
+        {
+         "words": "English",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A summary written by the head of the English department is very accurate.",
+     "walkthrough": "'Head of' picks E from English; 'by' is a link.",
+     "definitionFit": "Being meticulous and accurate in every detail is what precise means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1126,36 @@
     "text": "What is the point in fencing?",
     "enumeration": "4"
    },
-   "solution": "EPEE"
+   "solution": "EPEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What is the point in fencing?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What is the point in fencing?",
+       "at": 0,
+       "note": "asks what the purpose of the sport is, but means a sword that has a point used in fencing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble asking why anyone bothers with fencing.",
+     "walkthrough": "The question sounds like a complaint about the sport, but a pointed fencing sword is meant; 'fencing' could also mean garden fences.",
+     "definitionFit": "This sword is the fencing weapon with a pointed blade, scoring only with its tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1169,47 @@
     "text": "In age, worn out-like Peer Gynt?",
     "enumeration": "9"
    },
-   "solution": "NORWEGIAN"
+   "solution": "NORWEGIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like Peer Gynt",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 13,
+       "note": "worn out means battered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In age",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "worn",
+       "at": 8,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly and exhausted, like Ibsen's wandering hero.",
+     "walkthrough": "Peer Gynt is the hero of Ibsen's play, with music by Grieg: a Scandinavian from the country of fjords.",
+     "definitionFit": "Peer Gynt is Ibsen's character from the fjord country of Scandinavia, so he is of that nationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worn"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1223,41 @@
     "text": "Georgia's petrol?",
     "enumeration": "3"
    },
-   "solution": "GAS"
+   "solution": "GAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "petrol",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Georgia",
+       "at": 0,
+       "gives": "GA",
+       "note": "GA is the postal abbreviation for the US state of Georgia"
+      },
+      {
+       "words": "'",
+       "at": 7,
+       "gives": "S",
+       "note": "the possessive ending supplies the letter S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fuel from the American South.",
+     "walkthrough": "Petrol in American English is gas, which suits Georgia.",
+     "definitionFit": "Americans call motor fuel gas, short for gasoline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1271,54 @@
     "text": "Conservative party to retire? That's fishy!",
     "enumeration": "3"
    },
-   "solution": "COD"
+   "solution": "COD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's fishy!",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 0,
+       "gives": "C"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to retire",
+         "at": 19,
+         "note": "retiring means going back, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 13,
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tory party chiefs stepping down raises suspicions.",
+     "walkthrough": "'to retire' reads the party word backwards after the Tory abbreviation. The definition works two ways: a cod is a fish, and cod means sham or bogus.",
+     "definitionFit": "A sea fish, and also slang for a hoax or something fake, which is suspicious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "retire"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1332,56 @@
     "text": "Spoilt child needs lines after time, initially",
     "enumeration": "4"
    },
-   "solution": "BRAT"
+   "solution": "BRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spoilt child",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lines",
+       "at": 19,
+       "gives": "BR",
+       "note": "BR is British Rail, the old national railway lines"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 37,
+         "note": "takes the first letter of each of the two words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "after",
+         "at": 25
+        },
+        {
+         "words": "time",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An indulged child is made to write lines after detention.",
+     "walkthrough": "BR stands for British Rail; 'initially' picks A and T from 'after time'. 'needs' is a link.",
+     "definitionFit": "A brat is an unruly, badly behaved youngster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1395,48 @@
     "text": "An insect's wriggling non-stop",
     "enumeration": "9"
    },
-   "solution": "INCESSANT"
+   "solution": "INCESSANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "non-stop",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wriggling",
+       "at": 12,
+       "note": "a wriggling insect squirms, so the letters move about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "An",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "insect's",
+       "at": 3,
+       "gives": "INSECTS",
+       "note": "the word insect with its S kept as a letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect squirms without pause.",
+     "walkthrough": "The S of 'insect's' counts as a letter in the jumble.",
+     "definitionFit": "Ceaseless or continual, never pausing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wriggling"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1450,43 @@
     "text": "Celebrated the return of the antelopes",
     "enumeration": "4"
    },
-   "solution": "SUNG"
+   "solution": "SUNG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "the return of",
+       "at": 11,
+       "note": "returning means going back, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "antelopes",
+       "at": 29,
+       "gives": "GNUS",
+       "note": "gnus are wildebeest, a kind of antelope"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People rejoiced when the herds came back.",
+     "walkthrough": "'Celebrated' is the past tense of praising in song.",
+     "definitionFit": "Heroes celebrated in poetry are lauded in song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Celebrated"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1500,40 @@
     "text": "Yearn for the account to be presented to His Excellency",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Yearn",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "account",
+       "at": 14,
+       "gives": "AC"
+      },
+      {
+       "words": "His Excellency",
+       "at": 41,
+       "gives": "HE",
+       "note": "HE is the abbreviation for His Excellency, an ambassador's title"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longs for the bill to be handed to the ambassador.",
+     "definitionFit": "To ache for something is to long for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1547,30 @@
     "text": "Run to slip",
     "enumeration": "4"
    },
-   "solution": "TRIP"
+   "solution": "TRIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0,
+      "meaning": "a short journey or outing"
+     },
+     {
+      "text": "slip",
+      "at": 7,
+      "meaning": "to stumble or fall over"
+     }
+    ],
+    "explanation": {
+     "surface": "Dash, then stumble.",
+     "definitionFit": "A short excursion is one sense; stumbling or losing footing is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1584,32 @@
     "text": "Lots of horses for big-headed boss",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lots of horses",
+      "at": 0,
+      "meaning": "a collection of horses kept for breeding"
+     },
+     {
+      "text": "big-headed boss",
+      "at": 19,
+      "meaning": "a nail or knob with a large head, and a boss is a raised knob"
+     }
+    ],
+    "explanation": {
+     "surface": "A conceited manager in charge of a stable.",
+     "walkthrough": "'big-headed boss' reads as a conceited manager; a boss is also a decorative knob.",
+     "definitionFit": "A breeding establishment for horses, and a large-headed nail or knob."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 30,
@@ -470,7 +1623,30 @@
     "text": "Health is a blessing-especially for one who sneezes",
     "enumeration": "10"
    },
-   "solution": "GESUNDHEIT"
+   "solution": "GESUNDHEIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Health",
+      "at": 0,
+      "meaning": "the German word means health"
+     },
+     {
+      "text": "a blessing-especially for one who sneezes",
+      "at": 10,
+      "meaning": "what is said to wish someone well after a sneeze"
+     }
+    ],
+    "explanation": {
+     "surface": "Good health is a gift, particularly for the sneezer.",
+     "walkthrough": "The German word for health is said to someone who sneezes, like 'bless you'.",
+     "definitionFit": "The German noun for wellbeing, used as a wish of good health after a sneeze."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
