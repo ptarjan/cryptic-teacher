@@ -602,33 +602,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "acquiring",
        "at": 36,
-       "note": "acquiring means taking on, so what follows is added to the shortened team"
+       "note": "to acquire is to take in, so the agent goes inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "at": 29,
-         "note": "almost means the last letter is left off"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "group of sportsmen",
-         "at": 10,
-         "gives": "SQUAD",
-         "note": "a squad is a team of players"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 29,
+           "note": "almost means one letter short of the full word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "group of sportsmen",
+           "at": 10,
+           "gives": "SQUAD",
+           "note": "a squad is a group of players"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         },
         {
-         "gives": "D"
+         "words": "for example",
+         "at": 52,
+         "gives": "EG"
         }
        ]
       },
@@ -636,23 +646,17 @@
        "words": "agent",
        "at": 46,
        "gives": "REP",
-       "note": "a rep is a representative, a sales agent"
-      },
-      {
-       "words": "for example",
-       "at": 52,
-       "gives": "EG",
-       "note": "e.g. is short for exempli gratia, for example"
+       "note": "a rep is a sales agent"
       }
      ]
     },
     "explanation": {
-     "surface": "An outsider in a sports team has nearly taken on an agent, for instance.",
-     "walkthrough": "'almost' cuts SQUAD to SQUA.",
-     "definitionFit": "A square peg in a round hole is an idiom for a person who does not fit in."
+     "surface": "An awkward fit in a team nearly gets an agent, for instance.",
+     "walkthrough": "'group of sportsmen' suggests a team as the setting, but it only supplies a word to be shortened; the definition is the opening 'Misfit', as in a peg that fits no round hole.",
+     "definitionFit": "A square peg in a round hole is someone unsuited to their role."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "agent"
     }
