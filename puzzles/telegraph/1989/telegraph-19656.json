@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,29 @@
      }
     ]
    },
-   "solution": "GRILLROOM"
+   "solution": "GRILLROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Torture chamber",
+      "at": 0,
+      "meaning": "a chamber for grilling, interrogating someone harshly, read whimsically"
+     },
+     {
+      "text": "restaurant?",
+      "at": 23,
+      "meaning": "a dining room specialising in grilled meat"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A dining room serving grilled food, which read literally sounds like a place of harsh interrogation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +75,28 @@
     "text": "Appreciate how to make money",
     "enumeration": "7"
    },
-   "solution": "REALISE"
+   "solution": "REALISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appreciate",
+      "at": 0,
+      "meaning": "to appreciate is to understand or become aware of something"
+     },
+     {
+      "text": "how to make money",
+      "at": 11,
+      "meaning": "to convert assets into cash, as when selling property for its value"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To grasp a fact fully is one sense; turning property into cash by selling it is the financial sense of the same verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +110,59 @@
     "text": "Kind to allow another nine inside",
     "enumeration": "7"
    },
-   "solution": "LENIENT"
+   "solution": "LENIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 27,
+       "note": "inside tells us one piece sits within the word for allowing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to allow",
+       "at": 5,
+       "gives": "LET",
+       "note": "to allow means to let"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "another",
+         "at": 14,
+         "note": "another suggests a different version of the word nine, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nine",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone generous enough to let nine more people come in.",
+     "walkthrough": "'another' is an unusual anagram signal: a different version of nine. 'inside' is the container signal; 'Kind' is the adjective, not a noun meaning type.",
+     "definitionFit": "A kind person is gentle and forgiving rather than strict, which is what lenient describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +182,32 @@
      }
     ]
    },
-   "solution": "RINGROAD"
+   "solution": "RINGROAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way round town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Way round town",
+       "at": 0,
+       "note": "a road that circles a town so traffic can bypass its centre"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A bypass road forming a loop about a town lets drivers avoid its centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +221,43 @@
     "text": "Girl turns tail at the yacht station",
     "enumeration": "6"
    },
-   "solution": "MARINA"
+   "solution": "MARINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yacht station",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns tail",
+       "at": 5,
+       "note": "turns tail means only the tail end of the girl's name, its final pair of letters, is turned round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "MARIAN",
+       "note": "Marian is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl turns and walks away from where the boats are moored.",
+     "walkthrough": "'turns tail' swaps the last two letters of MARIAN, giving NA at the end instead of AN.",
+     "definitionFit": "A harbour with moorings for yachts and pleasure boats is the meaning here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +271,53 @@
     "text": "One skilled in versification is an expert thus with the girl's model",
     "enumeration": "9"
    },
-   "solution": "PROSODIST"
+   "solution": "PROSODIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One skilled in versification",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "is an expert",
+       "at": 29,
+       "gives": "PRO",
+       "note": "an expert is a pro, short for professional"
+      },
+      {
+       "words": "thus",
+       "at": 42,
+       "gives": "SO",
+       "note": "thus means so"
+      },
+      {
+       "words": "the girl's",
+       "at": 52,
+       "gives": "DIS",
+       "note": "Di is a girl's name, so the girl's is Di's"
+      },
+      {
+       "words": "model",
+       "at": 63,
+       "gives": "T",
+       "note": "the Model T was Ford's famous car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poetry expert credited with modelling himself on a certain girl.",
+     "walkthrough": "'with' is a link joining the pieces.",
+     "definitionFit": "Prosody is the study of metre and rhythm in verse, and a specialist in it handles versification."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +331,42 @@
     "text": "Trojan mistook as being the attendant",
     "enumeration": "7"
    },
-   "solution": "JANITOR"
+   "solution": "JANITOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the attendant",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mistook",
+       "at": 7,
+       "note": "mistook suggests the letters have been got wrong and so jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trojan",
+       "at": 0,
+       "gives": "TROJANI",
+       "note": "a man of Troy; the fodder the setter meant also includes an I beside these six letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Troy mistakenly took on the role of a servant.",
+     "walkthrough": "The rearranged letters of Trojan give only six of the seven needed; the answer needs an extra I, perhaps lost from the clue as held.",
+     "definitionFit": "A caretaker or doorkeeper attends to a building, so a janitor is an attendant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +380,28 @@
     "text": "Reeled, but not all at the same time",
     "enumeration": "9"
    },
-   "solution": "STAGGERED"
+   "solution": "STAGGERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reeled",
+      "at": 0,
+      "meaning": "reeled means walked unsteadily, tottered"
+     },
+     {
+      "text": "not all at the same time",
+      "at": 12,
+      "meaning": "arranged so that start times are spread out, as with working hours"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Tottering drunkenly is one sense; spreading out times, as with shifts or a race start, is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +415,41 @@
     "text": "Be a star performing side by side",
     "enumeration": "7"
    },
-   "solution": "ABREAST"
+   "solution": "ABREAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "side by side",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "performing",
+       "at": 10,
+       "note": "performing suggests the letters are put through their paces into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Be a star",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to go out and be a star on stage, side by side with another.",
+     "walkthrough": "'performing' rearranges BE A STAR.",
+     "definitionFit": "Two people level with each other, walking alongside, are said to walk this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "performing"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +463,45 @@
     "text": "Longing but not starting to be receiving wages",
     "enumeration": "7"
    },
-   "solution": "EARNING"
+   "solution": "EARNING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "receiving wages",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "but not starting",
+       "at": 8,
+       "note": "not starting tells us the first letter of the word for longing is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Longing",
+       "at": 0,
+       "gives": "YEARNING",
+       "note": "longing means yearning"
+      },
+      {
+       "gives": "Y"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longing for something but not yet getting paid.",
+     "walkthrough": "'but not starting' removes the Y from YEARNING.",
+     "definitionFit": "To be paid a wage for work done is to be getting an income."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +515,40 @@
     "text": "Giving out that one's taking another to court",
     "enumeration": "7"
    },
-   "solution": "ISSUING"
+   "solution": "ISSUING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Giving out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one's",
+       "at": 16,
+       "gives": "IS",
+       "note": "one is I, so one's is I'S"
+      },
+      {
+       "words": "taking another to court",
+       "at": 22,
+       "gives": "SUING",
+       "note": "taking someone to court means suing them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Explaining that someone is distributing something while taking another party to court.",
+     "definitionFit": "To issue is to distribute or hand out, as with tickets or statements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -202,7 +568,67 @@
      }
     ]
    },
-   "solution": "FINEDRAWN"
+   "solution": "FINEDRAWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very subtle",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 10,
+         "note": "almost means the word for discovery loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Discovery",
+         "at": 0,
+         "gives": "FIND",
+         "note": "a discovery is a find"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turns out",
+         "at": 32,
+         "note": "turns out suggests the letters of Andrew are turned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Andrew",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A discovery almost made by a man named Andrew turns out to be very subtle.",
+     "walkthrough": "'almost' trims FIND to FIN; 'turns out' rearranges ANDREW to EDRAWN.",
+     "definitionFit": "Something drawn out very fine is delicate, hence extremely subtle in distinction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 13,
@@ -216,7 +642,43 @@
     "text": "Spun round earth, so to speak",
     "enumeration": "7"
    },
-   "solution": "WHIRLED"
+   "solution": "WHIRLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spun round",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WHIRLED",
+     "indicators": [
+      {
+       "text": "so to speak",
+       "at": 18,
+       "note": "so to speak indicates the word for earth is to be spoken, giving a similar sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "earth",
+       "at": 11,
+       "gives": "WORLD",
+       "note": "the earth is the world"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something spun round the earth, as one might say.",
+     "walkthrough": "In non-rhotic British speech WORLD and the answer sound alike.",
+     "definitionFit": "To whirl is to spin rapidly, so the past tense means spun round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -230,7 +692,42 @@
     "text": "Good-looking worker has a few",
     "enumeration": "8"
    },
-   "solution": "HANDSOME"
+   "solution": "HANDSOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Good-looking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "worker",
+       "at": 13,
+       "gives": "HAND",
+       "note": "a hand is a worker, as in farmhand"
+      },
+      {
+       "words": "a few",
+       "at": 24,
+       "gives": "SOME",
+       "note": "a few means some"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attractive worker who has a few things.",
+     "walkthrough": "'has' is a link joining the pieces.",
+     "definitionFit": "Attractive in appearance, especially of a man, is the meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 15,
@@ -244,7 +741,41 @@
     "text": "Girl out of breath",
     "enumeration": "6"
    },
-   "solution": "BERTHA"
+   "solution": "BERTHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 5,
+       "note": "out of here signals the letters of breath being knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "breath",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl who is out of breath after running.",
+     "walkthrough": "'out of' rearranges BREATH.",
+     "definitionFit": "Bertha is a girl's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +789,41 @@
     "text": "Players getting on with the first aid",
     "enumeration": "9"
    },
-   "solution": "BANDAGING"
+   "solution": "BANDAGING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "first aid",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Players",
+       "at": 0,
+       "gives": "BAND",
+       "note": "musical players form a band"
+      },
+      {
+       "words": "getting on",
+       "at": 8,
+       "gives": "AGING",
+       "note": "getting on means growing older, aging"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly musicians helping with first aid.",
+     "walkthrough": "'with' is a link joining the pieces.",
+     "definitionFit": "Wrapping a wound with dressings is a basic part of emergency treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +843,34 @@
      }
     ]
    },
-   "solution": "HALFHITCH"
+   "solution": "HALFHITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Only a fraction towards making a love-knot?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Only a fraction towards making a love-knot?",
+       "at": 0,
+       "note": "a part-way stage toward getting married, a fraction of tying the knot, read as the name of a simple knot"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A simple knot used by sailors, whose name splits into a fraction and a word for getting wed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "love-knot"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +884,47 @@
     "text": "Aim to put clothes on after the commercial",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after tells us the clothing word comes after the commercial"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the commercial",
+       "at": 28,
+       "gives": "AD",
+       "note": "an ad is a commercial"
+      },
+      {
+       "words": "to put clothes on",
+       "at": 4,
+       "gives": "DRESS",
+       "note": "to put clothes on is to dress"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Planning to get dressed once the commercial break is over.",
+     "definitionFit": "To aim at a problem is to direct effort at it, just as one may tackle or direct oneself at it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +938,59 @@
     "text": "Bill taken in by Spanish gentle man briefly produces melody for religious places",
     "enumeration": "8"
    },
-   "solution": "SACRARIA"
+   "solution": "SACRARIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "religious places",
+      "at": 64
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taken in by",
+         "at": 5,
+         "note": "taken in by shows the bill goes inside the abbreviation for the Spanish gentleman"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spanish gentle man briefly",
+         "at": 17,
+         "gives": "SR",
+         "note": "Sr is the short form of Señor, a Spanish gentleman"
+        },
+        {
+         "words": "Bill",
+         "at": 0,
+         "gives": "AC",
+         "note": "AC is short for account, a bill"
+        }
+       ]
+      },
+      {
+       "words": "melody",
+       "at": 53,
+       "gives": "ARIA",
+       "note": "an aria is a melody"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish gentleman takes in a bill and sings a melody about churches.",
+     "walkthrough": "'produces' is a link. A sacrarium is a sanctuary in a church, and these are its plural.",
+     "definitionFit": "Sanctuaries round altars are sacred places within churches, hence religious places."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1004,44 @@
     "text": "Sounds like the rod is heavy for a Middle Easterner",
     "enumeration": "7"
    },
-   "solution": "KUWAITI"
+   "solution": "KUWAITI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Middle Easterner",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KUWAITI",
+     "indicators": [
+      {
+       "text": "Sounds like",
+       "at": 0,
+       "note": "sounds like tells us the phrase is spoken to give a similar sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the rod is heavy",
+       "at": 12,
+       "gives": "CUEWEIGHTY",
+       "note": "the rod is a cue, as in snooker, and heavy means weighty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a fishing rod or rod-like object is too heavy.",
+     "walkthrough": "CUE WEIGHTY spoken aloud gives the answer.",
+     "definitionFit": "A native of Kuwait, a Gulf state, is from the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rod"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1055,46 @@
     "text": "Wait for a race to finish",
     "enumeration": "6"
    },
-   "solution": "ATTEND"
+   "solution": "ATTEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wait",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 9,
+       "gives": "A"
+      },
+      {
+       "words": "race",
+       "at": 11,
+       "gives": "TT",
+       "note": "the TT is the Tourist Trophy motorcycle race on the Isle of Man"
+      },
+      {
+       "words": "finish",
+       "at": 19,
+       "gives": "END",
+       "note": "finish means end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Waiting around for a race to be over.",
+     "walkthrough": "The TT is the Isle of Man motorcycle race. 'for' and 'to' are links.",
+     "definitionFit": "To wait on someone is to serve them, an old sense also meaning to look after."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1108,41 @@
     "text": "Model short time worker was permitted",
     "enumeration": "7"
    },
-   "solution": "TEMPLET"
+   "solution": "TEMPLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "short time worker",
+       "at": 6,
+       "gives": "TEMP",
+       "note": "a temp works for a short time"
+      },
+      {
+       "words": "was permitted",
+       "at": 24,
+       "gives": "LET",
+       "note": "let is past tense of let, so was permitted fits a passive sense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A temporary worker allowed to act as a model.",
+     "definitionFit": "A pattern or gauge used as a guide for shaping things, also spelt template."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1162,42 @@
      }
     ]
    },
-   "solution": "NONUSER"
+   "solution": "NONUSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It is not an employer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 35,
+       "note": "over signals the letters being turned over into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "runs one",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careless driver, not an employer, who runs someone over.",
+     "walkthrough": "'who' is a link; 'over' rearranges RUNS ONE.",
+     "definitionFit": "To employ is to use, so one who does not employ something is not a user of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "employer"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1211,41 @@
     "text": "The sound of massed artillery if murder has somehow been committed",
     "enumeration": "8"
    },
-   "solution": "DRUMFIRE"
+   "solution": "DRUMFIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The sound of massed artillery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 44,
+       "note": "somehow suggests the letters reach their order in some undefined way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "if murder",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gunfire heard when a murder has been committed.",
+     "walkthrough": "'somehow' rearranges IF MURDER; 'has been committed' is padding as a link.",
+     "definitionFit": "Continuous heavy gunfire sounds like a rolling of drums."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "murder"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1259,41 @@
     "text": "Most unusual for artist to take a break",
     "enumeration": "6"
    },
-   "solution": "RAREST"
+   "solution": "RAREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most unusual",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "artist",
+       "at": 17,
+       "gives": "RA",
+       "note": "RA stands for Royal Academician, an artist"
+      },
+      {
+       "words": "take a break",
+       "at": 27,
+       "gives": "REST",
+       "note": "to take a break is to rest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is most unusual for an artist to take a break.",
+     "walkthrough": "'for' and 'to' are links.",
+     "definitionFit": "Rare means uncommon, so the superlative means least common."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1308,57 @@
     "enumeration": "9",
     "countFrom": "grid"
    },
-   "solution": "ADORNMENT"
+   "solution": "ADORNMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "decoration",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "party",
+       "at": 2,
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "words": "navy",
+       "at": 13,
+       "gives": "RN",
+       "note": "RN is the Royal Navy"
+      },
+      {
+       "words": "personnel",
+       "at": 18,
+       "gives": "MEN",
+       "note": "personnel are men"
+      },
+      {
+       "words": "time",
+       "at": 35,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party attended by naval staff to decorate the place.",
+     "walkthrough": "'with', 'taking' and 'for' are links.",
+     "definitionFit": "An ornament or embellishment is something added for beauty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1372,33 @@
     "text": "One must have been at work before the window-cleaner can come round",
     "enumeration": "7"
    },
-   "solution": "GLAZIER"
+   "solution": "GLAZIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One must have been at work before the window-cleaner can come round",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One must have been at work before the window-cleaner can come round",
+       "at": 0,
+       "note": "a tradesman who puts glass in panes, without whose work there is nothing for a cleaner to wipe"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A tradesman fitting window glass must work first, or there are no panes to clean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1412,48 @@
     "text": "Ingenuous despite using skill on the continental ship",
     "enumeration": "7"
    },
-   "solution": "ARTLESS"
+   "solution": "ARTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ingenuous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "skill",
+       "at": 24,
+       "gives": "ART",
+       "note": "skill means art"
+      },
+      {
+       "words": "the continental",
+       "at": 33,
+       "gives": "LE",
+       "note": "le is French for the, the article used on the Continent"
+      },
+      {
+       "words": "ship",
+       "at": 49,
+       "gives": "SS",
+       "note": "SS stands for steamship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naive person who uses skill on a European ship.",
+     "walkthrough": "'despite using' and 'on' are links.",
+     "definitionFit": "Naive and simple, without cunning, is the sense of both words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "continental"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1467,40 @@
     "text": "Comments coming from another section",
     "enumeration": "7"
    },
-   "solution": "NOTICES"
+   "solution": "NOTICES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comments",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "another",
+       "at": 21,
+       "note": "another suggests a different arrangement of the word section"
+      }
+     ],
+     "parts": [
+      {
+       "words": "section",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remarks coming from a different section of a newspaper.",
+     "walkthrough": "'another' rearranges SECTION; 'coming from' is a link.",
+     "definitionFit": "Reviews or remarks published about a performance are what the plural can mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -467,7 +1514,53 @@
     "text": "Soldiers hurried with more soldiers and artillerymen on hearing sound of trumpet",
     "enumeration": "9"
    },
-   "solution": "TARANTARA"
+   "solution": "TARANTARA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sound of trumpet",
+      "at": 64
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soldiers",
+       "at": 0,
+       "gives": "TA",
+       "note": "TA is the Territorial Army"
+      },
+      {
+       "words": "hurried",
+       "at": 9,
+       "gives": "RAN",
+       "note": "hurried means ran"
+      },
+      {
+       "words": "more soldiers",
+       "at": 22,
+       "gives": "TA",
+       "note": "another TA, the Territorial Army"
+      },
+      {
+       "words": "artillerymen",
+       "at": 40,
+       "gives": "RA",
+       "note": "RA is the Royal Artillery"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers rush out when they hear a trumpet sounding.",
+     "walkthrough": "'with', 'and' and 'on hearing' are links.",
+     "definitionFit": "An imitation of a bugle fanfare is the meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
