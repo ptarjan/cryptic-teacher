@@ -95,7 +95,8 @@ that is your `surface`, your `joke`.
   indicator you leave out becomes a link word the check questions: every `ins`, `hid`, `move`
   and `del` names its own word (a container's "in", "outside", "circling"; a hidden word's
   "in" or its "'s" for "has"), so write `ins<in>`, not a bare `ins`. Copy clue words
-  exactly; `[in#2]` is the second "in". One phrase giving two pieces is quoted twice:
+  exactly (never the letters a piece gives, `[10]IO`: quote the clue's own words, `[To]IO`,
+  and put a scan misprint in `printedClue`); `[in#2]` is the second "in". One phrase giving two pieces is quoted twice:
   `[Two bitters]COLD + [Two bitters#2]RAW`; bare letters are only the preamble's (or a
   `del`/`sub`'s named letters). An indicator word cannot also supply letters (`ins<cases>(X, CA)` with "cases" the only word for CA is refused as a bare `CA`): find the separate clue word that gives them and quote it, `[word]CA`, or the reading is wrong. A word that gives no letters (a link "a", "has", "with") gets no leaf: `[a] + [way]LANE` puts an A in the answer, so write `[way]LANE`. Each `[leaf]`, `<indicator>`, `def` and note key
   is one unbroken run of the clue as printed, neighbouring words with nothing between:

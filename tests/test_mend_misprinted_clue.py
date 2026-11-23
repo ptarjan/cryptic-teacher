@@ -91,4 +91,33 @@ check("two clue words within reach of the quote word are not mended",
 check("a short word with no digit is not mended from a near clue word",
       _declared("Not an all-American name", "[a]A + [man]MAN", "OCR misread: a man", "x") is None)
 
+# the 11-23 residue: evidence that names the reading but not the clue word it replaces
+row = _declared("Wash-house ai from Derry?", "ana<from>([Derry])", "OCR misread: 'aid' for 'ai'", "Wash-house aid")
+check("quoted words in the evidence ('aid' for 'ai') count as the words", row and row[0] == "Wash-house aid from Derry?")
+row = _declared("Il-bred sort of tree", "ana<Ill>([bred] + [tree])", "OCR misread: Ill-bred", "sort of tree")
+check("the evidence's 'Ill-bred' anchors 'Ill' for the clue's 'Il'", row and row[0] == "Ill-bred sort of tree")
+row = _declared("Percentage of a Government head at No. To?", "[a]A + first<head>([Government]) + [10]IO",
+                "OCR misread: No. 10?", "Percentage")
+check("the evidence's 'No. 10?' anchors the quoted 10 for the clue's To", row and row[0].endswith("at No. 10?"))
+row = _declared("L.g.A. Bronte \u2014 a producer of book", "ana<producer of>([E.g.A.]EGA + [Bronte] + [a])",
+                "OCR misread: E.g.A. Bronte, whose letters with a give the answer", "book")
+check("the evidence's 'E.g.A. Bronte' anchors the clue's L", row and row[0].startswith("E.g.A. Bronte"))
+row = _declared("Unpleasant name given to filthy dwelling", "[name]N + [a] + [filthy dwelling]STY",
+                "OCR misread: name given to a filthy dwelling", "Unpleasant")
+check("a word the scan dropped is put back between the words the evidence has it between",
+      row and row[0] == "Unpleasant name given to a filthy dwelling")
+check("a word the evidence merely names, with no words round it, is not put anywhere",
+      _declared("Unpleasant name given to filthy dwelling", "[name]N + [a] + [filthy dwelling]STY",
+                "OCR misread: a", "Unpleasant") is None)
+check("'Gate's' for the clue's Gateshead is the model's own reading, left",
+      _declared("Perhaps making granny in Gateshead", "[in]IN + first<head>([Gate's])", "OCR misread: Gate's head",
+                "Perhaps making granny") is None)
+row = _declared("Prepare to work like 8 S horse", "cd([Prepare to work like a horse])", "OCR misread: a",
+                "Prepare to work like a horse")
+check("two scrap tokens between the quote's neighbouring words are the quote's one word",
+      row and row[0] == "Prepare to work like a horse")
+check("a real word between the neighbours is not scrap",
+      _declared("Prepare to work like big horse", "cd([Prepare to work like a horse])", "OCR misread: a",
+                "Prepare to work like a horse") is None)
+
 raise SystemExit(fails > 0)
