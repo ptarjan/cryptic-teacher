@@ -266,7 +266,10 @@ Working here:
   `direction`, no `id`. To see clues as filed (answer and annotation) run
   `python3 tools/annotate_check.py --show <ID> 6-down 9-across`; to test a `wp` against a
   clue's answer, `python3 tools/annotate_check.py --try <ID> 6-down "<wp>"`. Another
-  puzzle's file is a different shape; you do not need one. WebFetch is refused
+  puzzle's file is a different shape; you do not need one. Do not hunt the corpus for
+  examples of a device (`hiddenLetter` kinds, `messages`): python that loops over every
+  puzzle file, by `-c`, glob or walk, is refused as heavy work and costs a turn. The shapes
+  above are complete; `--show` on a clue of your own puzzle is the only view needed. WebFetch is refused
   for theguardian.com.
 - A clue you cannot annotate honestly costs that clue, not the puzzle: give it
   `{"withheld": "<the clue as held, and what is missing or which word does two jobs>"}`
