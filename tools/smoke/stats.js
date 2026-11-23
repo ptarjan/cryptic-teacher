@@ -150,7 +150,9 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
     new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", id + ".js"), "utf8"))(w);
     return w.CRYPTIC_PUZZLES[id];
   };
-  const noon = (daysAgo) => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate() - daysAgo, 12).getTime(); };
+  // Pinned at the start: a run that straddles midnight must not move "today" under the assertions.
+  const START = new Date();
+  const noon = (daysAgo) => { const d = new Date(START); return new Date(d.getFullYear(), d.getMonth(), d.getDate() - daysAgo, 12).getTime(); };
   const square = (e, i) => (e.position.x + (e.direction === "across" ? i : 0)) + ","
     + (e.position.y + (e.direction === "across" ? 0 : i));
   // A finished save: every square right, each clue charged `cost(e)` rungs.
@@ -261,7 +263,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   // The year: a cell per local day since the Sunday 51 weeks back, shaded by
   // clues solved, a clean finish ringed.
   const cells = [...html.matchAll(/<rect [^>]*class="(l\d)( clean)?"><title>([^<]*)<\/title>/g)];
-  assert(cells.length === 51 * 7 + new Date().getDay() + 1, "52 weeks of days up to today: " + cells.length);
+  assert(cells.length === 51 * 7 + START.getDay() + 1, "52 weeks of days up to today: " + cells.length);
   // The day as app.js's localDay writes it, read out of app.js so the two cannot drift.
   const dayLabel = (() => {
     const src = require("../app_src").read(ROOT);
@@ -277,7 +279,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   assert(cellOn(noon(1))[3].includes(`${clueCount(B)} clues`) && !cellOn(noon(1))[2],
     "yesterday holds B's clues, not ringed, B having needed hints: " + cellOn(noon(1))[0]);
   assert(cellOn(noon(3))[1] === "l0", "a day with nothing solved is unshaded");
-  assert(cells[cells.length - 1][3].startsWith(dayLabel(Date.now()) + ":"), "the last cell is today");
+  assert(cells[cells.length - 1][3].startsWith(dayLabel(START.getTime()) + ":"), "the last cell is today");
 
   const rank = (/<p class="rank"><strong>(\w+)/.exec(html) || [])[1];
   assert(rank && rank !== "Novice" && /Next, \w+: /.test(html), "clean solves earn a rank above Novice: " + rank);

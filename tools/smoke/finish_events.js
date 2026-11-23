@@ -203,8 +203,10 @@ const { EVENTS, ROOT, assert, beacons, clueText, defTexts, entryId, ev, fs, isAs
   // Opening it through the picker reports "picker" too; that is a panel
   // being used, not the solve, so the panel names (the ones events.js lists
   // after "done") are left out of what is compared.
+  // The visit-* beacons are the day rolling over, not the puzzle: a run that
+  // crosses midnight UTC sends one on this open, so they are left out too.
   const panels = EVENTS.slice(EVENTS.indexOf("done") + 1);
-  assert(reported(reopen).filter((n) => panels.indexOf(n) < 0).join(",") === "open",
+  assert(reported(reopen).filter((n) => panels.indexOf(n) < 0 && !/^visit-/.test(n)).join(",") === "open",
     "re-opening a finished puzzle reports only that it was opened: "
       + reported(reopen).join(","));
 
