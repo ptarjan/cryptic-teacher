@@ -21,30 +21,72 @@ jobs:
   smoke:
     name: smoke slice ${{ matrix.slice }}
     runs-on: ubuntu-latest
-    timeout-minutes: 150  # 11-14: slice 11 cancelled at 100 (others ran 53-90; the corpus grows each day); 11-11: slices ran 40-68 min, slice 13 cancelled at 75 after a 14-min setup; slices ran 18-30 min on 10-17, 28-50 on 10-26 (slice 7 cancelled at 50); 30 cancelled half of them on 10-20
+    # A slice walks every annotated clue of its share of the corpus through the
+    # app's hint ladder, so its time is (puzzles in the slice) x (what a puzzle
+    # costs), and the corpus only grows. The slice count is what keeps that
+    # share near an hour of the ~2.5 hours allowed: when the slowest slice runs
+    # past ~75 minutes, add slices (and the CI_SLICE denominator below), do not
+    # raise this. A slice that stops making progress fails by itself after 15
+    # minutes, naming the puzzle (tools/smoke/watchdog.js), so the limit here
+    # only has to cover a slow slice, never a stuck one.
+    timeout-minutes: 150
     strategy:
       fail-fast: false
-      max-parallel: 6  # the free plan runs ~20 jobs at once; leave runners for deploys and tests
+      # Two rounds of 15 finish the night in about two slice-lengths. The free
+      # plan runs ~20 jobs at once; the rest are left for deploys and tests.
+      max-parallel: 15
       matrix:
-        slice: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        slice: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
     defaults:
       run:
         shell: bash .github/offline.sh {0}
     steps:
+      # The checkout, the restored caches and the built pages share the
+      # runner's free disk; the image's unused SDK bundles go, in the background
+      # (as in tests.yml).
+      - name: Free disk space
+        shell: bash
+        run: sudo nohup rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL >/dev/null 2>&1 &
       - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
         with:
           node-version: "20"
           pip: numpy pillow pypdf opencv-python-headless
+      # The index and the page build are the same work in every slice: cold,
+      # ~11 and ~5 minutes of a slice's first quarter hour. pages.yml saves
+      # the stores that make them incremental (rows keyed on each file's git
+      # blob and on the code that made it, pages on a fingerprint of their
+      # inputs), exactly as tests.yml restores them, so a stale restore is
+      # slower and never wrong. This run's test still trusts no result cache.
+      - uses: actions/cache/restore@v5
+        with:
+          path: |
+            .git/ct-rows.sqlite*
+            ~/.cache/cryptic-teacher/code_reach
+          key: row-cache-${{ github.sha }}
+          restore-keys: row-cache-
+      - uses: actions/cache/restore@v5
+        with:
+          path: .shim-cache.tar
+          key: puzzle-shims-${{ github.sha }}
+          restore-keys: puzzle-shims-
+      - run: bash tools/cache_tar.sh unpack .shim-cache.tar
       - run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
+          python3 tools/prune_shims.py
+      - uses: actions/cache/restore@v5
+        with:
+          path: .page-cache.tar
+          key: seo-pages-${{ github.sha }}
+          restore-keys: seo-pages-
+      - run: bash tools/cache_tar.sh unpack .page-cache.tar
       - run: python3 tools/build_seo_pages.py
       - run: |
           mkdir -p "$RUNNER_TEMP/shapes"
           # Node's default ~2 GB heap ran out in slice 9 on 11-01 (run
           # 41298197573) as the corpus grew; runners have 16 GB.
-          NODE_OPTIONS=--max-old-space-size=6144 CT_FULL=1 CI=1 CI_SLICE=${{ matrix.slice }}/16 \
+          NODE_OPTIONS=--max-old-space-size=6144 CT_FULL=1 CI=1 CI_SLICE=${{ matrix.slice }}/30 \
             CT_SHAPES_OUT="$RUNNER_TEMP/shapes/slice-${{ matrix.slice }}.json" node tools/smoke_test.js
       # Which rare shapes this slice saw, for the job below. Even when the slice
       # failed: a missing report is itself a failure there.

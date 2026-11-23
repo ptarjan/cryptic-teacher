@@ -64,6 +64,7 @@ const CHANGED = new Set(UNCACHED.now);
 // A run that dies without a FAIL line (killed for memory, a runner torn down)
 // leaves nothing to read; this says how far it got and how much it held.
 const stage = { at: "booting" };
+global.__smokeStage = () => stage.at;   // for watchdog.js's progress lines
 const mb = () => Math.round(process.memoryUsage().rss / 1048576);
 for (const sig of ["SIGTERM", "SIGINT"]) {
   process.on(sig, () => {
@@ -134,7 +135,7 @@ if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_IN
 const enough = (n, floor) => n > (FULL ? floor / SLICE.n : 0);
 // "The corpus holds an example of rare shape X" is a statement about the whole
 // corpus, which no sample and no single slice can make: a sample may hold none
-// and a slice holds a sixteenth. So such a check goes through shape(). A run
+// and a slice holds a small share of it. So such a check goes through shape(). A run
 // that finds none skips the section that needed one; it never fails on that
 // alone. Under CT_FULL each slice writes which shapes it saw to $CT_SHAPES_OUT
 // (end of this file), and tools/check_shapes.js, run once after every slice by

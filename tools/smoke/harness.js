@@ -15,6 +15,7 @@ function stripTags(s, rep) {
 }
 const pp = require("../puzzle_paths");
 
+const watchdog = require("./watchdog");
 const T = module.exports = {};
 T.failures = 0;
 const CTQuotes = require("../../quotes.js");
@@ -23,7 +24,7 @@ const CTQuotes = require("../../quotes.js");
 const groupsOf = (e) => [e.group, ...(e.alsoLeads || []).map((l) => l.group)].filter(Boolean);
 // Returns the condition, so a check whose failure would crash the checks after it
 // can guard them: a stack trace stops the suite dead and hides every other result.
-const assert = (cond, msg) => { if (!cond) { T.failures++; console.error("FAIL:", msg); } return !!cond; };
+const assert = (cond, msg) => { watchdog.beat(); if (!cond) { T.failures++; console.error("FAIL:", msg); } return !!cond; };
 // The walk says its sentence in exactly ONE node: the caption beside the
 // spotlight while there is a hole, the line down in the panel when there is
 // not, and the other one is emptied (sayIt in app.js). Read whichever is

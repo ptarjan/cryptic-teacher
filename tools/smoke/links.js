@@ -2,6 +2,7 @@
 // Part of tools/smoke_test.js: required in order, on the harness' shared object.
 "use strict";
 const T = require("./harness");
+const watchdog = require("./watchdog");
 const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, assert, clueText,
   confirmArmed, cpToIdx, enough, entryId, fs, htmlEsc, isAsking, openFromPicker, path, pickerRowFor, printedClue,
   registry, reopenForSweep, rungTemplateProse, saveFromAnotherTab, settleOpen, shape, storage, stripTags,
@@ -662,6 +663,8 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     for (const id of Object.keys(puzzles).sort()) {
       const withAnn = (puzzles[id].entries || []).filter((e) => e.annotation);
       if (!withAnn.length) continue;
+      const began = Date.now();
+      watchdog.setPuzzle(id);
       openPuzzle(id);
       for (const e of withAnn) {
         const row = registry["clue-" + entryId(e)];
@@ -711,6 +714,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
         // (A solved clue's shut steps are free tabs, so the loop above opens them too.)
         checkMarks(id, e);
       }
+      watchdog.slow(id, began, assert);
     }
     assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);
     shape("a clue whose definition's words occur twice in it", repeatedDefs.length);

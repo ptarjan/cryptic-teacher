@@ -158,7 +158,7 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
         }
         if (hit || tried > 25) break;
       }
-      // A family this rare is in a sixteenth of the corpus at best: a slice or the
+      // A family this rare is in one slice's share of the corpus at best: a slice or the
       // sample may hold no clue purely of it. shape() skips this family then, and
       // the nightly's check_shapes.js fails if no slice at all found one.
       if (!shape(`a clue purely ${f.name}`, hit)) continue;

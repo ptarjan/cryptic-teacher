@@ -2,6 +2,7 @@
 // Part of tools/smoke_test.js: required in order, on the harness' shared object.
 "use strict";
 const T = require("./harness");
+const watchdog = require("./watchdog");
 const { ROOT, appSrc, assert, fs, numberOf, path, readBuilt, registry, rowHasNumber, storage } = T;
 // --- picker: taught puzzles by default, everything by search ---
 // The rule is two-sided: only show puzzles that have full annotations, and
@@ -93,6 +94,7 @@ const pickerRowFor = (id) => {
 };
 // Opens the picker first, because most callers are arriving from another puzzle.
 const openFromPicker = (id) => {
+  watchdog.setPuzzle(id);
   registry["btn-picker"].onclick();
   const li = pickerRowFor(id);
   // Guarded, because every caller's next line is about the puzzle this was

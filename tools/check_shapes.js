@@ -1,7 +1,7 @@
 /* The corpus-wide half of tools/smoke_test.js's shape() checks.
 
    Each nightly slice writes {slice, of, shapes: {name: seenBool}} to a file in
-   one directory (CT_SHAPES_OUT). A slice holds a sixteenth of the corpus, so
+   one directory (CT_SHAPES_OUT). A slice holds a small share of the corpus, so
    "the corpus holds an example of X" is true when SOME slice saw X. This
    asserts every one of the `of` slices reported, and every shape any of them
    registered was seen by at least one.
