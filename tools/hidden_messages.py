@@ -270,11 +270,40 @@ def spelling_directions(preamble):
     return [None]
 
 
+def tree_extra(ann, entry):
+    """The extra letter a wordplay tree takes out, as ("extra", L), or None: the
+    tree's outermost step is a deletion of one letter from a built word, and
+    what is left is the answer. Evaluating the tree (not counting the blocks)
+    keeps a substitution's swapped-out piece, itself a block, from reading as
+    a letter the answer lacks."""
+    tree = ann.get("wordplay")
+    if not isinstance(tree, dict) or tree.get("op") != "deletion":
+        return None
+    import wordplay
+    parts = wordplay.parts_of(tree)
+    want = base_letters(ann, entry)
+    try:
+        removed = wordplay.values(parts[1]) if len(parts) == 2 else set()
+        if len(removed) != 1 or len(next(iter(removed))) != 1 or not want:
+            return None
+        built = wordplay.values(parts[0])
+    except (wordplay.WordplayError, wordplay._NeedTarget):
+        return None
+    gone = next(iter(removed))
+    if any(len(b) == len(want) + 1 and want in {b[:k] + b[k + 1:] for k in range(len(b))}
+           for b in built):
+        return "extra", gone
+    return None
+
+
 def entry_letter(ann, entry):
     """The extra or omitted letter the blocks give, as (kind, letter), or None.
     Extra: the blocks give the answer's letters and one more. Omitted: they give
     one fewer, or supply it in the clue's one single-letter block with no clue
     words (letters the preamble supplies), once for each place it occurs."""
+    hit = tree_extra(ann, entry)
+    if hit:
+        return hit
     blocks = ann.get("blocks") or []
     if any(b.get("soundsLike") for b in blocks):
         return None

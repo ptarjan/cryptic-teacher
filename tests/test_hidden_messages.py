@@ -109,6 +109,17 @@ check("latent letter supplied at each occurrence", False, hm.letter_problems(see
 check("latent letter reads as omitted", True, hm.entry_letter(seen(latent), latent) == ("omitted", "R") or [])
 mixed = seen(latent); mixed["blocks"][1]["gives"] = "S"
 check("two different supplied letters are no one omission", True, hm.entry_letter(mixed, latent) != ("omitted", "R") or [])
+# genius-187 TRESTLE: T swapped for W in WRESTLED, then the extra D dropped; the
+# swapped-out W is a block of its own, so counting block letters finds two.
+trestle = entry(6, "down", "Struggled time for women's support", "TRESTLE",
+                {"op": "deletion", "parts": [
+                    {"op": "substitution", "parts": [{"words": "Struggled", "gives": "WRESTLED"},
+                                                     {"words": "time", "gives": "T"},
+                                                     {"words": "women's", "gives": "W"}]},
+                    {"gives": "D", "note": "the extra letter"}]},
+                {"kind": "extra", "letter": "D"})
+check("substitution then extra letter dropped", False, hm.letter_problems(seen(trestle), trestle))
+check("trestle reads as extra D", True, hm.entry_letter(seen(trestle), trestle) == ("extra", "D") or [])
 check("schema refuses an unknown kind", True,
       puzzle_schema.validate(puzzle_schema.order(puzzle(entries(), [{**MSG[0], "kind": "swapped"}]))))
 
