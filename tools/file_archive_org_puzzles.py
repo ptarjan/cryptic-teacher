@@ -9495,7 +9495,7 @@ REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:29:00+00:00", "no-reading-parses"
                   # lattice/box edges as slice indices (TypeError: slice indices must be integers). 11-23: placed()'s
                   # out-of-date-order message unpacked a missing neighbour (the first or last filed puzzle of
                   # a series, Gale Independent 1999-02..03 newly fetched: cannot unpack non-iterable NoneType).
-                  "crashed": "2026-11-19T23:59:00+00:00"}
+                  "crashed": "2026-11-23T19:45:00+00:00"}
 
 #: {writeFailed message: ISO time}: an edition a puzzle of which failed to
 #: write with that message and was read before that time is read again
