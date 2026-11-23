@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Sense and Sensibility",
     "enumeration": "7"
    },
-   "solution": "FEELING"
+   "solution": "FEELING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sense",
+      "at": 0,
+      "meaning": "a sense here is a perception or impression, as in a sense of unease"
+     },
+     {
+      "text": "Sensibility",
+      "at": 10,
+      "meaning": "sensibility is emotional responsiveness, the capacity to be moved"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue borrows the title of Jane Austen's novel; split at 'and', its two halves are separate definitions of one word.",
+     "definitionFit": "Both words name the same faculty: a perception or impression on one side, emotional sensitivity on the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sensibility"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +78,34 @@
      }
     ]
    },
-   "solution": "FAUXPAS"
+   "solution": "FAUXPAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One or two indiscretions in Paris, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One or two indiscretions in Paris, perhaps",
+       "at": 0,
+       "note": "a French phrase for a social blunder that is spelt the same in the singular and the plural, so it can mean one or two"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "This French term for a social blunder is unchanged in the plural, so it covers one slip or two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "two"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +119,58 @@
     "text": "Tortilla left in ramshackle hacienda",
     "enumeration": "9"
    },
-   "solution": "ENCHILADA"
+   "solution": "ENCHILADA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tortilla",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in tells you to place the letter for left inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ramshackle",
+         "at": 17,
+         "note": "ramshackle means tumbledown, so the letters of the word are knocked about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hacienda",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 9,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tortilla left behind in a run-down Mexican ranch house.",
+     "walkthrough": "'ramshackle' rearranges HACIENDA and 'in' puts L inside it.",
+     "definitionFit": "A Mexican dish of a rolled tortilla filled and baked in chilli sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ramshackle"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +184,41 @@
     "text": "Slack produced by miner, toiling",
     "enumeration": "5"
    },
-   "solution": "INERT"
+   "solution": "INERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "produced by",
+       "at": 6,
+       "note": "produced by suggests the letters come out of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "miner, toiling",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coal dust produced by a miner at work.",
+     "walkthrough": "'Slack' looks like the coal dust a miner produces, but it is the definition: idle. The letters run across 'miner, toiling'.",
+     "definitionFit": "Something motionless and sluggish, without energy, is inactive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slack"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +232,49 @@
     "text": "Frenchman's merry, eating coarse biscuit",
     "enumeration": "9"
    },
-   "solution": "GARIBALDI"
+   "solution": "GARIBALDI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "biscuit",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 19,
+       "note": "eating means the first word takes the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Frenchman's merry",
+       "at": 0,
+       "gives": "GAI",
+       "note": "gai is French for merry"
+      },
+      {
+       "words": "coarse",
+       "at": 26,
+       "gives": "RIBALD",
+       "note": "ribald means coarse or bawdy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful Frenchman munching a rough biscuit.",
+     "walkthrough": "A GARIBALDI is a British biscuit filled with squashed currants, named after the Italian general.",
+     "definitionFit": "This thin British currant biscuit is named after the Italian patriot general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coarse"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +288,29 @@
     "text": "Mendelssohn's fourth vermouth",
     "enumeration": "7"
    },
-   "solution": "ITALIAN"
+   "solution": "ITALIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mendelssohn's fourth",
+      "at": 0,
+      "meaning": "Mendelssohn's Symphony No 4 in A major carries a national nickname from his travels south of the Alps"
+     },
+     {
+      "text": "vermouth",
+      "at": 21,
+      "meaning": "sweet red vermouth is traditionally named after the country of Turin, where it was first made"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fourth' tempts you to take the fourth letter of a word, but it means the composer's Symphony No 4.",
+     "definitionFit": "Mendelssohn's fourth symphony is nicknamed after the country that inspired it, and sweet vermouth is called by that same nationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +324,54 @@
     "text": "Dickens' place for cricket, batting, taking on leg spinner",
     "enumeration": "5"
    },
-   "solution": "INGLE"
+   "solution": "INGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dickens' place for cricket",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "batting",
+       "at": 28,
+       "gives": "IN",
+       "note": "in cricket the batting side is in"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spinner",
+         "at": 51,
+         "note": "a spinner turns the ball, so here it twists the letters of leg"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leg",
+         "at": 47,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket match: batting, then bringing on a leg-spin bowler.",
+     "walkthrough": "The definition points to Dickens's story The Cricket on the Hearth: the cricket is the insect and its place is the fireside. 'spinner' rearranges LEG.",
+     "definitionFit": "An ingle is a fireside or hearth, where Dickens's chirping insect lives in The Cricket on the Hearth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +385,42 @@
     "text": "Bill needs firm to go along with",
     "enumeration": "9"
    },
-   "solution": "ACCOMPANY"
+   "solution": "ACCOMPANY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "go along with",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bill",
+       "at": 0,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      },
+      {
+       "words": "firm",
+       "at": 11,
+       "gives": "COMPANY",
+       "note": "a firm is a business company"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bill needs a company to support it.",
+     "walkthrough": "AC (account) is a standard abbreviation for a bill.",
+     "definitionFit": "To go with someone as an escort or companion is to attend them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +434,49 @@
     "text": "Indians not hot in river",
     "enumeration": "5"
    },
-   "solution": "INDUS"
+   "solution": "INDUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 8,
+       "note": "not tells you to remove the letter for hot"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Indians",
+       "at": 0,
+       "gives": "HINDUS",
+       "note": "Hindus are followers of the main faith of India"
+      },
+      {
+       "words": "hot",
+       "at": 12,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Indians on a cool day by the river.",
+     "walkthrough": "'Indians' must be turned into HINDUS before H (hot) is removed by 'not'.",
+     "definitionFit": "The great waterway of Pakistan flows from Tibet to the Arabian Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Indians"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +490,31 @@
     "text": "Holds famous sailor over square",
     "enumeration": "7"
    },
-   "solution": "NELSONS"
+   "solution": "NELSONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holds",
+      "at": 0,
+      "meaning": "wrestling grips applied from behind the neck"
+     },
+     {
+      "text": "famous sailor over square",
+      "at": 6,
+      "meaning": "Admiral Lord Nelson stands on his column above Trafalgar Square in London"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nelson's Column stands in Trafalgar Square, London, with the admiral's statue on top: the famous sailor is over the square.",
+     "definitionFit": "Wrestling neck grips carry the admiral's name, and his column towers above Trafalgar Square."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +528,49 @@
     "text": "Pawnbroker spotted article taken away",
     "enumeration": "5"
    },
-   "solution": "UNCLE"
+   "solution": "UNCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pawnbroker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taken away",
+       "at": 27,
+       "note": "taken away tells you to remove the article from the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spotted",
+       "at": 11,
+       "gives": "UNCLEAN",
+       "note": "spotted in the sense of soiled or stained"
+      },
+      {
+       "words": "article",
+       "at": 19,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noticed that an item had been removed from a pawnshop.",
+     "walkthrough": "In British slang the pawnbroker is called 'uncle'. 'Spotted' looks like 'seen' but means dirty, and 'article' is the grammatical word AN, removed by 'taken away'.",
+     "definitionFit": "Old British slang calls a moneylender who takes goods in pledge 'uncle'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +584,45 @@
     "text": "Grid Alice designed, taking out a ruler",
     "enumeration": "9"
    },
-   "solution": "REGICIDAL"
+   "solution": "REGICIDAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taking out a ruler",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "designed",
+       "at": 11,
+       "note": "designed suggests the letters of the two words have been laid out afresh"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Grid",
+       "at": 0
+      },
+      {
+       "words": "Alice",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Alice has designed a crossword grid with a royal theme.",
+     "walkthrough": "'designed' rearranges the nine letters of GRID and ALICE.",
+     "definitionFit": "Killing a monarch is regicide, so anything to do with assassinating a king or queen is described by its adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ruler"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +636,35 @@
     "text": "Like characters ready for bed?",
     "enumeration": "9"
    },
-   "solution": "PRINTABLE"
+   "solution": "PRINTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like characters ready for bed?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Like characters ready for bed?",
+       "at": 0,
+       "note": "characters are letters of type, and the bed is the flat bed of a printing press where type is laid, not somewhere to sleep"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface pictures sleepy people heading to bed; the bed is the printing press bed and the characters are pieces of type.",
+     "definitionFit": "Text that can be set in type and run through a press is fit to be printed, which is also what decent, publishable words are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +678,43 @@
     "text": "Male is attending party to act badly",
     "enumeration": "5"
    },
-   "solution": "MISDO"
+   "solution": "MISDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to act badly",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Male",
+       "at": 0,
+       "gives": "M"
+      },
+      {
+       "words": "is",
+       "at": 5
+      },
+      {
+       "words": "party",
+       "at": 18,
+       "gives": "DO",
+       "note": "a do is a party or celebration"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man at a party is misbehaving.",
+     "definitionFit": "The prefix mis- means wrongly, so to perform something wrongly is to act badly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +728,31 @@
     "text": "Astute character on the staff",
     "enumeration": "5"
    },
-   "solution": "SHARP"
+   "solution": "SHARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Astute",
+      "at": 0,
+      "meaning": "astute means quick-witted and shrewd"
+     },
+     {
+      "text": "character on the staff",
+      "at": 7,
+      "meaning": "the staff is the musical stave, and one of its symbols raises a note by a semitone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Staff' suggests employees, but here it is the five-line musical stave.",
+     "definitionFit": "A shrewd person is called quick-witted in this sense, and the musical symbol that raises a note a semitone has the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +772,29 @@
      }
     ]
    },
-   "solution": "PENNYWISE"
+   "solution": "PENNYWISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "P-prudent",
+      "at": 0,
+      "meaning": "P is the abbreviation for a penny, so prudent with a P in front reads as prudent about pence"
+     },
+     {
+      "text": "being careful with trifles",
+      "at": 11,
+      "meaning": "careful about small sums of money"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Thrift over small coins is the first sense; caution over small sums, while often careless with large ones, is the second."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "P-prudent"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +814,36 @@
      }
     ]
    },
-   "solution": "LOGCABINS"
+   "solution": "LOGCABINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country homes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "of Wedehouse's, reportedly",
+       "at": 14,
+       "note": "the comic author's surname, printed here as Wedehouse, said out loud sounds like 'wood houses', homes built of timber"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rural houses that once belonged to the comic novelist P G Wodehouse.",
+     "walkthrough": "'reportedly' tells you to hear the name: P G Wodehouse (misprinted Wedehouse), the English comic novelist, sounds like 'wood houses', and homes of wood in the backwoods are built from tree trunks.",
+     "definitionFit": "Simple rural dwellings built of tree trunks are the classic frontier homes of the countryside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wedehouse's"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +863,42 @@
      }
     ]
    },
-   "solution": "GIFTHORSE"
+   "solution": "GIFTHORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chance benefit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "present",
+       "at": 18,
+       "gives": "GIFT",
+       "note": "a present is a gift"
+      },
+      {
+       "words": "from Newmarket",
+       "at": 26,
+       "gives": "HORSE",
+       "note": "Newmarket in Suffolk is the home of English horse racing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky break: being given a racehorse bred at Newmarket.",
+     "walkthrough": "Newmarket is a Suffolk town famous for horse racing, so something from there is a racehorse. The proverb says not to look this kind of present in the mouth.",
+     "definitionFit": "Proverbially a freely given advantage should be accepted without scrutiny, as a lucky windfall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +912,42 @@
     "text": "Make oneself liable for debts without interest",
     "enumeration": "9"
    },
-   "solution": "INCURIOUS"
+   "solution": "INCURIOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without interest",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Make oneself liable for",
+       "at": 0,
+       "gives": "INCUR",
+       "note": "to incur a cost is to make yourself liable for it"
+      },
+      {
+       "words": "debts",
+       "at": 24,
+       "gives": "IOUS",
+       "note": "IOUs are written promises to pay debts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting into debt with interest-free loans.",
+     "walkthrough": "'interest' suggests a bank charge, but the definition means lacking curiosity.",
+     "definitionFit": "Someone uninterested in finding things out lacks curiosity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "interest"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +961,42 @@
     "text": "Severe row of one in civil action",
     "enumeration": "9"
    },
-   "solution": "PLAINTIFF"
+   "solution": "PLAINTIFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one in civil action",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Severe",
+       "at": 0,
+       "gives": "PLAIN",
+       "note": "severe in the sense of plain and unadorned, as in a severe dress"
+      },
+      {
+       "words": "row",
+       "at": 7,
+       "gives": "TIFF",
+       "note": "a tiff is a petty quarrel or row"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bitter quarrel breaks out between two people in a lawsuit.",
+     "walkthrough": "'Severe' suggests harshness, but here it means plain and unornamented.",
+     "definitionFit": "The person who brings a civil lawsuit against another is the complaining party in court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Severe"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1010,45 @@
     "text": "Playing poker is producing lies, commonly",
     "enumeration": "7"
    },
-   "solution": "PORKIES"
+   "solution": "PORKIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lies, commonly",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Playing",
+       "at": 0,
+       "note": "playing suggests the letters are moved around like cards in a game"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poker",
+       "at": 8
+      },
+      {
+       "words": "is",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bluffing at a poker game involves telling lies.",
+     "walkthrough": "'Playing' rearranges POKER IS. 'commonly' marks slang: porky pies is British rhyming slang for lies.",
+     "definitionFit": "British rhyming slang turns lies into porky pies, shortened to a plural colloquial noun for untruths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poker"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1062,52 @@
     "text": "Craft of Henley's last German crew?",
     "enumeration": "5"
    },
-   "solution": "YACHT"
+   "solution": "YACHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Craft",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 18,
+         "note": "last means only the final letter of Henley's is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Henley's",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "German crew",
+       "at": 23,
+       "gives": "ACHT",
+       "note": "acht is German for eight, and an eight is a rowing crew"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat belonging to the final German rowing team at Henley.",
+     "walkthrough": "Henley is an English town famous for its rowing regatta. A crew of eight oarsmen is called an eight, and 'German' asks for that number in German.",
+     "definitionFit": "A sailing or motor boat for pleasure is a kind of watercraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crew"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1121,29 @@
     "text": "Gifts of old money",
     "enumeration": "7"
    },
-   "solution": "TALENTS"
+   "solution": "TALENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gifts",
+      "at": 0,
+      "meaning": "gifts as natural abilities or aptitudes"
+     },
+     {
+      "text": "old money",
+      "at": 9,
+      "meaning": "ancient units of weight and money used in Greece and the Middle East"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Natural aptitudes are one sense; the ancient weight of silver or gold, as in the biblical parable, is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gifts"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1157,30 @@
     "text": "Organised game",
     "enumeration": "5"
    },
-   "solution": "READY"
+   "solution": "READY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Organised",
+      "at": 0,
+      "meaning": "organised in the sense of prepared and set up beforehand"
+     },
+     {
+      "text": "game",
+      "at": 10,
+      "meaning": "game in the sense of willing, as in game for anything"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Game' looks like a noun, a sport, but it is the adjective meaning willing.",
+     "definitionFit": "Being prepared means everything is set, and being willing to try something is the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1194,40 @@
     "text": "Natural hollows in giant ravines",
     "enumeration": "5"
    },
-   "solution": "ANTRA"
+   "solution": "ANTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Natural hollows",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in signals that the letters sit inside the words giant ravines"
+      }
+     ],
+     "parts": [
+      {
+       "words": "giant ravines",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Natural hollows inside huge ravines.",
+     "walkthrough": "The letters run across 'giANT RAvines'. The word is the plural of antrum, an anatomical cavity.",
+     "definitionFit": "The Latin plural for cavities or sinuses in the body, such as bone cavities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1241,45 @@
     "text": "Passing variety of maple here",
     "enumeration": "9"
    },
-   "solution": "EPHEMERAL"
+   "solution": "EPHEMERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "variety of",
+       "at": 8,
+       "note": "a variety of the letters means they are mixed into a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "maple",
+       "at": 19
+      },
+      {
+       "words": "here",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passing kind of maple tree that grows here.",
+     "walkthrough": "'variety of' rearranges MAPLE and HERE.",
+     "definitionFit": "Something brief and transient, lasting only a day, is fleeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "variety"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1293,11 @@
     "text": "Fit of pique",
     "enumeration": "5"
    },
-   "solution": "EQUIP"
+   "solution": "EQUIP",
+   "annotationWithheld": {
+    "why": "Fit of pique: EQUIP is the anagram of PIQUE, but 'Fit' must be both the definition and the anagram indicator; no other word signals the anagram",
+    "clue": "Fit of pique"
+   }
   },
   {
    "number": 24,
@@ -433,7 +1311,29 @@
     "text": "Correspond with rival",
     "enumeration": "5"
    },
-   "solution": "MATCH"
+   "solution": "MATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Correspond with",
+      "at": 0,
+      "meaning": "to correspond with is to tally or agree with"
+     },
+     {
+      "text": "rival",
+      "at": 16,
+      "meaning": "a rival is an equal opponent, someone who can compete on level terms"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To tally with something is to fit it exactly, and to equal an opponent is to be on level terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Correspond"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1347,54 @@
     "text": "I ring true, oddly, as a conspirator",
     "enumeration": "9"
    },
-   "solution": "INTRIGUER"
+   "solution": "INTRIGUER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "conspirator",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 0
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 13,
+         "note": "oddly signals the words are set out in an unusual new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ring",
+         "at": 2
+        },
+        {
+         "words": "true",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plotter claiming his phone call sounds genuine.",
+     "walkthrough": "'oddly' rearranges RING TRUE after the I, which stays at the front.",
+     "definitionFit": "Someone who plots secretly is a schemer or plotter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1408,31 @@
     "text": "Barb's letter from Iceland?",
     "enumeration": "5"
    },
-   "solution": "THORN"
+   "solution": "THORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barb's",
+      "at": 0,
+      "meaning": "a barb is a sharp spike, as on a rose stem"
+     },
+     {
+      "text": "letter from Iceland?",
+      "at": 7,
+      "meaning": "the Old English and Icelandic alphabet has a letter for the th sound, still used in Icelandic"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'letter from Iceland' suggests correspondence by post, but it is a letter of the alphabet.",
+     "definitionFit": "A rose's sharp spike is a prickle, and the Icelandic runic letter for the th sound bears the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 27,
@@ -481,7 +1452,42 @@
      }
     ]
    },
-   "solution": "SHAPEUP"
+   "solution": "SHAPEUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Develop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fashion",
+       "at": 8,
+       "gives": "SHAPE",
+       "note": "to fashion something is to form or mould it"
+      },
+      {
+       "words": "at university",
+       "at": 16,
+       "gives": "UP",
+       "note": "up means in residence at a university, as in up at Oxford"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student is designing clothes while at university.",
+     "walkthrough": "In British usage you are 'up' at university when in residence there.",
+     "definitionFit": "To improve or come into proper form is to develop satisfactorily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 28,
@@ -495,7 +1501,52 @@
     "text": "Ancient city sending out sheep to America",
     "enumeration": "7"
    },
-   "solution": "EPHESUS"
+   "solution": "EPHESUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sending out",
+         "at": 13,
+         "note": "sending out suggests scattering the letters of the word into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheep",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "America",
+       "at": 34,
+       "gives": "US",
+       "note": "US is the United States of America"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old town exports its flock of sheep to America.",
+     "walkthrough": "'sending out' looks like exporting the flock, but it rearranges the letters; 'to' simply joins the two parts. Ephesus is in modern Turkey.",
+     "definitionFit": "This Greek city on the coast of modern Turkey was famed in antiquity for its temple of Artemis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sending"
+    }
+   }
   }
  ]
 }
