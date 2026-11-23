@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Don't fax incorrectly what could belong to the author",
     "enumeration": "9"
    },
-   "solution": "COPYRIGHT"
+   "solution": "COPYRIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't fax incorrectly",
+      "at": 0,
+      "meaning": "an instruction to send a facsimile properly"
+     },
+     {
+      "text": "what could belong to the author",
+      "at": 22,
+      "meaning": "the legal ownership of a written work, held by whoever wrote it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is read as two words, COPY RIGHT: to fax is to copy, and not doing it incorrectly is doing it right.",
+     "definitionFit": "Copyright is the legal ownership of a text, which normally rests with its writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fax"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,41 @@
     "text": "Clutch of cold fish",
     "enumeration": "5"
    },
-   "solution": "CLING"
+   "solution": "CLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clutch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cold",
+       "at": 10,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
+       "words": "fish",
+       "at": 15,
+       "gives": "LING",
+       "note": "the ling is a long-bodied sea fish of the cod family"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holding a handful of chilled fish.",
+     "definitionFit": "To clutch something is to hold on to it tightly, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clutch"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +120,56 @@
     "text": "Secret work unit unfinished in the armed vessel",
     "enumeration": "9"
    },
-   "solution": "PRIVATEER"
+   "solution": "PRIVATEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "armed vessel",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Secret",
+       "at": 0,
+       "gives": "PRIVATE",
+       "note": "something private is kept secret"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 17,
+         "note": "unfinished tells us to drop the final letter of the word for the work unit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work unit",
+         "at": 7,
+         "gives": "ERG",
+         "note": "the erg is a unit of work in physics"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A covert team aboard a warship has not completed its job.",
+     "walkthrough": "'unfinished' cuts the last letter from ERG, leaving ER.",
+     "definitionFit": "A privateer was a privately owned ship licensed by a government to carry guns and attack enemy shipping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +183,45 @@
     "text": "Unkempt youngster in a scrap and a roll",
     "enumeration": "10"
    },
-   "solution": "RAGAMUFFIN"
+   "solution": "RAGAMUFFIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unkempt youngster",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "scrap",
+       "at": 23,
+       "gives": "RAG",
+       "note": "a rag is a scrap of cloth"
+      },
+      {
+       "words": "a",
+       "at": 33,
+       "gives": "A"
+      },
+      {
+       "words": "roll",
+       "at": 35,
+       "gives": "MUFFIN",
+       "note": "a muffin is a kind of bread roll"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scruffy child seen with a piece of cloth and a bread roll.",
+     "definitionFit": "A ragamuffin is a dirty, ragged child, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +235,29 @@
     "text": "Officer unspecified",
     "enumeration": "7"
    },
-   "solution": "GENERAL"
+   "solution": "GENERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0,
+      "meaning": "a high-ranking army commander"
+     },
+     {
+      "text": "unspecified",
+      "at": 8,
+      "meaning": "not particular or detailed, as in a broad statement"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The noun is a senior military rank; the adjective means broad and not detailed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unspecified"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +271,48 @@
     "text": "Arty op I possibly work in the garden",
     "enumeration": "7"
    },
-   "solution": "TOPIARY"
+   "solution": "TOPIARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "work in the garden",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 10,
+       "note": "possibly says the letters of the preceding words could be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arty",
+       "at": 0
+      },
+      {
+       "words": "op",
+       "at": 5
+      },
+      {
+       "words": "I",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artistic piece of op art that might work outdoors among the plants.",
+     "walkthrough": "'possibly' signals an anagram of ARTY OP I.",
+     "definitionFit": "Topiary is shrubs clipped into ornamental shapes, a kind of garden craftsmanship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +326,40 @@
     "text": "Jelly seen in Delia's picnic",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jelly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 6,
+       "note": "seen in points to letters sitting inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Delia's picnic",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A savoury jelly served at the cook Delia's outdoor meal.",
+     "walkthrough": "Delia is Delia Smith, a well-known British TV cook; the letters run across 'DeliA'S PICnic'.",
+     "definitionFit": "Aspic is a clear savoury jelly made from meat stock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +373,44 @@
     "text": "A volume about the English river",
     "enumeration": "4"
    },
-   "solution": "AVON"
+   "solution": "AVON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "English river",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "volume",
+       "at": 2,
+       "gives": "V"
+      },
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "ON",
+       "note": "on means about, as in a talk on a subject"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book written about a river in England.",
+     "definitionFit": "The Avon is a river flowing through Stratford in the English Midlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +424,52 @@
     "text": "Supporter of certain lines where parking's only if disabled",
     "enumeration": "5"
    },
-   "solution": "PYLON"
+   "solution": "PYLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supporter of certain lines",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "parking's",
+       "at": 33,
+       "gives": "P",
+       "note": "P is the abbreviation for parking, as on road signs"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disabled",
+         "at": 51,
+         "note": "disabled suggests the word only is broken and put together another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "only",
+         "at": 43
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sign saying parking is reserved for disabled drivers.",
+     "walkthrough": "'disabled' is the anagram signal, not a parking rule; the certain lines are overhead power cables.",
+     "definitionFit": "A pylon is a steel tower holding up overhead electricity cables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disabled"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +483,45 @@
     "text": "Able to enter at new time",
     "enumeration": "9"
    },
-   "solution": "COMPETENT"
+   "solution": "COMPETENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Able",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to enter",
+       "at": 5,
+       "gives": "COMPETE",
+       "note": "to enter a contest is to compete in it"
+      },
+      {
+       "words": "new",
+       "at": 17,
+       "gives": "N"
+      },
+      {
+       "words": "time",
+       "at": 21,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Qualified to sign up for an event at a fresh hour.",
+     "definitionFit": "Competent means capable or skilled enough, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enter"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +535,34 @@
     "text": "Finish off a birthday cake?",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Finish off a birthday cake?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Finish off a birthday cake?",
+       "at": 0,
+       "note": "finishing off reads as eating the last of the cake, but means applying the final sugary coating"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The sugar coating spread on a cake is the last decorative stage of making it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Finish"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +582,29 @@
      }
     ]
    },
-   "solution": "NOPROBLEM"
+   "solution": "NOPROBLEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expression of acquiescence",
+      "at": 0,
+      "meaning": "a casual phrase for agreeing to a request, like 'sure thing'"
+     },
+     {
+      "text": "maths homework not set?",
+      "at": 32,
+      "meaning": "a maths exercise is a problem, so none set means zero exercises to do"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Saying 'sure, fine' is the agreeable phrase; read literally, the words describe an absence of exercises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +618,41 @@
     "text": "Give weight to the girl one studying language structure",
     "enumeration": "10"
    },
-   "solution": "GRAMMARIAN"
+   "solution": "GRAMMARIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one studying language structure",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "weight",
+       "at": 5,
+       "gives": "GRAM",
+       "note": "a gram is a unit of weight"
+      },
+      {
+       "words": "the girl",
+       "at": 15,
+       "gives": "MARIAN",
+       "note": "Marian is a girl's name, as in Maid Marian"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to add a little weight to a young woman.",
+     "definitionFit": "A grammarian is a scholar of syntax and the rules of a language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Give"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +666,46 @@
     "text": "Dean's excessive indulgence, losing head",
     "enumeration": "4"
    },
-   "solution": "INGE"
+   "solution": "INGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dean",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing head",
+       "at": 29,
+       "note": "losing head means the first letter of the word for overindulgence is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "excessive indulgence",
+       "at": 7,
+       "gives": "BINGE",
+       "note": "a binge is a bout of excessive eating or drinking"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college dean given to bouts of overindulgence.",
+     "walkthrough": "W R Inge was Dean of St Paul's Cathedral in London, known as 'the Gloomy Dean'. 'losing head' drops the B.",
+     "definitionFit": "William Ralph Inge was a famous Dean of St Paul's, a name-based definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dean's"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +729,30 @@
      }
     ]
    },
-   "solution": "ONTHEHOUSE"
+   "solution": "ONTHEHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The TV dish could be",
+      "at": 0,
+      "meaning": "a satellite dish is usually fixed to the outside of a home"
+     },
+     {
+      "text": "free",
+      "at": 21,
+      "meaning": "given without charge, as a drink from the landlord"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A pub's complimentary round is said to be given this way; literally, a satellite dish is mounted on a home's roof or wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +766,44 @@
     "text": "Irritated, getting felt and fur confused",
     "enumeration": "7"
    },
-   "solution": "FRETFUL"
+   "solution": "FRETFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Irritated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confused",
+       "at": 32,
+       "note": "confused says the letters of felt and fur are muddled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "felt",
+       "at": 19
+      },
+      {
+       "words": "fur",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone annoyed at mixing up two fabrics, felt and fur.",
+     "walkthrough": "'confused' signals an anagram of FELT and FUR together.",
+     "definitionFit": "Fretful means anxious and irritable, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +817,45 @@
     "text": "Joins union feeders at work",
     "enumeration": "9"
    },
-   "solution": "FEDERATES"
+   "solution": "FEDERATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Joins union",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "work",
+       "at": 23,
+       "note": "work as a verb means to knead or shape, so the letters before it are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "feeders",
+       "at": 12
+      },
+      {
+       "words": "at",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker joins a trade union while busy with the feeders.",
+     "walkthrough": "'work' signals an anagram of FEEDERS and AT; 'union' looks like a trade union but is part of the definition.",
+     "definitionFit": "To federate is to unite states or groups under a central body, forming a union."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +869,34 @@
     "text": "Chinese craft on display here?",
     "enumeration": "7"
    },
-   "solution": "YANGTZE"
+   "solution": "YANGTZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chinese craft on display here?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Chinese craft on display here?",
+       "at": 0,
+       "note": "craft reads as handicraft in an exhibition, but means boats such as junks on a great river of China"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The Yangtze is China's longest river, where junks and sampans are seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +916,29 @@
      }
     ]
    },
-   "solution": "TRUMPCARD"
+   "solution": "TRUMPCARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A valuable resource",
+      "at": 0,
+      "meaning": "a decisive advantage held in reserve"
+     },
+     {
+      "text": "from a suit better than the others",
+      "at": 20,
+      "meaning": "in card games one suit outranks all the rest for a hand"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An asset kept for the decisive moment; literally a playing card of the suit that beats all others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +952,54 @@
     "text": "Coloured back strain of crane",
     "enumeration": "7"
    },
-   "solution": "DERRICK"
+   "solution": "DERRICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crane",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 9,
+         "note": "back says the word for the colour is written in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Coloured",
+         "at": 0,
+         "gives": "RED",
+         "note": "red is a colour, so coloured gives red"
+        }
+       ]
+      },
+      {
+       "words": "strain",
+       "at": 14,
+       "gives": "RICK",
+       "note": "to rick a joint is to sprain or strain it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painted crane jib with a strained back.",
+     "walkthrough": "'back' turns RED into DER.",
+     "definitionFit": "A derrick is a lifting apparatus with a jib, a type of crane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1013,41 @@
     "text": "Sauce boat at a higher price",
     "enumeration": "7"
    },
-   "solution": "KETCHUP"
+   "solution": "KETCHUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "boat",
+       "at": 6,
+       "gives": "KETCH",
+       "note": "a ketch is a two-masted sailing boat"
+      },
+      {
+       "words": "at a higher price",
+       "at": 11,
+       "gives": "UP",
+       "note": "prices that are up have risen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gravy boat sold at an inflated price.",
+     "definitionFit": "Ketchup is a tomato-based table sauce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boat"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1061,31 @@
     "text": "Part of car. Tyre, we hear",
     "enumeration": "7"
    },
-   "solution": "EXHAUST"
+   "solution": "EXHAUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of car",
+      "at": 0,
+      "meaning": "the pipe that carries waste gases from the engine"
+     },
+     {
+      "text": "Tyre, we hear",
+      "at": 13,
+      "meaning": "tyre sounds like tire, meaning wear out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense works through a sound: 'tyre' (British spelling) is said like 'tire', and to tire someone is to wear them out.",
+     "definitionFit": "The car's waste-gas pipe; and to tire, which 'tyre' is pronounced as, means to wear out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tyre"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1099,58 @@
     "text": "One making possible arrest in a wild reel",
     "enumeration": "7"
    },
-   "solution": "ENABLER"
+   "solution": "ENABLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One making possible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in places the word for arrest inside the shuffled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 32,
+         "note": "wild says the letters of reel are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reel",
+         "at": 37
+        }
+       ]
+      },
+      {
+       "words": "arrest",
+       "at": 20,
+       "gives": "NAB",
+       "note": "to nab is to arrest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arrest made during a frantic Scottish dance.",
+     "walkthrough": "'wild' is the anagram signal and 'in' the container signal; the reel is a lively Scottish dance.",
+     "definitionFit": "An enabler is a person or thing that makes something achievable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1164,29 @@
     "text": "Charge for making baskets?",
     "enumeration": "4"
    },
-   "solution": "RUSH"
+   "solution": "RUSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0,
+      "meaning": "to charge forward hurriedly"
+     },
+     {
+      "text": "for making baskets?",
+      "at": 7,
+      "meaning": "a reedy marsh plant whose stems are woven into baskets and mats"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To charge is to dash forward; the plant's stems are a weaving material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charge"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1200,29 @@
     "text": "Move for a specified period",
     "enumeration": "5"
    },
-   "solution": "SHIFT"
+   "solution": "SHIFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0,
+      "meaning": "to change position"
+     },
+     {
+      "text": "for a specified period",
+      "at": 5,
+      "meaning": "a set spell of work, as on a night rota"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To move something is to reposition it; a work spell is a set block of hours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Move"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1236,63 @@
     "text": "The party's primarily Scottish perhaps -including this?",
     "enumeration": "10"
    },
-   "solution": "STRATHSPEY"
+   "solution": "STRATHSPEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The party's primarily Scottish perhaps -including this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 12,
+         "note": "primarily picks the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 31,
+         "note": "perhaps says the letters gathered could be arranged differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The party's",
+         "at": 0,
+         "gives": "THEPARTYS"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Asking whether a Scottish dance will be part of the celebrations.",
+     "walkthrough": "'perhaps' signals an anagram of THE PARTY'S plus S, the first letter of Scottish ('primarily'). A strathspey is a slow Scottish dance, as would feature at a Scottish party.",
+     "definitionFit": "A strathspey is a Scottish country dance, the kind performed at a ceilidh gathering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1306,29 @@
     "text": "Surrender return from an investment?",
     "enumeration": "5"
    },
-   "solution": "YIELD"
+   "solution": "YIELD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surrender",
+      "at": 0,
+      "meaning": "to give in or give up"
+     },
+     {
+      "text": "return from an investment?",
+      "at": 10,
+      "meaning": "the income produced by money invested"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To give in or concede; and the income a holding produces, as with dividends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1342,41 @@
     "text": "Book of pharmacopoeia MO studied",
     "enumeration": "4"
    },
-   "solution": "AMOS"
+   "solution": "AMOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 5,
+       "note": "of here means taken from, so the letters come out of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pharmacopoeia MO studied",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor reading a reference book of medicines.",
+     "walkthrough": "The letters run across 'pharmacopoeiA MO Studied'. MO is a medical officer.",
+     "definitionFit": "Amos is a book of the Old Testament, named for a prophet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "studied"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1390,59 @@
     "text": "The card, Harry, goes round one celebrating victory",
     "enumeration": "9"
    },
-   "solution": "TRIUMPHAL"
+   "solution": "TRIUMPHAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "celebrating victory",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "goes round",
+         "at": 17,
+         "note": "goes round says the first pieces surround the next one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The card",
+         "at": 0,
+         "gives": "TRUMP",
+         "note": "a trump is a card from the winning suit"
+        },
+        {
+         "words": "one",
+         "at": 28,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "Harry",
+       "at": 10,
+       "gives": "HAL",
+       "note": "Hal is a pet form of Harry, as Shakespeare's Prince Hal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player named Harry circles the table in triumph.",
+     "walkthrough": "'goes round' puts the Roman one inside the card; Harry is Prince Hal, the young Henry V in Shakespeare.",
+     "definitionFit": "Triumphal describes something marking a win, like an arch or procession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1456,54 @@
     "text": "Custom in the States for instance making comeback",
     "enumeration": "5"
    },
-   "solution": "USAGE"
+   "solution": "USAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Custom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the States",
+       "at": 10,
+       "gives": "USA",
+       "note": "USA is short for the United States"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "making comeback",
+         "at": 34,
+         "note": "making comeback says the abbreviation is written in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for instance",
+         "at": 21,
+         "gives": "EG",
+         "note": "eg is the abbreviation for for example"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tradition in America returning, for example.",
+     "walkthrough": "'making comeback' turns EG into GE.",
+     "definitionFit": "Usage means habitual practice or convention, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Custom"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1517,63 @@
     "text": "Places most of article on board",
     "enumeration": "5"
    },
-   "solution": "SITES"
+   "solution": "SITES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Places",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 23,
+       "note": "on board means inside the ship's abbreviation, so on signals an insertion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "board",
+       "at": 26,
+       "gives": "SS",
+       "note": "on board means aboard a steamship, abbreviated SS"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 7,
+         "note": "most of drops the last letter of the word for article"
+        }
+       ],
+       "parts": [
+        {
+         "words": "article",
+         "at": 15,
+         "gives": "ITEM",
+         "note": "an item is an article, as in a list"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spots where most of an object sits aboard.",
+     "walkthrough": "'On board' is a crossword convention for 'inside SS' (steamship); 'most of' trims ITEM to ITE.",
+     "definitionFit": "Sites are locations or spots, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +1587,41 @@
     "text": "Gave a warning: \"The drink's finished\"",
     "enumeration": "9"
    },
-   "solution": "PORTENDED"
+   "solution": "PORTENDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gave a warning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "drink's",
+       "at": 21,
+       "gives": "PORT",
+       "note": "port is a fortified wine, a drink"
+      },
+      {
+       "words": "finished",
+       "at": 29,
+       "gives": "ENDED",
+       "note": "ended means finished"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announcing that the bottle is empty.",
+     "definitionFit": "To portend is to foreshadow or signal coming trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "warning"
+    }
+   }
   }
  ]
 }
