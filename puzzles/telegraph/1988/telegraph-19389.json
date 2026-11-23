@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,30 @@
      }
     ]
    },
-   "solution": "FIRMUNDERTAKING"
+   "solution": "FIRMUNDERTAKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pledge",
+      "at": 0,
+      "meaning": "a solemn binding promise"
+     },
+     {
+      "text": "a company of funeral directors",
+      "at": 18,
+      "meaning": "read literally, a business whose trade is burying the dead"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A binding promise is a firm commitment, and a funeral parlour's business could punningly be called the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "funeral"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +82,30 @@
      }
     ]
    },
-   "solution": "FELLOWTRAVELLER"
+   "solution": "FELLOWTRAVELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Journeyman",
+      "at": 0,
+      "meaning": "taken literally, a man who goes on a journey alongside another"
+     },
+     {
+      "text": "one of the Reds under the bed",
+      "at": 25,
+      "meaning": "a Communist sympathiser, the hidden enemy of Cold War paranoia"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A companion on a journey is a fellow voyager; the same phrase was used for a non-member sympathetic to Communism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Journeyman"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +119,68 @@
     "text": "Democrat initially put in racial reforms of a fundamental nature",
     "enumeration": "7"
    },
-   "solution": "RADICAL"
+   "solution": "RADICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of a fundamental nature",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 19,
+       "note": "put in tells us one piece is placed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "reforms",
+         "at": 33,
+         "note": "reforms says the letters of racial are reshaped into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "racial",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 9,
+         "note": "initially picks out just the opening letter of the word Democrat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Democrat",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Democrat politician begins sweeping changes to race policy.",
+     "walkthrough": "'reforms' rearranges RACIAL to RAICAL; 'put in' places D (the first letter, from 'initially') inside it.",
+     "definitionFit": "Radical comes from the Latin for root, so a radical change goes to the basic nature of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +194,38 @@
     "text": "Not a new American edition",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not a new",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 10,
+       "gives": "US"
+      },
+      {
+       "words": "edition",
+       "at": 19,
+       "gives": "ED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A copy that is not the latest US printing of a book.",
+     "definitionFit": "Something second-hand, not fresh from the shop, has had an owner before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +239,49 @@
     "text": "Ruin for a British ministry going to the city of Paris",
     "enumeration": "7"
    },
-   "solution": "DESTROY"
+   "solution": "DESTROY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ruin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going to",
+       "at": 28,
+       "note": "going to places one piece directly before the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a British ministry",
+       "at": 9,
+       "gives": "DES",
+       "note": "the DES was the Department of Education and Science, a former UK government department"
+      },
+      {
+       "words": "the city of Paris",
+       "at": 37,
+       "gives": "TROY",
+       "note": "Paris, prince of Troy in Greek legend, belonged to that city, not the French capital"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British government department heading to France's capital spells disaster.",
+     "walkthrough": "'Paris' looks like France's capital, but it is the Trojan prince whose city was Troy.",
+     "definitionFit": "To ruin something is to wreck or demolish it utterly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +295,42 @@
     "text": "Go flat out to produce record sales product",
     "enumeration": "7"
    },
-   "solution": "RECLINE"
+   "solution": "RECLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go flat out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "record",
+       "at": 23,
+       "gives": "REC",
+       "note": "REC is an abbreviation for record, as on a recorder button"
+      },
+      {
+       "words": "sales product",
+       "at": 30,
+       "gives": "LINE",
+       "note": "a line is a type of product a shop stocks and sells"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rushing at full speed to manufacture a best-selling album.",
+     "walkthrough": "'Go flat out' suggests going at top speed, but it means lying flat.",
+     "definitionFit": "To lie back horizontally, at rest, is to lean back fully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +344,28 @@
     "text": "Area of land fiercely contested by the Crusaders",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Area of land",
+      "at": 0,
+      "meaning": "a unit of land measure, 4,840 square yards"
+     },
+     {
+      "text": "fiercely contested by the Crusaders",
+      "at": 13,
+      "meaning": "the port city in the Holy Land besieged during the Third Crusade"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The unit of land area and the Levantine port city taken by Richard the Lionheart share a spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +379,40 @@
     "text": "Child recently born to a Spanish princess",
     "enumeration": "7"
    },
-   "solution": "INFANTA"
+   "solution": "INFANTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish princess",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Child recently born",
+       "at": 0,
+       "gives": "INFANT",
+       "note": "an infant is a baby or very young child"
+      },
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish princess has just given birth.",
+     "walkthrough": "The surface suggests a birth announcement, but 'Child recently born' is just the wordplay.",
+     "definitionFit": "In Spain and Portugal a daughter of the monarch who is not heir to the throne is so titled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +432,34 @@
      }
     ]
    },
-   "solution": "GOLDENHANDSHAKE"
+   "solution": "GOLDENHANDSHAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Midas farewell to a retiring employee",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Midas farewell to a retiring employee",
+       "at": 0,
+       "note": "King Midas turned all he touched to gold, so his parting clasp of the palm would be gilded; the phrase is also a big payoff on leaving a job"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "King Midas bids goodbye to a member of staff who is retiring.",
+     "definitionFit": "A large lump-sum payment to a departing executive is pictured as a gilded goodbye clasp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +473,41 @@
     "text": "They can be climbed by large snakes",
     "enumeration": "7"
    },
-   "solution": "LADDERS"
+   "solution": "LADDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They can be climbed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "large",
+       "at": 23,
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
+      },
+      {
+       "words": "snakes",
+       "at": 29,
+       "gives": "ADDERS",
+       "note": "adders are venomous snakes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the board game, big snakes slither up things meant for climbing.",
+     "walkthrough": "The surface evokes the children's board game of snakes and those climbing devices.",
+     "definitionFit": "Rungs and rails make a frame people go up step by step."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +521,52 @@
     "text": "Precise about seeing that the motor has fresh fuel",
     "enumeration": "7"
    },
-   "solution": "CAREFUL"
+   "solution": "CAREFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Precise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "motor",
+       "at": 30,
+       "gives": "CAR",
+       "note": "motor is an informal word for a car"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fresh",
+         "at": 40,
+         "note": "fresh suggests the letters of fuel are made new, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fuel",
+         "at": 46
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being meticulous about checking the vehicle has new petrol.",
+     "walkthrough": "'fresh' rearranges FUEL to EFUL, placed after CAR; 'about seeing that the' is link material.",
+     "definitionFit": "Someone painstaking and exact in their work takes great pains over details."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +580,39 @@
     "text": "Cry of pain heard in Oxford University church",
     "enumeration": "4"
    },
-   "solution": "OUCH"
+   "solution": "OUCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cry of pain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Oxford University",
+       "at": 21,
+       "gives": "OU",
+       "note": "OU is an abbreviation used for Oxford University"
+      },
+      {
+       "words": "church",
+       "at": 39,
+       "gives": "CH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scream rings out in an Oxford college chapel.",
+     "definitionFit": "An exclamation of sudden hurt, like a yelp when stung."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +626,28 @@
     "text": "A tiny bit of mottling in the wood",
     "enumeration": "5"
    },
-   "solution": "GRAIN"
+   "solution": "GRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A tiny bit",
+      "at": 0,
+      "meaning": "a very small particle or trace, as of sand or truth"
+     },
+     {
+      "text": "mottling in the wood",
+      "at": 14,
+      "meaning": "the pattern of fibres visible on a cut timber surface"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both a minute particle and the fibre pattern seen on a plank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +661,43 @@
     "text": "Cook needs a slice of the joint",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a slice of",
+       "at": 11,
+       "note": "a slice of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cook needs",
+       "at": 0,
+       "gives": "KNEE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef requires a cut of the roast meat.",
+     "walkthrough": "'joint' suggests a cut of meat for the cook, but it is the leg's hinge.",
+     "definitionFit": "The hinge between thigh and shin is a body articulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +711,47 @@
     "text": "Stay on a tender note",
     "enumeration": "5"
    },
-   "solution": "ABIDE"
+   "solution": "ABIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stay",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 8,
+       "gives": "A"
+      },
+      {
+       "words": "tender",
+       "at": 10,
+       "gives": "BID",
+       "note": "to tender is to offer, as a bid at auction"
+      },
+      {
+       "words": "note",
+       "at": 17,
+       "gives": "E",
+       "note": "E is one of the musical notes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remaining on a gentle musical note.",
+     "walkthrough": "'tender' looks like 'gentle', but it is an offer, a bid.",
+     "definitionFit": "To remain or dwell somewhere is to stay put."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tender"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +765,42 @@
     "text": "Serve up a drink fit for a king",
     "enumeration": "5"
    },
-   "solution": "REGAL"
+   "solution": "REGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fit for a king",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Serve up",
+       "at": 0,
+       "note": "serve up in a down clue asks for the word to be read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "at": 11,
+       "gives": "LAGER",
+       "note": "lager is a type of beer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pour out a drink worthy of royalty.",
+     "walkthrough": "'Serve up' turns LAGER upward in this down entry.",
+     "definitionFit": "Royal, majestic and splendid enough for a monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +814,42 @@
     "text": "The chest of long, lanky lad",
     "enumeration": "7"
    },
-   "solution": "TALLBOY"
+   "solution": "TALLBOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The chest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "long, lanky",
+       "at": 13,
+       "gives": "TALL",
+       "note": "a long, lanky person is tall"
+      },
+      {
+       "words": "lad",
+       "at": 25,
+       "gives": "BOY",
+       "note": "a lad is a boy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The torso of a gangly young man.",
+     "walkthrough": "'chest' looks like a torso, but it is furniture.",
+     "definitionFit": "A tall chest of drawers, often in two stacked sections, is a piece of bedroom furniture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +863,28 @@
     "text": "A lotion to relieve conjunctivitis? Bunkum!",
     "enumeration": "7"
    },
-   "solution": "EYEWASH"
+   "solution": "EYEWASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lotion to relieve conjunctivitis?",
+      "at": 0,
+      "meaning": "a soothing liquid for rinsing sore eyes"
+     },
+     {
+      "text": "Bunkum!",
+      "at": 36,
+      "meaning": "nonsense, rubbish talk"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word names both an eye-rinsing lotion and nonsense meant to deceive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +898,47 @@
     "text": "Leave a lot of players playing",
     "enumeration": "7"
    },
-   "solution": "ABANDON"
+   "solution": "ABANDON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "words": "lot of players",
+       "at": 8,
+       "gives": "BAND",
+       "note": "a band is a group of musicians"
+      },
+      {
+       "words": "playing",
+       "at": 23,
+       "gives": "ON",
+       "note": "on means in play, as a show that is on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Departing as a whole crowd of footballers take the field.",
+     "walkthrough": "'players' suggests a sports team; here they are musicians.",
+     "definitionFit": "To desert or leave behind something for good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +962,28 @@
      }
     ]
    },
-   "solution": "ABITOFF"
+   "solution": "ABITOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not quite all there?",
+      "at": 0,
+      "meaning": "slightly crazy or eccentric"
+     },
+     {
+      "text": "That's rather unfair",
+      "at": 21,
+      "meaning": "somewhat unjust or out of order"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase covers both being a little mentally odd and something slightly unacceptable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1003,28 @@
      }
     ]
    },
-   "solution": "NOMATCH"
+   "solution": "NOMATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unable to compete",
+      "at": 0,
+      "meaning": "not equal to a rival, outclassed"
+     },
+     {
+      "text": "since the game's been cancelled",
+      "at": 18,
+      "meaning": "literally there is no fixture to be played"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase means being outclassed by a rival, and literally that no fixture is happening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1044,29 @@
      }
     ]
    },
-   "solution": "DEADMEN"
+   "solution": "DEADMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Those who are late",
+      "at": 0,
+      "meaning": "late here means deceased"
+     },
+     {
+      "text": "emptied bottles",
+      "at": 29,
+      "meaning": "slang for empty wine or beer bottles after drinking"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase names both the deceased and empty bottles left after a party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1080,40 @@
     "text": "A spider changed this emotion in Robert the Bruce",
     "enumeration": "7"
    },
-   "solution": "DESPAIR"
+   "solution": "DESPAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this emotion in Robert the Bruce",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changed",
+       "at": 9,
+       "note": "changed tells us to rearrange the letters of the words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A spider",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Legend says watching a persistent spider transformed the Scottish king's mood.",
+     "walkthrough": "Robert the Bruce, Scottish king, hiding in a cave is said to have taken heart from a spider's repeated tries at a web; 'changed' rearranges A SPIDER.",
+     "definitionFit": "Hopelessness is the feeling the legend says the spider lifted from the defeated king."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1127,41 @@
     "text": "A man of the sea. Right?",
     "enumeration": "7"
    },
-   "solution": "MARINER"
+   "solution": "MARINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A man of the sea. Right?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A man of the sea",
+       "at": 0,
+       "gives": "MARINE",
+       "note": "a marine is a soldier serving at sea"
+      },
+      {
+       "words": "Right",
+       "at": 18,
+       "gives": "R"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Asking whether someone is truly a seafarer.",
+     "walkthrough": "The whole clue defines a sailor while also giving MARINE (a sea soldier) followed by R.",
+     "definitionFit": "A sailor is a seafarer who works on ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1175,42 @@
     "text": "Former spouse takes Italian vermouth as the way out",
     "enumeration": "4"
    },
-   "solution": "EXIT"
+   "solution": "EXIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the way out",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former spouse",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex is a former husband or wife"
+      },
+      {
+       "words": "Italian vermouth",
+       "at": 20,
+       "gives": "IT",
+       "note": "It is short for Italian vermouth, as in gin and It"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divorced partner drinks vermouth as a means of escape.",
+     "walkthrough": "'gin and It' is an old British cocktail, gin with Italian vermouth.",
+     "definitionFit": "A door marked for leaving a building is the means of departure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vermouth"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1224,40 @@
     "text": "Inappropriately made for a single woman",
     "enumeration": "5"
    },
-   "solution": "AMISS"
+   "solution": "AMISS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inappropriately",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "words": "single woman",
+       "at": 27,
+       "gives": "MISS",
+       "note": "Miss is the title of an unmarried woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something unsuitably tailored for an unmarried lady.",
+     "definitionFit": "Done wrongly or out of place, as when something goes awry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1271,28 @@
     "text": "The arguments in favour of salaried sportsmen",
     "enumeration": "4"
    },
-   "solution": "PROS"
+   "solution": "PROS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The arguments in favour",
+      "at": 0,
+      "meaning": "the points for"
+     },
+     {
+      "text": "salaried sportsmen",
+      "at": 27,
+      "meaning": "professionals, paid athletes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both points in favour and paid professionals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1306,39 @@
     "text": "Do the French give unemployment benefit?",
     "enumeration": "4"
    },
-   "solution": "DOLE"
+   "solution": "DOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unemployment benefit",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Do",
+       "at": 0,
+       "gives": "DO"
+      },
+      {
+       "words": "the French",
+       "at": 3,
+       "gives": "LE",
+       "note": "le is the French masculine word for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether the French pay out to the jobless.",
+     "definitionFit": "British slang for state payments to those out of work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1352,41 @@
     "text": "Laos is partitioned too",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "too",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "partitioned",
+       "at": 8,
+       "note": "partitioned suggests the country is broken up and its letters rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Laos",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Southeast Asian country has also been divided.",
+     "walkthrough": "'partitioned' rearranges LAOS.",
+     "definitionFit": "Meaning in addition or as well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partitioned"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1406,29 @@
      }
     ]
    },
-   "solution": "LOOKOUT"
+   "solution": "LOOKOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cave",
+      "at": 0,
+      "meaning": "Latin for beware, old British schoolboy slang for a warning cry"
+     },
+     {
+      "text": "an observation post",
+      "at": 8,
+      "meaning": "a high place used for keeping watch"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The schoolboy warning and a watchtower both mean keeping watch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cave"
+    }
+   }
   },
   {
    "number": 29,
@@ -496,7 +1442,46 @@
     "text": "Greek female runner suffers a loss in Georgia",
     "enumeration": "7"
    },
-   "solution": "ATLANTA"
+   "solution": "ATLANTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in Georgia",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "suffers a loss",
+       "at": 20,
+       "note": "suffers a loss says the letter A is lost from the runner's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Greek female runner",
+       "at": 0,
+       "gives": "ATALANTA",
+       "note": "Atalanta was the swift huntress of Greek myth who raced suitors"
+      },
+      {
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek athlete loses a race in the Caucasus country of Georgia.",
+     "walkthrough": "'Georgia' looks like the country; it is the US state, whose capital is the definition.",
+     "definitionFit": "The capital city of the US state is a place found there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Georgia"
+    }
+   }
   },
   {
    "number": 30,
@@ -516,7 +1501,34 @@
      }
     ]
    },
-   "solution": "REFRESHERCOURSE"
+   "solution": "REFRESHERCOURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A pub-crawl of educational value to the mature student?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A pub-crawl of educational value to the mature student?",
+       "at": 0,
+       "note": "a tour of bars offering a succession of revitalising drinks, punning on a training update for adult learners"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night out drinking presented as useful for older learners.",
+     "definitionFit": "A short training update for experienced workers is pictured as a sequence of reviving drinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
