@@ -145,6 +145,8 @@ in a double definition each definition's note says what that sense means.
   Before typing `cd`, run the answer's letters through the clue's: a run that spans the
   words (even across a word join, "whitE PICtures" = EPIC) is a hidden word, `hid`, whose
   definition is the clue's other end; the check refuses a `cd` whose clue holds its answer.
+  The same test comes before any `rev` or charade parse: an answer or its reverse written in the
+  clue's own letters beside a reversal indicator is `rev(hid(...))`, not pieces that happen to line up.
 - **Rebus**, **composite anagram**, **move** and **reverse clue** have their own
   forms in the grammar (`rebus`, `comp`, `move`, `reverse`): use them, never a
   fodder-plus-deleted-letter or `ana(del(...))` stand-in, which says a letter was added.
