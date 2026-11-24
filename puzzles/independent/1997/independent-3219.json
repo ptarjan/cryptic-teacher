@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,63 @@
     "text": "Story has short trendy affair?",
     "enumeration": "12"
    },
-   "solution": "RELATIONSHIP"
+   "solution": "RELATIONSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "affair",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Story",
+       "at": 0,
+       "gives": "RELATION",
+       "note": "a relation is an account or narrative, as in the relation of events"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 10,
+         "note": "short tells us to use the contracted form of the word has, as in it's or she's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "at": 6,
+         "gives": "HAS",
+         "note": "has, shortened, is just the apostrophe-s ending"
+        },
+        {
+         "gives": "HA"
+        }
+       ]
+      },
+      {
+       "words": "trendy",
+       "at": 16,
+       "gives": "HIP",
+       "note": "hip is slang for fashionable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a tale has a brief, fashionable fling in it.",
+     "walkthrough": "'has short' is the contraction 's, which leaves only S.",
+     "definitionFit": "A love affair is a romantic involvement between two people, a sense of the word for any close connection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Story"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +103,51 @@
     "text": "It shows you've accepted changed recipe given time",
     "enumeration": "7"
    },
-   "solution": "RECEIPT"
+   "solution": "RECEIPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It shows you've accepted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changed",
+         "at": 25,
+         "note": "changed signals that the letters of the word recipe are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recipe",
+         "at": 33
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 46,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook alters a recipe and takes their time over it.",
+     "walkthrough": "'changed' is the anagram signal; the definition is a paraphrase of what a receipt does, proving payment was taken.",
+     "definitionFit": "A receipt is the written slip proving that money or goods were taken in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +161,47 @@
     "text": "Den of mendacious type undergoing a change of heart",
     "enumeration": "4"
    },
-   "solution": "LAIR"
+   "solution": "LAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Den",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "undergoing a change of heart",
+       "at": 23,
+       "note": "a change of heart here means the middle letters of the word swap places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mendacious type",
+       "at": 7,
+       "gives": "LIAR",
+       "note": "a mendacious person is a liar"
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest person repents in their hideaway.",
+     "walkthrough": "'undergoing a change of heart' swaps the two middle letters of LIAR: the I moves one place to the right.",
+     "definitionFit": "A den is a wild animal's lair, its hidden resting place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +215,46 @@
     "text": "Fighting vessel on a road gets in drink? Quite the reverse",
     "enumeration": "7"
    },
-   "solution": "TANKARD"
+   "solution": "TANKARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gets in drink? Quite the reverse",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fighting vessel",
+       "at": 0,
+       "gives": "TANK",
+       "note": "a tank is an armoured fighting vehicle, and a tank is also a container"
+      },
+      {
+       "words": "a",
+       "at": 19
+      },
+      {
+       "words": "road",
+       "at": 21,
+       "gives": "RD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An armoured vehicle on a road plunges into the drink.",
+     "walkthrough": "The definition is the last part: this thing does not get into drink, drink gets into it. 'drink' looks like the sea (British slang 'the drink'), which misleads.",
+     "definitionFit": "A tankard is a large beer mug, a vessel that beer is poured into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +268,42 @@
     "text": "Do better than open-air trader in this?",
     "enumeration": "7"
    },
-   "solution": "OUTSELL"
+   "solution": "OUTSELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Do better than",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "open-air",
+       "at": 15,
+       "gives": "OUT",
+       "note": "out means outdoors, in the open air"
+      },
+      {
+       "words": "trader in this",
+       "at": 24,
+       "gives": "SELL",
+       "note": "a trader deals in selling, the trade itself"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A market stall holder asks whether they can beat the competition outdoors.",
+     "walkthrough": "Read the second half as a trader working out of doors: such a person would sell outside.",
+     "definitionFit": "To outsell a rival is to sell more than them, beating them in sales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trader"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +317,11 @@
     "text": "into South of France",
     "enumeration": "4"
    },
-   "solution": "SCUD"
+   "solution": "SCUD",
+   "annotationWithheld": {
+    "why": "The clue as held is 'into South of France (4)': its opening words are missing, so only SUD (French for south) is recoverable and nothing supplies the inserted C or a definition.",
+    "clue": "into South of France"
+   }
   },
   {
    "number": 6,
@@ -114,7 +335,32 @@
     "text": "Presence in franglais perhaps which is rather chilly",
     "enumeration": "7"
    },
-   "solution": "ICINESS"
+   "solution": "ICINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Presence in franglais perhaps",
+      "at": 0,
+      "meaning": "French ici, here, joined to the English suffix -ness gives hereness, a mix of the two languages meaning being present"
+     },
+     {
+      "text": "which is rather chilly",
+      "at": 30,
+      "meaning": "the state of being cold and frosty, a quality of chill"
+     }
+    ],
+    "explanation": {
+     "surface": "A trace of mixed French-English speech gives a rather cool reception.",
+     "walkthrough": "Split the answer as ICI (French for here) and -NESS: 'here-ness' is presence, made of half French and half English.",
+     "definitionFit": "Being frosty or cold is the quality of being like frozen water; hereness, built from French ici, is being present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Presence"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +380,62 @@
      }
     ]
    },
-   "solution": "PRESSUREPOINT"
+   "solution": "PRESSUREPOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place for controlling body",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hides",
+       "at": 19,
+       "note": "hides means one piece is kept inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Poor",
+         "at": 0,
+         "note": "poor posture suggests something bent out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spine",
+         "at": 5
+        },
+        {
+         "words": "posture",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 25,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bad posture of the spine conceals the proper spot for keeping your body in check.",
+     "walkthrough": "'Poor' is the anagram signal for the two words together, and 'hides' is the container signal for the right; 'body' means the human body, not an organisation.",
+     "definitionFit": "A pressure point is a spot on the body where pressing can control or subdue a person, as in martial arts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hides"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +455,34 @@
      }
     ]
    },
-   "solution": "STUDENTSUNION"
+   "solution": "STUDENTSUNION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marriage of minds?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Marriage of minds?",
+       "at": 0,
+       "note": "a union of minds read as a union of learners, the body that represents people at a university"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A university association of learners is a union of the people who are studying, the minds of the place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Marriage"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +496,45 @@
     "text": "Disturbance in court is controlled",
     "enumeration": "7"
    },
-   "solution": "RUCTION"
+   "solution": "RUCTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disturbance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "is controlled",
+       "at": 21,
+       "note": "controlled suggests the letters are handled and steered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 12
+      },
+      {
+       "words": "court",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruckus breaks out in a courtroom but is kept in check.",
+     "walkthrough": "'is controlled' rearranges IN and COURT together.",
+     "definitionFit": "A ruction is a noisy quarrel or row, a disturbance of the peace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +548,47 @@
     "text": "One going on trip to ancient city first",
     "enumeration": "7"
    },
-   "solution": "TOURIST"
+   "solution": "TOURIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One going on trip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to",
+       "at": 18,
+       "gives": "TO"
+      },
+      {
+       "words": "ancient city",
+       "at": 21,
+       "gives": "UR",
+       "note": "Ur is the ancient Sumerian city, a crossword regular"
+      },
+      {
+       "words": "first",
+       "at": 34,
+       "gives": "IST",
+       "note": "first abbreviated is 1st, with the figure 1 read as the letter I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller heads to an old city before anywhere else.",
+     "walkthrough": "'first' is written 1ST, and the 1 stands in for the letter I.",
+     "definitionFit": "A sightseer is someone who travels for pleasure, going on a trip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +602,49 @@
     "text": "Unhappy about one aforementioned",
     "enumeration": "4"
    },
-   "solution": "SAID"
+   "solution": "SAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aforementioned",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 8,
+       "note": "about means one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unhappy",
+       "at": 0,
+       "gives": "SAD",
+       "note": "unhappy means sad"
+      },
+      {
+       "words": "one",
+       "at": 14,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is miserable about a person mentioned earlier.",
+     "walkthrough": "'about' puts I for one inside SAD.",
+     "definitionFit": "The said item is the one already named, an adjective meaning previously mentioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unhappy"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +658,54 @@
     "text": "It designates the French dance \"over\"",
     "enumeration": "5"
    },
-   "solution": "LABEL"
+   "solution": "LABEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It designates",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 32,
+       "note": "over, in quotes after the phrase, tells us to turn the whole phrase backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the French",
+         "at": 14,
+         "gives": "LE",
+         "note": "le is French for the"
+        },
+        {
+         "words": "dance",
+         "at": 25,
+         "gives": "BAL",
+         "note": "bal is French for a ball or dance"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French dance is announced as finished.",
+     "walkthrough": "'the French dance' is LE BAL in French; 'over' turns that whole phrase backwards.",
+     "definitionFit": "A tag or sticker designates what something is, naming or classifying it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +719,40 @@
     "text": "People will take day to get better",
     "enumeration": "4"
    },
-   "solution": "MEND"
+   "solution": "MEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "get better",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "People",
+       "at": 0,
+       "gives": "MEN",
+       "note": "men are people"
+      },
+      {
+       "words": "day",
+       "at": 17,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Folk will need a day to recover.",
+     "definitionFit": "To recover from illness, or to heal, is to improve in health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "People"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +766,59 @@
     "text": "Record of one right into amateurish housework?",
     "enumeration": "5"
    },
-   "solution": "DIARY"
+   "solution": "DIARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 20,
+       "note": "into means the following pieces are placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "amateurish housework",
+       "at": 25,
+       "gives": "DIY",
+       "note": "DIY, do-it-yourself, is home improvement done by amateurs"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 10,
+         "gives": "A",
+         "note": "A means one"
+        },
+        {
+         "words": "right",
+         "at": 14,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps a log of their clumsy home repairs.",
+     "walkthrough": "'into' puts A (one) and R (right) inside DIY, the British term for amateur home repairs.",
+     "definitionFit": "A journal is a daily written record of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +832,40 @@
     "text": "Get better when joining right friend",
     "enumeration": "5"
    },
-   "solution": "RALLY"
+   "solution": "RALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get better",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right",
+       "at": 24,
+       "gives": "R"
+      },
+      {
+       "words": "friend",
+       "at": 30,
+       "gives": "ALLY",
+       "note": "an ally is a friend or supporter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient improves when a pal joins them at their side.",
+     "definitionFit": "To recover strength, as a sick person or a falling market does, is to pick up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +879,31 @@
     "text": "Perhaps non-empirical describes one on remand",
     "enumeration": "7"
    },
-   "solution": "UNTRIED"
+   "solution": "UNTRIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps non-empirical",
+      "at": 0,
+      "meaning": "not yet tested by experiment, unproven"
+     },
+     {
+      "text": "describes one on remand",
+      "at": 22,
+      "meaning": "a prisoner on remand is held awaiting trial, not yet judged in court"
+     }
+    ],
+    "explanation": {
+     "surface": "A theory lacking evidence is like a prisoner awaiting trial.",
+     "definitionFit": "Untested in practice and not yet brought before a court are both unproven states."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "remand"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +917,49 @@
     "text": "Big cat eats sloths? There's a connection here",
     "enumeration": "7"
    },
-   "solution": "LIAISON"
+   "solution": "LIAISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "connection",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eats",
+       "at": 8,
+       "note": "eats means the first piece takes the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Big cat",
+       "at": 0,
+       "gives": "LION",
+       "note": "a lion is a big cat"
+      },
+      {
+       "words": "sloths",
+       "at": 13,
+       "gives": "AIS",
+       "note": "the ai is a three-toed sloth, so ais are sloths"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big cat devours some sloths, and someone sees a link.",
+     "walkthrough": "'eats' is the container signal. The ai, a three-toed sloth, is a crossword regular; the surface's 'connection' looks like a link in a food chain.",
+     "definitionFit": "A liaison is a link or working relationship between groups."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eats"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +973,47 @@
     "text": "Record one lightweight saying",
     "enumeration": "7"
    },
-   "solution": "EPIGRAM"
+   "solution": "EPIGRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "saying",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Record",
+       "at": 0,
+       "gives": "EP",
+       "note": "an EP is an extended-play record"
+      },
+      {
+       "words": "one",
+       "at": 7,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "lightweight",
+       "at": 11,
+       "gives": "GRAM",
+       "note": "a gram is a very light unit of weight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disc carries a single trivial remark.",
+     "definitionFit": "An epigram is a short witty remark or maxim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lightweight"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1027,56 @@
     "text": "It's no good greeting wrong number",
     "enumeration": "7"
    },
-   "solution": "INTEGER"
+   "solution": "INTEGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "number",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrong",
+       "at": 22,
+       "note": "wrong signals the remaining letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 5,
+         "note": "no here means the next piece is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "greeting",
+         "at": 13
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says hello to the wrong number on the phone.",
+     "walkthrough": "'no good' removes one G from GREETING, leaving REETING; 'wrong' rearranges it.",
+     "definitionFit": "A whole number is one with no fractional part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1090,47 @@
     "text": "In marriage, if it arises, it would be warlike",
     "enumeration": "7"
    },
-   "solution": "MARITAL"
+   "solution": "MARITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In marriage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "if it arises",
+       "at": 13,
+       "note": "in this down clue, raising the letter I in the answer gives the warlike word, so we lower it here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "warlike",
+       "at": 39,
+       "gives": "MARTIAL",
+       "note": "martial means warlike"
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A marriage that grows heated would turn into a fight.",
+     "walkthrough": "In a down entry, 'arises' moves a letter upwards: lift the I one place and the answer turns into MARTIAL. The wordplay runs the other way, moving I down in MARTIAL.",
+     "definitionFit": "The adjective describes what belongs to wedlock, a husband and wife's union."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "arises"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1144,61 @@
     "text": "Malady and misfortunes will hold nurse back",
     "enumeration": "7"
    },
-   "solution": "ILLNESS"
+   "solution": "ILLNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Malady",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will hold",
+       "at": 23,
+       "note": "will hold means the first piece keeps the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "misfortunes",
+       "at": 11,
+       "gives": "ILLS",
+       "note": "ills are misfortunes or troubles"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 39,
+         "note": "back means the word for nurse is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nurse",
+         "at": 33,
+         "gives": "SEN",
+         "note": "SEN is State Enrolled Nurse, an old British nursing grade"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sickness and bad luck leave a nurse held up behind.",
+     "walkthrough": "'back' is the reversal signal and 'will hold' the container signal. SEN, State Enrolled Nurse, is a former British qualification.",
+     "definitionFit": "Sickness or disease is a malady."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1212,41 @@
     "text": "In Cyrillic iteration is not allowed",
     "enumeration": "7"
    },
-   "solution": "ILLICIT"
+   "solution": "ILLICIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not allowed",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In says the letters sit inside the run of the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cyrillic iteration",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Repeating something in the Russian alphabet is forbidden.",
+     "walkthrough": "'In' signals letters running across 'Cyrillic iteration'.",
+     "definitionFit": "Unlawful or forbidden things are not permitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cyrillic"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1260,45 @@
     "text": "Teach English to accept coin that's European",
     "enumeration": "7"
    },
-   "solution": "EDUCATE"
+   "solution": "EDUCATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teach",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 6,
+       "gives": "E"
+      },
+      {
+       "words": "coin",
+       "at": 24,
+       "gives": "DUCAT",
+       "note": "a ducat is an old European gold coin"
+      },
+      {
+       "words": "European",
+       "at": 36,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English teacher accepts a coin from the Continent.",
+     "definitionFit": "To instruct or school someone is to teach them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accept"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1312,11 @@
     "text": "Essentially hate to make a sworn statement",
     "enumeration": "4"
    },
-   "solution": "OATH"
+   "solution": "OATH",
+   "annotationWithheld": {
+    "why": "The clue as held is 'Essentially hate to make a sworn statement (4)': the parse needs the middle of LOATHE, but 'hate' supplies no O and is more than three letters from 'loathe', so a word appears to be misread or missing.",
+    "clue": "Essentially hate to make a sworn statement"
+   }
   },
   {
    "number": 24,
@@ -392,7 +1330,48 @@
     "text": "After visiting doctor I shall exercise",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exercise",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After visiting",
+       "at": 0,
+       "note": "after visiting places the second piece behind the first in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 15,
+       "gives": "DR"
+      },
+      {
+       "words": "I shall",
+       "at": 22,
+       "gives": "ILL",
+       "note": "I'll is the contraction of I shall"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After seeing the GP, a patient vows to work out.",
+     "walkthrough": "'After visiting' puts the second piece behind the first; the surface makes 'exercise' look like a patient's prescription.",
+     "definitionFit": "A drill is a repeated practice routine, as soldiers do on the parade ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "visiting"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1385,41 @@
     "text": "Spoil game that's popular",
     "enumeration": "4"
    },
-   "solution": "RUIN"
+   "solution": "RUIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spoil",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "game",
+       "at": 6,
+       "gives": "RU",
+       "note": "RU is rugby union, a game"
+      },
+      {
+       "words": "popular",
+       "at": 18,
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy game is spoilt.",
+     "definitionFit": "To wreck or destroy something is to spoil it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1433,49 @@
     "text": "It was little to pay to get prohibition to save energy",
     "enumeration": "4"
    },
-   "solution": "BEAN"
+   "solution": "BEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It was little to pay",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to save",
+       "at": 40,
+       "note": "to save means to keep the next piece safe inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prohibition",
+       "at": 28,
+       "gives": "BAN",
+       "note": "a ban is a prohibition"
+      },
+      {
+       "words": "energy",
+       "at": 48,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hardly any cost was paid for a ban to save power.",
+     "walkthrough": "'to save' puts E inside BAN. In old British slang a bean was a coin of small value, hence 'not a bean'.",
+     "definitionFit": "In slang, a tiny sum of money, a single coin of little worth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1489,41 @@
     "text": "It could provide an opening to join king and important person",
     "enumeration": "4"
    },
-   "solution": "KNOB"
+   "solution": "KNOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It could provide an opening",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "king",
+       "at": 36,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      },
+      {
+       "words": "important person",
+       "at": 45,
+       "gives": "NOB",
+       "note": "a nob is a person of wealth or rank"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A link between the monarch and a VIP might open doors.",
+     "definitionFit": "A door handle is turned to open a door."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 28,
@@ -448,7 +1537,11 @@
     "text": "Ignore negative lecture",
     "enumeration": "7"
    },
-   "solution": "NEGLECT"
+   "solution": "NEGLECT",
+   "annotationWithheld": {
+    "why": "The clue as held is 'Ignore negative lecture (7)': NEG for negative plus LECT needs 'lecture' cut short, but no clue word signals the cut, so a word appears to be missing.",
+    "clue": "Ignore negative lecture"
+   }
   },
   {
    "number": 29,
@@ -462,7 +1555,41 @@
     "text": "Possibly can vote for change in El Salvador",
     "enumeration": "7"
    },
-   "solution": "CENTAVO"
+   "solution": "CENTAVO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "change in El Salvador",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Possibly",
+       "at": 0,
+       "note": "possibly signals the letters may be rearranged to give another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can vote",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In El Salvador people might vote for reform.",
+     "walkthrough": "'Possibly' rearranges CAN VOTE. 'change' means small coins, not reform.",
+     "definitionFit": "A centavo is a small coin, a hundredth of the colón once used in El Salvador."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 30,
@@ -476,7 +1603,47 @@
     "text": "Earl's blatant wrong is not incomprehensible?",
     "enumeration": "12"
    },
-   "solution": "TRANSLATABLE"
+   "solution": "TRANSLATABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not incomprehensible?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrong",
+       "at": 15,
+       "note": "wrong signals that the letters are put right in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Earl's",
+       "at": 0,
+       "gives": "EARLS",
+       "note": "the apostrophe-s counts as a letter S here"
+      },
+      {
+       "words": "blatant",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is an aristocrat's flagrant misdeed really beyond understanding?",
+     "walkthrough": "'wrong' rearranges EARLS and BLATANT together; the S of Earl's is used.",
+     "definitionFit": "Something that can be rendered in another language must be understandable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blatant"
+    }
+   }
   }
  ]
 }
