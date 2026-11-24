@@ -30972,6 +30972,7 @@ def keep_held_clues(puzzle, old):
             for i in ids} | strayed(old, spaces=False) | set(faults(old))
     was = {entry_id(e): e for e in old["entries"]}
     kept = []
+    publisher = (old.get("source") or {}).get("publisher")
     for e in puzzle["entries"]:
         lid, h = entry_id(e), was.get(entry_id(e))
         held, now = (h or {}).get("clue") or {}, e.get("clue") or {}
@@ -30986,15 +30987,45 @@ def keep_held_clues(puzzle, old):
         # count read off the print ("5,2" to "7") is the print's: it is taken.
         slipped = count_slipped(held, now, h.get("solution") or e.get("solution")) \
             or rewritten(held["text"], now.get("text"))
-        if not slipped and (held.get("enumeration") != now.get("enumeration") or held.get("text") == now.get("text")):
+        # A reread that reads no count where the held clue has one never drops it (4642's "9", 10-24): that is
+        # no change of the print's count, so the words are gated as any held clue's are.
+        dropped = bool(held.get("enumeration")) and not now.get("enumeration")
+        if not slipped and not dropped and (held.get("enumeration") != now.get("enumeration")
+                                            or held.get("text") == now.get("text")):
             continue
         if not slipped and (now.get("text") or "").strip() \
-                and corrects(held["text"], now["text"], now.get("asPrinted") or ()):
+                and (corrects(held["text"], now["text"], now.get("asPrinted") or ())
+                     or ft_cut_restored(publisher, held["text"], now["text"], now.get("asPrinted") or ())
+                     or ft_fragments_mended(publisher, held["text"], now["text"], now.get("asPrinted") or ())):
+            if dropped:
+                e["clue"] = held_count(now, held)
+                kept.append(lid)
             continue
         e["clue"] = held
         if h.get("annotation"):
             e["annotation"] = h["annotation"]
         kept.append(lid)
+    return kept
+
+
+def guard_held(puzzle, path, verdict, tool=TOOL):
+    """[lights] whose held clue the file at `path` has that `puzzle`, about to be written over it, gives up
+    for worse words, taken back in place (keep_held_clues). A reading decided on the desktop (edition_commit.
+    commit_decided) comes to the writer whole, made against that host's copy of the held file, which
+    keep_held_clues in decide() never saw: the 10-24 reread of two 1981 editions laid "kind Peel of rubber"
+    and "Iosing interest" (its count gone) over held clues. A write that is the held file's own mend (verdict
+    "mended", "answered": its words are the mend's, punctuation's certain ones among them), an answers-only or
+    a held-whole one is left alone; so is a reading that does not improves() the held file, as decide()'s own
+    better path."""
+    if verdict.get("mended") or verdict.get("answered") or verdict.get("answersOnly") or verdict.get("heldWhole") \
+            or not path.exists() or not improves(puzzle, path, tool):
+        return []
+    held_file = json.loads(path.read_text())
+    if quick_held(puzzle, held_file, tool):
+        return []
+    kept = keep_held_clues(puzzle, held_file)
+    if kept:
+        verdict["heldClues"] = sorted({*verdict.get("heldClues", ()), *kept})
     return kept
 
 
@@ -31382,11 +31413,12 @@ def ft_cut_restored(publisher, was, now, printed=()):
     new = [m.group().lower() for m in CLUE_TOKEN.finditer(now)]
     if len(new) <= len(old):
         return False
-    j, hit, gaps, last = 0, [], 0, -1
+    j, hit, gaps, last, cut = 0, [], 0, -1, False
     for w in old:
         k = next((k for k in range(j, len(new)) if new[k] == w), None)
         if k is None and len(w) >= 3:
             k = next((k for k in range(j, len(new)) if len(new[k]) > len(w) and (new[k].endswith(w) or new[k].startswith(w))), None)
+            cut = cut or k is not None
         if k is None:
             return False
         if k != last + 1:
@@ -31397,7 +31429,11 @@ def ft_cut_restored(publisher, was, now, printed=()):
         return False  # a cut loses the middle, never the clue's head or tail
     tok = [m.group()[:1] for m in CLUE_TOKEN.finditer(now)]
     gained = [(k, new[k]) for k in range(len(new)) if k not in hit]
-    return bool(gained) and gaps <= FT_CUT_GAPS and all(ocr_clues.is_word(w) or tok[k].isupper() for k, w in gained)
+    # A capitalised word gained inside the clue is the neighbouring column's print run in ("kind Peel of
+    # rubber", "by Desk, musical instrument", 10-24: ftcryptic-4624) unless a held fragment shows the clue
+    # really was cut there: only then is a name the lost words'.
+    return bool(gained) and gaps <= FT_CUT_GAPS and all(
+        ocr_clues.is_word(w) and (cut or not tok[k].isupper()) or tok[k].isupper() and cut for k, w in gained)
 
 
 #: FT_FRAGMENTS_MENDED: a held Gale FT clue with words cut INSIDE it (2003-12-10: "Express disapproval, ing

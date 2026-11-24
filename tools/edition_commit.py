@@ -76,7 +76,12 @@ def writer(source, series, puzzles):
             # cross_validate.ArchiveOrg.ids reads this, not a listing of the media disk.
             media_manifest.record_file("archiveorg-source", Path(source) / f"{puzzle['id']}.json")
             return True
-        return scan_queue.file_puzzle(write_puzzle_file, TOOL, filer_path(where, series, puzzles), puzzle, verdict)
+        target = filer_path(where, series, puzzles)
+        # A reading decided elsewhere (commit_decided) never met the held file's clues: the held words
+        # stay unless the reading corrects them (file_archive_org_puzzles.guard_held).
+        import file_archive_org_puzzles
+        file_archive_org_puzzles.guard_held(puzzle, Path(target), verdict)
+        return scan_queue.file_puzzle(write_puzzle_file, TOOL, target, puzzle, verdict)
     return commit
 
 
