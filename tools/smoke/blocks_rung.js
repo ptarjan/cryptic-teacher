@@ -280,7 +280,10 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   };
   const rungs = () => registry["hint-rungs"].children;
   const rung = (re) => rungs().find((b) => re.test(b.textContent || "") && !b.disabled);
-  const asking = () => isAsking(registry["hint-body"]);
+  // A step chosen on the track with no question in it draws a "Tap Show me"
+  // panel under the same marker; it is not a question to point at.
+  const asking = () => isAsking(registry["hint-body"])
+    && !registry["hint-body"].innerHTML.includes("to open this step.</p>");
   // Climb to the named rung, taking whatever is offered and declining every
   // question on the way, so the blocks rung is reached with the tier-0 rungs up.
   const climbTo = (re) => {
