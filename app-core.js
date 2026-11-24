@@ -651,7 +651,10 @@
     // for itself would sooner or later point at something the line is not
     // talking about. The panel's own markup says whether a question is up:
     // `guessing` outlives the question it asked, so it cannot be the test.
-    const open = !!(body && /class="hint-step guess"/.test(body.innerHTML || ""));
+    // A step chosen with nothing to ask shows a "Tap Show me" panel under the
+    // same marker; that is not a question, so it opens no hole.
+    const open = !!(body && /class="hint-step guess"/.test(body.innerHTML || "")
+      && !(body.innerHTML || "").includes("to open this step.</p>"));
     const ask = nuxAsk();
     if (ask || (open && !nuxTypeIt(on))) {
       // The words being pointed at, and nothing else. A hole around the whole
