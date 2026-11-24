@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,44 @@
     "text": "Author John close, we hear, to being a pirate",
     "enumeration": "9"
    },
-   "solution": "BUCCANEER"
+   "solution": "BUCCANEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pirate",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BUCCANEER",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 19,
+       "note": "we hear tells the solver that the words are judged by how they sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Author John close",
+       "at": 0,
+       "gives": "BUCHANNEAR",
+       "note": "John Buchan wrote The Thirty-Nine Steps; close means near, so the phrase is spoken as Buchan near"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer called John comes perilously close to turning freebooter.",
+     "walkthrough": "Say BUCHAN + NEAR quickly and it sounds like the answer; 'we hear' is the homophone signal and 'to being' is link.",
+     "definitionFit": "A buccaneer was a sea robber of the Caribbean, a synonym for a pirate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +84,41 @@
     "text": "No bargees are converted ny this tub-thumper",
     "enumeration": "9"
    },
-   "solution": "BOANERGES"
+   "solution": "BOANERGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tub-thumper",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "are converted",
+       "at": 11,
+       "note": "converted means changed into another form, so the letters of the two words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No bargees",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Canal boatmen are proving immune to a ranting preacher's attempts to convert them.",
+     "walkthrough": "'are converted' rearranges NO BARGEES. Boanerges, 'sons of thunder', was the name Jesus gave James and John, and came to mean a loud, ranting preacher.",
+     "definitionFit": "A tub-thumper is a loud orator, and a boanerges is a vociferous preacher or speaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "converted"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +132,59 @@
     "text": "Anxiety to omit nothing but here's an omission",
     "enumeration": "5"
    },
-   "solution": "CARET"
+   "solution": "CARET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "here's an omission",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Anxiety",
+       "at": 0,
+       "gives": "CARE",
+       "note": "anxiety means care, worry"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "omit",
+         "at": 11,
+         "note": "to omit means leave out, so the letter standing for nothing is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "at": 8,
+         "gives": "TO",
+         "note": "taken as written"
+        },
+        {
+         "words": "nothing",
+         "at": 16,
+         "gives": "O",
+         "note": "nothing is zero, the letter O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worried writer frets about leaving anything out, yet marks a gap.",
+     "walkthrough": "CARE + TO makes CARETO; 'to omit' then drops the O (nothing). The same 'to' is both the piece TO and the start of the indicator phrase only in the surface: 'omit' does the deleting.",
+     "definitionFit": "A caret is the proofreader's mark showing where something left out should be inserted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +198,46 @@
     "text": "A girl taking on the devil",
     "enumeration": "8"
    },
-   "solution": "APOLLYON"
+   "solution": "APOLLYON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the devil",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "girl",
+       "at": 2,
+       "gives": "POLLY",
+       "note": "Polly is a girl's name"
+      },
+      {
+       "words": "on",
+       "at": 14,
+       "gives": "ON",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman bravely squares up to Satan.",
+     "walkthrough": "'taking' is only a link here, not a container signal. Apollyon is the destroying angel of the Book of Revelation, and the devil Christian fights in Bunyan's The Pilgrim's Progress.",
+     "definitionFit": "Apollyon, 'the destroyer', is a biblical name for Satan, the angel of the bottomless pit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +251,51 @@
     "text": "Snare perhaps ten fish",
     "enumeration": "8"
    },
-   "solution": "ENTANGLE"
+   "solution": "ENTANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Snare",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 6,
+         "note": "perhaps suggests the word ten might be arranged some other way, so its letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ten",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "fish",
+       "at": 18,
+       "gives": "ANGLE",
+       "note": "to angle is to fish with rod and line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trap might catch ten fish at once.",
+     "walkthrough": "'perhaps' is the anagram signal for 'ten', which becomes ENT; 'Snare' is a verb here, matching the verb answer.",
+     "definitionFit": "To snare is to trap or catch up, the same as to tangle someone in a net."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +309,47 @@
     "text": "With such florid style a bird, though fab, has no company",
     "enumeration": "6"
    },
-   "solution": "ROCOCO"
+   "solution": "ROCOCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "With such florid style",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a bird, though fab",
+       "at": 23,
+       "gives": "ROC",
+       "note": "the roc is a fabulous, legendary bird of Arabian tales"
+      },
+      {
+       "words": "no",
+       "at": 47,
+       "gives": "O",
+       "note": "no looks like the letter O, nought"
+      },
+      {
+       "words": "company",
+       "at": 50,
+       "gives": "CO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A showy bird, splendid as it is, stays alone.",
+     "walkthrough": "'fab' is short for fabulous: the ROC is a mythical bird. 'has' is link.",
+     "definitionFit": "Rococo is the ornate eighteenth-century decorative manner, so florid work is in that mode."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fab"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +363,39 @@
     "text": "Put out of countenance? What a blow",
     "enumeration": "5"
    },
-   "solution": "ARASH"
+   "solution": "ABASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put out of countenance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 29
+      },
+      {
+       "words": "blow",
+       "at": 31,
+       "gives": "BASH",
+       "note": "a bash is a heavy blow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punch might well leave someone disconcerted.",
+     "walkthrough": "'What' is link. The grid prints ARASH, which is no word; A + BASH and the definition both give ABASH.",
+     "definitionFit": "To abash is to embarrass or disconcert someone, putting them out of countenance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +409,39 @@
     "text": "A rendezvous lined with trees",
     "enumeration": "6"
    },
-   "solution": "AVENUE"
+   "solution": "AVENUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lined with trees",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "rendezvous",
+       "at": 2,
+       "gives": "VENUE",
+       "note": "a venue is a meeting place, a rendezvous"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lovers' meeting place shaded by trees.",
+     "walkthrough": "The definition leans on the whole clue: an avenue is a way lined with trees.",
+     "definitionFit": "An avenue is a broad road or drive with trees planted along each side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +455,27 @@
     "text": "Rome University Club in London",
     "enumeration": "9"
    },
-   "solution": "ATHENAEUM"
+   "solution": "ATHENAEUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rome University",
+      "at": 0
+     },
+     {
+      "text": "Club in London",
+      "at": 16
+     }
+    ],
+    "explanation": {
+     "surface": "An academic gentlemen's club bridging Rome and London.",
+     "definitionFit": "Hadrian's Athenaeum was a school of learning in ancient Rome, and the Athenaeum is a famous gentlemen's club on Pall Mall in London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +489,41 @@
     "text": "Shack for a novice near Brighton ?",
     "enumeration": "5"
    },
-   "solution": "HOVEL"
+   "solution": "HOVEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "near Brighton ?",
+       "at": 19,
+       "gives": "HOVE",
+       "note": "Hove is the town next door to Brighton on the Sussex coast"
+      },
+      {
+       "words": "a novice",
+       "at": 10,
+       "gives": "L",
+       "note": "L is the learner, a novice driver's plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beginner's poor hut on the South Coast.",
+     "walkthrough": "HOVE is the seaside town beside Brighton in southern England; L is the learner sign on a novice driver's car. 'for' is link.",
+     "definitionFit": "A hovel is a small, wretched dwelling, much the same as a shack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +537,47 @@
     "text": "Gander for instance damages one parrot",
     "enumeration": "7"
    },
-   "solution": "AIRPORT"
+   "solution": "AIRPORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gander for instance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "damages",
+       "at": 20,
+       "note": "damages means spoils or breaks up, so the letters are broken and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 28,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "parrot",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A male goose attacks a parrot.",
+     "walkthrough": "'Gander' is not the goose but the town in Newfoundland, once a vital transatlantic refuelling stop. 'damages' rearranges I + PARROT.",
+     "definitionFit": "Gander, Newfoundland, is famous for its international air terminal, an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gander"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +591,34 @@
     "text": "The loveliest of Housman's trees adorned his orchard",
     "enumeration": "7"
    },
-   "solution": "CHEKHOV"
+   "solution": "CHEKHOV",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The loveliest of Housman's trees adorned his orchard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The loveliest of Housman's trees adorned his orchard",
+       "at": 0,
+       "note": "Housman's poem begins 'Loveliest of trees, the cherry now', and a Russian playwright wrote The Cherry Orchard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's favourite blossom tree graced a certain orchard.",
+     "walkthrough": "The tree is the cherry, from A.E. Housman's A Shropshire Lad; the orchard belongs to the author of the play The Cherry Orchard.",
+     "definitionFit": "The Russian dramatist wrote The Cherry Orchard, so the cherry tree decorated his famous play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +632,43 @@
     "text": "Praise for former duty, say",
     "enumeration": "5"
    },
-   "solution": "EXTOL"
+   "solution": "EXTOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EXTOL",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 24,
+       "note": "say signals that the words are to be pronounced, giving a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "former duty",
+       "at": 11,
+       "gives": "EXTOLL",
+       "note": "former is ex, and a duty or levy is a toll"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Applauding a tax that has been abolished.",
+     "walkthrough": "EX (former) + TOLL (duty) said aloud gives the answer; 'for' is link.",
+     "definitionFit": "To extol is to laud or glorify, a synonym of praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +682,34 @@
     "text": "Maud's black bat being such a creature",
     "enumeration": "9"
    },
-   "solution": "NOCTURNAL"
+   "solution": "NOCTURNAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maud's black bat being such a creature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Maud's black bat being such a creature",
+       "at": 0,
+       "note": "in Tennyson's Maud the line runs 'the black bat, night, has flown': a bat is active after dark"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dark bat from a Victorian poem.",
+     "walkthrough": "Tennyson's 'Come into the garden, Maud' mentions the black bat, night; bats are creatures of the dark.",
+     "definitionFit": "A bat flies and feeds after dark, so it is a creature active by night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -223,10 +720,39 @@
    },
    "length": 8,
    "clue": {
-    "text": "Funny-face spouting side the cathedral?",
+    "text": "Funny-face spouting outside the cathedral ?",
     "enumeration": "8"
    },
-   "solution": "GARGOYLE"
+   "solution": "GARGOYLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Funny-face spouting outside the cathedral",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Funny-face spouting outside the cathedral",
+       "at": 0,
+       "note": "a grotesque carved face on a cathedral wall that spouts rainwater from the gutters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clown is ranting on the cathedral steps.",
+     "walkthrough": "'Funny-face' suggests a comedian and 'spouting' a ranter, but the carved grotesque literally spouts rainwater.",
+     "definitionFit": "Carved grotesques on church roofs act as water spouts, carrying rain clear of the walls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spouting"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +766,36 @@
     "text": "Bath may depend on it. Wells? Surely not",
     "enumeration": "9"
    },
-   "solution": "RESERVOIR"
+   "solution": "RESERVOIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bath may depend on it. Wells? Surely not",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bath may depend on it. Wells? Surely not",
+       "at": 0,
+       "note": "a bath needs a store of water, but wells, which supply their own, do not; Bath and Wells read as English cities"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bath relies on something, and Wells surely does not.",
+     "walkthrough": "Bath and Wells are neighbouring cathedral cities in Somerset, England, but here a bath needs piped water from a store, while wells draw their own.",
+     "definitionFit": "A reservoir is an artificial lake storing the water that fills household baths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bath"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +809,42 @@
     "text": "The archdeacon has many to sell",
     "enumeration": "4"
    },
-   "solution": "VEND"
+   "solution": "VEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to sell",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The archdeacon",
+       "at": 0,
+       "gives": "VEN",
+       "note": "an archdeacon is addressed as the Venerable, abbreviated Ven"
+      },
+      {
+       "words": "many",
+       "at": 19,
+       "gives": "D",
+       "note": "D is the Roman numeral for 500, a large number"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior clergyman has lots of things to sell.",
+     "walkthrough": "'Ven' is the abbreviation for Venerable, the title of a Church of England archdeacon; 'has' is link.",
+     "definitionFit": "To vend is to offer goods for sale, as a vending machine does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "many"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +858,28 @@
     "text": "Vessel for 3?",
     "enumeration": "9"
    },
-   "solution": "DESTROYER"
+   "solution": "DESTROYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     },
+     {
+      "text": "for 3?",
+      "at": 7
+     }
+    ],
+    "explanation": {
+     "surface": "A ship suitable for the clue at 3.",
+     "walkthrough": "3 is APOLLYON, whose Greek name means the destroyer.",
+     "definitionFit": "A destroyer is a fast warship, and Apollyon translates as 'destroyer' in Revelation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +893,36 @@
     "text": "Powerful literary passage",
     "enumeration": "8"
    },
-   "solution": "CORRIDOR"
+   "solution": "CORRIDOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Powerful literary passage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Powerful literary passage",
+       "at": 0,
+       "note": "an extract from a book read as the hallway of authority in C.P. Snow's novel title ... of Power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forceful extract from a great book.",
+     "walkthrough": "'Passage' looks like a section of text, but it is a hallway: C.P. Snow's novel Corridors of Power supplies 'powerful' and 'literary'.",
+     "definitionFit": "A corridor is a passage in a building, and Snow's book title linked it with power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +936,41 @@
     "text": "He hopes to be in Sparta for a change",
     "enumeration": "8"
    },
-   "solution": "ASPIRANT"
+   "solution": "ASPIRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He hopes to be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "for a change",
+       "at": 25,
+       "note": "for a change says the letters of the words are altered into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in Sparta",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longs to visit Sparta as a break from routine.",
+     "walkthrough": "'for a change' rearranges IN SPARTA.",
+     "definitionFit": "An aspirant is a person who aspires, someone ambitious to reach a position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +984,42 @@
     "text": "Southernwood used in window construction",
     "enumeration": "4"
    },
-   "solution": "SASH"
+   "solution": "SASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "used in window construction",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Southernwood",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for southern"
+      },
+      {
+       "words": "Southernwood",
+       "at": 0,
+       "gives": "ASH",
+       "note": "ash is a kind of wood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aromatic shrub is used in building a window.",
+     "walkthrough": "Southernwood is a herb, but the word splits into southern (S) and wood (ASH).",
+     "definitionFit": "A sash is the sliding frame that holds the panes of a sash window."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Southernwood"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1033,41 @@
     "text": "Eats when the sun comes out",
     "enumeration": "8"
    },
-   "solution": "CONSUMES"
+   "solution": "CONSUMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eats",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 24,
+       "note": "out suggests the letters come out of their order and are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sun comes",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tucks in once the sun shows itself.",
+     "walkthrough": "'out' rearranges SUN COMES; 'when the' is link.",
+     "definitionFit": "To consume food is to eat it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1081,41 @@
     "text": "He has a great many old slaves",
     "enumeration": "6"
    },
-   "solution": "HELOTS"
+   "solution": "HELOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old slaves",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "He",
+       "at": 0,
+       "gives": "HE",
+       "note": "taken as written"
+      },
+      {
+       "words": "a great many",
+       "at": 7,
+       "gives": "LOTS",
+       "note": "lots means a great many"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man owns many slaves of old.",
+     "walkthrough": "'has' is link: HE then LOTS.",
+     "definitionFit": "Helots were the serfs of ancient Sparta, a class of state-owned bondsmen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1129,27 @@
     "text": "Gets soaked in precipitous places",
     "enumeration": "6"
    },
-   "solution": "STEEPS"
+   "solution": "STEEPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gets soaked",
+      "at": 0
+     },
+     {
+      "text": "precipitous places",
+      "at": 15
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is drenched in the rain on steep hillsides.",
+     "definitionFit": "Tea or fruit that steeps is soaked in liquid, and steeps are steep slopes or cliffs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1163,50 @@
     "text": "Rustic transporter eats swan with chips",
     "enumeration": "9"
    },
-   "solution": "CARPENTER"
+   "solution": "CARPENTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chips",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eats",
+       "at": 19,
+       "note": "eats means takes in, so one piece swallows the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rustic transporter",
+       "at": 0,
+       "gives": "CARTER",
+       "note": "a carter drives a cart on country roads"
+      },
+      {
+       "words": "swan",
+       "at": 24,
+       "gives": "PEN",
+       "note": "a pen is a female swan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country haulier dines on swan and chips.",
+     "walkthrough": "'Chips' is the traditional nickname for a ship's carpenter, not the fried potatoes; 'with' is link.",
+     "definitionFit": "In naval slang 'Chips' was the ship's woodworker, because of the wood shavings he made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chips"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,10 +1217,45 @@
    },
    "length": 5,
    "clue": {
-    "text": "Coconut kernels for Con, stable ?",
+    "text": "Coconut kernels for Constable ?",
     "enumeration": "5"
    },
-   "solution": "COPRA"
+   "solution": "COPRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coconut kernels",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Constable",
+       "at": 20,
+       "gives": "COP",
+       "note": "a constable is a policeman, a cop"
+      },
+      {
+       "words": "Constable",
+       "at": 20,
+       "gives": "RA",
+       "note": "John Constable the painter was a Royal Academician, an RA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A constable might fancy some coconut.",
+     "walkthrough": "'Constable' gives both pieces: a cop, and RA, the letters of the Royal Academy the painter Constable belonged to. 'for' is link.",
+     "definitionFit": "Copra is dried coconut meat, from which coconut oil is pressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Constable"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1269,45 @@
     "text": "Deduce from Dante's unfinished poem",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deduce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unfinished",
+       "at": 20,
+       "note": "unfinished means the end of the word is cut off and left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poem",
+       "at": 31,
+       "gives": "INFERNO",
+       "note": "Dante's poem is the Inferno, the first part of the Divine Comedy"
+      },
+      {
+       "gives": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drawing conclusions from Dante's incomplete work.",
+     "walkthrough": "'unfinished' drops the last two letters, NO, from INFERNO. 'Dante's' tells the solver which poem; 'from' is link.",
+     "definitionFit": "To infer is to conclude from evidence, which is to deduce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1321,36 @@
     "text": "Venetian merchant's one pound penalty",
     "enumeration": "5"
    },
-   "solution": "FLESH"
+   "solution": "FLESH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Venetian merchant's one pound penalty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Venetian merchant's one pound penalty",
+       "at": 0,
+       "note": "in The Merchant of Venice Shylock demands a pound of the borrower's body as forfeit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Venice trader pays a fine of a single pound.",
+     "walkthrough": "The bond in Shakespeare's The Merchant of Venice forfeits a pound of the merchant Antonio's body.",
+     "definitionFit": "Shylock's bond names a pound of Antonio's body tissue as the penalty for default."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1364,48 @@
     "text": "Put forward a work in non-metrical language",
     "enumeration": "7"
    },
-   "solution": "PROPOSE"
+   "solution": "PROPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put forward",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in says one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "non-metrical language",
+       "at": 22,
+       "gives": "PROSE",
+       "note": "prose is language without metre"
+      },
+      {
+       "words": "a work",
+       "at": 12,
+       "gives": "OP",
+       "note": "op is the abbreviation for opus, a work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Offering a piece of writing that is not in verse.",
+     "walkthrough": "'in' puts the work inside the prose; 'non-metrical language' means writing without verse metre.",
+     "definitionFit": "To propose is to put forward a plan or suggestion for consideration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1419,40 @@
     "text": "Yearned wildly for a church office",
     "enumeration": "7"
    },
-   "solution": "DEANERY"
+   "solution": "DEANERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a church office",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wildly",
+       "at": 8,
+       "note": "wildly says the letters are thrown about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Yearned",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longed madly for a post in the church.",
+     "walkthrough": "'wildly' rearranges YEARNED; 'for' is link.",
+     "definitionFit": "A deanery is the office of a dean in a cathedral or the church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1466,40 @@
     "text": "Tapestry is a bit of an embarrassment",
     "enumeration": "5"
    },
-   "solution": "ARRAS"
+   "solution": "ARRAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tapestry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a bit of",
+       "at": 12,
+       "note": "a bit of means only a portion of the following words is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an embarrassment",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wall hanging proves a little awkward.",
+     "walkthrough": "The letters sit inside 'embarrassment'; 'is' is link. An arras is the hanging Polonius hides behind in Hamlet.",
+     "definitionFit": "An arras is a woven wall hanging, named after the French town famous for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -464,7 +1513,29 @@
     "text": "Carrying-frame for Procrustes?",
     "enumeration": "9"
    },
-   "solution": "STRETCHER"
+   "solution": "STRETCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carrying-frame",
+      "at": 0
+     },
+     {
+      "text": "Procrustes?",
+      "at": 19
+     }
+    ],
+    "explanation": {
+     "surface": "A frame to carry the giant of Greek myth.",
+     "walkthrough": "Procrustes, the robber of Greek legend, stretched victims to fit his bed; 'for' is link.",
+     "definitionFit": "A stretcher carries the injured, and Procrustes was one who stretched people to fit his bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
