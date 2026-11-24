@@ -804,11 +804,12 @@ button:disabled:hover { border-color: var(--line); }
    Paper mode, clear word and reset puzzle are rare, and the last two destroy
    work, so they sit behind a tap instead of on the solving path. */
 .menu-wrap { position: relative; margin-left: auto; align-self: center; }
-/* The button is taller than the score line beside it, a finger-sized target on
-   touch screens. The wrap is only one score line tall and the button hangs
-   centred over its edges, so the row is no taller than its text. The gap under
-   the row then matches the gap above it. */
-.puzzle-head .menu-wrap { display: flex; align-items: center; height: calc(.85rem * 1.25); }
+/* The button is taller than the score line beside it: a finger-sized target on
+   touch screens. Negative margins of half the difference let it hang over the
+   row's edges, so the row is only as tall as its text and the gap under it
+   matches the gap above it. The menu still opens below the button. */
+.puzzle-head .menu-wrap { --btn-font: 1rem; --btn-pad: 4px;
+  margin-block: calc((.85rem * 1.25 - var(--btn-font) - 2 * var(--btn-pad) - 2px) / 2); }
 .menu-btn { font-size: 1rem; line-height: 1; padding: 4px 12px; letter-spacing: .1em; }
 .menu {
   position: absolute; right: 0; top: calc(100% + 4px); z-index: 30; min-width: 11rem;
@@ -1587,6 +1588,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      cursor and mean under a thumb. */
   .toolbar { gap: 8px; }
   .tool { font-size: .88rem; padding: 8px 14px; }
+  .puzzle-head .menu-wrap { --btn-font: .88rem; --btn-pad: 8px; }
   #hint-next { gap: 10px; }
   #hint-next button, #hint-escape button { font-size: .95rem; padding: 9px 14px; }
   /* Same reasoning as .tool, and it matters more here: this strip is how you pick
@@ -1681,6 +1683,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   #grid { --cellcap: var(--wide-cap); }
   .toolbar { grid-column: 2; grid-row: 1; margin: 0; gap: 10px; font-size: .95rem; }
   .tool { font-size: .95rem; padding: 8px 16px; }
+  .puzzle-head .menu-wrap { --btn-font: .95rem; }
   #hidden-message { grid-column: 2; grid-row: 2; margin: 0; }
   #check-result { grid-column: 2; grid-row: 3; margin: 0; }
   /* Both lists side by side, each its own scroller; any off-grid lists go beside them. */
