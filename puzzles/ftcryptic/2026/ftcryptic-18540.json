@@ -22,6 +22,9 @@
   "date": "2026-11-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "Minute piece of support",
     "enumeration": "6"
    },
-   "solution": "SECOND"
+   "solution": "SECOND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minute piece",
+      "at": 0,
+      "meaning": "a tiny division of time, one sixtieth of a minute"
+     },
+     {
+      "text": "support",
+      "at": 16,
+      "meaning": "to back a motion or a candidate is to ... it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Minute' reads as the sixty-second unit, but it is the adjective 'tiny' (my-NOOT); 'of' is a link.",
+     "definitionFit": "A second is a very small slice of time, and to second a proposal is to back it, so both senses fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Minute"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,30 @@
     "text": "Bar room",
     "enumeration": "5"
    },
-   "solution": "SPACE"
+   "solution": "SPACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0,
+      "meaning": "the long key at the bottom of a computer keyboard is the ... bar"
+     },
+     {
+      "text": "room",
+      "at": 4,
+      "meaning": "room in the sense of free area or capacity"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The keyboard's long key is the space bar, and room to move is open area, the same word in both senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +113,49 @@
     "text": "Take medicine with appropriate contents",
     "enumeration": "7"
    },
-   "solution": "CAPTURE"
+   "solution": "CAPTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contents",
+       "at": 31,
+       "note": "the second word becomes what the first one contains, sitting inside it as its contents"
+      }
+     ],
+     "parts": [
+      {
+       "words": "medicine",
+       "at": 5,
+       "gives": "CURE",
+       "note": "a medicine is a cure"
+      },
+      {
+       "words": "appropriate",
+       "at": 19,
+       "gives": "APT",
+       "note": "appropriate means apt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to take a drug that suits the patient's condition.",
+     "walkthrough": "'with ... contents' signals one word holding another; 'Take' is a verb, as in seizing a prisoner or a city, not the medicine-taking the surface suggests.",
+     "definitionFit": "To seize someone or something by force is to take it, a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "medicine"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +169,58 @@
     "text": "Times supplier has fresh herb with neat edges",
     "enumeration": "9"
    },
-   "solution": "NEWSAGENT"
+   "solution": "NEWSAGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Times supplier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fresh",
+       "at": 19,
+       "gives": "NEW",
+       "note": "fresh means new"
+      },
+      {
+       "words": "herb",
+       "at": 25,
+       "gives": "SAGE",
+       "note": "sage is a herb"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "edges",
+         "at": 40,
+         "note": "the edges of a word are its first and last letters, here taken from neat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neat",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper who stocks The Times also sells fresh herbs, neatly trimmed.",
+     "walkthrough": "'Times' with its capital looks like the hour, but it is the newspaper; a newsagent is a British corner shop selling papers.",
+     "definitionFit": "A newsagent is the shop that sells newspapers such as The Times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +234,59 @@
     "text": "Gag held by extremely enormous arms",
     "enumeration": "6"
    },
-   "solution": "EQUIPS"
+   "solution": "EQUIPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "arms",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 4,
+       "note": "the first piece is held inside the letters supplied by the next words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 12,
+         "note": "the extreme ends of the word enormous, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enormous",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "Gag",
+       "at": 0,
+       "gives": "QUIP",
+       "note": "a gag is a joke, a quip"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joke told by someone with huge arms, or a gag clamped in giant arms.",
+     "walkthrough": "'arms' is the verb, to give weapons or equipment to.",
+     "definitionFit": "To arm someone is to supply them with weapons, which is to fit them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +300,29 @@
     "text": "Consort with rock band",
     "enumeration": "5"
    },
-   "solution": "QUEEN"
+   "solution": "QUEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Consort",
+      "at": 0,
+      "meaning": "a monarch's spouse, a royal wife"
+     },
+     {
+      "text": "rock band",
+      "at": 13,
+      "meaning": "the British group of Freddie Mercury"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A king's wife is his royal partner, and the rock group fronted by Freddie Mercury bore the same title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Consort"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +336,40 @@
     "text": "I retain misplaced tendency to stay put",
     "enumeration": "7"
    },
-   "solution": "INERTIA"
+   "solution": "INERTIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tendency to stay put",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "misplaced",
+       "at": 9,
+       "note": "letters put out of their places are rearranged into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I retain",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who keeps things in the wrong place is reluctant to move.",
+     "walkthrough": "'misplaced' rearranges the seven letters of I RETAIN.",
+     "definitionFit": "In physics a body at rest stays at rest unless pushed, and in everyday speech it is sluggishness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +383,46 @@
     "text": "Miss end of State capital's ceremony",
     "enumeration": "9"
    },
-   "solution": "SACRAMENT"
+   "solution": "SACRAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ceremony",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Miss end of",
+       "at": 0,
+       "note": "drop the final letter of the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "State capital's",
+       "at": 12,
+       "gives": "SACRAMENTO",
+       "note": "Sacramento is the state capital of California"
+      },
+      {
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone skips the closing part of a formal event in a state capital.",
+     "walkthrough": "'Miss end of' removes the final O from SACRAMENTO.",
+     "definitionFit": "A sacrament such as baptism is a solemn religious rite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +436,42 @@
     "text": "Pad scratches fruit",
     "enumeration": "7"
    },
-   "solution": "PAWPAWS"
+   "solution": "PAWPAWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pad",
+       "at": 0,
+       "gives": "PAW",
+       "note": "an animal's padded foot is a paw"
+      },
+      {
+       "words": "scratches",
+       "at": 4,
+       "gives": "PAWS",
+       "note": "an animal paws at something when it scratches it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat's paw scratches some fruit.",
+     "walkthrough": "'Pad' looks like a verb, but it is the soft foot of an animal.",
+     "definitionFit": "Pawpaws are papayas, tropical fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pad"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +485,42 @@
     "text": "Remove barrier's protection",
     "enumeration": "7"
    },
-   "solution": "DEFENCE"
+   "solution": "DEFENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "protection",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Remove",
+       "at": 0,
+       "gives": "DE",
+       "note": "the prefix de- means taking away, as in defrost"
+      },
+      {
+       "words": "barrier's",
+       "at": 7,
+       "gives": "FENCE",
+       "note": "a fence is a barrier"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking away a fence leaves a property unguarded.",
+     "walkthrough": "Read as a made-up verb, DE-FENCE means 'remove barrier', while the surface suggests the barrier is the protection.",
+     "definitionFit": "A defence is a means of guarding against attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Remove"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +540,62 @@
      }
     ]
    },
-   "solution": "KIWIFRUIT"
+   "solution": "KIWIFRUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chinese gooseberry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disruption",
+       "at": 49,
+       "note": "disrupted letters are thrown out of order and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 26,
+         "note": "most but not all of the word, here losing its last two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Turkish",
+         "at": 35,
+         "gives": "TURKISH",
+         "note": "the word as written, trimmed"
+        },
+        {
+         "gives": "SH"
+        }
+       ]
+      },
+      {
+       "words": "wi-fi",
+       "at": 43
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turkish internet suffers outages, blamed on an exotic fruit.",
+     "walkthrough": "'a lot of' trims TURKISH to TURKI; 'disruption' rearranges TURKI plus WIFI.",
+     "definitionFit": "The kiwi fruit was once marketed as the Chinese gooseberry, its older name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chinese"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +609,49 @@
     "text": "Rebuttal changes character's loudness",
     "enumeration": "10"
    },
-   "solution": "REFUTATION"
+   "solution": "REFUTATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rebuttal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "changes",
+       "at": 9,
+       "note": "one letter is swapped for another, here altering the musical volume marking"
+      }
+     ],
+     "parts": [
+      {
+       "words": "character's",
+       "at": 17,
+       "gives": "REPUTATION",
+       "note": "a person's character is their reputation"
+      },
+      {
+       "gives": "P"
+      },
+      {
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebuttal that alters how loud a character speaks.",
+     "walkthrough": "In music P (piano) means soft and F (forte) loud; changing the loudness swaps P for F in REPUTATION.",
+     "definitionFit": "A refutation is an argument that disproves a claim, a rebuttal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loudness"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +665,53 @@
     "text": "Gin and tonic opening conversation",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 14,
+         "note": "the opening of a word is its first letter, taken here from tonic"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tonic",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "conversation",
+       "at": 22,
+       "gives": "RAP",
+       "note": "rap is slang for talk or chat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gin and tonic starts a conversation at a party.",
+     "walkthrough": "'Gin' is not the drink but a snare, as in a gin trap; 'and' is a link.",
+     "definitionFit": "A gin is a snare for catching animals, a kind of trap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gin"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +725,36 @@
     "text": "Work part–time, maybe",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0,
+      "meaning": "a work of art or music, such as a piano composition"
+     },
+     {
+      "text": "part",
+      "at": 5,
+      "meaning": "a portion or fragment of something"
+     },
+     {
+      "text": "time, maybe",
+      "at": 10,
+      "meaning": "a clock or watch, a timepiece, is a kind of instrument for time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The dash makes 'part-time' look like one word, but it is two definitions; the third is timepiece, of which 'time, maybe' is an example.",
+     "definitionFit": "A composition is a piece, a fragment is a piece, and a watch is a timepiece, so all three fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "part–time"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +768,42 @@
     "text": "In favour of proposal for raising level",
     "enumeration": "9"
    },
-   "solution": "PROMOTION"
+   "solution": "PROMOTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "raising level",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In favour of",
+       "at": 0,
+       "gives": "PRO",
+       "note": "pro means in favour of"
+      },
+      {
+       "words": "proposal",
+       "at": 13,
+       "gives": "MOTION",
+       "note": "a motion is a proposal put to a meeting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a proposal to raise the standard.",
+     "walkthrough": "'for' is a link.",
+     "definitionFit": "A promotion lifts someone to a higher rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "proposal"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +817,45 @@
     "text": "Deserted Bond left terribly bloodstained",
     "enumeration": "8"
    },
-   "solution": "ISOLATED"
+   "solution": "ISOLATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deserted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "left terribly",
+       "at": 14,
+       "note": "the word Bond is left out and the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bloodstained",
+       "at": 28
+      },
+      {
+       "words": "Bond",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond abandoned, alone and covered in blood.",
+     "walkthrough": "Take B, O, N, D out of BLOODSTAINED: 'left' removes them and 'terribly' rearranges what is left, LOSTAIED.",
+     "definitionFit": "A deserted place is cut off and alone, remote from others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +869,58 @@
     "text": "Black vote halved after very large swing",
     "enumeration": "9"
    },
-   "solution": "OSCILLATE"
+   "solution": "OSCILLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swing",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very large",
+       "at": 24,
+       "gives": "OS",
+       "note": "OS is the clothing-size abbreviation for outsize"
+      },
+      {
+       "words": "Black",
+       "at": 0,
+       "gives": "CILLA",
+       "note": "Cilla Black, the British singer and TV presenter"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "halved",
+         "at": 11,
+         "note": "only the last half of the word vote is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vote",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A large shift in the black vote, reduced by half.",
+     "walkthrough": "'after' places the singer and the half-vote behind the size label. Cilla Black was a British pop singer and presenter of TV's Blind Date; OS (outsize) marks very large clothing.",
+     "definitionFit": "To oscillate is to move back and forth, as a pendulum does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Black"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +934,49 @@
     "text": "Tablet maybe stuck in rising star",
     "enumeration": "8"
    },
-   "solution": "COMPUTER"
+   "solution": "COMPUTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tablet maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "the word for stuck goes inside the word for rising star"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rising star",
+       "at": 22,
+       "gives": "COMER",
+       "note": "an up-and-comer, a comer, is someone on the rise"
+      },
+      {
+       "words": "stuck",
+       "at": 13,
+       "gives": "PUT",
+       "note": "stuck it there means put it there"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pill caught inside a celebrity on the up.",
+     "walkthrough": "'Tablet' looks like a pill, but it is the handheld device, a definition by example.",
+     "definitionFit": "A tablet is one kind of portable electronic machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tablet"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +990,35 @@
     "text": "Issue puzzle that is hard to teach",
     "enumeration": "7"
    },
-   "solution": "PROBLEM"
+   "solution": "PROBLEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0,
+      "meaning": "a matter of difficulty or concern"
+     },
+     {
+      "text": "puzzle",
+      "at": 6,
+      "meaning": "a question to be worked out, as in a chess or maths exercise"
+     },
+     {
+      "text": "hard to teach",
+      "at": 21,
+      "meaning": "used as an adjective, as in a difficult child at school"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'that is' is a link; the third sense is the adjective, as in a 'problem child'.",
+     "definitionFit": "A difficulty, a teaser to solve, and an adjective for an unruly pupil all share the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1032,43 @@
     "text": "Cheerleader has warm fleece",
     "enumeration": "5"
    },
-   "solution": "CHEAT"
+   "solution": "CHEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fleece",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cheerleader",
+       "at": 0,
+       "gives": "C",
+       "note": "the leader of cheer is its first letter, C"
+      },
+      {
+       "words": "warm",
+       "at": 16,
+       "gives": "HEAT",
+       "note": "warm gives heat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerleader wears a warm fleece jacket.",
+     "walkthrough": "'Cheerleader' is not a pom-pom waver but the leading letter of 'cheer'; 'fleece' is the verb, to swindle, and 'has' is a link.",
+     "definitionFit": "To fleece someone is to swindle them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fleece"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1082,40 @@
     "text": "Laciest design is stretchy",
     "enumeration": "7"
    },
-   "solution": "ELASTIC"
+   "solution": "ELASTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stretchy",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "design",
+       "at": 8,
+       "note": "the letters are designed afresh into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Laciest",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The laciest lingerie design is elastic.",
+     "walkthrough": "'design' rearranges LACIEST; 'is' is a link.",
+     "definitionFit": "Elastic material springs back after being pulled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1135,42 @@
      }
     ]
    },
-   "solution": "GOGO"
+   "solution": "GOGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dancing",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Turns",
+       "at": 0,
+       "gives": "GO",
+       "note": "a turn in a game is a go"
+      },
+      {
+       "words": "Turns",
+       "at": 0,
+       "gives": "GO",
+       "note": "the plural gives a second go"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes turns at the dance floor.",
+     "walkthrough": "'to' is a link; go-go dancing is lively dancing in a club.",
+     "definitionFit": "Go-go describes energetic disco dancing, as by go-go dancers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turns"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1184,61 @@
     "text": "Excellence of fish I like with head off",
     "enumeration": "10"
    },
-   "solution": "BRILLIANCY"
+   "solution": "BRILLIANCY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excellence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fish",
+       "at": 14,
+       "gives": "BRILL",
+       "note": "brill is a flatfish"
+      },
+      {
+       "words": "I",
+       "at": 19
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with head off",
+         "at": 26,
+         "note": "the first letter of the word is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "like",
+         "at": 21,
+         "gives": "FANCY",
+         "note": "to like something is to fancy it"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Admiring the quality of a fish that has had its head removed.",
+     "walkthrough": "'with head off' takes F from FANCY, leaving ANCY.",
+     "definitionFit": "Brilliancy is outstanding skill or brightness, chess's term for a dazzling game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1252,40 @@
     "text": "Begin wild fling",
     "enumeration": "5"
    },
-   "solution": "BINGE"
+   "solution": "BINGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fling",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wild",
+       "at": 6,
+       "note": "letters running wild are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Begin",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Begin a wild fling.",
+     "walkthrough": "'wild' rearranges BEGIN.",
+     "definitionFit": "A binge is a spell of excess, a fling of indulgence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1299,34 @@
     "text": "Mind game involves checking on board",
     "enumeration": "5"
    },
-   "solution": "CHESS"
+   "solution": "CHESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mind game involves checking on board",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Mind game involves checking on board",
+       "at": 0,
+       "note": "a cerebral contest played on a board where one puts the opponent's king in check"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Chess is the board game of strategy in which a king is put in check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "checking"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1340,49 @@
     "text": "Bird portion's coating poorly prepared",
     "enumeration": "7"
    },
-   "solution": "WILLING"
+   "solution": "WILLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prepared",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coating",
+       "at": 15,
+       "note": "the first word coats or surrounds the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bird portion's",
+       "at": 0,
+       "gives": "WING",
+       "note": "a wing is part of a bird"
+      },
+      {
+       "words": "poorly",
+       "at": 23,
+       "gives": "ILL",
+       "note": "poorly means ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poorly prepared coating on a portion of chicken.",
+     "walkthrough": "'coating' signals one word wrapped round another; 'prepared' means ready and keen, not cooked as the bird surface implies.",
+     "definitionFit": "Being willing means being ready and happy to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1396,41 @@
     "text": "Move to act less weirdly",
     "enumeration": "7"
    },
-   "solution": "CASTLES"
+   "solution": "CASTLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "weirdly",
+       "at": 17,
+       "note": "letters set out weirdly are rearranged into an odd new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "act less",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to move so as to act less strangely.",
+     "walkthrough": "'weirdly' rearranges ACT LESS; 'to' is a link. In chess, a king castles.",
+     "definitionFit": "Castling is a chess move with king and rook; the blogger thinks the clue wanted 'Moves'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Move"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1444,30 @@
     "text": "Less sensitive character",
     "enumeration": "6"
    },
-   "solution": "NUMBER"
+   "solution": "NUMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Less sensitive",
+      "at": 0,
+      "meaning": "more numb, as a frozen finger"
+     },
+     {
+      "text": "character",
+      "at": 15,
+      "meaning": "a written symbol such as a digit"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Numb-er means having less feeling, and a numeral is a character, so the one spelling fits both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1481,41 @@
     "text": "Traces wrong answers",
     "enumeration": "6"
    },
-   "solution": "REACTS"
+   "solution": "REACTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "answers",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wrong",
+       "at": 7,
+       "note": "the letters go wrong and come out in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Traces",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone traces wrong answers on a test.",
+     "walkthrough": "'wrong' rearranges TRACES.",
+     "definitionFit": "Answers in the verb sense means responds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "answers"
+    }
+   }
   }
  ]
 }
