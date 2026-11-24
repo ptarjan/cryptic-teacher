@@ -645,7 +645,10 @@ def _kept(path, trove=False):
                 if hit and hit[0] == key:
                     return hit[4]
                 done, lines, held = 0, 0, {}
-                if hit and hit[0][0] == key[0] and hit[1] <= st.st_size and _edges(f, hit[1]) == hit[2]:
+                # No inode in the test: a ledger on a network mount gets a new one at each mount, and
+                # the saved state is then not trusted and the whole ledger parsed again (~90 MB per
+                # process). The hashed edges of the consumed bytes are what say it is the same file.
+                if hit and hit[1] <= st.st_size and _edges(f, hit[1]) == hit[2]:
                     done, lines, held = hit[1], hit[3], dict(hit[4])
                 f.seek(done)
                 name = Path(path).name

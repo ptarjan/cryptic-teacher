@@ -353,6 +353,28 @@ check("a caller's list edits do not leak into the cache", 5, len(q.jsonl_rows(jl
 jl.unlink()
 check("a deleted file has no rows", [], q.jsonl_rows(jl))
 
+# A ledger on a network mount gets a new inode at every mount: the same bytes
+# (same size and mtime, edges standing) are not parsed again, and an append
+# after it parses only the new line.
+led = Path(tmp) / "kept-ledger.jsonl"
+led.write_text('{"edition": "e1", "verdicts": [{"id": "times-1"}]}\n')
+q._kept(str(led))
+parsed = []
+_parse_line = q.parse_line
+q.parse_line = lambda line, where: (parsed.append(line), _parse_line(line, where))[1]
+st = os.stat(led)
+moved = Path(tmp) / "kept-ledger.moved"
+shutil.copyfile(led, moved)
+os.utime(moved, ns=(st.st_atime_ns, st.st_mtime_ns))
+os.replace(moved, led)
+check("a ledger with a new inode and the same bytes is not parsed again", ({"times-1"}, 0),
+      (set(q._kept(str(led))), len(parsed)))
+with open(led, "a") as f:
+    f.write('{"edition": "e2", "verdicts": [{"id": "times-2"}]}\n')
+check("...and an append after it parses just the new line", ({"times-1", "times-2"}, 1),
+      (set(q._kept(str(led))), len(parsed)))
+q.parse_line = _parse_line
+
 print(f"FAILS {fails}")
 
 if fails:
