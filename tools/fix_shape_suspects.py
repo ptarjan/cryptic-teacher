@@ -131,12 +131,12 @@ from fix_shape_indicators import (
 )
 from fix_shape_container import (
     _literal_pool, _inside_reading, r_container_inside, _holder_nest, r_nested_container, BOTH_ENDS,
-    _cut_options, r_container_cut, r_extremes_outer, r_pool_outer, r_pool_gap, _has_letters,
+    _cut_options, r_container_cut, r_extremes_outer, r_extremes_pair, r_pool_outer, r_pool_gap, _has_letters,
     _eject_candidates, r_pool_absorb, r_pool_eject, _GAP_STOP, _span_of, r_container_gap, r_reversal_split,
     r_nested_same_op, r_del_wraps_charade,
 )
 from fix_shape_cuts import (
-    r_sel_one_letter, SEL_FIRST, SEL_LAST, _SEL_PHRASE, _SELW, _SEL_PAIR, _del_selection_pair,
+    r_sel_one_letter, r_sel_one_link, SEL_FIRST, SEL_LAST, _SEL_PHRASE, _SELW, _SEL_PAIR, _del_selection_pair,
     r_del_selection, _at_named_end, r_deletion_inside, _cut_of, r_del_single, r_halved_deletion, r_trim_selection,
     r_moved_letter, _CUT_PUNCT, _CUT_LINKS, _cut_note_fulls, r_cut_note_leaf, r_del_one_piece, _single_pick,
     r_repeated_selection, r_sel_edge, r_leaf_select,
@@ -163,9 +163,10 @@ def r_wrong_role(node, parent, ctx):
     """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
     the wrong one of two nested ops (r_role_swap), a selection indicator hung on a one-letter word
     (r_sel_one_letter)."""
-    return r_leaf_fold(node, parent, ctx) or r_extremes_outer(node, parent, ctx) \
+    return r_leaf_fold(node, parent, ctx) or r_extremes_outer(node, parent, ctx) or r_extremes_pair(node, parent, ctx) \
         or r_role_swap(node, parent, ctx) or r_ind_trade(node, parent, ctx) \
-        or r_container_cut(node, parent, ctx) or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx)
+        or r_container_cut(node, parent, ctx) or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx) \
+        or r_sel_one_link(node, parent, ctx)
 
 
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,

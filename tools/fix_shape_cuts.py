@@ -64,6 +64,32 @@ def r_sel_one_letter(node, parent, ctx):
     return node
 
 
+def r_sel_one_link(node, parent, ctx):
+    """A selection op over a one-letter word whose indicator belongs to no other leaf (first<initially>([A])
+    in "A large number initially employed in", last<tail>([a]) in "fish with a tail"): picking from one
+    letter changes nothing, so the word is a plain leaf and the indicator is the plain charade's link
+    word. Only inside a charade (its other pieces keep their places) and only when the op's letters are
+    the word's own, so the tree gives the answer exactly as before."""
+    parts = node.get("parts") or []
+    if node.get("op") not in W.SELECT or node.get("unchecked") or len(parts) != 1 or not leaf(parts[0]) \
+            or len(node.get("indicators") or []) != 1 or not V.selection_of_one_letter(node):
+        return None
+    if parent is None or parent.get("op") != "charade" or parent.get("unchecked") or id(node) in ctx["under_unchecked"]:
+        return None
+    src = parts[0]
+    own = W.letters(src.get("words"))
+    if src.get("unchecked") or W.letters(src.get("gives") or own) != own or own not in (vals(node) or ()):
+        return None
+    plain = {k: v for k, v in src.items() if k != "gives"}
+    plain["gives"] = own
+    ind = copy.deepcopy(node["indicators"][0])
+    node.clear()
+    node.update(plain)
+    inds = [*(parent.get("indicators") or []), ind]
+    parent["indicators"] = sorted(inds, key=lambda i: i["at"] if isinstance(i.get("at"), int) else 0)
+    return node
+
+
 SEL_FIRST = ("beginning", "start", "first", "initial", "opening", "head", "front")
 
 SEL_LAST = ("end", "last", "tail", "finish", "close")
@@ -659,6 +685,18 @@ def r_leaf_select(node, parent, ctx):
         src = {"words": rest, "at": node["at"] + ri}
         if si < 0 or ri < 0 or g not in (vals({"op": op, "parts": [src]}) or ()):
             continue
+        if len(W.letters(rest)) == 1:
+            # picking from one letter changes nothing (the validator's selectionOfOneLetter): the selector
+            # is the charade's link word, as in charade<tail>([fish]COD, [a]A)
+            if (parent or {}).get("op") != "charade" or parent.get("unchecked") or id(node) in ctx["under_unchecked"] \
+                    or W.letters(rest) != g:
+                return None
+            ind = {"text": sel.strip(" ,"), "at": node["at"] + si}
+            if node.get("note"):
+                ind["note"] = node["note"]
+            parent["indicators"] = sorted([*(parent.get("indicators") or []), ind],
+                                          key=lambda i: i["at"] if isinstance(i.get("at"), int) else 0)
+            return {"words": rest, "at": node["at"] + ri, "gives": g}
         if node.get("note"):
             src["note"] = node["note"]
         return {"op": op, "indicators": [{"text": sel.strip(" ,"), "at": node["at"] + si}], "parts": [src]}

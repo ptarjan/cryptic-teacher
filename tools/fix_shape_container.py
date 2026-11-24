@@ -210,6 +210,32 @@ def r_extremes_outer(node, parent, ctx):
     return new
 
 
+def r_extremes_pair(node, parent, ctx):
+    """A charade with a first op and a last op side by side over the same one source and each carrying
+    the same both-ends indicator ('the edges of' tragedy filed as first<the edges of>(tragedy) +
+    last<the edges of>(tragedy) for T + Y): the two are one outer op, which picks both ends. Kept only
+    when the whole tree still gives the answer."""
+    parts = node.get("parts") or []
+    if node.get("op") != "charade" or node.get("unchecked") or id(node) in ctx["under_unchecked"]:
+        return None
+    for k in range(len(parts) - 1):
+        a, b = parts[k], parts[k + 1]
+        if a.get("op") != "first" or b.get("op") != "last" or a.get("unchecked") or b.get("unchecked"):
+            continue
+        ia, ib = a.get("indicators") or [], b.get("indicators") or []
+        if len(ia) != 1 or len(ib) != 1 or len(a.get("parts") or []) != 1 or len(b.get("parts") or []) != 1 \
+                or ia[0].get("text") != ib[0].get("text") or ia[0].get("at") != ib[0].get("at") \
+                or not V.EXTREMES_WORD.search(ia[0].get("text") or ""):
+            continue
+        sa, sb = a["parts"][0], b["parts"][0]
+        if not leaf(sa) or not leaf(sb) or sa.get("words") != sb.get("words") or sa.get("at") != sb.get("at"):
+            continue
+        new = copy.deepcopy(node)
+        new["parts"][k:k + 2] = [{"op": "outer", "indicators": copy.deepcopy(ia), "parts": [copy.deepcopy(sa)]}]
+        return new if _eval_swapped(node, parent, new, ctx) else None
+    return None
+
+
 def r_pool_outer(node, parent, ctx):
     """poolGap, a container filed over the anagram alone: rake embraced by whore = ins<embraced by>(ana<dishevelled>(rake,
     SHAG)) for SHAKERAG. One fodder piece is really the other arm of the container, so it leaves the pool

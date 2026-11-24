@@ -26,6 +26,7 @@ from validate_shape_folds import (
     MISPLACED_INDICATOR, nested_containers, ANAGRAM_SYNONYM, anagram_synonyms, MIDWORD_LEAF, midword_leaves,
     wrong_role_indicators, misplaced_indicators,
 )
+from validate_shape_folds import DELETION_LEAF_WORD
 from validate_shape_inside import (
     BARE_INITIAL, DELETION_SCOPE, WRONG_ROLE, CONTAINER_INSIDE, DELETION_INSIDE, UNINDICATED_BARE,
     SHARED_INDICATOR, HALF_LEAF, DELETION_SCATTERED, REVERSE_PHRASE, bare_initials,
@@ -310,8 +311,17 @@ def shape_warnings(tag, ann, clue=None, answer=None):
         out.append(f"{tag}: {k} {DELETION_SCOPE}: an end-cutting indicator acts on the one piece it "
                    f"follows, del(piece, letters) inside the charade")
     if k := wrong_role_indicators(tree):
+        # "Lacking gravity this Dickensian would be uncouth" (RUDGE): the clue runs backwards, the cut
+        # word is a cut word and no insertion word, so it cannot be the ins indicator
+        backwards = any(n.get("op") in ("container", "insertion") and not n.get("unchecked")
+                        and any(DELETION_LEAF_WORD.search(i.get("text") or "") for i in n.get("indicators") or [])
+                        for n in _walk(tree))
         out.append(f"{tag}: {k} {WRONG_ROLE}: put each indicator on the op it signals (a reversal "
-                   f"word on rev<...>, a container word on ins<...>, an anagram word on ana<...>)")
+                   f"word on rev<...>, a container word on ins<...>, an anagram word on ana<...>)"
+                   + (". A cut word (lacking, ignored, without) on ins means the clue runs backwards, the answer "
+                      "less the piece being the held word's: the cut word goes in the leaf of the piece that goes "
+                      "in, ins<would be>([uncouth]RUDE, [Lacking gravity]G), and a link word of the clue "
+                      "('would be', 'gives') is the ins indicator" if backwards else ""))
     if k := deletion_inside_component(tree, clue, answer):
         out.append(f"{tag}: {k} {DELETION_INSIDE}: the indicator acts on the one piece it sits by, "
                    f"del(piece, letters) inside the charade; add no piece only to remove it")

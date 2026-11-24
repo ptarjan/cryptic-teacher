@@ -3,6 +3,7 @@
 # parts 1+3 when the letters say so and no other reading spells the answer.
 #
 #     python3 tests/test_fix_shape_suspects.py
+import copy
 import sys
 import _path  # puts tools/ on sys.path
 
@@ -220,7 +221,7 @@ sw3 = {"op": "charade", "parts": [
     {"op": "first", "indicators": [{"text": "lead from"}], "parts": [{"words": "a"}]},
     {"words": "Monica", "gives": "X"}]}
 new, used = F.repair_tree(sw3, sc, "AX", {"wrongRole": F.r_wrong_role})
-check("no neighbour whose pick matches: left for the model", used == [])
+check("no neighbour whose pick matches: the vacuous pick is a link word", used == ["wrongRole"] and new["parts"][0] == {"words": "a", "gives": "A"} and new["indicators"][0]["text"] == "lead from")
 # a cut by a table abbreviation inside a folded deletion leaf (dive, leaving five -> DIE)
 fc = "Mistake during dive, leaving five engineers behind"
 fl = {"op": "charade", "parts": [{"words": "dive, leaving five", "gives": "DIE", "at": fc.index("dive")}]}
@@ -866,6 +867,41 @@ check("a leaf grown by the indicator's first word moves the indicator on",
 lf, ind = {"words": "go crazy", "at": 11}, {"text": "go", "at": 3}
 FN._replace_places(lf, ind, False, ["x", "go"], "In Bethel, they go crazy")
 check("a place that no longer spells its text is dropped", "at" not in ind)
+
+# wrongRole, a selection over one letter ("A large number initially employed in" = HOST + A, ftcryptic-style
+# first<initially>([A])): the word is a plain leaf, the selector the charade's link word.
+clue5 = "A large number initially employed in Japanese plant"
+one = {"op": "charade", "parts": [{"words": "large number", "gives": "HOST", "at": 2},
+       {"op": "first", "indicators": [{"text": "initially", "at": 15, "note": "the first letter"}],
+        "parts": [{"words": "A", "at": 0}]}]}
+new, used = F.repair_tree(one, clue5, "HOSTA", {"wrongRole": F.r_wrong_role})
+check("a pick from one letter is a plain leaf and a link word", used == ["wrongRole"]
+      and new["parts"][1] == {"words": "A", "at": 0, "gives": "A"}
+      and [i["text"] for i in new["indicators"]] == ["initially"] and not V.wrong_role_indicators(new))
+# outside a charade the pick stays as the model wrote it
+alone = {"op": "container", "parts": [{"words": "large number", "gives": "HOST"}, copy.deepcopy(one["parts"][1])]}
+check("a one-letter pick outside a charade is left", F.r_sel_one_link(alone["parts"][1], alone,
+      {"under_unchecked": set()}) is None)
+# selectorInLeaf must not make that pick itself ("fish with a tail" = COD + A, a leaf "a tail")
+clue6 = "Novel ending for fish with a tail"
+tl = {"op": "charade", "parts": [{"words": "fish", "gives": "COD", "at": 17}, {"words": "a tail", "gives": "A", "at": 27}]}
+new, used = F.repair_tree(tl, clue6, "CODA", {"selectorInLeaf": F.r_leaf_select})
+check("a selector leaf over one letter becomes a link word", used == ["selectorInLeaf"]
+      and new["parts"][1]["words"] == "a" and new["indicators"][0]["text"] == "tail" and not V.selection_of_one_letter(new))
+# first + last of one word under one both-ends indicator are one outer op (ftcryptic-8849 HONESTY)
+clue7 = "Telling the truth sharpens the edges of tragedy"
+pair = {"op": "charade", "parts": [{"words": "sharpens", "gives": "HONES", "at": 18},
+        {"op": "first", "indicators": [{"text": "the edges of", "at": 27, "note": "both ends"}], "parts": [{"words": "tragedy", "at": 40}]},
+        {"op": "last", "indicators": [{"text": "the edges of", "at": 27}], "parts": [{"words": "tragedy", "at": 40}]}]}
+new, used = F.repair_tree(pair, clue7, "HONESTY", {"wrongRole": F.r_wrong_role})
+check("first + last under 'the edges of' is one outer", used == ["wrongRole"] and len(new["parts"]) == 2
+      and new["parts"][1]["op"] == "outer" and new["parts"][1]["indicators"][0]["note"] == "both ends")
+
+# a cut word as the ins indicator (times-13731 1a RUDGE): the refusal says the clue runs backwards
+rudge = {"op": "container", "indicators": [{"text": "Lacking", "at": 0, "note": "n"}], "parts": [
+    {"words": "uncouth", "gives": "RUDE", "at": 41, "note": "n"}, {"words": "gravity", "gives": "G", "at": 8, "note": "n"}]}
+msgs = V.shape_warnings("1A", {"wordplay": rudge, "definitions": []}, "Lacking gravity this Dickensian would be uncouth", "RUDGE")
+check("a cut word on ins is told the clue runs backwards", any("runs backwards" in m for m in msgs))
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
