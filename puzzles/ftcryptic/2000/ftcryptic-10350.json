@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,67 @@
     "text": "Spanish shop selling wine with a lot of body, mature, rounded",
     "enumeration": "6"
    },
-   "solution": "BODEGA"
+   "solution": "BODEGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish shop selling wine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 31,
+         "note": "a lot of the word, but not all of it: the clue word body loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "body",
+         "at": 40
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rounded",
+         "at": 54,
+         "note": "rounded as in turned round, so the word for mature is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mature",
+         "at": 46,
+         "gives": "AGE",
+         "note": "to mature is to age"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish wine shop praises a full-bodied, well-aged, rounded red.",
+     "walkthrough": "'a lot of' drops the last letter; 'rounded' turns the age word round. Body, mature and rounded read as wine-tasting terms, but each does mechanical work.",
+     "definitionFit": "A bodega is a Spanish wine cellar or small grocery that sells wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rounded"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +108,46 @@
     "text": "French cheese contains new preservative fluid",
     "enumeration": "5"
    },
-   "solution": "BRINE"
+   "solution": "BRINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "preservative fluid",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 14,
+       "note": "the cheese holds the next piece within it, a container signal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French cheese",
+       "at": 0,
+       "gives": "BRIE",
+       "note": "Brie is a soft French cheese"
+      },
+      {
+       "words": "new",
+       "at": 23,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French cheese is said to be packed with a liquid that keeps it fresh.",
+     "definitionFit": "Salt water, used for pickling and keeping food, is a preserving liquid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +161,41 @@
     "text": "Carefully pours out sand etc and ends act drunk",
     "enumeration": "7"
    },
-   "solution": "DECANTS"
+   "solution": "DECANTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carefully pours out sand etc",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 42,
+       "note": "drunk suggests something reeling and disordered, so the letters of ends act are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ends act",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tipsy is pouring sand about carelessly at the close of a performance.",
+     "walkthrough": "'drunk' signals an anagram of ENDS ACT. The letters of 'sand etc' rearrange to the same answer too, a bonus inside the definition.",
+     "definitionFit": "To decant is to pour gently from one container to another, leaving sediment behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +215,58 @@
      }
     ]
    },
-   "solution": "GINGERALE"
+   "solution": "GINGERALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spirit",
+       "at": 6,
+       "gives": "GIN",
+       "note": "gin is a spirit"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 20,
+         "note": "only half the word German is used, its first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "German",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "beer",
+       "at": 35,
+       "gives": "ALE",
+       "note": "ale is a type of beer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone orders a spirit alongside half a German beer.",
+     "walkthrough": "'half of' keeps GER from German.",
+     "definitionFit": "Ginger ale is a fizzy soft drink flavoured with ginger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +280,60 @@
     "text": "Caught one on board making plain cakes",
     "enumeration": "6"
    },
-   "solution": "SCONES"
+   "solution": "SCONES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plain cakes",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 11,
+       "note": "on board means aboard a ship, so the steamship letters surround the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "board",
+       "at": 14,
+       "gives": "SS",
+       "note": "a ship is written SS (steamship) in crosswords, and being on board means inside it"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Caught",
+         "at": 0,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        },
+        {
+         "words": "one",
+         "at": 7,
+         "gives": "ONE",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has been caught bringing a snack aboard a ship.",
+     "walkthrough": "'on board' means aboard a ship, written as the steamship abbreviation around the other pieces. Scones are small British teatime cakes, often served with jam and cream.",
+     "definitionFit": "Scones are simple unsweetened or lightly sweetened baked teatime cakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +347,57 @@
     "text": "Initially customers really enjoy summer salads with this ingredient",
     "enumeration": "5"
    },
-   "solution": "CRESS"
+   "solution": "CRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Initially customers really enjoy summer salads with this ingredient",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Initially",
+       "at": 0,
+       "note": "initially means take the opening letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "customers",
+       "at": 10
+      },
+      {
+       "words": "really",
+       "at": 20
+      },
+      {
+       "words": "enjoy",
+       "at": 27
+      },
+      {
+       "words": "summer",
+       "at": 33
+      },
+      {
+       "words": "salads",
+       "at": 40
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Diners are said to love summer salads containing a particular leaf.",
+     "walkthrough": "'Initially' takes the first letters of customers, really, enjoy, summer, salads; the whole clue also describes the answer as a salad ingredient.",
+     "definitionFit": "Cress is a peppery green leaf commonly added to salads and sandwiches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +411,42 @@
     "text": "Beans go off in for example Arab's food container",
     "enumeration": "7"
    },
-   "solution": "NOSEBAG"
+   "solution": "NOSEBAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for example Arab's food container",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 9,
+       "note": "off as in gone bad or out of order, telling us to rearrange the letters of beans go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Beans go",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some beans have gone bad inside an Arab's lunch box.",
+     "walkthrough": "'off' signals the anagram of BEANS GO. The Arab here is a horse breed, not a person, which is why its food comes in a bag hung on its head.",
+     "definitionFit": "A nosebag is a feed bag strapped over a horse's muzzle, and an Arab is a breed of horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Arab's"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +460,40 @@
     "text": "Dessert based on biscuit dough needs not long to harden",
     "enumeration": "9"
    },
-   "solution": "SHORTCAKE"
+   "solution": "SHORTCAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dessert based on biscuit dough",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not long",
+       "at": 37,
+       "gives": "SHORT",
+       "note": "short is the opposite of long"
+      },
+      {
+       "words": "to harden",
+       "at": 46,
+       "gives": "CAKE",
+       "note": "to cake is to form a hard crust or set solid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook explains that a biscuit-based pudding needs only a short time to set.",
+     "definitionFit": "Shortcake is a dessert of crumbly biscuit topped with fruit and cream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +507,30 @@
     "text": "It's affected chopping up of meat",
     "enumeration": "7"
    },
-   "solution": "MINCING"
+   "solution": "MINCING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "affected",
+      "at": 5,
+      "meaning": "affected means pretentious or dainty in manner, as a walk or speech can be"
+     },
+     {
+      "text": "chopping up of meat",
+      "at": 14,
+      "meaning": "the act of cutting meat into very small pieces in a grinder"
+     }
+    ],
+    "explanation": {
+     "surface": "A butcher's prissy manner is likened to grinding beef.",
+     "definitionFit": "A dainty, over-refined walk is described with this word, which is also the act of finely chopping meat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +550,41 @@
      }
     ]
    },
-   "solution": "TEASHOP"
+   "solution": "TEASHOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place for drinks and refreshment",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "resort",
+       "at": 9,
+       "note": "resort read as re-sort, to sort again, so the letters of hopes at are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hopes at",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaymakers at a seaside resort hope to find a café.",
+     "walkthrough": "'resort' looks like a holiday town but means re-sort: rearrange HOPES AT.",
+     "definitionFit": "A tea shop is a small café serving tea, cakes and light meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +598,41 @@
     "text": "Edible molluscs, slow movers in France, get across if cooked",
     "enumeration": "9"
    },
-   "solution": "ESCARGOTS"
+   "solution": "ESCARGOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Edible molluscs, slow movers in France",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 54,
+       "note": "cooked suggests something altered or prepared, so get across is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "get across",
+       "at": 40
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French recipe for snails, a slow-moving dish, if you can get across the kitchen.",
+     "walkthrough": "'cooked' signals the anagram of GET ACROSS.",
+     "definitionFit": "Snails eaten as food, especially in French cuisine with garlic butter, go by this French name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +646,55 @@
     "text": "Corporate festive occasions have been pronounced slap-up meals",
     "enumeration": "10"
    },
-   "solution": "BEANFEASTS"
+   "solution": "BEANFEASTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Corporate festive occasions",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BEAN",
+       "indicators": [
+        {
+         "text": "pronounced",
+         "at": 38,
+         "note": "pronounced says the word is spoken, so we take its sound not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "been",
+         "at": 33,
+         "gives": "BEEN",
+         "note": "the clue word been spoken aloud matches a vegetable's name"
+        }
+       ]
+      },
+      {
+       "words": "slap-up meals",
+       "at": 49,
+       "gives": "FEASTS",
+       "note": "a slap-up meal is a lavish one, a feast"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office parties are reported to have involved lavish dinners.",
+     "walkthrough": "'pronounced' turns BEEN into its sound-alike BEAN. A beanfeast (beano) is British slang for a works outing or celebration.",
+     "definitionFit": "A beanfeast was traditionally an annual dinner an employer gave staff, now any jolly celebration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "been"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +708,49 @@
     "text": "Eat into light meal (or live without it)",
     "enumeration": "4"
    },
-   "solution": "BITE"
+   "solution": "BITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eat into",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 29,
+       "note": "without in its old sense of outside, so one word goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "live",
+       "at": 24,
+       "gives": "BE",
+       "note": "to live is to be, to exist"
+      },
+      {
+       "words": "it",
+       "at": 37,
+       "gives": "IT",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter nibbles a snack, or manages without it.",
+     "walkthrough": "'without' is used in its old sense of outside. 'light meal' is a second definition of the same word.",
+     "definitionFit": "To bite into something is to cut into it with the teeth; a bite is also a snack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +764,39 @@
     "text": "Finished with a dish popular in S. Europe",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dish popular in S. Europe",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Finished",
+       "at": 0,
+       "gives": "PAST",
+       "note": "something finished is over, in the past"
+      },
+      {
+       "words": "a",
+       "at": 14,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has finished a plate of a southern European favourite.",
+     "definitionFit": "Noodles such as spaghetti and penne, central to Italian cooking, make this dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +810,45 @@
     "text": "Prepare coffee for every company delayed",
     "enumeration": "9"
    },
-   "solution": "PERCOLATE"
+   "solution": "PERCOLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prepare coffee",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for every",
+       "at": 15,
+       "gives": "PER",
+       "note": "per means for each, as in miles per hour"
+      },
+      {
+       "words": "company",
+       "at": 25,
+       "gives": "CO"
+      },
+      {
+       "words": "delayed",
+       "at": 33,
+       "gives": "LATE",
+       "note": "something delayed is late"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An office making coffee for every member of staff is running late.",
+     "definitionFit": "To brew coffee by passing hot water repeatedly through the grounds is this process."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +862,41 @@
     "text": "The spirit in which each year Magna Carta is celebrated?",
     "enumeration": "8"
    },
-   "solution": "ARMAGNAC"
+   "solution": "ARMAGNAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The spirit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in which",
+       "at": 11,
+       "note": "the answer sits inside the following words, spanning their joins"
+      }
+     ],
+     "parts": [
+      {
+       "words": "each year Magna Carta",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the drink used each year to toast the charter of 1215.",
+     "walkthrough": "The answer runs through 'yeAR MAGNA Carta'. Magna Carta is the English charter of liberties sealed in 1215.",
+     "definitionFit": "Armagnac is a brandy from Gascony in south-west France, a distilled spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +910,40 @@
     "text": "Cook in oven with very small flap",
     "enumeration": "9"
    },
-   "solution": "MICROWAVE"
+   "solution": "MICROWAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cook in oven",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very small",
+       "at": 18,
+       "gives": "MICRO",
+       "note": "micro means tiny, as in microscopic"
+      },
+      {
+       "words": "flap",
+       "at": 29,
+       "gives": "WAVE",
+       "note": "to flap a hand is to wave it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cooks with a tiny oven door that flaps.",
+     "definitionFit": "To heat food quickly in an appliance using electromagnetic radiation is this verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +963,58 @@
      }
     ]
    },
-   "solution": "FRIEDEGG"
+   "solution": "FRIEDEGG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of breakfast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "at": 30,
+       "note": "is in tells us one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 36,
+         "note": "new suggests a fresh arrangement of the letters of fridge"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fridge",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "words": "for example",
+       "at": 18,
+       "gives": "EG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An item for the morning meal is waiting in a new refrigerator.",
+     "walkthrough": "'new' scrambles the appliance's letters and 'is in' places the abbreviation inside them, splitting the scramble after its fifth letter.",
+     "definitionFit": "An egg cooked in a pan of hot fat is a staple of the cooked breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fridge"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1028,57 @@
     "text": "Concentrated essence is unusually beginning to clarify on time",
     "enumeration": "7"
    },
-   "solution": "EXTRACT"
+   "solution": "EXTRACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Concentrated essence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unusually",
+       "at": 24,
+       "gives": "EXTRA",
+       "note": "extra means unusually, as in extra careful"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 34,
+         "note": "only the opening letter of clarify is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clarify",
+         "at": 47
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 58,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distilled flavouring is said to start clearing up remarkably fast.",
+     "walkthrough": "'beginning to' takes C from clarify. 'unusually' looks like an anagram signal but supplies EXTRA.",
+     "definitionFit": "Vanilla or meat extract is a concentrated preparation drawn from a substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unusually"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1092,58 @@
     "text": "Worry about first slice of venison that's cut",
     "enumeration": "5"
    },
-   "solution": "CARVE"
+   "solution": "CARVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 6,
+       "note": "about means surrounding, so the worry word goes around the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Worry",
+       "at": 0,
+       "gives": "CARE",
+       "note": "care is worry or anxiety"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first slice of",
+         "at": 12,
+         "note": "the first slice of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "venison",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frets over the first slice from a joint of deer meat.",
+     "walkthrough": "'first slice of' takes V from venison; 'about' puts CARE around it.",
+     "definitionFit": "To slice meat from a joint at the table is this verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1157,53 @@
     "text": "The fruits of fresh air peccadillos?",
     "enumeration": "7"
    },
-   "solution": "RAISINS"
+   "solution": "RAISINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The fruits",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fresh",
+         "at": 14,
+         "note": "fresh suggests a new form, so the letters of air are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "air",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "peccadillos",
+       "at": 24,
+       "gives": "SINS",
+       "note": "peccadillos are minor sins"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whimsical question about what small outdoor misdeeds produce.",
+     "walkthrough": "'fresh' rearranges AIR to RAI.",
+     "definitionFit": "Dried grapes are fruits used in baking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1217,29 @@
     "text": "Post-prandial drink left for naval officers",
     "enumeration": "4"
    },
-   "solution": "PORT"
+   "solution": "PORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Post-prandial drink",
+      "at": 0,
+      "meaning": "a fortified wine served after dinner"
+     },
+     {
+      "text": "left for naval officers",
+      "at": 20,
+      "meaning": "on a ship, the left-hand side is called by this name"
+     }
+    ],
+    "explanation": {
+     "surface": "Ship's officers take an after-dinner drink, leaving it for them.",
+     "definitionFit": "A fortified Portuguese wine drunk after dinner; also the nautical term for a vessel's left side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1259,48 @@
      }
     ]
    },
-   "solution": "BATHOLIVER"
+   "solution": "BATHOLIVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That takes the biscuit",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wash",
+       "at": 0,
+       "gives": "BATH",
+       "note": "to bath is to wash"
+      },
+      {
+       "words": "old",
+       "at": 5,
+       "gives": "O"
+      },
+      {
+       "words": "organic meat",
+       "at": 9,
+       "gives": "LIVER",
+       "note": "liver is an organ eaten as meat, offal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that washing elderly offal is the limit.",
+     "walkthrough": "'That takes the biscuit' is an idiom for 'that beats everything', but literally names something that is a biscuit.",
+     "definitionFit": "A Bath Oliver is a plain dry English biscuit, so it literally takes the name of a biscuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "organic"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1314,54 @@
     "text": "Brought home by successful folk although not one taxi to be raised",
     "enumeration": "5"
    },
-   "solution": "BACON"
+   "solution": "BACON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brought home by successful folk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to be raised",
+       "at": 54,
+       "note": "in a down clue, raised means written upwards, so the pieces are reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "not one",
+         "at": 41,
+         "gives": "NO",
+         "note": "not one means no"
+        },
+        {
+         "words": "taxi",
+         "at": 49,
+         "gives": "CAB",
+         "note": "a taxi is a cab"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Successful people walk home, not taking a single taxi.",
+     "walkthrough": "'to be raised' turns NO CAB upwards in the down entry. To 'bring home the bacon' is to earn a living.",
+     "definitionFit": "The idiom 'bring home the bacon' means earn money or succeed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1381,31 @@
      }
     ]
    },
-   "solution": "EGGON"
+   "solution": "EGGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Push",
+      "at": 0,
+      "meaning": "to urge or encourage someone on"
+     },
+     {
+      "text": "what soldiers might have at breakfast",
+      "at": 5,
+      "meaning": "soldiers are strips of toast dipped into a boiled egg"
+     }
+    ],
+    "explanation": {
+     "surface": "Troops at breakfast are urged forward.",
+     "definitionFit": "To encourage someone is the phrasal verb; toast soldiers with yolk on them fits the second reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "soldiers"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1419,46 @@
     "text": "Sauce label put on since by firm",
     "enumeration": "7"
    },
-   "solution": "TABASCO"
+   "solution": "TABASCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "label",
+       "at": 6,
+       "gives": "TAB",
+       "note": "a tab is a small label or tag"
+      },
+      {
+       "words": "since",
+       "at": 19,
+       "gives": "AS",
+       "note": "as means since, as in as it was raining"
+      },
+      {
+       "words": "firm",
+       "at": 28,
+       "gives": "CO",
+       "note": "Co is the abbreviation for company, a firm"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sauce bottle's label has been put on by the manufacturer.",
+     "definitionFit": "A hot pepper condiment from Louisiana, sold under this brand name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1472,41 @@
     "text": "Airline wants royalty on occasions when bread or cakes are cooked",
     "enumeration": "7"
    },
-   "solution": "BAKINGS"
+   "solution": "BAKINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "occasions when bread or cakes are cooked",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Airline",
+       "at": 0,
+       "gives": "BA",
+       "note": "BA stands for British Airways"
+      },
+      {
+       "words": "royalty",
+       "at": 14,
+       "gives": "KINGS",
+       "note": "kings are royalty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airline wants royal approval to cook its in-flight bread and cakes.",
+     "definitionFit": "Each batch put through the oven is one session of this kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Airline"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1520,46 @@
     "text": "Warming system hasn't started off what diner is doing",
     "enumeration": "6"
    },
-   "solution": "EATING"
+   "solution": "EATING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "what diner is doing",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "hasn't started",
+       "at": 15,
+       "note": "the word lacks its opening letter, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Warming system",
+       "at": 0,
+       "gives": "HEATING",
+       "note": "a heating system warms a building"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The heating has failed to come on, a diner complains.",
+     "walkthrough": "'hasn't started' removes the H from HEATING.",
+     "definitionFit": "A diner is someone having a meal, consuming food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Warming"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1573,29 @@
     "text": "Appropriate time to put salt and pepper on",
     "enumeration": "6"
    },
-   "solution": "SEASON"
+   "solution": "SEASON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appropriate time",
+      "at": 0,
+      "meaning": "a period of the year suited to something, as the hunting period"
+     },
+     {
+      "text": "to put salt and pepper on",
+      "at": 17,
+      "meaning": "to flavour food with condiments"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook knows just when to add salt and pepper.",
+     "definitionFit": "A period of the year such as summer or the shooting period; also to flavour food with salt or spice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
