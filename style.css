@@ -1189,6 +1189,9 @@ span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px
    picker must not invent a third. */
 .guess-clue { --pick-bg: var(--ind-bg); --pick-fg: var(--ind-fg); }
 .guess-clue.pick-definition { --pick-bg: var(--def-bg); --pick-fg: var(--def-fg); }
+/* Picking letters (the Pieces question, the letter wheel's words) is not
+   picking an indicator, so it gets its own colour: the Pieces blue. */
+.guess-clue.pick-blocks, .guess-clue.pick-letters { --pick-bg: var(--accent-soft); --pick-fg: var(--accent); }
 /* Dragging across the words picks the run under the finger, so the browser must
    not read the same gesture as selecting text. pan-y rather than none: a drag
    that starts on a word still has to be able to scroll the page. */

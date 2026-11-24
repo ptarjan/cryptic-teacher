@@ -425,7 +425,7 @@
   function nuxRungTaken(e) {
     if (!nuxPointsAtRung()) { nuxAdvance(); return; }
     nuxWalked = true;
-    const steps = ladderSteps(annOf(e), clueText(e));
+    const steps = ladderFor(e);
     if (steps.every((st) => isShown(e, st.key))) { nuxAdvance(); return; }
     nuxDraw();
   }
@@ -457,7 +457,7 @@
   // which charges, so the light leaves the ladder and the grid takes it.
   function nuxTypeIt(e) {
     if (jigsaw || !nuxPointsAtRung() || !e || isEntrySolved(e)) return false;
-    const steps = ladderSteps(annOf(e), clueText(e));
+    const steps = ladderFor(e);
     if (!steps.length) return false;
     // A rung taken in pieces is not finished until its last piece is out.
     if (isShown(e, "blocks") && piecesLeft(e)) return false;

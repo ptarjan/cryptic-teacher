@@ -904,6 +904,20 @@
       : typeof p === "object" ? { ...p, show: maskAnswer(p.show, built), hide: maskAnswer(p.hide, built) } : p)), chips, fills };
   }
 
+  // The ladder as this clue's solver sees it. A double definition whose
+  // definition step is open has already named both halves, which is all the
+  // clue-type step could say (its family is "Definitions only"), so the step
+  // is dropped rather than left as a tab that adds nothing. One already open,
+  // or being asked, stays.
+  function ladderFor(e) {
+    const ann = annOf(e);
+    const steps = ladderSteps(ann, clueText(e));
+    if (!ann || !(ann.type || []).includes("double_definition") || (ann.definitions || []).length < 2) return steps;
+    if (!isShown(e, "definition") || isShown(e, "type")) return steps;
+    if (guessing && guessing.key === entryKey(e) && guessing.rung === "type") return steps;
+    return steps.filter((s) => s.key !== "type");
+  }
+
   // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
   function ladderSteps(ann, clue) {
     if (!ann) return [];
@@ -1683,7 +1697,7 @@
             nuxPointsWord(ask, i, picked) ? " walk-point" : ""}">${inner}</button>`);
       at = t.i + t.text.length;
     });
-    return `<span class="guess-clue ${ask || wheel ? "ask" : "still"} pick-${rung || "indicators"}">${
+    return `<span class="guess-clue ${ask || wheel ? "ask" : "still"} pick-${rung || (wheel ? "letters" : "indicators")}">${
       out + slice(at, clueText(e).length) + enumHTML(e)}</span>`;
   }
 
@@ -2007,7 +2021,7 @@
       const at = nextPiece(e);
       return guessAsk(e, "blocks", at) ? { rung: "blocks", step: at } : null;
     }
-    const steps = ladderSteps(ann, clueText(e));
+    const steps = ladderFor(e);
     const s = steps.find((x) => !isShown(e, x.key) && GUESSABLE[x.key]
       && rungAvailable(e, steps, x.key) && guessAsk(e, x.key, 0));
     return s ? { rung: s.key, step: 0 } : null;

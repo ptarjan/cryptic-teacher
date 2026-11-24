@@ -60,6 +60,9 @@
           const cur = currentEntry();
           if (cur && b.tab && !b.sel) {
             tabPick.set(tabKeyOf(cur), { note: b.note, sig: pendingSig() });
+            // Choosing an open tab lets go of a closed one chosen earlier, so
+            // the help button goes back to its default step.
+            helpOn = null;
             renderHintPanel();
           }
           const n = $("hint-note-" + b.note);
@@ -91,6 +94,11 @@
         // Which piece this button is for. Only the blocks rung has more than
         // one; everything else asks its single question at step 0.
         const at = b.step || 0;
+        // Going to a step that is not open yet leaves the open tab the solver
+        // had picked: otherwise the pick (keyed on what is pending, which a
+        // re-asked question or a chosen step does not change) keeps its note in
+        // front and the tap seems to do nothing.
+        tabPick.delete(tabKeyOf(on));
         const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
         if (asked) {
           helpOn = null;
@@ -149,15 +157,19 @@
   let helpMore = null;   // the entry key whose "More" is open
   const STEP_NAMES = { indicators: "Indicator", definition: "Definition",
                        type: "Clue type", blocks: "Pieces", walkthrough: "Solution" };
+  // A question on a step that is already open has been answered some other way.
+  function staleAsk(e) {
+    return !!guessing && guessing.rung !== "blocks" && isShown(e, guessing.rung);
+  }
   function helpTarget(e) {
     const ann = e && annOf(e);
     if (!ann) return null;
     const key = entryKey(e);
-    if (guessing && guessing.key === key && currentAsk()) {
+    if (guessing && guessing.key === key && currentAsk() && !staleAsk(e)) {
       return { rung: guessing.rung, step: guessing.step, asked: true };
     }
     const solved = isEntrySolved(e);
-    const steps = ladderSteps(ann, clueText(e));
+    const steps = ladderFor(e);
     const has = (r) => steps.some((s) => s.key === r);
     const piecesOpen = !solved && isShown(e, "blocks") && piecesLeft(e) > 0;
     if (helpOn && helpOn.key === key && has(helpOn.rung)) {
@@ -393,7 +405,10 @@
     // "More" while "Show me" still has something to give. "More" is in the
     // markup either way, only hidden: what it holds is never news, and a
     // report being written keeps it open.
-    const { key, ann, solved, offerFill } = st;
+    const { key, ann, offerFill } = st;
+    // Read now, not from the draw that made st: a repaint after the last letter
+    // must not keep a Show me for a clue that is done.
+    const solved = isEntrySolved(e);
     const escape = $("hint-escape");
     if (helpMore && helpMore !== key) helpMore = null;
     const canReveal = canCheck() && !solved;
@@ -527,7 +542,7 @@
     const body = $("hint-body");
     const next = $("hint-next");
     let bodyHTML = "", pendingHTML = "", pendingFront = false;
-    let ask = null, tapping = false;
+    let ask = null, tapping = false, chosen = null;
     // Whether Reveal answer is on offer: decided below, drawn in the help bar.
     let offerFill = false;
 
@@ -558,7 +573,7 @@
       // teaching sequence, not a click log — a solver who took 4 before 2 has
       // still met them as steps 2 and 4, and gaps in the numbers show what
       // they skipped.
-      const steps = ladderSteps(ann, clueText(e));
+      const steps = ladderFor(e);
       // A guess belongs to the clue it was asked about. Moving on abandons it —
       // carrying it would mean checking an answer against a different question.
       if (guessing && guessing.key !== key) guessing = null;
@@ -576,11 +591,13 @@
       // verdict has to know whether the clue line above is currently a set of
       // buttons, and that is only knowable from the question being asked now.
       ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
-      if (guessing && !ask) guessing = null;
+      if (guessing && (!ask || staleAsk(e))) { guessing = null; ask = null; }
       // One panel at a time, like tabs. A question or the wheel on the table
       // is the front panel until a step's tab is picked; with nothing pending
       // the front panel is the picked step's note, else the last one opened.
-      pendingFront = !solved && !!(ask || wheelOn === key) && !pickedStep(e);
+      chosen = !solved && !ask && helpOn && helpOn.key === key && !isShown(e, helpOn.rung) && helpTarget(e) && helpTarget(e).rung === helpOn.rung
+        ? steps.find((s) => s.key === helpOn.rung) : null;
+      pendingFront = !solved && !!(ask || wheelOn === key || chosen) && !pickedStep(e);
       tapping = !!(ask && !ask.choices && guessing && holder === e && pendingFront);
       // The blocks rung as much of it as has been handed over. A solved clue
       // gets the lot: its score is settled, and the rest of the ladder is free
@@ -692,9 +709,9 @@
         }
         if (open.some((o) => o.s.key === s.key)) {
           trackSpec.push({ rung: s.key, label: s.label, tab: true,
-            sel: pendingFront && !!ask && guessing.rung === s.key,
+            sel: pendingFront && (ask ? guessing.rung === s.key : !!chosen && chosen.key === s.key),
             cls: "step avail" + tint + (s.key === lead && !left ? " lead" : "")
-              + (target && target.rung === s.key ? " cur" + (pendingFront && ask && guessing.rung === s.key ? " sel" : "") : "")
+              + (target && target.rung === s.key ? " cur" + (pendingFront && (ask ? guessing.rung === s.key : chosen && chosen.key === s.key) ? " sel" : "") : "")
               + (s.key === lead && !left && nuxFreeRung(e, s.key, solved) ? " rung-point" : ""),
             text: name });
           return;
@@ -713,6 +730,12 @@
     // shown: while it is open there is no question (see arriveAt above).
     const wheelOpen = wheelOn === key && !solved;
     if (wheelOpen) pendingHTML += wheelHTML(e, ann);
+    else if (chosen && !ask) {
+      // A step chosen on the track that has no question to ask: its panel says
+      // what the help button will do, since there is no note to read yet.
+      pendingHTML += `<div class="hint-step guess"><span class="step-label">${steps.indexOf(chosen) + 1} · ${esc(chosen.label)}</span>
+        <p>Tap <strong>Show me</strong> to open this step.</p></div>`;
+    }
     if (pendingHTML) bodyHTML += `<div class="hint-pending" role="tabpanel"${pendingFront ? "" : " hidden"}>${pendingHTML}</div>`;
     drawWheelToggle(!solved, wheelOpen);
     // Written last, because whether its words are targets is decided by whether a
