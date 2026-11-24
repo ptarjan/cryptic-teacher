@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Steps up air travel",
     "enumeration": "6"
    },
-   "solution": "FLIGHT"
+   "solution": "FLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Steps up",
+      "at": 0,
+      "meaning": "a set of stairs leading upward between landings"
+     },
+     {
+      "text": "air travel",
+      "at": 9,
+      "meaning": "a journey by aeroplane"
+     }
+    ],
+    "explanation": {
+     "surface": "An airline announces more flights or boarding stairs.",
+     "definitionFit": "A flight is a run of stairs climbed from one floor to the next, and also a journey made by aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Steps"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,41 @@
     "text": "In favour of leave but do without",
     "enumeration": "5"
    },
-   "solution": "FORGO"
+   "solution": "FORGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "do without",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In favour of",
+       "at": 0,
+       "gives": "FOR",
+       "note": "to be for something is to be in favour of it"
+      },
+      {
+       "words": "leave",
+       "at": 13,
+       "gives": "GO",
+       "note": "to go is to leave"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs a departure yet would rather manage without it.",
+     "definitionFit": "To forgo something is to give it up and manage without it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +119,41 @@
     "text": "Slipshod editing made light of",
     "enumeration": "7"
    },
-   "solution": "IGNITED"
+   "solution": "IGNITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "made light",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Slipshod",
+       "at": 0,
+       "note": "slipshod work is careless and disordered, so the letters of the next word are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "editing",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Careless editing has trivialised a serious matter.",
+     "walkthrough": "'made light of' reads as trivialised, but 'of' is a link and 'made light' means set alight.",
+     "definitionFit": "Something set burning has been kindled, giving off flame and brightness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +167,39 @@
     "text": "Unusually dishonest sybarites",
     "enumeration": "9"
    },
-   "solution": "HEDONISTS"
+   "solution": "HEDONISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sybarites",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Unusually",
+       "at": 0,
+       "note": "unusually says the letters of the next word are set out in an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dishonest",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pleasure-seekers described as remarkably crooked.",
+     "definitionFit": "Sybarites are lovers of luxury and pleasure, as are devotees of indulgence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -84,10 +210,50 @@
    },
    "length": 6,
    "clue": {
-    "text": "In Latin -T is used by many showing vanity",
+    "text": "In Latin \"I\" is used by many showing vanity",
     "enumeration": "6"
    },
-   "solution": "EGOISM"
+   "solution": "EGOISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vanity",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In Latin \"I\"",
+       "at": 0,
+       "gives": "EGO",
+       "note": "the Latin word for the pronoun I is ego"
+      },
+      {
+       "words": "is",
+       "at": 13,
+       "gives": "IS",
+       "note": "taken as written"
+      },
+      {
+       "words": "many",
+       "at": 24,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand, standing for many"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grammar lesson: vain people keep saying the first person pronoun.",
+     "walkthrough": "The OCR text read the quoted I as -T; the page prints \"I\". 'used by' is a link placing IS before M.",
+     "definitionFit": "Egoism is self-centredness, a close relative of conceit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +267,51 @@
     "text": "Give the old lady tea for a start",
     "enumeration": "5"
    },
-   "solution": "GRANT"
+   "solution": "GRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the old lady",
+       "at": 5,
+       "gives": "GRAN",
+       "note": "gran is a familiar word for a grandmother, an old lady"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for a start",
+         "at": 22,
+         "note": "for a start means only the opening letter of the word tea is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to make grandmother a cup of tea first.",
+     "definitionFit": "To grant something is to give or bestow it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Give"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +325,42 @@
     "text": "Her naive appearance could be genuine",
     "enumeration": "7"
    },
-   "solution": "INGENUE"
+   "solution": "INGENUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Her naive appearance could be genuine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 21,
+       "note": "could be says the letters of the word genuine could be rearranged into another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "genuine",
+       "at": 30
+      }
+     ]
+    },
+    "spelling": "INGÉNUE",
+    "andLit": true,
+    "explanation": {
+     "surface": "An observer wonders whether a young woman's innocence is real.",
+     "walkthrough": "The whole clue is both wordplay and definition: the anagram of GENUINE gives the stage part of the innocent young woman.",
+     "definitionFit": "An ingénue is an artless young woman, especially as a stock role on stage, whose innocence may be real or acted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +380,45 @@
      }
     ]
    },
-   "solution": "MANEATERS"
+   "solution": "MANEATERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tigers, perhaps",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "set",
+       "at": 6,
+       "note": "set means the letters are arranged afresh, as a trap is set"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Snare",
+       "at": 0
+      },
+      {
+       "words": "meat",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hunters bait a trap with meat to catch tigers.",
+     "walkthrough": "'set' looks like part of setting a snare, but it is the anagram signal for SNARE plus MEAT.",
+     "definitionFit": "Tigers are an example of animals that kill and eat people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +432,51 @@
     "text": "Out of range of French explosive device",
     "enumeration": "7"
    },
-   "solution": "GRENADE"
+   "solution": "GRENADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "explosive device",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Out",
+         "at": 0,
+         "note": "out means the letters of range are put out of their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "range",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "of French",
+       "at": 13,
+       "gives": "DE",
+       "note": "de is French for of"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French bomb lies beyond firing range.",
+     "definitionFit": "A grenade is a small bomb thrown by hand, a kind of explosive weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Out"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +490,43 @@
     "text": "Get browned off with a chap on the Circle Line?",
     "enumeration": "7"
    },
-   "solution": "TANGENT"
+   "solution": "TANGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Circle Line?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Get browned off",
+       "at": 0,
+       "gives": "TAN",
+       "note": "to tan is to get browned by the sun, as a sunbather comes off the beach"
+      },
+      {
+       "words": "chap",
+       "at": 23,
+       "gives": "GENT",
+       "note": "gent is short for gentleman, a chap"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fed-up man travelling on the London Underground's Circle Line.",
+     "walkthrough": "The Circle Line is a London Underground route; here it means a line belonging to a circle. 'browned off' also means fed up.",
+     "definitionFit": "A tangent is a straight line touching a circle at one point, so it is a line of the circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Line"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +546,36 @@
      }
     ]
    },
-   "solution": "BECAREFUL"
+   "solution": "BECAREFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Call to mind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Call to mind",
+       "at": 0,
+       "note": "not remember: a warning shouted to someone telling them to mind, to watch out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to remember something.",
+     "walkthrough": "'Call to mind' looks like recall, but it is a call telling someone to mind, a warning.",
+     "definitionFit": "Shouting 'Mind!' is a warning to take care, so the call is an urging of caution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mind"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +589,48 @@
     "text": "Number of soldiers of note in Europe, for example",
     "enumeration": "10"
    },
-   "solution": "CONTINGENT"
+   "solution": "CONTINGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Number of soldiers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in places the note inside the landmass word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Europe, for example",
+       "at": 30,
+       "gives": "CONTINENT",
+       "note": "Europe is an example of a continent"
+      },
+      {
+       "words": "note",
+       "at": 22,
+       "gives": "G",
+       "note": "G is a musical note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Counting troops of distinction stationed in Europe.",
+     "definitionFit": "A contingent is a body of troops sent as part of a larger force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +644,36 @@
     "text": "He was inundated with entries from couples",
     "enumeration": "4"
    },
-   "solution": "NOAH"
+   "solution": "NOAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He was inundated with entries from couples",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He was inundated with entries from couples",
+       "at": 0,
+       "note": "a man whose vessel took in the animals two by two before the Flood swamped the world"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man overwhelmed by applications from pairs, like a dating agency.",
+     "walkthrough": "'inundated' sounds like overwhelmed with post, but means flooded; the couples are animals boarding the ark in pairs.",
+     "definitionFit": "The biblical patriarch built the ark, let animals in by pairs and rode out the Flood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inundated"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +687,36 @@
     "text": "Runs out of the striker's reach",
     "enumeration": "5"
    },
-   "solution": "WIDES"
+   "solution": "WIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Runs out of the striker's reach",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Runs out of the striker's reach",
+       "at": 0,
+       "note": "in cricket, extras given when the bowler sends the ball too far from the batsman to hit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's shot that goes beyond the forward's reach.",
+     "walkthrough": "In cricket the striker is the batsman facing the bowler; a ball bowled out of his reach gives the batting side a penalty run, called a wide. 'Runs out' looks like a dismissal.",
+     "definitionFit": "Wides are extra runs awarded when a delivery passes beyond the batsman's reach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "striker's"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +730,42 @@
     "text": "Anti-coloured lobby in government?",
     "enumeration": "9"
    },
-   "solution": "WHITEHALL"
+   "solution": "WHITEHALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "government?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Anti-coloured",
+       "at": 0,
+       "gives": "WHITE",
+       "note": "white is treated as the opposite of coloured, having no hue"
+      },
+      {
+       "words": "lobby",
+       "at": 14,
+       "gives": "HALL",
+       "note": "a hall is an entrance lobby"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political pressure group opposed to colour, working in government.",
+     "walkthrough": "Whitehall is the London street of government ministries, used for the British civil service; 'lobby' looks political but is an entrance room.",
+     "definitionFit": "Whitehall is a byword for the British administration and civil service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lobby"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,10 +776,47 @@
    },
    "length": 8,
    "clue": {
-    "text": "Made ease out for library colleges",
+    "text": "Made case out for literary colleges",
     "enumeration": "8"
    },
-   "solution": "ACADEMES"
+   "solution": "ACADEMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "literary colleges",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 10,
+       "note": "out says the letters of the two words are put out of place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Made",
+       "at": 0
+      },
+      {
+       "words": "case",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone argued the case for colleges devoted to letters.",
+     "walkthrough": "The OCR text had 'ease' and 'library'; the page prints 'case' and 'literary'. 'out' rearranges MADE CASE.",
+     "definitionFit": "Academes are places of learning, such as scholarly institutions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +830,59 @@
     "text": "First-class colour, Lea's new dogs",
     "enumeration": "9"
    },
-   "solution": "AIREDALES"
+   "solution": "AIREDALES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dogs",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "First-class",
+       "at": 0,
+       "gives": "AI",
+       "note": "A1 means first-class, with the figure 1 written as the letter I"
+      },
+      {
+       "words": "colour",
+       "at": 12,
+       "gives": "RED",
+       "note": "red is a colour"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 26,
+         "note": "new says the letters of Lea's are made into a fresh arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lea's",
+         "at": 20,
+         "gives": "LEAS"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top-rated colour and Lea's newly acquired dogs, as at a show.",
+     "walkthrough": "A1 stands for first-rate (from Lloyd's ship register); the 1 becomes I. 'new' turns LEAS into ALES.",
+     "definitionFit": "Airedales are large terriers, a breed from Yorkshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "colour"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +896,36 @@
     "text": "The local manager?",
     "enumeration": "8"
    },
-   "solution": "LICENSEE"
+   "solution": "LICENSEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The local manager?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The local manager?",
+       "at": 0,
+       "note": "the person who runs a neighbourhood pub, holding the permit to sell drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking who runs things in the neighbourhood.",
+     "walkthrough": "In Britain 'the local' is the neighbourhood pub; its manager holds the licence to sell alcohol.",
+     "definitionFit": "A publican holds a permit to serve alcohol, so the person running a pub is the permit holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +945,36 @@
      }
     ]
    },
-   "solution": "EGOTRIP"
+   "solution": "EGOTRIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Presumably I get a lift during this tour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Presumably I get a lift during this tour",
+       "at": 0,
+       "note": "a journey that boosts the self, where the self is lifted up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller assumes transport is included on the tour.",
+     "walkthrough": "'I' is the self (Latin ego) and 'tour' a trip; 'a lift' is a boost to self-esteem, not a car ride.",
+     "definitionFit": "An ego trip is an act done chiefly to boost one's own self-importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +988,30 @@
     "text": "Runs for water",
     "enumeration": "5"
    },
-   "solution": "RACES"
+   "solution": "RACES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Runs",
+      "at": 0,
+      "meaning": "contests of running speed"
+     },
+     {
+      "text": "water",
+      "at": 9,
+      "meaning": "fast currents of water, as in a millrace or tidal race"
+     }
+    ],
+    "explanation": {
+     "surface": "Rivers that flow toward the sea.",
+     "definitionFit": "Races are contests of speed, runs; a race is also a strong current or channel of water, as a millrace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1025,40 @@
     "text": "A number swindled — that's dishonest",
     "enumeration": "7"
    },
-   "solution": "CROOKED"
+   "solution": "CROOKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dishonest",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A number",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, a number"
+      },
+      {
+       "words": "swindled",
+       "at": 9,
+       "gives": "ROOKED",
+       "note": "rooked means cheated or swindled"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A count of people conned, condemned as fraud.",
+     "definitionFit": "Crooked means corrupt or untrustworthy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1072,53 @@
     "text": "He goes forward or back in play",
     "enumeration": "4"
    },
-   "solution": "HERO"
+   "solution": "HERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He goes forward or back in play",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "He",
+       "at": 0,
+       "gives": "HE",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 19,
+         "note": "back says the word or is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or",
+         "at": 16,
+         "gives": "OR"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Describing an actor's moves around the stage.",
+     "walkthrough": "HE goes first, then 'or back' gives RO. The whole clue also describes the leading man of a play, forging ahead or retreating.",
+     "definitionFit": "The protagonist of a drama is its principal male character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1138,42 @@
      }
     ]
    },
-   "solution": "POUNDNOTES"
+   "solution": "POUNDNOTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "money",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hammer",
+       "at": 0,
+       "gives": "POUND",
+       "note": "to pound is to hammer"
+      },
+      {
+       "words": "the piano keys",
+       "at": 7,
+       "gives": "NOTES",
+       "note": "the keys of a piano sound musical notes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pianist bangs the keyboard to earn cash.",
+     "walkthrough": "Pound notes were British paper money until 1988.",
+     "definitionFit": "Pound notes were paper currency, banknotes of one pound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hammer"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1187,36 @@
     "text": "Put down in the correct order",
     "enumeration": "5"
    },
-   "solution": "PREEN"
+   "solution": "PREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put down in the correct order",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Put down in the correct order",
+       "at": 0,
+       "note": "what a bird does with its soft feathers when grooming"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to write a list in sequence.",
+     "walkthrough": "'down' is not a direction but a bird's soft plumage; tidying it with the beak is grooming.",
+     "definitionFit": "Birds groom by smoothing their feathers into place with the beak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1230,40 @@
     "text": "Birds from higher nests",
     "enumeration": "5"
    },
-   "solution": "ERNES"
+   "solution": "ERNES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 6,
+       "note": "from says the letters are taken out of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "higher nests",
+       "at": 11,
+       "gives": "ERNES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Birds seen coming out of lofty nests.",
+     "definitionFit": "Ernes are sea eagles, a kind of bird of prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1277,50 @@
     "text": "Delayed a sailor with dire consequences",
     "enumeration": "7"
    },
-   "solution": "TARRIED"
+   "solution": "TARRIED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delayed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a sailor",
+       "at": 8,
+       "gives": "TAR",
+       "note": "tar is an old word for a sailor"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "consequences",
+         "at": 27,
+         "note": "consequences, with 'with dire', says the letters of dire are rearranged as a result"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dire",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman's lateness has terrible results.",
+     "definitionFit": "To tarry is to linger or wait, so tarried means lingered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1334,42 @@
     "text": "This composition of Glinka's refreshing",
     "enumeration": "7"
    },
-   "solution": "SLAKING"
+   "solution": "SLAKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "refreshing",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "composition of",
+       "at": 5,
+       "note": "a composition is an arrangement, so the letters are composed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Glinka's",
+       "at": 20,
+       "gives": "GLINKAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a piece of music by the Russian composer Glinka.",
+     "walkthrough": "'composition' looks musical beside the composer Glinka, but it signals a rearrangement.",
+     "definitionFit": "Slaking a thirst satisfies it, which quenches and revives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1383,42 @@
     "text": "Flowers some pull up in spring",
     "enumeration": "6"
    },
-   "solution": "LUPINS"
+   "solution": "LUPINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flowers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 8,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pull up in spring",
+       "at": 13,
+       "gives": "LUPINS",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener uproots some plants in spring.",
+     "definitionFit": "Lupins are garden plants with tall spikes of blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flowers"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1432,47 @@
     "text": "Remarks we're not supposed to hear as the team comes in",
     "enumeration": "6"
    },
-   "solution": "ASIDES"
+   "solution": "ASIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remarks we're not supposed to hear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "comes in",
+       "at": 47,
+       "note": "comes in says the team word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as",
+       "at": 35,
+       "gives": "AS",
+       "note": "taken as written"
+      },
+      {
+       "words": "the team",
+       "at": 38,
+       "gives": "SIDE",
+       "note": "a side is a team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Muttered comments as the players run on to the pitch.",
+     "definitionFit": "Asides are words spoken by an actor to the audience, conventionally unheard by other characters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
