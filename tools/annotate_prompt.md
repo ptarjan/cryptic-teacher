@@ -250,7 +250,7 @@ Four first runs in ten fail, mostly on these:
     clue's fragment ("the outside letters are S and Y"), never the assembled answer;
   - a note on one fragment that mentions another light's solution: leave it out.
 - A `cd()` has exactly one leaf, no letters, and no note that spells the answer.
-- `misdirectedWord` is one word, copied exactly as printed in the clue: never the word the surface hints at or the answer's reading ("tar" for a clue printing "car"); if no printed word misleads, leave it out.
+- `misdirectedWord` is one word, copied exactly as printed in the clue: never the word the surface hints at or the answer's reading ("tar" for a clue printing "car"); if no printed word misleads, leave it out.  A word only the wordplay implies (the sense a pun or a swapped letter stands for) is not printed, so is not an answer; do not number repeats ("just#2"), write the word.
 
 Working here:
 

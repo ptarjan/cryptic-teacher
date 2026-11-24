@@ -166,6 +166,8 @@ check("a clue with no flag written is filed with two falses",
       == {"answerInScene": False, "aptDefinition": False})
 check("a flat flag is not an unknown key",
       annotation.from_model(dict(bare, joke="pun"), by["11-across"], p)["features"]["joke"] == "pun")
+check("a numbered repeat (just#2) is filed as the word",
+      annotation.from_model(dict(bare, misdirectedWord="Fake#2"), by["11-across"], p)["features"]["misdirectedWord"] == "Fake")
 check("nest and flatten undo each other", annotation.flatten(annotation.nest(flat)) == flat)
 
 # --patch merges flags and sentences one by one, whichever shape the file or

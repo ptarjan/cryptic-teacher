@@ -272,11 +272,55 @@ def word_in_clue(word, clue):
             if not want.startswith(joined):
                 break
     for t in toks:
-        if t.startswith(want) and len(want) >= 3:
-            rest = t[len(want):]
-            if rest in _SUFFIXES or ((rest in _JOINED or is_word(rest)) and not is_word(t)):
-                return True
+        if len(want) < 3 or t == want:
+            continue
+        if t.startswith(want) and t[len(want):] in _SUFFIXES:
+            return True
+        if not _lex_word(t) and (t.startswith(want) and _joined_rest(t[len(want):])
+                                 or t.endswith(want) and _joined_rest(t[:-len(want)])):
+            return True
+    if len(want) >= 4:
+        # A misread letter in the scan ("Ouakers", "Wedehouse's", "spell ling"): one letter
+        # off a clue token, or off adjacent tokens run together, that is no word itself.
+        for i in range(len(toks)):
+            joined = ""
+            for j in range(i, min(i + 3, len(toks))):
+                joined += toks[j]
+                if _one_off(want, joined) and not _lex_word(joined):
+                    return True
     return False
+
+
+def _lex_word(s):
+    """Is `s` a word: the system dictionary where there is one, else the committed lexicon
+    (the box the runs use has no /usr/share/dict, and a check that needs one never fires)."""
+    if is_word(s):
+        return True
+    try:
+        import ocr_clues
+        return bool(ocr_clues.is_word(s))
+    except Exception:
+        return False
+
+
+def _joined_rest(rest):
+    """Is `rest` what a scan runs onto a word: an inflection, a short word, or two words."""
+    if not rest:
+        return False
+    if rest in _SUFFIXES or rest in _JOINED or _lex_word(rest):
+        return True
+    return any(_lex_word(rest[:k]) and (rest[k:] in _JOINED or _lex_word(rest[k:]))
+               for k in range(2, len(rest) - 1))
+
+
+def _one_off(a, b):
+    """Do `a` and `b` differ by exactly one substituted, added or dropped letter?"""
+    if a == b or abs(len(a) - len(b)) > 1:
+        return False
+    if len(a) == len(b):
+        return sum(x != y for x, y in zip(a, b)) == 1
+    short, long = (a, b) if len(a) < len(b) else (b, a)
+    return any(long[:i] + long[i + 1:] == short for i in range(len(long)))
 
 
 def plain(text):

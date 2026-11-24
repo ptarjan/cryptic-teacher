@@ -1116,6 +1116,10 @@ def from_model(m, entry, puzzle=None):
     if "explanation" in out and "features" not in out:
         out["features"] = {}    # a written clue with every flag null or false, all left out
     if isinstance(out.get("features"), dict):
+        w = out["features"].get("misdirectedWord")
+        if isinstance(w, str) and re.search(r"#\d+$", w.strip()):
+            # "just#2": the model numbered the word's occurrence; the word is what is stored
+            out["features"] = {**out["features"], "misdirectedWord": re.sub(r"#\d+$", "", w.strip())}
         # The run leaves out a false (~1.2 a clue, ~5% of what it writes); the
         # stored block keeps every flag (validate_features: missing != false).
         out["features"] = {**out["features"], **{k: v for k, v in FEATURE_DEFAULTS.items()
