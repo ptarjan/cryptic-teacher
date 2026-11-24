@@ -38,6 +38,7 @@ MIN_CLUES = 6
 REPRINTS = {
     frozenset(pair): why for pair, why in (
         (("book-11069", "times-23096"), "Times Cryptic Crossword Book 13 No 69, reprinting the Times of 2005-10-01 (the book's OCR garbles four clues)"),
+        (("book-40043", "times-13339"), "75 Years of the Times Crossword vol 1 No 43, reprinting the Times of 1973-03-26"),
         (("book-38031", "times-22448"), "Times Crossword Book 11 No 31, reprinting the Times of 2003-09-04"),
         (("book-38072", "times-22528"), "Times Crossword Book 11 No 72, reprinting the Times of 2003-12-06 (the book's OCR truncates one clue)"),
         (("book-12002", "times-25365"), "Times Cryptic Crossword Book 21 No 2, reprinting the Times of 2013-01-07 (the book's OCR leaves a stray mark on four clues)"),
