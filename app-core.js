@@ -2,6 +2,9 @@
 
   // ---------- tiny helpers ----------
   const $ = (id) => document.getElementById(id);
+  // When the current clue is pinned above the grid (step 9): every layout whose
+  // page scrolls. Must match the sticky #hint-clue @media in style.css exactly.
+  const PIN_CLUE_MQ = "(max-width: 700px), ((max-width: 1079px) or (pointer: coarse)) and (not ((min-width: 1280px) and (min-aspect-ratio: 13/10) and (min-height: 560px)))";
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   // Words of a clue, as shown: stored straight, curled for the page (quotes.js).

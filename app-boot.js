@@ -35,7 +35,7 @@
     });
   }
 
-  // Step 9: on a phone the selected clue lives above the grid, pinned, so it is
+  // Step 9: wherever the page scrolls (phone, tablet) the selected clue lives above the grid, pinned, so it is
   // on screen whatever the keyboard has done to the page; wider, it is the
   // panel's first child as it always was. The words are found by id (gw-N), so
   // moving the node loses nothing. Fake DOM elements have no parentNode, hence
@@ -43,9 +43,9 @@
   function placeClueRow() {
     const clue = $("hint-clue"), panel = $("hint-panel"), grid = $("grid-wrap");
     if (!clue || !panel || !grid || !window.matchMedia) return;
-    const phone = matchMedia("(max-width: 700px)").matches;
+    const pinned = matchMedia(PIN_CLUE_MQ).matches;
     const col = grid.parentNode;
-    if (phone) { if (col && clue.parentNode !== col) col.insertBefore(clue, grid); }
+    if (pinned) { if (col && clue.parentNode !== col) col.insertBefore(clue, grid); }
     else if (clue.parentNode !== panel) panel.insertBefore(clue, panel.firstChild);
   }
   // iOS pans the visual viewport inside the layout viewport when the keyboard is
@@ -64,7 +64,7 @@
     bindFeedback();
     placeClueRow();
     if (window.matchMedia) {
-      const mq = matchMedia("(max-width: 700px)");
+      const mq = matchMedia(PIN_CLUE_MQ);
       if (mq.addEventListener) mq.addEventListener("change", placeClueRow);
     }
     trackVisualViewportTop();
