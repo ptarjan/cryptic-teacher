@@ -41,8 +41,13 @@ while (leadRung() && clicks < 12) {
     // One rung into this walk is one more hint, so the third and last line is
     // up: what the score actually charges for. Asserted here rather than after
     // the loop because the same climb spends it again a click later.
-    assert(/That step is open/.test(nuxLine(registry)),
-      "one rung in, the line is still walking them down the ladder: " + nuxLine(registry));
+    // A double definition whose definition rung is the one just taken has no
+    // type step left (app.js ladderFor drops it), so nothing is left to walk
+    // down and the line is already the type-it one.
+    const dropsType = (ann.type || []).includes("double_definition") && (ann.definitions || []).length >= 2
+      && want === "Where is the definition?";
+    assert(dropsType ? /Type it/.test(nuxLine(registry)) : /That step is open/.test(nuxLine(registry)),
+      "one rung in, the line is " + (dropsType ? "the type-it one" : "still walking them down the ladder") + ": " + nuxLine(registry));
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the
   // precise (often compound) type, which is the blocks rung's to give.
@@ -65,7 +70,7 @@ while (leadRung() && clicks < 12) {
   assert(registry["hint-escape"].innerHTML.includes("Reveal letter") || registry["hint-track"].children.every((b) => !/\bavail\b/.test(b.className || "")) || /clue-done/.test(registry["hint-clue"].innerHTML),
     "escape hatch still available at level " + rungs);
 }
-assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + rungs);
+assert(rungs >= 2 && rungs <= 5, "ladder has a sane number of rungs, got " + rungs);
 // ...and having taught the site, the site shuts up. The cursor is past the last
 // line, the slot is empty, and nothing in the app moves it back: a newcomer gets
 // three sentences in their life, not a banner that returns every session.

@@ -14,7 +14,7 @@ function next(w) {
   const f = new Function("w", `
     let guessing = w.guessing || null;
     const isEntrySolved = () => !!w.solved, annOf = () => ({}), isShown = (e, k) => w.shown.includes(k),
-      piecesLeft = () => w.left || 0, nextPiece = () => w.piece || 0, ladderSteps = () => w.steps.map((key) => ({ key })),
+      piecesLeft = () => w.left || 0, nextPiece = () => w.piece || 0, ladderSteps = () => w.steps.map((key) => ({ key })), ladderFor = ladderSteps,
       clueText = () => "", GUESSABLE = { type: 1, definition: 1, indicators: 1, blocks: 1 },
       rungAvailable = (e, s, k) => !w.locked.includes(k), guessAsk = (e, r) => (w.asks.includes(r) ? {} : null),
       entryKey = () => "k";

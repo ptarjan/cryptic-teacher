@@ -733,7 +733,7 @@
     else if (chosen && !ask) {
       // A step chosen on the track that has no question to ask: its panel says
       // what the help button will do, since there is no note to read yet.
-      pendingHTML += `<div class="hint-step guess"><span class="step-label">${ladderFor(e).findIndex((s) => s.key === chosen.key) + 1} · ${esc(chosen.label)}</span>
+      pendingHTML += `<div class="hint-step chosen"><span class="step-label">${ladderFor(e).findIndex((s) => s.key === chosen.key) + 1} · ${esc(chosen.label)}</span>
         <p>Tap <strong>Show me</strong> to open this step.</p></div>`;
     }
     if (pendingHTML) bodyHTML += `<div class="hint-pending" role="tabpanel"${pendingFront ? "" : " hidden"}>${pendingHTML}</div>`;
