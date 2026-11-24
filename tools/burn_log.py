@@ -689,6 +689,8 @@ class TokenIndex:
         self.by_pid = {}
         self.seen = {}
         self.state = {}  # path -> inode, byte offset read so far, and the running sums
+        self.cold = set()  # transcripts already older than the window, stat'ed again only hourly
+        self.cold_at = 0.0
 
     def take(self, state, raw):
         try:
@@ -709,13 +711,27 @@ class TokenIndex:
                                 + 0.1 * u.get("cache_read_input_tokens", 0))
 
     def scan(self, window_s=3 * 3600):
-        floor = time.time() - window_s
+        now = time.time()
+        floor = now - window_s
+        # Thousands of old transcripts sit beside the live ones; stat'ing each every tick rereads
+        # their inodes from disk once the page cache has dropped them, so a cold one is rechecked
+        # only hourly (a resumed old session is rare and counts an hour late at worst).
+        recheck = now - self.cold_at > 3600
+        if recheck:
+            self.cold_at = now
         for path in self.root.glob("projects/*cryptic*/*.jsonl"):
+            if path in self.cold and not recheck:
+                continue
             try:
                 mtime = path.stat().st_mtime
             except OSError:
+                self.cold.discard(path)
                 continue
-            if mtime < floor or self.seen.get(path) == mtime:
+            if mtime < floor:
+                self.cold.add(path)
+                continue
+            self.cold.discard(path)
+            if self.seen.get(path) == mtime:
                 continue
             self.seen[path] = mtime
             try:
