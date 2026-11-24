@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,28 @@
     "text": "It's not concrete we have to remove",
     "enumeration": "8"
    },
-   "solution": "ABSTRACT"
+   "solution": "ABSTRACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's not concrete",
+      "at": 0
+     },
+     {
+      "text": "remove",
+      "at": 29
+     }
+    ],
+    "explanation": {
+     "surface": "Someone explains that taking concrete away is what is required of them.",
+     "definitionFit": "Abstract as an adjective means theoretical, without physical substance; as a verb it means to take away or extract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concrete"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +68,47 @@
     "text": "A third-rate divine right.?",
     "enumeration": "8"
    },
-   "solution": "ACCURATE"
+   "solution": "ACCURATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "right",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "third-rate",
+       "at": 2,
+       "gives": "C",
+       "note": "C is the third grade, after A and B"
+      },
+      {
+       "words": "divine",
+       "at": 13,
+       "gives": "CURATE",
+       "note": "a divine is a clergyman, such as a curate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a mediocre clergyman has a sacred entitlement.",
+     "walkthrough": "'divine' here is a noun, a member of the clergy.",
+     "definitionFit": "Accurate means correct, exactly right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "divine"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +122,42 @@
     "text": "One 'century for one club perhaps",
     "enumeration": "9"
    },
-   "solution": "SINGLETON"
+   "solution": "SINGLETON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one club perhaps",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "SINGLE",
+       "note": "single means one"
+      },
+      {
+       "words": "century",
+       "at": 5,
+       "gives": "TON",
+       "note": "a ton is a hundred, as a century of runs in cricket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer makes a solo hundred for his team.",
+     "walkthrough": "'club' is the card suit: in bridge a singleton is the only card held in a suit, so one lone club is an example.",
+     "definitionFit": "A singleton is a lone card of its suit in a hand, as a single club would be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,10 +168,36 @@
    },
    "length": 5,
    "clue": {
-    "text": "April stirring Dull with spring. rain 3 (Eliot).",
+    "text": "\"April … stirring Dull —— with spring rain\" (Eliot)",
     "enumeration": "5"
    },
-   "solution": "ROOTS"
+   "solution": "ROOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"April … stirring Dull —— with spring rain\" (Eliot)",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\"April … stirring Dull —— with spring rain\" (Eliot)",
+       "at": 0,
+       "note": "the missing word completes a line from the opening of T. S. Eliot's poem The Waste Land"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The Waste Land opens 'April is the cruellest month ... stirring / Dull roots with spring rain'.",
+     "definitionFit": "The underground parts of plants, which spring rain wakes in the poem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +211,59 @@
     "text": "Hasty and possibly sour in utterance",
     "enumeration": "7"
    },
-   "solution": "CURSORY"
+   "solution": "CURSORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hasty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "one piece is placed within the other, so the rearranged letters sit inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "utterance",
+       "at": 27,
+       "gives": "CRY",
+       "note": "a cry is a vocal utterance"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 10,
+         "note": "possibly signals another arrangement of the letters of sour"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sour",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark made in haste may come out sounding bitter.",
+     "walkthrough": "'sour' sits in the surface as a taste of the voice; 'possibly' makes it anagram fodder, and 'in' sets the result inside the cry.",
+     "definitionFit": "Cursory means quick and superficial, done hastily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sour"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +277,34 @@
     "text": "John Peel's drink ?",
     "enumeration": "6"
    },
-   "solution": "CHASER"
+   "solution": "CHASER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "John Peel's drink ?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "John Peel's drink ?",
+       "at": 0,
+       "note": "John Peel of the hunting song rode after foxes, so he was one who rode in pursuit; the same word names a small drink taken after spirits"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "John Peel is the huntsman of the English song 'D'ye ken John Peel', a man who chased foxes; the word for such a pursuer is also a drink downed after another.",
+     "definitionFit": "A hunter in pursuit is one who chases, and a drink taken after a stronger one shares that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,10 +315,48 @@
    },
    "length": 9,
    "clue": {
-    "text": "Guns: of a size worth 'order ing",
+    "text": "Guns of a size worth ordering",
     "enumeration": "9"
    },
-   "solution": "HOWITZERS"
+   "solution": "HOWITZERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guns",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ordering",
+       "at": 21,
+       "note": "putting letters in a new order rearranges the letters of size and worth"
+      }
+     ],
+     "parts": [
+      {
+       "words": "size",
+       "at": 10
+      },
+      {
+       "words": "worth",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Artillery pieces large enough to be worth buying.",
+     "walkthrough": "'ordering' looks like placing an order to buy, but it rearranges SIZE and WORTH.",
+     "definitionFit": "Howitzers are short artillery guns firing shells at a high angle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordering"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,10 +367,37 @@
    },
    "length": 5,
    "clue": {
-    "text": "This daddy needed to pro, duce the lolly.",
+    "text": "This daddy needed to produce the lolly",
     "enumeration": "5"
    },
-   "solution": "SUGAR"
+   "solution": "SUGAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This daddy needed to produce the lolly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "This daddy needed to produce the lolly",
+       "at": 0,
+       "note": "a rich older man who lavishes money on a young lover is called by this word plus daddy; it is also what a sweet lolly is made of, and slang for money, which lolly also means"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Lolly' is British slang for money as well as a sweet on a stick; the word wanted makes both, and prefixes 'daddy'.",
+     "definitionFit": "Sugar is the sweet substance a lolly is boiled from, and also old slang for cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +411,41 @@
     "text": "Defend 'oneself against a weird sister",
     "enumeration": "6"
    },
-   "solution": "RESIST"
+   "solution": "RESIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Defend 'oneself against",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "weird",
+       "at": 26,
+       "note": "weird suggests something strange or twisted, so the letters of sister are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sister",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fights off an attack by an eerie sister, as from Macbeth's witches.",
+     "walkthrough": "'weird sister' recalls the witches in Macbeth; 'weird' rearranges SISTER.",
+     "definitionFit": "To resist is to withstand or fight off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weird"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +459,27 @@
     "text": "Razes standards",
     "enumeration": "6"
    },
-   "solution": "LEVELS"
+   "solution": "LEVELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Razes",
+      "at": 0
+     },
+     {
+      "text": "standards",
+      "at": 6
+     }
+    ],
+    "explanation": {
+     "surface": "Someone demolishes the norms.",
+     "definitionFit": "To level a building is to flatten it, and levels are standards or grades of attainment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +493,42 @@
     "text": "Crowd gets lessons in dishonesty",
     "enumeration": "9"
    },
-   "solution": "CONCOURSE"
+   "solution": "CONCOURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crowd",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dishonesty",
+       "at": 22,
+       "gives": "CON",
+       "note": "a con is a swindle, a piece of dishonesty"
+      },
+      {
+       "words": "lessons",
+       "at": 11,
+       "gives": "COURSE",
+       "note": "a course is a series of lessons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gathering of people is offered training in how to cheat.",
+     "walkthrough": "The phrase 'lessons in dishonesty' reads as one idea, a training course in conning; the charade follows that reading, and 'in' is a link word.",
+     "definitionFit": "A concourse is a large gathering or throng of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lessons"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +542,33 @@
     "text": "Death to the sinner, Paul told the Romans",
     "enumeration": "5"
    },
-   "solution": "WAGES"
+   "solution": "WAGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Death to the sinner, Paul told the Romans",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Death to the sinner, Paul told the Romans",
+       "at": 0,
+       "note": "in his Epistle to the Romans, Paul says sin pays its servants in death: that payment is the word wanted"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Romans 6:23 reads 'the wages of sin is death', so what death is to the sinner is his pay.",
+     "definitionFit": "Pay earned for work done, here the death that sin earns according to Paul."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +582,35 @@
     "text": "Theatrical, functions?",
     "enumeration": "5"
    },
-   "solution": "ROLES"
+   "solution": "ROLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Theatrical, functions?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Theatrical, functions?",
+       "at": 0,
+       "note": "'functions' looks like events or parties put on by the theatre, but it means the parts actors play"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A theatrical function sounds like a stage party; read instead as the job an actor performs, it is a part in a play.",
+     "definitionFit": "Parts played by actors, and more widely the functions people perform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "functions"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +624,52 @@
     "text": "Offers-public sure to be involved",
     "enumeration": "9"
    },
-   "solution": "OVERTURES"
+   "solution": "OVERTURES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Offers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "public",
+       "at": 7,
+       "gives": "OVERT",
+       "note": "overt means open, done in public"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to be involved",
+         "at": 19,
+         "note": "being involved means tangled up, so the letters of sure are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sure",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Proposals are made openly, certain to draw people in.",
+     "walkthrough": "'public' is an adjective (open, overt), not the noun it seems; 'to be involved' scrambles the word after it.",
+     "definitionFit": "Overtures are opening proposals or approaches made to begin negotiations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +683,40 @@
     "text": "In every way made to correspond",
     "enumeration": "7"
    },
-   "solution": "TOTALLY"
+   "solution": "TOTALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In every way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to",
+       "at": 18,
+       "gives": "TO"
+      },
+      {
+       "words": "correspond",
+       "at": 21,
+       "gives": "TALLY",
+       "note": "to tally is to agree or correspond"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is adjusted so that it matches in all respects.",
+     "walkthrough": "'made to correspond' is 'made to tally'; TO and TALLY join, with 'made' as a link.",
+     "definitionFit": "Completely, wholly, in all respects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +730,29 @@
     "text": "Hardy girl, one not so hot as a churchgoer",
     "enumeration": "9"
    },
-   "solution": "LAODICEAN"
+   "solution": "LAODICEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hardy girl",
+      "at": 0
+     },
+     {
+      "text": "one not so hot as a churchgoer",
+      "at": 12
+     }
+    ],
+    "explanation": {
+     "surface": "A tough young woman shows little zeal at church.",
+     "walkthrough": "Thomas Hardy's novel 'A Laodicean' is named for its heroine, Paula Power; in Revelation the church at Laodicea is rebuked for being lukewarm.",
+     "definitionFit": "The heroine of Hardy's novel of that title, and anyone half-hearted in religion, like the lukewarm church of Laodicea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hardy"
+    }
+   }
   },
   {
    "number": 16,
@@ -251,10 +763,52 @@
    },
    "length": 6,
    "clue": {
-    "text": "Spots two-gallon. vessel 011 board",
+    "text": "Spots two-gallon vessel on board",
     "enumeration": "6"
    },
-   "solution": "SPECKS"
+   "solution": "SPECKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spots",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 24,
+       "note": "on board a ship means inside it, so the vessel goes within the ship's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "board",
+       "at": 27,
+       "gives": "SS",
+       "note": "SS stands for steamship, the vessel one boards"
+      },
+      {
+       "words": "two-gallon vessel",
+       "at": 6,
+       "gives": "PECK",
+       "note": "a peck is a dry measure of two gallons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a two-gallon container being carried aboard.",
+     "walkthrough": "The held text reads '011' where the page prints 'on'. 'on' signals the container: being on board a ship is being inside it, and 'board' stands for the ship, SS.",
+     "definitionFit": "Specks are tiny spots or marks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spots"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +828,35 @@
      }
     ]
    },
-   "solution": "KNOCKOUTS"
+   "solution": "KNOCKOUTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where there's: a ring, maybe gorgeous girls clinch matches?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Where there's: a ring, maybe gorgeous girls clinch matches?",
+       "at": 0,
+       "note": "in the boxing ring bouts are won by flooring the opponent; stunning women are called by the same slang word, and might win a wedding ring"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'ring' is both the boxing ring and an engagement ring; 'matches' are both bouts and marriages.",
+     "definitionFit": "Fight-ending blows in boxing, and slang for stunning beauties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "matches"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +870,35 @@
     "text": "Support for retired persons",
     "enumeration": "8"
    },
-   "solution": "BEDSTEAD"
+   "solution": "BEDSTEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Support for retired persons",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Support for retired persons",
+       "at": 0,
+       "note": "'retired' looks like pensioners but means gone to bed for the night; the support is the frame holding the mattress"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'retired' suggests pensioners; here it means people who have gone to bed.",
+     "definitionFit": "The framework of a bed, which holds up those who have turned in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +912,29 @@
     "text": "Tell tales, but not out of school",
     "enumeration": "6"
    },
-   "solution": "INFORM"
+   "solution": "INFORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tell tales",
+      "at": 0
+     },
+     {
+      "text": "not out of school",
+      "at": 16
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil is snitching while still at school.",
+     "walkthrough": "The second sense splits as IN FORM: a form is a British school class, so a pupil in form is in school.",
+     "definitionFit": "To inform is to report on someone; being in form means being in one's school class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +948,49 @@
     "text": "Annoy Rat's friend over the way",
     "enumeration": "6"
    },
-   "solution": "MOLEST"
+   "solution": "MOLEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Annoy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 19,
+       "note": "in a down clue the first piece sits above the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rat's friend",
+       "at": 6,
+       "gives": "MOLE",
+       "note": "Mole is Ratty's friend in The Wind in the Willows"
+      },
+      {
+       "words": "way",
+       "at": 28,
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rat's companion pesters someone across the road.",
+     "walkthrough": "Mole and Rat are friends in Kenneth Grahame's children's book The Wind in the Willows.",
+     "definitionFit": "To molest is to pester or harass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rat's"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1004,28 @@
     "text": "Set out to determine the course of events",
     "enumeration": "7"
    },
-   "solution": "DISPOSE"
+   "solution": "DISPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Set out",
+      "at": 0
+     },
+     {
+      "text": "determine the course of events",
+      "at": 11
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sets about deciding how things will turn out.",
+     "walkthrough": "Echoes the proverb 'Man proposes, God disposes'.",
+     "definitionFit": "To dispose is to arrange in order, and also to settle or control how matters go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1039,41 @@
     "text": "Place to sleep — somewhat cold for rodents",
     "enumeration": "7"
    },
-   "solution": "DORMICE"
+   "solution": "DORMICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rodents",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Place to sleep",
+       "at": 0,
+       "gives": "DORM",
+       "note": "a dorm, short for dormitory, is a sleeping room"
+      },
+      {
+       "words": "somewhat cold",
+       "at": 17,
+       "gives": "ICE",
+       "note": "ice is a cold thing, frozen water"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chilly bedroom is offered for small animals.",
+     "walkthrough": "Dormice are famous for long sleep, which fits the surface's 'place to sleep'.",
+     "definitionFit": "Dormice are small hibernating rodents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1087,41 @@
     "text": "One trades in the, highest conceptions",
     "enumeration": "6"
    },
-   "solution": "IDEALS"
+   "solution": "IDEALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "highest conceptions",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "trades",
+       "at": 4,
+       "gives": "DEALS",
+       "note": "deals are trades or transactions"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dealer handles only the loftiest ideas.",
+     "definitionFit": "Ideals are standards of perfection, the loftiest notions one can form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trades"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1135,60 @@
     "text": "A man of spirit-in dire trouble for all that",
     "enumeration": "9"
    },
-   "solution": "DISTILLER"
+   "solution": "DISTILLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A man of spirit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "one piece sits inside the other, so the phrase for all that goes within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trouble",
+         "at": 24,
+         "note": "trouble suggests disorder, so the letters of dire are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dire",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "for all that",
+       "at": 32,
+       "gives": "STILL",
+       "note": "still means nevertheless, for all that"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brave man stays resolute despite terrible difficulties.",
+     "walkthrough": "'trouble' scrambles 'dire', and 'in' puts the phrase meaning nevertheless inside the scrambled letters. 'Spirit' is liquor, not courage.",
+     "definitionFit": "A distiller makes spirits such as whisky or gin, so he is a man of spirit in the trade sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1202,42 @@
     "text": "Bad quarter quiet. Bad time-altogether",
     "enumeration": "5"
    },
-   "solution": "SLUMP"
+   "solution": "SLUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bad time",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bad quarter",
+       "at": 0,
+       "gives": "SLUM",
+       "note": "a slum is a run-down district or quarter of a town"
+      },
+      {
+       "words": "quiet",
+       "at": 12,
+       "gives": "P",
+       "note": "p, piano, is the musical direction for quiet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rough district goes silent during a grim period.",
+     "walkthrough": "'altogether' says the joined pieces give the definition.",
+     "definitionFit": "A slump is a period of sharp economic decline, a bad time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1251,29 @@
     "text": "Fists in the House of Lords",
     "enumeration": "5"
    },
-   "solution": "DUKES"
+   "solution": "DUKES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fists",
+      "at": 0
+     },
+     {
+      "text": "in the House of Lords",
+      "at": 6
+     }
+    ],
+    "explanation": {
+     "surface": "Fisticuffs break out among the peers.",
+     "walkthrough": "'Dukes' is slang for fists ('put up your dukes'); dukes are also the top rank of peer, sitting in the House of Lords, Britain's upper chamber.",
+     "definitionFit": "Slang for fists, and the highest rank of the British peerage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1287,40 @@
     "text": "Live damned 'comfortably",
     "enumeration": "5"
    },
-   "solution": "DWELL"
+   "solution": "DWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "damned",
+       "at": 5,
+       "gives": "D",
+       "note": "D is the abbreviation for damned, as in d--d"
+      },
+      {
+       "words": "comfortably",
+       "at": 13,
+       "gives": "WELL",
+       "note": "well means comfortably, as in living well"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lives in cursed comfort.",
+     "definitionFit": "To dwell is to live in a place, reside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -425,10 +1331,44 @@
    },
    "length": 5,
    "clue": {
-    "text": "Charming accent",
+    "text": "A charming accent",
     "enumeration": "5"
    },
-   "solution": "ACUTE"
+   "solution": "ACUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "accent",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "charming",
+       "at": 2,
+       "gives": "CUTE",
+       "note": "cute means charming, attractive"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's way of speaking is delightful.",
+     "walkthrough": "The held text drops the opening 'A', which the page prints and the wordplay needs.",
+     "definitionFit": "An acute is a diacritical mark, as on the e of café."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accent"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1388,41 @@
      }
     ]
    },
-   "solution": "SLIDERULE"
+   "solution": "SLIDERULE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calculator",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "slip",
+       "at": 23,
+       "gives": "SLIDE",
+       "note": "to slide is to slip"
+      },
+      {
+       "words": "government",
+       "at": 32,
+       "gives": "RULE",
+       "note": "rule is government, the exercise of authority"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An economist warns of a mistake made by the administration.",
+     "definitionFit": "A slide rule is a graduated instrument for doing calculations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1436,48 @@
     "text": "Girl, having swallowed 4½ gallon cask, is lying down",
     "enumeration": "6"
    },
-   "solution": "SUPINE"
+   "solution": "SUPINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "is lying down",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having swallowed",
+       "at": 6,
+       "note": "swallowing takes something inside, so the cask goes into the girl"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "SUE",
+       "note": "Sue is a girl's name"
+      },
+      {
+       "words": "4½ gallon cask",
+       "at": 23,
+       "gives": "PIN",
+       "note": "a pin is a small cask holding four and a half gallons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who has drunk a whole small barrel is now prone.",
+     "definitionFit": "Supine means lying flat on one's back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 29,
@@ -476,7 +1491,69 @@
     "text": "A tyro': gripped by mad desire to be accomplished",
     "enumeration": "8"
    },
-   "solution": "REALISED"
+   "solution": "REALISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "accomplished",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripped by",
+       "at": 9,
+       "note": "something held in a grip is enclosed, so these pieces go inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mad",
+         "at": 20,
+         "note": "mad suggests disorder, so the letters of desire are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desire",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "tyro",
+         "at": 2,
+         "gives": "L",
+         "note": "L, for learner, stands for a beginner or tyro"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novice seized by wild longing hopes to achieve something.",
+     "walkthrough": "'mad' rearranges DESIRE into REISED, and 'gripped by' puts A and L inside: RE-AL-ISED.",
+     "definitionFit": "To be realised is to be achieved or brought to fulfilment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accomplished"
+    }
+   }
   }
  ]
 }
