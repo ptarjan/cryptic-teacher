@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Christian associated with this charity?",
     "enumeration": "6"
    },
-   "solution": "BOUNTY"
+   "solution": "BOUNTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Christian associated with this",
+      "at": 0,
+      "meaning": "Fletcher Christian led the 1789 mutiny aboard this Royal Navy ship"
+     },
+     {
+      "text": "charity",
+      "at": 31,
+      "meaning": "generosity or a generous gift"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about which good cause a Christian supports.",
+     "walkthrough": "'Christian' looks like a believer, but it is Fletcher Christian, leader of the famous mutiny on HMS Bounty.",
+     "definitionFit": "Both senses fit: the mutineer's ship, and a bounty as a generous gift or liberality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Christian"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,49 @@
     "text": "In manner of doctor, leaving note nearby?",
     "enumeration": "6"
    },
-   "solution": "BESIDE"
+   "solution": "BESIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nearby",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 21,
+       "note": "leaving says the musical note departs from the word before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "manner of doctor",
+       "at": 3,
+       "gives": "BEDSIDE",
+       "note": "a doctor's way with patients is the bedside manner"
+      },
+      {
+       "words": "note",
+       "at": 29,
+       "gives": "D",
+       "note": "D is a note of the musical scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how a doctor behaves when departing.",
+     "walkthrough": "'leaving' takes the note D out of BEDSIDE, from the phrase 'bedside manner'.",
+     "definitionFit": "Something beside you is close at hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +128,35 @@
     "text": "Time out?",
     "enumeration": "15"
    },
-   "solution": "UNCONSCIOUSNESS"
+   "solution": "UNCONSCIOUSNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Time out?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Time out?",
+       "at": 0,
+       "note": "read as a time when one is out cold, knocked senseless, rather than a break in a game"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports referee calling a pause.",
+     "definitionFit": "Being 'out' means having lost awareness, and the state lasts for a period of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +170,49 @@
     "text": "Flower poles in Scottish river",
     "enumeration": "5"
    },
-   "solution": "TANSY"
+   "solution": "TANSY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in says the poles sit inside the river's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish river",
+       "at": 16,
+       "gives": "TAY",
+       "note": "the Tay is Scotland's longest river"
+      },
+      {
+       "words": "poles",
+       "at": 7,
+       "gives": "NS",
+       "note": "N and S are the north and south poles"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Flowers growing between posts in a Scottish river.",
+     "walkthrough": "'in' puts NS inside TAY.",
+     "definitionFit": "Tansy is a yellow-flowered plant of the daisy family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poles"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +226,62 @@
     "text": "Drunken pairs, opening Liebfraumilch, find corkscrew",
     "enumeration": "6"
    },
-   "solution": "SPIRAL"
+   "solution": "SPIRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "corkscrew",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Drunken",
+         "at": 0,
+         "note": "drunken suggests the letters of the word pairs are reeling into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pairs",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 15,
+         "note": "the opening of the German wine's name is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Liebfraumilch",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tipsy couples open a bottle of German white and hunt for the corkscrew.",
+     "walkthrough": "'Drunken' rearranges PAIRS to SPIRA; 'opening' takes L from Liebfraumilch, a sweet German white wine.",
+     "definitionFit": "A corkscrew shape is a helix, a twisting curve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corkscrew"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +295,41 @@
     "text": "Unpolitic form of exactitude",
     "enumeration": "9"
    },
-   "solution": "PUNCTILIO"
+   "solution": "PUNCTILIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exactitude",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "form of",
+       "at": 10,
+       "note": "a form of the word suggests its letters reshaped into another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unpolitic",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tactless behaviour presented as a kind of precision.",
+     "walkthrough": "'form of' rearranges the letters of UNPOLITIC.",
+     "definitionFit": "A punctilio is a fine point of correct conduct, a precise observance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unpolitic"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +349,50 @@
      }
     ]
    },
-   "solution": "REFRESHMENTROOM"
+   "solution": "REFRESHMENTROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a mess",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "destroyed",
+       "at": 18,
+       "note": "destroyed means the three words are broken up and their letters rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Monster",
+       "at": 0
+      },
+      {
+       "words": "from",
+       "at": 8
+      },
+      {
+       "words": "here",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monster wrecked, leaving everything in chaos.",
+     "walkthrough": "'destroyed' rearranges MONSTER FROM HERE. A mess is where soldiers eat, so 'in a mess?' hints at a place for food rather than chaos.",
+     "definitionFit": "A military mess is a communal dining room, as a station's buffet is a room for snacks and drinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +406,41 @@
     "text": "Upto date news of city trial",
     "enumeration": "6"
    },
-   "solution": "LATEST"
+   "solution": "LATEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Upto date news",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "city",
+       "at": 18,
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      },
+      {
+       "words": "trial",
+       "at": 23,
+       "gives": "TEST",
+       "note": "a test is a trial"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Current reports about a court case in a city.",
+     "definitionFit": "The most recent news is the freshest, current report."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +454,45 @@
     "text": "Incidental remarks for a Sunday, 15th of March",
     "enumeration": "6"
    },
-   "solution": "ASIDES"
+   "solution": "ASIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Incidental remarks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      },
+      {
+       "words": "Sunday",
+       "at": 25,
+       "gives": "S"
+      },
+      {
+       "words": "15th of March",
+       "at": 33,
+       "gives": "IDES",
+       "note": "the Ides of March fell on the 15th in the Roman calendar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Notes jotted down for a particular Sunday in mid-March.",
+     "definitionFit": "Asides are passing comments, made in parenthesis or to one side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "15th"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +506,40 @@
     "text": "A spring crowd?",
     "enumeration": "6"
    },
-   "solution": "ABOUND"
+   "solution": "ABOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crowd",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "spring",
+       "at": 2,
+       "gives": "BOUND",
+       "note": "to bound is to spring or leap"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a single spring makes a crowd.",
+     "definitionFit": "To abound is to teem or be present in great numbers, as a crowd does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +559,36 @@
      }
     ]
    },
-   "solution": "SICKNESSBENEFIT"
+   "solution": "SICKNESSBENEFIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Profit from complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Profit from complaint",
+       "at": 0,
+       "note": "read literally, a gain paid out because of an illness, i.e. a state payment to the unwell"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cashing in on a grievance.",
+     "walkthrough": "'complaint' looks like a grievance but is an ailment; the 'profit' is a payment from the state to those too ill to work.",
+     "definitionFit": "The UK state allowance paid to workers off ill is a gain that comes from an illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +602,31 @@
     "text": "Old comic peacock",
     "enumeration": "5"
    },
-   "solution": "DANDY"
+   "solution": "DANDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old comic",
+      "at": 0,
+      "meaning": "A long-running British children's comic"
+     },
+     {
+      "text": "peacock",
+      "at": 10,
+      "meaning": "a vain, showily dressed man, a fop"
+     }
+    ],
+    "explanation": {
+     "surface": "A veteran comedian strutting like a showy bird.",
+     "walkthrough": "The Dandy was a British children's comic paper, published from 1937.",
+     "definitionFit": "Both senses fit: the British comic paper, and a man who dresses to show off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comic"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +640,45 @@
     "text": "Of course, oldest bus breaks down!",
     "enumeration": "9"
    },
-   "solution": "DOUBTLESS"
+   "solution": "DOUBTLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Of course",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "breaks down",
+       "at": 22,
+       "note": "breaks down suggests the words fall apart and are reassembled differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "oldest",
+       "at": 11
+      },
+      {
+       "words": "bus",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Naturally the ancient bus has broken down again.",
+     "walkthrough": "'breaks down' rearranges OLDEST BUS.",
+     "definitionFit": "Without question, certainly: the same as saying naturally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +692,30 @@
     "text": "Climbs with balance",
     "enumeration": "6"
    },
-   "solution": "SCALES"
+   "solution": "SCALES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Climbs",
+      "at": 0,
+      "meaning": "goes up, ascends a wall or peak"
+     },
+     {
+      "text": "balance",
+      "at": 12,
+      "meaning": "a weighing device"
+     }
+    ],
+    "explanation": {
+     "surface": "A climber ascending while keeping steady.",
+     "definitionFit": "Both senses fit: one scales a cliff, and scales weigh things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "balance"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +729,57 @@
     "text": "Languor of girl \"with it\", due to come out?",
     "enumeration": "9"
    },
-   "solution": "LASSITUDE"
+   "solution": "LASSITUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Languor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "girl",
+       "at": 11,
+       "gives": "LASS",
+       "note": "a lass is a girl"
+      },
+      {
+       "words": "it",
+       "at": 22,
+       "gives": "IT"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to come out",
+         "at": 31,
+         "note": "come out suggests the word due is broken open and its letters emerge in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "due",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable young woman's weariness, due to be revealed.",
+     "walkthrough": "'with' joins LASS and IT; 'to come out' rearranges DUE to UDE.",
+     "definitionFit": "Lassitude is weariness and lack of energy, the same as listlessness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +793,41 @@
     "text": "Model philandered inside ancient Greek city",
     "enumeration": "6"
    },
-   "solution": "DELPHI"
+   "solution": "DELPHI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ancient Greek city",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 18,
+       "note": "inside says the letters lie within the run of words model philandered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Model philandered",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model who played around within an ancient city.",
+     "walkthrough": "The city runs across moDEL PHIlandered.",
+     "definitionFit": "Delphi was the site of the oracle of Apollo in ancient Greece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +841,52 @@
     "text": "Sheriff's men begin tracking with a warm drink",
     "enumeration": "6"
    },
-   "solution": "POSSET"
+   "solution": "POSSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "warm drink",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sheriff's men",
+       "at": 0,
+       "gives": "POSSE",
+       "note": "a posse is a band summoned by a sheriff"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "begin",
+         "at": 14,
+         "note": "begin points to the start of the word tracking"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tracking",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sheriff's band sets off on the trail with a hot drink.",
+     "walkthrough": "'begin' takes the first letter of 'tracking'.",
+     "definitionFit": "A posset is a hot milk drink curdled with wine or ale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tracking"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +900,56 @@
     "text": "Bulbs lit up, possibly, on Sunday",
     "enumeration": "6"
    },
-   "solution": "TULIPS"
+   "solution": "TULIPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bulbs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 14,
+         "note": "possibly says the words lit up may be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lit",
+         "at": 6
+        },
+        {
+         "words": "up",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "Sunday",
+       "at": 27,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Light bulbs switched on for a Sunday.",
+     "walkthrough": "'possibly' rearranges LIT UP to TULIP. 'Bulbs' looks like electric lights but means flower bulbs.",
+     "definitionFit": "These spring flowers grow from bulbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bulbs"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +963,42 @@
     "text": "Hull supporters changing horses",
     "enumeration": "6"
    },
-   "solution": "SHORES"
+   "solution": "SHORES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hull supporters",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changing",
+       "at": 16,
+       "note": "changing suggests the letters of horses are switched around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "horses",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans of Hull swapping horses midstream.",
+     "walkthrough": "'Hull' looks like the English city with its football club but is a ship's hull; 'changing' rearranges HORSES.",
+     "definitionFit": "Props or beams that hold up a vessel's hull in dry dock are its supports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hull"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1012,41 @@
     "text": "Cruel type seen in the Tulsa district",
     "enumeration": "6"
    },
-   "solution": "SADIST"
+   "solution": "SADIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cruel type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 11,
+       "note": "seen in says the letters are visible within the words Tulsa district"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tulsa district",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brute spotted in an Oklahoma neighbourhood.",
+     "walkthrough": "The answer runs across TulSA DISTrict.",
+     "definitionFit": "A person who enjoys inflicting pain is cruel by nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tulsa"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1060,62 @@
     "text": "Tail of sand-piper variegated, like the water-ouzel",
     "enumeration": "6"
    },
-   "solution": "DIPPER"
+   "solution": "DIPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the water-ouzel",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Tail of",
+         "at": 0,
+         "note": "the tail of the word sand is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sand",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "variegated",
+         "at": 19,
+         "note": "variegated, of varied colouring, suggests the letters of piper are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "piper",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mottled shore bird's tail compared to a stream bird.",
+     "walkthrough": "'Tail of' takes D from 'sand'; 'variegated' rearranges PIPER to IPPER.",
+     "definitionFit": "The water-ouzel is an older name for this diving stream bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variegated"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1129,42 @@
     "text": "Exercise, wearing fewer clothes",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exercise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fewer clothes",
+       "at": 18,
+       "gives": "LESS",
+       "note": "less, of clothing, means fewer garments"
+      },
+      {
+       "words": "wearing",
+       "at": 10,
+       "gives": "ON",
+       "note": "on means being worn, as in having a coat on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Working out while dressed lightly.",
+     "walkthrough": "'wearing fewer clothes' is having LESS ON.",
+     "definitionFit": "A lesson is a set exercise or piece of teaching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exercise"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1178,46 @@
     "text": "Gradually introduced one, with name silenced",
     "enumeration": "9"
    },
-   "solution": "INSTILLED"
+   "solution": "INSTILLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gradually introduced",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 21,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "name",
+       "at": 31,
+       "gives": "N"
+      },
+      {
+       "words": "silenced",
+       "at": 36,
+       "gives": "STILLED",
+       "note": "stilled means quietened"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eased in quietly with their name kept secret.",
+     "definitionFit": "To instil something is to fix it in the mind slowly, bit by bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silenced"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1231,50 @@
     "text": "Extravagant with C-note in Scandinavian money",
     "enumeration": "5"
    },
-   "solution": "OUTRE"
+   "solution": "OUTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extravagant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in says the note goes inside the coin's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scandinavian money",
+       "at": 27,
+       "gives": "ORE",
+       "note": "the ore is a Swedish, Danish and Norwegian coin"
+      },
+      {
+       "words": "C-note",
+       "at": 17,
+       "gives": "UT",
+       "note": "ut is the old sol-fa name for the note C"
+      }
+     ]
+    },
+    "spelling": "OUTRÉ",
+    "explanation": {
+     "surface": "Lavish spending with a hundred-dollar bill in Scandinavian currency.",
+     "walkthrough": "'C-note' looks like an American hundred-dollar bill but is UT, the old name for doh; 'in' puts UT inside ORE.",
+     "definitionFit": "Outré means bizarre and beyond the bounds of convention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "C-note"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1288,47 @@
     "text": "Egyptian church does not open for a releaser of spirits",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a releaser of spirits",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "does not open",
+       "at": 16,
+       "note": "does not open says the word loses its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Egyptian church",
+       "at": 0,
+       "gives": "COPTIC",
+       "note": "the Coptic Church is the Christian church of Egypt"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Egyptian church remains shut to someone who frees souls.",
+     "walkthrough": "'does not open' takes C off COPTIC. 'spirits' means drinks: an optic is the bar device that measures out spirits from an upturned bottle.",
+     "definitionFit": "A pub optic is fixed to an inverted bottle and dispenses a measured shot of gin or whisky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1342,60 @@
     "text": "Advance theories of superior situation in the papers?",
     "enumeration": "15"
    },
-   "solution": "PRESUPPOSITIONS"
+   "solution": "PRESUPPOSITIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advance theories",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "in says the higher situation is placed within the newspapers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the papers",
+       "at": 42,
+       "gives": "PRESS",
+       "note": "the press is the newspapers"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "superior",
+         "at": 20,
+         "gives": "UP",
+         "note": "up means higher"
+        },
+        {
+         "words": "situation",
+         "at": 29,
+         "gives": "POSITION",
+         "note": "a position is a situation"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speculating about a top job advertised in the newspapers.",
+     "walkthrough": "'in' puts UP POSITION inside PRESS, between its two Ss.",
+     "definitionFit": "Presuppositions are assumptions made beforehand, theories held in advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Advance"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1409,49 @@
     "text": "Plant disease engulfs two quarters of apple",
     "enumeration": "6"
    },
-   "solution": "RUSSET"
+   "solution": "RUSSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "apple",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engulfs",
+       "at": 14,
+       "note": "engulfs says one piece swallows the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Plant disease",
+       "at": 0,
+       "gives": "RUST",
+       "note": "rust is a fungal disease of plants"
+      },
+      {
+       "words": "two quarters",
+       "at": 22,
+       "gives": "SE",
+       "note": "S and E are two compass quarters, south and east"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blight that spreads over half an apple.",
+     "walkthrough": "'engulfs' puts SE inside RUST. 'two quarters' looks like half the apple but is two compass points.",
+     "definitionFit": "A russet is a variety of eating apple with rough brownish skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quarters"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1465,48 @@
     "text": "Discernment of a copper taking chaps on",
     "enumeration": "6"
    },
-   "solution": "ACUMEN"
+   "solution": "ACUMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discernment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 15,
+       "gives": "A"
+      },
+      {
+       "words": "copper",
+       "at": 17,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      },
+      {
+       "words": "chaps",
+       "at": 31,
+       "gives": "MEN",
+       "note": "men are chaps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer's judgement in recruiting more men.",
+     "walkthrough": "'copper' looks like a policeman but is the chemical symbol CU.",
+     "definitionFit": "Acumen is keen insight, the ability to judge well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   }
  ]
 }
