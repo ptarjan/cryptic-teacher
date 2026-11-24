@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Grab, some eggs",
     "enumeration": "6"
    },
-   "solution": "CLUTCH"
+   "solution": "CLUTCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grab",
+      "at": 0,
+      "meaning": "to grab is to seize or snatch hold of something"
+     },
+     {
+      "text": "some eggs",
+      "at": 6,
+      "meaning": "a set of eggs laid together in one nest"
+     }
+    ],
+    "explanation": {
+     "surface": "A terse instruction to snatch a few eggs.",
+     "definitionFit": "Both senses are standard: a sudden grasp, and a brood of eggs laid at one sitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,36 @@
     "text": "Local sailors involved.*in the 'opening of Irish port'?",
     "enumeration": "9"
    },
-   "solution": "CORKSCREW"
+   "solution": "CORKSCREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Local sailors involved.*in the 'opening of Irish port",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Local sailors involved.*in the 'opening of Irish port",
+       "at": 0,
+       "note": "the Irish port of ... would be its local sailors, and a bottle's cork is opened with a spiral tool"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's crew helping to open a harbour in Ireland.",
+     "walkthrough": "Cork is a port in southern Ireland; read as Cork's crew it names the sailors, read as one word it is the opener for a bottle cork.",
+     "definitionFit": "The spiral tool pulls a stopper from a bottle, the 'opening' the clue describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +112,34 @@
     "text": "\" Lay not that flattering to your soul \" (Hamlet)",
     "enumeration": "7"
    },
-   "solution": "UNCTION"
+   "solution": "UNCTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\" Lay not that flattering to your soul \" (Hamlet)",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\" Lay not that flattering to your soul \" (Hamlet)",
+       "at": 0,
+       "note": "the missing word in Hamlet's line to his mother, a soothing ointment of self-deception"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A line from Hamlet with a word left out.",
+     "walkthrough": "Hamlet tells Gertrude not to soothe herself with the idea that he is mad: 'Lay not that flattering ___ to your soul'.",
+     "definitionFit": "The word means an anointing ointment, here a comforting salve for the conscience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +153,47 @@
     "text": "Appropriate wear if cold in the Far East.",
     "enumeration": "10"
    },
-   "solution": "CHINCHILLA"
+   "solution": "CHINCHILLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appropriate wear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in says one word is set inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Far East",
+       "at": 28,
+       "gives": "CHINA",
+       "note": "China is a country of the Far East"
+      },
+      {
+       "words": "cold",
+       "at": 20,
+       "gives": "CHILL",
+       "note": "a chill is a cold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What to wear in the Far East when it gets cold.",
+     "definitionFit": "The soft grey fur of the Andean rodent is used for luxury coats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +207,50 @@
     "text": "Henry's widow among the litter-makers ? That's for the birds!",
     "enumeration": "8"
    },
-   "solution": "SPARROWS"
+   "solution": "SPARROWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 14,
+       "note": "among says one word is set in the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the litter-makers",
+       "at": 20,
+       "gives": "SOWS",
+       "note": "sows are female pigs, which produce litters of piglets"
+      },
+      {
+       "words": "Henry's widow",
+       "at": 0,
+       "gives": "PARR",
+       "note": "Catherine Parr was the sixth wife of Henry VIII and outlived him"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry VIII's last queen among breeding pigs, dismissed as nonsense.",
+     "walkthrough": "'That's for the birds' looks like the scornful idiom for something worthless, but only 'birds' defines; the rest is link padding.",
+     "definitionFit": "Small brown songbirds of the finch-like family are a common example of birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "litter-makers"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +264,41 @@
     "text": "Outlaw the mercenary writer",
     "enumeration": "9"
    },
-   "solution": "PROSCRIBE"
+   "solution": "PROSCRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outlaw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the mercenary",
+       "at": 7,
+       "gives": "PRO",
+       "note": "a pro, a professional, works for pay"
+      },
+      {
+       "words": "writer",
+       "at": 21,
+       "gives": "SCRIBE",
+       "note": "a scribe is a writer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hired writer is banished as an outlaw.",
+     "definitionFit": "To ban or forbid something formally is to prohibit it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Outlaw"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +312,53 @@
     "text": "Cheer up, too right !",
     "enumeration": "4"
    },
-   "solution": "ROOT"
+   "solution": "ROOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cheer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 6,
+       "note": "up, in a down clue, says the letters read upwards, from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "too",
+         "at": 10,
+         "note": "taken as written; that the letters also run backwards inside 'too right' is a coincidence of this R-for-right reading"
+        },
+        {
+         "words": "right",
+         "at": 14,
+         "gives": "R",
+         "note": "R is the abbreviation for right; its letters also sit reversed in 'too right' only by coincidence"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian-sounding cry of 'Too right!' to cheer someone up.",
+     "walkthrough": "'Cheer up' looks like one phrase, but 'up' reverses TOO + R.",
+     "definitionFit": "To root for a team is to cheer it on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +372,41 @@
     "text": "Eviction got us in trouble",
     "enumeration": "7"
    },
-   "solution": "OUSTING"
+   "solution": "OUSTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eviction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trouble",
+       "at": 19,
+       "note": "trouble, as a verb, stirs the letters up into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "got us in",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being thrown out landed us in difficulties.",
+     "walkthrough": "'in trouble' reads as a phrase, but 'in' is part of the fodder and 'trouble' alone is the signal.",
+     "definitionFit": "Turning someone out of their home is removing them from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +420,41 @@
     "text": "Add some final words on oil-containers",
     "enumeration": "5"
    },
-   "solution": "SUMPS"
+   "solution": "SUMPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "oil-containers",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Add",
+       "at": 0,
+       "gives": "SUM",
+       "note": "to sum is to add up"
+      },
+      {
+       "words": "some final words",
+       "at": 4,
+       "gives": "PS",
+       "note": "PS, a postscript, is final words added to a letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An extra afterthought about oil tanks.",
+     "definitionFit": "The reservoir under an engine that holds its lubricant is an oil pan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +468,36 @@
     "text": "He takes Robert a geranium",
     "enumeration": "4"
    },
-   "solution": "HERB"
+   "solution": "HERB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He takes Robert a geranium",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He takes Robert a geranium",
+       "at": 0,
+       "note": "add Robert to a plant word starting 'He' and you get the name of a wild geranium, the cranesbill called ___ Robert"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man bringing a pot plant for Robert.",
+     "walkthrough": "The wild geranium Geranium robertianum is commonly named after Robert; the first word of its name, a general plant term, begins with the clue's 'He'.",
+     "definitionFit": "A plant valued for flavour or medicine, as the wild cranesbill is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +511,49 @@
     "text": "Exotic queen about 150? Lie !",
     "enumeration": "7"
    },
-   "solution": "RECLINE"
+   "solution": "RECLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lie",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about says the queen's word goes round the number"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Exotic queen",
+       "at": 0,
+       "gives": "REINE",
+       "note": "reine is French for queen, so a foreign queen"
+      },
+      {
+       "words": "150",
+       "at": 19,
+       "gives": "CL",
+       "note": "CL is 150 in Roman numerals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign queen of about 150 is accused of lying.",
+     "walkthrough": "'Exotic' tempts as an anagram signal, but here it marks a foreign word: the queen is French.",
+     "definitionFit": "To lie back on a sofa is to lean back or rest at full length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exotic"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +567,43 @@
     "text": "I exclaim my classic ability to feign death",
     "enumeration": "7"
    },
-   "solution": "OPOSSUM"
+   "solution": "OPOSSUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to feign death",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I exclaim",
+       "at": 0,
+       "gives": "O",
+       "note": "O is an exclamation, the cry 'Oh!'"
+      },
+      {
+       "words": "my classic ability",
+       "at": 10,
+       "gives": "POSSUM",
+       "note": "possum is Latin, a classical language, for 'I am able'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasting, with a cry, of a talent for playing dead.",
+     "walkthrough": "The definition leans on the creature's habit: to 'play possum' is to feign death, the trick the American marsupial is famous for.",
+     "definitionFit": "The American marsupial is known for lying motionless as if dead when threatened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "classic"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +617,42 @@
     "text": "Change in return for the fun of the fair",
     "enumeration": "10"
    },
-   "solution": "SWITCHBACK"
+   "solution": "SWITCHBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the fun of the fair",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Change",
+       "at": 0,
+       "gives": "SWITCH",
+       "note": "to switch is to change over"
+      },
+      {
+       "words": "in return",
+       "at": 7,
+       "gives": "BACK",
+       "note": "back means in return, as in paying someone back"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Exchanging something to get the enjoyment of a funfair.",
+     "walkthrough": "A switchback is an old British name for a roller coaster, a funfair ride.",
+     "definitionFit": "A roller-coaster ride with steep ups and downs is a classic amusement at a funfair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +666,32 @@
     "text": "Wood has such prejudice",
     "enumeration": "4"
    },
-   "solution": "BIAS"
+   "solution": "BIAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wood has such",
+      "at": 0,
+      "meaning": "a wood is a bowl in the game of bowls, weighted to curve on its run"
+     },
+     {
+      "text": "prejudice",
+      "at": 14,
+      "meaning": "a one-sided leaning or partiality"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called Wood is said to hold a prejudice.",
+     "walkthrough": "Wood looks like a surname, but in bowls (a lawn game) a 'wood' is a ball, built off-centre so it curves.",
+     "definitionFit": "A bowl's off-centre weighting and a person's partiality are both a leaning to one side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wood"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +711,36 @@
      }
     ]
    },
-   "solution": "FLASHPOINT"
+   "solution": "FLASHPOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Temperature with possibility of some inflammation?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Temperature with possibility of some inflammation",
+       "at": 0,
+       "note": "the lowest heat at which a liquid's vapour can ignite, dressed up as a medical fever"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fever warning of an inflamed wound.",
+     "walkthrough": "'Temperature' and 'inflammation' suggest illness, but the inflammation is catching fire.",
+     "definitionFit": "The ignition threshold of a vapour, also used for the point where tension erupts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inflammation"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +754,29 @@
     "text": "Rapid progress in uninterrupted succession",
     "enumeration": "7"
    },
-   "solution": "RUNNING"
+   "solution": "RUNNING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rapid progress",
+      "at": 0,
+      "meaning": "moving at a run, quick going"
+     },
+     {
+      "text": "in uninterrupted succession",
+      "at": 15,
+      "meaning": "as in 'three days on the trot', one after another"
+     }
+    ],
+    "explanation": {
+     "surface": "Quick advance achieved without a single break.",
+     "definitionFit": "Sprinting is fast movement, and 'five times on end' uses the same word for consecutive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +790,41 @@
     "text": "See perhaps a GI return with this decoration",
     "enumeration": "9"
    },
-   "solution": "GARNITURE"
+   "solution": "GARNITURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "decoration",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 4,
+       "note": "perhaps says the letters may be put in some other order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a GI return",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A returning American soldier brings home an ornament.",
+     "walkthrough": "'perhaps' rearranges A GI RETURN; 'See' and 'with this' are links.",
+     "definitionFit": "A garnish or ornamental set of trimmings adorning something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "GI"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +838,41 @@
     "text": "That .Latin lass 'is breaking' the law",
     "enumeration": "7"
    },
-   "solution": "ILLEGAL"
+   "solution": "ILLEGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "breaking' the law",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "That .Latin",
+       "at": 0,
+       "gives": "ILLE",
+       "note": "ille is the Latin word for that"
+      },
+      {
+       "words": "lass",
+       "at": 12,
+       "gives": "GAL",
+       "note": "gal is an informal word for a girl"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl from Latium caught committing a crime.",
+     "definitionFit": "Something unlawful is against the law, so doing it is breaking the law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Latin"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +886,42 @@
     "text": "A.' foothold for masonic members on the square",
     "enumeration": "9"
    },
-   "solution": "LODGEMENT"
+   "solution": "LODGEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foothold",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "masonic members",
+       "at": 17,
+       "gives": "LODGEMEN",
+       "note": "Freemasons meet in lodges, so lodge men are masonic members"
+      },
+      {
+       "words": "the square",
+       "at": 36,
+       "gives": "T",
+       "note": "a T-square is a drawing tool, so T is the square"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Freemasons get their start by being on the level.",
+     "walkthrough": "'on the square' is Masonic jargon for honest, but here gives T, from the T-square; 'on' is a link.",
+     "definitionFit": "A position gained and held, as troops secure ground in enemy territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +935,59 @@
     "text": "Bird when returned is about a pound uncooked",
     "enumeration": "7"
    },
-   "solution": "WARBLER"
+   "solution": "WARBLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "when returned",
+       "at": 5,
+       "note": "returned means the assembled string of words is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "at": 22,
+         "gives": "RE",
+         "note": "re means about, concerning"
+        },
+        {
+         "words": "a pound",
+         "at": 28,
+         "gives": "LB",
+         "note": "lb is the abbreviation for a pound weight"
+        },
+        {
+         "words": "uncooked",
+         "at": 36,
+         "gives": "RAW",
+         "note": "raw food is uncooked"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird sent back because it was a pound of raw meat.",
+     "walkthrough": "'when returned' turns the whole run RE + LB + RAW, giving the letters backwards.",
+     "definitionFit": "A songbird of the Old World family Sylviidae, known for trilling song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1001,32 @@
     "text": "News of firings ?",
     "enumeration": "7"
    },
-   "solution": "REPORTS"
+   "solution": "REPORTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "News",
+      "at": 0,
+      "meaning": "accounts of events, as published by journalists"
+     },
+     {
+      "text": "firings",
+      "at": 8,
+      "meaning": "the bangs of guns being fired"
+     }
+    ],
+    "explanation": {
+     "surface": "Coverage of people being sacked.",
+     "walkthrough": "'firings' suggests dismissals, but means shots, the loud bangs of guns.",
+     "definitionFit": "Both senses: written accounts of events, and explosive noises from gunfire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firings"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1040,40 @@
     "text": "Stored like linseed, perhaps",
     "enumeration": "7"
    },
-   "solution": "ENSILED"
+   "solution": "ENSILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stored",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 21,
+       "note": "perhaps says the word is one possible arrangement of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "linseed",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kept away for later, as one might keep flax seed.",
+     "walkthrough": "'perhaps' rearranges LINSEED; 'like' is a link.",
+     "definitionFit": "Fodder kept in a silo for the winter has been put into store."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1087,33 @@
     "text": "Like Ethiopia's emperor vis-à-vis Judah",
     "enumeration": "7"
    },
-   "solution": "LEONINE"
+   "solution": "LEONINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like Ethiopia's emperor vis-à-vis Judah",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Like Ethiopia's emperor vis-à-vis Judah",
+       "at": 0,
+       "note": "Haile Selassie held the title 'Lion of Judah', so in that respect he was lion-like"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comparing Haile Selassie with the tribe of Judah.",
+     "definitionFit": "The word means resembling a lion, the beast of the emperor's title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1127,43 @@
     "text": "N European circuit, we hear",
     "enumeration": "4"
    },
-   "solution": "LAPP"
+   "solution": "LAPP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "N European",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LAPP",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 20,
+       "note": "we hear says the word is spoken, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "circuit",
+       "at": 11,
+       "gives": "LAP",
+       "note": "a lap is one circuit of a track"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of a lap round a track somewhere in northern Europe.",
+     "definitionFit": "The Sami people of northern Scandinavia are traditionally called by this older name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circuit"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1177,36 @@
     "text": "While one is out of practice, he is in",
     "enumeration": "5"
    },
-   "solution": "LOCUM"
+   "solution": "LOCUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "While one is out of practice, he is in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "While one is out of practice, he is in",
+       "at": 0,
+       "note": "when a doctor is away from the surgery, a stand-in doctor works in their practice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rusty player is replaced by a substitute.",
+     "walkthrough": "'out of practice' suggests being rusty, but means away from one's medical practice.",
+     "definitionFit": "A temporary doctor standing in for an absent colleague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "practice"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1220,44 @@
     "text": "Take dim view of difficult Ovid papers",
     "enumeration": "10"
    },
-   "solution": "DISAPPROVE"
+   "solution": "DISAPPROVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take dim view of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "difficult",
+       "at": 17,
+       "note": "difficult suggests the letters are in a tangled state needing sorting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ovid",
+       "at": 27
+      },
+      {
+       "words": "papers",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frowning on the hard essays about the Roman poet Ovid.",
+     "definitionFit": "Taking a dim view is to frown on or not approve of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "difficult"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1284,49 @@
     "text": "Music-maker has honour without love",
     "enumeration": "4"
    },
-   "solution": "OBOE"
+   "solution": "OBOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Music-maker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 23,
+       "note": "without in its old sense of outside, so the honour wraps round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "honour",
+       "at": 16,
+       "gives": "OBE",
+       "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+      },
+      {
+       "words": "love",
+       "at": 31,
+       "gives": "O",
+       "note": "love is zero in tennis, so O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician given an award but lonely.",
+     "walkthrough": "'without love' reads as loveless, but 'without' means outside: OBE goes round O.",
+     "definitionFit": "A double-reed woodwind instrument plays music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1340,48 @@
     "text": "Reindeer's a West Indian type, nothing high-class",
     "enumeration": "7"
    },
-   "solution": "CARIBOU"
+   "solution": "CARIBOU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reindeer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "West Indian type",
+       "at": 13,
+       "gives": "CARIB",
+       "note": "the Carib are an indigenous people of the Caribbean islands"
+      },
+      {
+       "words": "nothing",
+       "at": 31,
+       "gives": "O",
+       "note": "O is the round figure zero, so nothing"
+      },
+      {
+       "words": "high-class",
+       "at": 39,
+       "gives": "U",
+       "note": "U is a British label for upper-class usage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reindeer described as a Caribbean sort, and not posh.",
+     "walkthrough": "'nothing high-class' reads as an insult, but splits into O and U.",
+     "definitionFit": "The North American reindeer goes by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,10 +1392,55 @@
    },
    "length": 7,
    "clue": {
-    "text": "\u0000across the columns the Orient",
+    "text": "Source of dye is a duck in the Orient",
     "enumeration": "7"
    },
-   "solution": "ANILINE"
+   "solution": "ANILINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of dye",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "words": "duck",
+       "at": 19,
+       "gives": "NIL",
+       "note": "a duck is a score of zero in cricket, so nil"
+      },
+      {
+       "words": "in",
+       "at": 24,
+       "gives": "IN"
+      },
+      {
+       "words": "the Orient",
+       "at": 27,
+       "gives": "E",
+       "note": "E stands for east, the Orient"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dye said to come from a duck in the Far East.",
+     "walkthrough": "A duck in cricket is a batter's score of nothing.",
+     "definitionFit": "This chemical is the base for many synthetic colouring agents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1454,44 @@
     "text": "Sounds hot stuff gets us, summoned",
     "enumeration": "8"
    },
-   "solution": "MUSTERED"
+   "solution": "MUSTERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "summoned",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MUSTERED",
+     "indicators": [
+      {
+       "text": "Sounds",
+       "at": 0,
+       "note": "Sounds says the word is heard, not seen written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hot stuff",
+       "at": 7,
+       "gives": "MUSTARD",
+       "note": "mustard is a hot condiment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spicy condiment calls us together.",
+     "walkthrough": "'gets us' is a link to the definition.",
+     "definitionFit": "Troops gathered or called together for inspection have been assembled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 30,
@@ -479,7 +1515,34 @@
    "group": [
     "30-across",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Urban waif, not only in Mecca",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Urban waif, not only in Mecca",
+       "at": 0,
+       "note": "a homeless city child; such children are found not only in Arabia but in any city road"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Homeless city children exist far beyond Saudi Arabia.",
+     "walkthrough": "The old phrase for a ragged child living rough in a city ends in a word for a native of Arabia, hence the Mecca reference.",
+     "definitionFit": "Victorian term for a homeless child roaming city roads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
