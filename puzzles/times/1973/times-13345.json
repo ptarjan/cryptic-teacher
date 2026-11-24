@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Girl's witty outburst",
     "enumeration": "5"
    },
-   "solution": "SALLY"
+   "solution": "SALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl's",
+      "at": 0,
+      "meaning": "a girl's name, with the 's standing for 'is' to join the two senses"
+     },
+     {
+      "text": "witty outburst",
+      "at": 7,
+      "meaning": "a quip or sudden flash of wit"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's daughter comes out with a clever remark.",
+     "definitionFit": "Sally is a common female name, and a sally is also a quick retort or burst of repartee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Girl's"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,53 @@
     "text": "Surprising, putting acid in drink",
     "enumeration": "9"
    },
-   "solution": "STARTLING"
+   "solution": "STARTLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surprising",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "putting",
+       "at": 12,
+       "note": "one piece is put inside the other"
+      },
+      {
+       "text": "in",
+       "at": 25,
+       "note": "one piece is put inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "at": 28,
+       "gives": "SLING",
+       "note": "a sling is a sweetened spirit drink, as in the Singapore sling"
+      },
+      {
+       "words": "acid",
+       "at": 20,
+       "gives": "TART",
+       "note": "tart means sharp or acid in taste"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shockingly laces a cocktail with acid.",
+     "definitionFit": "Startling things astonish or alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acid"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +130,56 @@
     "text": "Slip in ballet — no end of confusion",
     "enumeration": "5"
    },
-   "solution": "LABEL"
+   "solution": "LABEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confusion",
+       "at": 27,
+       "note": "confusion jumbles the remaining letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no end of",
+         "at": 17,
+         "note": "the dance's name loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ballet",
+         "at": 8
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer trips mid-performance, causing endless chaos.",
+     "walkthrough": "'no end of' drops T from BALLET, leaving BALLE, and 'confusion' rearranges that.",
+     "definitionFit": "A slip of paper attached to a parcel carries a label, a tag or ticket."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +193,53 @@
     "text": "Light goes up on: opening this resort",
     "enumeration": "8"
    },
-   "solution": "YARMOUTH"
+   "solution": "YARMOUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this resort",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "goes up",
+         "at": 6,
+         "note": "in a down clue going up means reading from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Light",
+         "at": 0,
+         "gives": "RAY",
+         "note": "a ray is a beam of light"
+        }
+       ]
+      },
+      {
+       "words": "opening",
+       "at": 18,
+       "gives": "MOUTH",
+       "note": "a mouth is an opening, as of a river"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lights come on at the start of the season in a seaside town.",
+     "walkthrough": "'goes up' turns RAY into YAR. Great Yarmouth is a seaside resort in Norfolk, England.",
+     "definitionFit": "Great Yarmouth is an English seaside holiday town on the Norfolk coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +253,42 @@
     "text": "Craft intended for a sailor",
     "enumeration": "9"
    },
-   "solution": "BOATSWAIN"
+   "solution": "BOATSWAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sailor",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Craft",
+       "at": 0,
+       "gives": "BOAT",
+       "note": "a craft is a boat"
+      },
+      {
+       "words": "intended",
+       "at": 6,
+       "gives": "SWAIN",
+       "note": "one's intended is a sweetheart or suitor, an old word for which is swain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel was built specially for a seaman.",
+     "walkthrough": "'intended' looks like a verb meaning designed, but it is the noun: a fiancé or suitor, which old poetry calls a SWAIN.",
+     "definitionFit": "A boatswain (bosun) is the ship's officer in charge of rigging and deck crew, so a kind of seaman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intended"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +302,31 @@
     "text": "Vessel from the Isle of Dogs?",
     "enumeration": "4"
    },
-   "solution": "BARK"
+   "solution": "BARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0,
+      "meaning": "a sailing ship, also spelt barque"
+     },
+     {
+      "text": "from the Isle of Dogs",
+      "at": 7,
+      "meaning": "what comes from dogs is their cry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Isle of Dogs is a district of London's docklands, so a ship from there fits the surface, but the second sense is simply the noise dogs make.",
+     "definitionFit": "A bark is a three-masted ship, and the sound a dog makes is also a bark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Isle"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +340,59 @@
     "text": "Refraining from sin can't be bad, East concludes",
     "enumeration": "10"
    },
-   "solution": "ABSTINENCE"
+   "solution": "ABSTINENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refraining",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "concludes",
+       "at": 39,
+       "note": "East comes at the conclusion of the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 29,
+         "note": "bad as in poorly made, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sin can't be",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "East",
+       "at": 34,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher in the East argues that holding back from wrongdoing is no harm.",
+     "walkthrough": "'bad' rearranges SINCANTBE and 'concludes' puts E at the end.",
+     "definitionFit": "Abstinence is holding back from indulgence, especially drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +406,62 @@
     "text": "Ape-like object is, coming up North:",
     "enumeration": "6"
    },
-   "solution": "SIMIAN"
+   "solution": "SIMIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ape-like",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming up",
+         "at": 20,
+         "note": "in a down clue coming up means the letters read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "object",
+           "at": 9,
+           "gives": "AIM",
+           "note": "an aim is an object or purpose"
+          },
+          {
+           "words": "is",
+           "at": 16
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "North",
+       "at": 30,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thing is being hauled up from the north.",
+     "walkthrough": "'coming up' turns AIMIS into SIMIA, and N follows.",
+     "definitionFit": "Simian describes monkeys and apes or their features."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +481,34 @@
      }
     ]
    },
-   "solution": "APRILFOOL"
+   "solution": "APRILFOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Victim of the first joker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Victim of the first joker",
+       "at": 0,
+       "note": "the first is not the original prankster but the first day of the fourth month, when tricks are played"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Someone fooled by a prank on the first of April."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +522,30 @@
     "text": "Celebrated as certain bars. would be.?",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0,
+      "meaning": "famous, well known"
+     },
+     {
+      "text": "as certain bars. would be",
+      "at": 11,
+      "meaning": "bars of music are written with notes on them"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A famous person is noted, and a musical bar is literally filled with written notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +559,40 @@
     "text": "Garb miser mended in part of Moby Dick",
     "enumeration": "9"
    },
-   "solution": "AMBERGRIS"
+   "solution": "AMBERGRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of Moby Dick",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mended",
+       "at": 11,
+       "note": "the letters of the two words are repaired into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Garb miser",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy man's clothes are patched while he reads Melville's novel.",
+     "walkthrough": "'mended' rearranges GARBMISER into the answer.",
+     "definitionFit": "Ambergris is a waxy substance formed in the gut of the sperm whale, the species of Melville's white whale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +606,41 @@
     "text": "Learned deserter was a revolutionary",
     "enumeration": "5"
    },
-   "solution": "MARAT"
+   "solution": "MARAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a revolutionary",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Learned",
+       "at": 0,
+       "gives": "MA",
+       "note": "a learned person may hold an MA, a Master of Arts degree"
+      },
+      {
+       "words": "deserter",
+       "at": 8,
+       "gives": "RAT",
+       "note": "a rat is one who deserts a cause, as rats leave a sinking ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar who turned traitor had once been a radical.",
+     "definitionFit": "Jean-Paul Marat was a leader of the French Revolution, stabbed in his bath in 1793."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Learned"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +654,59 @@
     "text": "Add about a pound from this Great War house",
     "enumeration": "6"
    },
-   "solution": "TALBOT"
+   "solution": "TALBOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this Great War house",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 4,
+       "note": "the word for add is placed around the other pieces, as 'about' means surrounding"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Add",
+       "at": 0,
+       "gives": "TOT",
+       "note": "to tot up is to add"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10,
+         "gives": "A"
+        },
+        {
+         "words": "pound",
+         "at": 12,
+         "gives": "LB",
+         "note": "lb is the abbreviation for a pound in weight"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sum up the cost of a wartime building, with a pound or so knocked off.",
+     "walkthrough": "Talbot House, at Poperinge in Belgium, was a soldiers' rest club in the First World War, the origin of the Toc H movement.",
+     "definitionFit": "Talbot House was the famous First World War soldiers' club in Flanders, known by its signallers' name Toc H."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Add"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +720,34 @@
     "text": "B, a seaman who's incapacitated ?",
     "enumeration": "8"
    },
-   "solution": "DISABLED"
+   "solution": "DISABLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "B, a seaman who's incapacitated ?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "B, a seaman who's incapacitated",
+       "at": 0,
+       "note": "an able seaman is written AB; take away the A for 'able' and only B is left, a sailor who has lost his ability"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "AB stands for able seaman. With the A (able) gone, B is a seaman who has been 'dis-abled', which is the answer read in two parts.",
+     "definitionFit": "Lacking the use of a limb or faculty means unable, hence incapacitated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +761,34 @@
     "text": ":Weapon widely used ?",
     "enumeration": "10"
    },
-   "solution": "BROADSWORD"
+   "solution": "BROADSWORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weapon widely used ?",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Weapon widely used",
+       "at": 1,
+       "note": "a blade with a wide edge, read too as a term in broad use"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The question mark flags that 'widely used' describes a word in broad use as well as a sword wielded with a wide blade.",
+     "definitionFit": "A broad-bladed cutting sword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +808,57 @@
      }
     ]
    },
-   "solution": "ILLSTARRED"
+   "solution": "ILLSTARRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unlucky",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "maybe",
+         "at": 15,
+         "note": "maybe says the letters of these words could be arranged some other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "It's all",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 9,
+       "gives": "R"
+      },
+      {
+       "words": "a danger signal",
+       "at": 29,
+       "gives": "RED",
+       "note": "a red light or flag signals danger"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told everything is fine sees a warning light, and is out of luck after all.",
+     "walkthrough": "'maybe' turns ITSALL into ILLSTA; then R and RED follow. 'It's all right' wants to be one phrase, but its last word is split off as R.",
+     "definitionFit": "To be born under an evil star is to be doomed to misfortune, so ill-fated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +872,62 @@
     "text": "Dull and unsettled on rising in Welsh resort",
     "enumeration": "9"
    },
-   "solution": "LLANDUDNO"
+   "solution": "LLANDUDNO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Welsh resort",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unsettled",
+         "at": 9,
+         "note": "the letters of these words are disturbed into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dull and",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 22,
+         "note": "in a down clue rising means reading from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreary Welsh seaside town grows restless.",
+     "walkthrough": "'unsettled' rearranges DULLAND and 'rising' turns ON into NO.",
+     "definitionFit": "Llandudno is a seaside town on the north coast of Wales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dull"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +941,35 @@
     "text": "The band for a bowler ?",
     "enumeration": "4"
    },
-   "solution": "HOOP"
+   "solution": "HOOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The band for a bowler ?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The band for a bowler",
+       "at": 0,
+       "note": "a bowler sounds like a cricketer or a hat with a hatband, but here it is a child bowling a ring along with a stick"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Children once bowled a large wooden or metal ring along the street with a stick; the ring is a band in the sense of a circle.",
+     "definitionFit": "A child's ring for bowling along the ground, also a circular band round a barrel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bowler"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +983,29 @@
     "text": "Offered as arms might be?",
     "enumeration": "9"
    },
-   "solution": "PRESENTED"
+   "solution": "PRESENTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Offered",
+      "at": 0,
+      "meaning": "handed over or proffered"
+     },
+     {
+      "text": "as arms might be",
+      "at": 8,
+      "meaning": "soldiers hold rifles upright before them in salute on the order to present arms"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Something presented is offered or given, and rifles held up in salute have been presented on parade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1019,46 @@
     "text": "Before ten, going to' church — that's the claim.",
     "enumeration": "8"
    },
-   "solution": "PRETENCE"
+   "solution": "PRETENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "claim",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Before",
+       "at": 0,
+       "gives": "PRE",
+       "note": "pre is a prefix meaning before"
+      },
+      {
+       "words": "ten",
+       "at": 7,
+       "gives": "TEN"
+      },
+      {
+       "words": "church",
+       "at": 22,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they will be at church before ten o'clock.",
+     "definitionFit": "A pretence is a false profession or claim to something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ten"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1072,28 @@
     "text": "Poet in the shade",
     "enumeration": "4"
    },
-   "solution": "GRAY"
+   "solution": "GRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0,
+      "meaning": "Thomas ... wrote the Elegy Written in a Country Churchyard"
+     },
+     {
+      "text": "shade",
+      "at": 12,
+      "meaning": "a colour between black and white, spelt with an A in American usage"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Thomas Gray is the eighteenth-century English elegist, and gray is a neutral colour midway between black and white."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1107,59 @@
     "text": "Song is another included by abler composers",
     "enumeration": "10"
    },
-   "solution": "BARCAROLLE"
+   "solution": "BARCAROLLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included by",
+       "at": 16,
+       "note": "the second piece is placed inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "composers",
+         "at": 34,
+         "note": "composers are people who put things together, so the letters of abler are composed afresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "abler",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "another",
+       "at": 8,
+       "gives": "CAROL",
+       "note": "the clue's song is followed by another song, a carol"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tune is taken up by more skilful writers of music.",
+     "walkthrough": "'composers' looks like the musicians; it makes BARLE from ABLER, and 'included by' puts CAROL inside after BAR.",
+     "definitionFit": "A barcarolle is a Venetian gondolier's boating song or a piece in that rocking style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composers"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1173,11 @@
     "text": "Native 'conference of first class standing includes band members",
     "enumeration": "6"
    },
-   "solution": "INDABA"
+   "solution": "INDABA",
+   "annotationWithheld": {
+    "why": "Native 'conference of first class standing includes band members (6), INDABA: first-class A1 reversed (IA) round NDAB, but no reading of 'band members' gives NDAB and no source gives the parse",
+    "clue": "Native 'conference of first class standing includes band members"
+   }
   },
   {
    "number": 22,
@@ -364,7 +1191,41 @@
     "text": "It's Enid's change of order",
     "enumeration": "8"
    },
-   "solution": "TIDINESS"
+   "solution": "TIDINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "order",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "change",
+       "at": 12,
+       "note": "the letters of the two words are made to change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It's Enid's",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl named Enid gets a new arrangement.",
+     "walkthrough": "'change' rearranges ITSENIDS into the answer.",
+     "definitionFit": "Neatness and good arrangement are what tidiness means, as in keeping a room in order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1239,29 @@
     "text": "Object of play, for Hamlet",
     "enumeration": "5"
    },
-   "solution": "THING"
+   "solution": "THING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Object",
+      "at": 0,
+      "meaning": "an item or article"
+     },
+     {
+      "text": "play, for Hamlet",
+      "at": 10,
+      "meaning": "Hamlet says the play's the ... to catch the conscience of the king"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Thing means an object, and Hamlet's line 'The play's the thing' equates the play with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1275,28 @@
     "text": "Firm: supplying horses ?",
     "enumeration": "6"
    },
-   "solution": "STABLE"
+   "solution": "STABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0,
+      "meaning": "steady, secure"
+     },
+     {
+      "text": "supplying horses",
+      "at": 6,
+      "meaning": "a riding or racing establishment that keeps and provides horses"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Stable means steady and secure, and a stable is the building or yard where horses are kept and hired out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1310,29 @@
     "text": "An assassin, in general",
     "enumeration": "5"
    },
-   "solution": "BOOTH"
+   "solution": "BOOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An assassin",
+      "at": 0,
+      "meaning": "John Wilkes ... shot Abraham Lincoln"
+     },
+     {
+      "text": "general",
+      "at": 16,
+      "meaning": "William ... founded the Salvation Army and was its first General"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "John Wilkes Booth killed President Lincoln, and General William Booth led the Salvation Army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1346,55 @@
     "text": "Actor turns up in foyer at seven:",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turns up",
+       "at": 6,
+       "note": "turns up says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 15,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foyer at seven",
+         "at": 18,
+         "gives": "RATS",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer appears in the theatre lobby at seven o'clock.",
+     "walkthrough": "'in' marks the run RATS inside 'foyer at seven', and 'turns up', read upwards in a down clue, reverses it.",
+     "definitionFit": "A leading performer is called a star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1408,41 @@
     "text": "At home day for. Spaniard in: country",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "country",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "At home",
+       "at": 0,
+       "gives": "IN",
+       "note": "to be at home is to be in"
+      },
+      {
+       "words": "day for. Spaniard",
+       "at": 8,
+       "gives": "DIA",
+       "note": "dia is the Spanish word for day"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish visitor takes a day at home in the country.",
+     "definitionFit": "India is a nation of South Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1466,30 @@
      }
     ]
    },
-   "solution": "OUTANDOUT"
+   "solution": "OUTANDOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Striking duet",
+      "at": 0,
+      "meaning": "two workers on strike are each out, a pair of outs joined"
+     },
+     {
+      "text": "definitely",
+      "at": 17,
+      "meaning": "thoroughly, utterly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A worker on strike is 'out'; a duet of strikers is one out and another out.",
+     "definitionFit": "The phrase means complete or absolute, as in an out-and-out villain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1503,60 @@
     "text": "Bird is a male one includes duck, very 'big'",
     "enumeration": "9"
    },
-   "solution": "GOOSANDER"
+   "solution": "GOOSANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 19,
+       "note": "the male bird's name holds the next pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a male one",
+       "at": 8,
+       "gives": "GANDER",
+       "note": "a gander is a male goose, the bird being the 'one'"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "duck",
+         "at": 28,
+         "gives": "O",
+         "note": "a duck is a score of nought in cricket, shaped like O"
+        },
+        {
+         "words": "very 'big",
+         "at": 34,
+         "gives": "OS",
+         "note": "OS is the abbreviation for outsize"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "This large bird is a drake that has a duck in tow.",
+     "walkthrough": "A duck is a nil score in cricket, hence O, and OS is the clothing label for outsize.",
+     "definitionFit": "The goosander is a large fish-eating sawbill duck of northern waters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 29,
@@ -486,7 +1570,40 @@
     "text": "Hoped to'repair: vestment",
     "enumeration": "5"
    },
-   "solution": "EPHOD"
+   "solution": "EPHOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vestment",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "repair",
+       "at": 9,
+       "note": "to repair is to put right, so these letters are put in their right order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hoped",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest had hopes of mending a robe.",
+     "walkthrough": "'repair' rearranges HOPED.",
+     "definitionFit": "An ephod is a sleeveless garment worn by the ancient Jewish high priest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
