@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Indicate correct time",
     "enumeration": "4"
    },
-   "solution": "TICK"
+   "solution": "TICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indicate correct",
+      "at": 0,
+      "meaning": "to mark something as right with a check mark"
+     },
+     {
+      "text": "time",
+      "at": 17,
+      "meaning": "a moment, as in 'just a second'"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A check mark shows an answer is right, and a brief instant is also called by the same word, as in 'back in a moment'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +75,78 @@
      }
     ]
    },
-   "solution": "TAJMAHAL"
+   "solution": "TAJMAHAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a feature of India",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the shuffled jam with A goes inside the shuffled halt"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "forced",
+         "at": 18,
+         "note": "forced here means twisted out of shape, so the letters of halt are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "halt",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "terrible",
+           "at": 2,
+           "note": "a terrible jam is a mangled one, so its letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "jam",
+           "at": 11
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stuck in a dreadful traffic jam at an enforced stop somewhere in India.",
+     "walkthrough": "Two anagram signals work at once: 'forced' on halt and 'terrible' on jam, and 'in' places the second scramble, led by A, just after the first letter of the first.",
+     "definitionFit": "The marble mausoleum at Agra is one of India's best-known landmarks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +160,59 @@
     "text": "Funny old note in volume",
     "enumeration": "5"
    },
-   "solution": "COMIC"
+   "solution": "COMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Funny",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "old and note are placed inside the abbreviation for volume"
+      }
+     ],
+     "parts": [
+      {
+       "words": "volume",
+       "at": 18,
+       "gives": "CC",
+       "note": "cc, cubic centimetres, is a measure of volume"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 6,
+         "gives": "O"
+        },
+        {
+         "words": "note",
+         "at": 10,
+         "gives": "MI",
+         "note": "mi is the third note of the sol-fa scale"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An amusing old memo tucked inside a book.",
+     "walkthrough": "'volume' looks like a book, but here it is CC, cubic centimetres.",
+     "definitionFit": "Something that makes you laugh is humorous, an adjective sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +226,47 @@
     "text": "A number joining right group in county",
     "enumeration": "8"
    },
-   "solution": "SOMERSET"
+   "solution": "SOMERSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "county",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A number",
+       "at": 0,
+       "gives": "SOME",
+       "note": "some means an unspecified number of things"
+      },
+      {
+       "words": "right",
+       "at": 17,
+       "gives": "R"
+      },
+      {
+       "words": "group",
+       "at": 23,
+       "gives": "SET",
+       "note": "a set is a group of things"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several people join a right-wing faction somewhere in the shires.",
+     "walkthrough": "SOMERSET is a county in south-west England.",
+     "definitionFit": "It is one of the English shires, in the West Country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +280,30 @@
     "text": "Unusual description of constable on day of rest?",
     "enumeration": "7"
    },
-   "solution": "OFFBEAT"
+   "solution": "OFFBEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0,
+      "meaning": "eccentric, unconventional"
+     },
+     {
+      "text": "description of constable on day of rest?",
+      "at": 8,
+      "meaning": "a police officer not walking their regular patrol round is not on their beat"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Unconventional things are quirky; and a constable who is not patrolling their round is away from the beat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "constable"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +323,53 @@
      }
     ]
    },
-   "solution": "EXPENSEACCOUNT"
+   "solution": "EXPENSEACCOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "which gives credit to employee",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former, as in an ex-wife"
+      },
+      {
+       "words": "writer's",
+       "at": 4,
+       "gives": "PENS",
+       "note": "a pen is a writing tool, so writer's gives pen's"
+      },
+      {
+       "words": "English",
+       "at": 13,
+       "gives": "E"
+      },
+      {
+       "words": "narrative",
+       "at": 21,
+       "gives": "ACCOUNT",
+       "note": "an account is a story or report of events"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A story told in English by an old author, praising a worker.",
+     "walkthrough": "The apostrophe in writer's is dropped: PEN'S gives PENS.",
+     "definitionFit": "Firms provide staff an allowance or card for work-related spending, reimbursed later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +389,55 @@
      }
     ]
    },
-   "solution": "SEABREEZE"
+   "solution": "SEABREEZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "onshore wind",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SEA",
+       "indicators": [
+        {
+         "text": "Soundly",
+         "at": 0,
+         "note": "soundly signals the word for observe is said out loud and spelt differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "observe",
+         "at": 8,
+         "gives": "SEE",
+         "note": "to observe is to see"
+        }
+       ]
+      },
+      {
+       "words": "a sort of block",
+       "at": 16,
+       "gives": "BREEZE",
+       "note": "a breeze block is a light building block made from cinders and cement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to look carefully at a building block in the wind off the sea.",
+     "walkthrough": "SEE is spoken, giving SEA. A breeze block is a British building block of cinder concrete.",
+     "definitionFit": "A gentle wind blowing from the ocean towards the land in the daytime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Soundly"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +451,41 @@
     "text": "An outburst of plangent weeping is sickly sentimental",
     "enumeration": "4"
    },
-   "solution": "TWEE"
+   "solution": "TWEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sickly sentimental",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "An outburst of",
+       "at": 0,
+       "note": "a few letters burst out from within the phrase plangent weeping"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plangent weeping",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fit of mournful crying is cloyingly mawkish.",
+     "walkthrough": "The run sits across the word join: plangenT WEEping.",
+     "definitionFit": "Overly dainty, quaint or saccharine, an informal British adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outburst"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +505,29 @@
      }
     ]
    },
-   "solution": "WINDOWDRESSING"
+   "solution": "WINDOWDRESSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0,
+      "meaning": "superficial display meant to impress, mere appearance"
+     },
+     {
+      "text": "public display of clothing?",
+      "at": 5,
+      "meaning": "garments arranged in a shop front for passers-by"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Merchants arrange clothes behind glass to attract shoppers, and by extension the phrase means a misleadingly attractive presentation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +541,46 @@
     "text": "Bureau sends a bit of information to Cyprus",
     "enumeration": "6"
    },
-   "solution": "AGENCY"
+   "solution": "AGENCY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bureau",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 13
+      },
+      {
+       "words": "bit of information",
+       "at": 15,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "words": "Cyprus",
+       "at": 37,
+       "gives": "CY",
+       "note": "CY is the international code for Cyprus"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An office passes a snippet of news on to Cyprus.",
+     "walkthrough": "GEN is British informal for information, as in 'get the gen'.",
+     "definitionFit": "An office or organisation providing a service, such as a travel or news office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sends"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +604,41 @@
      }
     ]
    },
-   "solution": "JUMPINGOFFPLACE"
+   "solution": "JUMPINGOFFPLACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a starting point",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Certainly not getting on",
+       "at": 0,
+       "gives": "JUMPINGOFF",
+       "note": "someone leaping from a vehicle is plainly not boarding it"
+      },
+      {
+       "words": "site",
+       "at": 25,
+       "gives": "PLACE",
+       "note": "a site is a place"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting off a train rather than boarding it, yet given a point of departure.",
+     "definitionFit": "A base from which an enterprise or journey is launched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "getting"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +652,49 @@
     "text": "Form of words in which civil engineer obscures time of mishap",
     "enumeration": "9"
    },
-   "solution": "ACCIDENCE"
+   "solution": "ACCIDENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Form of words",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "obscures",
+       "at": 38,
+       "note": "the civil engineer covers up the time, standing in its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mishap",
+       "at": 55,
+       "gives": "ACCIDENT",
+       "note": "an accident is a mishap"
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "gives": "CE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer covers up when a mishap happened.",
+     "walkthrough": "'obscures' puts CE where the T of ACCIDENT was.",
+     "definitionFit": "In grammar, it is the part dealing with inflections, the changing shapes of words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engineer"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +708,42 @@
     "text": "Certainly not marine standard",
     "enumeration": "4"
    },
-   "solution": "NORM"
+   "solution": "NORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "standard",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Certainly not",
+       "at": 0,
+       "gives": "NO",
+       "note": "no is a firm refusal"
+      },
+      {
+       "words": "marine",
+       "at": 14,
+       "gives": "RM",
+       "note": "RM, Royal Marines, the British naval infantry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seagoing practice is definitely not usual.",
+     "walkthrough": "RM stands for the Royal Marines, the UK's amphibious infantry.",
+     "definitionFit": "A usual or expected level or pattern of behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marine"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +757,41 @@
     "text": "Cunning method of entrance?",
     "enumeration": "7"
    },
-   "solution": "ARCHWAY"
+   "solution": "ARCHWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entrance?",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cunning",
+       "at": 0,
+       "gives": "ARCH",
+       "note": "arch means sly or knowing"
+      },
+      {
+       "words": "method",
+       "at": 8,
+       "gives": "WAY",
+       "note": "a way is a method"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crafty way to get in.",
+     "definitionFit": "An entrance passage under a curved structure, a way in under a vault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cunning"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +805,41 @@
     "text": "Savoury cake and game to note",
     "enumeration": "9"
    },
-   "solution": "CROQUETTE"
+   "solution": "CROQUETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Savoury cake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "game",
+       "at": 17,
+       "gives": "CROQUET",
+       "note": "croquet is a lawn game with mallets and hoops"
+      },
+      {
+       "words": "note",
+       "at": 25,
+       "gives": "TE",
+       "note": "te is the seventh note of the sol-fa scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pie and a game on the lawn worth writing down.",
+     "definitionFit": "A small fried roll of mashed potato or minced meat coated in breadcrumbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +853,42 @@
     "text": "What golfer uses thrice has to show instability",
     "enumeration": "6"
    },
-   "solution": "TEETER"
+   "solution": "TEETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "show instability",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What golfer uses",
+       "at": 0,
+       "gives": "TEE",
+       "note": "a golfer sets the ball on a tee"
+      },
+      {
+       "words": "thrice",
+       "at": 17,
+       "gives": "TER",
+       "note": "ter is Latin for three times, seen on old prescriptions"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer using something three times reveals a wobbly game.",
+     "walkthrough": "'thrice' tempts you to repeat TEE three times; it is the Latin word for 'three times'.",
+     "definitionFit": "To wobble or sway unsteadily, as if about to fall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrice"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +902,59 @@
     "text": "Force on street section changed from left to right",
     "enumeration": "8"
    },
-   "solution": "STRENGTH"
+   "solution": "STRENGTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "street",
+       "at": 9,
+       "gives": "ST"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changed from left to right",
+         "at": 24,
+         "note": "the letter for left is swapped for the letter for right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "section",
+         "at": 16,
+         "gives": "LENGTH",
+         "note": "a length is a section, as of pipe or cloth"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Traffic on a stretch of street is diverted to the other side.",
+     "walkthrough": "'changed from left to right' turns LENGTH into RENGTH, with R for right in place of L for left.",
+     "definitionFit": "Physical power or might."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Force"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +968,48 @@
     "text": "University in river races will have no medal in this position",
     "enumeration": "6"
    },
-   "solution": "FOURTH"
+   "solution": "FOURTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "races will have no medal in this position",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "the university letter sits inside the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 14,
+       "gives": "FORTH",
+       "note": "the Forth is a Scottish river"
+      },
+      {
+       "words": "University",
+       "at": 0,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "University boat races on a river where one crew misses out on medals.",
+     "walkthrough": "The Forth flows past Stirling into the Firth of Forth in Scotland. Only the first three places win medals.",
+     "definitionFit": "The place just after bronze, missing the podium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1029,56 @@
      }
     ]
    },
-   "solution": "HEIGHHO"
+   "solution": "HEIGHHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sigh of resignation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 27,
+         "note": "reduced means cut short, so the last letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elevation",
+         "at": 35,
+         "gives": "HEIGHT",
+         "note": "height is elevation"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "house",
+       "at": 48,
+       "gives": "HO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sighs on seeing a house lowered.",
+     "walkthrough": "In a down clue 'on' means placed below, so house comes after the shortened elevation.",
+     "definitionFit": "An exclamation of weary acceptance or boredom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "elevation"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1092,59 @@
     "text": "Old worker restricts new French company",
     "enumeration": "7"
    },
-   "solution": "ANCIENT"
+   "solution": "ANCIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "restricts",
+       "at": 11,
+       "note": "the worker holds the other pieces within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worker",
+       "at": 4,
+       "gives": "ANT",
+       "note": "a worker ant, a crossword staple"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 21,
+         "gives": "N"
+        },
+        {
+         "words": "French company",
+         "at": 25,
+         "gives": "CIE",
+         "note": "Cie is the French abbreviation for compagnie"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aged employee hampers a fresh French firm.",
+     "walkthrough": "'worker' is the crossword's usual insect; 'restricts' means it hems in the other two pieces.",
+     "definitionFit": "Very old, from long ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1158,40 @@
     "text": "Clever form of statue",
     "enumeration": "6"
    },
-   "solution": "ASTUTE"
+   "solution": "ASTUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "form of",
+       "at": 7,
+       "note": "form of signals the letters of statue are given a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "statue",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever version of a sculpture.",
+     "definitionFit": "Shrewd and sharp-witted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1205,49 @@
     "text": "Bubbles on the water in south of France on top of sea",
     "enumeration": "4"
    },
-   "solution": "SUDS"
+   "solution": "SUDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bubbles on the water",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on top of",
+       "at": 40,
+       "note": "in this clue the French word is placed before the sea letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "south of France",
+       "at": 24,
+       "gives": "SUD",
+       "note": "sud is French for south"
+      },
+      {
+       "words": "sea",
+       "at": 50,
+       "gives": "S",
+       "note": "S is a recognised abbreviation for sea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bubbles on the water down in the south of France at the seaside.",
+     "walkthrough": "'south of France' looks like the Riviera, but it is the French word for south.",
+     "definitionFit": "Foam or lather on washing water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "France"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1261,40 @@
     "text": "Bring in amazing reduction",
     "enumeration": "9"
    },
-   "solution": "INTRODUCE"
+   "solution": "INTRODUCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bring in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "amazing",
+       "at": 9,
+       "note": "amazing suggests something mixed up and astonishing, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reduction",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An announcer touts an incredible price cut.",
+     "definitionFit": "To present or bring something new into use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "amazing"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1308,50 @@
     "text": "Bring together in university on empty Friday",
     "enumeration": "5"
    },
-   "solution": "UNIFY"
+   "solution": "UNIFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bring together",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "university",
+       "at": 18,
+       "gives": "UNI"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 32,
+         "note": "empty means the inside of Friday is removed, leaving its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Friday",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Uniting people at college on a quiet Friday.",
+     "definitionFit": "To join into one, to unite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1365,57 @@
     "text": "Loose fellow leaves amusing party",
     "enumeration": "4"
    },
-   "solution": "UNDO"
+   "solution": "UNDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Loose",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "at": 13,
+         "note": "the fellow departs, taken out of the party"
+        }
+       ],
+       "parts": [
+        {
+         "words": "amusing",
+         "at": 20,
+         "gives": "FUN",
+         "note": "fun means amusing"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "words": "party",
+       "at": 28,
+       "gives": "DO",
+       "note": "a do is a party"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man walks out of a lively party.",
+     "walkthrough": "'Loose' is a verb here, meaning to untie.",
+     "definitionFit": "To loose a knot is to unfasten it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loose"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1429,41 @@
     "text": "All the same lacking status?",
     "enumeration": "15"
    },
-   "solution": "NOTWITHSTANDING"
+   "solution": "NOTWITHSTANDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "All the same",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lacking",
+       "at": 13,
+       "gives": "NOTWITH",
+       "note": "not with means without, lacking"
+      },
+      {
+       "words": "status",
+       "at": 21,
+       "gives": "STANDING",
+       "note": "standing is status or rank"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everything stays the same for a person without status.",
+     "definitionFit": "Nevertheless, in spite of that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lacking"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1477,53 @@
     "text": "Wild grove on terrace might well do this",
     "enumeration": "8"
    },
-   "solution": "OVERGROW"
+   "solution": "OVERGROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wild grove on terrace might well do this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wild",
+         "at": 0,
+         "note": "wild means disorderly, so the letters of grove are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grove",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "terrace",
+       "at": 14,
+       "gives": "ROW",
+       "note": "a terrace is a row of houses"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An untamed clump of trees beside a terrace would spread across it.",
+     "walkthrough": "A terrace is a British row of joined houses.",
+     "definitionFit": "Untamed trees spread and cover neighbouring ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terrace"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1537,56 @@
     "text": "It's not to be taken literally in writer's short article",
     "enumeration": "4"
    },
-   "solution": "MYTH"
+   "solution": "MYTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's not to be taken literally",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "writer's",
+       "at": 34,
+       "gives": "MY",
+       "note": "the setter refers to themself, so writer's means my"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 43,
+         "note": "short means the article loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "article",
+         "at": 49,
+         "gives": "THE",
+         "note": "the is the definite article"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning in an author's brief piece.",
+     "definitionFit": "A legend or fable, not literally true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   }
  ]
 }
