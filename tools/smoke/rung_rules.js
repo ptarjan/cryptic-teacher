@@ -335,6 +335,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     return true;
   };
   const asking = () => isAsking(registry["hint-body"]);
+  // A real question: a step chosen with nothing to ask draws a "Tap Show me"
+  // panel under the same marker, which hands nothing over.
+  const questioned = () => asking() && !registry["hint-body"].innerHTML.includes("to open this step.</p>");
   const climbToBlocks = () => {
     for (let i = 0; i < 8; i++) {
       const open = registry["hint-rungs"].children.filter((b) => !b.disabled && b.onclick);
@@ -368,7 +371,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     const b = climbToBlocks();
     if (assert(b, `${ana.id} ${entryId(ana.e)}: the building blocks are reachable`)) {
       b.onclick();
-      assert(!asking(), `${ana.id} ${entryId(ana.e)}: "${clueText(ana.e)}" hands its fodder over unasked: `
+      assert(!questioned(), `${ana.id} ${entryId(ana.e)}: "${clueText(ana.e)}" hands its fodder over unasked: `
         + registry["hint-body"].innerHTML);
     }
   }
@@ -377,7 +380,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     const b = climbToBlocks();
     if (assert(b, `${cha.id} ${entryId(cha.e)}: the building blocks are reachable`)) {
       b.onclick();
-      if (assert(asking(), `${cha.id} ${entryId(cha.e)}: the first piece of "${clueText(cha.e)}" is asked`)) {
+      if (assert(questioned(), `${cha.id} ${entryId(cha.e)}: the first piece of "${clueText(cha.e)}" is asked`)) {
         registry["guess-tell"].onclick();
         assert(!registry["hint-rungs"].children.some((x) => /next piece/i.test(x.textContent || "")),
           `${cha.id} ${entryId(cha.e)}: the last piece comes with it, not behind a question: `
