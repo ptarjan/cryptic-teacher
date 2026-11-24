@@ -762,6 +762,11 @@ button:disabled:hover { border-color: var(--line); }
 .cell.sep-b { border-bottom: 3px solid var(--blockfill); }
 .cell.bar-r { border-right: 3px solid var(--blockfill); }
 .cell.bar-b { border-bottom: 3px solid var(--blockfill); }
+/* The bar sits inside its cell, so the 1px grid gap beside it would show as a
+   second, grey line; a 1px shadow paints that gap the bar's colour. */
+.cell:is(.sep-r, .bar-r) { box-shadow: 1px 0 0 var(--blockfill); }
+.cell:is(.sep-b, .bar-b) { box-shadow: 0 1px 0 var(--blockfill); }
+.cell:is(.sep-r, .bar-r):is(.sep-b, .bar-b) { box-shadow: 1px 1px 0 var(--blockfill); }
 .cell.dash-r::before {
   content: ""; position: absolute; right: -4px; top: 50%; width: 7px; height: 2px;
   background: var(--blockfill); z-index: 2;
