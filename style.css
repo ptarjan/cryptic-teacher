@@ -804,6 +804,11 @@ button:disabled:hover { border-color: var(--line); }
    Paper mode, clear word and reset puzzle are rare, and the last two destroy
    work, so they sit behind a tap instead of on the solving path. */
 .menu-wrap { position: relative; margin-left: auto; align-self: center; }
+/* The button is taller than the score line beside it, a finger-sized target on
+   touch screens. The wrap is only one score line tall and the button hangs
+   centred over its edges, so the row is no taller than its text. The gap under
+   the row then matches the gap above it. */
+.puzzle-head .menu-wrap { display: flex; align-items: center; height: calc(.85rem * 1.25); }
 .menu-btn { font-size: 1rem; line-height: 1; padding: 4px 12px; letter-spacing: .1em; }
 .menu {
   position: absolute; right: 0; top: calc(100% + 4px); z-index: 30; min-width: 11rem;
