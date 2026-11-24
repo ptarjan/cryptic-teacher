@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Military group's lack of involvement",
     "enumeration": "10"
    },
-   "solution": "DETACHMENT"
+   "solution": "DETACHMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Military group",
+      "at": 0,
+      "meaning": "a unit of troops sent away from the main body on a special task"
+     },
+     {
+      "text": "lack of involvement",
+      "at": 17,
+      "meaning": "standing aloof, emotionally uninvolved"
+     }
+    ],
+    "explanation": {
+     "surface": "An army unit is accused of keeping out of things.",
+     "definitionFit": "The word means both a squad posted apart from its regiment and a cool, uninvolved aloofness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group's"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,43 @@
     "text": "It's a fact lawyer's taken on corporation",
     "enumeration": "5"
    },
-   "solution": "DATUM"
+   "solution": "DATUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a fact",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lawyer's",
+       "at": 12,
+       "gives": "DA",
+       "note": "DA is a district attorney, an American prosecuting lawyer"
+      },
+      {
+       "words": "corporation",
+       "at": 30,
+       "gives": "TUM",
+       "note": "corporation is an old jokey word for a big belly, a tum"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asserts that an attorney has joined a big company.",
+     "walkthrough": "'Corporation' looks like a company but is the old slang for a paunch, hence TUM; 'taken on' just joins the pieces.",
+     "definitionFit": "A single item of information, a given, is a datum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +120,70 @@
     "text": "Restaurant serving up a pastry dish, being without things like doughnuts?",
     "enumeration": "9"
    },
-   "solution": "TRATTORIA"
+   "solution": "TRATTORIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Restaurant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being without",
+       "at": 37,
+       "note": "being without means standing outside, so the turned-round piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "serving up",
+         "at": 11,
+         "note": "in a down clue 'up' tells us the words a tart are read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 22
+          },
+          {
+           "words": "pastry dish",
+           "at": 24,
+           "gives": "TART",
+           "note": "a tart is a dish made with pastry"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "things like doughnuts",
+       "at": 51,
+       "gives": "TORI",
+       "note": "tori, plural of torus, are ring shapes like doughnuts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant serves a tart but has run out of doughnuts.",
+     "walkthrough": "'serving up' turns the dish round (it is a down clue), and 'being without' means standing outside the doughnut shapes, not lacking them.",
+     "definitionFit": "An Italian eating house, typically informal, is a trattoria."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +197,46 @@
     "text": "Self-assured individual and friend meet privately",
     "enumeration": "14"
    },
-   "solution": "CONFIDENTIALLY"
+   "solution": "CONFIDENTIALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "privately",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Self-assured",
+       "at": 0,
+       "gives": "CONFIDENT",
+       "note": "self-assured means confident"
+      },
+      {
+       "words": "individual",
+       "at": 13,
+       "gives": "I",
+       "note": "I is one, an individual"
+      },
+      {
+       "words": "friend",
+       "at": 28,
+       "gives": "ALLY",
+       "note": "an ally is a friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confident person and a pal get together in secret.",
+     "definitionFit": "Speaking in confidence, off the record, is speaking privately."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +250,45 @@
     "text": "Dicky, Norm, Des — trendy types?",
     "enumeration": "7"
    },
-   "solution": "MODERNS"
+   "solution": "MODERNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trendy types",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Dicky",
+       "at": 0,
+       "note": "dicky is British slang for shaky or unsound, so the two names are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Norm",
+       "at": 7
+      },
+      {
+       "words": "Des",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of three men's names, Dicky, Norm and Des, asked whether they are fashionable sorts.",
+     "walkthrough": "'Dicky' looks like a third name in the list but is the anagram signal (British slang for weak or faulty).",
+     "definitionFit": "Up-to-date, fashionable people are moderns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +302,50 @@
     "text": "Person scoring a century is caught by him, presumably",
     "enumeration": "7"
    },
-   "solution": "NOTCHER"
+   "solution": "NOTCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person scoring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is caught by",
+       "at": 25,
+       "note": "being caught by something means held inside it, so the hundred goes into the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "him, presumably",
+       "at": 38,
+       "gives": "NOTHER",
+       "note": "a male person is presumably not a woman, so him gives the phrase not her"
+      },
+      {
+       "words": "a century",
+       "at": 15,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, a century"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman reaching a hundred is caught out by a fielder.",
+     "walkthrough": "The cricket picture of a batsman caught on a hundred misleads; 'him, presumably' is a man, so not a woman. To notch is to score, keeping a tally with cuts.",
+     "definitionFit": "One who keeps a tally by cutting marks, or scores points, is a notcher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +359,40 @@
     "text": "Inventor included in Nobel lists",
     "enumeration": "4"
    },
-   "solution": "BELL"
+   "solution": "BELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inventor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "included in",
+       "at": 9,
+       "note": "included in signals that the answer is a run of letters inside the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nobel lists",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inventor appears on the Nobel prize lists.",
+     "walkthrough": "Alexander Graham Bell, the telephone pioneer.",
+     "definitionFit": "Alexander Graham Bell is credited with patenting the telephone, a famous example of an inventor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +406,44 @@
     "text": "Banishment Exodus passage recorded?",
     "enumeration": "5"
    },
-   "solution": "EXILE"
+   "solution": "EXILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Banishment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EXILE",
+     "indicators": [
+      {
+       "text": "recorded",
+       "at": 26,
+       "note": "something recorded is put on tape to be heard played back, so we listen to the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Exodus passage",
+       "at": 11,
+       "gives": "EXAISLE",
+       "note": "Ex is the abbreviation of the Bible book Exodus, and an aisle is a passage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether the biblical expulsion is written in Exodus.",
+     "walkthrough": "EX (Exodus) plus AISLE (passage), said out loud, give the answer; 'passage' misleads as a stretch of text.",
+     "definitionFit": "Being sent away from one's homeland is exile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +457,59 @@
     "text": "Lass more distressed, having invested a thousand in failing enterprise",
     "enumeration": "9"
    },
-   "solution": "LOSSMAKER"
+   "solution": "LOSSMAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "failing enterprise",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having invested",
+       "at": 22,
+       "note": "investing puts money in, so the thousand goes inside the scrambled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distressed",
+         "at": 10,
+         "note": "distressed means battered or upset, so these letters are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lass more",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "a thousand",
+       "at": 38,
+       "gives": "K",
+       "note": "K stands for a thousand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upset girl has sunk a thousand into a business going under.",
+     "walkthrough": "'distressed' rearranges LASS MORE, and 'having invested' puts K inside to make the answer.",
+     "definitionFit": "A business that runs at a loss, failing to profit, is a loss-maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +529,41 @@
      }
     ]
    },
-   "solution": "PERSONALSTEREO"
+   "solution": "PERSONALSTEREO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "player of music",
+      "at": 3
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 38,
+       "note": "perhaps hints that the letters could be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a solo presenter",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-person radio host is offered as a music player.",
+     "walkthrough": "'perhaps' rearranges A SOLO PRESENTER; a solo presenter is also what the device is, playing music to one listener.",
+     "definitionFit": "A Walkman-style portable cassette or CD player with headphones was called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "presenter"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +577,41 @@
     "text": "Given guidance in trade organisation",
     "enumeration": "7"
    },
-   "solution": "TRAINED"
+   "solution": "TRAINED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Given guidance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organisation",
+       "at": 24,
+       "note": "organisation means putting into order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in trade",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has been coached within a trade body.",
+     "walkthrough": "'organisation' looks like a trade body, but it signals the rearranging of IN TRADE.",
+     "definitionFit": "Someone schooled or coached has been trained."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +631,48 @@
      }
     ]
    },
-   "solution": "THEPITS"
+   "solution": "THEPITS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "awful place",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "at": 18,
+       "note": "going round means the birds surround the fashionable word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "birds",
+       "at": 12,
+       "gives": "TITS",
+       "note": "tits are small songbirds"
+      },
+      {
+       "words": "Fashionable",
+       "at": 0,
+       "gives": "HEP",
+       "note": "hep is dated slang for fashionable, hip"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trendy birds circling a dreadful spot.",
+     "definitionFit": "The phrase is slang for the worst place or situation imaginable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "birds"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +686,64 @@
     "text": "Old woman's protest about court case being cut short",
     "enumeration": "9"
    },
-   "solution": "MATRIARCH"
+   "solution": "MATRIARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means the protest goes around the shortened word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "protest",
+       "at": 12,
+       "gives": "MARCH",
+       "note": "a march is a protest demonstration"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being cut short",
+         "at": 37,
+         "note": "cut short means the last letter is lopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "court case",
+         "at": 26,
+         "gives": "TRIAL",
+         "note": "a trial is a court case"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old woman's demonstration over a trial that ended early.",
+     "walkthrough": "'Old woman' is not an elderly lady here but a family's female head; 'being cut short' drops the court case's last letter before 'about' wraps the protest round it.",
+     "definitionFit": "The female head of a family, often elderly, is its matriarch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protest"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +757,52 @@
     "text": "Energy shown by school's first XI",
     "enumeration": "5"
    },
-   "solution": "STEAM"
+   "solution": "STEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Energy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 25,
+         "note": "first means just the opening letter of the word school's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "school's",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "XI",
+       "at": 31,
+       "gives": "TEAM",
+       "note": "XI, eleven, is a cricket or football team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school's first eleven shows great vigour.",
+     "walkthrough": "XI is eleven in Roman numerals, the size of a cricket or football side.",
+     "definitionFit": "Vigour or drive, as in 'running out of puff', is called steam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +816,44 @@
     "text": "Swell-sounding fabric",
     "enumeration": "5"
    },
-   "solution": "SERGE"
+   "solution": "SERGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SERGE",
+     "indicators": [
+      {
+       "text": "sounding",
+       "at": 6,
+       "note": "sounding means we hear a word spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Swell",
+       "at": 0,
+       "gives": "SURGE",
+       "note": "a surge is a swell, as of the sea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cloth that sounds lovely.",
+     "walkthrough": "'Swell' reads as an adjective meaning splendid, but it is the noun, a surge of water.",
+     "definitionFit": "A hard-wearing twilled woollen cloth used for suits is serge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swell"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +867,60 @@
     "text": "Slave has fight with famous Roman, losing it",
     "enumeration": "9"
    },
-   "solution": "SPARTACUS"
+   "solution": "SPARTACUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slave",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fight",
+       "at": 10,
+       "gives": "SPAR",
+       "note": "to spar is to fight"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 35,
+         "note": "losing means the next word is taken out of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "famous Roman",
+         "at": 21,
+         "gives": "TACITUS",
+         "note": "Tacitus was a famous Roman historian"
+        },
+        {
+         "words": "it",
+         "at": 42,
+         "gives": "IT",
+         "note": "taken as written, removed"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slave fights a famous Roman and is defeated.",
+     "walkthrough": "'losing it' takes IT out of TACITUS to leave TACUS. Spartacus led a slave revolt against Rome.",
+     "definitionFit": "Spartacus was the Thracian gladiator, a slave, who led a rising against Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "losing"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +934,52 @@
     "text": "Animal born after early part of year, right?",
     "enumeration": "9"
    },
-   "solution": "SPRINGBOK"
+   "solution": "SPRINGBOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 12,
+       "note": "after puts the born letter behind the season"
+      }
+     ],
+     "parts": [
+      {
+       "words": "early part of year",
+       "at": 18,
+       "gives": "SPRING",
+       "note": "spring is the early part of the year"
+      },
+      {
+       "words": "born",
+       "at": 7,
+       "gives": "B"
+      },
+      {
+       "words": "right",
+       "at": 38,
+       "gives": "OK",
+       "note": "OK means all right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking if a creature born in spring is all right.",
+     "definitionFit": "A South African gazelle, the springbok, is a kind of antelope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +999,60 @@
      }
     ]
    },
-   "solution": "BATHSTONE"
+   "solution": "BATHSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enthralling",
+         "at": 17,
+         "note": "enthralling means holding captive, so the husband goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hit's",
+         "at": 5,
+         "gives": "BATS",
+         "note": "bats means hits, as with a bat"
+        },
+        {
+         "words": "husband",
+         "at": 29,
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "sound",
+       "at": 11,
+       "gives": "TONE",
+       "note": "a tone is a sound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hit record's tune captivating a married man.",
+     "walkthrough": "'enthralling' puts H inside BATSTONE; Bath stone is a building limestone from around the English city of Bath.",
+     "definitionFit": "A cream limestone quarried near Bath, used in building, is a kind of rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1066,69 @@
     "text": "Group of countries led by a mostly evil princess",
     "enumeration": "9"
    },
-   "solution": "ANASTASIA"
+   "solution": "ANASTASIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "princess",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "led by",
+       "at": 19,
+       "note": "led by puts the continent after the first two pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 26,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 28,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "evil",
+         "at": 35,
+         "gives": "NASTY",
+         "note": "nasty means evil"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "Group of countries",
+       "at": 0,
+       "gives": "ASIA",
+       "note": "Asia is a continent, a group of countries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation-bloc headed by a wicked royal daughter.",
+     "walkthrough": "'mostly' cuts NASTY to NAST. Anastasia was the youngest daughter of the last Russian tsar.",
+     "definitionFit": "Grand Duchess Anastasia of Russia is a famous example of a princess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Group"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1142,48 @@
     "text": "Rose, for example, after second request",
     "enumeration": "7"
    },
-   "solution": "SPRAYER"
+   "solution": "SPRAYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rose, for example",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 19,
+       "note": "after puts the request behind the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "at": 25,
+       "gives": "S"
+      },
+      {
+       "words": "request",
+       "at": 32,
+       "gives": "PRAYER",
+       "note": "a prayer is a request"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rose bush follows a second plea.",
+     "walkthrough": "'Rose' is not the flower but the perforated nozzle of a watering can.",
+     "definitionFit": "The perforated nozzle of a watering can, its rose, scatters water as a fine spray."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rose"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1197,33 @@
     "text": "American in detached state",
     "enumeration": "7"
    },
-   "solution": "ALASKAN"
+   "solution": "ALASKAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American in detached state",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "American in detached state",
+       "at": 0,
+       "note": "a citizen of the US state separated from the rest of the country by Canada"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Alaska is the US state cut off from the other mainland states, so its native is one of these."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detached"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1237,34 @@
     "text": "Off-putting response to suggestion",
     "enumeration": "5"
    },
-   "solution": "LATER"
+   "solution": "LATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Off-putting response to suggestion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Off-putting response to suggestion",
+       "at": 0,
+       "note": "a reply that puts the idea off until another time"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Saying 'not now, some other time' postpones, literally puts off, a proposal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Off-putting"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1278,45 @@
     "text": "What beats, say, an Indian dish?",
     "enumeration": "5"
    },
-   "solution": "TIKKA"
+   "solution": "TIKKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an Indian dish",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TIKKA",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 12,
+       "note": "say means pronounce, so we hear a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What beats",
+       "at": 0,
+       "gives": "TICKER",
+       "note": "the heart, which beats, is slang a ticker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what tops an Indian curry.",
+     "walkthrough": "'beats' reads as defeats, but it is the heart beating; ticker is slang for heart.",
+     "definitionFit": "Marinated pieces of meat cooked in a tandoor, as in chicken tikka, form a curry-house dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beats"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1330,43 @@
     "text": "Strong paper boat's sound",
     "enumeration": "5"
    },
-   "solution": "KRAFT"
+   "solution": "KRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strong paper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KRAFT",
+     "indicators": [
+      {
+       "text": "sound",
+       "at": 20,
+       "note": "sound tells us to hear the word, not read it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boat's",
+       "at": 13,
+       "gives": "CRAFT",
+       "note": "a craft is a boat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tough paper with the noise of a boat.",
+     "definitionFit": "Tough brown wrapping paper made from sulphate pulp is called kraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1386,41 @@
      }
     ]
    },
-   "solution": "ROADTESTS"
+   "solution": "ROADTESTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trials",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "badly",
+       "at": 11,
+       "note": "badly means the letters are put together wrongly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Does start",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deer gets off to a poor start in competitions.",
+     "walkthrough": "'Does' looks like the verb but works as plain letters; 'badly' rearranges DOES START.",
+     "definitionFit": "Trial runs of a vehicle or product in real use are these tests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Does"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1434,41 @@
     "text": "Ancient kingdom female scholar discovered",
     "enumeration": "5"
    },
-   "solution": "SHEBA"
+   "solution": "SHEBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient kingdom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "female",
+       "at": 16,
+       "gives": "SHE",
+       "note": "she is a female"
+      },
+      {
+       "words": "scholar",
+       "at": 23,
+       "gives": "BA",
+       "note": "a BA, Bachelor of Arts, is a graduate scholar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old realm found by a woman academic.",
+     "definitionFit": "The biblical land ruled by the queen who visited Solomon was an old realm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1482,44 @@
     "text": "Sussex town infested with insects, we've heard",
     "enumeration": "7"
    },
-   "solution": "CRAWLEY"
+   "solution": "CRAWLEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sussex town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CRAWLEY",
+     "indicators": [
+      {
+       "text": "we've heard",
+       "at": 35,
+       "note": "we've heard means the word is listened to, not read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "infested with insects",
+       "at": 12,
+       "gives": "CRAWLY",
+       "note": "creepy-crawly, swarming with bugs, gives crawly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Sussex town reported to be full of bugs.",
+     "walkthrough": "Crawley is a town in West Sussex, by Gatwick airport.",
+     "definitionFit": "Crawley is a large new town in West Sussex, England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "infested"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1533,34 @@
     "text": "One's performance in party given record backing",
     "enumeration": "7"
    },
-   "solution": "KARAOKE"
+   "solution": "KARAOKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's performance in party given record backing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One's performance in party given record backing",
+       "at": 0,
+       "note": "an amateur singing at a party over a recorded backing track"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A pub or party entertainment where people sing along to recorded instrumentals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1574,11 @@
     "text": "Place to take exams, originally",
     "enumeration": "4"
    },
-   "solution": "SITE"
+   "solution": "SITE",
+   "annotationWithheld": {
+    "why": "Place to take exams, originally (4): only parse is SIT (to take exams) + E (exams, originally), with 'exams' doing two jobs",
+    "clue": "Place to take exams, originally"
+   }
   },
   {
    "number": 28,
@@ -466,7 +1598,41 @@
      }
     ]
    },
-   "solution": "GRANDOPERA"
+   "solution": "GRANDOPERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical performance",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "restored",
+       "at": 12,
+       "note": "restored means put back together, so the letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Organ padre",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church organ is repaired by a priest for a concert.",
+     "walkthrough": "'restored' rearranges ORGAN PADRE.",
+     "definitionFit": "A fully sung opera on a serious theme, with no spoken dialogue, is this genre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "restored"
+    }
+   }
   }
  ]
 }
