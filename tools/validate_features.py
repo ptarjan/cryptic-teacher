@@ -5,6 +5,7 @@ Moved out of validate_annotations.py unchanged; that module re-exports every nam
 
 import re
 import definitions
+import quotes
 
 from validate_base import indicator_texts, WORDS, letters, _whole_word, words_of
 from validate_walkthrough import FILLER_WORDS
@@ -326,7 +327,7 @@ def _one_off(a, b):
 def plain(text):
     """`text` lowercased with curly apostrophes straightened, for matching a
     word the annotation names against the clue it came from."""
-    return text.lower().replace("\u2019", "'").replace("\u2018", "'")
+    return quotes.straight(text).lower()
 
 
 def check_part_of_speech(tag, ann, warnings):
