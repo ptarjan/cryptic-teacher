@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Express disapproval in the end ?",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Express disapproval",
+      "at": 0,
+      "meaning": "to protest or raise a complaint against something"
+     },
+     {
+      "text": "the end",
+      "at": 23,
+      "meaning": "an end is an aim or purpose, as in 'the end justifies the means'"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To protest is to raise an objection; and a goal or purpose, one's aim, is also a synonym of the noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,35 @@
     "text": "Sexton, poet or admiral",
     "enumeration": "5"
    },
-   "solution": "BLAKE"
+   "solution": "BLAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sexton",
+      "at": 0,
+      "meaning": "Sexton ..., the fictional detective of British story papers"
+     },
+     {
+      "text": "poet",
+      "at": 8,
+      "meaning": "William ..., the English Romantic poet and artist"
+     },
+     {
+      "text": "admiral",
+      "at": 16,
+      "meaning": "Robert ..., the 17th-century English naval commander"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sexton Blake is a British pulp-fiction detective; 'Sexton' looks like a church officer.",
+     "definitionFit": "The surname of the pulp detective Sexton, the visionary poet William, and Cromwell's naval commander Robert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sexton"
+    }
+   }
   },
   {
    "number": 3,
@@ -55,10 +108,49 @@
    },
    "length": 9,
    "clue": {
-    "text": "Meant site to be adapted for a cat",
+    "text": "Meant site to be adapted for a café",
     "enumeration": "9"
    },
-   "solution": "ESTAMINET"
+   "solution": "ESTAMINET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a café",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be adapted",
+       "at": 11,
+       "note": "adapted means altered, so the letters of the words before it are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Meant",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "site",
+       "at": 6,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The location was intended to become a coffee shop.",
+     "walkthrough": "'to be adapted' reworks MEANT SITE.",
+     "definitionFit": "An estaminet is a small French bar or bistro, the kind of place serving drinks and snacks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -69,10 +161,57 @@
    },
    "length": 6,
    "clue": {
-    "text": "Perhaps Indians reduce figure ure at meeting demanding a -rise",
+    "text": "Perhaps Indians reduce figure at meeting demanding a rise",
     "enumeration": "6"
    },
-   "solution": "TAMILS"
+   "solution": "TAMILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps Indians",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "demanding a rise",
+       "at": 41,
+       "note": "in a down clue a rise means the letters are read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "reduce figure",
+         "at": 16,
+         "gives": "SLIM",
+         "note": "to slim is to reduce one's figure"
+        },
+        {
+         "words": "at",
+         "at": 30,
+         "gives": "AT",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dieters meeting demand a pay increase.",
+     "walkthrough": "'demanding a rise' turns SLIM AT upwards; Tamils are a people of southern India and Sri Lanka.",
+     "definitionFit": "Tamils are an ethnic group largely from southern India, so they are an example of Indians."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +231,42 @@
      }
     ]
    },
-   "solution": "YALELOCK"
+   "solution": "YALELOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Security device",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "maker",
+       "at": 29,
+       "note": "the key-maker of the surface becomes a signal that the letters of the words before it are made into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "local key",
+       "at": 19,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lock produced by the neighbourhood locksmith.",
+     "walkthrough": "'key-maker' reads as a locksmith, but 'maker' alone is the anagram signal working on LOCAL KEY; the Yale is a well-known cylinder lock, named after its American inventor.",
+     "definitionFit": "A Yale is a brand of pin-tumbler lock fitted to doors for protection against intruders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maker"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +279,34 @@
    "clue": {
     "text": "Constantly giving oneself away before signing?"
    },
-   "solution": "YOURSFAITHFULLY"
+   "solution": "YOURSFAITHFULLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Constantly giving oneself away before signing?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Constantly giving oneself away before signing?",
+       "at": 0,
+       "note": "a formal letter's closing words, read as loyally handing oneself over to the reader just before the signature"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Constantly' is the faithful part and 'giving oneself away' the belonging-to-you part of a standard letter sign-off.",
+     "definitionFit": "The formal valediction placed before a signature at the end of a letter to an unnamed recipient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +320,77 @@
     "text": "They wrong about everyone under fifty in a deadly way",
     "enumeration": "8"
    },
-   "solution": "LETHALLY"
+   "solution": "LETHALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in a deadly way",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 26,
+       "note": "in a down clue, under places one piece below the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fifty",
+       "at": 32,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 11,
+         "note": "about means going round, so one piece surrounds the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "wrong",
+           "at": 5,
+           "note": "wrong signals the letters of the word they in a bad order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "They",
+           "at": 0,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "everyone",
+         "at": 17,
+         "gives": "ALL",
+         "note": "all means everyone"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People who mistreat all the under-fifties in a fatal manner.",
+     "walkthrough": "'wrong' makes the anagram ETHY, 'about' wraps it round the second piece, and 'under' sets everything beneath fifty, since this is a down clue.",
+     "definitionFit": "Fatally, in a manner causing death, is the adverb's meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +404,43 @@
     "text": "Bar that gives rise to merrymaking",
     "enumeration": "5"
    },
-   "solution": "LEVER"
+   "solution": "LEVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "gives rise to",
+       "at": 9,
+       "note": "in a down clue, rising means the word is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "merrymaking",
+       "at": 23,
+       "gives": "REVEL",
+       "note": "to revel is to make merry; revelry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub that inspires partying.",
+     "walkthrough": "'Bar' suggests a pub; it is a metal rod for prising.",
+     "definitionFit": "A crowbar or rigid rod used to prise or lift is this tool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +454,63 @@
     "text": "Captain's capital restores replacement on the mast",
     "enumeration": "9"
    },
-   "solution": "CROSSTREE"
+   "solution": "CROSSTREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on the mast",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital",
+         "at": 10,
+         "note": "a capital is a head letter, so the first letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Captain's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "replacement",
+         "at": 27,
+         "note": "this word means the letters it governs are mixed up, so they are rearranged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "restores",
+         "at": 18,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's master's chief city restores a substitute for the mast.",
+     "walkthrough": "'capital' takes C from Captain's, and 'replacement' reworks RESTORES into ROSSTREE.",
+     "definitionFit": "Crosstrees are horizontal timbers fixed near the top of a ship's mast to spread the rigging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +524,45 @@
     "text": "So many abroad have a horse or the equivalent",
     "enumeration": "10"
    },
-   "solution": "TANTAMOUNT"
+   "solution": "TANTAMOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "equivalent",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "So many abroad",
+       "at": 0,
+       "gives": "TANT",
+       "note": "the French for 'so much' or 'so many' is tant"
+      },
+      {
+       "words": "a",
+       "at": 20
+      },
+      {
+       "words": "horse",
+       "at": 22,
+       "gives": "MOUNT",
+       "note": "a mount is a horse for riding"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreigner with many horses, or something just as good.",
+     "walkthrough": "'abroad' tells you to translate 'So many' into French, giving TANT.",
+     "definitionFit": "Something tantamount to another thing amounts to the same, so the two are as good as identical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +576,49 @@
     "text": "Little book about one musical instrument",
     "enumeration": "4"
    },
-   "solution": "VIOL"
+   "solution": "VIOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical instrument",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about means surrounding, so one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Little book",
+       "at": 0,
+       "gives": "VOL",
+       "note": "VOL is the short form of volume, a book"
+      },
+      {
+       "words": "one",
+       "at": 18,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small book about a musical instrument.",
+     "walkthrough": "'Little' signals the abbreviation VOL for volume rather than a short book; I goes inside it.",
+     "definitionFit": "The viol is a bowed string instrument of the Renaissance, ancestor of the modern string family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +638,35 @@
      }
     ]
    },
-   "solution": "SEAMILES"
+   "solution": "SEAMILES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're the basis of knotty: calculations",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They're the basis of knotty: calculations",
+       "at": 0,
+       "note": "knotty here means measured in knots, the nautical speed unit based on distance at sea per hour, not difficult"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A knot is one nautical mile per hour, so speed calculations at sea are based on that unit of distance; 'knotty' looks like 'tricky'.",
+     "definitionFit": "Nautical miles, the units of distance over water, underlie the knot as a measure of a ship's speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knotty"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +680,30 @@
     "text": "Stop precedes the sentence ?",
     "enumeration": "6"
    },
-   "solution": "ARREST"
+   "solution": "ARREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0,
+      "meaning": "to halt or check something"
+     },
+     {
+      "text": "precedes the sentence",
+      "at": 5,
+      "meaning": "a criminal is detained by police long before the judge passes sentence"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To halt is one sense; police detention is the other, coming before trial and sentencing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +717,43 @@
     "text": "This school back might be played ?",
     "enumeration": "4"
    },
-   "solution": "ETON"
+   "solution": "ETON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This school",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 12,
+       "note": "back means the word is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "might be played",
+       "at": 17,
+       "gives": "NOTE",
+       "note": "a musical note is something that might be played"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Back play at a famous school.",
+     "walkthrough": "ETON is the famous English public school near Windsor; 'back' reverses NOTE.",
+     "definitionFit": "Eton College is a well-known English boarding school for boys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +767,34 @@
     "text": "Collection made before the marriage service",
     "enumeration": "9"
    },
-   "solution": "TROUSSEAU"
+   "solution": "TROUSSEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Collection made before the marriage service",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Collection made before the marriage service",
+       "at": 0,
+       "note": "not a church collection but the bride's assembled clothes and linen gathered for the wedding"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Collection' looks like the church plate, but it is a bride's gathered outfit.",
+     "definitionFit": "A bride's prepared wardrobe of clothes and household linen for married life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Collection"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +808,59 @@
     "text": "Attempt to fill in really unusual symbolic tale",
     "enumeration": "8"
    },
-   "solution": "ALLEGORY"
+   "solution": "ALLEGORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "symbolic tale",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill in",
+       "at": 8,
+       "note": "one piece is put inside the other, filling its middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "at": 26,
+         "note": "unusual signals the letters of the following word in a strange order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "really",
+         "at": 19,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Attempt",
+       "at": 0,
+       "gives": "GO",
+       "note": "to have a go is to make an attempt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An effort to fill out a truly odd fable.",
+     "walkthrough": "'unusual' rearranges the letters to give ALLERY, and 'to fill in' sets the attempt inside that run.",
+     "definitionFit": "A parable or fable whose characters and events stand for deeper moral ideas is this kind of narrative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +874,30 @@
     "text": "How Pershing acted, for the most part ?",
     "enumeration": "9"
    },
-   "solution": "GENERALLY"
+   "solution": "GENERALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How Pershing acted",
+      "at": 0,
+      "meaning": "John Pershing was the US Army general commanding American forces in France in World War I"
+     },
+     {
+      "text": "for the most part",
+      "at": 20,
+      "meaning": "usually, in most cases"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pershing acted as a general, so he behaved 'general-ly'.",
+     "definitionFit": "Usually, in most cases; and read as 'like a general', the way the US commander Pershing behaved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +911,31 @@
     "text": "Leaders by another name could be bounders",
     "enumeration": "8"
    },
-   "solution": "CAPTAINS"
+   "solution": "CAPTAINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leaders",
+      "at": 0,
+      "meaning": "heads of teams or ships"
+     },
+     {
+      "text": "could be bounders",
+      "at": 24,
+      "meaning": "bounders here are skippers, those who skip or jump"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'by another name' points to skippers, the alternative word for team leaders, which also means things that skip or bound.",
+     "definitionFit": "Team heads are called skippers, and skippers are also leapers, so the word fits both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bounders"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +949,31 @@
     "text": "Agreement followed auction ?",
     "enumeration": "8"
    },
-   "solution": "CONTRACT"
+   "solution": "CONTRACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0,
+      "meaning": "a binding deal between parties"
+     },
+     {
+      "text": "followed auction",
+      "at": 10,
+      "meaning": "in bridge the bidding, called the auction, settles the final bid that declarer must make"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In bridge, the bidding stage is called the auction, and the final bid is the term for what follows it.",
+     "definitionFit": "A deal is a binding pact; and in bridge the final bid that the bidding establishes has the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auction"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +987,52 @@
     "text": "He's. one unusually inexperienced driver",
     "enumeration": "4"
    },
-   "solution": "NOEL"
+   "solution": "NOEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusually",
+         "at": 10,
+         "note": "unusually signals the letters of the word one in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "inexperienced driver",
+       "at": 20,
+       "gives": "L",
+       "note": "L is the learner plate on a British learner driver's car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody who is strangely a novice motorist.",
+     "walkthrough": "'unusually' reworks ONE into NOE; L is for a learner driver, from the L-plates such drivers display in Britain.",
+     "definitionFit": "Noel is a man's given name, so a male person, 'he', could have it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "driver"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1046,42 @@
     "text": "Fishermen's belongings, and many others",
     "enumeration": "6"
    },
-   "solution": "CREELS"
+   "solution": "CREELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fishermen's belongings, and many others",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "many",
+       "at": 28,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, many"
+      },
+      {
+       "words": "Fishermen's belongings",
+       "at": 0,
+       "gives": "REELS",
+       "note": "anglers own reels for their lines"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Gear owned by anglers and plenty of other people.",
+     "walkthrough": "C for a hundred stands for 'many' before REELS, another piece of anglers' kit.",
+     "definitionFit": "Wicker baskets used by fishermen to hold their catch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1095,43 @@
     "text": "It might give us higher standing, like money",
     "enumeration": "6"
    },
-   "solution": "ASCENT"
+   "solution": "ASCENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It might give us higher standing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like",
+       "at": 34,
+       "gives": "AS",
+       "note": "as can mean like, as in 'dressed as a pirate'"
+      },
+      {
+       "words": "money",
+       "at": 39,
+       "gives": "CENT",
+       "note": "a cent is a small coin, money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wealth may raise our social status.",
+     "walkthrough": "'higher standing' suggests status, but read literally it is a climb up.",
+     "definitionFit": "A climb or rise takes us to a loftier position, so it gives us a higher place to stand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1145,29 @@
     "text": "Warm bit 'at the end of a month ?",
     "enumeration": "5"
    },
-   "solution": "EMBER"
+   "solution": "EMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Warm bit",
+      "at": 0,
+      "meaning": "a glowing fragment left in a dying fire"
+     },
+     {
+      "text": "at the end of a month",
+      "at": 10,
+      "meaning": "the closing letters of September, November and December"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Four months end with these five letters, so the second reading is literal.",
+     "definitionFit": "A glowing coal from a fire; and the closing letters of September, November and December."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1181,42 @@
     "text": "In favour of having a lock on the stronghold.",
     "enumeration": "8"
    },
-   "solution": "FORTRESS"
+   "solution": "FORTRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stronghold",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In favour of",
+       "at": 0,
+       "gives": "FOR",
+       "note": "for means in favour of, as in 'all those for the motion'"
+      },
+      {
+       "words": "lock",
+       "at": 22,
+       "gives": "TRESS",
+       "note": "a tress is a lock of hair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supporter of putting a lock on the castle.",
+     "walkthrough": "'lock' suggests a door fastening; it is a lock of hair.",
+     "definitionFit": "A fortified building such as a castle or citadel is a strong defensive place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 24,
@@ -377,7 +1230,42 @@
     "text": "These normally include a foreign title",
     "enumeration": "5"
    },
-   "solution": "SENOR"
+   "solution": "SENOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a foreign title",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "include",
+       "at": 15,
+       "note": "include means the letters sit inside the words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "These normally",
+       "at": 0
+      }
+     ]
+    },
+    "spelling": "SEÑOR",
+    "explanation": {
+     "surface": "These ordinarily feature an overseas honorific.",
+     "walkthrough": "'include' finds the letters across thESE NORmally.",
+     "definitionFit": "The Spanish form of address for a man, equivalent to Mr or sir."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "normally"
+    }
+   }
   },
   {
    "number": 25,
@@ -391,7 +1279,31 @@
     "text": "Little boy growing up ?",
     "enumeration": "4"
    },
-   "solution": "HERB"
+   "solution": "HERB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Little boy",
+      "at": 0,
+      "meaning": "a short form of the boy's name Herbert"
+     },
+     {
+      "text": "growing up",
+      "at": 11,
+      "meaning": "a plant growing up from the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Herb is a pet form of Herbert; a herb is also a plant, something growing.",
+     "definitionFit": "Short for the name Herbert; and also a green leafy plant that grows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "growing"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1323,29 @@
      }
     ]
    },
-   "solution": "ILLFEELING"
+   "solution": "ILLFEELING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resentment",
+      "at": 0,
+      "meaning": "bitterness or hostility towards someone"
+     },
+     {
+      "text": "calls, for treatment, perhaps",
+      "at": 12,
+      "meaning": "read literally, feeling sick, which may need a doctor"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Hostility or bitterness; read literally it is feeling unwell, which might need medical care."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1359,30 @@
     "text": "Woolly kind of cow",
     "enumeration": "8"
    },
-   "solution": "GUERNSEY"
+   "solution": "GUERNSEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Woolly",
+      "at": 0,
+      "meaning": "a knitted woollen sweater, the kind worn by Channel Island fishermen"
+     },
+     {
+      "text": "kind of cow",
+      "at": 7,
+      "meaning": "a breed of dairy cattle from one of the Channel Islands"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A woolly is a knitted pullover in British speech; the Channel Islands give their names to both a sweater and a cattle breed.",
+     "definitionFit": "A thick knitted fisherman's jumper; and a dairy cattle breed, both named after one of the Channel Islands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Woolly"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1396,28 @@
     "text": "People talking of a detective writer",
     "enumeration": "6"
    },
-   "solution": "SAYERS"
+   "solution": "SAYERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People talking",
+      "at": 0,
+      "meaning": "those who say things"
+     },
+     {
+      "text": "detective writer",
+      "at": 20,
+      "meaning": "Dorothy L. ..., creator of Lord Peter Wimsey"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Those who utter words; and Dorothy L. Sayers, the English crime novelist who created Lord Peter Wimsey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
