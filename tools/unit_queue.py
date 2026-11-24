@@ -354,8 +354,8 @@ def tick(queue, dry=False):
 
 
 def sweep_trees(mod):
-    """The queue is at rest: drop its idle slot trees (tools/tree_sweep.py), so
-    full checkouts do not sit on the disk between runs."""
+    """The queue is at rest: drop its idle slot trees (tools/tree_sweep.py) if
+    the disk is short of space; otherwise they are kept for the next run to reuse."""
     import tree_sweep
     try:
         tree_sweep.sweep(main_checkout(), tree_sweep.worktree_root(),
@@ -370,8 +370,8 @@ IDLE_SWEEP_EVERY = 3600
 
 def sweep_idle_trees():
     """Drop every job tree (not only this queue's) whose job has not run for
-    tree_sweep.IDLE_HOURS: a daily or hand-started job's full checkout would
-    otherwise sit on the disk until its next run. At most hourly."""
+    tree_sweep.IDLE_HOURS, but only while the disk is short of space
+    (tree_sweep.disk_low); otherwise trees are kept for reuse. At most hourly."""
     import tree_sweep
     stamp = STATE / "idle_sweep.stamp"
     root = Path(tree_sweep.worktree_root())

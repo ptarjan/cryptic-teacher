@@ -213,5 +213,17 @@ git -C "$tmp/main" checkout -q -- manifest.toml
 out="$(run "$tmp/trees")"
 check "once it is put back the next start fast-forwards" "$(at_origin)" yes
 
+# 6. An existing tree is reused, not re-cut: after origin moves, the next start
+#    fetches and resets the same worktree to it. A file the reset does not
+#    touch (an untracked one, like fetched data) is still there afterwards.
+echo kept > "$tmp/trees/faketask/reuse.sentinel"
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -q --allow-empty -m moved
+git -C "$tmp/main" push -q origin HEAD:master
+out="$(run "$tmp/trees")"
+check "a start reuses the existing tree" "$(cat "$tmp/trees/faketask/reuse.sentinel" 2>/dev/null)" "kept"
+check "and moves it to the new origin/master" \
+  "$(git -C "$tmp/trees/faketask" rev-parse HEAD)" "$(git -C "$tmp/main" rev-parse origin/master)"
+rm -f "$tmp/trees/faketask/reuse.sentinel"
+
 [ "$fails" = 0 ] && echo "NIGHTLY WORKTREE PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))

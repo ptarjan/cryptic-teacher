@@ -374,7 +374,7 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   fi
 
   if [ -n "$_ct_tree" ]; then
-    # When this tree last started a run: tools/tree_sweep.py removes a tree
+    # When this tree last started a run: tools/tree_sweep.py removes a tree, when the disk is short,
     # whose job has not run for a while, and this is the clock it reads.
     touch "$(git -C "$_ct_tree" rev-parse --absolute-git-dir)/ct-last-run" 2>/dev/null || true
     # A split index: the 10 MB index (45k files) was rewritten whole by every

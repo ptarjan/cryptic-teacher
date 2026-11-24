@@ -1,11 +1,15 @@
-"""Remove job worktrees under ~/.cryptic-teacher that nothing is using.
+"""Remove job worktrees under ~/.cryptic-teacher that nothing is using, when the disk is short.
 
-    python3 tools/tree_sweep.py idle [--hours H] [--dry-run]   # every tree unused for H hours
+    python3 tools/tree_sweep.py idle [--hours H] [--dry-run] [--force]   # every tree unused for H hours
 
 Every job tree tools/nightly_worktree.sh makes is a full checkout: 2.7 GB of
 tracked files, plus ~2 GB of generated puzzle shims in a tree that rebuilds
-them, plus the staged site in the nightly's. Kept between runs they fill the
-disk, so a tree lives while it is in use and goes when it is not:
+them, plus the staged site in the nightly's. Re-cutting one reads the whole
+corpus, so a tree is kept for reuse (nightly_worktree.sh fetches and resets it
+to the wanted revision) and is swept only while the filesystem holding the
+root is short of space: disk_low(), free under LOW_FREE_FRACTION of the disk
+or under LOW_FREE_BYTES. With room to spare nothing is removed, whatever its
+age (`--force` overrides). When space is short, a tree goes when it is not in use:
   * sweep(): unit_queue.tick drops a queue's slot trees (<TREE>-1 ..
     <TREE>-<SLOTS>) once nothing in the queue is running, started or waiting;
   * sweep_idle(): any tree under the root whose job has not started a run for
@@ -29,6 +33,7 @@ import argparse
 import fcntl
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -53,6 +58,10 @@ REGENERABLE = re.compile(
 #: How long a tree may go without a run before sweep_idle() takes it.
 IDLE_HOURS = 12
 
+#: Trees are swept only when the filesystem has less free than either of these.
+LOW_FREE_FRACTION = 0.15
+LOW_FREE_BYTES = 40 * 1024 ** 3
+
 #: Written in a tree's git dir by nightly_worktree.sh at the start of each run.
 STAMP = "ct-last-run"
 
@@ -61,6 +70,12 @@ def _git(tree, *args):
     r = subprocess.run(["git", "--no-optional-locks", "-C", str(tree), *args],
                        capture_output=True, text=True, check=False)
     return r.stdout if r.returncode == 0 else None
+
+
+def disk_low(path):
+    """True when the filesystem holding `path` is short of free space."""
+    u = shutil.disk_usage(path)
+    return u.free < LOW_FREE_BYTES or u.free < LOW_FREE_FRACTION * u.total
 
 
 def removable(tree):
@@ -85,10 +100,13 @@ def removable(tree):
     return None
 
 
-def sweep(main, root, names, log=print, dry=False):
+def sweep(main, root, names, log=print, dry=False, force=False):
     """Remove each idle tree among `names` under `root`; `main` is the main checkout.
+    Does nothing while the disk has room (disk_low), unless `force`.
     Returns the names removed (with `dry`, the names that would be)."""
     gone = []
+    if not force and not disk_low(root):
+        return gone
     for name in names:
         tree = Path(root) / name
         if not tree.is_dir() or tree.is_symlink():
@@ -139,13 +157,13 @@ def last_run(main, tree):
     return max((p.stat().st_mtime for p in times if p.exists()), default=time.time())
 
 
-def sweep_idle(main, root, hours=IDLE_HOURS, log=print, dry=False, now=None):
+def sweep_idle(main, root, hours=IDLE_HOURS, log=print, dry=False, now=None, force=False):
     """Remove every worktree under `root` whose job has not run for `hours`."""
     now = time.time() if now is None else now
     names = sorted(d.name for d in Path(root).iterdir()
                    if d.is_dir() and not d.is_symlink() and (d / ".git").is_file()
                    and now - last_run(main, d) > hours * 3600)
-    return sweep(main, root, names, log=log, dry=dry)
+    return sweep(main, root, names, log=log, dry=dry, force=force)
 
 
 def worktree_root():
@@ -165,8 +183,9 @@ def main(argv=None):
     idle = sub.add_parser("idle", help="remove every tree unused for --hours")
     idle.add_argument("--hours", type=float, default=IDLE_HOURS)
     idle.add_argument("--dry-run", action="store_true")
+    idle.add_argument("--force", action="store_true", help="sweep even when the disk has room")
     a = p.parse_args(argv)
-    sweep_idle(main_checkout(), worktree_root(), a.hours, log=print, dry=a.dry_run)
+    sweep_idle(main_checkout(), worktree_root(), a.hours, log=print, dry=a.dry_run, force=a.force)
     return 0
 
 
