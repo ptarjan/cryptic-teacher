@@ -1203,7 +1203,7 @@ def hear_the_clue_word(tree):
 
 SOUND_LINK_WORDS = frozenset((
     "has", "have", "had", "to", "and", "with", "is", "are", "a", "an", "the", "of",
-    "for", "gets", "get", "takes"))
+    "for", "gets", "get", "takes", "given", "plus", "then", "by"))
 
 
 def merge_sounded_charade(tree, clue):

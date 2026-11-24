@@ -173,6 +173,11 @@ apart = {"op": "homophone", "spelt": "X", "parts": [{"op": "charade", "parts": [
     {"words": "Richard", "at": 0, "gives": "DICK"}, {"words": "edward", "at": 30, "gives": "TATER"}]}]}
 A.merge_sounded_charade(apart, clue)
 check("leaves apart in the clue stay a charade", apart["parts"][0].get("op") == "charade")
+clue2 = "Piece of music given support in broadcast? It's noisy"
+given = {"op": "homophone", "spelt": "CANNONADE", "parts": [{"op": "charade", "parts": [
+    {"words": "Piece of music", "at": 0, "gives": "CANON"}, {"words": "support", "at": 21, "gives": "AID"}]}]}
+A.merge_sounded_charade(given, clue2)
+check("a link word 'given' between the leaves still merges", given["parts"][0].get("gives") == "CANONAID", given)
 hw = {"op": "homophone", "spelt": "FILIP", "parts": [{"words": "Philip", "at": 0, "gives": "FILIP"}]}
 A.hear_the_clue_word(hw)
 check("a one-word sounded leaf hears the clue's own word", hw["parts"][0]["gives"] == "PHILIP", hw)

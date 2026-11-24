@@ -162,7 +162,9 @@ in a double definition each definition's note says what that sense means.
   the commonest first failure) unless the word said aloud is on ONE leaf.
   HEARD and SPELT are two spellings: `sound<ind>([a grisly]BEAR, BARE)`, never the
   answer twice (`[a grisly]BARE, BARE` fails "nothing was heard"); HEARD is the
-  clue words' own word.
+  clue words' own word. Only the pieces said aloud go inside: a charade whose
+  indicator sits between the leaves, or where one leaf is heard, never wraps the
+  whole answer: `[The greedy chap]PIG + sound<we hear>([imported]MEANT, MENT)`.
 - **Spoonerism**: `spoon`, never `sound()` round it; no one-leaf rule applies. Written
   letters swapped: `spoon(a, b)`; swapped by sound: `spoon(a, b, SPELT)`.
 
