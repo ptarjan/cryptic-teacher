@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose third clue column's numbers stood left of its window by measure, read since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T07:27:00+00:00"
 NUMBER = re.compile(r"\d{1,2}$")
 YEARS = re.compile(r"GaleIndependent(?!200[23])(199[6-9]|20[01]\d)UKEnglish/")
 
