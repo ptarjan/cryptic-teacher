@@ -773,15 +773,38 @@ def shaped_on(img, box):
 #: never elsewhere (locate_grid's `right`), and wider than grid_shaped's:
 #: the TLS's 15x15 is 38% of its page's width.
 GRID_RIGHT = {"galetls"}
-WIDE_GRID = 1400
+
+#: What every grid shape test but grid_shaped (whose pixel sizes the scan keys hash) shares: a grid is square, and
+#: its width is a share of a width measured on the page the caller already has, never a count of pixels (a page is
+#: scanned 2640-4986px wide). The title's width where the title is the page's own measure (the TLS's title is
+#: ~500px over a 720-1090px grid, 0.8-2.0 of it, 11-24 offline; the 1940-41 Times's small-printed pages'
+#: grid is 0.7-1.05 of it), the page's where it is not (the Independent's 1996-2002 titles are a bare "No 3043",
+#: 207-340px over the same 720-745px grid, the 2005-15 ones 1100px: its grid is 17-37% of the page).
+GRID_ASPECT = (0.85, 1.18)
 
 
-def wide_shaped(img, box):
-    """shaped_on(), up to WIDE_GRID wide at SCAN_WIDTH."""
-    if box is None:
+def squared(gw, gh):
+    """Whether a box gw wide and gh tall has a grid's aspect (GRID_ASPECT, width over height)."""
+    return GRID_ASPECT[0] <= gw / max(gh, 1) <= GRID_ASPECT[1]
+
+
+def sized_for(box, measure, share):
+    """Whether `box` is a grid's shape (squared) with a width between share[0] and share[1] of `measure`, a
+    width in the box's own pixels (the title's, or the page's)."""
+    if box is None or not measure:
         return False
-    gw, gh = ((v1 - v0) * SCAN_WIDTH / img.width for v0, v1 in ((box[0], box[2]), (box[1], box[3])))
-    return 500 <= gw <= WIDE_GRID and 0.85 <= gw / max(gh, 1) <= 1.18
+    gw, gh = box[2] - box[0], box[3] - box[1]
+    return squared(gw, gh) and share[0] <= gw / measure <= share[1]
+
+
+#: A grid right of its title (GRID_RIGHT) as a share of the title's width: the strict test's floor and the loose
+#: ceiling the TLS's 15x15 needs, at the TLS's ~500px title.
+TITLE_GRID_SHARE = (0.7, 3.0)
+
+
+def wide_shaped(title):
+    """The shape test, (img, box) -> bool, of a grid beside the clues `title` heads: sized_for() its width."""
+    return lambda img, box: sized_for(box, title[2] - title[0], TITLE_GRID_SHARE)
 
 
 #: How far, in pixels, a crop grows on a side its largest ink touches, and
@@ -869,7 +892,7 @@ def locate_grid(img, title, right=False, loose=False):
             and (side != "above" or box[3] >= y0 - ABOVE_GAP) \
             and (side != "below" or box[0] <= x1 + 120) \
             and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
-        if clear and (wide_shaped if right else loose_shaped if loose else shaped_on)(img, box):
+        if clear and (wide_shaped(title) if right else loose_shaped if loose else shaped_on)(img, box):
             # A grid under the title that a grid left of it dwarfs is the
             # day's solution (the 2005 Times, "Solution to Crossword" under
             # the live grid's clue columns): the live one is beside the title.
@@ -1080,24 +1103,19 @@ BAND_LATE_FIRST_YEARS = ("1950", "1967")
 #: title ~590px against 700-880): their grid, ~485px square under the title, is under grid_shaped's 500
 #: floor, and the page was refused "the ink under the title is 486x490, not a grid" (1941-07-02,
 #: 1941-03-10, 1940-05-18, 1940-08-16, 1940-02-15). small_grid takes such ink as the grid where the page
-#: would be refused: square as grid_shaped's, SMALL_GRID_MIN wide at SCAN_WIDTH at least, and
-#: SMALL_GRID_SHARE of its title's width (a full-size page's grid is 0.83 of it).
+#: would be refused: square as grid_shaped's (squared), and
+#: SMALL_GRID_SHARE of its title's width (sized_for) (a full-size page's grid is 0.83 of it).
 SMALL_PAGE_FIRST_YEARS = ("1940", "1941")
-SMALL_GRID_MIN = 400
 SMALL_GRID_SHARE = (0.7, 1.05)
 
 
 def small_grid(width, title, box):
     """Whether ink `box` under `title`, on a page `width` px wide, is a small-printed page's grid
-    (SMALL_PAGE_FIRST_YEARS): square as grid_shaped's, between SMALL_GRID_MIN and grid_shaped's 500 wide at
-    SCAN_WIDTH, its width SMALL_GRID_SHARE of the title's, and straddling the title's middle."""
+    (SMALL_PAGE_FIRST_YEARS): sized_for() the title's width (SMALL_GRID_SHARE), and straddling the title's middle.
+    `width` is the page's, no longer measured against: the title is."""
     if box is None or title is None or not width:
         return False
-    gw, gh = box[2] - box[0], box[3] - box[1]
-    tw = title[2] - title[0]
-    wide = gw * SCAN_WIDTH / width
-    return SMALL_GRID_MIN <= wide < 500 and 0.85 <= gw / max(gh, 1) <= 1.18 and tw > 0 \
-        and SMALL_GRID_SHARE[0] <= gw / tw <= SMALL_GRID_SHARE[1] and box[0] < (title[0] + title[2]) / 2 < box[2]
+    return sized_for(box, title[2] - title[0], SMALL_GRID_SHARE) and box[0] < (title[0] + title[2]) / 2 < box[2]
 
 
 #: The gaps (pixels) closed_grid() closes in a 1940-41 page's ink before it looks for the grid.
@@ -3982,17 +4000,14 @@ def right_foreign(rapid, grid, right):
 #: "no reading parses" pages 2005-15 were "no ACROSS and DOWN lists under the grid": right_columns()
 #: refused a page with 1.2 grids' widths under the grid, and the layout read the strip under it.
 INDY_RIGHT_SPAN = 1.6
-INDY_SHAPE = (330, 1400)
+INDY_PAGE_SHARE = (0.10, 0.425)
 
 
 def loose_shaped(img, box):
-    """Whether `box` on page `img` is a grid's shape (square) and between INDY_SHAPE wide at SCAN_WIDTH:
-    the Independent's page is scanned at 2640-4986px with the grid 26-37% of its width (shaped_on's
-    floor refused 2011's 722px grid on a 4986px page: 477 at SCAN_WIDTH)."""
-    if box is None:
-        return False
-    gw, gh = ((v1 - v0) * SCAN_WIDTH / img.width for v0, v1 in ((box[0], box[2]), (box[1], box[3])))
-    return INDY_SHAPE[0] <= gw <= INDY_SHAPE[1] and 0.85 <= gw / max(gh, 1) <= 1.18
+    """Whether `box` on page `img` is a grid's shape (square) and INDY_PAGE_SHARE of the page's width: the
+    Independent's page is scanned at 2640-4986px with the grid 17-37% of its width (shaped_on's floor refused
+    2011's 722px grid on a 4986px page), and its title no measure of it (sized_for)."""
+    return sized_for(box, img.width, INDY_PAGE_SHARE)
 
 
 def right_or_over(img, grid, right_ok=True, rise=RIGHT_RISE, roomy=False):
@@ -13786,7 +13801,7 @@ def located_grid(d, leaf, img, title, right=False):
 
 def located_loose(d, img, title, right=False):
     """locate_grid(img, title, right), and for a Gale Independent page it took no grid from, once more with
-    loose_shaped's test (INDY_SHAPE: the grid's size against a page scanned 2640-4986px wide)."""
+    loose_shaped's test (INDY_PAGE_SHARE: the grid's size against a page scanned 2640-4986px wide)."""
     found = locate_grid(img, title, right)
     if found[1] is None and not right and paper_of(d).key == "galeindependent":
         again = locate_grid(img, title, right, loose=True)
@@ -15263,7 +15278,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # crops; its blocks are backsolved from the clue list unless every clue lies on
     # it as read (backsolve: no scan grid stands, picks or screens).
     backsolve = False
-    if side is None or not (wide_shaped if paper.key in GRID_RIGHT else loose_shaped if paper.key == "galeindependent"
+    if side is None or not (wide_shaped(hit["box"]) if paper.key in GRID_RIGHT else loose_shaped if paper.key == "galeindependent"
                             and not shaped_on(img, gbox) else shaped_on)(img, gbox):
         touched = touching_grid(img, hit["box"], gbox) \
             if not paper.clues_above and not paper.four and paper.key not in GRID_RIGHT else None
