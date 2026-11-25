@@ -15530,13 +15530,19 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # foot is an advert (the 1961 Times page 1.15 grids' widths from its foot
     # was read for clue columns, and every page of the year was refused "no
     # reading parses"); the clue column stands left of such a grid (lead).
-    # A Gale page before 2014 never has its clues right of the grid: the strip
-    # there is an advert column (1947-48: the grid at the page's foot made
-    # right_columns() read the ads, and the clue column left of the grid went unread).
-    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d), indy_rise(paper, d, kind == "rise") if paper.key == "galeindependent" else ft_rise(paper, gbox, hit["box"]),
-                                  paper.key == "galeindependent") if side == "below" and top is None \
-        and not sides and not column and not paper.four and not third and kind not in ("plain", "lead") and not two_columns_only(paper, d) \
+    # A Gale page before 2014 has its clues right of the grid only on a SATURDAY_RIGHT Saturday (clues_may_be_right):
+    # elsewhere the strip there is mostly an advert column (1947-48: the grid at the page's foot made right_columns()
+    # read the ads, and the clue column left of the grid went unread). The years only ORDER the windows: the layout's
+    # window is read without the right strip, and the strip is tried as the last window ("farright") once the
+    # layout's is poor, taken only if it scores better (_read_best): a page that files is untouched.
+    may_right = clues_may_be_right(paper, d)
+    right_page = side == "below" and top is None \
+        and not sides and not column and not paper.four and not third and kind not in ("plain", "lead") and not two_columns_only(paper, d)
+    right, over = right_or_over(img, gbox, may_right or kind == "farright", indy_rise(paper, d, kind == "rise") if paper.key == "galeindependent" else ft_rise(paper, gbox, hit["box"]),
+                                  paper.key == "galeindependent") if right_page \
         else (None, None)
+    far_right = not may_right and alts is not None and kind is None and right_page and paper.key == "gale" \
+        and right_or_over(img, gbox, True, ft_rise(paper, gbox, hit["box"]))[0] is not None
     if four == "wrap":
         right = over = None  # IOS_WRAP: the columns are the ink-fitted panes, not right_columns' strip beside the grid
     if right and paper.key == "galeindysunday" and d.name[:4] > INDY_SUNDAY_BARRED_END:
@@ -15776,6 +15782,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                 bottom = gbox[3] + int(1.8 * gw)
                 alts.extend(("under", x) for x in crop_window.edge_candidates(
                     img, (gbox[0], gbox[3], gbox[2], min(img.height, bottom)), split, reach=int(UNDER_SPAN * gw))[1:])
+        if far_right and not right and not wide:
+            alts.append(("farright", None))
         if over and paper.key == "galeindependent" and (d.name[:4] == "2004" or INDY_THIRD_LATE[0] <= d.name[:4] <= INDY_THIRD_LATE[1]) \
                 and isinstance(split, tuple) \
                 and not isinstance(split, Beside) and not right and not third and not wide:
