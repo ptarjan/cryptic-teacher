@@ -11,7 +11,7 @@ from pathlib import Path
 from fix_reasons import Reason
 
 TEXT = "page of larger print refused for its columns, the clue-column thresholds scaled to its line height since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T04:26:00+00:00"
 EDITIONS = Path(__file__).resolve().parent.parent / "data" / "line_height_columns.json"
 _EDS = []
 
