@@ -15757,7 +15757,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         split = over_gutters(every, gbox, over) if over else \
             (under_quarters(every, gbox) if paper.key == "gale" and QUARTER_DAYS[0] <= d.name[:10] <= QUARTER_DAYS[1]
              and gbox[2] - gbox[0] >= QUARTER_WIDTH else
-             under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" else None)) \
+             under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" and kind != "plainunder" else None)) \
             if above is None and left is None and not right else None
         quartered = paper.key == "gale" and (quarter_print(paper, d) or quarter_gutters(img, gbox)) \
             and above is None and left is None and not right and not over and not wide
@@ -15794,6 +15794,15 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                     img, (gbox[0], gbox[3], gbox[2], min(img.height, bottom)), split, reach=int(UNDER_SPAN * gw))[1:])
         if far_right and not right and not wide:
             alts.append(("farright", None))
+        if alts is not None and kind is None and paper.key == "gale" and "1950" <= d.name[:4] <= "1959" \
+                and isinstance(split, (int, float)) and not over and not right and not wide \
+                and abs(under_gutter(every, gbox, None) - split) > 1:
+            # FIFTIES_ORDER: the year only ORDERS the under-grid windows. A 1950-59 page's gutter is sought in the
+            # decade's window (UNDER_FIFTIES, its first column the narrower); the default window's gutter is
+            # tried last once that one is poor, taken only if it scores better (_read_best): a page that files is
+            # untouched. (1950-52: the decade's window put the gutter at 0.40-0.45 of the grid where the page's
+            # columns split at its middle, 30 words crossed against 1.)
+            alts.append(("plainunder", None))
         if over and paper.key == "galeindependent" and (d.name[:4] == "2004" or INDY_THIRD_LATE[0] <= d.name[:4] <= INDY_THIRD_LATE[1]) \
                 and isinstance(split, tuple) \
                 and not isinstance(split, Beside) and not right and not third and not wide:
