@@ -9,7 +9,7 @@ and FAR_RIGHT's rows are left to it."""
 from fix_reasons import Reason, registered
 
 TEXT = "Gale Times 1950-59 page refused for its clue columns, the under-grid gutter of the default window tried on it as a last window since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T16:15:00+00:00"
 
 
 def due(row):
