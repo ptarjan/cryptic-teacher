@@ -119,22 +119,4 @@ jobs:
       - name: Push, rebasing when master moved
         shell: bash
         run: |
-          ahead=$(git rev-list --count origin/master..HEAD 2>/dev/null || echo 0)
-          if [ "$ahead" = 0 ]; then echo "ratings: nothing to push"; exit 0; fi
-          git log --format='%h %s' origin/master..HEAD
-          for n in $(seq 1 8); do
-            if git push -q origin HEAD:refs/heads/master; then
-              echo "ratings: pushed $(git rev-parse --short HEAD)"
-              exit 0
-            fi
-            echo "ratings: push $n lost the race; rebasing on the new tip"
-            git fetch -q origin master || { sleep 5; continue; }
-            if ! git rebase -q origin/master; then
-              git rebase --abort
-              echo "::error::rebase conflicted"
-              break
-            fi
-            sleep $((RANDOM % 5 + 1))
-          done
-          echo "::error::could not push"
-          exit 1
+          PUSH_TRIES=8 tools/push_checked.sh

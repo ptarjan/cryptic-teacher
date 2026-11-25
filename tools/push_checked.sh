@@ -10,8 +10,12 @@
 # -m commits only the staged changes (nothing is staged for you). With nothing staged
 # and nothing unpushed it says so and fails. The push is `git push origin HEAD:master`;
 # nothing is checked first. On a non-fast-forward reject it fetches, runs
-# `git rebase FETCH_HEAD` and retries, up to PUSH_TRIES (default 3) pushes; a rebase
-# conflict is aborted cleanly and reported.
+# `git rebase FETCH_HEAD` and retries, up to PUSH_TRIES (default 3) pushes, pausing
+# 1..PUSH_BACKOFF_MAX seconds (default 5) before each retry so jobs that lost the
+# same race do not collide again; a rebase conflict is aborted cleanly and reported.
+# The scheduled workflows that commit fetched data call this with PUSH_TRIES=8 and
+# nothing else: this script is the only place the rebase/retry policy lives. Run
+# under GitHub Actions it also writes the failure as an ::error:: annotation.
 #
 # The last stdout line is always exactly `PUSHED <short-sha>` (exit 0) or
 # `FAILED <reason>` (non-zero exit).
@@ -26,6 +30,7 @@ set -uo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 
 fail() { # fail <code> <reason>
+  [ -z "${GITHUB_ACTIONS:-}" ] || echo "::error::push_checked: $2" >&2
   echo "FAILED $2"
   exit "$1"
 }
@@ -55,6 +60,12 @@ if [ "$have_msg" = 1 ]; then
   fi
 fi
 
+if [ -z "$(git rev-list origin/master..HEAD)" ]; then
+  echo "nothing to push" >&2
+else
+  git log --format='%h %s' origin/master..HEAD >&2
+fi
+
 tries="${PUSH_TRIES:-3}"
 n=0
 while :; do
@@ -63,10 +74,12 @@ while :; do
     break
   fi
   [ "$n" -lt "$tries" ] || fail 1 "push rejected after $n tries"
-  echo "push rejected; rebasing onto origin/master (try $n of $tries)" >&2
+  echo "push $n of $tries rejected; rebasing onto the new tip" >&2
+  sleep $((RANDOM % ${PUSH_BACKOFF_MAX:-5} + 1))
   # fetch + rebase FETCH_HEAD, not pull: pull --rebase fails in a detached lease tree
   # ("no candidate for rebasing").
-  if ! { git fetch -q origin master >&2 && git rebase -q FETCH_HEAD >&2; }; then
+  git fetch -q origin master >&2 || { echo "fetch failed; trying again" >&2; continue; }
+  if ! git rebase -q FETCH_HEAD >&2; then
     git rebase --abort >&2 2>/dev/null
     fail 3 "rebase conflict, aborted"
   fi

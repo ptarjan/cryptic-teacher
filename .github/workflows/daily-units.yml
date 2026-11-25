@@ -219,28 +219,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          ahead=$(git rev-list --count origin/master..HEAD 2>/dev/null || echo 0)
-          if [ "$ahead" = 0 ]; then
-            echo "daily-units: nothing to push"
-            exit 0
-          fi
-          git log --format='%h %s' origin/master..HEAD
-          for n in $(seq 1 8); do
-            if git push -q origin HEAD:refs/heads/master; then
-              echo "daily-units: pushed $(git rev-parse --short HEAD)"
-              exit 0
-            fi
-            echo "daily-units: push $n lost the race; rebasing on the new tip"
-            git fetch -q origin master || { sleep 5; continue; }
-            if ! git rebase -q origin/master; then
-              git rebase --abort
-              echo "::error::rebase conflicted"
-              break
-            fi
-            sleep $((RANDOM % 5 + 1))
-          done
-          echo "::error::could not push"
-          exit 1
+          PUSH_TRIES=8 tools/push_checked.sh
       - name: Save the fetchers' caches
         if: "!cancelled() && (contains(steps.due.outputs.units, ' xval-globe ') || contains(steps.due.outputs.units, ' genius ') || contains(steps.due.outputs.units, ' azed '))"
         uses: actions/cache/save@v5
