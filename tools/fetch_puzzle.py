@@ -3659,8 +3659,10 @@ def _changed_ids(commit):
     from `commit`: committed since, uncommitted, or untracked."""
     rel = puzzle_paths.PUZZLE_DIR.name
     names = _git("diff", "--name-only", "--no-renames", commit, "--", rel).split()
-    names += _git("ls-files", "--others", "--exclude-standard", "--", rel).split()
-    return {Path(n).name.split(".", 1)[0] for n in names}
+    specs = puzzle_paths.corpus_pathspecs()
+    if specs:
+        names += _git("ls-files", "--others", "--exclude-standard", "-z", "--", *specs).split("\0")
+    return {Path(n).name.split(".", 1)[0] for n in names if n}
 
 
 def _shim_hash(path):

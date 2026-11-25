@@ -2982,6 +2982,8 @@ def memo_gate(clue_cutoff, ids):
     except (OSError, ValueError, KeyError, TypeError):
         pass
     todo = [i for i in ids if i not in clean]
+    print(f"  backlog: clue cut-short gate over {len(todo)} of {len(ids)} ids "
+          f"({len(ids) - len(todo)} passed at the last pass)", file=sys.stderr, flush=True)
     flagged = clue_cutoff.gate(todo, log=CUT_SHORT_LOG) if todo else {}
     keep = [i for i in ids if i not in flagged]
     try:
@@ -2991,6 +2993,13 @@ def memo_gate(clue_cutoff, ids):
     except OSError:
         pass
     return flagged
+
+
+def _progress(what, since):
+    """One line on stderr (the burn's log) saying a plan step is done and how
+    long it took: the pre-wave plan runs for many minutes on a cold cache and
+    printed nothing between its start and its queue, which read as a stall."""
+    print(f"  backlog: {what} ({time.time() - since:.0f}s)", file=sys.stderr, flush=True)
 
 
 def print_backlog(annotate_blocked, solve_blocked):
@@ -3003,17 +3012,21 @@ def print_backlog(annotate_blocked, solve_blocked):
     those papers. Clues-only puzzles join it as clues_only_rows()."""
     import clue_cutoff
     import scan_queue
+    began = time.time()
     prune_redo_list()
     index = json.loads(INDEX.read_text(encoding="utf-8"))
+    _progress(f"index read, {len(index['puzzles'])} rows", began)
     rereads ={r["id"] for r in scan_queue.open_requests()}
     if rereads:
         print(f"  {len(rereads)} OCR'd puzzles wait on a re-read of their scan, left out until it lands",
               file=sys.stderr)
     rows = fresh_rows(index["puzzles"])
     del index  # ~130 MB of objects, not needed again
+    _progress(f"{len(rows)} rows, those written since the index re-read", began)
     held = clues_only_rows({r["id"] for r in rows})
     todo = backlog(rows + held, annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
                    os.environ.get("CT_SERIES", "").split())
+    _progress(f"queue of {len(todo)} ordered, {len(held)} held clues-only", began)
     for p in todo[:5]:
         when = (f"{p['year']:<10}" if "year" in p
                 else f"{p['date']:<10}" if "date" in p else "  undated  ")
@@ -3036,6 +3049,7 @@ def print_backlog(annotate_blocked, solve_blocked):
               f"their source is read again: {' '.join(sorted(cut)[:5])}", file=sys.stderr)
     print(f"  {sum(1 for r in held if r['id'] in queued)} of those are held clues-only; "
           "their solve derives the grid", file=sys.stderr)
+    _progress("clue cut-short gate done, queue final", began)
     print(" ".join(p["id"] for p in todo))
     return 0
 

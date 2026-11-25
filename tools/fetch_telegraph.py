@@ -671,8 +671,8 @@ def main(argv=None):
             print(f"failed: {series}-{number} {slug}: {type(err).__name__}: {err}")
     print(f"done: {done} fetched, {failed} failed ({broken} of them defective source puzzles)")
     if args.reindex and done:
-        from fetch_puzzle import reindex
-        reindex()
+        from fetch_puzzle import reindex_changed
+        reindex_changed()
     return 1 if failed > broken and not done else 0
 
 

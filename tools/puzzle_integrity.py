@@ -1959,8 +1959,9 @@ def _read_listing():
             tracked[name] = meta.split()[1]
         for name in _git("ls-files", "-d", "-z", "--", "puzzles"):
             tracked.pop(name, None)
+        specs = puzzle_paths.corpus_pathspecs()
         dirty = set(_git("ls-files", "-m", "-z", "--", "puzzles")) | set(
-            _git("ls-files", "-o", "--exclude-standard", "-z", "--", "puzzles"))
+            _git("ls-files", "-o", "--exclude-standard", "-z", "--", *specs) if specs else ())
         names = {n: (None if n in dirty else tracked.get(n))
                  for n in set(tracked) | dirty if n.endswith(".json") and n not in ()}
     except (OSError, subprocess.CalledProcessError):

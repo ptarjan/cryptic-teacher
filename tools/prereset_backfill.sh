@@ -1766,7 +1766,7 @@ PY
 # The Annotate queue, as at the start: tools/prereset_plan.py's backlog().
 read_annotate_backlog() {
   local annotate_blocked solve_blocked
-  echo "un-annotated backlog, newest first:"
+  echo "un-annotated backlog, newest first: ($(date '+%H:%M'), planning; progress lines follow)"
   { read -r annotate_blocked; read -r solve_blocked; } < <(python3 tools/failed_inputs.py skipped annotate solve)
   queue=($(python3 tools/prereset_plan.py --backlog "$annotate_blocked" "$solve_blocked"))
   at=0
@@ -1796,6 +1796,7 @@ reload_watch
 if [ -z "$REEXEC_STATE" ]; then
 # Incremental: only the files changed since the index was written (a full
 # reindex when it is missing). The final one below starts from the deploy's.
+echo "pre-wave: bringing the index up to date ($(date '+%H:%M'))"
 python3 tools/fetch_puzzle.py --reindex-changed >/dev/null
 
 # Top the queue up from the archives before reading it. A window spent with
@@ -1811,6 +1812,7 @@ python3 tools/fetch_puzzle.py --reindex-changed >/dev/null
 # Through publish_fetched.sh, which commits and pushes what was fetched before
 # any annotator starts: an untracked fetched file blocks the sync (sync_tree) the
 # moment origin commits the same path.
+echo "pre-wave: extending the archives ($(date '+%H:%M'))"
 if [ "$DRY_RUN" = 1 ]; then
   python3 tools/extend_archive.py --dry-run || true
 else

@@ -87,7 +87,7 @@ from pathlib import Path
 
 import puzzle_paths
 from fetch_puzzle import (convert, http_bytes,
-                          puzzle_path, reindex, write_puzzle_file)
+                          puzzle_path, reindex_changed, write_puzzle_file)
 import series as series_meta
 
 WAYBACK_URL = ("https://web.archive.org/web/{year}id_/"
@@ -229,7 +229,7 @@ def main(argv):
         recovered += 1
 
     if recovered and not args.dry_run and is_live_dir:
-        reindex()
+        reindex_changed()
     print(f"done: {recovered} recovered, {already} already on disk, "
           f"{skipped} unavailable (not archived in any year tried)")
     return 0

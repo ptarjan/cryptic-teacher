@@ -74,7 +74,7 @@ import daily_fetch  # the walk and refresh loop the numbered fetchers share
 import enumeration  # a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (read_puzzle_view, http_bytes, flatten_clue, grade_model_fill,
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
-                          read_puzzle_file, reindex, still_worth_refreshing,
+                          read_puzzle_file, reindex_changed, still_worth_refreshing,
                           write_puzzle_file)
 from fetch_independent import span  # same 1-based "2-7"/"7" span format
                                      # for a different paper's crossword
@@ -424,7 +424,7 @@ def refresh_unsolved():
     # Only a write moves the index, and a puzzle still in its window writes
     # nothing: a whole-corpus reindex for it was most of this pass's time.
     if filled:
-        reindex()
+        reindex_changed()
 
 
 def main(argv):
@@ -453,7 +453,7 @@ def main(argv):
         if len(argv) < 2 or not argv[1].isdigit():
             raise SystemExit("--number needs a puzzle number, e.g. --number 4097")
         if fetch_number(int(argv[1])):
-            reindex()
+            reindex_changed()
         return 0
     raise SystemExit(f"Don't understand argument: {argv[0]}")
 

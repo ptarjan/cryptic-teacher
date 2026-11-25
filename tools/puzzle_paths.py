@@ -68,6 +68,36 @@ def find(pid):
     return hits[0] if hits else None
 
 
+#: A generated per-puzzle folder: puzzles/<id>/index.html, the crawlable page
+#: (an id is <series>-<number>, or a bare number before ids were namespaced).
+#: No series folder's name ends in digits.
+_SHIM_FOLDER = re.compile(r"(.*-)?[0-9]+")
+
+
+def is_shim_folder(name):
+    """Whether puzzles/<name> is a generated page folder, not a series folder."""
+    return _SHIM_FOLDER.fullmatch(name) is not None
+
+
+def corpus_pathspecs():
+    """Literal git pathspecs for everything under puzzles/ that can hold a puzzle
+    file: each folder but the generated page folders (~57k untracked directories
+    that `git ls-files -o` opens one by one, 176 MB read a call, to find
+    nothing) and each flat .json (the generated .js shims, ~80k, are not
+    puzzle files). A stray flat file or a new series folder is named here, so
+    it is still found. [] when puzzles/ is missing: the caller
+    then has nothing to ask git, and must not ask it with no pathspec at all
+    (that is the whole repo)."""
+    rel = PUZZLE_DIR.relative_to(PUZZLE_DIR.parent).as_posix()
+    try:
+        with os.scandir(PUZZLE_DIR) as it:
+            names = sorted(e.name for e in it if (not is_shim_folder(e.name) if e.is_dir()
+                                                  else e.name.endswith(".json")))
+    except (FileNotFoundError, NotADirectoryError):
+        return []
+    return [f":(literal){rel}/{n}" for n in names]
+
+
 #: {series: (stamp, {id: path or None})}: folder_listing's last listing.
 _LISTED = {}
 

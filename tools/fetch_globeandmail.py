@@ -119,7 +119,7 @@ import enumeration  # a clue's printed counts; tools/enumeration.py
 import puzzle_paths
 import reprints
 from fetch_puzzle import (flatten_clue, http_bytes, separators,
-                          read_puzzle_file, reindex, write_puzzle_file)
+                          read_puzzle_file, reindex_changed, write_puzzle_file)
 import series as series_meta
 
 SET = "globeandmail-new-cryptic"
@@ -520,7 +520,7 @@ def run_dates(ymds, out_dir, dry_run):
             print(f"skip {ymd}: {type(err).__name__}: {err}")
             missing += 1
     if not dry_run and out_dir.resolve() == puzzle_paths.PUZZLE_DIR.resolve():
-        reindex()
+        reindex_changed()
     print(f"done: {fetched} fetched, {missing} unavailable/failed")
 
 

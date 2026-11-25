@@ -43,7 +43,7 @@ floor. Finding the floor means rerunning --extend with a larger N and reading
 the summary.
 
 Writes puzzles/<series>/<year>/<series>-<number>.json (preserving any existing per-clue
-annotations), then rebuilds the index via fetch_puzzle.reindex().
+annotations), then rebuilds the index via fetch_puzzle.reindex_changed().
 """
 
 import codecs
@@ -60,7 +60,7 @@ import puzzle_integrity
 import enumeration  # a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (http_bytes, flatten_clue, separators,
                           merge_annotations, plain_text, puzzle_files, puzzle_path,
-                          read_puzzle_file, reindex, source_clue, write_puzzle_file)
+                          read_puzzle_file, reindex_changed, source_clue, write_puzzle_file)
 import series as series_meta
 
 FEED = ("https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/independent/"
@@ -597,7 +597,7 @@ def backfill(ymds):
                 print(f"skip {ymd}: {_refusal_line(err)}")
                 missing += 1
         time.sleep(1)
-    reindex()
+    reindex_changed()
     print(f"backfill done: {fetched} fetched, {skipped} skipped, {missing} unavailable")
 
 
@@ -641,7 +641,7 @@ def main(argv):
     if not re.fullmatch(r"\d{6}", argv[0]):
         raise SystemExit(f"Expected a YYMMDD date, got: {argv[0]}")
     if fetch_day(argv[0]):
-        reindex()
+        reindex_changed()
     return 0
 
 
