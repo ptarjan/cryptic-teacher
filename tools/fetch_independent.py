@@ -591,7 +591,6 @@ def backfill(ymds):
             skipped += 1
         else:
             try:
-                _wait_for_load()
                 fetch_day(ymd)
                 fetched += 1
             except puzzle_integrity.RefusedWrite as err:
@@ -600,21 +599,6 @@ def backfill(ymds):
         time.sleep(1)
     reindex()
     print(f"backfill done: {fetched} fetched, {skipped} skipped, {missing} unavailable")
-
-
-# The backfill shares the box with other rooms' workers: before each fetch it
-# waits while the 1-minute load is over LOAD_CEILING, but never longer than
-# LOAD_WAIT_CAP seconds, so a box that stays busy still sees it finish.
-LOAD_CEILING = 8.0
-LOAD_WAIT_CAP = 300
-
-
-def _wait_for_load(read=lambda: os.getloadavg()[0], sleep=time.sleep):
-    waited = 0
-    while read() > LOAD_CEILING and waited < LOAD_WAIT_CAP:
-        sleep(15)
-        waited += 15
-    return waited
 
 
 def main(argv):

@@ -163,7 +163,9 @@ def main():
             name, cmd = source
             print(f"--- extending {name} by {args.chunk}")
             before = held()
-            rc = subprocess.run([a.format(n=args.chunk) for a in cmd]).returncode
+            # Background work: the repo's own throttle (tools/low_cpu.sh), so the
+            # fetchers never take a core from other rooms' workers.
+            rc = subprocess.run(["tools/low_cpu.sh"] + [a.format(n=args.chunk) for a in cmd]).returncode
             if rc != 0 or held() == before:
                 print(f"    {name} added nothing — dropping it for this run")
                 alive.remove(source)
