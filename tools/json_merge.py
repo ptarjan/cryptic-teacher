@@ -15,8 +15,11 @@ keys, and `merge=union` is no answer: it keeps both lines and loses the comma
 between them, so the result is not JSON. Here the merge is per key, three-way:
 a key only one side changed takes that side; a key both sides added or changed
 alike is kept once; a key both changed differently merges as dicts key by key,
-as lists by union, and otherwise takes %B (in a rebase, the commit being
-replayed), with a note on stderr. A rebase stopped on a ledger row strands every
+as lists of objects by union, and otherwise takes %B (in a rebase, the commit
+being replayed), with a note on stderr. A list of plain values is a record, not
+a collection: a source table's [served, printed, why] holds its fields by
+position, so a union of two versions is a row of the wrong width, and the
+record is one value like a string. A rebase stopped on a ledger row strands every
 later commit, which costs far more than either side's version of one row.
 
 Every one of these files is laid out by dump_lines, one line per top-level key,
@@ -90,6 +93,13 @@ def merge_lists(o, a, b):
     return sorted(out) if _sorted(a) and _sorted(b) else out
 
 
+def is_record(x):
+    """Whether list `x` is a record whose fields are its positions (any item a
+    plain value, as a table row [served, printed, why]) rather than a collection
+    of objects (a ledger's list of findings), which merges by union."""
+    return isinstance(x, list) and any(not isinstance(v, (dict, list)) for v in x)
+
+
 def merge(o, a, b, path=""):
     if a == b:
         return a
@@ -108,7 +118,7 @@ def merge(o, a, b, path=""):
         if _sorted(list(a)) and _sorted(list(b)):
             out = dict(sorted(out.items()))
         return out
-    if isinstance(a, list) and isinstance(b, list):
+    if isinstance(a, list) and isinstance(b, list) and not (is_record(a) or is_record(b)):
         return merge_lists(o, a, b)
     if a is MISSING or b is MISSING:
         # One side removed the key, the other changed it: keep the change, since

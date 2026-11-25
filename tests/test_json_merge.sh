@@ -289,4 +289,30 @@ check "pruned ids are gone, appended ids kept, upstream's reason kept" \
   "$(python3 -c 'import json; print([(r["id"], r["reason"]) for r in json.load(open("tools/data/shape_reannotate.json"))])')" \
   "[('r1', 'reworded'), ('r4', 'redo'), ('r5', 'redo'), ('r6', 'redo')]"
 
+# A source table's row is a record [served, printed, why], its fields held by
+# position. Two writers filing the same light with different words of `why`
+# must leave one row of three fields (the replayed side's), never a union of
+# both versions: a four-field row breaks every reader that unpacks it.
+git checkout -q master
+srow() { python3 -c '
+import json, sys
+sys.path.insert(0, "tools")
+from json_merge import dump_lines
+p = "tools/data/source_answer_wrong.json"
+try:
+    d = json.load(open(p))
+except FileNotFoundError:
+    d = {}
+d.update({k: ["SERVED", "PRINTED", w] for k, w in zip(sys.argv[1::2], sys.argv[2::2])})
+open(p, "w").write(dump_lines(d))' "$@"; }
+srow "base-1/1-across" "base"; git add -A; git commit -qm srow-base
+git checkout -qb srow-replayed; srow "x-1/2-down" "replayed why"; git commit -qam "replayed files x-1/2-down"
+git checkout -q master; srow "x-1/2-down" "origin why"; git commit -qam "origin files x-1/2-down"
+git checkout -q srow-replayed; git rebase -q master >/dev/null 2>&1
+check "rebase of one light filed twice in source_answer_wrong completes" "$(git ls-files -u | wc -l | tr -d ' ')" 0
+check "the row keeps three fields, the replayed side's" \
+  "$(python3 -c 'import json; print(json.load(open("tools/data/source_answer_wrong.json"))["x-1/2-down"])')" \
+  "['SERVED', 'PRINTED', 'replayed why']"
+git rebase --abort 2>/dev/null; git checkout -q -f master
+
 [ "$fails" = 0 ] && echo "json_merge: all checks passed" || { echo "json_merge: $fails FAILED"; exit 1; }
