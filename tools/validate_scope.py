@@ -160,7 +160,7 @@ def rows_only_added(old_text, new_text):
 def backlog_tightened(old_text, new_text):
     """The puzzle ids whose allowance the backlog lowered, or None when anything
     else moved: a raised or new allowance, a field added or dropped, or text
-    that is not the file's shape. The file only ever shrinks (write_backlog), so
+    that is not the file's shape. The file only ever shrinks (ratchet_backlog), so
     a change that lowers allowances can alter the answer only for the puzzles it
     names; one that raises any can alter any."""
     try:

@@ -38,4 +38,23 @@ for argv in (["--shard", "0/4", "--tighten"], ["--shard", "0/4", "123"]):
     except SystemExit:
         continue
     raise AssertionError(f"{argv} was accepted")
+# The ratchet --tighten writes. A full run saw every puzzle; a run given ids saw
+# only those, so it may only LOWER their allowances and leaves the rest alone.
+fields = list(va.BACKLOG_MARKERS)
+f0, f1 = fields[0], fields[1]
+zero = {f: 0 for f in fields}
+allowed = {f0: {"a-1": 5, "a-2": 3, "a-3": 2}, f1: {"a-1": 1}}   # the other fields have no list yet
+seen = {"a-1": {**zero, f0: 2, f1: 4}, "a-2": {**zero, f0: 9}, "a-4": {**zero, f0: 7}}
+
+full = va.ratchet_backlog(seen, allowed, True)
+assert full[f0] == {"a-1": 2, "a-2": 3, "a-4": 7}, full[f0]   # min(); new puzzle recorded; unseen a-3 dropped
+assert full[f1] == {"a-1": 1}
+assert set(full) == set(fields), "a full run records every field"
+
+part = va.ratchet_backlog(seen, allowed, False)
+assert part[f0] == {"a-1": 2, "a-2": 3, "a-3": 2}, part[f0]   # lowered, never raised; a-3 kept verbatim; a-4 not added
+assert part[f1] == {"a-1": 1}, part[f1]                       # observed 4 > allowed 1: the tighter cap stays
+assert set(part) == {f0, f1}, "a scoped run adds no field the file lacks"
+assert va.ratchet_backlog({"a-2": dict(zero)}, allowed, False)[f0] == {"a-1": 5, "a-3": 2}   # drained to 0: entry leaves
+
 print(f"test_validate_shard: ok ({len(paths)} puzzles)")

@@ -1210,6 +1210,9 @@ _worker_finish() {
 # What a committed puzzle changes in the ledgers: parked on what is still
 # failing, or cleared. $2 is "p" when clues were dropped to ship it.
 worker_settle() {   # id partial verdict pending
+  # A job that records what it changed (the pre-reset burn's scoped --tighten)
+  # names a file here; every puzzle a commit settles is one line in it.
+  [ -z "${WORKER_COMMITTED_IDS:-}" ] || printf '%s\n' "$1" >>"$WORKER_COMMITTED_IDS"
   if [ -n "$2" ] && [ "$3" = retry ]; then
     : # Left unparked: the dropped clues are due, and the next pick is their tail.
   elif [ -n "$4" ]; then

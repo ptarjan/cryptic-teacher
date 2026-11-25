@@ -124,7 +124,7 @@ def merge_allowances(o, a, b, path=""):
     Where both sides moved one puzzle's allowance differently, the larger wins
     (merge() would take the replayed side's): an allowance that is too high
     only forgives, one that is too low turns CI red, and the file is lowered
-    by --tighten from a full run, which sets every allowance right again. A
+    by --tighten, which sets right again every allowance of the puzzles it checked. A
     side that merely stood still never overrides the other, as in merge()."""
     if isinstance(a, int) and isinstance(b, int) and not isinstance(a, bool) \
             and a != b and a != o and b != o:

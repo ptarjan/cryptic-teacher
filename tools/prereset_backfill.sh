@@ -216,6 +216,10 @@ else
   RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
   tee_split
 fi
+# The puzzles this run's commits settled, one id a line (puzzle_worker.sh
+# worker_settle): what the closing --tighten records. It lives beside the log so
+# a re-exec keeps it.
+export WORKER_COMMITTED_IDS="$RUN_LOG.committed"
 
 # Kept in step with daily_update.sh — Opus, benchmarked against Fable on 30078
 # (docs/APP.md). Matching quality at a third the cost matters more here than
@@ -361,7 +365,7 @@ WATCH_PID=""
 trap 'RELOAD_ASKED=1' USR1 HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
-trap '[ -z "$WATCH_PID" ] || kill "$WATCH_PID" 2>/dev/null; rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+trap '[ -z "$WATCH_PID" ] || kill "$WATCH_PID" 2>/dev/null; rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG" "$RUN_LOG.committed"' EXIT
 # A resume note is written for a retry in the same process, about the tree as it
 # was then. A run this start finds still recorded in $RUNS was stopped by the
 # restart, and its note is written afresh at its launch (worker_put_back), about
@@ -1882,7 +1886,7 @@ for ((; field_i < ${#fields[@]}; field_i++)); do
     continue
   fi
   # A field (not a shape rule) list is what tools/annotation_backlog.json held at
-  # the start, re-read only by the --tighten after the last round: a later round
+  # the start, re-read at the next start, not by the closing --tighten: a later round
   # would redo the puzzles the first one filled.
   if [ "$shape" = 0 ] && [ "$BURN_ROUND" -gt 1 ] && [ "$POOL_PHASE" != "$field" ]; then
     echo "($field: drained in round 1; its list is re-read at the next start)"
@@ -2010,7 +2014,7 @@ if [ "$DRY_RUN" = 1 ]; then
 fi
 
 # Record what got drained. The allowance may only shrink — enforced in
-# write_backlog, not merely intended — so every puzzle finished here is a puzzle
+# ratchet_backlog, not merely intended — so every puzzle finished here is a puzzle
 # that can never quietly lose the field again. Not suppressed: a failure here
 # means drained puzzles go unrecorded, so it is alerted.
 #
@@ -2024,16 +2028,18 @@ if [ -n "$(git --no-optional-locks status --porcelain -- puzzles/)" ]; then
   git clean -qf -- 'puzzles/*/*/*.json'
 fi
 
-# Its per-puzzle report covers the whole corpus, a megabyte that would trim the
+# Its per-puzzle report lists every puzzle it checked, which would trim the
 # run's own story out of the log; only the summary and a failure are kept.
 tighten_summary() { grep -v -e " — OK$" -e " — skipped$" -e "^ *warn:" -e "^$" <<<"$tighten_out"; }
-if [ "$(date +%s)" -ge "$STOP_AT" ] && [ ! -e "$PRERESET_PAUSE" ]; then
-  # Stopped at the weekly reset: the corpus-wide --tighten took ~1.6h here
-  # (11-11: 04:59 stop, 06:49 done), holding the lock while the new week's quota
-  # sat unspent. It reads the whole corpus, so the next run's tail records this
-  # run's drained puzzles too; the new week starts burning now.
-  echo "reset reached: --tighten left to the next run's tail, so the new week starts at once"
-elif tighten_out=$(python3 tools/validate_annotations.py --tighten 2>&1); then
+# Only the puzzles this run committed are checked, and only their allowances
+# lowered (validate_annotations.py --tighten <ids>): the work follows what changed,
+# not the corpus, so it is as quick at the weekly reset as at any other stop. A
+# field the file has no list for yet is recorded by one full --tighten, run when
+# the field is added (docs/STYLE.md), not by the burn.
+mapfile -t committed < <(sort -u "$RUN_LOG.committed" 2>/dev/null)
+if [ "${#committed[@]}" -eq 0 ]; then
+  echo "nothing committed this run: no backlog allowance to record"
+elif tighten_out=$(python3 tools/validate_annotations.py --tighten "${committed[@]}" 2>&1); then
   tighten_summary || true
 else
   alert "the pre-reset backfill could not record what it drained (validate_annotations.py --tighten failed), so tonight's finished puzzles can still silently lose their notes:

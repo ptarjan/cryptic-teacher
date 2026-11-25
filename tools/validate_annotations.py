@@ -51,6 +51,12 @@ With no arguments, validates every puzzle that has at least one annotation.
 `--shard i/n` (the deploy runs 0/4 .. 3/4) does that for the puzzles whose id
 hashes to i of n; the ratchet is per puzzle, so each shard enforces its own
 slice and the backlog totals it prints are the slice's.
+`--tighten` records what the run saw in annotation_backlog.json, lowering
+allowances only. With no ids it is a full run: it checks every puzzle, rewrites
+every field's list, and is the one run that records a field the file has no
+list for yet. With ids it lowers just those puzzles' allowances and keeps every
+other entry (and every absent field) as it is, so a job that changed some
+puzzles records them without reading the corpus. `--shard` cannot `--tighten`.
 `--unscoped` runs the authored-only checks on published puzzles too — that is
 the CALIBRATION harness, not a mode to ship in: a check that flags Araucaria is
 a broken check, so every authored-only rule is measured across the annotated
@@ -705,10 +711,12 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
 # So the allowance is per puzzle and written down. A puzzle may carry as many
 # unannotated clues as annotation_backlog.json records for it and not one more;
 # a puzzle not in the file — every puzzle fetched since the field was
-# added — is allowed none. The backlog can only ever shrink: a full run rewrites the file
-# with what it observed, so draining a puzzle tightens the rule on it forever.
-# Adding a new grandfathered field means adding it to BACKLOG_MARKERS and
-# running --tighten once; nothing has to be remembered afterwards.
+# added — is allowed none. The backlog can only ever shrink: `--tighten` writes
+# the smaller of what a run observed and what was allowed, so draining a puzzle
+# tightens the rule on it forever. A job that changes puzzles records them with
+# `--tighten <ids>`; adding a new grandfathered field means adding it to
+# BACKLOG_MARKERS and running a full `--tighten` once, the only run that adds a
+# field's list. Nothing has to be remembered afterwards.
 # The two shapes a line of this tool's output can take, named so a caller can
 # count them without matching on prose that is free to change.
 WARN_PREFIX = "  warn: "
@@ -831,21 +839,38 @@ def _sort_key(kv):
     return (series, int(num) if num.isdigit() else 0, kv[0])
 
 
-def write_backlog(observed, allowed):
-    """`observed` is {number: {field: count}} from a run over every puzzle.
+def ratchet_backlog(observed, allowed, full):
+    """The backlog's new lists: {field: {puzzle: allowance}}.
 
-    Writes the SMALLER of what was observed and what was already allowed, per
-    puzzle per field, so "may only shrink" is enforced here rather than by a
-    comment: recording whatever was seen would let a run that lost annotations
-    raise the ceiling to fit them, and every run after it would agree the
-    puzzle was fine."""
-    ratchet = {f: {num: min(c[f], allowed.get(f, {}).get(num, c[f]))
-                   for num, c in observed.items()} for f in BACKLOG_MARKERS}
+    `observed` is {puzzle: {field: count}} for the puzzles a run checked. Each
+    checked puzzle gets the SMALLER of what was observed and what was already
+    allowed, so "may only shrink" is enforced here rather than by a comment:
+    recording whatever was seen would let a run that lost annotations raise the
+    ceiling to fit them, and every run after it would agree the puzzle was fine.
+
+    A `full` run saw every puzzle: it writes every field, a puzzle with no entry
+    is recorded at what was seen (the grandfathering of a new field), and an
+    entry for a puzzle it did not see is dropped. A scoped run saw only some:
+    it keeps every other entry as it stands, never adds a field the file has no
+    list for, and a checked puzzle with no entry has none allowed, so it stays
+    out."""
+    out = {}
+    for f in BACKLOG_MARKERS:
+        if not full and f not in allowed:
+            continue
+        kept = {} if full else dict(allowed[f])
+        for num, c in observed.items():
+            kept[num] = min(c[f], allowed.get(f, {}).get(num, c[f] if full else 0))
+        out[f] = {num: n for num, n in sorted(kept.items(), key=_sort_key) if n}
+    return out
+
+
+def write_backlog(observed, allowed, full=True):
+    """Record ratchet_backlog's lists, in the file's one layout."""
     data = {"_why": "Per-puzzle allowance of clues predating a required annotation "
                     "field. Written by tools/validate_annotations.py; may only "
                     "shrink. A puzzle absent from a field's list must have none.",
-            **{f: {num: n for num, n in sorted(ratchet[f].items(), key=_sort_key)
-                   if n} for f in BACKLOG_MARKERS}}
+            **ratchet_backlog(observed, allowed, full)}
     store_backlog(data)
 
 
@@ -1199,6 +1224,8 @@ def main(argv):
         drift_out, argv = argv[at + 1], argv[:at] + argv[at + 2:]
     if shard and "--tighten" in argv:
         raise SystemExit("--shard cannot --tighten: only an unsharded run has seen every puzzle")
+    if "--tighten" in argv and "--deploy" in argv:
+        raise SystemExit("--deploy cannot --tighten: it applies the deploy's rules, not the ratchet's")
     if shard and [a for a in argv if a != "--unscoped"]:
         raise SystemExit("--shard splits the full check: it takes no puzzle ids or files")
     if "--explain" in argv:
@@ -1260,11 +1287,14 @@ def main(argv):
             total = sum(c[field] for c in observed.values())
             print(f"\n{field} backlog: {total} clue(s) in {sum(1 for c in observed.values() if c[field])} "
                   f"puzzle(s)." if total else f"\n{field} backlog is EMPTY — every puzzle now carries it.")
-        # Only a full run has visited every puzzle, so only a full run may
-        # rewrite the file — and only when asked, because widening the
-        # allowance is how a regression would get itself forgiven.
+    # Only a FULL run has visited every puzzle, so only a full run may record a
+    # field's first list or drop a puzzle's entry; a run with ids lowers just
+    # those. Either only when asked, because widening the allowance is how a
+    # regression would get itself forgiven.
+    if full_run or tighten:
         moved = {f: sum(n for stem, n in allowed.get(f, {}).items()
-                        if not shard or shard_of(stem, shard[1]) == shard[0])
+                        if (full_run and (not shard or shard_of(stem, shard[1]) == shard[0]))
+                        or stem in observed)
                  - sum(c[f] for c in observed.values())
                  for f in BACKLOG_MARKERS}
         if tighten and failed:
@@ -1274,17 +1304,19 @@ def main(argv):
             print("NOT tightening: this run failed, so what it observed is not a "
                   "ceiling worth keeping. Fix the errors above and re-run.")
         elif tighten:
-            write_backlog(observed, allowed)
+            write_backlog(observed, allowed, full_run)
             print("wrote tools/annotation_backlog.json: "
-                  + ", ".join(f"{f} recorded" if f not in allowed else f"{f} -{n}" if n >= 0
+                  + ", ".join(f"{f} recorded" if f not in allowed and full_run
+                              else f"{f} not in the file, left out" if f not in allowed
+                              else f"{f} -{n}" if n >= 0
                               else f"{f} unchanged (observed {abs(n)} more, kept the tighter cap)"
                               for f, n in moved.items()))
-        elif any(v > 0 for v in moved.values()):
+        elif full_run and any(v > 0 for v in moved.values()):
             # Not a failure: a shrink is the burn working. The nightly
-            # tools/prereset_backfill.sh is the one writer of the file.
+            # tools/prereset_backfill.sh records the puzzles it changed.
             print("backlog shrank (" + ", ".join(f"{f} -{n}" for f, n in moved.items() if n > 0)
-                  + ") — not a failure; tools/prereset_backfill.sh records it tonight "
-                    "with `python3 tools/validate_annotations.py --tighten`.")
+                  + ") — not a failure; tools/prereset_backfill.sh records the puzzles "
+                    "it drained with `python3 tools/validate_annotations.py --tighten <ids>`.")
     return 1 if failed else 0
 
 

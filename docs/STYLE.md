@@ -29,7 +29,8 @@ annotated before it get a written, per-puzzle allowance, never an on/off flag:
   number. A puzzle not listed in the file is allowed none.
 - The numbers only go down. Draining a puzzle's backlog tightens the rule on it
   permanently.
-- `tools/prereset_backfill.sh` reads its field list from the same file. It does
+- `tools/prereset_backfill.sh` records the puzzles it changed with
+  `--tighten <ids>`, which only lowers those puzzles' allowances. It reads its field list from the same file. It does
   not name fields itself.
 
 To grandfather a new field, add it to `BACKLOG_MARKERS` in the validator and run
