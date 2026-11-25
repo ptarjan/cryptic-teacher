@@ -1008,10 +1008,11 @@ def touching_grid(img, title, box):
     return None
 
 
-#: The last year whose Gale Times pages a grid under its title is the puzzle's however wide
+#: The years whose Gale Times pages a grid under its title is the puzzle's however wide (the years ORDER scaled_under among
+#: the candidates, the other pages try it where the located grid is not a grid)
 #: the page (scaled_under): from 1968 the clue columns move, and the 2004-06 pages print
 #: a solution grid under the title of a grid left of it.
-SCALED_UNDER_YEARS = ("1939", "1967")
+SCALED_UNDER_FIRST_YEARS = ("1939", "1967")
 #: The Gale Sunday Times' years scaled_under reads too: its 4118px pages of 1960-99 print a 718px grid (574 at
 #: SCAN_WIDTH, the cap 600 for the page's width) under the title, solution-shaped, and locate_grid took the ad's
 #: frame over the title for the grid (1966-05-15: No 2153, "too few neighbouring white cells", the clue column
@@ -1048,28 +1049,28 @@ def scaled_under(img, title):
 #: its top may start (1940-10-04: 25px).
 OFFSET_UNDER_SHARE = 0.5
 OFFSET_UNDER_GAP = 0.1
-#: The years whose Gale Times pages band_grid() reads (surveyed 10-28: 1940-49).
-OFFSET_UNDER_YEARS = ("1939", "1949")
+#: The years whose Gale Times pages band_grid() reads first (surveyed 10-28: 1940-49); the others' only where refused.
+OFFSET_UNDER_FIRST_YEARS = ("1939", "1949")
 #: The later years whose Gale Times pages band_grid() reads only where the page would be refused "the
 #: ink under the title is WxH, not a grid" (no touching_grid either): the 1950s grid's top frame inside
 #: its title's line, the crop under the title's foot cutting it off (1959-06-09: 720x694 under the title,
 #: the grid 720x718 from 24px up). 10-28 offline: band_grid takes a grid-shaped 720px box on 11 of the 14
 #: such 1950-67 rows (BAND_LATE).
-BAND_LATE_YEARS = ("1950", "1967")
+BAND_LATE_FIRST_YEARS = ("1950", "1967")
 #: Some 1940-41 Gale Times pages are printed small (3296px wide but 2762-3387 tall against ~4900, the
 #: title ~590px against 700-880): their grid, ~485px square under the title, is under grid_shaped's 500
 #: floor, and the page was refused "the ink under the title is 486x490, not a grid" (1941-07-02,
 #: 1941-03-10, 1940-05-18, 1940-08-16, 1940-02-15). small_grid takes such ink as the grid where the page
 #: would be refused: square as grid_shaped's, SMALL_GRID_MIN wide at SCAN_WIDTH at least, and
 #: SMALL_GRID_SHARE of its title's width (a full-size page's grid is 0.83 of it).
-SMALL_PAGE_YEARS = ("1940", "1941")
+SMALL_PAGE_FIRST_YEARS = ("1940", "1941")
 SMALL_GRID_MIN = 400
 SMALL_GRID_SHARE = (0.7, 1.05)
 
 
 def small_grid(width, title, box):
     """Whether ink `box` under `title`, on a page `width` px wide, is a small-printed page's grid
-    (SMALL_PAGE_YEARS): square as grid_shaped's, between SMALL_GRID_MIN and grid_shaped's 500 wide at
+    (SMALL_PAGE_FIRST_YEARS): square as grid_shaped's, between SMALL_GRID_MIN and grid_shaped's 500 wide at
     SCAN_WIDTH, its width SMALL_GRID_SHARE of the title's, and straddling the title's middle."""
     if box is None or title is None or not width:
         return False
@@ -1085,7 +1086,7 @@ CLOSED_GAP = 3
 
 
 def closed_grid(img, title):
-    """The grid under `title` on a 1940-41 Gale Times page (SMALL_PAGE_YEARS) whose scan broke its frame
+    """The grid under `title` on a 1940-41 Gale Times page (SMALL_PAGE_FIRST_YEARS) whose scan broke its frame
     and rules into pieces (CLOSED_GRID), or None: the largest ink under the title, as locate_grid's crop
     grows it (ink_in), in the page's ink with gaps of CLOSED_GAP pixels closed, footed on the page as it
     is; taken when grid-shaped (shaped_on) or a small-printed page's (small_grid), its top under the
@@ -13337,7 +13338,7 @@ REREAD_PARSES_ERAS = ((SATURDAY_RIGHT[0], SATURDAY_RIGHT[1], True, "2026-10-28T0
 #: ~5150px wide and the 1955-67 ones ~4000px (1961-04-25 read whole, 32/32 lights). The
 #: 3296px (SCAN_WIDTH) pages of 1940-41 and the 1942-54 pages keep the cap unscaled: not due.
 SCALED_UNDER_ERAS = (("1939", "1941", False, "2026-10-28T07:45:00+00:00"),
-                     ("1955", SCALED_UNDER_YEARS[1], False, "2026-10-28T07:45:00+00:00"))
+                     ("1955", SCALED_UNDER_FIRST_YEARS[1], False, "2026-10-28T07:45:00+00:00"))
 
 
 def scaled_due(row):
@@ -15109,14 +15110,14 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         gbox = tele_left_grid(img, hit["box"], gbox)
     # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
     if side != "below" and not paper.clues_above and not paper.four and paper.key == "gale" \
-            and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1]:
+            and SCALED_UNDER_FIRST_YEARS[0] <= d.name[:4] <= SCALED_UNDER_FIRST_YEARS[1]:
         under = scaled_under(img, hit["box"])
         if under is not None:
             gbox, side = under, "below"
             verdict["gridBox"] = "under its title, solution-sized"
     # A 1939-49 Gale Times grid whose top lies within its title's line, taken as beside it or missed (band_grid).
     if side in ("right", None) and paper.key == "gale" and not paper.clues_above and not paper.four \
-            and OFFSET_UNDER_YEARS[0] <= d.name[:4] <= OFFSET_UNDER_YEARS[1]:
+            and OFFSET_UNDER_FIRST_YEARS[0] <= d.name[:4] <= OFFSET_UNDER_FIRST_YEARS[1]:
         band = band_grid(img, hit["box"], gbox if side == "right" else None)
         if band is not None:
             gbox, side = band, "below"
@@ -15216,22 +15217,29 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                             and not shaped_on(img, gbox) else shaped_on)(img, gbox):
         touched = touching_grid(img, hit["box"], gbox) \
             if not paper.clues_above and not paper.four and paper.key not in GRID_RIGHT else None
-        # A 1950-67 Gale Times grid whose top lies within its title's line (band_grid's shape past
-        # OFFSET_UNDER_YEARS), taken only where the page would be refused: BAND_LATE.
-        band = band_grid(img, hit["box"], None) if touched is None and paper.key == "gale" \
-            and not paper.clues_above and not paper.four \
-            and BAND_LATE_YEARS[0] <= d.name[:4] <= BAND_LATE_YEARS[1] else None
-        label = "under its title, top in its line"
-        # A 1940-41 Gale Times page printed small (SMALL_PAGE): its grid under its title under
-        # grid_shaped's floor.
-        if band is None and touched is None and paper.key == "gale" and not paper.clues_above and not paper.four \
-                and SMALL_PAGE_YEARS[0] <= d.name[:4] <= SMALL_PAGE_YEARS[1] and small_grid(img.width, hit["box"], gbox):
-            band, label = gbox, "under its title, printed small"
-        # A 1940-41 Gale Times grid the scan broke into pieces (CLOSED_GRID): found in the page's ink closed.
-        if band is None and touched is None and paper.key == "gale" and not paper.clues_above and not paper.four \
-                and SMALL_PAGE_YEARS[0] <= d.name[:4] <= SMALL_PAGE_YEARS[1]:
-            band = closed_grid(img, hit["box"])
-            label = "under its title, frame closed"
+        # The Gale Times grids a located grid that is not a grid may be (touching_grid found none): each accepted by the
+        # page's own evidence (shaped ink straddling the title's middle, its top in the title's line, a small-printed
+        # page's square), a year never gates one, it only ORDERS them: the first pass is the page's own years' (a 1950-67
+        # grid whose top lies in its title's line, BAND_LATE; a 1940-41 page printed small, SMALL_PAGE, or whose frame the
+        # scan broke, CLOSED_GRID), the second the others, and only where the page would be refused "not a grid", so a
+        # page that reads keeps its read. Past their years: band_grid's shape (OFFSET_UNDER's too), the small page's
+        # square, the broken frame and scaled_under's solution-sized grid.
+        band, label = None, "under its title, top in its line"
+        if touched is None and paper.key == "gale" and not paper.clues_above and not paper.four:
+            for late in (False, True):
+                if band is None and year_in(BAND_LATE_FIRST_YEARS, d.name) != late:
+                    band = band_grid(img, hit["box"], None)
+                if band is None and year_in(SMALL_PAGE_FIRST_YEARS, d.name) != late and small_grid(img.width, hit["box"], gbox):
+                    band, label = gbox, "under its title, printed small"
+                if band is None and year_in(SMALL_PAGE_FIRST_YEARS, d.name) != late:
+                    band = closed_grid(img, hit["box"])
+                    label = "under its title, frame closed"
+                if band is None and late and side == "right" and not year_in(OFFSET_UNDER_FIRST_YEARS, d.name):
+                    band = band_grid(img, hit["box"], gbox)
+                    label = "under its title, top in its line"
+                if band is None and late and side != "below" and not year_in(SCALED_UNDER_FIRST_YEARS, d.name):
+                    band = scaled_under(img, hit["box"])
+                    label = "under its title, solution-sized"
         if band is not None:
             gbox, side = band, "below"
             verdict["gridBox"] = label
@@ -23596,7 +23604,7 @@ def lead_retry_due(row):
     return False
 
 
-#: The reason, and its fix's time, of a 1939-49 Gale Times page (OFFSET_UNDER_YEARS) refused for a grid
+#: The reason, and its fix's time, of a 1939-49 Gale Times page (OFFSET_UNDER_FIRST_YEARS) refused for a grid
 #: whose top lies within its title's line (band_grid): taken as right of the title (one title line heads
 #: the clue column and the grid; every reading "no ACROSS and DOWN lists under the grid"), or missed, the
 #: crop under the title's foot cutting its frame off ("the ink under the title is 1086x20, not a grid").
@@ -23615,14 +23623,14 @@ BAND_NOT_GRID_FROM = "1942"
 
 
 def band_due(row):
-    """Whether Gale Times ledger `row` of OFFSET_UNDER_YEARS, read before REREAD_BAND_GRID, refused a
+    """Whether Gale Times ledger `row` of OFFSET_UNDER_FIRST_YEARS, read before REREAD_BAND_GRID, refused a
     title for band_grid()'s case, its puzzle not held: "no reading parses", every reading "no ACROSS and
     DOWN lists", under a title BAND_TITLE_WIDTH wide or more at SCAN_WIDTH (pages.json gives the page's
     width); or, from BAND_NOT_GRID_FROM, "not a grid" for the ink under the title."""
     scan = row.get("scan") or {}
     day = str(scan.get("date") or "")
     if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
-            or not OFFSET_UNDER_YEARS[0] <= day[:4] <= OFFSET_UNDER_YEARS[1] \
+            or not OFFSET_UNDER_FIRST_YEARS[0] <= day[:4] <= OFFSET_UNDER_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_BAND_GRID)):
         return False
     titles = {p.get("number"): p for p in scan.get("puzzles") or ()}
@@ -23652,7 +23660,7 @@ def band_due(row):
     return False
 
 
-#: The reason, and its fix's time, of a 1950-67 Gale Times page (BAND_LATE_YEARS) refused "the ink under
+#: The reason, and its fix's time, of a 1950-67 Gale Times page (BAND_LATE_FIRST_YEARS) refused "the ink under
 #: the title is WxH, not a grid": its grid's top frame inside the title's line, the crop under the title's
 #: foot cut it (720x668-700 of a 720px grid), and band_grid ran for 1939-49 only. 10-28 census (failure
 #: shapes): 14 such 1950-67 rows unfiled, none due; band_grid takes a 720px grid on 11 offline. Readers
@@ -23665,12 +23673,12 @@ REREAD_BAND_LATE = "2026-10-28T09:45:00+00:00"
 
 
 def band_late_due(row):
-    """Whether Gale Times ledger `row` of BAND_LATE_YEARS, read before REREAD_BAND_LATE, refused a title
+    """Whether Gale Times ledger `row` of BAND_LATE_FIRST_YEARS, read before REREAD_BAND_LATE, refused a title
     "not a grid" for the ink under it, its puzzle not held (BAND_LATE)."""
     scan = row.get("scan") or {}
     day = str(scan.get("date") or "")
     if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
-            or not BAND_LATE_YEARS[0] <= day[:4] <= BAND_LATE_YEARS[1] \
+            or not BAND_LATE_FIRST_YEARS[0] <= day[:4] <= BAND_LATE_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_BAND_LATE)):
         return False
     series = paper_of(row.get("edition", "")).series
@@ -23678,7 +23686,7 @@ def band_late_due(row):
                and filed_state(series, v.get("number")) is None for v in row.get("verdicts", ()))
 
 
-#: The reason, and its fix's time, of a 1940-41 Gale Times page printed small (SMALL_PAGE_YEARS) refused
+#: The reason, and its fix's time, of a 1940-41 Gale Times page printed small (SMALL_PAGE_FIRST_YEARS) refused
 #: "the ink under the title is WxH, not a grid" for its grid under grid_shaped's floor (small_grid).
 #: 10-28 census (failure shapes): 5 of the 28 unfiled 1940-41 "not a grid" rows so (the rest are ink
 #: fragments, 40-250px). Due by the ledger alone (small_page_due): such a refusal whose WxH small_grid
@@ -23689,12 +23697,12 @@ _INK_UNDER = re.compile(r"the ink under the title is (\d+)x(\d+), not a grid")
 
 
 def small_page_due(row):
-    """Whether Gale Times ledger `row` of SMALL_PAGE_YEARS, read before REREAD_SMALL_PAGE, refused a
+    """Whether Gale Times ledger `row` of SMALL_PAGE_FIRST_YEARS, read before REREAD_SMALL_PAGE, refused a
     title "not a grid" for ink under it small_grid takes as a small-printed page's grid (SMALL_PAGE)."""
     scan = row.get("scan") or {}
     day = str(scan.get("date") or "")
     if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
-            or not SMALL_PAGE_YEARS[0] <= day[:4] <= SMALL_PAGE_YEARS[1] \
+            or not SMALL_PAGE_FIRST_YEARS[0] <= day[:4] <= SMALL_PAGE_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_SMALL_PAGE)):
         return False
     titles = {p.get("number"): p for p in scan.get("puzzles") or ()}
@@ -23717,7 +23725,7 @@ def small_page_due(row):
     return False
 
 
-#: The reason, and its fix's time, of a 1940-41 Gale Times page (SMALL_PAGE_YEARS) refused "the ink under the
+#: The reason, and its fix's time, of a 1940-41 Gale Times page (SMALL_PAGE_FIRST_YEARS) refused "the ink under the
 #: title is WxH, not a grid" for a grid its scan broke into pieces: frame and rules parted by 1-2px gaps, the
 #: largest ink under the title one cell block (40x110 to 250px) that touched no edge of locate_grid's crop,
 #: so the crop never grew to the grid, which most often stands right of the title's middle (the clue column
@@ -23732,12 +23740,12 @@ REREAD_CLOSED_GRID = "2026-10-28T10:35:00+00:00"
 
 
 def closed_grid_due(row):
-    """Whether Gale Times ledger `row` of SMALL_PAGE_YEARS, read before REREAD_CLOSED_GRID, refused a title
+    """Whether Gale Times ledger `row` of SMALL_PAGE_FIRST_YEARS, read before REREAD_CLOSED_GRID, refused a title
     "not a grid" for the ink under it, its puzzle not held (CLOSED_GRID)."""
     scan = row.get("scan") or {}
     day = str(scan.get("date") or "")
     if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
-            or not SMALL_PAGE_YEARS[0] <= day[:4] <= SMALL_PAGE_YEARS[1] \
+            or not SMALL_PAGE_FIRST_YEARS[0] <= day[:4] <= SMALL_PAGE_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_CLOSED_GRID)):
         return False
     series = paper_of(row.get("edition", "")).series

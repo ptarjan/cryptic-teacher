@@ -70,7 +70,7 @@ blank = Image.new("L", (4050, 4500), 255)
 ImageDraw.Draw(blank).rectangle((282, 1905, 1140, 1966), fill=0)
 check("no ink under the title: None", None, f.scaled_under(blank, (282, 1905, 1140, 1966)))
 
-check("SCALED_UNDER_YEARS are the 1939-67 pages", ("1939", "1967"), f.SCALED_UNDER_YEARS)
+check("SCALED_UNDER_FIRST_YEARS are the 1939-67 pages", ("1939", "1967"), f.SCALED_UNDER_FIRST_YEARS)
 
 import json
 import tempfile

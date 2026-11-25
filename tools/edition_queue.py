@@ -1049,7 +1049,7 @@ def evidence_reason(reason):
             # since (fa.lead_retried, fa.lead_retry_due).
             or reason == fa.LEAD_RETRY
             # A 1950-67 Gale Times page refused "not a grid" for a grid whose top lies within its title's
-            # line, read under it since (fa.band_grid past OFFSET_UNDER_YEARS, fa.band_late_due).
+            # line, read under it since (fa.band_grid past OFFSET_UNDER_FIRST_YEARS, fa.band_late_due).
             or reason == fa.BAND_LATE
             # A 1940-41 Gale Times page printed small, refused "not a grid" for its grid under grid_shaped's
             # floor, taken as the grid since (fa.small_grid, fa.small_page_due).
