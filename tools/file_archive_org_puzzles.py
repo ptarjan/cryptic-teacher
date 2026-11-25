@@ -1989,8 +1989,7 @@ def indy_three_words(words, full=None):
     if len(kept) != 3 or min(len(g) for g in kept) < (INDY_THREE_FULL if full is None else full):
         return False
     heads = [g[len(g) // 2] for g in kept]
-    pitch = (heads[1] - heads[0], heads[2] - heads[1])
-    return min(pitch) >= 150 and abs(pitch[0] - pitch[1]) <= 0.25 * max(pitch)
+    return pitch_even(heads)
 
 
 def indy_three_due(row):
@@ -4087,14 +4086,7 @@ def indy_columns(lines, grid, right):
     x1, split, bottom, *rest = right
     gx1 = grid[2]
     top = grid[1] - rise_of(right)
-    xs = sorted(w[0] for ws in lines for w in ws
-                if gx1 + 5 <= w[0] < x1 and top <= w[1] <= bottom and _INDY_NUMBER_START.match(str(w[4])))
-    groups = []
-    for x in xs:
-        if groups and x - groups[-1][-1] <= INDY_COLUMN_SNAP:
-            groups[-1].append(x)
-        else:
-            groups.append([x])
+    groups = indy_starts([w for ws in lines for w in ws], gx1 + 5, x1, top, bottom)
     kept = [g for g in groups if len(g) >= INDY_COLUMN_MIN]
     # NOPARSE_COLUMNS: a Saturday's solution grid beside the third column numbers its cells (12 starts at one x, 4 and 4
     # at others, against the print columns' 33): groups far thinner than the third biggest are not print columns.
@@ -4108,16 +4100,15 @@ def indy_columns(lines, grid, right):
     three = len(heads) == 3 and heads[0] < split < heads[2]
     if three:
         pitch = (heads[1] - heads[0], heads[2] - heads[1])
-        three = abs(pitch[0] - pitch[1]) <= 0.25 * max(pitch) and min(pitch) >= 150 \
-            and heads[2] - split <= INDY_THREE_NEAR * pitch[1]
+        three = pitch_even(heads) and heads[2] - split <= INDY_THREE_NEAR * pitch[1]
     two = None if three else indy_two_columns(lines, grid, right, [g[len(g) // 2] for g in groups if len(g) >= INDY_COLUMN_MIN])
     if two:
         return two
     if len(heads) != 3 or not heads[0] < split < heads[2]:
         return right
-    pitch = (heads[1] - heads[0], heads[2] - heads[1])
-    if abs(pitch[0] - pitch[1]) > 0.25 * max(pitch) or min(pitch) < 150:
+    if not pitch_even(heads):
         return right
+    pitch = (heads[1] - heads[0], heads[2] - heads[1])
     gutters = [gutter(lines, (a, bottom, b, bottom), top, a, b)
                for a, b in ((heads[0] + 0.6 * pitch[0], heads[1] - 5), (heads[1] + 0.6 * pitch[1], heads[2] - 5))]
     if three:
@@ -4149,6 +4140,13 @@ def indy_starts(words, x0, x1, y0, y1):
         else:
             groups.append([x])
     return groups
+
+
+def pitch_even(heads, floor=150):
+    """Whether the three column heads `heads` are evenly pitched: the two pitches within a quarter of the larger
+    and neither under `floor` px."""
+    pitch = (heads[1] - heads[0], heads[2] - heads[1])
+    return min(pitch) >= floor and abs(pitch[0] - pitch[1]) <= 0.25 * max(pitch)
 
 
 #: INDY_NEAR_X (r302: ~76 Gale Independent 2002-03 rows, down lights 3-10 blank "no reading laid a clue on it"): the third column
@@ -4227,14 +4225,14 @@ def indy_under_columns(lines, grid, split, margin):
         # INDY_LATE_GUTTER: the second gutter lies right of the third column's numbers (3 evenly pitched heads, the first
         # gutter fine): those numbers joined the second column's window and their clues laid on no light.
         pitch = (heads[1] - heads[0], heads[2] - heads[1])
-        if abs(pitch[0] - pitch[1]) <= 0.25 * max(pitch) and min(pitch) >= 150:
+        if pitch_even(heads):
             return (split[0], heads[2] - INDY_UNDER_GAP, min(split[2], int(heads[2] + INDY_UNDER_END * pitch[1])))
         return split
     if len(heads) != 3 or not heads[1] < split[0]:
         return split
-    pitch = (heads[1] - heads[0], heads[2] - heads[1])
-    if abs(pitch[0] - pitch[1]) > 0.25 * max(pitch) or min(pitch) < 150:
+    if not pitch_even(heads):
         return split
+    pitch = (heads[1] - heads[0], heads[2] - heads[1])
     return (heads[1] - INDY_UNDER_GAP, heads[2] - INDY_UNDER_GAP, min(split[2], int(heads[2] + INDY_UNDER_END * pitch[1])))
 
 
