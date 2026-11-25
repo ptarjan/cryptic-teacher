@@ -270,7 +270,7 @@ check("ins(NOTE+L, P) under rev becomes NOTE-with-P + L", used == ["containerIns
 
 # poolGap: an anagram's fodder pieces with another op's words between them
 PG = {"poolGap": F.r_pool_gap}
-PGE = {"poolGap": F.RULE_REPAIRS["poolGap"]}
+PGE = {"poolGap": F.RULES["poolGap"].fix}
 pgc = "dishevelled rake embraced by whore"
 pg = {"op": "container", "unchecked": True, "gives": "SHAKERAG", "indicators": [{"text": "embraced by"}], "parts": [
     {"op": "anagram", "indicators": [{"text": "dishevelled"}], "parts": [
@@ -317,16 +317,16 @@ check("a piece goes into the container arm beside the anagram",
 # apply's landed(): the model's poolGap tree is mended before the redo gate judges it
 import apply_annotations as AA
 pg_entry = {"clue": {"text": "Unusual thing to have bloke close to union at?"}, "solution": "HENNIGHT"}
-pg_new = AA.repair_pool_gap({"wordplay": pge}, pg_entry)
-check("repair_pool_gap returns a tree (mended or as given) without raising", isinstance(pg_new.get("wordplay"), dict))
-check("repair_pool_gap leaves a non-tree alone", AA.repair_pool_gap({"x": 1}, pg_entry) == {"x": 1})
+pg_new = AA.mend_rules({"wordplay": pge}, pg_entry)
+check("mend_rules returns a tree (mended or as given) without raising", isinstance(pg_new.get("wordplay"), dict))
+check("mend_rules leaves a non-tree alone", AA.mend_rules({"x": 1}, pg_entry) == {"x": 1})
 # ...and a bare op whose indicator the model hung on the charade is mended before the first check
 ub_wp = {"op": "charade", "indicators": [{"text": "guards", "at": 21}], "parts": [
     {"words": "Detective", "gives": "DET", "at": 0},
     {"op": "container", "parts": [{"words": "and", "gives": "PLUS", "at": 10}, {"words": "caught", "gives": "C", "at": 14}]}]}
-ub_new = AA.repair_pool_gap({"wordplay": ub_wp}, {"clue": {"text": "Detective and caught guards going to pieces"},
+ub_new = AA.mend_rules({"wordplay": ub_wp}, {"clue": {"text": "Detective and caught guards going to pieces"},
                                               "solution": "DETPCLUS"})
-check("repair_pool_gap moves a charade's word to the bare container (no noIndicator failure)",
+check("mend_rules moves a charade's word to the bare container (no noIndicator failure)",
       ub_new["wordplay"]["parts"][1]["indicators"][0]["text"] == "guards" and "indicators" not in ub_new["wordplay"])
 
 # tidy_wordplay_shapes.write_allowances: only the puzzles a run touched move, and only down
@@ -455,7 +455,7 @@ check("a bare hidden word takes the 'in' before its leaf",
 # whole unused gap between its pieces; a hid() over a possessive leaf takes the 's
 import validate_annotations as V_
 V_ops = V_.unindicated_ops
-UBS = {"unindicatedBare": F.RULE_REPAIRS["unindicatedBare"]}
+UBS = {"unindicatedBare": F.RULES["unindicatedBare"].fix}
 cg = {"op": "container", "parts": [{"words": "grand to", "gives": "GTO"}, {"words": "rhubarb", "gives": "ROT"}]}
 new, used = F.repair_tree(cg, "grand to put around rhubarb", "GROTTO", UBS)
 check("a bare container takes the whole gap between its pieces", used == ["unindicatedBare"]
@@ -674,7 +674,7 @@ dsc = "Almost certain aspect will be lacking depth"
 dst = {"op": "deletion", "indicators": [{"text": "Almost", "at": 0}], "parts": [
     {"op": "charade", "parts": [{"words": "certain", "at": 7, "gives": "SURE"}, {"words": "aspect", "at": 15, "gives": "FACE"}]},
     {"gives": "E"}]}
-new, used = F.repair_tree(dst, dsc, "SURFACE", {"deletionScopeAnswer": F.RULE_REPAIRS["deletionScopeAnswer"]})
+new, used = F.repair_tree(dst, dsc, "SURFACE", {"deletionScopeAnswer": F.RULES["deletionScopeAnswer"].fix})
 check("a deletion over a charade moves onto the piece the cut comes out of",
       used == ["deletionScopeAnswer"] and new["op"] == "charade" and new["parts"][0]["op"] == "deletion")
 

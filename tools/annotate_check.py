@@ -90,14 +90,8 @@ import corroborate
 import definitions
 import groups
 import mend_cryptic_definition
-import mend_ana_deletion
-import mend_halved_deletion
 import mend_misprinted_clue
-import mend_trunc_leaf
-import mend_literal_edge
-import mend_lone_edge
-import mend_misplaced_indicator
-import mend_note_letters
+import repairs
 import provenance
 import puzzle_schema
 import shape_queue
@@ -1166,147 +1160,21 @@ def mend_charade_indicators(pending):
     return changed
 
 
-def mend_literal_edges(path, pending):
-    """Pull, in each clue written in the model's shape, the clue word an anagram holds as written at the
-    edge of its fodder (anaLiteralEdge) out beside the anagram (mend_literal_edge); the entry ids changed.
-    Only a pull that is the one tree still giving the answer is made."""
+def mend_model_shapes(path, pending):
+    """Run every repairs.MODEL_MENDS rewrite on each clue written in the model's shape;
+    {mend name: [entry ids it changed]}. Each mend keeps only a rewrite that still gives the answer."""
     try:
         ann = json.loads(pending.read_text(encoding="utf-8"))
         entries = read_puzzle_file(path)["entries"]
     except (ValueError, OSError, KeyError):
-        return []
+        return {}
     by_id = {entry_id(e): e for e in entries}
-    changed = []
+    changed = {}
     for eid, a in (ann.items() if isinstance(ann, dict) else ()):
         e = by_id.get(eid) or {}
-        if isinstance(a, dict) and annotation.is_model(a) and mend_literal_edge.mend(
-                a, (e.get("clue") or {}).get("text"), e.get("solution")):
-            changed.append(eid)
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def mend_lone_edges(path, pending):
-    """Pull, in each clue written in the model's shape, the lone letter an anagram holds at the edge of its
-    fodder (anaLoneEdge) out beside the anagram (mend_lone_edge); the entry ids changed. Only a pull that is
-    the one tree still giving the answer and opens no poolGap is made."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        entries = read_puzzle_file(path)["entries"]
-    except (ValueError, OSError, KeyError):
-        return []
-    by_id = {entry_id(e): e for e in entries}
-    changed = []
-    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
-        e = by_id.get(eid) or {}
-        if isinstance(a, dict) and annotation.is_model(a) and mend_lone_edge.mend(
-                a, (e.get("clue") or {}).get("text"), e.get("solution")):
-            changed.append(eid)
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def mend_ana_deletions(path, pending):
-    """Turn, in each clue written in the model's shape, an anagram inside a deletion, del(ana(F), D), into the
-    composite anagram comp(F, D) it reads as (mend_ana_deletion); the entry ids changed. Only a rewrite that
-    gives the answer is made."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        entries = read_puzzle_file(path)["entries"]
-    except (ValueError, OSError, KeyError):
-        return []
-    by_id = {entry_id(e): e for e in entries}
-    changed = []
-    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
-        e = by_id.get(eid) or {}
-        if isinstance(a, dict) and annotation.is_model(a) and mend_ana_deletion.mend(
-                a, (e.get("clue") or {}).get("text"), e.get("solution")):
-            changed.append(eid)
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def mend_halved_deletions(path, pending):
-    """Turn, in each clue written in the model's shape, a deletion whose indicator says half (halvedAsDeletion)
-    into the first/last selection it is (mend_halved_deletion); the entry ids changed. Only a rewrite that
-    still gives the answer is made."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        entries = read_puzzle_file(path)["entries"]
-    except (ValueError, OSError, KeyError):
-        return []
-    by_id = {entry_id(e): e for e in entries}
-    changed = []
-    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
-        e = by_id.get(eid) or {}
-        if isinstance(a, dict) and annotation.is_model(a) and mend_halved_deletion.mend(
-                a, (e.get("clue") or {}).get("text"), e.get("solution")):
-            changed.append(eid)
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def mend_trunc_leaves(path, pending):
-    """Turn, in each clue written in the model's shape, a leaf holding mostly/almost/cut short that gives its
-    word one letter short (truncInLeaf) into a deletion with its own indicator (mend_trunc_leaf); the entry
-    ids changed. Only a rewrite that still gives the answer is made."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        entries = read_puzzle_file(path)["entries"]
-    except (ValueError, OSError, KeyError):
-        return []
-    by_id = {entry_id(e): e for e in entries}
-    changed = []
-    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
-        e = by_id.get(eid) or {}
-        if isinstance(a, dict) and annotation.is_model(a) and mend_trunc_leaf.mend(
-                a, (e.get("clue") or {}).get("text"), e.get("solution")):
-            changed.append(eid)
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def mend_note_letters_leaves(path, pending):
-    """Spell out, in each clue written in the model's shape, a lone leaf of "notes"/"keys" over an answer
-    made only of A-G as one piece per letter (singleLeaf, mend_note_letters); the entry ids changed."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        entries = read_puzzle_file(path)["entries"]
-    except (ValueError, OSError, KeyError):
-        return []
-    by_id = {entry_id(e): e for e in entries}
-    changed = []
-    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
-        e = by_id.get(eid) or {}
-        if isinstance(a, dict) and annotation.is_model(a) and mend_note_letters.mend(
-                a, (e.get("clue") or {}).get("text"), e.get("solution")):
-            changed.append(eid)
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def mend_misplaced_indicators(path, pending):
-    """Move, in each clue written in the model's shape, an indicator filed on a charade that signals another
-    op onto that op (misplacedIndicator, mend_misplaced_indicator); the entry ids changed. Only a move that
-    is the one placement still giving the answer is made."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        entries = read_puzzle_file(path)["entries"]
-    except (ValueError, OSError, KeyError):
-        return []
-    by_id = {entry_id(e): e for e in entries}
-    changed = []
-    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
-        e = by_id.get(eid) or {}
-        if isinstance(a, dict) and annotation.is_model(a) and mend_misplaced_indicator.mend(
-                a, (e.get("clue") or {}).get("text"), e.get("solution")):
-            changed.append(eid)
+        if isinstance(a, dict) and annotation.is_model(a):
+            for name in repairs.mend_wp(a, (e.get("clue") or {}).get("text"), e.get("solution")):
+                changed.setdefault(name, []).append(eid)
     if changed:
         write_pending(pending, ann)
     return changed
@@ -1771,34 +1639,10 @@ def main(argv):
         if cim:
             print(f"charade order words the parser refuses, moved to the join they name in "
                   f"{pending.name}: {', '.join(cim)}\n")
-        led = mend_literal_edges(path, pending)
-        if led:
-            print(f"anagrams holding a clue word as written at their edge, the word set beside the "
-                  f"anagram in a charade in {pending.name}: {', '.join(led)}\n")
-        lone = mend_lone_edges(path, pending)
-        if lone:
-            print(f"anagrams holding a lone letter the answer shows at its edge, the letter set beside the "
-                  f"anagram in a charade in {pending.name}: {', '.join(lone)}\n")
-        anadel = mend_ana_deletions(path, pending)
-        if anadel:
-            print(f"anagrams inside a deletion, rewritten as the composite anagram they read as "
-                  f"in {pending.name}: {', '.join(anadel)}\n")
-        half = mend_halved_deletions(path, pending)
-        if half:
-            print(f"deletions whose indicator says half, rewritten as the first/last selection they are "
-                  f"in {pending.name}: {', '.join(half)}\n")
-        trunc = mend_trunc_leaves(path, pending)
-        if trunc:
-            print(f"leaves giving a word one letter short of the word they hold, rewritten as a "
-                  f"deletion in {pending.name}: {', '.join(trunc)}\n")
-        nl = mend_note_letters_leaves(path, pending)
-        if nl:
-            print(f"a lone leaf of notes/keys over an A-G answer, spelt out one note per letter "
-                  f"in {pending.name}: {', '.join(nl)}\n")
-        mis = mend_misplaced_indicators(path, pending)
-        if mis:
-            print(f"indicators filed on a charade that signal another op, moved onto that op "
-                  f"in {pending.name}: {', '.join(mis)}\n")
+        mended_shapes = mend_model_shapes(path, pending)
+        for m in repairs.MODEL_MENDS:
+            if mended_shapes.get(m.name):
+                print(f"{m.said} in {pending.name}: {', '.join(mended_shapes[m.name])}\n")
         cdm = mend_cryptic_definitions(path, pending)
         if cdm:
             print(f"cryptic definition blocks that gave letters or named the answer, mended "

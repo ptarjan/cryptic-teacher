@@ -64,7 +64,7 @@ import shape_queue
 import groups  # linked answers
 from groups import entry_id
 import lesson_checks
-import fix_shape_suspects as F
+import repairs
 import validate_annotations
 import validate_annotations as V
 import wordplay
@@ -385,7 +385,7 @@ def landed(ann, entry, entries, eid, errors, puzzle=None):
     honour be dropped (drop_spare_preamble_flag)."""
     try:
         return drop_spare_preamble_flag(
-            carry_indicators(repair_pool_gap(normalize(ann, entry, entries), entry, entries), entry), puzzle)
+            carry_indicators(mend_rules(normalize(ann, entry, entries), entry, entries), entry), puzzle)
     except wordplay.WordplayError as e:
         errors.append(f"{eid}: {e}")
     return None
@@ -414,99 +414,15 @@ def whole_answer(entry, entries=None):
     return solution
 
 
-def repair_pool_gap(new, entry, entries=None):
-    """`new` with its poolGap (an anagram pool read across words the anagram does not gather)
-    mended by the shape sweep's own poolGap repair, when that clears it and the tree still
-    gives the answer; else `new` as it was. The model never sees a fault the fixer owns."""
+def mend_rules(new, entry, entries=None):
+    """`new` with every mechanical repair whose rule fires on its tree made (repairs.mend_fresh: the
+    one registry, gated there), else `new` as it was. The model never sees a fault a fixer owns."""
     wp = new.get("wordplay") if isinstance(new, dict) else None
     clue = (entry.get("clue") or {}).get("text", "")
     if not isinstance(wp, dict) or not clue:
         return new
-    answer = whole_answer(entry, entries)
-    counters = rule_counters()
-    # Every bag fixer (F.RULE_REPAIRS, one table): when its rule fires on the fresh tree it
-    # runs and the result is kept if the rule fires less, the tree still gives the answer and
-    # no other shape detector newly fires. A fixer that declines leaves the refusal as it was.
-    # (poolGap 100 sessions, unindicatedBare $27 a day, anaLoneEdge 219 of 3155 first checks.)
-    for rule, fixer in F.RULE_REPAIRS.items():
-        count = counters.get(rule)
-        if count is None or not count(wp, {**new, "wordplay": wp, "_answer": answer}, clue):
-            continue
-        try:
-            fixed, used = F.repair_tree(wp, clue, answer, {rule: fixer})
-            if not used:
-                continue
-            fixed = F.note_deletions(F.repair_tree(fixed, clue, answer, F.FOLLOW_ON)[0])
-            fixed = wordplay.normalize(fixed, clue, answer)[0]
-            now = {**new, "wordplay": wp, "_answer": answer}
-            after = {**new, "wordplay": fixed, "_answer": answer}
-            left = _size(count(fixed, after, clue))
-            better = left < _size(count(wp, now, clue))
-            if rule == "poolGap" and left:
-                better = False
-            if rule != "poolGap" and better:
-                # a mend that opens a poolGap (anaLoneEdge pulling F out of "This fine gift") trades one refusal for one the model cannot meet
-                if V.pool_gaps(fixed, clue) > V.pool_gaps(wp, clue):
-                    better = False
-            if better and set(F.hits(after, clue, answer)) <= set(F.hits(now, clue, answer)) \
-                    and F.unchecked(fixed) <= F.unchecked(wp):
-                wp = fixed
-        except wordplay.WordplayError:  # a repair that breaks its own tree is declined
-            continue
-    return new if wp is new.get("wordplay") else {**new, "wordplay": wp}
-
-
-def _size(x):
-    """How many hits a detector's answer stands for (a count, a list or a bool)."""
-    try:
-        return len(x)
-    except TypeError:
-        return int(x or 0)
-
-
-def _span_overlaps(tree, clue):
-    """V.span_overlaps on a copy of `tree` with its places worked out (the rule reads them)."""
-    import copy
-    try:
-        return V.span_overlaps(wordplay.locate(copy.deepcopy(tree), clue))
-    except wordplay.WordplayError:
-        return 0
-
-
-def _gives_not(tree, answer):
-    """1 when `tree` does not give `answer` (the refusal the first check names), else 0."""
-    import copy
-    try:
-        wordplay.evaluate(copy.deepcopy(tree), answer or "")
-        return 0
-    except wordplay.WordplayError:
-        return 1
-
-
-def _selectors_in_leaves(tree):
-    """How many leaves give a letter while holding its selector word ("[socialist leader]S",
-    "[leading Italian]I"): the committed-file check refuses these as a block with its selector
-    inside (39 sessions' first checks), and r_leaf_select turns each into the selection op."""
-    return sum(1 for n, parent in F.walk(tree)
-               if F.leaf(n) and n.get("gives") and n.get("words") and not n.get("unchecked")
-               and (parent or {}).get("op") not in wordplay.SELECT
-               and V.selector_in_block({"clueFragment": n["words"], "gives": n["gives"]}))
-
-
-def rule_counters():
-    """{validator rule: fn(tree, full annotation with _answer, clue) -> hits}: the one table
-    that says which RULE_REPAIRS fixers the first check runs (test_apply_rule_repairs.py keeps
-    every RULE_REPAIRS key reachable). The first check's own counters come first, then the
-    shape queue's validator rules and the shape_suspects detector rules."""
-    import shape_queue
-    table = {**F._DETECTOR_RULES, **shape_queue._validator_rules()}
-    table["unindicatedBare"] = lambda t, a, c: V.unindicated_ops(t)
-    table["trimAsSelection"] = lambda t, a, c: V.trims_as_selection(t, a.get("_answer"))
-    table["repeatedSelection"] = lambda t, a, c: V.repeated_selections(t)
-    table["spanOverlap"] = lambda t, a, c: _span_overlaps(t, c)
-    table["doesNotGive"] = lambda t, a, c: _gives_not(t, a.get("_answer"))
-    table["selectorInLeaf"] = lambda t, a, c: _selectors_in_leaves(t)
-    return table
+    fixed = repairs.mend_fresh(new, clue, whole_answer(entry, entries))
+    return new if fixed is wp else {**new, "wordplay": fixed}
 
 
 def keep_spelling(new, entry, was):

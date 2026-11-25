@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# The first check runs every bag fixer (fix_shape_suspects.RULE_REPAIRS) whose rule fires, so a
+# The first check runs every rule in the one registry (repairs.RULES) whose detector fires, so a
 # fixer added later is picked up with no edit here, and an anaLoneEdge anagram is mended in place.
 #
 #     python3 tests/test_apply_rule_repairs.py
@@ -9,6 +9,9 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import _path  # puts tools/ on sys.path
 import apply_annotations as A
 import fix_shape_suspects as F
+import repairs as R
+
+counters = {n: r.count for n, r in R.RULES.items()}
 
 fails = 0
 def check(name, ok):
@@ -18,8 +21,8 @@ def check(name, ok):
 
 # delSelection is no validator rule (its rows come from --ids): nothing can fire it.
 NO_DETECTOR = {"delSelection"}
-missing = sorted(set(F.RULE_REPAIRS) - set(A.rule_counters()) - NO_DETECTOR)
-check("every RULE_REPAIRS key has a detector the first check can count: " + ", ".join(missing), not missing)
+missing = sorted(n for n, r in R.RULES.items() if r.count is None and n not in NO_DETECTOR)
+check("every rule has a detector the first check can count: " + ", ".join(missing), not missing)
 
 # CASTANCHOR: two lone C's in the fodder, the answer starts with one: C + ana(TAR HAS + C + ON)
 leaf = lambda w, g=None: {"words": w, "note": "taken as written"} if g is None else {"words": w, "gives": g, "note": "abbreviation"}
@@ -28,9 +31,8 @@ leaf = lambda w, g=None: {"words": w, "note": "taken as written"} if g is None e
 wp = {"op": "anagram", "indicators": [{"text": "windy", "note": "windy things are blown about"}],
       "parts": [leaf("Caught", "C"), leaf("tar has"), leaf("cold", "C"), leaf("on")]}
 entry = {"solution": "CASTANCHOR", "clue": {"text": "Caught tar has cold on windy moor"}}
-new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
-check("anaLoneEdge anagram is mended in place", new.get("op") == "charade" and not A.rule_counters()["anaLoneEdge"](new, {"_answer": "CASTANCHOR"}, ""))
-counters = A.rule_counters()
+new = A.mend_rules({"wordplay": wp}, entry)["wordplay"]
+check("anaLoneEdge anagram is mended in place", new.get("op") == "charade" and not counters["anaLoneEdge"](new, {"_answer": "CASTANCHOR"}, ""))
 
 # DADAIST (cryptic-29712 24a): the container's indicator "is captivated by" swallows the leaf "is"
 ind = lambda t: {"text": t, "note": "n"}
@@ -39,27 +41,27 @@ wp = {"op": "charade", "parts": [leaf("Family man", "DAD"),
        "parts": [{"op": "outer", "indicators": [ind("extremes")], "parts": [leaf("artist's", "ARTIST")]}, leaf("is")]}]}
 entry = {"solution": "DADAIST", "clue": {"text": "Family man is captivated by artist's extremes: one's a shocker"}}
 check("spanOverlap fires on the swallowed leaf", counters["spanOverlap"](wp, {}, entry["clue"]["text"]) == 1)
-new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+new = A.mend_rules({"wordplay": wp}, entry)["wordplay"]
 check("spanOverlap: the indicator gives the leaf its word back", new["parts"][1]["indicators"][0]["text"] == "captivated by"
       and not counters["spanOverlap"](new, {}, entry["clue"]["text"]))
 
 # TENORDRUM (times-26927 16d): one leaf inside another is the model's to read, so the fixer declines
 check("spanOverlap: a leaf inside another leaf is left alone",
-      A.repair_pool_gap({"wordplay": {"op": "charade", "parts": [leaf("pound", "LB"), leaf("a few pound", "XX")]}},
+      A.mend_rules({"wordplay": {"op": "charade", "parts": [leaf("pound", "LB"), leaf("a few pound", "XX")]}},
                         {"solution": "LBXX", "clue": {"text": "a few pound"}})["wordplay"]["parts"][1]["words"] == "a few pound")
 
 # SANGRIA (telegraph-31055 21d): a charade of the clue's own words under the anagram is the anagram's parts
 wp = {"op": "anagram", "indicators": [ind("fighting")], "parts": [{"op": "charade", "parts": [leaf("Gran is"), leaf("a")]}]}
 entry = {"solution": "SANGRIA", "clue": {"text": "Gran is fighting over a drink"}}
 check("anaCharade fires on the charade under the anagram", counters["anaCharade"](wp, {"_answer": "SANGRIA"}, "") == 1)
-new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+new = A.mend_rules({"wordplay": wp}, entry)["wordplay"]
 check("anaCharade: the pieces become the anagram's parts, in order",
       [p["words"] for p in new["parts"]] == ["Gran is", "a"] and not counters["anaCharade"](new, {"_answer": "SANGRIA"}, ""))
 
 # an abbreviation piece (DRAWERS, times-26720 9a "Doctor") is never flattened into the scramble
 wp = {"op": "anagram", "indicators": [ind("madly")], "parts": [{"op": "charade", "parts": [leaf("Doctor", "DR"), leaf("was")]}]}
 entry = {"solution": "DRAWS", "clue": {"text": "Doctor was madly"}}
-new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+new = A.mend_rules({"wordplay": wp}, entry)["wordplay"]
 check("anaCharade: an abbreviation piece does not join the anagram's parts",
       not any(n.get("op") == "anagram" and any(p.get("words") == "Doctor" for p in n.get("parts") or [])
               for n in F.V._walk(new)))
@@ -69,14 +71,14 @@ wp = {"op": "charade", "indicators": [ind("on top of")], "parts": [leaf("Letter"
       {"op": "first", "indicators": [ind("top of")], "parts": [leaf("desk")]}]}
 entry = {"solution": "NOTED", "clue": {"text": "Letter on top of desk is prominent"}}
 check("spanOverlap fires on two indicators sharing 'top of'", counters["spanOverlap"](wp, {}, entry["clue"]["text"]) == 1)
-new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+new = A.mend_rules({"wordplay": wp}, entry)["wordplay"]
 check("spanOverlap: the outer indicator is cut back to 'on'", new["indicators"][0]["text"] == "on"
       and not counters["spanOverlap"](new, {}, entry["clue"]["text"]))
 
 # GRAUNIAD (cryptic-27782 2d): the leaf "A place for learning" (UNI) swallows the leaf "A" before it
 wp = {"op": "charade", "parts": [leaf("A", "A"), leaf("A place for learning", "UNI")]}
 entry = {"solution": "AUNI", "clue": {"text": "A place for learning"}}
-new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+new = A.mend_rules({"wordplay": wp}, entry)["wordplay"]
 check("spanOverlap: the outer leaf gives its first word to the leaf before it",
       new["parts"][1]["words"] == "place for learning" and not counters["spanOverlap"](new, {}, entry["clue"]["text"]))
 
@@ -84,7 +86,7 @@ check("spanOverlap: the outer leaf gives its first word to the leaf before it",
 wp = {"op": "hidden", "indicators": [ind("in")], "parts": [leaf("competition in Japan")]}
 entry = {"solution": "NINJA", "clue": {"text": "Martial art expert in competition in Japan"}}
 wp["indicators"][0]["at"] = 34
-new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+new = A.mend_rules({"wordplay": wp}, entry)["wordplay"]
 check("spanOverlap: an indicator inside the leaf moves to its one free occurrence",
       new["indicators"][0]["at"] == 19 and not counters["spanOverlap"](new, {}, entry["clue"]["text"]))
 
@@ -113,7 +115,7 @@ check("doesNotGive: a charade out of order is mended in place",
 amb = {"op": "charade", "parts": [leaf("a", "A"), leaf("b", "B"), leaf("ab", "AB")]}
 bad = dict(amb, parts=[amb["parts"][0], amb["parts"][2], amb["parts"][1]])
 check("doesNotGive fixer declines when two orders give the answer (A+AB+B: AB+A+B and A+B+AB both do)",
-      F.RULE_REPAIRS["doesNotGive"](bad, None, {"clue": "a b ab", "answer": "ABAB"}) is None)
+      R.RULES["doesNotGive"].fix(bad, None, {"clue": "a b ab", "answer": "ABAB"}) is None)
 check("doesNotGive counter fires on a tree that does not give the answer, not on one that does",
       counters["doesNotGive"](bad, {"_answer": "ABAB"}, "a b ab") == 1 and counters["doesNotGive"](amb, {"_answer": "ABAB"}, "") == 0)
 msg = mend("[Perfect]HONEY + rev<brought about>([team]PARTY)", "Perfect team brought about", "HONEYTRAP")
@@ -175,7 +177,7 @@ check("doesNotGive: a plural noun's one-letter abbreviation doubles ([pounds]L i
 def noted(wp_text, clue, ans, notes):
     tree = wordplay.translate({"wp": wp_text, "notes": notes}, clue, ans)
     entry = {"solution": ans, "clue": {"text": clue}}
-    return A.repair_pool_gap({"wordplay": tree}, entry)["wordplay"]
+    return A.mend_rules({"wordplay": tree}, entry)["wordplay"]
 tree = noted("[sign of grief]SOB +<after> rev<to be upset>([About]RE)", "Sign of grief after to be upset about", "SOBER",
              {"sign of grief": "a sob shows grief", "About": "re means about", "to be upset": "upset means turned over, so reversed"})
 inds = [i for n, _ in F.walk(tree) for i in n.get("indicators") or []]
@@ -188,7 +190,7 @@ check("indicatorNote: a container word with no note gets the container sentence,
       and not counters["indicatorNote"](tree, {}, "") )
 sp = {"op": "spoonerism", "indicators": [{"text": "swapped"}], "parts": [leaf("a b")]}
 check("indicatorNote: an operation with no sentence is left for the model",
-      F.RULE_REPAIRS["indicatorNote"](sp, None, {}) is None and counters["indicatorNote"](sp, {}, "") == 1)
+      R.RULES["indicatorNote"].fix(sp, None, {}) is None and counters["indicatorNote"](sp, {}, "") == 1)
 check("indicatorNote: the refusal says where the note goes",
       any("under the clue's `notes`" in m for m in (lambda w: (V.check_indicators("1A", {"indicators": [{"text": "after", "for": "charade"}],
           "wordplay": {"op": "charade", "parts": []}}, "x after y", [], w), w)[1])([])))
@@ -228,7 +230,7 @@ check("doesNotGive: a word hidden backwards under a bare hid() is told to write 
 # are noted in place; a synonym leaf nobody explained stays refused (the model's to word).
 bare = lambda w, g: {"words": w, "gives": g}
 def noted(tree, clue, answer):
-    out = A.repair_pool_gap({"wordplay": tree}, {"solution": answer, "clue": {"text": clue}})["wordplay"]
+    out = A.mend_rules({"wordplay": tree}, {"solution": answer, "clue": {"text": clue}})["wordplay"]
     return out, [n for n, _ in F.walk(out) if "op" not in n and n.get("gives") and not n.get("note")]
 pal = {"op": "palindrome", "indicators": [ind("up and down")], "parts": [bare("Built", "PUTUP")]}
 new, left = noted(pal, "Built up and down", "PUTUP")
@@ -321,7 +323,7 @@ import wordplay as W
 def pool(wp, clue, answer):
     entry = {"solution": answer, "clue": {"text": clue}}
     tree = W.normalize(W.parse(wp, clue), clue, answer)[0]
-    return tree, A.repair_pool_gap({"wordplay": tree}, entry)["wordplay"]
+    return tree, A.mend_rules({"wordplay": tree}, entry)["wordplay"]
 def words(t):
     return [p.get("words") or p.get("op") for p in t.get("parts") or []]
 c = "This fine gift may be exchanged for scrap (4,5)"
@@ -351,18 +353,18 @@ check("whole_answer joins a linked answer's lights", A.whole_answer(lead, [lead,
 check("whole_answer leaves an unlinked entry alone", A.whole_answer({"solution": "STEGO"}, [lead, tail]) == "STEGO")
 clue = lead["clue"]["text"]
 tree = W.normalize(W.parse("ana<surprisingly>([goes] + [at] + [us]) + [right]R", clue), clue, "STEGOSAUR")[0]
-mended = A.repair_pool_gap({"wordplay": tree}, lead, [lead, tail])["wordplay"]
+mended = A.mend_rules({"wordplay": tree}, lead, [lead, tail])["wordplay"]
 check("a linked answer's pool gap is mended against the whole answer", not V.pool_gaps(mended, clue))
 
 # A leaf that gives a letter while holding its selector ("[socialist leader]S") is refused by the committed-file
 # check as a block with its selector inside it (39 sessions' first checks): the fixer makes it first<leader>([socialist]).
 clue = "Elected socialist leader"
 wp = {"op": "charade", "parts": [leaf("Elected", "CHOSE"), leaf("socialist leader", "S")]}
-check("selectorInLeaf fires on a leaf holding its selector", A.rule_counters()["selectorInLeaf"](wp, {}, clue) == 1)
-new = A.repair_pool_gap({"wordplay": wp}, {"solution": "CHOSES", "clue": {"text": clue}})["wordplay"]
+check("selectorInLeaf fires on a leaf holding its selector", counters["selectorInLeaf"](wp, {}, clue) == 1)
+new = A.mend_rules({"wordplay": wp}, {"solution": "CHOSES", "clue": {"text": clue}})["wordplay"]
 check("selectorInLeaf: the leaf becomes the selection op over its source",
       new["parts"][1].get("op") == "first" and new["parts"][1]["indicators"][0]["text"] == "leader"
-      and not A.rule_counters()["selectorInLeaf"](new, {}, clue))
+      and not counters["selectorInLeaf"](new, {}, clue))
 check("doesNotGive: one leaf a letter too long at its end (QUINT for QUIN) is cut when no other edit gives the answer",
       mend("ins<in>([street]ST, [One of five]QUINT) + last<finally>([recognises]S)", "street in One of five finally recognises", "SQUINTS")
       == "ins<in>([street]ST, [One of five]QUIN) + last<finally>([recognises]S)")

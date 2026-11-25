@@ -2294,16 +2294,16 @@ def _with_fodder_trimmed(tree, answer):
 
 
 def _with_rule_mends(tree, clue, answer):
-    """`tree` mended by the bag's doesNotGive fixer (fix_shape_suspects.RULE_REPAIRS, the one table
-    the old puzzles' sweep reads too): arguments of a container the wrong way round, a charade out of
-    order, each only when exactly one edit gives the answer. None when it does not mend."""
+    """`tree` mended by the doesNotGive rule (repairs.RULES, the one registry the old puzzles' sweep
+    reads too): arguments of a container the wrong way round, a charade out of order, each only when
+    exactly one edit gives the answer. None when it does not mend."""
+    import repairs
     try:
-        import fix_shape_suspects as F
-        fixed, used = F.repair_tree(tree, clue, answer, {"doesNotGive": F.RULE_REPAIRS["doesNotGive"]})
+        fixed, used = repairs.repair_tree(tree, clue, answer, repairs.fixers("doesNotGive"))
         if used:
             evaluate(fixed, answer)
             return fixed
-    except Exception:
+    except WordplayError:
         pass
     return None
 

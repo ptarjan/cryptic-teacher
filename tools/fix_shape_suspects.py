@@ -74,9 +74,10 @@ is a separate queue decision.
 
 Layout
 ------
-This file is the entry point and the driver: the RULE_REPAIRS / REPAIRS / FOLLOW_ON tables, repair_tree,
-the gate, and the --apply / --rule sweeps. The repairs themselves (the r_* functions, each taking
-(node, parent, ctx)) live in fix_shape_* modules by family, and every name is re-exported here so
+This file is the entry point: the gate and the --apply / --rule sweeps. Which repair answers which
+rule (RULES, REPAIRS, FOLLOW_ON) and the node driver repair_tree live in tools/repairs.py, the one
+registry every caller reads. The repairs themselves (the r_* functions, each taking (node, parent,
+ctx)) live in fix_shape_* modules by family, and every name is re-exported here so
 fix_shape_suspects.X still works:
   fix_shape_base        tree helpers every family shares
   fix_shape_leaves      leaf trims, leaf checks and arity regroupings
@@ -152,6 +153,7 @@ from fix_shape_notes import (
     _hidden_reaches, _flat_charades, r_doubled_apostrophe, _single_apostrophe, fix_doubled_apostrophes,
     run_doubled_apostrophes, note_deletions,
 )
+from repairs import RULES, REPAIRS, FOLLOW_ON, repair_tree, under_unchecked, attempt, hits, r_wrong_role, _DETECTOR_RULES
 
 
 DATA = Path(__file__).resolve().parent / "data"
@@ -159,120 +161,7 @@ SUSPECTS = DATA / "shape_suspects.json"
 OUT = DATA / "shape_reannotate.json"
 
 
-def r_wrong_role(node, parent, ctx):
-    """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
-    the wrong one of two nested ops (r_role_swap), a selection indicator hung on a one-letter word
-    (r_sel_one_letter)."""
-    return r_leaf_fold(node, parent, ctx) or r_extremes_outer(node, parent, ctx) or r_extremes_pair(node, parent, ctx) \
-        or r_role_swap(node, parent, ctx) or r_ind_trade(node, parent, ctx) \
-        or r_container_cut(node, parent, ctx) or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx) \
-        or r_sel_one_link(node, parent, ctx)
-
-
-REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
-           "arity_wrap": r_arity_wrap, "half_cut": r_half_cut, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
-           "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
-
-
-RULE_REPAIRS = {"doubledApostrophe": r_doubled_apostrophe, "repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "trimAsSelection": r_trim_selection, "reversalSplit": r_reversal_split, "reversedCharadeOrder": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
-                "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c) or r_ana_flatten(n, p, c), "anaSelectEdge": r_ana_select_edge,
-                "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
-                "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anaStandIn": r_ana_stand_in, "anagramOfContainer": r_ana_of_container,
-                "containerInside": r_container_inside, "nestedContainer": r_nested_container,
-                "wrongRole": r_wrong_role, "delSelection": r_del_selection,
-                "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_absorb(n, p, c) or r_pool_eject(n, p, c),
-                "misplacedIndicator": r_misplaced_indicator,
-                "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
-                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c) or r_hidden_link(n, p, c)
-                or r_container_gap(n, p, c) or r_hidden_possessive(n, p, c) or r_unindicated_move(n, p, c, V.unindicated_ops) or r_unindicated_spare(n, p, c, V.unindicated_ops), "spanOverlap": r_span_overlap,
-                "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
-                "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf, "doesNotGive": r_does_not_give,
-                "indicatorNote": r_indicator_note, "blockNote": r_block_note, "selectorInLeaf": r_leaf_select}
-
-
-#: Chained after a rule's own repair, on the tree it produced: a role move leaves the selection
-#: indicator both on the op and at the edge of its source leaf, and the leaf then loses it.
-FOLLOW_ON = {"leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim, "sel_edge": r_sel_edge, "leaf_select": r_leaf_select}
-
-
-def repair_tree(tree, clue, answer=None, repairs=None):
-    """(new tree, [repair names]) after applying repairs to a fixpoint (bottom-up)."""
-    repairs = repairs or REPAIRS
-    tree = copy.deepcopy(tree)
-    had_at = any("at" in x for n, _ in walk(tree) for x in [n, *(n.get("indicators") or [])])
-    try:
-        # Stored trees mostly carry no offsets: place every span on a copy, as view() does.
-        tree = W.locate(copy.deepcopy(tree), clue)
-    except W.WordplayError:
-        pass
-    used = []
-    ctx = {"clue": clue, "answer": answer}
-    for _ in range(12):
-        ctx["under_unchecked"] = under_unchecked(tree)
-        ctx["tree"] = tree
-        changed = False
-        for n, parent in reversed(list(walk(tree))):
-            for name, fn in repairs.items():
-                try:
-                    new = fn(n, parent, ctx)
-                except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
-                    new = None
-                if new is None:
-                    continue
-                if parent is None:
-                    tree = new
-                else:
-                    i = [id(x) for x in parent["parts"]].index(id(n))
-                    if name in RULE_REPAIRS and _splices(new, parent):
-                        parent["parts"][i:i + 1] = new["parts"]
-                    else:
-                        parent["parts"][i] = new
-                used.append(name)
-                changed = True
-                break
-            if changed:
-                break
-        if not changed:
-            break
-    if not had_at:
-        for n, _ in walk(tree):
-            n.pop("at", None)
-            for i in n.get("indicators") or []:
-                i.pop("at", None)
-    return tree, used
-
-
-def under_unchecked(tree):
-    """ids of the nodes with an unchecked node above them."""
-    out = set()
-
-    def go(n, below):
-        if below:
-            out.add(id(n))
-        for p in n.get("parts") or []:
-            go(p, below or bool(n.get("unchecked")))
-    go(tree, False)
-    return out
-
-
 # ---------- gate ----------
-
-def hits(ann, clue, answer):
-    wp = ann.get("wordplay")
-    if not wp:
-        return {}
-    r = {"wp": wp, "andLit": bool(ann.get("andLit")), "defs": ann.get("definitions") or [],
-         "sk": cs.analyse(wp)[0], "clue": clue, "sol": answer}
-    out = {}
-    for k, f in ss.DETECTORS.items():
-        try:
-            x = f(r)
-        except Exception:
-            x = None
-        if x:
-            out[k] = x
-    return out
-
 
 def shape_counts(ann):
     return collections.Counter(w.split(": ", 1)[1].split(":")[0] for w in V.shape_warnings("X", ann))
@@ -528,7 +417,9 @@ def do_rule_puzzle(pid):
         return stat, examples
     import shape_queue
     puzzle = json.loads(path.read_text(encoding="utf-8"))
-    # delSelection is no validator rule: its rows come from --ids, every one is tried
+    # The rows are the queue's, so they are counted by the queue's detectors (unindicatedBare: the
+    # uncovered ops the reason names, not every bare op the first check counts). delSelection is no
+    # validator rule: its rows come from --ids, every one is tried.
     count = shape_queue._validator_rules().get(rule) or _DETECTOR_RULES.get(rule) or (lambda wp, full, clue: False)
     fixes = []
     for k, e in enumerate(puzzle.get("entries") or []):
@@ -546,13 +437,11 @@ def do_rule_puzzle(pid):
             stat["already_clear"] += 1
             continue
         try:
-            new_tree, used = repair_tree(wp, clue, answer, {rule: RULE_REPAIRS[rule]})
-            if used:
-                new_tree = note_deletions(repair_tree(new_tree, clue, answer, FOLLOW_ON)[0])
+            new_tree = attempt(rule, wp, clue, answer)
         except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, RecursionError):
             stat["error"] += 1
             continue
-        if not used:
+        if new_tree is None:
             stat["no_repair"] += 1
             continue
         try:
@@ -608,16 +497,6 @@ def do_rule_puzzle(pid):
         os.replace(part, path)
         stat["puzzles_written"] += 1
     return stat, examples
-
-
-#: Queue rows that name a shape_suspects detector, not a validator rule: how --rule counts them.
-_DETECTOR_RULES = {"unchecked_leaf": lambda wp, full, clue: "unchecked_leaf" in hits(full, clue, full.get("_answer")),
-                   "del_single": lambda wp, full, clue: V.del_single(wp),
-                   "arity_ins": lambda wp, full, clue: V.arity_ins(wp),
-                   "arity_other": lambda wp, full, clue: V.arity_other(wp),
-                   "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue),
-                   "indicatorNote": lambda wp, full, clue: unnoted_indicators(wp),
-                   "blockNote": lambda wp, full, clue: unnoted_blocks(wp, full.get("_answer"))}
 
 
 def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):
@@ -684,7 +563,7 @@ def main():
     ap.add_argument("--jobs", type=int, default=4, help="worker processes (default 4)")
     ap.add_argument("--ledger", help="jsonl of finished puzzles: a re-run with the same suspects file resumes after them")
     ap.add_argument("--only", help="only suspects whose first detector is this one (e.g. arity_ins)")
-    ap.add_argument("--rule", choices=sorted(RULE_REPAIRS),
+    ap.add_argument("--rule", choices=sorted(RULES),
                     help="repair the queued rows of this validator rule instead of the suspects "
                          "(tools/data/shape_reannotate.json is not touched: run prune_shape_queue.py --write after)")
     ap.add_argument("--ids", help="with --rule delSelection: file of '<puzzle>#<clue>' ids to try (e.g. 5d, 30a)")
