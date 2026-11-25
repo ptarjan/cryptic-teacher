@@ -148,9 +148,8 @@
   function localEnvelope() {
     flushState();
     const puzzles = {};
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (!k || k.indexOf("ct:") !== 0) continue;
+    for (const k of store.keys()) {
+      if (k.indexOf("ct:") !== 0) continue;
       const id = k.slice(3);
       if (SYNC_RESERVED[id]) continue;
       const v = store.get(k, null);
@@ -209,10 +208,9 @@
       // The Worker marks the site owner's own code, and this browser then
       // stays out of the counts until a sync says otherwise (sync/worker.js).
       if (r.status < 500) {
-        try {
-          if (r.headers.get("x-ct-internal") === "1") localStorage.setItem(INTERNAL_KEY, "1");
-          else localStorage.removeItem(INTERNAL_KEY);
-        } catch (e) { /* private mode: counted, which is the safe way to be wrong */ }
+        // No storage: counted, which is the safe way to be wrong.
+        if (r.headers.get("x-ct-internal") === "1") store.set(INTERNAL_KEY, 1);
+        else store.del(INTERNAL_KEY);
       }
       if (r.status === 404 && method === "GET") return null; // code not used yet
       if (!r.ok) throw new Error("sync " + r.status);

@@ -991,7 +991,7 @@
     // A reload fetches whatever the address bar now says, which is the static
     // write-up. This flag tells that page's <head> this tab was solving here, so
     // it sends the reload back to the app (app_return in tools/build_seo_pages.py).
-    try { sessionStorage.setItem(`ct:app:${id}`, "1"); } catch (e) { /* no storage: a reload shows the write-up */ }
+    store.session.set(`ct:app:${id}`, 1); // no storage: a reload shows the write-up
     // ?p=30054 is one app URL among thousands, and declaring the homepage as its
     // canonical would fold every share and every link to a specific puzzle into
     // the site root. The page that

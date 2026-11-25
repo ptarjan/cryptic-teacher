@@ -53,17 +53,51 @@
   const squareKey = (k) => (isNumeric() ? /^[0-9]$/ : /^[a-zA-Z]$/).test(k);
   const squareChars = (s) => (s || "").toUpperCase().replace(isNumeric() ? /[^0-9]/g : /[^A-Z]/g, "");
 
-  const store = {
+  /* Every read and write of browser storage goes through here, so what a failed
+     one means is decided once. Storage that is simply not there (private mode,
+     a blocked cookie setting) is silent: the page works, nothing persists, and
+     there is nothing a solver could do about it. A full store is different:
+     progress stops saving while the grid looks fine, so that, and only that,
+     is told to the solver (once a session) and counted (see saveFailed). */
+  let saveFailedShown = false;
+  const isQuota = (e) => !!e && (e.name === "QuotaExceededError" || e.name === "NS_ERROR_DOM_QUOTA_REACHED"
+    || e.code === 22 || e.code === 1014);
+  function saveFailed() {
+    if (saveFailedShown) return;
+    saveFailedShown = true;
+    beacon("save-failed", true);
+    const box = $("toasts");
+    if (!box) return;
+    const el = document.createElement("div");
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    el.textContent = "This browser is full, so your progress can't be saved here.";
+    el.onclick = () => { if (el.remove) el.remove(); };
+    box.appendChild(el);
+  }
+  // area is a thunk: reading window.localStorage itself throws when blocked.
+  const makeStore = (area, onWrite) => ({
     get(key, fallback) {
-      try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+      try { const v = area().getItem(key); return v ? JSON.parse(v) : fallback; }
       catch (e) { return fallback; }
     },
     set(key, val) {
-      try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) { /* private mode etc. */ }
-      forgetSavedProgress(key);
+      let ok = false;
+      try { area().setItem(key, JSON.stringify(val)); ok = true; }
+      catch (e) { if (isQuota(e)) saveFailed(); }
+      if (onWrite) onWrite(key);
+      return ok;
     },
-    del(key) { try { localStorage.removeItem(key); } catch (e) {} forgetSavedProgress(key); }
-  };
+    del(key) { try { area().removeItem(key); } catch (e) { /* unavailable */ } if (onWrite) onWrite(key); },
+    keys() {
+      const out = [];
+      try { const a = area(); for (let i = 0; i < a.length; i++) { const k = a.key(i); if (k) out.push(k); } }
+      catch (e) { /* unavailable: nothing saved */ }
+      return out;
+    }
+  });
+  const store = makeStore(() => localStorage, (key) => forgetSavedProgress(key));
+  store.session = makeStore(() => sessionStorage);
 
   /* ---------- what solvers thought of it ----------
 
@@ -234,7 +268,7 @@
     if (eventsSent.has(name)) return;
     if (looksAutomated()) return;
     if (!humanSeen && !skipGate) { onHuman(() => beacon(name)); return; }
-    try { if (localStorage.getItem(INTERNAL_KEY)) return; } catch (e) { /* counted */ }
+    if (store.get(INTERNAL_KEY, null)) return;
     eventsSent.add(name);
     if (AB_MIRROR[name]) abSend(AB_MIRROR[name]);
     // The list is the contract with the Worker and is checked at both ends, so a
@@ -289,13 +323,8 @@
      second device or a cleared store starts again at new, and that is the honest
      limit of a report that keeps no identifier. */
   function hasAnySave() {
-    try {
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (k && k.indexOf("ct:") === 0 && !SYNC_RESERVED[k.slice(3)]) return true;
-      }
-    } catch (e) { /* private mode: treated as a browser with nothing in it */ }
-    return false;
+    // No storage: treated as a browser with nothing in it.
+    return store.keys().some((k) => k.indexOf("ct:") === 0 && !SYNC_RESERVED[k.slice(3)]);
   }
 
   const isFirstVisit = (seen) => (seen ? seen.days === 1 : !hasAnySave());
@@ -398,10 +427,10 @@
      and gets arm a's behaviour (master's). */
   const AB_KEY = "ct-ab1"; // not "ct:"-prefixed: it is not a puzzle
   let ab = null;
-  try { ab = JSON.parse(localStorage.getItem(AB_KEY) || "null"); } catch (e) { ab = null; }
+  ab = store.get(AB_KEY, null);
   const abToday = () => new Date().toISOString().slice(0, 10);
   const armB = () => !!ab && ab.arm === "b";
-  function abSave() { try { localStorage.setItem(AB_KEY, JSON.stringify(ab)); } catch (e) { /* not enrolled */ } }
+  function abSave() { store.set(AB_KEY, ab); }
   function abEnroll() {
     if (ab) return;
     ab = { arm: Math.random() < 0.5 ? "a" : "b", day: abToday(), sent: [] };
@@ -1088,11 +1117,7 @@
 
   // Saved progress moves with the id, once. Anyone mid-grid keeps their grid.
   function migrateSavedIds() {
-    const keys = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (k && k.indexOf("ct:") === 0) keys.push(k);
-    }
+    const keys = store.keys().filter((k) => k.indexOf("ct:") === 0);
     keys.forEach((k) => {
       const old = k.slice(3);
       if (SYNC_RESERVED[old]) return;
@@ -1205,9 +1230,8 @@
     if (savedCache) return savedCache;
     const found = {};
     try {
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (!k || k.indexOf("ct:") !== 0) continue;
+      for (const k of store.keys()) {
+        if (k.indexOf("ct:") !== 0) continue;
         // ct:last, ct:sync and ct:votes live under the same prefix and have no
         // letters, so "has letters saved" is the whole test — no list of
         // reserved names to keep in step with.

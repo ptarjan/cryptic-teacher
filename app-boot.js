@@ -461,7 +461,7 @@
     // and stays on the write-up.
     if (asked && asked !== askedRaw && BY_ID[asked] && location.replace) {
       const c = new URLSearchParams(location.search).get("c");
-      try { sessionStorage.setItem(`ct:app:${asked}`, "1"); } catch (e) { /* no storage: the write-up shows */ }
+      store.session.set(`ct:app:${asked}`, 1); // no storage: the write-up shows
       location.replace(shareUrl(asked, c ? encodeURIComponent(c) : null));
       return;
     }
@@ -668,8 +668,7 @@
     if (isOffline() || offlineBusy) return;
     const c = navigator.connection;
     if (c && c.saveData) return;
-    let last = 0;
-    try { last = Number(localStorage.getItem(OFFLINE_KEY)) || 0; } catch (e) { /* no storage */ }
+    const last = Number(store.get(OFFLINE_KEY, 0)) || 0;
     if (!force && Date.now() - last < OFFLINE_EVERY_MS) return;
     saveOffline(true);
   }
@@ -699,8 +698,7 @@
       if (!own || !own.file) return;
       (pickerStatus(p).done ? solved : started).add(own.file);
     });
-    let prev = [];
-    try { prev = JSON.parse(localStorage.getItem(OFFLINE_BATCH_KEY) || "[]"); } catch (e) { prev = []; }
+    const prev = store.get(OFFLINE_BATCH_KEY, []) || [];
     // Save now adds to what the last batch held rather than replacing it.
     if (more) prev.forEach((f) => want.add(f));
     // Candidates: the last batch, every completed puzzle, and (on the quiet,
@@ -742,10 +740,8 @@
         const m = ev.data || {};
         if (!m.finished) { offlineNote(`Saving ${m.done + m.failed} of ${m.total}…`); return; }
         if (!m.failed) {
-          try {
-            localStorage.setItem(OFFLINE_KEY, String(Date.now()));
-            localStorage.setItem(OFFLINE_BATCH_KEY, JSON.stringify([...want]));
-          } catch (e) { /* no storage */ }
+          store.set(OFFLINE_KEY, Date.now());
+          store.set(OFFLINE_BATCH_KEY, [...want]);
         }
         end((n) => (m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Will try again.`
           : more ? (m.done ? `Saved ${m.done} puzzle${m.done > 1 ? "s" : ""} — ${n} ready offline`
@@ -789,7 +785,7 @@
     const theirs = (html) => stamps((html.match(/(?:src|href)="[^"]*\?v=[0-9a-f]+"/g) || [])
       .map((m) => m.slice(m.indexOf('"') + 1, -1)));
     function reloadNow() {
-      try { sessionStorage.setItem(UPDATE_RELOAD_KEY, String(Date.now())); } catch (e) { /* no storage */ }
+      store.session.set(UPDATE_RELOAD_KEY, Date.now());
       pageLeaving().then(() => location.reload());
     }
     function pill() {
@@ -806,8 +802,7 @@
     }
     function apply(fromVisible) {
       if (!found) return;
-      let recent = false;
-      try { recent = Date.now() - Number(sessionStorage.getItem(UPDATE_RELOAD_KEY) || 0) < UPDATE_LOOP_MS; } catch (e) { /* none */ }
+      const recent = Date.now() - Number(store.session.get(UPDATE_RELOAD_KEY, 0) || 0) < UPDATE_LOOP_MS;
       const busy = Date.now() - lastInput < UPDATE_BUSY_MS;
       if (recent || (busy && !fromVisible)) { pill(); return; }
       reloadNow();

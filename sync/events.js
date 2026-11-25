@@ -62,6 +62,9 @@
     "hint-blocks", "hint-walkthrough", "hint-answer",
     "check", "entry", "half", "done",
     "picker", "stats", "sync", "notify", "feedback",
+    // The browser refused a save because its storage is full, so progress has
+    // stopped persisting. At most once a session; says nothing about who.
+    "save-failed",
     // A push notification was tapped (sw.js adds &src=push to its URL).
     "push-open",
     // Sent by landing.js, not app.js: on a /puzzles/<id>/ answers page, the
