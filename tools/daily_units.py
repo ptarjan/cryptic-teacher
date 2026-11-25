@@ -49,6 +49,12 @@ TREE = "daily_unit"
 #: new puzzle wait.
 LIMITS = {"claude": 2, "backfill": 2}
 BACKFILLS = ("ft", "azed")
+#: Classes the batch hold (tools/batch_hold.py) stops from starting: every model
+#: run (annotate, miss, reports) and the backfills, which drain for hours. What
+#: stays is the cheap work the site waits on: the newest-puzzle fetches and the
+#: short bookkeeping units (solutions, cache-sync, checks, minute, counts), none
+#: of which is the load a hold asks us to take off the machine.
+HOLD_CLS = ("claude", "backfill")
 #: Started from the main checkout, as the scheduler starts the tick:
 #: tools/nightly_worktree.sh takes the checkout a script runs from as the one
 #: whose state (CT_MAIN_CHECKOUT, the shared files) every tree links to.

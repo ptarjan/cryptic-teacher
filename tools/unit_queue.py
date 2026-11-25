@@ -33,7 +33,9 @@ RETRY seconds, doubling per failure in a row up to MAX_BACKOFF. `after` holds
 a unit back while any unit it names is running or due (an explicit
 dependency), and `trigger` makes it due when a unit it names ended well since
 its own last start. `cls` caps how many of a kind run at once (the queue's
-LIMITS), and SLOTS caps them all.
+LIMITS), and SLOTS caps them all. While the batch hold exists (tools/batch_hold.py)
+a tick starts no unit of the classes the queue lists in HOLD_CLS; those running
+finish, and the tick says so once per hold.
 A backfill drains at the source's own pace, not a cadence: a unit that stops
 with work left (its wall-clock budget spent) calls backlog_left(), its end
 row says "more", and it is due again at the next tick, whatever its `every`.
@@ -51,6 +53,7 @@ import threading
 import time
 from pathlib import Path
 
+import batch_hold
 import mem_gate
 from unit_more import backlog_left as backlog_left
 
@@ -307,7 +310,13 @@ def tick(queue, dry=False):
     memory_bound = cpu_bound = burn_bound = False
     starved = mem_gate.burn_starved(BURN_READER)
     cpu_now = None
+    hold_cls = getattr(mod, "HOLD_CLS", ()) if batch_hold.held() else ()
+    if hold_cls and batch_hold.say_once(queue):
+        print(f"{queue}: batch hold since {batch_hold.since()} ({batch_hold.path()}): no {'/'.join(hold_cls)} "
+              "unit starts until it is removed; running ones finish")
     for unit, why in due_units(mod, ledger, now):
+        if unit.cls in hold_cls:
+            continue
         cap = mod.LIMITS.get(unit.cls)
         if (free is not None and free <= 0) or (cap is not None and per_cls.get(unit.cls, 0) >= cap):
             waiting.append(unit.key)

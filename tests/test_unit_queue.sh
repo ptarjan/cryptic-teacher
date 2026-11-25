@@ -101,6 +101,31 @@ grep -q "start drain" <<<"$out" && fail "drain ran again with its backlog done: 
 [ "$(wc -l <"$tmp/q/ok.runs")" = 1 ] || fail "ok ran $(wc -l <"$tmp/q/ok.runs") times"
 st=$(q status fake)
 grep -q "fail .*1 failures in a row" <<<"$st" || fail "status does not show the failure: $st"
+# The batch hold (tools/batch_hold.py): a queue's HOLD_CLS units start nothing
+# while the file exists, say so once, and the others still start.
+cat >"$tmp/q/held_units.py" <<'PY'
+import os
+from unit_queue import Unit
+LOG = "held.log"
+LIMITS = {}
+HOLD_CLS = ("heavy",)
+D = os.path.dirname(__file__)
+def plan(ledger, now):
+    return [Unit(key=k, argv=["sh", "-c", f"echo {k} >>{D}/held.runs"], timeout=30, cls=c, every=3600)
+            for k, c in (("big", "heavy"), ("small", ""))]
+PY
+export CT_PRERESET_PAUSE="$tmp/hold/prereset.pause"
+mkdir -p "$tmp/hold" && touch "$CT_PRERESET_PAUSE"
+out=$(q tick held)
+grep -q "start small" <<<"$out" || fail "a cheap unit did not start under the hold: $out"
+grep -q "start big" <<<"$out" && fail "a heavy unit started under the hold: $out"
+grep -q "batch hold since" <<<"$out" || fail "the hold was not announced: $out"
+out=$(q tick held)
+grep -q "batch hold since" <<<"$out" && fail "the hold was announced twice: $out"
+rm "$CT_PRERESET_PAUSE"
+out=$(q tick held)
+grep -q "start big" <<<"$out" || fail "a heavy unit did not start once the hold was gone: $out"
+unset CT_PRERESET_PAUSE
 # Tree slots, in a scratch repo: the units run tools/nightly_worktree.sh as
 # the real ones do.
 export HOME="$tmp/home" CT_WORKTREE_ROOT="$tmp/trees" GIT_CONFIG_NOSYSTEM=1
@@ -110,7 +135,7 @@ git config --global init.defaultBranch master
 git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/repo" 2>/dev/null
 mkdir -p "$tmp/repo/tools"
-cp tools/nightly_worktree.sh tools/same_history.sh tools/unstage_unparsable.sh tools/commit_puzzles.sh tools/drop_clues_only_twin.py tools/commit_subject.py tools/renamed_ids.py tools/gitlog_cache.py tools/unit_queue.py tools/mem_gate.py tools/unit_more.py "$tmp/repo/tools/"
+cp tools/nightly_worktree.sh tools/same_history.sh tools/unstage_unparsable.sh tools/commit_puzzles.sh tools/drop_clues_only_twin.py tools/commit_subject.py tools/renamed_ids.py tools/gitlog_cache.py tools/unit_queue.py tools/mem_gate.py tools/unit_more.py tools/batch_hold.py "$tmp/repo/tools/"
 echo 'alert() { echo "$*" >>"$HOME/alerts"; }' >"$tmp/repo/tools/alert.sh"
 cat >"$tmp/repo/tools/slotjob.sh" <<'SH'
 #!/bin/bash

@@ -81,13 +81,15 @@ if (( BASH_VERSINFO[0] * 100 + BASH_VERSINFO[1] < 501 )); then
   echo "ERROR: tools/prereset_backfill.sh needs bash 5.1+ for wait -n -p; this is $BASH_VERSION"
   exit 1
 fi
-# Paused while this file exists (a corpus-wide rewrite such as a schema
-# migration): a fire exits here, before its worktree salvages and
-# pushes anything, and a running burn treats it as its deadline (past_deadline):
-# no new run starts, the ones in flight finish and land, and it exits.
-#     touch ~/.cryptic-teacher/prereset.pause     # pause
-#     rm ~/.cryptic-teacher/prereset.pause        # resume (the next :05 fire starts it)
-PRERESET_PAUSE="${CT_PRERESET_PAUSE:-${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/prereset.pause}"
+# Paused while the batch hold exists (tools/batch_hold.py: a corpus-wide
+# rewrite such as a schema migration, or the machine's owner asking for the
+# batch work to stop for a window; the nightly's heavy units honour the same
+# file): a fire exits here, before its worktree salvages and pushes anything,
+# and a running burn treats it as its deadline (past_deadline): no new run
+# starts, the ones in flight finish and land, and it exits.
+#     touch ~/.cryptic-teacher/prereset.pause     # hold
+#     rm ~/.cryptic-teacher/prereset.pause        # release (the next :05 fire starts the burn)
+PRERESET_PAUSE="$(python3 "$(dirname "$0")/batch_hold.py" path)" || exit 1
 if [ -z "${CT_PRERESET_STATE:-}" ] && [ -e "$PRERESET_PAUSE" ]; then
   echo "pre-reset backfill paused ($PRERESET_PAUSE exists, since $(date -r "$PRERESET_PAUSE" '+%F %H:%M')) — not starting"
   # Said once per pause in the human log too (fd 3 is the fire's own stdout), not every fire.
