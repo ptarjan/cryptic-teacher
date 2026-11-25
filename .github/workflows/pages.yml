@@ -518,19 +518,14 @@ jobs:
       # them before the deploy, so a broken link still ships nothing.
       - name: Start the site checks
         run: |
-          # Each detached from the step's output, or the runner holds the step
-          # open on the inherited pipe (5s in run 38389462732).
-          (python3 tools/stage_site.py --check "$RUNNER_TEMP/site.list" \
-             > "$RUNNER_TEMP/links.log" 2>&1; echo $? > "$RUNNER_TEMP/links.rc") \
-             < /dev/null > /dev/null 2>&1 &
-          (python3 tools/indexnow.py changed . .indexnow/manifest.json indexnow-urls.txt "$RUNNER_TEMP/site.list" \
-             > "$RUNNER_TEMP/indexnow.log" 2>&1; echo $? > "$RUNNER_TEMP/indexnow.rc") \
-             < /dev/null > /dev/null 2>&1 &
+          # tools/bg_job.sh detaches each from the step's output, which the
+          # runner would otherwise hold open on the inherited pipe.
+          bash tools/bg_job.sh start links python3 tools/stage_site.py --check "$RUNNER_TEMP/site.list"
+          bash tools/bg_job.sh start indexnow \
+            python3 tools/indexnow.py changed . .indexnow/manifest.json indexnow-urls.txt "$RUNNER_TEMP/site.list"
           # What fills the artifact, printed by Wait for the site checks; it
           # gates nothing.
-          (python3 tools/site_size.py "$RUNNER_TEMP/site.list" \
-             > "$RUNNER_TEMP/size.log" 2>&1; echo $? > "$RUNNER_TEMP/size.rc") \
-             < /dev/null > /dev/null 2>&1 &
+          bash tools/bg_job.sh start size python3 tools/site_size.py "$RUNNER_TEMP/site.list"
       # What actions/upload-pages-artifact does, minus its tar -v (a log line
       # per file, ~140k of them) and stored rather than deflated. The upload
       # is bound by compressing, not by the network: level 6 took 65s, level
@@ -640,16 +635,19 @@ jobs:
           CB_PACK: pages
           CB_PATH: .page-cache.tar
         run: bash tools/cache_bg.sh bg save pages
-      # The background checks' results. A check that died without writing
-      # its exit code (or hung) is caught by the timeout, and fails the
-      # deploy the same way a broken link does.
+      # The background checks' results (tools/bg_job.sh wait): each log, then
+      # the first failing check's own exit status, so a broken link fails the
+      # deploy as itself. A check that died without writing a status (or hung)
+      # is named by bg_job's timeout. The size report gates nothing.
       - name: Wait for the site checks
         id: checks
-        timeout-minutes: 5
+        env:
+          BG_JOB_TIMEOUT: 300
         run: |
-          while [ ! -f "$RUNNER_TEMP/links.rc" ] || [ ! -f "$RUNNER_TEMP/indexnow.rc" ] || [ ! -f "$RUNNER_TEMP/size.rc" ]; do sleep 1; done
-          cat "$RUNNER_TEMP/indexnow.log" "$RUNNER_TEMP/links.log" "$RUNNER_TEMP/size.log"
-          [ "$(cat "$RUNNER_TEMP/links.rc")" = 0 ] && [ "$(cat "$RUNNER_TEMP/indexnow.rc")" = 0 ]
+          rc=0
+          bash tools/bg_job.sh wait indexnow links || rc=$?
+          bash tools/bg_job.sh wait size || echo "the size report failed; it gates nothing"
+          exit "$rc"
       # The pages this deploy changes, for the deploy job's Ping IndexNow.
       - name: Keep the IndexNow list
         uses: actions/upload-artifact@v6

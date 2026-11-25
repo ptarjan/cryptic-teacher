@@ -24,7 +24,7 @@
 # CB_UNPACK=1: unpack the restored tar (tools/cache_tar.sh unpack CB_PATH).
 # CB_PACK: pack CB_PATH first (tools/cache_tar.sh pack CB_PACK CB_PATH).
 # CB_GATE=1: save only once the site checks (pages.yml's Start the site
-# checks) have written their exit codes and both are 0, which is what the
+# checks, tools/bg_job.sh jobs links and indexnow) have both passed, which is what the
 # save steps' `steps.checks.outcome == 'success'` said when they ran after
 # Wait for the site checks.
 set -euo pipefail
@@ -40,11 +40,7 @@ run() {  # run restore|save NAME: the foreground body of a background job
   if [ "$mode" = save ]; then
     [ -z "${CB_PACK:-}" ] || bash "$here/cache_tar.sh" pack "$CB_PACK" "${CB_PATH:?}"
     if [ -n "${CB_GATE:-}" ]; then
-      local i=0
-      while { [ ! -f "$tmp/links.rc" ] || [ ! -f "$tmp/indexnow.rc" ]; } && [ "$i" -lt 600 ]; do
-        sleep 1; i=$(( i + 1 ))
-      done
-      if [ "$(cat "$tmp/links.rc" 2>/dev/null || echo x)" != 0 ] || [ "$(cat "$tmp/indexnow.rc" 2>/dev/null || echo x)" != 0 ]; then
+      if ! BG_JOB_TIMEOUT=600 bash "$here/bg_job.sh" wait -q links indexnow; then
         echo "cache_bg: the site checks did not pass: not saving $CB_KEY"; return 0
       fi
     fi

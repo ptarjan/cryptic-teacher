@@ -33,4 +33,14 @@ echo partial > "$tmp/lost.log"
 rc=0; out=$(BG_JOB_TIMEOUT=1 bash "$tool" wait lost 2>&1) || rc=$?
 [ "$rc" = 1 ] || fail "a lost job did not fail the wait"
 case "$out" in *partial*) ;; *) fail "the lost job's log was not shown" ;; esac
+# Several names: every log shown, the first failure's own status returned.
+bash "$tool" start one bash -c 'echo log-one'
+bash "$tool" start two bash -c 'echo log-two; exit 5'
+bash "$tool" start three bash -c 'sleep 1; echo log-three; exit 6'
+rc=0; out=$(bash "$tool" wait one two three 2>&1) || rc=$?
+[ "$rc" = 5 ] || fail "wait on several names returned $rc, not the first failure's 5"
+case "$out" in *log-one*log-two*log-three*) ;; *) fail "a log was missing: $out" ;; esac
+bash "$tool" start quiet bash -c 'echo hidden'
+out=$(bash "$tool" wait -q quiet 2>&1) || fail "wait -q failed for a job that passed"
+[ -z "$out" ] || fail "wait -q printed '$out'"
 echo "test_bg_job: all passed"
