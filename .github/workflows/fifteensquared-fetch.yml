@@ -113,10 +113,7 @@ jobs:
         if: steps.new.outputs.count != '0' || steps.seed.outputs.seeded == '1'
         shell: bash
         run: |
-          gh cache list -R "$GITHUB_REPOSITORY" --key fifteensquared- --sort created_at --order desc \
-            --limit 100 --json id,key -q '.[1:][] | .id' | while read -r id; do
-            gh cache delete "$id" -R "$GITHUB_REPOSITORY" || true
-          done
+          python3 tools/prune_caches.py newest fifteensquared-
       - name: Fail when the fetch failed
         shell: bash
         run: |

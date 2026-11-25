@@ -181,10 +181,7 @@ jobs:
         if: "!cancelled()"
         shell: bash
         run: |
-          gh cache list -R "$GITHUB_REPOSITORY" --key blogfacts-state- --sort created_at --order desc \
-            --limit 100 --json id -q '.[1:][] | .id' | while read -r id; do
-            gh cache delete "$id" -R "$GITHUB_REPOSITORY" || true
-          done
+          python3 tools/prune_caches.py newest blogfacts-state-
       - name: Push, rebasing when master moved
         shell: bash
         run: |
