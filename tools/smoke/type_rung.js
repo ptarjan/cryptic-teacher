@@ -70,8 +70,8 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
   }
   assert(!/guess-check|Check my answer/.test(html + registry["hint-escape"].innerHTML),
     "and one of seven is a tap, not a tap and then a confirm: " + html);
-  assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(registry["hint-escape"].innerHTML),
-    "with no family chosen the one help button is Show me, and it arms: " + registry["hint-escape"].innerHTML);
+  assert(/id="guess-tell"[^>]*data-arm[^>]*>Just tell me/.test(registry["hint-body"].innerHTML),
+    "with no family chosen the one help button is Just tell me, in the question, and it arms: " + registry["hint-body"].innerHTML);
   assert(choices().size === 7,
     "all seven picker families are offered every time, never narrowed to the plausible "
       + "ones — the list is the vocabulary (rebus and reverse clue are folded into "

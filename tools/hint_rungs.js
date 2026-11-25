@@ -52,9 +52,9 @@ for (const id of ids) {
       // Pieces is the formula line: Show me fills the current blank chip, two taps when
       // it costs, and every chip has to be out before the walkthrough opens.
       for (let c = 0; c < 20 && /data-piece="\d+"/.test(dom.registry["hint-body"].innerHTML); c++) {
-        if (!/id="guess-tell"/.test(dom.registry["hint-escape"].innerHTML)) break;
+        if (!/id="guess-tell"/.test(dom.registry["hint-body"].innerHTML)) break;
         dom.registry["guess-tell"].onclick();
-        if (/id="guess-tell"[^>]*arm-cost/.test(dom.registry["hint-escape"].innerHTML)) dom.registry["guess-tell"].onclick();
+        if (/id="guess-tell"[^>]*arm-cost/.test(dom.registry["hint-body"].innerHTML)) dom.registry["guess-tell"].onclick();
       }
     }
     const steps = [];

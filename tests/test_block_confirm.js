@@ -7,7 +7,7 @@
    charges: the group is unsolved and the tap opens the rung outright, or "Show
    me" on a blocks question opens it or takes back one already earned.
 
-   1. firstTapArms: that tap relabels "Show me" (in the help bar) "Tap again · 1 hint" and
+   1. firstTapArms: that tap relabels "Just tell me" (in the question) "Tap again · 1 hint" and
       charges nothing; the second tap reveals and charges one.
    2. timeoutDisarms: left alone for the arm window, the button goes back.
    3. elsewhereDisarms: a click on anything else puts it back too.
@@ -36,13 +36,16 @@ function open() {
   const asking = () => body().includes('class="hint-step guess"');
   const hints = () => Number((/<strong>(\d+)<\/strong> hints?\b/.exec(reg["scorebar"].innerHTML) || [])[1]);
   const blocksBtn = () => row().find((b) => b.onclick && !b.disabled && /building blocks/i.test(b.textContent || ""));
-  // "Show me" lives in the help bar (#hint-escape) and carries the armed text.
+  // The help button lives in the question (or, with no question, in the next
+  // step's card), both in #hint-body, and carries the armed text. The help bar
+  // (#hint-escape) holds Reveal letter and More only.
   const bar = () => reg["hint-escape"].innerHTML;
-  const barArmed = () => /id="guess-tell"[^>]*class="[^"]*arm-cost/.test(bar()) && bar().includes(ARMED);
-  const armedBtn = () => (barArmed() ? reg["guess-tell"] : null);
-  const tellArmed = () => barArmed() && /data-arm="blocks-tell"/.test(bar());
-  const blocksOpen = () => /The building blocks(<span class="step-won">[^<]*<\/span>)?<\/span>/.test(body().replace(/<div class="hint-step guess">[\s\S]*$/, ""));
-  return { d, reg, puz, key, row, body, asking, hints, blocksBtn, armedBtn, tellArmed, blocksOpen, bar };
+  const tell = () => body();
+  const tellIsArmed = () => /id="guess-tell"[^>]*class="[^"]*arm-cost/.test(tell()) && tell().includes(ARMED);
+  const armedBtn = () => (tellIsArmed() ? reg["guess-tell"] : null);
+  const tellArmed = () => tellIsArmed() && /data-arm="blocks-tell"/.test(tell());
+  const blocksOpen = () => /The building blocks(<span class="step-won">[^<]*<\/span>)?<\/span>/.test(body().replace(/<div class="(hint-step guess|help-next)"[\s\S]*$/, ""));
+  return { d, reg, puz, key, row, body, asking, hints, blocksBtn, armedBtn, tellArmed, blocksOpen, bar, tell };
 }
 
 // Up the ladder to the blocks rung, buying each spotting rung outright.
@@ -67,15 +70,15 @@ for (const e of blocky) {
   const before = t.hints();
   t.blocksBtn().onclick();
   if (t.asking()) {
-    // The rung asks first, and asking is free; "Show me" is the paid tap.
+    // The rung asks first, and asking is free; "Just tell me" is the paid tap.
     if (asked++) continue;
     check(t.hints() === before, `firstTapArms (${id}): opening the question costs nothing`);
     t.reg["guess-tell"].onclick();
     check(t.tellArmed() && t.asking() && t.hints() === before,
-      `firstTapArms (${id}): the first "Show me" arms, still asking, still ${before} hints`);
+      `firstTapArms (${id}): the first "Just tell me" arms, still asking, still ${before} hints`);
     flushTimers(4000);
-    check(!t.tellArmed() && />Show me</.test(t.bar()),
-      `timeoutDisarms (${id}): the button reads "Show me" again`);
+    check(!t.tellArmed() && />Just tell me \u00b7 1 hint</.test(t.tell()),
+      `timeoutDisarms (${id}): the button reads "Just tell me" and its price again`);
     t.reg["guess-tell"].onclick();
     t.d.docListeners["click"].forEach((f) => f({ target: t.reg["hint-meter"] }));
     flushTimers(0);
@@ -123,12 +126,12 @@ check(asked + outright > 0, `found a clue whose blocks can cost (asked ${asked},
     // A leg typed in alone leaves its group unsolved (the score is not frozen).
     if (!(solvedN() > s0)) continue;
     // Solved: the steps still shut stay on the track as free tabs, like the
-    // open ones; no "Show me" and no separate "How it works" button.
+    // open ones; no help button and no separate "How it works" button.
     const tabs = () => t.reg["hint-track"].children;
     const pieces = tabs().find((b) => b.onclick && b.textContent === "Pieces" && /\bavail\b/.test(b.className || ""));
     if (!pieces) continue;
     const before = t.hints();
-    check(!t.blocksOpen() && !/id="guess-tell"|id="hx-how"|arm-cost/.test(t.bar())
+    check(!t.blocksOpen() && !/id="guess-tell"|id="hx-how"|arm-cost/.test(t.bar() + t.tell())
       && pieces.getAttribute && pieces.getAttribute("role") === "tab",
       `freeIsOneTap (${entryId(e)}): before the tap Pieces is shut, a tab, and nothing in the bar costs: ${t.bar()}`);
     pieces.onclick();

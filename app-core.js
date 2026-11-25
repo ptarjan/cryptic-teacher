@@ -397,7 +397,7 @@
     // it, not a sentence.
     { id: "welcome", modal: true },
     { id: "ladder",
-      text: "Stuck? Every clue is explained here, one step at a time. Tap the words a step asks for, or press Show me for a hint.",
+      text: "Stuck? Every clue is explained here, one step at a time. Tap the words a step asks for, or tap Just tell me for a hint.",
       // The one line that outlives its first press. A newcomer who takes a rung
       // has learned what one button does, not what the row is for, so the light
       // moves down the ladder with them and the sentence changes to the thing
@@ -715,10 +715,10 @@
     // for itself would sooner or later point at something the line is not
     // talking about. The panel's own markup says whether a question is up:
     // `guessing` outlives the question it asked, so it cannot be the test.
-    // A step chosen with nothing to ask shows a "Tap Show me" panel under the
+    // A step chosen with nothing to ask shows its "Show me" card under the
     // same marker; that is not a question, so it opens no hole.
     const open = !!(body && /class="hint-step guess"/.test(body.innerHTML || "")
-      && !(body.innerHTML || "").includes("to open this step.</p>"));
+      && !(body.innerHTML || "").includes("data-nonask"));
     const ask = nuxAsk();
     if (ask || (open && !nuxTypeIt(on))) {
       // The words being pointed at, and nothing else. A hole around the whole

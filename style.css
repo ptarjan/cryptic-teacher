@@ -1151,10 +1151,15 @@ span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px
 #hint-escape:empty { display: none; }
 #hint-escape button { color: var(--muted); }
 #hint-escape button:hover { color: var(--fg); }
-/* The help bar's one paid button: the accent, because it is the way to be told;
-   the rest of the row stays quiet. (arm-cost, further down, still wins when armed.) */
-#hint-escape button.help-show { color: var(--accent); border-color: var(--accent); font-weight: 600; }
-#hint-escape button.help-show:hover { color: var(--accent); filter: brightness(1.12); }
+/* The one help button, in the question (or the card of a step with no
+   question), right under the prompt: the accent, because it is the way to be
+   told or to lock in. (arm-cost, further down, still wins when armed.) */
+.tell-row { margin: 8px 0 0; }
+.tell-row button.help-show { color: var(--accent); border-color: var(--accent); font-weight: 600;
+  max-width: 100%; white-space: normal; text-align: left; }
+.tell-row button.help-show:hover { color: var(--accent); filter: brightness(1.12); }
+.help-next { margin: 10px 0 0; }
+.help-next .step-label { display: block; }
 /* "More": rare things (Reveal answer, Report a bad hint, the blog link) on a
    row of their own under the bar. */
 #hint-escape .help-more { flex-basis: 100%; margin-top: 4px; }
@@ -1616,7 +1621,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .tool { font-size: .88rem; padding: 8px 14px; }
   .puzzle-head .menu-wrap { --btn-font: .88rem; --btn-pad: 8px; }
   #hint-next { gap: 10px; }
-  #hint-next button, #hint-escape button { font-size: .95rem; padding: 9px 14px; }
+  #hint-next button, #hint-escape button, .tell-row button { font-size: .95rem; padding: 9px 14px; }
   /* Same reasoning as .tool, and it matters more here: this strip is how you pick
      the square you are typing into, so it gets tapped far more often than any
      button on the page. 1.35rem carries the em box to ~38x43px, at the iOS
@@ -1995,8 +2000,8 @@ html.ct-boot #boot-grid { display: block; }
 /* A building block that costs a hint takes two taps (app.js, blocksCost). The
    first one arms the button and its label says what the second will do; the
    colour is the price, the same red a wrong letter wears. */
-#hint-next button.arm-cost, #hint-escape button.arm-cost,
-#hint-next button.arm-cost:hover, #hint-escape button.arm-cost:hover {
+#hint-next button.arm-cost, #hint-escape button.arm-cost, .tell-row button.arm-cost,
+#hint-next button.arm-cost:hover, #hint-escape button.arm-cost:hover, .tell-row button.arm-cost:hover {
   border-color: var(--wrong); color: var(--wrong); background: transparent;
 }
 

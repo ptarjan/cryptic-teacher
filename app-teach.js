@@ -1312,7 +1312,7 @@
   // first is recall, which is the only part that survives to the next puzzle.
   //
   // It costs no new screen: the same rung, in the same panel, one beat before
-  // the same text, with "Show me" in the help bar under it so nobody is ever stuck behind
+  // the same text, with "Just tell me" in the question so nobody is ever stuck behind
   // a quiz. Guess right and the rung is free, which is the score finally saying
   // what it always meant — a hint you did not need is not a hint you took.
   //
@@ -1727,8 +1727,9 @@
       if (el) el.className = "gw" + (guessing.picked.indexOf(i) >= 0 ? " on"
         : (nuxPointsWord(ask, i, guessing.picked) ? " walk-point" : ""));
     });
-    // The help button reads "Lock in" exactly while something is picked.
-    repaintHelpBar();
+    // The help button reads Lock in exactly while something is picked, and
+    // names the pick.
+    repaintTell();
   }
 
   function dragOver(i) {
@@ -1850,20 +1851,20 @@
   // clue, whose own words are not the ones on display — see renderHintPanel.
   //
 
-  // A question carries only what answers it: the words in the clue (or the
-  // family chips). No button of its own: the one help
-  // button under the panel locks the picks in ("Lock in") or, with nothing
-  // picked, shows the step ("Show me"); see helpTarget in app-paint.js. And
+  // A question carries what answers it (the words in the clue, or the family
+  // chips) and the one help button, `tell`, right under the prompt: it locks
+  // the picks in (Lock in “<the picks>”) or, with nothing picked, tells the
+  // step ("Just tell me" and its price); see helpTarget in app-paint.js. And
   // there is no "Skip for now", because a question is not a dialog: picking
   // another step, typing, or ignoring it is the skip.
-  function guessHTML(ask, position, label, inClue, formula) {
+  function guessHTML(ask, position, label, inClue, formula, tell) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
       : inClue ? ""
       : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung, ask.target);
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       <p>${ask.prompt}</p>
-      ${formula || ""}${answer}</div>`;
+      ${tell || ""}${formula || ""}${answer}</div>`;
   }
 
   // Right, and which one you said — never what the right one was. The rung

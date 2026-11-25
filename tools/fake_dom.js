@@ -92,6 +92,14 @@ function bootApp(opts) {
       // never sees.
       this.children.forEach(unpublish);
       this.children = [];
+      // A browser's body markup includes whatever was written into a node
+      // inside it; the stub keeps the one string, so the help button's slot
+      // (the only node the app rewrites inside the hint body) splices its
+      // writes into it.
+      if (this._id === "tell-slot" && registry["hint-body"]) {
+        registry["hint-body"]._innerHTML = registry["hint-body"]._innerHTML
+          .replace(/(<p class="tell-row" id="tell-slot">)[\s\S]*?(<\/p>)/, (m, a, b) => a + this._innerHTML + b);
+      }
     }
     get innerHTML() { return this._innerHTML; }
     appendChild(el) {
@@ -604,14 +612,14 @@ function bootApp(opts) {
   // not a real element, so no handler of the app can reach it.
   const wrapped = new WeakMap();
   // A step button only chooses (it never spends), so a click that neither put a
-  // question up nor opened a step is followed by "Show me" (#guess-tell), as the
+  // question up nor opened a step is followed by the help button (#guess-tell), as the
   // old chip's own tap was: "take the rung" checks keep meaning "take it".
   const steps = () => (String(registry["hint-body"].innerHTML).match(/class="hint-step/g) || []).length;
   const tapped = (chip) => function () {
     const before = steps();
     const r = chip.onclick.apply(chip, arguments);
     const showing = registry["hint-body"].innerHTML.includes('class="hint-step guess"');
-    if (!showing && steps() === before && /id="guess-tell"/.test(registry["hint-escape"].innerHTML)
+    if (!showing && steps() === before && /id="guess-tell"/.test(registry["hint-body"].innerHTML)
         && registry["guess-tell"] && registry["guess-tell"].onclick) registry["guess-tell"].onclick();
     return r;
   };

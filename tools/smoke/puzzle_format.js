@@ -52,8 +52,8 @@ for (const puz of JSON.parse(require("child_process").execFileSync("python3", ["
     });
     const reg = d.registry, out = {};
     const arm = () => {
-      // Armed "Show me" (help bar): the second tap of the two.
-      if (/id="guess-tell"[^>]*class="[^"]*arm-cost/.test(reg["hint-escape"].innerHTML)) reg["guess-tell"].onclick();
+      // Armed help button (in the question): the second tap of the two.
+      if (/id="guess-tell"[^>]*class="[^"]*arm-cost/.test(reg["hint-body"].innerHTML)) reg["guess-tell"].onclick();
     };
     p.entries.forEach((e) => {
       const row = e.annotation && reg["clue-" + entryId(e)];

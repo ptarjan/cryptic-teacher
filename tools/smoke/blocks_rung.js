@@ -178,8 +178,8 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   const words = (panelHTML().match(/id="gw-\d+"/g) || []).length;
   assert(words > found.words, "the clue offers more words than the definition uses");
   for (let i = 0; i < words; i++) registry["gw-" + i].onclick();
-  assert(!/id="guess-tell"[^>]*data-arm/.test(registry["hint-escape"].innerHTML),
-    "a Lock in never arms, even a wrong one: " + registry["hint-escape"].innerHTML);
+  assert(!/id="guess-tell"[^>]*data-arm/.test(registry["hint-body"].innerHTML),
+    "a Lock in never arms, even a wrong one: " + registry["hint-body"].innerHTML);
   registry["guess-tell"].onclick();
   html = panelHTML();
   assert(!/guess-verdict|guess-result/.test(html + registry["hint-clue"].innerHTML),
@@ -201,7 +201,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   defBtn().onclick();
   assert(panelHTML().includes("guess-clue ask"), "asked again");
   registry["guess-tell"].onclick();
-  assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Show me” tells you");
+  assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Just tell me” tells you");
   assert(!registry["hint-body"].innerHTML.includes("guess-verdict"),
     "declining to guess is not graded");
   assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
@@ -280,10 +280,10 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   };
   const rungs = () => registry["hint-rungs"].children;
   const rung = (re) => rungs().find((b) => re.test(b.textContent || "") && !b.disabled);
-  // A step chosen on the track with no question in it draws a "Tap Show me"
+  // A step chosen on the track with no question in it draws a "Show me" card
   // panel under the same marker; it is not a question to point at.
   const asking = () => isAsking(registry["hint-body"])
-    && !registry["hint-body"].innerHTML.includes("to open this step.</p>");
+    && !registry["hint-body"].innerHTML.includes("data-nonask");
   // Climb to the named rung, taking whatever is offered and declining every
   // question on the way, so the blocks rung is reached with the tier-0 rungs up.
   const climbTo = (re) => {
@@ -361,17 +361,19 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   assert(/data-piece="0"/.test(html) && !/gm-slot|gm-chip/.test(html),
     "the Pieces question is the formula's blank chips, with no matching form: " + html);
   {
-    const bar = registry["hint-escape"].innerHTML;
-    assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(bar),
-      "with nothing picked the help button is Show me and arms: " + bar);
+    const bar = registry["hint-body"].innerHTML;
+    assert(/id="guess-tell"[^>]*data-arm[^>]*>Just tell me/.test(bar),
+      "with nothing picked the help button is Just tell me and arms: " + bar);
+    assert(!/id="guess-tell"/.test(registry["hint-escape"].innerHTML),
+      "and the help bar no longer holds it: " + registry["hint-escape"].innerHTML);
   }
   const first = walked.pairs[0];
   const toks = spanTokens(clueText(walked.e), first.clueFragment);
   toks.forEach((n) => registry["gw-" + n].onclick());
   {
-    const bar = registry["hint-escape"].innerHTML;
-    assert(/id="guess-tell"[^>]*>Lock in</.test(bar) && !/id="guess-tell"[^>]*data-arm/.test(bar),
-      "words picked read Lock in, free: " + bar);
+    const bar = registry["hint-body"].innerHTML;
+    assert(/id="guess-tell"[^>]*>Lock in \u201C[^<]+\u201D</.test(bar) && !/id="guess-tell"[^>]*data-arm/.test(bar),
+      "words picked read Lock in with the pick named, free: " + bar);
   }
   registry["guess-tell"].onclick();
   dismissNext();
@@ -552,7 +554,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   dragAcross(0, found.words - 1);
   assert(onNow() === found.words,
     `a drag picks every word it crossed and no others: ${registry["hint-body"].innerHTML}`);
-  assert(registry["hint-escape"].innerHTML.includes(">Lock in<"), "and turns the help button to Lock in");
+  assert(registry["hint-body"].innerHTML.includes(">Lock in \u201C"), "and turns the help button to Lock in");
   registry["guess-tell"].onclick();
   assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
     "so the run can be the whole answer: " + registry["hint-body"].innerHTML);
@@ -572,10 +574,10 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   // one a tap writes.
   assert(registry["gw-0"].classList.contains("on")
          && !registry["gw-1"].classList.contains("on")
-         && registry["hint-escape"].innerHTML.includes(">Lock in<"),
+         && registry["hint-body"].innerHTML.includes(">Lock in \u201C"),
     "a tap that never left the word still toggles it, and only it: "
     + registry["gw-0"].className + " / " + registry["gw-1"].className
-    + " / bar: " + registry["hint-escape"].innerHTML);
+    + " / button: " + registry["hint-body"].innerHTML);
 
   // Settled words: take the definition, then be asked about the indicators.
   open();

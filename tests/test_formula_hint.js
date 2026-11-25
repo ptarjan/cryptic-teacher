@@ -58,14 +58,14 @@ function open(storage) {
   const showMe = () => {
     const before = gotCount();
     for (let g = 0; g < 2 && gotCount() === before; g++) {
-      const bar = reg["hint-escape"].innerHTML;
+      const bar = reg["hint-body"].innerHTML;
       if (/id="guess-tell"/.test(bar)) reg["guess-tell"].onclick();
     }
   };
   const settle = () => {
     for (let g = 0; g < 4; g++) {
       if (armedBtn()) armedBtn().onclick();
-      else if (asking() || /id="guess-tell"/.test(reg["hint-escape"].innerHTML)) reg["guess-tell"].onclick();
+      else if (asking() || /id="guess-tell"/.test(reg["hint-body"].innerHTML)) reg["guess-tell"].onclick();
     }
   };
   // Take the rung whose button matches, buying it outright.

@@ -81,7 +81,7 @@
         // A step button never spends. Ask before telling, where the clue can
         // pose the question; open the step at once where that costs nothing
         // (a solved clue, a piece whose letters are printed in the clue);
-        // otherwise make it the current step, for "Show me" in the help bar to
+        // otherwise make it the current step, for the help button to
         // reveal on its two taps. One paid button, always in the same place.
         // Not asked once the clue is solved: the steps have stopped being hints
         // by then and quizzing someone on an answer they already have is a chore.
@@ -128,26 +128,33 @@
     return guessAsk(e, guessing.rung, guessing.step);
   }
 
-  // ---------- the help bar ----------
+  // ---------- the help button ----------
   //
-  // One row under the panel: the help button, Reveal letter, and a
-  // "More" button that holds the rare things (Reveal answer while there are steps left
-  // to show, Report a bad hint, the blog's write-up). The step buttons above
-  // only choose (see setButtons); they never spend.
-  //
-  // The help button is ONE button with two jobs (Paul 11-20, "One button").
-  // While words are picked for the question on the table it reads "Lock in"
-  // and is free: picks never confirm themselves ("Pick, then confirm"), so
-  // this tap is the answer. A right one opens the step as worked out; a wrong
-  // one opens it all the same, simply shown, the way "Show me" shows it, and
+  // One button with two jobs (Paul 11-20, "One button"), and it lives where
+  // the solver is looking: inside the question card, right under the prompt
+  // (Paul, iPad: "Clicking lock in feels weird like it's in a weird place";
+  // he chose the question itself, naming his pick). While words are picked
+  // for the question on the table it reads Lock in “<the picked words>” and
+  // is free: picks never confirm themselves ("Pick, then confirm"), so this
+  // tap is the answer. A right one opens the step as worked out; a wrong one
+  // opens it all the same, simply shown, the way "Just tell me" shows it, and
   // that is what it costs: 1 hint. No red, no "wrong", nothing cleared (Paul
   // 11-20: "I picked the one that just showed the right thing"). With nothing
-  // picked it reads "Show me": the one way to pay for the explanation, which
-  // reveals the CURRENT step on two taps with the armed text on itself.
+  // picked it reads "Just tell me" and its price: the one way to pay for the
+  // explanation, which reveals the CURRENT step on two taps with the armed
+  // text on itself. A family question's chips are their own answer, so it
+  // only ever has "Just tell me".
+  //
+  // A step with no question on the table (Solution, a piece handed over, a
+  // step chosen on the track that has nothing to ask) carries the same button
+  // in its own card, reading "Show me" and its price (nextCardHTML). The help
+  // bar under the panel keeps only Reveal letter and More.
   //
   // The current step, in order: the question on the table; else the step the
   // solver last chose that had no question to ask; else the next piece of an
   // open Pieces step; else the first step not yet open that the tiers allow.
+  // helpTarget is the one decider of it, and of what the button does: the
+  // question card and the step card only draw what tellHTML says for it.
   // `asked` says it is a live question, whose price is the "tell" price
   // (rungCosts) and whose verdict machinery (finishGuess) does the opening.
   //
@@ -189,17 +196,58 @@
     if (!a || a.choices || !guessing) return false;
     return guessing.picked.length > 0;
   }
-  function showMeHTML(e, t) {
+  // The picked words as the clue reads them, shortened with an ellipsis when
+  // the pick is long enough to crowd the button off a phone's width.
+  const LOCK_WORDS_MAX = 26;
+  function pickedWords(a) {
+    const words = guessing.picked.slice().sort((x, y) => x - y)
+      .map((i) => a.tokens[i].text).join(" ");
+    return words.length > LOCK_WORDS_MAX ? words.slice(0, LOCK_WORDS_MAX - 1).trimEnd() + "\u2026" : words;
+  }
+  function tellHTML(e, t) {
     const name = esc(STEP_NAMES[t.rung] || t.rung);
+    const a = t.asked ? currentAsk() : null;
     // Free, so it never arms and carries no data-arm: a free control never warns.
-    if (t.asked && lockReady(currentAsk())) {
+    if (lockReady(a)) {
+      const label = `Lock in \u201C${esc(pickedWords(a))}\u201D`;
       return `<button id="guess-tell" class="small help-show lock-in${
-        nuxPointsCheck(nuxAsk()) ? " walk-point" : ""}" aria-label="Lock in: ${name}">Lock in</button>`;
+        nuxPointsCheck(nuxAsk()) ? " walk-point" : ""}" aria-label="${label}">${label}</button>`;
     }
     const arm = helpArm(t);
     const armed = armedFor(e, arm);
+    const price = rungCosts(e, t.rung, !!t.asked, t.step) ? " \u00b7 1 hint" : "";
+    const text = armed ? ARMED_TEXT : (t.asked ? "Just tell me" : "Show me") + price;
     return `<button id="guess-tell" data-arm="${arm}" class="small help-show${armed ? " arm-cost" : ""}"`
-      + ` aria-label="Show me: ${name}">${armed ? ARMED_TEXT : "Show me"}</button>`;
+      + ` aria-label="${t.asked ? "Just tell me" : "Show me"}: ${name}">${text}</button>`;
+  }
+  // The button's slot: a fixed id so a tap on a clue word can rewrite just the
+  // button (repaintTell) without rebuilding the card around it.
+  const TELL_SLOT_RE = /(<p class="tell-row" id="tell-slot">)[\s\S]*?(<\/p>)/;
+  const tellSlotHTML = (e, t) => `<p class="tell-row" id="tell-slot">${tellHTML(e, t)}</p>`;
+  // The card of a step with no question: the chosen step's panel, or, with
+  // nothing chosen, the next step under the notes. `front` puts it in the
+  // panel in front (a chosen step is the front panel); the other is a plain
+  // card below the notes. Both carry the same button for the same target.
+  function nextCardHTML(e, t, front) {
+    const steps = ladderFor(e);
+    const at = steps.findIndex((s) => s.key === t.rung);
+    return `<div class="${front ? "hint-step guess" : "help-next"}" data-nonask>${
+      at >= 0 ? `<span class="step-label">${at + 1} \u00b7 ${esc(steps[at].label)}</span>` : ""}
+      ${tellSlotHTML(e, t)}</div>`;
+  }
+  function repaintTell() {
+    const e = currentEntry();
+    const slot = $("tell-slot");
+    const t = e && helpTarget(e);
+    if (!slot || !t) return;
+    const html = tellHTML(e, t);
+    slot.innerHTML = html;
+    // The body's remembered markup is what setHTML compares the next render
+    // with, so it takes the same change: a render that comes out as it did
+    // before the pick must still know the button on screen has moved on.
+    const body = $("hint-body");
+    if (body._shown) body._shown = body._shown.replace(TELL_SLOT_RE, (m, a, b) => a + html + b);
+    $("guess-tell").onclick = showMeTap;
   }
   // Opens one step, or the next piece of Pieces, as handed over rather than
   // worked out. Shared by "Show me" and by a step button whose step is free.
@@ -229,8 +277,8 @@
       finishGuess(gradeGuess(a), a);
       return;
     }
-    // The second click of a double-click on "Lock in" lands on the "Show me"
-    // the answer left behind. It is the same gesture, so it starts nothing.
+    // The second click of a double-click on "Lock in" lands on the "Just tell
+    // me" the answer left behind. It is the same gesture, so it starts nothing.
     if (ev && ev.detail > 1 && !armedFor(on, helpArm(t))) return;
     if (t.asked) {
       if (rungCosts(on, t.rung, true, t.step) && !confirmBlock(on, helpArm(t), ev)) return;
@@ -391,40 +439,37 @@
     if (n && !(n.rung === "blocks" && isShown(e, "blocks"))) advanceLadder(e);
   }
 
-  // The help bar, under the panel. Drawn by renderHintPanel from what it
-  // decided (st), and again by paintPicked when a tap on a clue word changes
-  // whether anything is picked: that changes what the one button says, and
-  // nothing else on the row. Handlers re-read the current entry when they
-  // fire (the setHTML rule), so a skipped rewrite keeps working ones.
-  let helpBar = null;   // the st the row was last drawn from
+  // The help bar, under the panel: Reveal letter and "More". Drawn by
+  // renderHintPanel from what it decided (st). Handlers re-read the current
+  // entry when they fire (the setHTML rule), so a skipped rewrite keeps
+  // working ones. The help button (see helpTarget) is not in it: it is in the
+  // question, or in the card of a step with no question.
   function drawHelpBar(e, st) {
-    // The help bar (see helpTarget). Reveal letter is available at any level;
+    // Reveal letter is available at any level;
     // no "(counts against your score)" rider, because the button's own armed
     // text already says "1 hint". Reveal answer stands in the row where there
     // is no step left to show (or no explanation at all), and waits in the
-    // "More" while "Show me" still has something to give. "More" is in the
+    // "More" while the help button still has something to give. "More" is in the
     // markup either way, only hidden: what it holds is never news, and a
     // report being written keeps it open.
     const { key, ann, offerFill } = st;
     // Read now, not from the draw that made st: a repaint after the last letter
-    // must not keep a Show me for a clue that is done.
+    // must not keep a Reveal answer in "More" for a clue that is done.
     const solved = isEntrySolved(e);
     const escape = $("hint-escape");
     if (helpMore && helpMore !== key) helpMore = null;
     const canReveal = canCheck() && !solved;
-    // Solved: "Show me" goes; the steps still shut are free tabs on the track.
+    // Solved: the help button goes; the steps still shut are free tabs on the track.
     const helpT = ann && !solved ? helpTarget(e) : null;
     const fill = offerFill ? fillHTML(e) : "";
     const moreOpen = helpMore === key || !!(report && report.key === key);
     const moreHTML = (helpT ? fill : "") + reportHTML() + blogLinkHTML(e, ann);
-    const escapeHTML = (helpT ? showMeHTML(e, helpT) + " " : "")
-      + (helpT ? "" : fill + (fill ? " " : ""))
+    const escapeHTML = (helpT ? "" : fill + (fill ? " " : ""))
       + (canReveal ? letterBtnHTML(e) + " " : "")
       + `<button id="hx-more" class="ghost small" aria-expanded="${moreOpen}" >${moreOpen ? "Less \u25B4" : "More \u25BE"}</button>`
       + `<div class="help-more"${moreOpen ? "" : " hidden"}>${moreHTML}</div>`;
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = letterTap;
-      if (helpT) $("guess-tell").onclick = showMeTap;
       if (fill) $("hx-entry").onclick = fillTap;
       $("hx-more").onclick = () => {
         const on = currentEntry();
@@ -460,10 +505,6 @@
     if (wheelOn && ak) focusHidden(ak);
     renderHintPanel();
   }
-  function repaintHelpBar() {
-    const e = currentEntry();
-    if (e && helpBar && helpBar.key === entryKey(e)) drawHelpBar(e, helpBar);
-  }
 
   function renderHintPanel() {
     const e = currentEntry();
@@ -473,7 +514,6 @@
       // A square only an unclued light covers has no clue to hint at, but it
       // still has the escape hatch.
       const light = currentLight();
-      helpBar = null;
       drawWheelToggle(false);
       if (!light) { panel.classList.add("hidden"); return; }
       panel.classList.remove("hidden");
@@ -518,7 +558,6 @@
     // say whether they are right: no meter, no ladder, no reveal, no vote.
     if (paperHides()) {
       guessing = null;
-      helpBar = null;
       drawWheelToggle(false);
       arrivedAt = key;
       setHTML($("hint-clue"), clueLine + pickableClueHTML(holder, null, [], null));
@@ -654,7 +693,8 @@
         // now the one in front (carriedResultHTML).
         const carried = lastGuess ? carriedResultHTML(lastGuess,
           lastGuess.rung === "blocks" ? "That piece" : STEP_NAMES[lastGuess.rung] || lastGuess.rung) : "";
-        const q = carried + guessHTML(ask, at + 1, steps[at].label, holder === e, fm);
+        const q = carried + guessHTML(ask, at + 1, steps[at].label, holder === e, fm,
+          tellSlotHTML(e, helpTarget(e)));
         pendingHTML += hintFocus === "guess" ? `<div id="hint-focus">${q}</div>` : q;
       }
 
@@ -731,12 +771,15 @@
     const wheelOpen = wheelOn === key && !solved;
     if (wheelOpen) pendingHTML += wheelHTML(e, ann);
     else if (chosen && !ask) {
-      // A step chosen on the track that has no question to ask: its panel says
-      // what the help button will do, since there is no note to read yet.
-      pendingHTML += `<div class="hint-step guess"><span class="step-label">${ladderFor(e).findIndex((s) => s.key === chosen.key) + 1} · ${esc(chosen.label)}</span>
-        <p>Tap <strong>Show me</strong> to open this step.</p></div>`;
+      // A step chosen on the track that has no question to ask: its panel is
+      // its card, with the help button in it, since there is no note to read yet.
+      pendingHTML += nextCardHTML(e, helpTarget(e), true);
     }
     if (pendingHTML) bodyHTML += `<div class="hint-pending" role="tabpanel"${pendingFront ? "" : " hidden"}>${pendingHTML}</div>`;
+    // No question and no chosen step: the current step still has its button,
+    // in a card of its own under the notes (the only place it is drawn).
+    const tellT = ann && !solved && !ask && !chosen ? helpTarget(e) : null;
+    if (tellT) bodyHTML += nextCardHTML(e, tellT, false);
     drawWheelToggle(!solved, wheelOpen);
     // Written last, because whether its words are targets is decided by whether a
     // question ended up being asked. A linked clue is the exception and keeps the
@@ -788,14 +831,13 @@
     const voteWrote = setHTML($("hint-vote"),
       solved && ann ? voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really") : "");
 
-    // The help bar (see drawHelpBar), remembered so a word picked in the clue
-    // can turn its one button between "Show me" and "Lock in" without a
-    // whole-panel redraw (see paintPicked).
-    helpBar = { key, ann, solved, offerFill };
-    drawHelpBar(e, helpBar);
+    drawHelpBar(e, { key, ann, solved, offerFill });
 
     if (!bodyWrote && !clueWrote && !voteWrote) return;
 
+    // The help button is in the body (the question or a step's card), so it is
+    // bound with the body's other controls: a rewrite replaced it.
+    if ($("guess-tell")) $("guess-tell").onclick = showMeTap;
     if (ask && ask.choices) {
       ask.choices.forEach((c, i) => {
         $("gc-" + i).onclick = () => {
@@ -818,7 +860,7 @@
           if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
           // Repainted in place, exactly as a drag across the same words already
           // is. A tap changes which words are lit and whether the help button
-          // reads "Lock in" or "Show me", and nothing else on the page says either — so rebuilding
+          // reads Lock in or "Just tell me", and nothing else on the page says either — so rebuilding
           // the panel to report it would mark the clue up again, rewrite three
           // blocks of HTML and rebind every word, under the finger that had
           // just tapped. On a phone that is long enough to read as a tap that

@@ -335,9 +335,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     return true;
   };
   const asking = () => isAsking(registry["hint-body"]);
-  // A real question: a step chosen with nothing to ask draws a "Tap Show me"
+  // A real question: a step chosen with nothing to ask draws a "Show me" card
   // panel under the same marker, which hands nothing over.
-  const questioned = () => asking() && !registry["hint-body"].innerHTML.includes("to open this step.</p>");
+  const questioned = () => asking() && !registry["hint-body"].innerHTML.includes("data-nonask");
   const climbToBlocks = () => {
     for (let i = 0; i < 8; i++) {
       const open = registry["hint-rungs"].children.filter((b) => !b.disabled && b.onclick);
@@ -554,8 +554,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     // Every question type has the one help button and no confirm step (the type
     // question's own check is in type_rung.js, the pieces' in blocks_rung.js).
     assert(!/guess-check|Check my answer/.test(panelHTML() + registry["hint-escape"].innerHTML)
-      && /id="guess-tell"/.test(registry["hint-escape"].innerHTML),
-      `${re}: the question has one help button and no Check my answer: ` + registry["hint-escape"].innerHTML);
+      && /id="guess-tell"/.test(registry["hint-body"].innerHTML)
+      && !/id="guess-tell"/.test(registry["hint-escape"].innerHTML),
+      `${re}: the question has one help button, in the question, and no Check my answer: ` + registry["hint-body"].innerHTML);
     return (panelHTML().match(/class="guess-clue ask[^"]*"/) || [""])[0];
   };
   const defPick = pickClass(/definition/i), indPick = pickClass(/indicator/i);

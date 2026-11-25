@@ -74,7 +74,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
   const helpBtn = () => press.registry["guess-tell"];
   if (pulsing.length && helpBtn()) {
     assert(!/walk-point/.test(helpBtn().className || "") && !/Lock in/.test(helpBtn().textContent || ""),
-      "nothing is picked yet, so the help button is still Show me and holds no pulse");
+      "nothing is picked yet, so the help button is still Just tell me and holds no pulse");
     pulsing.forEach((id) => press.registry[id].onclick());
     assert(/Lock in/.test(helpBtn().textContent || "") && /walk-point/.test(helpBtn().className || ""),
       "once the lit words are picked the one help button reads Lock in and takes the pulse: "
@@ -119,7 +119,7 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
     // newest puzzle can be, is not finished by the rung press alone).
     const lead = ((press.registry["hint-rungs"].children[0] || {}).textContent || "");
     if (/Full walkthrough|Reveal/.test(lead) && press.registry["guess-tell"]
-        && /id="guess-tell"/.test(press.registry["hint-escape"].innerHTML)
+        && /id="guess-tell"/.test(press.registry["hint-body"].innerHTML)
         && !/Full walkthrough|Reveal|Lock in/.test(press.registry["guess-tell"].textContent || "")) {
       press.registry["guess-tell"].onclick();
       continue;

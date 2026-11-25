@@ -625,8 +625,8 @@ registry["reset-puzzle"].onclick();
   assert(tabs.length && tabs.every((b) => /\bavail\b/.test(b.className || "") && !b.disabled),
     "solving leaves every step as a free tab: " + registry["hint-track"].children.map((b) => b.className + ":" + b.textContent).join(" | "));
   const bar = registry["hint-escape"].innerHTML;
-  assert(!/id="guess-tell"|id="hx-how"|data-arm|arm-cost|1 hint/.test(bar),
-    "and nothing in the help bar costs: " + bar);
+  assert(!/id="guess-tell"|id="hx-how"|data-arm|arm-cost|1 hint/.test(bar + registry["hint-body"].innerHTML),
+    "and nothing in the help bar or the panel costs: " + bar);
   assert(!/hint-step/.test(registry["hint-body"].innerHTML), "nothing opens by itself on a cold solve");
 
   // Read the lot, walkthrough included, tab by tab, and the score must not move.

@@ -94,13 +94,13 @@ function isAsking(body) {
 // guessing itself is tested at the end, on its own.
 //
 // The Pieces step is the formula line: one blank chip is current and the one
-// help button ("Show me", two taps when it costs) fills just that chip. There is
+// help button ("Show me" on a piece with no question, two taps when it costs) fills just that chip. There is
 // no "next piece" button, so a climb that wants the walkthrough has to settle
 // every chip, which is what settleOpen does after the rung is opened.
 const blankChips = () => (registry["hint-body"].innerHTML.match(/data-piece="\d+"/g) || []).length;
 function pressShowMe() {
   const b = registry["guess-tell"];
-  if (!b || !b.onclick || !/id="guess-tell"/.test(registry["hint-escape"].innerHTML)) return false;
+  if (!b || !b.onclick || !/id="guess-tell"/.test(registry["hint-body"].innerHTML)) return false;
   b.onclick();
   confirmArmed();
   return true;

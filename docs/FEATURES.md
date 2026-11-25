@@ -10,13 +10,15 @@ the site offers.
   question first. The indicator, definition and building-blocks rungs ask
   "which words?", and you answer by tapping words in the clue. The type rung
   offers the seven clue families to pick from. Picks never confirm
-  themselves. One button in the help bar under the panel does both jobs: with
-  words picked it reads "Lock in" and is free; with nothing picked it reads
-  "Show me", costs 1 hint and takes two taps (there is no "Check my answer" and
+  themselves. One button, inside the question right under its prompt, does
+  both jobs: with words picked it reads Lock in “<the picked words>” and is
+  free; with nothing picked it reads "Just tell me · 1 hint" and takes two taps
+  (a family question has only "Just tell me", since a chip is its own answer;
+  there is no "Check my answer" and
   no "Skip for now", picking another step is the skip). A right Lock in opens
   the step as worked out, with the green verdict, and moves on to the next
   question, which opens with a "✓ Definition: right" line so the result is never
-  lost behind the tab. A wrong Lock in opens it as Show me does and costs 1
+  lost behind the tab. A wrong Lock in opens it as Just tell me does and costs 1
   hint: no miss marks and no red, only a plain "Not quite — this is the right
   one." line over the step (and "Definition: not quite" on the next question
   picked); a wrong clue family has no "Not X" line. A wrong piece followed by a
@@ -28,12 +30,12 @@ the site offers.
 - **The ladder is tiers, not a chain.** The three spotting rungs (indicators,
   definition, type) can be taken in any order. The building blocks and the
   walkthrough stay locked until the spotting rungs are up. The hint buttons are a step track of chips (Indicator, Definition, Clue type, Pieces, Solution): open, worked out (star), available or dim.
-  Tapping a chip only chooses the step; the help bar button ("Show me") is what reveals it. In Pieces, the formula line is the question: tap a blank chip to make it current, tap clue words and Lock in, or Show me fills just that chip.
+  Tapping a chip only chooses the step; the same button, reading "Show me · 1 hint" in that step's own card when it has no question (Solution, a piece handed over), is what reveals it. In Pieces, the formula line is the question: tap a blank chip to make it current, tap clue words and Lock in, or Just tell me fills just that chip.
 - **One clue on the phone.** On a phone the selected clue is pinned to the top of the screen above the grid, so it stays in view and tappable (its words are the picker) while you scroll the grid and hints, and with the keyboard up. Tapping it never raises or drops the keyboard. Wider screens keep the clue in the hint panel.
 - **One letter wheel per clue.** A "Letters" toggle beside the answer boxes opens one wheel on any unsolved clue, whatever its type, and is never a hint. It opens empty from the toggle, or dealt with the fodder on its own when Pieces shows a whole-answer anagram (a part-anagram deals nothing), and it replaces the question at the end of the hint body. While it is open the clue's own words are its picker. Crossing off every tile of a dealt wheel finishes Pieces.
 - **Solving the clue unlocks every rung for free.** Every step stays on the tab bar;
   the ones not yet open are free tabs (no red, no cost text) that open with one tap.
-  "Show me" leaves the help bar. Whatever was open stays open, nothing opens by
+  The help button goes. Whatever was open stays open, nothing opens by
   itself, and the "Good clue?" vote sits under it.
 - **The indicator and type rungs end on a rule chip.** Tapping the small "rule"
   chip at the end of the rung opens a line that says
@@ -48,8 +50,9 @@ the site offers.
 
 - **Reveal letter** is available at any time. It does not advance the
   ladder, but it costs one hint, like every paid button ("Tap again · 1 hint").
-- **One help bar** under the panel holds "Lock in" / "Show me", Reveal letter, Letters and
-  a "…" with Reveal answer, Report a bad hint and the blog link.
+- **One help bar** under the panel holds Reveal letter, Letters and
+  a "…" with Reveal answer, Report a bad hint and the blog link. The help
+  button ("Lock in" / "Just tell me" / "Show me") is in the question or step it acts on.
 - **Report a bad hint** is on every clue: two taps and a sentence, with the
   puzzle and clue filled in for you.
 - A **menu** ("…" on the puzzle's title row) holds the rarely used controls,

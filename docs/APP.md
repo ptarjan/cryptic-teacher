@@ -61,7 +61,7 @@ Terms used below:
   step, heavier outline) or locked (dim, "– Name"). `#hint-meter` now holds
   only the blog badge. `#hint-next` is empty (no Next building block button): the Pieces formula's blank chips are the question. Tests read
   the old row shape through `registry["hint-rungs"]` in `tools/fake_dom.js`
-  (a chip tap that only chose a step is followed by "Show me", and Reveal
+  (a chip tap that only chose a step is followed by the help button, and Reveal
   answer is appended from the help bar).
 - **One clue on the phone** (hints redesign step 9). At width 700px or less
   `#hint-clue` is moved out of `#hint-panel` to sit just before `#grid-wrap` in
@@ -78,13 +78,21 @@ Terms used below:
   open ones are tabs as before; each one still shut is a free `avail` tab whose
   tap goes through `openStep` (no question, no `data-arm`, no cost text: a
   solved clue's hint count is frozen, `hintsCharged`) and becomes the selected
-  tab. The help bar's "Show me", Reveal letter and Letters go. Nothing opens
+  tab. The help button, Reveal letter and Letters go. Nothing opens
   before a tap and what was open stays open. The "Good clue?" vote (`#hint-vote`) sits
   under the bar. The save format is unchanged.
-- **One help bar** (`#hint-escape`, a wrapping row under the panel): one help
-  button `#guess-tell` (accent colour), Reveal letter, Letters and a "More". While
-  words are picked (or a board is full) it reads "Lock in": free, no `data-arm`.
-  With nothing picked it reads "Show me", the only way to pay for the
+- **One help button** (`#guess-tell`, accent colour, drawn by `tellHTML` and
+  decided by `helpTarget`, app-paint.js). It sits in `#tell-slot` inside the
+  question card, right under the prompt (`guessHTML`'s `tell` argument), or,
+  for a step with no question (Solution, a piece handed over, a step chosen on
+  the track), in that step's card (`nextCardHTML`: the chosen step's panel
+  carries `data-nonask`, else a `.help-next` card under the notes). A tap on a
+  clue word rewrites only the slot (`repaintTell`). The help bar (`#hint-escape`,
+  a wrapping row under the panel) holds only Reveal letter, Letters and a "More".
+  While words are picked it reads Lock in “<picked words>” (truncated, escaped):
+  free, no `data-arm`. A family question never has a Lock in. With nothing
+  picked it reads "Just tell me · 1 hint" in a question and "Show me · 1 hint"
+  in a step's card (no price when free), the only way to pay for the
   explanation: it reveals the current step (the question on the table, else the
   chosen step, else the next piece, else the first open tier) and a paid one
   takes two taps ("Tap again · 1 hint"; `data-arm` is `<rung>-tell` for a live
@@ -92,10 +100,10 @@ Terms used below:
   default, so arming shows only through `data-arm` or twoTap boots. There is no
   "Check my answer" (`#guess-check` is gone) and no "Skip for now": choosing
   another step is the skip. A right Lock in (`finishGuess`) opens the step as
-  worked out with the green verdict; a wrong one opens it as Show me does and
+  worked out with the green verdict; a wrong one opens it as a tell does and
   costs 1 hint, with no marked clue copy, no red and no "Not X" line for a
   wrong clue family, only a plain `.step-result.miss` "Not quite — this is the
-  right one." over the step. Every lock-in is kept in `lastGuess` (Show me
+  right one." over the step. Every lock-in is kept in `lastGuess` (a tell
   clears it), and the next question's panel opens with
   `carriedResultHTML`: "✓ <Step>: right" or "<Step>: not quite — the right one
   is under its tab", because a right answer moves straight on and its verdict
@@ -114,7 +122,7 @@ Terms used below:
   `blocksCost` in `app.js` decides: the group is unsolved, and the tap either
   opens the blocks rung outright (no question to answer first) or is "Show
   me" on a blocks question that opens the rung or takes back one already
-  earned. The first such tap relabels "Show me" "Tap again · 1 hint" in
+  earned. The first such tap relabels the help button "Tap again · 1 hint" in
   red (every paid button says the same); the same button again reveals. A click elsewhere, focus
   moving away, or 4 seconds puts it back. Free taps (a question to answer, a
   rung already paid for, a solved clue) stay one tap.
@@ -366,7 +374,7 @@ Terms used below:
   solved. It never advances the ladder but is one hint like any other: it counts
   in the scorebar ("Solved 12/28 clues · 7 with no hints · 9 hints"),
   the finish tally and the by-clue-type recap, and there is no separate letters
-  figure. The other paid words are "Show me" (a question's reveal) and "Reveal
+  figure. The other paid words are "Just tell me" / "Show me" (a step's reveal) and "Reveal
   answer"; a step you got yourself is
   "worked out".
 - **Live letter pattern.** The hint panel shows the selected entry's letters
@@ -868,5 +876,5 @@ The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
 - The same "look it up" rule applies to data: `tools/series.py` is the only
   source of truth for what a series is.
 
-- **Pieces is the formula.** One blank chip in the formula is current; tapping a different blank chip makes it current and never spends. The solver taps clue words and uses the one help button ("Lock in" free while words are picked, "Show me" two-tap when none), which fills that one chip. A wrong Lock in opens the piece showing the right words and counts 1 hint, nothing red. There is no matching form and no paying by tapping a chip. A piece whose letters are printed in the clue stays free.
+- **Pieces is the formula.** One blank chip in the formula is current; tapping a different blank chip makes it current and never spends. The solver taps clue words and uses the one help button (Lock in “<picks>” free while words are picked, "Just tell me" two-tap when none), which fills that one chip. A wrong Lock in opens the piece showing the right words and counts 1 hint, nothing red. There is no matching form and no paying by tapping a chip. A piece whose letters are printed in the clue stays free.
 - **One letter wheel per clue.** The "Letters" toggle sits beside the answer boxes (`#hx-wheel`) on every unsolved clue, whatever its type, and is never a hint. The wheel is one `ring` state per clue (`wheelOn` names the open clue; `wheelDealt` is memory only). It opens empty from the toggle, or dealt with the fodder (`wheelFodder`: whole-answer anagram of 4+ letters, never a part-anagram) when Pieces shows a full anagram; it replaces the question at the end of the hint body. While it is open the clue's own words are its picker (`<button class="gw" data-aw>`). Crossing off every tile of a dealt wheel finishes Pieces.
