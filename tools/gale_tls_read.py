@@ -1287,18 +1287,8 @@ def no_lists_why(words):
 
 def pick_grid(boxes, reader, pads=(6, 0.08)):
     """(box, grid, None) of the first of `boxes` whose `reader(box, pad)` reads a 15x15 lattice, else
-    (None, None, why of the first refusal)."""
-    first = None
-    for box in boxes:
-        for pad in pads:
-            g, why = reader(box, pad if pad >= 1 else int(pad * (box[2] - box[0])))
-            if g and len(g) in SIZES:
-                return box, g, None
-            if first is None:
-                first = why if not g else f"the grid on the page is {len(g)}x{len(g)}, not a TLS's"
-            if g:
-                break
-    return None, None, first
+    (None, None, why of the first refusal): gale_jumbo_read.pick_grid with this paper's SIZES."""
+    return jr.pick_grid(boxes, reader, pads, SIZES, "a TLS's")
 
 
 #: The widths (pixels, inside the patch's edge) of the rule drawn on a grid patch's edge, thinnest first.

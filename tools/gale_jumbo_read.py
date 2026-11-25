@@ -463,18 +463,19 @@ def grid_box(img):
 JUMBO_SIZES = (23, 27)
 
 
-def pick_grid(boxes, reader, pads=(6, 0.08)):
+def pick_grid(boxes, reader, pads=(6, 0.08), sizes=JUMBO_SIZES, whose="a Jumbo's"):
     """(box, grid, None) of the first of `boxes` (largest first) whose `reader(box, pad)` ((grid, why)) reads a
-    Jumbo-sized lattice, each tried with every pad (pixels, or a share of the box's width: a box cut short of the
+    lattice of one of `sizes` (a Jumbo's by default; gale_tls_read passes its own, `whose` naming the puzzle in the
+    refusal of another size), each tried with every pad (pixels, or a share of the box's width: a box cut short of the
     lattice reads "larger than the frame" until it is widened); else (None, None, why of the first refusal)."""
     first = None
     for box in boxes:
         for pad in pads:
             g, why = reader(box, pad if pad >= 1 else int(pad * (box[2] - box[0])))
-            if g and len(g) in JUMBO_SIZES:
+            if g and len(g) in sizes:
                 return box, g, None
             if first is None:
-                first = why if not g else f"the grid on the page is {len(g)}x{len(g)}, not a Jumbo's"
+                first = why if not g else f"the grid on the page is {len(g)}x{len(g)}, not {whose}"
             if g:
                 break  # a smaller lattice reads the same at any pad
     return None, None, first
