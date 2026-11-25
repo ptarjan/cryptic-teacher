@@ -3,7 +3,7 @@
 // Part of tools/smoke_test.js: required in order, on the harness' shared object.
 "use strict";
 const T = require("./harness");
-const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, shape, stripTags } =
+const { assert, clueText, confirmArmed, entryId, isAsking, panelHTML, pickerRowFor, registry, shape, stripTags } =
   T;
 // --- a numerical puzzle takes digits ---
 // Listener No 111 (`numeric: true`): every light is a number. The grid takes
@@ -163,7 +163,11 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   // apostrophe is on screen as &#39; -- compare what the reader sees, not the source.
   const onScreen = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  // A step button only chooses the step; the card it brings up has the one help
+  // button, which opens it (and takes a second tap when the step costs a hint).
   walk.onclick();
+  reg["guess-tell"].onclick();
+  confirmArmed();
   const shown = reg["hint-body"].innerHTML;
   assert(shown.includes(onScreen(entry.annotation.explanation.walkthrough.slice(0, 40))),
     "the walkthrough is on screen after the click");

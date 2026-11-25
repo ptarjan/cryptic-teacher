@@ -122,13 +122,13 @@ function takeRung(btn) {
 }
 // A step that costs a hint takes a second tap: the first only arms the button
 // and relabels it. This makes the second tap, on whichever button is armed
-// (a rung in the row, or the help button), so the lazy climbs below still buy
+// (a rung in the row, or the help button in the panel's card), so the lazy climbs below still buy
 // their rung.
 const ARMED = /^Tap again · 1 hint$/;
 function confirmArmed() {
   const row = registry["hint-rungs"].children.find((b) => ARMED.test(b.textContent || ""));
   if (row) return row.onclick(), true;
-  if (/id="guess-tell"[^>]*arm-cost/.test(registry["hint-escape"].innerHTML) && registry["guess-tell"])
+  if (/id="guess-tell"[^>]*arm-cost/.test(registry["hint-escape"].innerHTML + registry["hint-body"].innerHTML) && registry["guess-tell"])
     return registry["guess-tell"].onclick(), true;
   return false;
 }

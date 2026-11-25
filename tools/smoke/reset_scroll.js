@@ -546,6 +546,12 @@ registry["reset-puzzle"].onclick();
   // from the guard being off, as a reader who has stopped tapping actually would.
   for (let i = 0; i < 4; i++) global.flushTimers(10000);
 
+  // The app only reclaims a keyboard that is actually on screen (keyboardUp), so
+  // this section puts one up, the way the earlier ones do, and takes it away at the end.
+  const vv = win.visualViewport;
+  vv.raiseKeyboard(400);
+  global.flushTimers(10000);
+
   // A real scroll past the threshold drops the keyboard.
   document.activeElement = kbd;
   userScroll(0);        // the first tick only learns where the scroll started
@@ -588,6 +594,7 @@ registry["reset-puzzle"].onclick();
     "the app's own scroll to the hint panel must not blur the input being typed into");
   global.flushTimers(10000);   // let the confirm settle before the next test section
   panel.layout(0, 0);
+  vv.height = 1000; vv.offsetTop = 0;
   document.activeElement = null;
 }
 
