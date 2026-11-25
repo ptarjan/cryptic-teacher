@@ -283,13 +283,13 @@ ANCHOR_FIX = 2
 #: 1978-01-08 (eight Sundays missing, seven falls: which one is only a gap in the list is unknown, 89 pages print no
 #: number; ANCHOR_FIX 2: 1977-02-13..06-19 at -126, the stretch whose first, middle and last own titles ("MEPHISTO No. 923 Across", 930, 941) three readers each
 #: (the page-sized OCR and the title line cut out at 3x by the fine-tuned and the stock model) spell at -126, no page in it (or before the next fall) printing
-#: a number above that offset, and no Sunday missing from the list inside it), 1979-12-23 to 1980-03-23 (-180 or -181: the page of 1980-03-23 and the pages after it disagree by one).
+#: a number above that offset, and no Sunday missing from the list inside it), 1979-12-23 to 1980-03-23 (-180 or -181: the page of 1980-03-23 and the pages after it disagree by one). ANSWERS_FIX: 1980-03-23's -180 holds to 1981-04-19 (34 pages' entry forms "Solutions addressed to Mephisto Crossword N" give -180, one -181; the -181 was each page's title over LAST week's answers), the offset falling over the Sunday 1981-04-26 the list lacks.
 ANCHOR_BRIDGES = (
     ("1965-09-27", "1965-12-19", -110), ("1966-01-02", "1966-10-08", -111), ("1967-01-01", "1967-01-28", -112),
     ("1969-04-06", "1969-04-19", -112), ("1969-05-25", "1969-06-01", -115), ("1970-12-14", "1970-12-26", -115),
     ("1971-01-03", "1971-01-09", -116), ("1971-11-15", "1971-12-25", -116), ("1971-12-27", "1972-01-08", -117),
     ("1973-11-26", "1974-01-12", -117), ("1978-01-01", "1978-03-25", -128), ("1978-04-09", "1978-11-26", -130),
-    ("1979-11-18", "1979-12-22", -180), ("1980-03-30", "1981-05-16", -181),
+    ("1979-11-18", "1979-12-22", -180), ("1980-03-30", "1981-04-19", -180), ("1981-05-03", "1981-05-16", -181),
     ("1977-02-13", "1977-06-19", -126),
 )
 
@@ -351,8 +351,42 @@ def printed_numbers(text):
         for m in rx.finditer(text):
             if not any(a <= m.start() < b for a, b in taken):
                 taken.append(m.span())
-                out.append(int(m.group(1)))
+                # ANSWERS_FIX: a title heading the answers (wordplay notation follows) is last week's puzzle: own is one more.
+                out.append(int(m.group(1)) + (rx is PRINTED_TITLE and answers_follow(text[m.end():])))
     return out
+
+
+#: Wordplay notation a solutions column prints and a clue list does not: "NO-anag.-SCRIPT", "AIR-PORT", "Two mngs.",
+#: "LEVER rev.", "hidden".
+ANSWER_NOTATION = re.compile(r"\banag\b|\brev\b|\bmngs?\b|\bhidden\b|\b[A-Z]{2,}[-.][A-Z.]{2,}|\b[A-Z]{2,}-[a-z]{1,4}\b")
+#: "Across" straight after the number: a heading over a column (the entry form's "Mephisto Crossword No 721, THE SUNDAY"
+#: has none), however the OCR garbles the word.
+ACROSS_HEAD = re.compile(r"\W{0,3}a\w{3,6}s\b", re.IGNORECASE)
+#: How far after a title heading the notation is looked for (the heading stands over the first lines of the answers).
+ANSWERS_WINDOW = 120
+#: Bumped when printed_numbers takes a title over answers for last week's: tools/data/mephisto_answers_title.json names
+#: the pages whose number that changes, read again once.
+ANSWERS_FIX = 1
+ANSWERS_FILE = ROOT / "tools" / "data" / "mephisto_answers_title.json"
+_ANSWERS_NAMES = None
+
+
+def answers_follow(rest):
+    """Whether the text just after a "Mephisto Crossword No N Across" heading is a solutions column (wordplay
+    notation within ANSWERS_WINDOW characters of its Across), so that N is the puzzle the answers solve, last week's."""
+    head = ACROSS_HEAD.match(rest)
+    return bool(head and ANSWER_NOTATION.search(rest[head.end():head.end() + ANSWERS_WINDOW]))
+
+
+def answers_names():
+    """The bare GALE_*.pdf names whose number ANSWERS_FIX changes (a committed list nothing writes)."""
+    global _ANSWERS_NAMES
+    if _ANSWERS_NAMES is None:
+        try:
+            _ANSWERS_NAMES = frozenset(json.loads(ANSWERS_FILE.read_text()))
+        except (OSError, ValueError):
+            _ANSWERS_NAMES = frozenset()
+    return _ANSWERS_NAMES
 
 
 def printed_offset(day, text, titled=None, near=()):
@@ -632,6 +666,9 @@ def read_done(row, done=None):
             and not row.get("refused") and not row.get("failed") and row.get("file") in heading_gap_names():
         # Read with the wrapped lists' cut stopped at the gap before the Across heading under the grid (HEADING_GAP 1):
         # only the pages whose cut the fix changes (tools/data/mephisto_heading_gap.json).
+        return False
+    if row and row.get("answersFix", 0) < ANSWERS_FIX and row.get("file") in answers_names():
+        # Numbered from a title over last week's answers, one low (ANSWERS_FIX 1): only the pages the fix renumbers.
         return False
     if row and row.get("riseFix", 0) < RISE_FIX and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and "1960" <= (row.get("date") or "9") < "1980" \
@@ -2457,7 +2494,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
-                "headingGap": HEADING_GAP, "riseFix": RISE_FIX}, store)
+                "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "answersFix": ANSWERS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

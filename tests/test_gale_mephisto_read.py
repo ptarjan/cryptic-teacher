@@ -63,6 +63,25 @@ check("printed title number", [826], gm.printed_numbers("Mophisto Crosaword No 8
 check("last week's solution plus one, the entry form's own", [1122, 1122],
       gm.printed_numbers("SOLUTION TO MEPHISTO 1121 -Selenic and solutions to Mophiste 1122, The Times"))
 check("a Times crossword number is not a Mephisto's", [], gm.printed_numbers("CROSSWORD 2907 SOLUTION TO CROSSWORD 2907"))
+# ANSWERS_FIX: a "Mephisto Crossword No N Across" heading over wordplay answers is last week's solutions (1973-01-28
+# printed "No 720 Across 1 NO-anag.-SCRIPT 10 EGO-S-T" over the entry form for 721): own is one more.
+check("a title over the answers is last week's: own is one more", [721],
+      gm.printed_numbers("Mephisto Crosaword No 720 Across ni pT | 1 NO-anag.-SCRIPT 10 EGO-S-T 11 RAM.ROD"))
+check("a title over its clues is the page's own", [826],
+      gm.printed_numbers("Mophisto Crosaword No 826 Across 1 Device to prevent a vehicle running backward (5) 9 Cover (4)"))
+check("the answers' title and the entry form agree", [720, 720],
+      gm.printed_numbers("Mephisto Crossword No 719 Across 1 PROPER. TIES 10 Two mngs. Solutions addressed to Mephisto Crossword No 720"))
+check("answers_follow sees hyphenated caps", True, gm.answers_follow(" Across THOROUGH AS'S 1 THOROUGH-BASS 9 LEVER rev."))
+check("answers_follow is not fooled by a clue list", False, gm.answers_follow(" Across 1 Judges come and go (4) 29 Cover for the return of currency (4)"))
+check("the narrow stamp names the changed pages", True, "GALE_FP1802194031.pdf" in gm.answers_names())
+check("a named page read before ANSWERS_FIX is due", False,
+      gm.read_done({"file": "GALE_FP1802194031.pdf", "number": 720, "version": gm.VERSION, "whole": True}))
+check("a named page at ANSWERS_FIX stands", True,
+      gm.read_done({"file": "GALE_FP1802194031.pdf", "number": 721, "version": gm.VERSION, "whole": True, "answersFix": gm.ANSWERS_FIX}))
+check("an unnamed page is not due for ANSWERS_FIX", True,
+      gm.read_done({"file": "GALE_FP0000000000.pdf", "number": 720, "version": gm.VERSION, "whole": True}))
+check("1980-04-06 (entry form 1033) is at -180", 1033 - gm.week(D(1980, 4, 6)), gm.run_offset(D(1980, 4, 6)))
+check("1981-05-03 falls to -181 after the missing 1981-04-26", -181, gm.run_offset(D(1981, 5, 3)))
 o = 826 - gm.week(d75)
 check("one printed number alone is not sure", (o, False), gm.printed_offset(d75, "Mophisto Crosaword No 826", gap))
 check("a near page with the same offset makes it sure", (o, True), gm.printed_offset(d75, "Mophisto Crosaword No 826", gap, {o}))
