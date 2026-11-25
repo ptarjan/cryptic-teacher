@@ -26,14 +26,17 @@ esac
 bash tools/bg_job.sh wait probe || full "the build path probe died"
 verdict=$(cat "$RUNNER_TEMP/probe/verdict" 2>/dev/null) || full "the build path probe left no verdict"
 base=$(cat "$RUNNER_TEMP/probe/base" 2>/dev/null || true)
-# The probe's verdict only says what moved since the live commit.
-# What makes the slices and shards worth running is a cold store,
-# and the stores say that themselves (cache_warmth.py), whatever
-# moved: a renumbered puzzle (a deleted file plus an added one) or a
-# workflow edit does not send a build down the full path, whose nine
-# shard steps each spend ~27s loading the stores to reuse nearly
-# every page. Only the plain puzzle push skips
-# the check, since nothing the stores are keyed on moved.
+# The probe's verdict only says what moved since the live commit. That
+# is not what makes the build cheap: the stores are. They are saved
+# only after a big re-render, so they can be older than the live commit
+# and keyed on code that moved in between: the diff can be one puzzle
+# while a template change sits between the stores and the live commit,
+# and every page then renders in one step. So the stores are asked
+# every time (cache_warmth.py: their rows and page fingerprint against
+# this checkout's code), whatever moved, and only a cold one sends the
+# build down the full path with its nine shards. A renumbered puzzle or
+# a workflow edit does not, since the shards would spend ~27s each
+# loading stores that fit.
 why=""
 case "$verdict" in
   fast) ;;
@@ -41,13 +44,11 @@ case "$verdict" in
   full\ *) why="${verdict#full }" ;;
   *) why="$verdict" ;;
 esac
-if [ -n "$why" ]; then
-  echo "not a plain puzzle push: $why"
-  # seo-pages-<page fingerprint>-<sha>; an older key carries none.
-  fp=$(printf '%s' "$PAGEKEY" | sed -nE 's/^seo-pages-([0-9a-f]{64})-[0-9a-f]{40}$/\1/p')
-  warmth=$(python3 tools/cache_warmth.py "$fp")
-  [ "$warmth" = warm ] || full "$why, and the stores are $warmth"
-  echo "the row and page stores fit this code"
-fi
+[ -z "$why" ] || echo "not a plain puzzle push: $why"
+# seo-pages-<page fingerprint>-<sha>; an older key carries none.
+fp=$(printf '%s' "$PAGEKEY" | sed -nE 's/^seo-pages-([0-9a-f]{64})-[0-9a-f]{40}$/\1/p')
+warmth=$(python3 tools/cache_warmth.py "$fp")
+[ "$warmth" = warm ] || full "${why:-only puzzle files moved}, and the stores are $warmth"
+echo "the row and page stores fit this code"
 echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/probe/puzzles.txt" 2>/dev/null || echo 0) puzzle file(s) since ${base:-?}"
 echo "fast=true" >> "$GITHUB_OUTPUT"

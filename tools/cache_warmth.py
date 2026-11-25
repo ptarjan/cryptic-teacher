@@ -12,8 +12,8 @@ PAGE_FINGERPRINT is the fingerprint (tools/page_cache.py) the restored page
 store was saved under: Save the puzzle pages puts it in the cache key, and the
 build reads it back from the key it matched ('' when that key carries none).
 
-The build asks this when tools/ci_scope.py answers "code": nothing but puzzle
-data and tools/*.py modules moved since the live commit. The puzzle fast path
+The build asks this on every push, whatever tools/ci_scope.py answered: the stores
+can lag the live commit, so what moved since it does not say. The puzzle fast path
 skips only warm-up (the row-cache slices and the page shards), never a
 decision, so it is right whatever the code did; it is slow only when the code
 the stores are keyed on moved, because then the reindex re-makes every row in
