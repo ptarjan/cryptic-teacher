@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,49 @@
     "text": "Distinguished scientist has woman in extremes of excitement",
     "enumeration": "6"
    },
-   "solution": "FEVERS"
+   "solution": "FEVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extremes of excitement",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 34,
+       "note": "the woman's name is placed within the scientist's letters, so 'in' marks a container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Distinguished scientist",
+       "at": 0,
+       "gives": "FRS",
+       "note": "FRS, Fellow of the Royal Society, is the title of an eminent British scientist"
+      },
+      {
+       "words": "woman",
+       "at": 28,
+       "gives": "EVE",
+       "note": "Eve, the first woman in Genesis, is the crossword's stock woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eminent researcher finds a woman when things get most heated.",
+     "walkthrough": "'has woman in' tells you FRS holds EVE: F-EVE-RS.",
+     "definitionFit": "A fever, figuratively, is a state of intense nervous agitation or passion, so fevers are peaks of agitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Distinguished"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +89,42 @@
     "text": "Arranged in a hotel something the Savoy often does",
     "enumeration": "8"
    },
-   "solution": "IOLANTHE"
+   "solution": "IOLANTHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something the Savoy often does",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Arranged",
+       "at": 0,
+       "note": "the letters of the three words are put in a new order, so 'Arranged' signals the anagram"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in a hotel",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setup in a smart London hotel that the Savoy is used to staging.",
+     "walkthrough": "The Savoy here is not the hotel but the Savoy Theatre, home of the Gilbert and Sullivan 'Savoy operas'; the hotel reference is a decoy.",
+     "definitionFit": "Iolanthe is a Gilbert and Sullivan comic opera, regularly staged at the Savoy Theatre by the D'Oyly Carte company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Savoy"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +138,59 @@
     "text": "Constant in self since straying? Not showing this",
     "enumeration": "10"
    },
-   "solution": "FICKLENESS"
+   "solution": "FICKLENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not showing this",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "the constant's letter is placed within the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "straying",
+         "at": 23,
+         "note": "the letters of 'self since' wander from their places, so 'straying' signals an anagram"
+        }
+       ],
+       "parts": [
+        {
+         "words": "self since",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "Constant",
+       "at": 0,
+       "gives": "K",
+       "note": "K stands for a constant in science, such as Boltzmann's constant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a steady partner has been wandering since, and notes they lack this quality.",
+     "walkthrough": "'straying' rearranges SELF SINCE into FICLENESS, and 'in' puts K among those letters. The definition leans on the whole clue: a constant person does not show the quality, unlike one who strays.",
+     "definitionFit": "Inconstancy or changeability is exactly what a loyal, steady person fails to display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Constant"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +204,11 @@
     "text": "What McEnroe was prone to leads to nervousness and rancour in his ex-partner",
     "enumeration": "7"
    },
-   "solution": "TANTRUM"
+   "solution": "TANTRUM",
+   "annotationWithheld": {
+    "why": "Parse is N and R (first letters of 'nervousness', 'rancour', indicated by 'leads to') put separately into TATUM (Tatum O'Neal, McEnroe's ex-wife) as TA-N-T-R-UM; the grammar's ins() cannot place two picked letters at two separate points, and the checker crashes on it",
+    "clue": "What McEnroe was prone to leads to nervousness and rancour in his ex-partner"
+   }
   },
   {
    "number": 5,
@@ -86,7 +222,40 @@
     "text": "Girl from Bratislava",
     "enumeration": "4"
    },
-   "solution": "ISLA"
+   "solution": "ISLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 5,
+       "note": "the girl's name is taken out of the city's own letters, so 'from' signals a hidden word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bratislava",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman comes from the Slovak capital.",
+     "walkthrough": "Brat-ISLA-va.",
+     "definitionFit": "Isla is a female first name, popular in Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +269,72 @@
     "text": "Rubber bridge player following a spade in blunder",
     "enumeration": "6"
    },
-   "solution": "ERASER"
+   "solution": "ERASER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rubber",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "the run A, S, E is placed inside the word for blunder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blunder",
+       "at": 42,
+       "gives": "ERR",
+       "note": "to err is to blunder or make a mistake"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "at": 21,
+         "note": "the bridge player comes after 'a spade' in the run of letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 31
+        },
+        {
+         "words": "spade",
+         "at": 33,
+         "gives": "S",
+         "note": "S is the abbreviation for spades in card games"
+        },
+        {
+         "words": "bridge player",
+         "at": 7,
+         "gives": "E",
+         "note": "East, E, is one of the four positions at the bridge table"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a rubber of bridge, a player follows a spade lead and makes a mistake.",
+     "walkthrough": "'Rubber' looks like the bridge term for a set of games; it is the definition. A, S then E ('following') go into ERR.",
+     "definitionFit": "A rubber is a British word for the eraser used to remove pencil marks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rubber"
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +354,39 @@
      }
     ]
    },
-   "solution": "TAKECARE"
+   "solution": "TAKECARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "look after yourself!",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drive",
+       "at": 0,
+       "gives": "TAKECAR",
+       "note": "to take the car is to drive somewhere"
+      },
+      {
+       "words": "East",
+       "at": 6,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parting instruction: drive east, and stay safe.",
+     "definitionFit": "The phrase is a common farewell urging someone to keep safe and mind their own wellbeing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -134,7 +400,45 @@
     "text": "Result of grinding is meal? No, this",
     "enumeration": "8"
    },
-   "solution": "SEMOLINA"
+   "solution": "SEMOLINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Result of grinding is meal? No, this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "grinding",
+       "at": 10,
+       "note": "grinding breaks things into new shapes, so the letters of 'is meal no' are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is meal",
+       "at": 19
+      },
+      {
+       "words": "No",
+       "at": 28
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone asks if what comes out of the mill is meal, and is told it is something else.",
+     "walkthrough": "'grinding' rearranges IS MEAL NO, and the whole clue defines: semolina is what milling durum wheat produces, a coarse product rather than fine meal.",
+     "definitionFit": "Semolina is the coarse, purified wheat middlings left from milling durum wheat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -148,7 +452,43 @@
     "text": "Lewis's partner is back, means to address old villain",
     "enumeration": "6"
    },
-   "solution": "SIRRAH"
+   "solution": "SIRRAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "means to address old villain",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "is back",
+       "at": 16,
+       "note": "the partner's name is read backwards, so 'is back' signals reversal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lewis's partner",
+       "at": 0,
+       "gives": "HARRIS",
+       "note": "Lewis and Harris form a single island in the Outer Hebrides of Scotland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective's sidekick returns, and the detective tries to reach an old crook.",
+     "walkthrough": "Lewis suggests Inspector Morse's sidekick, but here it is the Scottish island of Lewis, joined to Harris.",
+     "definitionFit": "Sirrah is an archaic contemptuous form of address used to a man or boy of lower standing, such as a rogue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lewis's"
+    }
+   }
   },
   {
    "number": 10,
@@ -162,7 +502,61 @@
     "text": "You and I laid back in grass in US city",
     "enumeration": "6"
    },
-   "solution": "NEWARK"
+   "solution": "NEWARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "the reversed pronoun sits inside the word for an informer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grass",
+       "at": 23,
+       "gives": "NARK",
+       "note": "in British slang a grass or nark is a police informer"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "laid back",
+         "at": 10,
+         "note": "the pronoun is read backwards, so 'laid back' signals reversal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "You and I",
+         "at": 0,
+         "gives": "WE",
+         "note": "you and I together are we"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people relax on the lawn in an American city.",
+     "walkthrough": "'grass' looks like the lawn the pair lie on; it is British slang for an informer, and 'laid back' does the reversing.",
+     "definitionFit": "Newark is a city in New Jersey, home to a major airport serving New York."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 11,
@@ -176,7 +570,41 @@
     "text": "Trek in SA could be arranged here",
     "enumeration": "8"
    },
-   "solution": "TRANSKEI"
+   "solution": "TRANSKEI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trek in SA could be arranged here",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could be arranged",
+       "at": 11,
+       "note": "the letters of these words are put in a fresh order, so this phrase signals an anagram"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trek in SA",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A holiday firm suggests a South African trek could be organised in a certain region.",
+     "walkthrough": "SA is South Africa; rearranging TREK IN SA gives a region of that very country, so the whole clue is the definition.",
+     "definitionFit": "Transkei was a homeland in the Eastern Cape of South Africa, a place where such a journey might be organised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -190,7 +618,59 @@
     "text": "Saint in one set of scriptures doesn't exist",
     "enumeration": "4"
    },
-   "solution": "ISNT"
+   "solution": "ISNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "doesn't exist",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "the saint's letter goes inside the run of the other two pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 9,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "set of scriptures",
+         "at": 13,
+         "gives": "NT",
+         "note": "NT is the New Testament, one collection of Christian scripture"
+        }
+       ]
+      },
+      {
+       "words": "Saint",
+       "at": 0,
+       "gives": "S"
+      }
+     ]
+    },
+    "spelling": "ISN'T",
+    "explanation": {
+     "surface": "A saint appears in a book of scripture but is not real.",
+     "definitionFit": "Saying something is not there, as in 'there is no such thing', means it has no existence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 13,
@@ -204,7 +684,64 @@
     "text": "English hunt dashed round one on horseback",
     "enumeration": "10"
    },
-   "solution": "EQUESTRIAN"
+   "solution": "EQUESTRIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on horseback",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "hunt",
+       "at": 8,
+       "gives": "QUEST",
+       "note": "a quest is a search or hunt"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 20,
+         "note": "the word for dashed is placed round the numeral"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dashed",
+         "at": 13,
+         "gives": "RAN",
+         "note": "dashed means ran quickly"
+        },
+        {
+         "words": "one",
+         "at": 26,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English foxhunt hurries past a rider on a horse.",
+     "walkthrough": "'hunt' suggests foxhunting on horseback, but it is the search word; 'round' does the containing.",
+     "definitionFit": "Equestrian means relating to horse riding, so it describes someone mounted and riding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -218,7 +755,45 @@
     "text": "Brummie prepares for painting birds",
     "enumeration": "10"
    },
-   "solution": "SANDPIPERS"
+   "solution": "SANDPIPERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SANDPIPERS",
+     "indicators": [
+      {
+       "text": "Brummie",
+       "at": 0,
+       "note": "a Birmingham accent turns the vowel of 'paper' into something like 'piper', so the word is heard in that voice"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prepares for painting",
+       "at": 8,
+       "gives": "SANDPAPERS",
+       "note": "before painting you sand a surface smooth, which is to sandpaper it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Birmingham man gets ready to decorate, though birds are what he means.",
+     "walkthrough": "A Brummie is someone from Birmingham, England, whose accent shifts the 'ay' sound towards 'eye'.",
+     "definitionFit": "Sandpipers are wading shorebirds with long bills, found on beaches and mudflats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "painting"
+    }
+   }
   },
   {
    "number": 15,
@@ -232,7 +807,45 @@
     "text": "Like some cakes set before duke",
     "enumeration": "7"
    },
-   "solution": "LAYERED"
+   "solution": "LAYERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like some cakes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "set",
+       "at": 16,
+       "gives": "LAY",
+       "note": "to lay something down is to set it"
+      },
+      {
+       "words": "before",
+       "at": 20,
+       "gives": "ERE",
+       "note": "ere is an old word for before"
+      },
+      {
+       "words": "duke",
+       "at": 27,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is put out ahead of a nobleman's arrival, like a fancy gateau.",
+     "definitionFit": "Many sponge cakes are built in tiers or stacked rounds with filling between them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -246,7 +859,66 @@
     "text": "Stirred up place of vice after a festival",
     "enumeration": "8"
    },
-   "solution": "AWAKENED"
+   "solution": "AWAKENED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stirred",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 25,
+       "note": "the reversed den comes after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 31,
+       "gives": "A"
+      },
+      {
+       "words": "festival",
+       "at": 33,
+       "gives": "WAKE",
+       "note": "a wake was a traditional parish festival in northern England"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 8,
+         "note": "in a down clue the word is read upwards, so 'up' signals reversal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place of vice",
+         "at": 11,
+         "gives": "DEN",
+         "note": "a den of vice or iniquity is a place for wrongdoing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble was stirred up in a den of iniquity following a carnival.",
+     "walkthrough": "'Stirred up' reads as one phrase, but 'Stirred' alone is the definition and 'up' turns DEN into NED.",
+     "definitionFit": "Stirred in the sense of roused from sleep or inactivity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 17,
@@ -260,7 +932,55 @@
     "text": "TV's wide boy called back -get knotted",
     "enumeration": "7"
    },
-   "solution": "GNARLED"
+   "solution": "GNARLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "knotted",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 21,
+       "note": "both pieces together are read backwards, so 'back' signals reversal"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "TV's wide boy",
+         "at": 0,
+         "gives": "DEL",
+         "note": "Del Boy is the wheeler-dealing wide boy in the British sitcom Only Fools and Horses"
+        },
+        {
+         "words": "called",
+         "at": 14,
+         "gives": "RANG",
+         "note": "rang means telephoned, or called"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A TV spiv phones back and is told to get lost.",
+     "walkthrough": "A wide boy is British slang for a small-time shady dealer. 'back' reverses DEL RANG as a whole. 'get knotted' is a rude British brush-off.",
+     "definitionFit": "Gnarled wood or hands are twisted and full of knots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knotted"
+    }
+   }
   },
   {
    "number": 18,
@@ -280,7 +1000,52 @@
      }
     ]
    },
-   "solution": "RYEGRASS"
+   "solution": "RYEGRASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 17,
+         "note": "the letters of the name are reeling about, so 'drunk' signals an anagram"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gerry",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "silly fool",
+       "at": 24,
+       "gives": "ASS",
+       "note": "an ass is a foolish person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gerry, the fool, gets drunk on whisky made from grain.",
+     "walkthrough": "'Grain' leans on a cereal sense: ryegrass is a grass grown mainly for pasture, close kin to the rye cereal.",
+     "definitionFit": "Ryegrass is a grass of the rye family grown for fodder, a cereal-type crop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 19,
@@ -300,7 +1065,48 @@
      }
     ]
    },
-   "solution": "CATSPAW"
+   "solution": "CATSPAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An instrument",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "jazz fan",
+       "at": 14,
+       "gives": "CAT",
+       "note": "cat is old slang for a jazz enthusiast"
+      },
+      {
+       "words": "well",
+       "at": 31,
+       "gives": "SPA",
+       "note": "a spa is a mineral spring or well"
+      },
+      {
+       "words": "with",
+       "at": 36,
+       "gives": "W"
+      }
+     ]
+    },
+    "spelling": "CAT'S-PAW",
+    "explanation": {
+     "surface": "A jazz enthusiast plays an instrument and gets on well with others.",
+     "walkthrough": "'An instrument' suggests music, given the jazz fan; it means a person used as a tool.",
+     "definitionFit": "A cat's-paw is a person used by another as a tool to do something risky or unpleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 20,
@@ -320,7 +1126,54 @@
      }
     ]
    },
-   "solution": "RAZORSHARP"
+   "solution": "RAZORSHARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having a fine edge",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "RAZOR",
+       "indicators": [
+        {
+         "text": "Heard",
+         "at": 0,
+         "note": "the word for the poker player is said out loud, giving a word with the same sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "player increasing bet",
+         "at": 6,
+         "gives": "RAISER",
+         "note": "in poker a player who raises the stake is a raiser"
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "at": 29,
+       "gives": "SHARP",
+       "note": "a sharp is a note raised a semitone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler raising the stakes is overheard, with a cutting remark.",
+     "definitionFit": "Something with a very keen cutting edge, like a well-honed blade, is described this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1187,39 @@
     "text": "TV chef serving old offal",
     "enumeration": "6"
    },
-   "solution": "OLIVER"
+   "solution": "OLIVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "TV chef",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "at": 16,
+       "gives": "O"
+      },
+      {
+       "words": "offal",
+       "at": 20,
+       "gives": "LIVER",
+       "note": "liver is a kind of offal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A television cook dishes up stale organ meat.",
+     "definitionFit": "Jamie Oliver is a well-known British television cook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1233,36 @@
     "text": "Simple joy comes from Joe with this transformation",
     "enumeration": "4"
    },
-   "solution": "EASY"
+   "solution": "EASY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Simple",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "E AS Y",
+     "parts": [
+      {
+       "words": "joy comes from Joe with this transformation",
+       "at": 7,
+       "note": "turning the name Joe into the word joy means reading the final E as a Y, so the change is spelt out in letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Happiness springs from a man named Joe after he is changed.",
+     "walkthrough": "The answer split as E AS Y describes the change: replace the E of JOE with Y to get JOY.",
+     "definitionFit": "Simple and effortless are synonyms for something requiring little work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transformation"
+    }
+   }
   },
   {
    "number": 23,
@@ -362,7 +1276,41 @@
     "text": "Music unit, and one of volume zero",
     "enumeration": "6"
    },
-   "solution": "STEREO"
+   "solution": "STEREO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Music unit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one of volume",
+       "at": 16,
+       "gives": "STERE",
+       "note": "a stere is a unit of volume equal to one cubic metre"
+      },
+      {
+       "words": "zero",
+       "at": 30,
+       "gives": "O",
+       "note": "O resembles zero"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sound system turned down to nothing.",
+     "definitionFit": "A stereo is a sound system for playing recorded music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 24,
@@ -376,7 +1324,64 @@
     "text": "Supernatural quality as headless lady's seen around home",
     "enumeration": "8"
    },
-   "solution": "EERINESS"
+   "solution": "EERINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supernatural quality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 45,
+       "note": "the shortened title goes round the word for home"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "at": 24,
+         "note": "the first letter is cut off, so 'headless' signals deleting it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady's",
+         "at": 33,
+         "gives": "PEERESS",
+         "note": "a peeress is a titled lady"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "home",
+       "at": 52,
+       "gives": "IN",
+       "note": "in means at home"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ghostly air is detected when a woman without a head is seen near the house.",
+     "walkthrough": "'headless' strips the first letter of the titled lady, and 'around' wraps the result about the word for home. A headless lady also suits the ghost story.",
+     "definitionFit": "Eeriness is spookiness, the uncanny feeling of something ghostly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "headless"
+    }
+   }
   },
   {
    "number": 25,
@@ -390,7 +1395,63 @@
     "text": "Money turning up originally on French street",
     "enumeration": "4"
    },
-   "solution": "EURO"
+   "solution": "EURO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turning up",
+       "at": 6,
+       "note": "in a down clue the pieces are read upwards, so 'turning up' reverses them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 17,
+           "note": "the original, or first, letter of the word 'on' is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "on",
+           "at": 28
+          }
+         ]
+        },
+        {
+         "words": "French street",
+         "at": 31,
+         "gives": "RUE",
+         "note": "rue is French for street"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cash appears on a Paris street.",
+     "walkthrough": "In a down clue 'on' places O above RUE; 'turning up' reads ORUE upwards.",
+     "definitionFit": "The euro is the currency used across most of the European Union."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -404,7 +1465,50 @@
     "text": "An astronomical unit to analyse origin of cosmos",
     "enumeration": "6"
    },
-   "solution": "PARSEC"
+   "solution": "PARSEC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An astronomical unit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to analyse",
+       "at": 21,
+       "gives": "PARSE",
+       "note": "to parse a sentence is to analyse it grammatically"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "origin of",
+         "at": 32,
+         "note": "the origin of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cosmos",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Astronomers break down how the universe began.",
+     "definitionFit": "A parsec is a unit of distance used in astronomy, about 3.26 light years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -418,7 +1522,48 @@
     "text": "Something seen in sky, nothing caught by measuring device",
     "enumeration": "6"
    },
-   "solution": "METEOR"
+   "solution": "METEOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something seen in sky",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught by",
+       "at": 31,
+       "note": "the zero is held within the instrument's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "measuring device",
+       "at": 41,
+       "gives": "METER",
+       "note": "a meter is an instrument that measures"
+      },
+      {
+       "words": "nothing",
+       "at": 23,
+       "gives": "O",
+       "note": "O resembles zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gauge registers nothing, though something streaks overhead.",
+     "definitionFit": "A shooting star is a streak of light in the night sky from a burning space rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 28,
@@ -429,10 +1574,63 @@
    },
    "length": 8,
    "clue": {
-    "text": "Who makes top put posh car in a compound?",
+    "text": "Who makes stop put posh car in a compound?",
     "enumeration": "8"
    },
-   "solution": "ARRESTER"
+   "solution": "ARRESTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Who makes stop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "the car goes inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 31,
+         "gives": "A"
+        },
+        {
+         "words": "compound",
+         "at": 33,
+         "gives": "ESTER",
+         "note": "an ester is a chemical compound"
+        }
+       ]
+      },
+      {
+       "words": "posh car",
+       "at": 19,
+       "gives": "RR",
+       "note": "RR is short for a Rolls-Royce, the luxury car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist parks an expensive car inside a walled yard.",
+     "walkthrough": "'compound' looks like an enclosure for the car; it is the chemical ESTER.",
+     "definitionFit": "One who arrests someone or something halts them, such as a police officer or a brake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "compound"
+    }
+   }
   }
  ]
 }
