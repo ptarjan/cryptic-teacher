@@ -686,7 +686,7 @@
       // never spends, so it never arms (see setButtons).
       const trackNames = STEP_NAMES;
       const target = helpTarget(e);
-      const hue = { indicators: "ind", definition: "def", type: "typ" };
+      const hue = { indicators: "ind", definition: "def", type: "typ", blocks: "blk", walkthrough: "sol" };
       const lead = open.length ? open[0].s.key : null;
       steps.forEach((s) => {
         const name = trackNames[s.key] || s.label;
