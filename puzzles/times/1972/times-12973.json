@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Writer works with valuable material",
     "enumeration": "9"
    },
-   "solution": "GOLDSMITH"
+   "solution": "GOLDSMITH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0,
+      "meaning": "Oliver ..., author of The Vicar of Wakefield"
+     },
+     {
+      "text": "works with valuable material",
+      "at": 7,
+      "meaning": "a craftsman making things from gold"
+     }
+    ],
+    "explanation": {
+     "surface": "An author whose craft involves precious stuff.",
+     "definitionFit": "Oliver Goldsmith was an Irish author, and a craftsman shaping gold works with a precious metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,30 @@
     "text": "It's in London for a time",
     "enumeration": "9"
    },
-   "solution": "GREENWICH"
+   "solution": "GREENWICH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's in London",
+      "at": 0,
+      "meaning": "a district of London on the Thames"
+     },
+     {
+      "text": "for a time",
+      "at": 15,
+      "meaning": "as in ... Mean Time, the clock standard"
+     }
+    ],
+    "explanation": {
+     "surface": "A riddle about a London place connected with time.",
+     "walkthrough": "GREENWICH Mean Time is the standard time measured at the Greenwich observatory.",
+     "definitionFit": "The borough sits in south-east London, and its meridian sets Mean Time, the world's reference clock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +107,41 @@
     "text": "Daily trip for Miss Bennet",
     "enumeration": "5"
    },
-   "solution": "LYDIA"
+   "solution": "LYDIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miss Bennet",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trip",
+       "at": 6,
+       "note": "to trip is to stumble, so the letters of the word before it fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Daily",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heroine of a novel takes a day's outing.",
+     "walkthrough": "Lydia is the youngest Bennet sister in Pride and Prejudice; 'trip' looks like a journey but is the anagram signal on 'Daily'.",
+     "definitionFit": "Lydia is the youngest of the Bennet sisters in Jane Austen's Pride and Prejudice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +155,30 @@
     "text": "Making a break? Jolly good!",
     "enumeration": "8"
    },
-   "solution": "SMASHING"
+   "solution": "SMASHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Making a break",
+      "at": 0,
+      "meaning": "shattering, as a plate is broken"
+     },
+     {
+      "text": "Jolly good!",
+      "at": 16,
+      "meaning": "British slang for excellent"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone breaking things and cheering about it.",
+     "definitionFit": "Smashing is breaking something to pieces, and in British slang it is an exclamation of delight, like 'splendid'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +192,79 @@
     "text": "Repeated diet change includes right tea brew",
     "enumeration": "8"
    },
-   "solution": "ITERATED"
+   "solution": "ITERATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Repeated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 21,
+       "note": "the rearranged diet holds the following pieces inside it, so it is the container"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change",
+         "at": 14,
+         "note": "a change of diet here means its letters are put in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diet",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 30,
+         "gives": "R"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "brew",
+           "at": 40,
+           "note": "brewing tea stirs it about, so its letters are mixed up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tea",
+           "at": 36
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps saying a new diet needs proper tea.",
+     "walkthrough": "'change' turns DIET into ITED, and 'brew' turns TEA into ATE; 'includes' puts R plus ATE inside ITED.",
+     "definitionFit": "To iterate is to do or say something again, so iterated means done over and over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brew"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +278,59 @@
     "text": "Carrier had no trip round Maidenhead",
     "enumeration": "6"
    },
-   "solution": "HODMAN"
+   "solution": "HODMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carrier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 20,
+       "note": "the rearranged letters go around the next piece, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trip",
+         "at": 15,
+         "note": "a trip is a stumble, so the letters of 'had no' tumble into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "had no",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "Maidenhead",
+       "at": 26,
+       "gives": "M",
+       "note": "the head, or first letter, of Maiden"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a load never made a journey round a Thames town.",
+     "walkthrough": "'trip' turns HAD NO into HODAN, and 'round' puts it around M. Maidenhead is a town on the Thames, but here it is read as the head of 'Maiden'.",
+     "definitionFit": "A hodman is a labourer who carries bricks or mortar in a hod for builders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Maidenhead"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +344,41 @@
     "text": "Resin supplied by business friend",
     "enumeration": "5"
    },
-   "solution": "COPAL"
+   "solution": "COPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "business",
+       "at": 18,
+       "gives": "CO",
+       "note": "CO is short for company, a business"
+      },
+      {
+       "words": "friend",
+       "at": 27,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some resin comes from a firm's mate.",
+     "definitionFit": "Copal is a hard resin from tropical trees, used in varnishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supplied"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +392,49 @@
     "text": "Being the reason for viewing the country in state ?",
     "enumeration": "6"
    },
-   "solution": "CAUSAL"
+   "solution": "CAUSAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being the reason for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 41,
+       "note": "the country is placed in the state, so the state's letters wrap around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "state",
+       "at": 44,
+       "gives": "CAL",
+       "note": "CAL is short for California, an American state"
+      },
+      {
+       "words": "the country",
+       "at": 29,
+       "gives": "USA",
+       "note": "USA, the United States"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what makes us see a nation inside one of its states.",
+     "walkthrough": "'viewing' only links the definition to the wordplay.",
+     "definitionFit": "Something causal is the cause of an effect, the reason it happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +448,36 @@
     "text": "Gilbertian had a lot of unhappiness",
     "enumeration": "9"
    },
-   "solution": "POLICEMAN"
+   "solution": "POLICEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gilbertian had a lot of unhappiness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Gilbertian had a lot of unhappiness",
+       "at": 0,
+       "note": "recalls the song in Gilbert and Sullivan's Pirates of Penzance whose officer sings that his lot is not a happy one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A character from Gilbert's operettas who suffered a great deal.",
+     "walkthrough": "'A lot' looks like quantity, but it is the officer's lot in life, from the Pirates of Penzance chorus.",
+     "definitionFit": "The sergeant of constables in The Pirates of Penzance sings that his lot is not a happy one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +491,48 @@
     "text": "Turner' writes many articles",
     "enumeration": "5"
    },
-   "solution": "LATHE"
+   "solution": "LATHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "many",
+       "at": 15,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty, a crossword stand-in for many"
+      },
+      {
+       "words": "articles",
+       "at": 20,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      },
+      {
+       "words": "articles",
+       "at": 20,
+       "gives": "THE",
+       "note": "THE is the definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The painter Turner turns out a lot of pieces in print.",
+     "walkthrough": "'Turner' suggests the painter J M W Turner but is a machine that turns wood or metal; 'writes' only links. 'articles' gives both A and THE.",
+     "definitionFit": "A lathe is a machine that spins wood or metal so a tool can shape it, a turning machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +552,30 @@
      }
     ]
    },
-   "solution": "ENDGAME"
+   "solution": "ENDGAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0,
+      "meaning": "a stage work by Samuel Beckett"
+     },
+     {
+      "text": "stop play",
+      "at": 8,
+      "meaning": "finish a game"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about theatre versus halting a match.",
+     "definitionFit": "Samuel Beckett wrote a drama with this title, and to end a game is to halt the match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +589,37 @@
     "text": "Old garment showing centre button",
     "enumeration": "7"
    },
-   "solution": "DOUBLET"
+   "solution": "DOUBLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old garment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "rebus",
+     "reading": "TT",
+     "parts": [
+      {
+       "words": "centre button",
+       "at": 20,
+       "note": "the middle letters of the word button are two Ts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A period jacket with a button in the middle.",
+     "walkthrough": "The centre of the word 'button' is TT, which can be read as 'double T'; 'showing' links.",
+     "definitionFit": "A doublet was a close-fitting man's jacket worn in Europe from the 14th to the 17th century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "button"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +633,44 @@
     "text": "Lake ? No-sound",
     "enumeration": "5"
    },
-   "solution": "NEAGH"
+   "solution": "NEAGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NEAGH",
+     "indicators": [
+      {
+       "text": "sound",
+       "at": 10,
+       "note": "the clue asks for the sound of the word before it, a homophone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No",
+       "at": 7,
+       "gives": "NAY",
+       "note": "nay is an old word for no"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a lake, met with a silent refusal.",
+     "walkthrough": "Lough Neagh in Northern Ireland is pronounced like 'nay'.",
+     "definitionFit": "Lough Neagh is the largest freshwater body in the British Isles, in Northern Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +684,34 @@
     "text": "Awful danger for Longfellow's young climber",
     "enumeration": "9"
    },
-   "solution": "AVALANCHE"
+   "solution": "AVALANCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Awful danger for Longfellow's young climber",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Awful danger for Longfellow's young climber",
+       "at": 0,
+       "note": "the youth in Longfellow's poem Excelsior climbs an Alpine pass and is warned of falling snow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The peril facing the boy in a Longfellow poem.",
+     "walkthrough": "In Excelsior the old man warns the climber to 'beware the awful avalanche'.",
+     "definitionFit": "A mass of snow sweeping down a mountainside is what the old man warns of in Excelsior."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +725,30 @@
     "text": "Meant to become a groom ?.",
     "enumeration": "8"
    },
-   "solution": "INTENDED"
+   "solution": "INTENDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meant",
+      "at": 0,
+      "meaning": "planned, done on purpose"
+     },
+     {
+      "text": "to become a groom",
+      "at": 6,
+      "meaning": "a fiancé, a man engaged to be married"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone always planned to marry.",
+     "definitionFit": "Intended means planned or purposed, and as a noun it is one's betrothed, the person one is to marry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "groom"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +772,60 @@
      }
     ]
    },
-   "solution": "TIPANDRUN"
+   "solution": "TIPANDRUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cricket",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hint",
+       "at": 0,
+       "gives": "TIP",
+       "note": "a tip is a hint"
+      },
+      {
+       "words": "also",
+       "at": 5,
+       "gives": "AND",
+       "note": "and means also"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 10,
+         "note": "in a down clue upset turns the word upside down, reading it backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "union",
+         "at": 16,
+         "gives": "NUR",
+         "note": "NUR, the National Union of Railwaymen"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tip about unions being upset, asking whether that is fair play.",
+     "walkthrough": "'upset' reverses NUR, the National Union of Railwaymen, to RUN. 'is that' links; 'not cricket' is British for unfair.",
+     "definitionFit": "Tip-and-run is an informal type of cricket where the batter must run every time the bat touches the ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +839,53 @@
     "text": "Birds are back inside it is assumed",
     "enumeration": "4"
    },
-   "solution": "EMUS"
+   "solution": "EMUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "are back",
+       "at": 6,
+       "note": "the letters are read backwards, from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "inside",
+         "at": 15,
+         "note": "the letters sit inside the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "assumed",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The birds have returned, or so it is supposed.",
+     "walkthrough": "Inside 'assumed' is SUME, which 'are back' turns round. 'it is' only links.",
+     "definitionFit": "Emus are large flightless birds of Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +899,42 @@
     "text": "Weight of yield from plant ?",
     "enumeration": "9"
    },
-   "solution": "STONECROP"
+   "solution": "STONECROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Weight",
+       "at": 0,
+       "gives": "STONE",
+       "note": "a stone is a British weight of fourteen pounds"
+      },
+      {
+       "words": "yield",
+       "at": 10,
+       "gives": "CROP",
+       "note": "a crop is a harvest, what a field yields"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How heavy is the harvest from a plant?",
+     "walkthrough": "A stone is a British weight of 14 pounds.",
+     "definitionFit": "Stonecrop is a low succulent flowering plant, a sedum, that grows on walls and rocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Weight"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +948,42 @@
     "text": "Regard as Opposition partisan",
     "enumeration": "8"
    },
-   "solution": "CONSIDER"
+   "solution": "CONSIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Opposition",
+       "at": 10,
+       "gives": "CON",
+       "note": "con is the opposite side, as in pros and cons"
+      },
+      {
+       "words": "partisan",
+       "at": 21,
+       "gives": "SIDER",
+       "note": "a sider is one who takes a side"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thinking of someone as a supporter of the party out of power.",
+     "walkthrough": "'Opposition' looks like the parliamentary party, but it is the 'con' of pro and con.",
+     "definitionFit": "To consider is to think of or look upon in some way, as in 'regard as'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Opposition"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +997,35 @@
     "text": "Moby Dick character to track sub perhaps?",
     "enumeration": "8"
    },
-   "solution": "STARBUCK"
+   "solution": "STARBUCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moby Dick character to track sub perhaps?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Moby Dick character to track sub perhaps?",
+       "at": 0,
+       "note": "the whale in Melville's novel dives like a submarine, and one of the ship's officers hunts it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Melville's novel hunting a submarine.",
+     "walkthrough": "Starbuck is first mate of the Pequod, which chases the diving whale, the 'sub' of the clue.",
+     "definitionFit": "Starbuck is the first mate of the Pequod in Herman Melville's novel, who joins the hunt for the whale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sub"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1039,36 @@
     "text": "Cheery sort of joints ?",
     "enumeration": "4"
    },
-   "solution": "HIPS"
+   "solution": "HIPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cheery sort of joints",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cheery sort of joints",
+       "at": 0,
+       "note": "the body joints that share their name with the cheer before hooray"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about joints that are happy.",
+     "walkthrough": "'Hip, hip, hooray!' is a cheer, and hips are joints of the body.",
+     "definitionFit": "Hips are the ball-and-socket joints of the leg, and 'hip' is also the cry that leads a cheer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cheery"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1082,54 @@
     "text": "N.C.O. arranged dance, gets a percentage",
     "enumeration": "8"
    },
-   "solution": "CONTANGO"
+   "solution": "CONTANGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a percentage",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 7,
+         "note": "the letters are set in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "N.C.O.",
+         "at": 0,
+         "gives": "NCO",
+         "note": "non-commissioned officer, letters N, C, O"
+        }
+       ]
+      },
+      {
+       "words": "dance",
+       "at": 16,
+       "gives": "TANGO",
+       "note": "the tango is a dance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sergeant organises a dance and takes a cut.",
+     "walkthrough": "'arranged' turns NCO into CON. 'gets' links.",
+     "definitionFit": "On the old London Stock Exchange this was a percentage paid by a buyer to postpone settling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1143,49 @@
     "text": "One in pursuit' of a 'conveyance",
     "enumeration": "6"
    },
-   "solution": "CHAISE"
+   "solution": "CHAISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "conveyance",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 4,
+       "note": "one piece is put in the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pursuit",
+       "at": 7,
+       "gives": "CHASE",
+       "note": "a chase is a pursuit"
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chasing a carriage.",
+     "walkthrough": "'of a' links.",
+     "definitionFit": "A chaise is a light horse-drawn carriage, a means of transport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pursuit"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1199,30 @@
     "text": "High-soaring trees ?",
     "enumeration": "6"
    },
-   "solution": "PLANES"
+   "solution": "PLANES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "High-soaring",
+      "at": 0,
+      "meaning": "aircraft flying high"
+     },
+     {
+      "text": "trees",
+      "at": 13,
+      "meaning": "the plane tree"
+     }
+    ],
+    "explanation": {
+     "surface": "Tall trees reaching skywards.",
+     "definitionFit": "Planes are aircraft that fly high, and plane trees are large broad-leaved trees lining London streets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soaring"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1242,36 @@
      }
     ]
    },
-   "solution": "FUNKHOLES"
+   "solution": "FUNKHOLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Openings for the use of yellow type?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Openings for the use of yellow type?",
+       "at": 0,
+       "note": "yellow means cowardly, so these are hiding places for the fearful, like a dugout where a soldier shelters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gaps meant for a yellow typeface.",
+     "walkthrough": "'yellow type' looks like printing, but it is a cowardly kind of person; funk is fear.",
+     "definitionFit": "A funk-hole is a dugout or hiding place where a scared person can shelter, from funk meaning fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1285,30 @@
     "text": "Figures in court",
     "enumeration": "5"
    },
-   "solution": "FIVES"
+   "solution": "FIVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Figures",
+      "at": 0,
+      "meaning": "the digit 5 written several times"
+     },
+     {
+      "text": "in court",
+      "at": 8,
+      "meaning": "the handball game played in a walled court"
+     }
+    ],
+    "explanation": {
+     "surface": "Numbers being presented to a judge.",
+     "definitionFit": "Fives are the numeral 5, and fives is a British ball game played with the hands in a walled court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1322,49 @@
     "text": "Poet is-about to embrace the same in Scotland",
     "enumeration": "5"
    },
-   "solution": "RILKE"
+   "solution": "RILKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to embrace",
+       "at": 14,
+       "note": "one piece holds the other inside, like arms round it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "about",
+       "at": 8,
+       "gives": "RE",
+       "note": "re means about, concerning"
+      },
+      {
+       "words": "the same in Scotland",
+       "at": 25,
+       "gives": "ILK",
+       "note": "ilk is Scots for the same, as in 'of that ilk'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet on the point of hugging a fellow Scot.",
+     "walkthrough": "'is' links; 'of that ilk' is a Scottish phrase meaning 'of the same name'.",
+     "definitionFit": "Rainer Maria Rilke was an Austrian poet, author of the Duino Elegies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1378,54 @@
     "text": "Fruit up to half a pound",
     "enumeration": "5"
    },
-   "solution": "LIMES"
+   "solution": "LIMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 6,
+       "note": "in a down clue the pieces are read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "half",
+         "at": 12,
+         "gives": "SEMI",
+         "note": "semi- means half"
+        },
+        {
+         "words": "pound",
+         "at": 19,
+         "gives": "L",
+         "note": "L is the abbreviation for a pound sterling, from libra"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit costing up to eight ounces.",
+     "walkthrough": "'up' reverses SEMI plus L to give LIMES; 'to' and 'a' link.",
+     "definitionFit": "Limes are small green citrus fruits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,10 +1436,64 @@
    },
    "length": 7,
    "clue": {
-    "text": "Rendering number one is 25 right, possibly",
+    "text": "Rendering number one is right, possibly",
     "enumeration": "7"
    },
-   "solution": "VERSION"
+   "solution": "VERSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rendering",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "number",
+       "at": 10,
+       "gives": "V",
+       "note": "V is the Roman numeral five, a number"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 31,
+         "note": "the letters might be arranged differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 17
+        },
+        {
+         "words": "is",
+         "at": 21
+        },
+        {
+         "words": "right",
+         "at": 24,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A translation of the top hit might be correct.",
+     "walkthrough": "'possibly' turns ONE IS R into ERSION. The OCR text added a stray '25' that the printed page lacks.",
+     "definitionFit": "A version is one particular rendering, such as a translation of a text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1507,30 @@
     "text": "One in a band of U. S. commercial travellers ?",
     "enumeration": "7"
    },
-   "solution": "DRUMMER"
+   "solution": "DRUMMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One in a band",
+      "at": 0,
+      "meaning": "a percussion player in a band"
+     },
+     {
+      "text": "U. S. commercial travellers",
+      "at": 17,
+      "meaning": "American slang for a travelling salesman, one who drums up trade"
+     }
+    ],
+    "explanation": {
+     "surface": "A member of a band of American salesmen.",
+     "definitionFit": "A percussionist plays in a band, and in America a travelling salesman was called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1544,30 @@
     "text": "Meaning might be one of five",
     "enumeration": "5"
    },
-   "solution": "SENSE"
+   "solution": "SENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meaning",
+      "at": 0,
+      "meaning": "the significance of a word"
+     },
+     {
+      "text": "might be one of five",
+      "at": 8,
+      "meaning": "sight, hearing, smell, taste or touch"
+     }
+    ],
+    "explanation": {
+     "surface": "The meaning could be one of five.",
+     "definitionFit": "Sense is a meaning, and sight, hearing, taste, smell and touch are the five human faculties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 29,
@@ -492,7 +1587,30 @@
      }
     ]
    },
-   "solution": "STRIKESUP"
+   "solution": "STRIKESUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Begins to play",
+      "at": 0,
+      "meaning": "a band starting a tune"
+     },
+     {
+      "text": "with lobs?",
+      "at": 17,
+      "meaning": "hitting a ball high into the air"
+     }
+    ],
+    "explanation": {
+     "surface": "A game starts with high balls.",
+     "definitionFit": "A band begins playing a tune, and a lob is a ball hit high, upwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   }
  ]
 }
