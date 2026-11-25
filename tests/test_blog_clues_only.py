@@ -24,6 +24,7 @@ from pathlib import Path
 
 import _path  # puts tools/ on sys.path
 import clues_only
+import provenance
 import file_blog_puzzles as fbp
 import puzzle_integrity
 import puzzle_paths
@@ -69,8 +70,19 @@ if "blogAnswer" in clues_only.read(record["id"], scratch)["clues"]["across"][3 i
     fails.append("a blank blog answer was carried as one")
 if clues_only.builder(record) is not clues_only.BUILDERS[(TOOL, None)]:
     fails.append("no builder takes a held blog post, so the backfill would never solve it")
-if record["id"] not in [r["id"] for r in clues_only.solvable(scratch)]:
-    fails.append("the held blog post is not in the solve queue")
+# A blog's write-up is the answer key, so apply_solution would refuse the solve's
+# fill: no queue takes the post (indysunday-1274 was solved for nothing).
+if record["id"] in [r["id"] for r in clues_only.solvable(scratch)] or clues_only.cold_solvable(record):
+    fails.append("a held blog post is in the solve queue, though its fill is refused on write")
+import prereset_plan
+if prereset_plan._held_row(record) is not None:
+    fails.append("the burn's plan queues a held blog post")
+if not provenance.writeup_keyed({"source": {"retrievedFrom": provenance.channel_of(TOOL)}}):
+    fails.append("held_writeup_keyed and writeup_keyed disagree about a blog filer")
+for rec_tool, want in ((TOOL, True), ("tools/acquire_book.py", False), ("tools/genius_puzzles.py", False)):
+    got = provenance.held_writeup_keyed({"source": {"acquiredBy": rec_tool}})
+    if got != want:
+        fails.append(f"held_writeup_keyed({rec_tool}) = {got}, want {want}")
 for tool in clues_only.BLOG_FILERS:
     if clues_only.builder({**record, "source": {**record["source"], "acquiredBy": tool}}) is None:
         fails.append(f"no builder for {tool}'s held posts")

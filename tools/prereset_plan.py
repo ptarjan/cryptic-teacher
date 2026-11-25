@@ -2612,7 +2612,7 @@ def held_dir():
 def _held_row(record):
     """The queue row for a held record a builder can promote, else None."""
     import clues_only
-    if not clues_only.builder(record):
+    if not clues_only.cold_solvable(record):
         return None
     row = {"id": record["id"], "series": record["series"],
            "annotated": False, "hasSolutions": False}
@@ -2659,7 +2659,7 @@ def held_rows_cached(root, cache_path=None):
 
 def clues_only_rows(filed=(), cache_path=None):
     """An index-shaped row for each puzzle held as its clues alone that a
-    builder can promote (clues_only.solvable): unannotated, no answers, every
+    builder can promote and a model may solve cold (clues_only.cold_solvable): unannotated, no answers, every
     clue readable, dated by its `year` or `date`. The index lists puzzles/
     alone, so without these the queue never sees them. An id in `filed` (the
     rows already read from puzzles/) is skipped: its puzzle file is the row,

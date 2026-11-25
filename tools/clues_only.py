@@ -35,6 +35,7 @@ import json
 import re
 import sys
 from pathlib import Path
+import provenance
 import puzzle_paths
 
 TOOLS = Path(__file__).resolve().parent
@@ -498,13 +499,22 @@ def builder(record):
     return BUILDERS.get(key)
 
 
+def cold_solvable(record):
+    """Whether a model may solve `record` cold: a builder promotes it and its
+    key is not a blog's write-up (provenance.held_writeup_keyed), since
+    apply_solution refuses to write such a fill and the run would be wasted.
+    The one test every queue that picks held puzzles asks (solvable, prereset_plan._held_row)."""
+    return bool(builder(record)) and not provenance.held_writeup_keyed(record)
+
+
 def solvable(root=None):
-    """[record] of every puzzle held under `root` (default DIR) a builder can
-    promote: the only ones a solve queue may take. The rest stay held as data.
+    """[record] of every puzzle held under `root` (default DIR) a model may
+    solve cold (cold_solvable): the only ones a solve queue may take. The rest
+    stay held as data.
     A queue passes the clues_only/ beside the index it reads, so a queue run
     against another tree's index never takes this checkout's puzzles."""
     records = (json.loads(path.read_text(encoding="utf-8")) for path in files(root))
-    return [r for r in records if builder(r)]
+    return [r for r in records if cold_solvable(r)]
 
 
 def promote(record, answers):

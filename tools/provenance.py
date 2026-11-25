@@ -619,6 +619,14 @@ def writeup_keyed(puzzle):
             or (puzzle.get("source") or {}).get("retrievedFrom") == "blog")
 
 
+def held_writeup_keyed(record):
+    """writeup_keyed for a puzzle still held as clues alone (clues_only/): the
+    puzzle it promotes to is stamped retrievedFrom by the tool that acquired the
+    record, so a blog channel there is a blog-keyed grid, which apply_solution
+    would refuse every model fill of. The held-side twin of writeup_keyed."""
+    return channel_of((record.get("source") or {}).get("acquiredBy")) == "blog"
+
+
 def partial_lights(puzzle):
     """The entry ids solutions.partial lists: the lights a blog's write-up
     deliberately left out, still blank in the file; [] when the key is whole.
