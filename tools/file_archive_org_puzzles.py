@@ -13436,6 +13436,16 @@ def held_settled(d, verdict):
     return True
 
 
+# KEPT as a year gate (11-25 principled audit, harness /data/home/.cache/plainprint_scr, 60 filed pages per group, cached
+# leaves, overhang() run with the gate off): overhang() does not tell adverts/listings from a third clue column, it
+# measures "text-like ink right of the grid under it" and saturates at its own OVER_REACH cap (0.71 grid widths) on
+# 56/60 Gale Times 1950-59, 48/60 1960s, 57/60 1970s, 60/60 1980s and 60/60 FT 1982-86 (34/60 FT 1987-92): the same
+# answer in every decade, so it cannot replace the decade. The other measure tried, "a clue column's room left of the
+# grid" (grid x0 >= 0.6 grid widths) holds on 59/60 of the 1950s but also on 43/60 of the 1960s (1960-66 prints the
+# same layout, read with overhang() and filing at the same rate, 24/43 complete against 32/59 gated), and on 1/60 of
+# FT 1982-86 (whose evidence is the TV listings, not a left column). Moving the 1960-66 pages onto the gate cannot be
+# judged offline (the filed reads are the only readings; the over-window's alternative is uncached), so no rule was
+# swapped in. The ledger holds no per-window verdicts to classify repair/regression against.
 def two_columns_only(paper, d):
     """True for an FT page of 1982-86 (1983-12-02 too: overhang() = 1336, past the
     grid's 840, where the listings stand): its clues are the two columns under the grid and
