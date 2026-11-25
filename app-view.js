@@ -1307,17 +1307,15 @@
   }
 
   // The wide layout (style.css, "wide screens") gives each clue list its own
-  // scrollbar, so the page no longer carries the active clue into view. Move only
-  // that list's scroller, never the page; a no-op where the list does not scroll.
+  // scrollbar, so the page no longer carries the active clue into view. Ask the
+  // browser for the nearest scroll that shows the row (the box's scroll-padding
+  // sets the margin); a no-op where the list does not scroll.
   function keepActiveClueInView() {
     const li = document.querySelector && document.querySelector(".clue-list li.active");
     const box = li && li.closest && li.closest(".clue-list");
     if (!box || box.scrollHeight <= box.clientHeight + 1) return;
-    const lt = li.offsetTop - box.offsetTop;
-    if (lt < box.scrollTop + 30) box.scrollTop = Math.max(0, lt - 30);
-    else if (lt + li.offsetHeight > box.scrollTop + box.clientHeight - 8) {
-      box.scrollTop = lt + li.offsetHeight - box.clientHeight + 8;
-    }
+    // The box's scroll-padding (style.css) is the margin it keeps around the row.
+    movePage(li, { block: "nearest", smooth: false });
   }
 
   // Where the puzzle starts on the page, for the wide layout's height sum (CSS
