@@ -232,6 +232,15 @@ def offset_bounds(day, titled=None):
     return lo - NEAR, hi + NEAR
 
 
+#: PRINCIPLE for the three tables below (OFFSET_RUNS, RUN_BRIDGES, ANCHOR_BRIDGES): none is a guess. The offset (number
+#: less the week count) only ever falls, a skipped week at a time, so two pages whose own printed numbers (or Gale's
+#: titles) give one offset bound every Sunday between them at it; each table row is such a pair, measured from the pages'
+#: printed text, and run_number checks every page's own printed numbers against its run before numbering it. The dates
+#: are the only record of WHERE between two anchors an offset fell (no page says), so they stay as the fallback for a
+#: page with no sure printed number of its own; a sure printed number agreeing with the run is taken as "page printed",
+#: one a run contradicts is the title over last week's answers (RUN_FIRST_FIX). Weeks with no anchor are left refused,
+#: not guessed: 1976-02-01..1978-01-08 (which of eight missing Sundays is only a gap in the list is unknown), 1978-02-26
+#: ..1980-03-23 (-128 to -180 over the strike) and 1979-12-23..1980-03-22 (-180 or -181) cannot be proved from any page.
 #: Bumped when only the offset runs change: pages refused for want of a number inside a run are read again.
 RUN_FIX = 1
 #: (first date, last date, offset) of the stretches of Sundays 1965-94 whose Mephisto number less the week count is
@@ -369,6 +378,22 @@ ANSWERS_WINDOW = 120
 ANSWERS_FIX = 1
 ANSWERS_FILE = ROOT / "tools" / "data" / "mephisto_answers_title.json"
 _ANSWERS_NAMES = None
+#: Bumped when number_of takes a measured run's offset over a page's own sure printed offset that differs from it
+#: (see number_of): tools/data/mephisto_run_first.json names the "page printed" ledger rows whose number that changes.
+RUN_FIRST_FIX = 1
+RUN_FIRST_FILE = ROOT / "tools" / "data" / "mephisto_run_first.json"
+_RUN_FIRST_NAMES = None
+
+
+def run_first_names():
+    """The bare GALE_*.pdf names whose number RUN_FIRST_FIX changes (a committed list nothing writes)."""
+    global _RUN_FIRST_NAMES
+    if _RUN_FIRST_NAMES is None:
+        try:
+            _RUN_FIRST_NAMES = frozenset(json.loads(RUN_FIRST_FILE.read_text()))
+        except (OSError, ValueError):
+            _RUN_FIRST_NAMES = frozenset()
+    return _RUN_FIRST_NAMES
 
 
 def answers_follow(rest):
@@ -440,9 +465,15 @@ def number_of(cited, text, doc=None, near=()):
     if day < COUNT_FROM:
         # No titled neighbours agree: the page's own printed number, inside the neighbours' offsets and sure.
         got = printed_offset(day, text, None, near)
+        n = run_number(day, text)
+        if got and got[1] and n and week(day) + got[0] != n:
+            # RUN_FIRST_FIX: the offset only falls, so inside a measured run (OFFSET_RUNS, bridged by RUN_BRIDGES or
+            # ANCHOR_BRIDGES: an anchor at the same offset either side) a page's lone printed offset one above or below
+            # it is its title over last week's answers (1980: -181 between -180 pages), not a rise or an early fall.
+            # run_number only answers when every printed number sits at the run's offset or one or two under it.
+            return n, "offset run"
         if got and got[1]:
             return week(day) + got[0], "page printed"
-        n = run_number(day, text)
         return (n, "offset run") if n else (None, None)
     if checked(cited[0], day):
         return cited[0], "citation"
@@ -669,6 +700,9 @@ def read_done(row, done=None):
         return False
     if row and row.get("answersFix", 0) < ANSWERS_FIX and row.get("file") in answers_names():
         # Numbered from a title over last week's answers, one low (ANSWERS_FIX 1): only the pages the fix renumbers.
+        return False
+    if row and row.get("runFirstFix", 0) < RUN_FIRST_FIX and row.get("file") in run_first_names():
+        # Numbered from a lone printed offset a measured run contradicts (RUN_FIRST_FIX 1): only the pages it renumbers.
         return False
     if row and row.get("riseFix", 0) < RISE_FIX and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and "1960" <= (row.get("date") or "9") < "1980" \
@@ -2494,7 +2528,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
-                "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "answersFix": ANSWERS_FIX}, store)
+                "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

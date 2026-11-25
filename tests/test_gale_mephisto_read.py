@@ -80,6 +80,18 @@ check("a named page at ANSWERS_FIX stands", True,
       gm.read_done({"file": "GALE_FP1802194031.pdf", "number": 721, "version": gm.VERSION, "whole": True, "answersFix": gm.ANSWERS_FIX}))
 check("an unnamed page is not due for ANSWERS_FIX", True,
       gm.read_done({"file": "GALE_FP0000000000.pdf", "number": 720, "version": gm.VERSION, "whole": True}))
+# RUN_FIRST_FIX: a sure lone printed offset one under the run's (title over last week's answers) yields to the run.
+_pp = gm.printed_offset
+gm.printed_offset = lambda day, text, titled=None, near=(): (-181, True)
+_d = D(1980, 4, 13)
+check("a lone printed -181 inside the -180 run is the run's number", (gm.week(_d) - 180, "offset run"),
+      gm.number_of((None, _d), "Mephisto Crossword No %d" % (gm.week(_d) - 181), None))
+gm.printed_offset = lambda day, text, titled=None, near=(): (-180, True)
+check("a printed offset agreeing with the run stays 'page printed'", (gm.week(_d) - 180, "page printed"),
+      gm.number_of((None, _d), "Mephisto Crossword No %d" % (gm.week(_d) - 180), None))
+gm.printed_offset = _pp
+check("a run_first page read before RUN_FIRST_FIX is due", False,
+      gm.read_done({"file": sorted(gm.run_first_names())[0], "number": 1, "version": gm.VERSION, "whole": True}))
 check("1980-04-06 (entry form 1033) is at -180", 1033 - gm.week(D(1980, 4, 6)), gm.run_offset(D(1980, 4, 6)))
 check("1981-05-03 falls to -181 after the missing 1981-04-26", -181, gm.run_offset(D(1981, 5, 3)))
 o = 826 - gm.week(d75)
