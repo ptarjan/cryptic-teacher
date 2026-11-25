@@ -309,7 +309,10 @@ schedules and thresholds are generated into [NIGHTLY.md](NIGHTLY.md)):
 - **The burn** (`tools/prereset_backfill.sh`, hourly) spends everything
   else on the backlog. `tools/prereset_plan.py` sizes the pool so the weekly
   meter lands at its limit just as it resets, net of what interactive use
-  spends. It interleaves series
+  spends. It puts the newest answered puzzles of the priority series
+  (`PRIORITY_SERIES` in `tools/prereset_plan.py`, the Metro: its latest
+  puzzles draw the most searches; the daily tick reads the same list) first,
+  interleaves series
   round-robin, puts small series first (finishing a small series is more
   useful than another slice of the Times), and runs one lane of reprints
   last.

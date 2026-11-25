@@ -1144,18 +1144,21 @@ todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzl
                if not p["annotated"] and p.get("hasSolutions")
                and not p.get("awaitsPreamble") and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
-# The small series lead the rest, nearest to fully hinted first
-# (prereset_plan.small_series, the burn's order too), then a series' first
-# puzzle, then a partly annotated one, which costs only its missing clues.
-# A puzzle that is not a cryptic (`style`, tools/puzzle_style.py) goes last.
-from prereset_plan import small_series
+# The newest answered puzzles of the priority series lead the rest
+# (prereset_plan.priority_ids, the burn's order too), then the small series,
+# nearest to fully hinted first (prereset_plan.small_series, likewise), then a
+# series' first puzzle, then a partly annotated one, which costs only its
+# missing clues. A puzzle that is not a cryptic (`style`, tools/puzzle_style.py)
+# goes last.
+from prereset_plan import small_series, priority_ids
 small = small_series()
+prio = priority_ids(idx["puzzles"])
 series_of = {p["id"]: p.get("series") for p in idx["puzzles"]}
 straight = {p["id"] for p in idx["puzzles"] if p.get("style")}
 rank = lambda i: small.index(series_of[i]) if series_of[i] in small else len(small)
 partial = {p["id"]: p["unannotated"] for p in idx["puzzles"] if p.get("unannotated")}
 older = sorted((i for _, i in todo if i not in fresh),
-               key=lambda i: (i in straight, rank(i), not is_first_issue(i), i not in partial, partial.get(i, 0)))
+               key=lambda i: (i in straight, prio.index(i) if i in prio else len(prio), rank(i), not is_first_issue(i), i not in partial, partial.get(i, 0)))
 print(" ".join(fresh))
 print(" ".join(older[:int(sys.argv[1])]))
 EOF

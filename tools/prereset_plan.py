@@ -34,6 +34,9 @@ puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
 grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
 is head_of_queue()'s: the puzzles a lockout cut off first, the hand requests,
+then the newest answered puzzles of the PRIORITY_SERIES (priority_ids: the
+series that bring the site's search traffic, each with its own window of newest
+puzzles; the nightly's picker reads the same list),
 then the series to finish off (finish_off_series: under FINISH_OFF unhinted
 puzzles left, fewest left first; owner 10-22: "Can we finish off series who has
 less than 200 unhinted puzzles first?"),
@@ -2093,6 +2096,24 @@ def small_self_test():
         print(f"FAIL head_of_queue finish off lifts {pinned} at {stages} (want tls-5 only)",
               file=sys.stderr)
         bad += 1
+    # the priority series' newest answered puzzles (PRIORITY_SERIES) lead everything
+    # but the lockout pin and hand requests, newest first, ahead of the finish-off
+    # and recent tiers; the window is the newest N answered, annotated rows included
+    mrows = [dict(_dated(f"metro-{n}", f"2026-03-{n:02d}"), series="metro", hasSolutions=True)
+             for n in range(1, 6)]
+    mrows[4]["annotated"] = True
+    mrows[0]["hasSolutions"] = False
+    orows = rows + mrows
+    ids = [r["id"] for r in orows if r["id"] != "metro-5"]
+    _, pinned, stages = head_of_queue(ids, ["r"], orows, asked=["book-7"], finish=["tls"])
+    if priority_ids(orows, {"metro": 3}) != ["metro-5", "metro-4", "metro-3"]:
+        print(f"FAIL priority_ids = {priority_ids(orows, {'metro': 3})}", file=sys.stderr)
+        bad += 1
+    want = ["r", "book-7", "metro-4", "metro-3", "metro-2"]
+    if pinned[:5] != want or stages[10] != 3 or "metro-1" in pinned[:8]:
+        print(f"FAIL head_of_queue priority series pins {pinned} at {stages} (want {want} first)",
+              file=sys.stderr)
+        bad += 1
     # the small series go right behind the cut-offs, ahead of showcase and the
     # 10 oldest, series by series, newest first inside each
     rows = [_dated("cryptic-1", "2026-01-01"), _dated("cryptic-2", "2026-01-02"),
@@ -3135,6 +3156,38 @@ def finish_off_series(days=None):
     return [name for left, name in ranked if 0 < left < FINISH_OFF]
 
 
+# The series whose newest puzzles go first in the daily queue, right after the
+# lockout cut-offs and hand requests: series -> how many of its newest answered
+# puzzles. Search traffic lands on a paper's latest puzzles, and the Metro's
+# bring far more clicks per page than the rest. The one place both the burn
+# (head_of_queue) and the nightly's picker (daily_update.sh) read.
+PRIORITY_SERIES = {"metro": 30}
+
+
+def priority_ids(rows, series_window=None):
+    """The ids of the newest answered puzzles of each PRIORITY_SERIES (series_window,
+    else PRIORITY_SERIES) among the index rows, annotated ones included so the
+    window is a fixed set that annotating does not slide; the series in
+    listed order, newest first inside each. A puzzle that is not a cryptic
+    (`style`) is left out."""
+    window = PRIORITY_SERIES if series_window is None else series_window
+    out = []
+    for name, count in window.items():
+        mine = [r for r in rows if r.get("series") == name and r.get("hasSolutions")
+                and not r.get("style") and series.puzzle_day(r) is not None]
+        mine.sort(key=lambda r: (series.puzzle_day(r), r["id"]), reverse=True)
+        out += [r["id"] for r in mine[:count]]
+    return out
+
+
+def priority_first(queue, pinned, rows, tried=()):
+    """pinned, then the queue's puzzles in priority_ids(rows), newest first,
+    leaving out those a failure is on record for (tried)."""
+    inq, taken = set(queue), set(pinned)
+    return pinned + [pid for pid in priority_ids(rows)
+                     if pid in inq and pid not in taken and pid not in tried]
+
+
 def tried_before():
     """Ids the annotate or solve ledger (tools/failed_inputs.py, the one backlog()
     is given) holds out on the puzzle as it is now."""
@@ -3241,6 +3294,7 @@ def cold_row(row, kept=False):
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(), finish=(), tried=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
     (cut off by a lockout), then the hand requests (asked, requested()), then
+    the newest answered puzzles of the PRIORITY_SERIES (priority_first), then
     the series to finish off (finish, finish_off_series(); owner 10-22: "Can we
     finish off series who has less than 200 unhinted puzzles first?"), then the
     recent tier (recent_first), then the bag-eligible tails incl. redo ones (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
@@ -3263,6 +3317,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(),
     front = list(pinned)
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
+    pinned = priority_first(queue, pinned, rows, tried)
     asked_end = len(pinned)
     # owner 10-22: "don't add the ones that we tried before or see unlikely to
     # work": only an answered puzzle with no annotate or solve failure on record
@@ -3312,7 +3367,8 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(),
     cold_rest = [pid for pid in queue if cold_row(by_id.get(pid), pid in keep) and pid not in cold]
     gone = cold | set(cold_rest)
     queue = [pid for pid in queue if pid not in gone] + deferred + cold_rest
-    stages += [partly_k, asked_n, tails_k, new_k, redo_k, finish_k]
+    priority_k = sum(1 for pid in pinned[len(front) + asked_n:asked_end] if pid not in cold)
+    stages += [partly_k, asked_n, tails_k, new_k, redo_k, finish_k, priority_k]
     return queue, pinned, stages
 
 
@@ -3396,11 +3452,13 @@ def cover_first(pinned):
                                      tried_before())
     print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
           + (f" ({', '.join(pinned[cut:cut + n[5]])})" if n[5] else ""), file=sys.stderr)
+    print(f"priority: {n[10]} queued puzzles of {', '.join(PRIORITY_SERIES) or 'none'} "
+          f"(their newest answered) go first", file=sys.stderr)
     print(f"finish off: {n[9]} queued puzzles of {', '.join(finish) or 'none'} (under {FINISH_OFF} "
           f"unhinted each) go first", file=sys.stderr)
     print(f"recent: {n[7] + n[8]} queued puzzles dated in the last year go first "
           f"({n[7]} never annotated)", file=sys.stderr)
-    cut += n[7] + n[8] + n[9]
+    cut += n[7] + n[8] + n[9] + n[10]
     print(f"tails: {n[6]} queued puzzles with a few clues due go first (bagged)",
           file=sys.stderr)
     print(f"partly hinted: {n[4]} queued puzzles with some clues hinted go first",
