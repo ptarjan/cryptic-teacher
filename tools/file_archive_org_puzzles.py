@@ -610,7 +610,26 @@ def stops(text):
         or bool(PUZZLE_NO.search(text))
 
 
-#: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.
+#: A text line's box height, in pixels, up to which the pixel thresholds below stand as set (GAP 80, ACROSS_GUTTER 60, ...):
+#: about the 92nd percentile of the page medians over 3,000 cached filed and refused pages 1930-2019 (their median is 24,
+#: the 25th-90th 20-29; the readers differ, Tesseract-model "times7" boxes 19, RapidOCR's 25-26). Pages set in larger
+#: type (the 1996-2002 Gale Times at 33-36, the 1991 Times at 48) get the same number of lines.
+TYPICAL_LINE = 30
+#: The pixels a page's median line height may stand over TYPICAL_LINE before it counts as larger print: the median of word
+#: boxes jitters by a pixel or two between readers and recognisers, and at 31-35 px (a few percent over) the thresholds'
+#: scaling only moved a gutter or gap cut by a word (3 of 71 filed pages' changes lost one clue, none above 35 px).
+LINE_JITTER = 2
+
+
+def at_line(px, height):
+    """`px`, a distance set at TYPICAL_LINE high text, for text `height` px high (a page's median line height, as
+    columns() measures it, less LINE_JITTER): the same number of lines, never less than `px` (a page of finer print
+    keeps today's threshold). As given when no height was measured. Read-time only: nothing reached from scan() calls
+    it."""
+    return max(px, px * (height - LINE_JITTER) / TYPICAL_LINE) if height else px
+
+
+#: The vertical gap, in pixels at TYPICAL_LINE high text (3 1/3 lines), that ends a column (at_line()).
 GAP = 80
 #: The widest such gap over a column's DOWN heading that keeps the column going: the heading the
 #: 1981-86 Times sets alone at the foot of the across list's column, its first down clues under it.
@@ -621,23 +640,23 @@ DOWN_GAP = 1.5 * GAP
 DOWN_FOOT_RUN = 3 * GAP
 
 
-def down_foot_runs_on(out, kept, line, last, downs):
+def down_foot_runs_on(out, kept, line, last, downs, height=None):
     """Whether `line`, the one DOWN heading of the window, set low in a column after the first, whose clues so far
     (`kept`) open on a numbered clue that is the across list running on from the first column (`out`, its columns
     kept so far, the first opening on ACROSS), is no more than DOWN_FOOT_RUN under the line over it (`last`). The column
     may open on the tail of the clue the first column ended in (INDY_FOOT_TAIL: "situated, in relation to"), any clue of
     it numbered."""
     return bool(kept and out and out[0] and len(downs) == 1 and line is downs[0]
-                and line[0] - last <= DOWN_FOOT_RUN
+                and line[0] - last <= at_line(DOWN_FOOT_RUN, height)
                 and clue_text.heading_of(out[0][0][4]) == "ACROSS"
                 and not clue_text.heading_of(kept[0][4])
                 and any(re.match(r"\s*\d{1,2}\b", k[4]) for k in kept)
                 and not any(clue_text.heading_of(x[4]) == "DOWN" for c in out for x in c))
 
 
-#: How far, in pixels, a line must start left of the split between two
+#: How far, in pixels at TYPICAL_LINE high text (2 1/2 lines), a line must start left of the split between two
 #: columns and run on right of it to be printed across both (a centred
-#: notice); a right-hand clue's outdented number starts a pixel or two left.
+#: notice); a right-hand clue's outdented number starts a pixel or two left (at_line()).
 ACROSS_GUTTER = 60
 #: What a line printed across both columns reads as in columns().
 NOTICE = "\x00across the columns"
@@ -2890,8 +2909,8 @@ def glued_starts(text):
 
 #: A line's opening as far as a linked clue's last number: a speck, then its numbers ("1 25, ").
 LINKED_HEAD = re.compile(r"(\W*(?:\S\s+)?)\d{1,2}\s?,\s?(?:\d{1,2}\s?,\s?)*")
-#: How far, in pixels, from a gutter a clue's number in a line read across
-#: it may be placed by its share of the line's characters.
+#: How far, in pixels at TYPICAL_LINE high text (3 1/3 lines), from a gutter a clue's number in a line read across
+#: it may be placed by its share of the line's characters (at_line()).
 SPLIT_SLACK = 80
 #: The most a row may lie over a gutter, as a share of its width left of it, to be a
 #: column's row spilled over it and not a notice across both columns (split_across).
@@ -2907,21 +2926,22 @@ BAR_NEXT = re.compile(r"[|¦!lI](?=\d{1,2}\s?[A-Z\"'‘“])")
 NOTICE_NEXT = re.compile(r"(?:\s[|¦!\[\]}↑1Il]\s?|[|¦!\[\]}↑]\s?|\s)(?=Five\s?b[o0]{2}k)", re.I)
 
 
-def under_unglued(ws, gutters):
+def under_unglued(ws, gutters, height=None):
     """`ws` with each word read across a gutter whose text holds the next column's number glued to a bar
     (RapidOCR reads the rows of SUNDAY_UNDER's columns under the grid as one word, "theyare|23Perhapsthe...",
     4068 px wide pages, no space between them: split_across needs one) cut at the bar nearest the gutter by
     the share of the characters, the bar dropped. A word that runs from a DOWN column into the prize notice
     set beside it (NOTICE_NEXT) is cut before the notice, the clue's piece ending at the gutter."""
     out = []
+    gutter, slack = at_line(ACROSS_GUTTER, height), at_line(SPLIT_SLACK, height)
     for w in ws:
         for x in gutters:
-            if not (w[0] < x and w[2] > x + ACROSS_GUTTER):
+            if not (w[0] < x and w[2] > x + gutter):
                 continue
             text, width = w[4], w[2] - w[0]
             at = [(abs(w[0] + width * m.start() / len(text) - x), m.start(), m.start() + 1, False) for m in BAR_NEXT.finditer(text)]
             at += [(abs(w[0] + width * m.start() / len(text) - x), m.start(), m.end(), True) for m in NOTICE_NEXT.finditer(text)]
-            near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
+            near = min((a for a in at if a[0] <= slack), default=None)
             if near is None or not text[:near[1]].strip() or not text[near[2]:].strip():
                 continue
             s, e, notice = near[1], near[2], near[3]
@@ -2942,6 +2962,7 @@ def split_across(ws, gutters, height=None):
     heights: each half is given that height about its middle, so the line
     printed under either half is not read as a second copy of it."""
     out = []
+    gutter, slack = at_line(ACROSS_GUTTER, height), at_line(SPLIT_SLACK, height)
     for w in ws:
         if height and w[3] - w[1] > height:
             mid = (w[1] + w[3]) / 2
@@ -2949,7 +2970,7 @@ def split_across(ws, gutters, height=None):
         else:
             tall = w
         for x in gutters:
-            if not (w[0] < x and w[2] > x + ACROSS_GUTTER):
+            if not (w[0] < x and w[2] > x + gutter):
                 continue
             text, width = w[4], w[2] - w[0]
             starts = []
@@ -2968,20 +2989,20 @@ def split_across(ws, gutters, height=None):
                 if s:
                     starts.append(s)
             at = [(abs(w[0] + width * s / len(text) - x), s) for s in starts]
-            near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
-            if near is None and w[0] < x - ACROSS_GUTTER and w[2] - x <= SPLIT_SPILL * (x - w[0]) and " " in text:
+            near = min((a for a in at if a[0] <= slack), default=None)
+            if near is None and w[0] < x - gutter and w[2] - x <= SPLIT_SPILL * (x - w[0]) and " " in text:
                 # A row's end that spilled over a narrow gutter ("(25 and part back (4,3,4) up!",
                 # the next column's "Shut up! (4,4)" ending), not a notice printed across both
                 # (which lies far into the next column): cut at the space nearest the gutter, so
                 # the row is not taken for a notice that ends the column (FT 1981).
                 spaces = [i for i, c in enumerate(text) if c == " "]
                 cut = min(spaces, key=lambda i: abs(w[0] + width * i / len(text) - x))
-                if abs(w[0] + width * cut / len(text) - x) <= SPLIT_SLACK and text[:cut].strip() and text[cut:].strip():
+                if abs(w[0] + width * cut / len(text) - x) <= slack and text[:cut].strip() and text[cut:].strip():
                     out.append((w[0], tall[1], x - 1, tall[3], text[:cut].rstrip()))
                     w = tall = (x, tall[1], w[2], tall[3], text[cut:].lstrip())
                     continue
             if near is None:
-                if x - w[0] <= ACROSS_GUTTER and w[2] - x > x - w[0]:
+                if x - w[0] <= gutter and w[2] - x > x - w[0]:
                     # Starting just left of the gutter and lying mostly right
                     # of it: a skewed page's right-column line, its left edge
                     # drifted over the straight gutter.
@@ -3048,11 +3069,11 @@ NUMBERED_LINE = re.compile(r"\d{1,2}\s+[A-Z\"'‘“]")
 HEADING_ROOM = 40
 
 
-def heading_room(kept, line, last):
-    """HEADING_ROOM when `kept` is one heading line alone and `line` (the column's next) is no stop, else 0."""
+def heading_room(kept, line, last, height=None):
+    """HEADING_ROOM (at_line()) when `kept` is one heading line alone and `line` (the column's next) is no stop, else 0."""
     if len(kept) == 1 and clue_text.heading_of(kept[0][4]) in ("ACROSS", "DOWN") and not stops(line[4]) \
             and re.match(r"\W{0,2}\d{1,2}\b", line[4]):
-        return HEADING_ROOM
+        return at_line(HEADING_ROOM, height)
     return 0
 
 
@@ -3072,6 +3093,7 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     cols = [[] for _ in wins]
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
     height = heights[len(heights) // 2] if heights else None
+    gap, gutter = at_line(GAP, height), at_line(ACROSS_GUTTER, height)
     for ws in lines:
         # INDY_BANNER: the Independent's help-line banner under the clue columns, one box across them.
         if ws and INDY_BANNER_LINE.search(" ".join(str(w[4]) for w in ws)):
@@ -3080,7 +3102,7 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
             ws = band_unglued(ws, [w[1] for w in main[:-1]])
         if left and isinstance(getattr(left, "under", None), list):
             # The last column's far edge too: the prize notice beside the solution box starts there.
-            ws = under_unglued(ws, [w[1] for w in main[:-1]] + [left.under[-1]])
+            ws = under_unglued(ws, [w[1] for w in main[:-1]] + [left.under[-1]], height)
         ws = split_across(ws, [w[1] for w in main[:-1]], height)
         if len(main) < len(wins):
             # The strip's rows: read across its gutters, cut like the others.
@@ -3093,11 +3115,11 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
             # overhang.
             over = reach if (side >= (len(lead) - 2 if lead else 0) or not lead) and side < len(main) else None
             part = [w for w in ws if x0 <= w[0] < x1 and top <= w[1] <= foot and (
-                w[2] <= right or over and w[2] <= over and w[0] < gx1 - ACROSS_GUTTER)]
+                w[2] <= right or over and w[2] <= over and w[0] < gx1 - gutter)]
             if part:
                 text = " ".join(w[4] for w in part)
-                if side + 1 < len(main) and min(w[0] for w in part) < x1 - ACROSS_GUTTER \
-                        and max(w[2] for w in part) > x1 + ACROSS_GUTTER:
+                if side + 1 < len(main) and min(w[0] for w in part) < x1 - gutter \
+                        and max(w[2] for w in part) > x1 + gutter:
                     # A line printed across both columns, not a clue's ("Prize
                     # Crossword in The Times tomorrow", "The solution to the
                     # Collins Competition ..."): it ends the column like STOP.
@@ -3114,17 +3136,17 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
         for line in col:
             if closed and closed[0] <= line[0] <= closed[1]:
                 continue
-            if third and kept and side >= 2 and line[0] - last > GAP \
+            if third and kept and side >= 2 and line[0] - last > gap \
                     and not any(NUMBERED_LINE.match(k[4]) for k in kept) and NUMBERED_LINE.match(line[4]):
                 # GUARDIAN_NOTICE: the Guardian's last column opens on the prize winners' notice, its lines kept as
                 # a clue's carried tail, and the gap to the first numbered clue ended the column there: no clue read.
                 kept, last = [], None
-            if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > GAP + heading_room(kept, line, last)) \
+            if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > gap + heading_room(kept, line, last, height)) \
                     and not (closed and not stops(line[4]) and line[4] != NOTICE and last < closed[0]
-                             and closed[1] < line[0] <= closed[1] + SOLUTION_GAP * GAP):
-                if not (line[0] - last <= DOWN_GAP and len(downs) == 1 and line is downs[0]
+                             and closed[1] < line[0] <= closed[1] + SOLUTION_GAP * gap):
+                if not (line[0] - last <= at_line(DOWN_GAP, height) and len(downs) == 1 and line is downs[0]
                         and clue_text.heading_of(kept[0][4]) == "ACROSS") \
-                        and not down_foot_runs_on(out, kept, line, last, downs):
+                        and not down_foot_runs_on(out, kept, line, last, downs, height):
                     break
                 # The DOWN heading set lower in the across list's column, after white space, its
                 # first clues under it and the rest atop the next column (Gale 1981-86: the gap
@@ -3236,6 +3258,7 @@ def columns_of_four(lines, grid, gutters, down):
     bottom = gy1 + FOUR_DEPTH * (gy1 - gy0)
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
     height = heights[len(heights) // 2] if heights else None
+    gap = at_line(GAP, height)
     cols = [[] for _ in range(4)]
     # Each column ends at the first line over it that FOUR_STOP matches,
     # read whole before any cut at a gutter.
@@ -3247,7 +3270,7 @@ def columns_of_four(lines, grid, gutters, down):
                 if x0 < edges[side + 1] and x1 > edges[side] and y0 > gy1 + 20:
                     stops[side] = min(stops[side], y0 - 2)
     for ws in lines:
-        ws = cut_at_gutters(split_across(ruled_apart(ws), gutters, height), gutters)
+        ws = cut_at_gutters(split_across(ruled_apart(ws), gutters, height), gutters, height)
         for side in range(4):
             part = [w for w in ws if edges[side] <= w[0] < edges[side + 1] and gy1 - 5 <= w[1] <= stops[side]]
             if part:
@@ -3257,7 +3280,7 @@ def columns_of_four(lines, grid, gutters, down):
     for col in cols:
         out, last = [], None
         for line in merge_rows(col):
-            if FOUR_STOP.search(line[4]) or (out and line[0] - last > GAP):
+            if FOUR_STOP.search(line[4]) or (out and line[0] - last > gap):
                 if out:
                     break
                 continue
@@ -3294,7 +3317,7 @@ def vlm_four(img, cols, only=None):
     return "\n".join(p for p in parts if p)
 
 
-def cut_at_gutters(ws, gutters):
+def cut_at_gutters(ws, gutters, height=None):
     """`ws` with each word still read across a gutter (two columns' rows
     run into one, "1WinneroftheoGanymedetothe") cut there, at the space
     nearest its share of the characters, or at that share: no notice is
@@ -3302,7 +3325,7 @@ def cut_at_gutters(ws, gutters):
     out = []
     for w in ws:
         for x in gutters:
-            if not (w[0] < x - ACROSS_GUTTER and w[2] > x + ACROSS_GUTTER) or heading_of(w[4]):
+            if not (w[0] < x - at_line(ACROSS_GUTTER, height) and w[2] > x + at_line(ACROSS_GUTTER, height)) or heading_of(w[4]):
                 continue
             at = round(len(w[4]) * (x - w[0]) / (w[2] - w[0]))
             spaces = [m.start() for m in re.finditer(r"\s", w[4]) if abs(m.start() - at) <= 3]
