@@ -161,37 +161,34 @@ class PuzzleNotFound(ExpectedlyUnfetchable):
 # docstring for where it came from) ----------
 
 def is_valid_key_prefix(rawc, key_prefix, spacing):
-    try:
-        pos = 0
-        chunk = []
-        while pos < len(rawc):
-            start_pos = pos
-            key_index = 0
-            while key_index < len(key_prefix) and pos < len(rawc):
-                chunk_length = min(key_prefix[key_index], len(rawc) - pos)
-                chunk.append(rawc[pos: pos + chunk_length][::-1])
-                pos += chunk_length
-                key_index += 1
-            chunk_str = "".join(chunk)
-            base64_start = ((start_pos + 3) // 4) * 4 - start_pos
-            base64_end = (pos // 4) * 4 - start_pos
-            if base64_start >= len(chunk_str) or base64_end <= base64_start:
-                chunk.clear()
-                pos += spacing
-                continue
-            b64_chunk = chunk_str[base64_start:base64_end]
-            try:
-                decoded = base64.b64decode(b64_chunk)
-            except Exception:
-                return False
-            for byte in decoded:
-                if (byte < 32 and byte not in (0x09, 0x0A, 0x0D)) or byte in (0xC0, 0xC1) or byte >= 0xF5:
-                    return False
-            pos += spacing
+    pos = 0
+    chunk = []
+    while pos < len(rawc):
+        start_pos = pos
+        key_index = 0
+        while key_index < len(key_prefix) and pos < len(rawc):
+            chunk_length = min(key_prefix[key_index], len(rawc) - pos)
+            chunk.append(rawc[pos: pos + chunk_length][::-1])
+            pos += chunk_length
+            key_index += 1
+        chunk_str = "".join(chunk)
+        base64_start = ((start_pos + 3) // 4) * 4 - start_pos
+        base64_end = (pos // 4) * 4 - start_pos
+        if base64_start >= len(chunk_str) or base64_end <= base64_start:
             chunk.clear()
-        return True
-    except Exception:
-        return False
+            pos += spacing
+            continue
+        b64_chunk = chunk_str[base64_start:base64_end]
+        try:
+            decoded = base64.b64decode(b64_chunk)
+        except ValueError:  # binascii.Error, or a str b64decode won't take
+            return False
+        for byte in decoded:
+            if (byte < 32 and byte not in (0x09, 0x0A, 0x0D)) or byte in (0xC0, 0xC1) or byte >= 0xF5:
+                return False
+        pos += spacing
+        chunk.clear()
+    return True
 
 
 def deobfuscate_rawc_with_key(rawc, key):
@@ -210,7 +207,7 @@ def deobfuscate_rawc_with_key(rawc, key):
             i += segment_length
         decoded_bytes = base64.b64decode("".join(buffer))
         return decoded_bytes.decode("utf-8")
-    except Exception:
+    except ValueError:  # binascii.Error or UnicodeDecodeError: not this key
         return ""
 
 
