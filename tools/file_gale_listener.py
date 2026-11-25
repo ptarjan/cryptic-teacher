@@ -224,6 +224,18 @@ def mended(rows, clues, theme=None):
             continue
         clues[bare[0]] = clues.pop(spare[0])
         notes[bare[0]] = f"printed as {spare[0]}"
+    # A clue with words numbered past the grid's last light (the highest number
+    # any light starts at) is not the list's: a puzzle's lights number
+    # 1..last, so what is read after them is the page's own noise, the
+    # solution's notes under the list ("56 Meistersinger.", "54 Hidden.",
+    # No 2300) or a page number ("83", No 2415). Linked tails and clues a
+    # light's group names stay.
+    last = max((number_of(lid)[0] for lid in have), default=10 ** 9)
+    named = {g for c in clues.values() for g in (c.get("group") or ())}
+    for lid in sorted(set(clues) - set(have), key=order):
+        if text.get(lid) and number_of(lid)[0] > last and lid not in named:
+            del clues[lid]
+            notes[lid] = f"read beyond the grid's last light ({last}): not a clue"
     # A linked clue's tail ("See 30", No 261's 19 across of "(30) & (19
     # rev.)") cites its own head, not a light of that number the other way.
     tails = {t for c in clues.values() for t in (c.get("group") or ())[1:]}

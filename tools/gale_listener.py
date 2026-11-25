@@ -2584,7 +2584,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     `before`, the page's last ledger row: a reading it wrote under another
     number than it now matches is dropped (disown)."""
     import scan_queue
-    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX,
+    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2775,7 +2775,8 @@ def plan(inbox=SAVED, store=STORE):
             todo[p] = row
     # A Times page first in its rank: ~85 modern pages that may file whole, not behind ~2,850 of the
     # magazine's never read (their mtimes all earlier).
-    due = sorted(((p, (SHORT if p.name in list_fix_names() and (row or {}).get("listFix", 0) < LIST_FIX
+    due = sorted(((p, (SHORT if ((p.name in list_fix_names() and (row or {}).get("listFix", 0) < LIST_FIX)
+                                 or (p.name in join_fix_names() and (row or {}).get("joinFix", 0) < JOIN_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -2925,13 +2926,34 @@ def list_fix_names():
     return _LIST_FIX_NAMES
 
 
+#: Bumped when the join (file_gale_listener.mended) lays a clue list on a grid differently: a clue numbered past the grid's
+#: last light is the page's noise, not a clue (the solution's notes under the list, a page number). Only the pages the
+#: change makes join (tools/data/listener_beyond_last.json, found by joining the refused readings fix-off and fix-on on
+#: the cached grids) are read and joined again.
+JOIN_FIX = 1
+JOIN_FIX_FILE = ROOT / "tools" / "data" / "listener_beyond_last.json"
+_JOIN_FIX_NAMES = None
+
+
+def join_fix_names():
+    """The saved pages' names JOIN_FIX changes (a committed list nothing writes)."""
+    global _JOIN_FIX_NAMES
+    if _JOIN_FIX_NAMES is None:
+        try:
+            _JOIN_FIX_NAMES = frozenset(json.loads(JOIN_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _JOIN_FIX_NAMES = frozenset()
+    return _JOIN_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
     VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
     changes) at LIST_FIX."""
     row = row or {}
     return (row.get("version") == VERSION and (not is_times(p) or row.get("timesCut", 1) >= TIMES_CUTS)
-            and not (row.get("listFix", 0) < LIST_FIX and p.name in list_fix_names()))
+            and not (row.get("listFix", 0) < LIST_FIX and p.name in list_fix_names())
+            and not (row.get("joinFix", 0) < JOIN_FIX and p.name in join_fix_names()))
 
 
 def due_reason(row):

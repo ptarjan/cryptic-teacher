@@ -75,15 +75,21 @@ named = {lid: {"text": "clue " + "abcdefgh"[i]} for i, lid in enumerate(lids)}
 twice = {**named, "9-across": {"text": named["5-across"]["text"].upper().replace(" ", "  ")}}
 got, notes = f.mended(OPEN, twice)
 check("a clue off any light with a lit clue's text was read twice", (named, ["9-across"]), (got, list(notes)))
-got, _ = f.mended(OPEN, {**named, "9-across": {"text": "its own words"}})
-check("one with its own words stays, and the lists disagree (mirror)", "no light for 9-across", f.lights_fit(OPEN, got))
+got, _ = f.mended(OPEN, {**named, "2-across": {"text": "its own words"}})
+check("one with its own words stays, and the lists disagree (mirror)", "no light for 2-across", f.lights_fit(OPEN, got))
+got, notes = f.mended(OPEN, {**named, "9-across": {"text": "its own words"}})
+check("but one numbered past the grid's last light is the page's noise, and goes", (None, ["9-across"]),
+      (f.lights_fit(OPEN, got), list(notes)))
+got, notes = f.mended(OPEN, {**named, "9-across": {"text": ""}})
+check("one read with no words there is nothing to drop, and says nothing (mirror)", ([], None),
+      ([n for n in notes if "beyond" in notes[n]], f.lights_fit(OPEN, got)))
 moved = {k: v for k, v in named.items() if k != "7-across"} | {"8-across": {"text": "x"}}
 got, notes = f.mended(OPEN, moved)
 check("the one spare clue and the one bare light at its place are one (No 9 prints 35 for 36A)",
       (None, {"7-across": "printed as 8-across"}), (f.lights_fit(OPEN, got), notes))
-far = {k: v for k, v in named.items() if k != "1-across"} | {"8-across": {"text": "x"}}
+far = {k: v for k, v in named.items() if k != "7-across"} | {"2-across": {"text": "x"}}
 got, notes = f.mended(OPEN, far)
-check("not where a clued light lies between them (mirror)", ({}, "no light for 8-across; no clue for 1-across"),
+check("not where a clued light lies between them (mirror)", ({}, "no light for 2-across; no clue for 7-across"),
       (notes, f.lights_fit(OPEN, got)))
 cite = {k: v for k, v in named.items() if k != "4-down"} | {"2-down": {"text": "Wonderful 4."}}
 got, notes = f.mended(OPEN, cite)
