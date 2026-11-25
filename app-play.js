@@ -267,14 +267,8 @@
     const top = (r.height > vh - HINT_SCROLL_GAP || r.top < band.top)
       ? y + r.top - band.top - HINT_SCROLL_GAP
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
-    // Smooth: the travel is how the reader keeps their place. Reduced motion
-    // gets the jump instead, as everywhere else.
-    const still = reduceMotion();
-    // Ours, not the reader's — see markOwnScroll() below the keyboard rules, so
-    // the scroll listener that puts the keyboard away on a real scroll ignores
-    // the one this line is about to fire.
-    markOwnScroll();
-    window.scrollTo({ top: Math.max(0, top), behavior: still ? "auto" : "smooth" });
+    // Smooth: the travel is how the reader keeps their place.
+    movePage(top);
   }
   // settleBy and watchUntil are the whole guard: a resize matters only while a tap
   // is waiting to land, or while the keyboard it asked for could still be on its
@@ -598,16 +592,34 @@
   const SCROLL_BLUR_GUARD_MS = 1000;
   const SCROLL_BLUR_PX = 120;
   const SCROLL_BLUR_IDS = ["kbd", "picker-search", "sync-join-code"];
-  // A flag on a timer, not a Date.now() deadline: a smooth scroll can still be
-  // travelling when the browser fires its last 'scroll' event for it, and the app
-  // has no other signal for "has our own animation finished" than waiting the
-  // guard back out.
+  // A flag, ended by the browser's own `scrollend` where it exists (the last
+  // 'scroll' event of a smooth animation can still be in flight when anything
+  // else would say it is done) and by a timer where it does not, or where the
+  // page was already in place and no scroll ever happens to end.
   let ownScroll = false, ownScrollTimer = null;
   let scrollBlurBaseline = null;
   function markOwnScroll() {
     ownScroll = true;
     if (ownScrollTimer) clearTimeout(ownScrollTimer);
-    ownScrollTimer = setTimeout(() => { ownScroll = false; ownScrollTimer = null; }, SCROLL_BLUR_GUARD_MS);
+    ownScrollTimer = setTimeout(endOwnScroll, SCROLL_BLUR_GUARD_MS);
+  }
+  function endOwnScroll() {
+    ownScroll = false;
+    if (ownScrollTimer) clearTimeout(ownScrollTimer);
+    ownScrollTimer = null;
+    if (typeof window !== "undefined" && window.removeEventListener) window.removeEventListener("scrollend", endOwnScroll);
+  }
+  // The one way the app moves the page. `target` is an element (brought into
+  // view at opts.block) or a page offset in px. Smooth by default, instant under
+  // prefers-reduced-motion or opts.smooth === false.
+  function movePage(target, opts) {
+    opts = opts || {};
+    const still = opts.smooth === false || reduceMotion();
+    const behavior = still ? "auto" : "smooth";
+    markOwnScroll();
+    if (typeof window !== "undefined" && "onscrollend" in window) window.addEventListener("scrollend", endOwnScroll, { once: true });
+    if (typeof target === "number") window.scrollTo({ top: Math.max(0, target), behavior });
+    else if (target && target.scrollIntoView) target.scrollIntoView({ block: opts.block || "nearest", behavior });
   }
   function onPageScroll() {
     // Only a keyboard that is actually on screen is worth reclaiming: a

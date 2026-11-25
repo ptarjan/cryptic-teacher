@@ -66,7 +66,7 @@
             renderHintPanel();
           }
           const n = $("hint-note-" + b.note);
-          if (n && n.scrollIntoView) n.scrollIntoView({ block: "nearest", behavior: "smooth" });
+          if (n) movePage(n, { block: "nearest" });
         };
         el.appendChild(btn);
         return;

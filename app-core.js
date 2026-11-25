@@ -574,7 +574,7 @@
       // the whole reason this dialog exists; landing them back at the top of the
       // grid would rebuild the problem one step later.
       const panel = $("hint-panel");
-      if (panel && panel.scrollIntoView) panel.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (panel) movePage(panel, { block: "center" });
     };
     if (skip) skip.onclick = () => { introOpen = false; nux = NUX_LINES.length; store.set(NUX_KEY, nux); nuxDraw(); beacon("nux-skip"); };
   }
@@ -635,13 +635,8 @@
       // is at the top of it, while the last rung press left the eye at the
       // bottom of the row.
       const strip = live && typeIt ? $("hint-pattern") : null;
-      if (strip && strip.scrollIntoView) {
-        strip.scrollIntoView({ behavior: "smooth", block: "center" });
-        // The hole is in page coordinates, so the scroll carries it along and
-        // there is nothing to redraw as the page moves. Only the caption needs
-        // a second look: which side of the hole it goes on is a question about
-        // the window, and the window is still moving.
-        [200, 500, 900].forEach((ms) => setTimeout(spotlightDraw, ms));
+      if (strip) {
+        movePage(strip, { block: "center" });
       }
     }
     // Outside the redraw guard: the sentence does not change while it is up, but
@@ -789,9 +784,15 @@
     // the page at all: a hole stretched to reach the line in the panel is most
     // of a phone screen, and lights nothing.
     // Below the hole, unless the hole is near the foot of the window.
-    spot.classList.toggle("say-above", bottom + 96 > (window.innerHeight || 800));
-    sayIt($("nux"), $("spot-say"), true);
+    // The caption is measured, not assumed: its words and the hole's width both
+    // change its height, and the margin between it and the hole goes with it.
+    // The scroll and resize listeners below redraw as the page moves, so the
+    // side it lands on is always a fact about the window as it is now.
+    const sayEl = $("spot-say");
+    sayIt($("nux"), sayEl, true);
     spot.classList.remove("hidden");
+    const sayH = sayEl ? sayEl.offsetHeight + 8 : 0;
+    spot.classList.toggle("say-above", bottom + sayH > (window.innerHeight || document.documentElement.clientHeight));
   }
 
   if (window.addEventListener) {

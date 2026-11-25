@@ -28,4 +28,34 @@ check(run([50, 100, 150, 200]), "a real scroll (200px) still drops the keyboard"
 // A touchscreen laptop has touch points but no soft keyboard: the wheel must not blur.
 check(!run([50, 100, 150, 200], false), "touch points but no keyboard up (touchscreen laptop): a real scroll keeps focus");
 check(!run([50, 100, 150, 200], true, 0), "no touch screen at all: a real scroll keeps focus");
+
+// movePage: every app-initiated scroll is marked as the app's own, honours
+// reduced motion, and the guard ends on scrollend where the browser has it.
+function move(reduced, hasScrollend) {
+  const el = { id: "kbd", blurred: false, blur() { this.blurred = true; } };
+  const calls = [], handlers = [], timers = [];
+  const win = { pageYOffset: 0, scrollTo: (o) => calls.push(o), addEventListener: (t, f) => handlers.push([t, f]), removeEventListener() {} };
+  if (hasScrollend) win.onscrollend = null;
+  const target = { scrollIntoView: (o) => calls.push(o) };
+  win.matchMedia = () => ({ matches: reduced });
+  const f = new Function("navigator", "document", "window", "keyboardUp", "reduceMotion", "setTimeout", "clearTimeout",
+    helper + src.slice(s, e) + "; return { onPageScroll, movePage };");
+  const api = f({ maxTouchPoints: 5 }, { activeElement: el }, win, () => true,
+    () => reduced, (fn) => timers.push(fn), () => {});
+  api.onPageScroll();
+  api.movePage(target, { block: "center" });
+  win.pageYOffset = 500; api.onPageScroll();
+  return { el, calls, handlers, win, api };
+}
+let m = move(false, false);
+check(m.calls[0].behavior === "smooth" && m.calls[0].block === "center", "movePage scrolls smoothly");
+check(!m.el.blurred, "an app scroll never drops the keyboard");
+check(m.handlers.length === 0, "no scrollend listener where the browser lacks it (the timer is the guard)");
+m = move(true, true);
+check(m.calls[0].behavior === "auto", "reduced motion gets an instant jump");
+check(m.handlers.some((h) => h[0] === "scrollend"), "scrollend ends the guard where it exists");
+m.handlers[0][1]();
+m.api.onPageScroll();
+m.win.pageYOffset = 900; m.api.onPageScroll();
+check(m.el.blurred, "after scrollend a real scroll drops the keyboard again");
 process.exit(failures ? 1 : 0);
