@@ -25,9 +25,9 @@ While the VLM is down the read is skipped (VlmDown), and the puzzle stays due
 import io
 import re
 import sys
-import urllib.request
 
 import fetch_nation as fn
+import http_fetch
 import reconstruct_grid as rg
 
 IMAGES = fn.DIR / "images"
@@ -67,9 +67,7 @@ def fetch(url):
         # Old pages link http://www.thenation.com/..., which now ends the TLS
         # handshake with "EOF occurred in violation of protocol" (1588).
         url = re.sub(r"^http://", "https://", url)
-        req = urllib.request.Request(url, headers={"User-Agent": fn.UA})
-        with urllib.request.urlopen(req, timeout=40) as r:
-            data = r.read()
+        data = http_fetch.polite_bytes(url)
         IMAGES.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
     return path.read_bytes()

@@ -35,7 +35,6 @@ error naming the header — the same trap fifteensquared sets.
 import argparse
 import json
 import sys
-import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -43,10 +42,9 @@ from dataclasses import dataclass
 from datetime import UTC, date, datetime
 
 import downloads
+import http_fetch
 import media_manifest
 
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 DATA = downloads.ROOT
 
 
@@ -54,7 +52,6 @@ DATA = downloads.ROOT
 class Blog:
     name: str
     api: str
-    crawl_delay: int
     #: Puzzle categories only. Announcements, site updates and meetups blog no
     #: grid, and a post with no clue list is a post the parser would have to
     #: learn to reject — cheaper never to fetch it.
@@ -79,14 +76,12 @@ class Blog:
 #: bytes. `--since` bounds a spot-check.
 BLOGS = {b.name: b for b in (
     Blog("timesforthetimes", "https://timesforthetimes.co.uk/wp-json/wp/v2/",
-         10,  # their robots.txt
          {11: "Daily Cryptic", 12: "Quick Cryptic", 21: "Weekend Cryptic",
           14: "Jumbo Cryptic", 13: "Mephisto", 24: "Monthly Club Special",
           26: "Other Crosswords"}),
-    # robots.txt sets no delay; 3s keeps a full walk to minutes. A prize
-    # puzzle's hints go up on its print day under a Hints category, and their
-    # post date is what dates it: its review follows entries closing.
-    Blog("bigdave44", "https://bigdave44.com/wp-json/wp/v2/", 3,
+    # A prize puzzle's hints go up on its print day under a Hints category,
+    # and their post date is what dates it: its review follows entries closing.
+    Blog("bigdave44", "https://bigdave44.com/wp-json/wp/v2/",
          {43: "DT Cryptic Crosswords", 11: "Toughie Crosswords",
           71: "ST Cryptic Crosswords", 7625: "Sunday Toughie Crosswords",
           24: "Saturday Hints", 26: "Sunday Hints", 7734: "Sunday Toughie Hints"}),
@@ -98,25 +93,13 @@ BLOGS = {b.name: b for b in (
 FIELDS = "id,date,slug,link,title,content,categories"
 
 
-def get(url, tries=4):
-    """A dropped connection, a 200 whose body is not JSON (an empty or
-    half-sent answer the site gives now and then), or a busy server's 429 or
-    5xx (a 503 failed a whole scheduled run, 2026-11-17) is retried with
-    backoff; any other HTTP error answer is not."""
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    for attempt in range(tries):
-        try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                return json.load(r), r.headers
-        except urllib.error.HTTPError as e:
-            if (e.code != 429 and e.code < 500) or attempt == tries - 1:
-                raise
-            time.sleep(30 * 2 ** attempt)
-        except (urllib.error.URLError, TimeoutError, ConnectionError,
-                json.JSONDecodeError):
-            if attempt == tries - 1:
-                raise
-            time.sleep(30 * 2 ** attempt)
+def get(url):
+    """(parsed JSON, response headers). A 200 whose body is not JSON (an empty
+    or half-sent answer the site gives now and then) is retried like a dropped
+    connection or a busy server's 429 or 5xx (a 503 failed a whole scheduled
+    run, 2026-11-17); see tools/http_fetch.py, which also paces the blogs."""
+    reply = http_fetch.polite_reply(url, parse=json.loads)
+    return reply.value, reply.headers
 
 
 def cached_ids(blog):
@@ -156,7 +139,6 @@ def fetch_comments(blog):
             if not got or page >= int(headers.get("X-WP-TotalPages") or 0):
                 break
             page += 1
-            time.sleep(blog.crawl_delay)
         if len({r["id"] for r in rows}) != len(rows):
             raise FetchError(f"comments {month:%Y-%m}: duplicate ids across pages")
         if len(rows) != total:
@@ -178,7 +160,6 @@ def fetch_comments(blog):
         if month.month == 1:
             print(f"  comments {month:%Y}", flush=True)
         month = after
-        time.sleep(blog.crawl_delay)
     return len(media_manifest.comment_keys(blog.comments))
 
 
@@ -240,7 +221,6 @@ def fetch_category(blog, cid, name, since=None, pages_cap=None, full=False):
         page += 1
         if page > total_pages or (pages_cap and page > pages_cap):
             break
-        time.sleep(blog.crawl_delay)
     return new
 
 
@@ -322,7 +302,6 @@ def main():
             fetch_category(blog, cid, name, a.since, a.pages, a.full)
         except (FetchError, urllib.error.URLError, TimeoutError) as e:
             failed.append(str(e))
-        time.sleep(blog.crawl_delay)
     try:
         fetch_categories(blog)
     except (urllib.error.URLError, TimeoutError) as e:

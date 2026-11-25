@@ -29,12 +29,12 @@ from pathlib import Path
 
 import downloads
 import fetch_wp_blog
+import http_fetch
 import series
 
 DIR = Path(os.environ.get("CT_BLOG_PREFETCH") or downloads.BLOG_PREFETCH)
 MISS_DAYS = 3
 TIMEOUT = 15
-UA = fetch_wp_blog.UA
 
 #: Blog host -> (REST base, the name a reader is shown).
 HOSTS = {
@@ -100,7 +100,7 @@ def in_window(post, when):
 
 
 def _get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    req = urllib.request.Request(url, headers={"User-Agent": http_fetch.policy_for(url).ua})
     with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
         return json.load(r)
 

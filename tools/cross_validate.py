@@ -119,7 +119,6 @@ import threading
 import time
 import unicodedata
 import urllib.error
-import urllib.request
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
@@ -127,6 +126,7 @@ from pathlib import Path
 
 import groups
 import downloads
+import http_fetch
 import media_manifest
 import provenance
 from fetch_puzzle import puzzle_files, read_puzzle_file
@@ -191,12 +191,6 @@ class Adapter:
         return True
 
 
-def http_get(url, ua):
-    req = urllib.request.Request(url, headers={"User-Agent": ua})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read()
-
-
 class Telegraph(Adapter):
     """puzzlesdata.telegraph.co.uk, the Telegraph Puzzles app's bucket; see
     tools/fetch_telegraph.py, whose parse() turns a bucket puzzle into ours."""
@@ -204,6 +198,8 @@ class Telegraph(Adapter):
     authority = PAPER
     origin = "telegraph-app"
     series = ("telegraph", "sundaytel", "toughie", "sundaytough")
+    #: puzzlesdata.telegraph.co.uk is paced by tools/http_fetch.py across workers.
+    delay = 0
 
     @property
     def cache(self):
@@ -230,7 +226,7 @@ class Telegraph(Adapter):
                 if self.offline:
                     continue
                 try:
-                    body = http_get(f"{ft.BUCKET}/bundles/web/calendar/{year}.json", ft.UA)
+                    body = http_fetch.polite_bytes(f"{ft.BUCKET}/bundles/web/calendar/{year}.json")
                 except urllib.error.HTTPError as err:
                     if err.code == 404:
                         continue
@@ -239,7 +235,6 @@ class Telegraph(Adapter):
                 path.write_bytes(body)
                 cached = body.decode("utf-8")
                 ft.record_calendar(year, path, json.loads(cached))
-                time.sleep(self.delay)
             rows += ft.calendar_rows(json.loads(cached))
         return {series_meta.puzzle_id(s, n): (variant, slug)
                 for s, n, _day, variant, slug in ft.in_order(rows)}
@@ -256,7 +251,7 @@ class Telegraph(Adapter):
         variant, slug = key
         path.parent.mkdir(parents=True, exist_ok=True)
         try:
-            body = http_get(f"{ft.BUCKET}/puzzles/{variant}/{slug}.json", ft.UA)
+            body = http_fetch.polite_bytes(f"{ft.BUCKET}/puzzles/{variant}/{slug}.json")
         except urllib.error.HTTPError as err:
             if err.code in (403, 404):
                 path.with_suffix(".404").write_text(str(err.code))

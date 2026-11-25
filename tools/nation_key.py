@@ -120,7 +120,6 @@ def braze_download():
             continue
         url = next(link["href"] for link in e["link"] if link["rel"] == "alternate")
         out.write_text(fn.get(url))
-        time.sleep(fn.SLEEP_SECONDS)
 
 
 def braze_answers(post):

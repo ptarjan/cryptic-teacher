@@ -59,8 +59,11 @@ DEFAULTS = {"ua": IDENTIFYING_UA, "timeout": 30, "delay": 0.0, "backoff": DEFAUL
 
 #: host -> overrides of DEFAULTS. `delay` is the least seconds between one
 #: request finishing and the next starting, across every fetcher in the process.
+_NATION = {"ua": BROWSER_120_UA, "timeout": 40, "delay": 1.5, "backoff": (10, 30)}
 HOSTS = {
-    "thenation.com": {"ua": BROWSER_120_UA, "timeout": 40, "delay": 1.5, "backoff": (10, 30)},
+    "thenation.com": _NATION,
+    # The Nation's solutions blog (tools/nation_key.py), fetched with the same manners.
+    "thenationcryptic.blogspot.com": _NATION,
     # Their robots.txt Crawl-delay: not a tuning knob.
     "fifteensquared.net": {"ua": BROWSER_128_UA, "timeout": 60, "delay": 20, "backoff": SLOW_BACKOFF},
     # Their robots.txt.

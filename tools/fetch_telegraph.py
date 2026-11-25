@@ -48,10 +48,10 @@ import sys
 import time
 import unicodedata
 import urllib.error
-import urllib.request
 from pathlib import Path
 
 import downloads
+import http_fetch
 import enumeration
 import media_manifest as mm
 import mtime_cache
@@ -73,9 +73,6 @@ from unit_more import backlog_left
 TOOL = "tools/fetch_telegraph.py"
 BUCKET = "https://puzzlesdata.telegraph.co.uk"
 FIRST_YEAR = 2015
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
-DELAY = 2.0
 #: Every bucket file fetched, kept: a re-run, tools/cross_validate.py and a
 #: refile read it from here rather than asking the bucket again.
 CACHE = downloads.TELEGRAPH
@@ -110,9 +107,7 @@ TITLE = re.compile(r"\bNo\.?\s*([\d,]+)\s*$")
 
 
 def http_json(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8"))
+    return http_fetch.polite_get(url, parse=json.loads)
 
 
 def served(series, number):
@@ -208,7 +203,6 @@ def calendar(years):
                 continue
             raise
         rows += calendar_rows(cal)
-        time.sleep(DELAY)
     return in_order(rows)
 
 
@@ -645,8 +639,7 @@ def main(argv=None):
     start = time.monotonic()
     if args.slugs:
         for slug in args.slugs:
-            if fetch(variant_of(slug), slug)[1]:
-                time.sleep(DELAY)
+            fetch(variant_of(slug), slug)
         return 0
     if args.holes is False:
         ap.error("give --holes N|all or slugs")
@@ -666,9 +659,8 @@ def main(argv=None):
             print(f"budget of {args.budget_seconds:g}s spent: {len(walk) - i} left for the next run")
             backlog_left()
             break
-        asked = True
         try:
-            written, asked = fetch(variant, slug, expect=(series, number), setters=setters)
+            written = fetch(variant, slug, expect=(series, number), setters=setters)[0]
             done += bool(written)
         except Exception as err:  # one bad puzzle is reported, not the walk's end
             failed += 1
@@ -677,8 +669,6 @@ def main(argv=None):
             # (network, server) say the run went wrong.
             broken += isinstance(err, ValueError)
             print(f"failed: {series}-{number} {slug}: {type(err).__name__}: {err}")
-        if asked:
-            time.sleep(DELAY)
     print(f"done: {done} fetched, {failed} failed ({broken} of them defective source puzzles)")
     if args.reindex and done:
         from fetch_puzzle import reindex

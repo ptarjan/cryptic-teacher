@@ -30,19 +30,15 @@ import datetime
 import json
 import re
 import sys
-import time
 import urllib.error
-import urllib.request
 from pathlib import Path
+
+import http_fetch
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tools" / "data" / "snitch.json"
 SITE = "https://times.xwdsnitch.link"
 PAGES = (SITE + "/crosswords/all", SITE + "/")
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
-#: Seconds between requests to the site.
-PAUSE = 5
 MIN_NITCH = 20
 #: Our series for each day column, Monday first.
 DAY_SERIES = ["times"] * 6 + ["sundaytimes"]
@@ -110,8 +106,7 @@ def in_sequence(ratings):
 
 
 def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    return urllib.request.urlopen(req, timeout=60).read().decode("utf-8")
+    return http_fetch.polite_get(url)
 
 
 def load():
@@ -147,9 +142,7 @@ def main():
         status(data)
         return 0
     got, errors = {}, []
-    for i, url in enumerate(PAGES):
-        if i:
-            time.sleep(PAUSE)
+    for url in PAGES:
         try:
             got = parse(fetch(url))
         except (urllib.error.URLError, TimeoutError, UnicodeDecodeError) as err:

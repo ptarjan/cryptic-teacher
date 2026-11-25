@@ -34,11 +34,10 @@ import argparse
 import json
 import os
 import sys
-import time
 import urllib.error
 import urllib.parse
-import urllib.request
 import downloads
+import http_fetch
 import media_manifest
 
 CACHE = downloads.FIFTEENSQUARED
@@ -47,11 +46,6 @@ COMMENTS = CACHE / "comments"
 # Post id -> categories, kept by post_categories().
 
 BASE = "https://fifteensquared.net/wp-json/wp/v2"
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
-
-# Their own robots.txt. Not negotiable and not a tuning knob.
-CRAWL_DELAY = 20
 PER_PAGE = 100
 # Posts per comments request. Small enough that a busy day's threads still fit
 # in a page or two, large enough that the archive is tens of requests.
@@ -81,34 +75,19 @@ CATEGORIES = {
     "Guardian Genius": None,
 }
 
-_last_request = [0.0]
-
-
 def get(path, **params):
-    """One polite GET. Blocks until the crawl delay since the last one is up."""
-    wait = CRAWL_DELAY - (time.monotonic() - _last_request[0])
-    if wait > 0:
-        time.sleep(wait)
+    """One polite GET: (parsed JSON, total pages). tools/http_fetch.py paces it
+    at fifteensquared's crawl delay and retries a dropped connection or a 200
+    whose body is not JSON (an empty answer the site gives now and then); an
+    HTTP error that outlasts the retries ends the run, with the reason in the
+    message."""
     url = f"{BASE}/{path}?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    # A dropped connection, or a 200 whose body is not JSON (an empty answer the
-    # site gives now and then), is retried with backoff; an HTTP error is not.
-    for attempt in range(4):
-        try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                body = json.load(r)
-                total = int(r.headers.get("X-WP-TotalPages") or 1)
-            break
-        except urllib.error.HTTPError as e:
-            # Put the failure in the message; a caller should never need the log.
-            raise SystemExit(f"{url} -> HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}")
-        except (urllib.error.URLError, TimeoutError, ConnectionError, json.JSONDecodeError):
-            if attempt == 3:
-                raise
-            time.sleep(30 * 2 ** attempt)
-        finally:
-            _last_request[0] = time.monotonic()
-    return body, total
+    try:
+        reply = http_fetch.polite_reply(url, parse=json.loads)
+    except urllib.error.HTTPError as e:
+        # Put the failure in the message; a caller should never need the log.
+        raise SystemExit(f"{url} -> HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}")
+    return reply.value, int(reply.headers.get("X-WP-TotalPages") or 1)
 
 
 def resolve_categories():
@@ -277,7 +256,7 @@ def main():
     if args.status:
         return status()
 
-    print(f"cache {CACHE}  (crawl delay {CRAWL_DELAY}s, {PER_PAGE} records/request)",
+    print(f"cache {CACHE}  (crawl delay {http_fetch.policy_for(BASE).delay}s, {PER_PAGE} records/request)",
           flush=True)
     wanted = args.category or list(CATEGORIES)
     unknown = [c for c in wanted if c not in CATEGORIES]

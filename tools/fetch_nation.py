@@ -29,12 +29,11 @@ import json
 import math
 import re
 import sys
-import time
-import urllib.request
 from pathlib import Path
 
 import boilerplate  # the paper's publishing notes in the preamble; tools/boilerplate.py
 import downloads
+import http_fetch
 import enumeration  # a clue's printed counts; tools/enumeration.py
 import light_spec
 import reconstruct_grid as rg
@@ -48,11 +47,9 @@ from series import puzzle_id
 SERIES = "nation"
 TOOL = "tools/fetch_nation.py"
 SITE = "https://www.thenation.com"
-UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 DIR = downloads.NATION
 PAGES = DIR / "html"
 URLS = DIR / "urls.json"
-SLEEP_SECONDS = 1.5
 # The Nation prints 15x15 and 13x13 blocked grids; the rebuild tries those.
 SIZES = (15, 13)
 # 400k ran 40 of 150 pages out of budget (2026-10-14 run); 1478 and 259 need
@@ -68,9 +65,9 @@ PUZZLE_URL = re.compile(r"/article/[a-z0-9-]+/(?:[a-z-]*puzzle-(?:no-)?\d+(?:-\d
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=40) as r:
-        return r.read().decode("utf-8", "replace")
+    """The page as text; tools/http_fetch.py owns the UA, the gap between
+    requests and the retries."""
+    return http_fetch.polite_get(url, parse=lambda body: body.decode("utf-8", "replace"))
 
 
 def list_urls():
@@ -80,15 +77,11 @@ def list_urls():
     for m in maps:
         if "/article-sitemap" not in m:
             continue
-        for _ in range(3):
-            try:
-                found.update(u for u in re.findall(r"<loc>([^<]+)</loc>", get(m))
-                             if PUZZLE_URL.search(u))
-                break
-            except OSError as e:
-                print(f"{m}: {e}", file=sys.stderr)
-                time.sleep(10)
-        time.sleep(0.3)
+        try:
+            found.update(u for u in re.findall(r"<loc>([^<]+)</loc>", get(m))
+                         if PUZZLE_URL.search(u))
+        except OSError as e:
+            print(f"{m}: {e}", file=sys.stderr)
     DIR.mkdir(parents=True, exist_ok=True)
     URLS.write_text(json.dumps(sorted(found), indent=0) + "\n")
     print(f"{len(found)} puzzle pages in {len(maps)} sitemaps")
@@ -108,12 +101,10 @@ def download():
             text = get(url)
         except OSError as e:
             print(f"{url}: {e}", flush=True)
-            time.sleep(30)
             continue
         page_path(url).write_text(text)
         if i % 50 == 0:
             print(f"{i}/{len(todo)}", flush=True)
-        time.sleep(SLEEP_SECONDS)
 
 
 # ------------------------------------------------------------------ parsing

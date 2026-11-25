@@ -35,11 +35,11 @@ import sys
 import urllib.error
 import urllib.request
 import downloads
+import http_fetch
 
 
 CACHE = downloads.TIMES_FEED
 URL = "https://feeds.thetimes.co.uk/puzzles/crossword/{date}/{id}/data.json"
-UA = "Mozilla/5.0 (cryptic-teacher; +https://github.com/ptarjan/cryptic-teacher)"
 TOOL = "tools/fetch_times_feed.py"
 
 #: Quick Cryptic No 1: the walk's first puzzle.
@@ -68,7 +68,6 @@ DAILY_OFFSETS = (5, 15, 60, 300)
 DAILY_DAYS = 2
 DAILY_THREADS = 6
 NARROW_THREADS = 16
-POLITE = 0.5
 #: Daily ids sit at the same date's Quick id minus 0..36 on most days (2015-16
 #: sample: -6 to -26), but a week's batch may lie ~100 off (2015-03: -64, +91),
 #: so the narrow search probes, in turn: the ids just past the last Daily found
@@ -90,8 +89,12 @@ def fetch(date, pid):
     url = URL.format(date=date.strftime("%Y%m%d"), id=pid)
     for _ in range(3):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=40) as r:
+            # Probes run on up to 16 threads, so this takes the host's UA and
+            # timeout from tools/http_fetch.py but not its per-request gap or
+            # retries: pace() runs between batches below, and a miss is cheap.
+            policy = http_fetch.policy_for(url)
+            req = urllib.request.Request(url, headers={"User-Agent": policy.ua})
+            with urllib.request.urlopen(req, timeout=policy.timeout) as r:
                 return json.loads(r.read())["data"]
         except urllib.error.HTTPError as e:
             if e.code in (403, 404):
@@ -371,7 +374,6 @@ def find_daily(pool, number, filed, quick_ids, log=print):
     """Cache Daily No `number` if the feed has it: on each candidate date, at
     the ids near that date's Quick (the nearest cached date's, failing that)
     plus 5, widening through DAILY_OFFSETS, pausing between requests."""
-    import time
     seen = set()
     for date in daily_dates(number, filed):
         near = min(quick_ids, key=lambda d: abs((d - date).days))
@@ -389,7 +391,7 @@ def find_daily(pool, number, filed, quick_ids, log=print):
                                                        encoding="utf-8")
                         log(f"No {number}: {date} id {i}")
                         return date, i
-                time.sleep(POLITE)
+                http_fetch.pace(URL)
     log(f"No {number}: not found")
     return None
 
@@ -455,7 +457,6 @@ def narrow_daily(pool, dates, have, log=print, quick_of=quick_id_on, skip=()):
     narrow_ids in chunks until the feed answers with a Daily. Probed pairs
     that answered nothing go to MISSES so a rerun skips them.
     Returns {date: (probed, found)}."""
-    import time
     misses, stats, last = load_misses(), {}, None
     for date in dates:
         if date.weekday() == SUNDAY or date in skip:
@@ -492,7 +493,7 @@ def narrow_daily(pool, dates, have, log=print, quick_of=quick_id_on, skip=()):
         else:
             log(f"{date}: none in {probed} ids")
         stats[date] = (probed, int(bool(hit)))
-        time.sleep(POLITE)
+        http_fetch.pace(URL)
     return stats
 
 
