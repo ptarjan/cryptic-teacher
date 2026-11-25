@@ -7,7 +7,7 @@ import json
 from fix_reasons import Reason
 
 TEXT = "Gale Times 1950-59 page whose clue columns under the grid are split at the gutter with fewer words crossing it since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T13:04:00+00:00"
 PAGES_FILE = "under_crossing_pages.json"
 
 
