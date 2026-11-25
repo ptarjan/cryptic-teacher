@@ -171,8 +171,11 @@ from pathlib import Path
 import requests
 
 import book_queue
+import http_fetch
 
-UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
+# UA, timeout and the gap between page requests: archive.org's row in tools/http_fetch.py.
+POLICY = http_fetch.policy_for("https://archive.org/")
+UA = {"User-Agent": POLICY.ua}
 CSRF_URL = "https://archive.org/services/csrf-token"
 LOGIN_URL = "https://archive.org/services/account/login/"
 LOAN_URL = "https://archive.org/services/loans/loan/"
@@ -186,7 +189,6 @@ AMBIGUOUS_BORROW_ERROR = "not available to borrow"
 # The account-level refusal: says nothing about the identifier, so retrying a
 # different book is pointless. See THE LENDING LIMIT in the module docstring.
 LENDING_LIMIT_ERROR = "lending limit"
-PAGE_FETCH_DELAY_SECONDS = 0.3
 # A page refused mid-book (secondpenguinboo0000unse_c2w6 got HTTP 403 on
 # page 86 of 230, minutes into its loan) is asked again after each pause
 # before the whole read is given up.
@@ -238,12 +240,12 @@ def load_credentials(path):
 def login(session, email, password, creds_path):
     """Raises SystemExit (never leaking the password into it) on bad
     credentials or any response shape this hasn't seen before."""
-    r = session.get(CSRF_URL, timeout=30)
+    r = session.get(CSRF_URL, timeout=POLICY.timeout)
     r.raise_for_status()
     token = r.json()["value"]["token"]
     headers = {"Content-Type": "application/x-www-form-urlencoded", "X-Csrf-Token": token}
     body = {"username": email, "password": password, "t": token}
-    r = session.post(LOGIN_URL, headers=headers, data=json.dumps(body), timeout=30)
+    r = session.post(LOGIN_URL, headers=headers, data=json.dumps(body), timeout=POLICY.timeout)
     try:
         result = r.json()
     except ValueError:
@@ -265,7 +267,7 @@ def lending_status(session, identifier):
     no login and takes no loan."""
     r = session.post(LOAN_URL,
                      data={"action": "availability", "identifier": identifier},
-                     timeout=30)
+                     timeout=POLICY.timeout)
     try:
         status = r.json()["lending_status"]
     except (ValueError, KeyError, TypeError):
@@ -461,7 +463,7 @@ def borrow(session, identifier):
     as "needs no loan" on its own — see the module docstring, THE BORROW
     TRAP."""
     data = {"action": "browse_book", "identifier": identifier}
-    r = session.post(LOAN_URL, data=data, timeout=30)
+    r = session.post(LOAN_URL, data=data, timeout=POLICY.timeout)
     if r.status_code == 400:
         try:
             err = r.json().get("error", "")
@@ -481,7 +483,7 @@ def borrow(session, identifier):
                           f"HTTP {r.status_code} {r.text[:300]}")
 
     data["action"] = "create_token"
-    r = session.post(LOAN_URL, data=data, timeout=30)
+    r = session.post(LOAN_URL, data=data, timeout=POLICY.timeout)
     if "token" not in r.text:
         raise SystemExit(f"create_token failed for {identifier}: "
                           f"HTTP {r.status_code} {r.text[:300]}")
@@ -567,7 +569,7 @@ def return_loan(session, identifier):
     """Best-effort: called from a finally block, so a failure here is
     reported, not raised past cleanup."""
     data = {"action": "return_loan", "identifier": identifier}
-    r = session.post(LOAN_URL, data=data, timeout=30)
+    r = session.post(LOAN_URL, data=data, timeout=POLICY.timeout)
     try:
         ok = r.status_code == 200 and r.json().get("success")
     except ValueError:
@@ -612,6 +614,7 @@ def _get_page(session, url, book_path, page):
     while archive.org refuses it or the request drops. Returns the last
     response; raises only if the last attempt never got one."""
     for pause in PAGE_RETRY_PAUSES + (None,):
+        http_fetch.pace(url)
         try:
             # book_path must be passed raw, NOT pre-urlencoded: requests'
             # params= urlencodes values itself, so pre-quoting here would
@@ -619,7 +622,7 @@ def _get_page(session, url, book_path, page):
             # the mangled path as "Item not available" — indistinguishable
             # from a real auth failure without diffing the outgoing r.url.
             r = session.get(url, params={"path": book_path, "mode": "djvu_xml",
-                                         "page": page}, timeout=30)
+                                         "page": page}, timeout=POLICY.timeout)
         except requests.RequestException:
             if pause is None:
                 raise
@@ -639,7 +642,7 @@ def fetch_full_text(session, identifier, max_pages=None):
     the loan. There is no whole-book endpoint,
     so this walks every page and concatenates.
     """
-    meta = session.get(METADATA_URL.format(id=identifier), timeout=30)
+    meta = session.get(METADATA_URL.format(id=identifier), timeout=POLICY.timeout)
     meta.raise_for_status()
     meta_json = meta.json()
     server = meta_json.get("server")
@@ -671,8 +674,6 @@ def fetch_full_text(session, identifier, max_pages=None):
                 "cools down rather than retrying immediately"
             )
         pages.append(_page_text_from_djvu_xml(r.content))
-        if page < page_count:
-            time.sleep(PAGE_FETCH_DELAY_SECONDS)
 
     return "\x0c".join(pages)
 

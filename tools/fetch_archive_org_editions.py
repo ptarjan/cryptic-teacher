@@ -143,16 +143,16 @@ from pathlib import Path
 
 import dir_cache
 import downloads
+import http_fetch
 import media_manifest
 
 #: The tools modules a queue unit's fetch_unit may load, loaded as the unit
 #: starts (under the queue's code lock, edition_queue.snapshot), so none is
 #: loaded later from a tree that moved meanwhile. test_edition_queue.py
 #: checks this is what code_reach finds fetch_unit reaching.
-MODULES = ("desktop_busy", "desktop_hosts", "dir_cache", "downloads", "file_archive_org_puzzles", "local_config", "media_manifest", "ocr_clues",
+MODULES = ("desktop_busy", "desktop_hosts", "dir_cache", "downloads", "file_archive_org_puzzles", "http_fetch", "local_config", "media_manifest", "ocr_clues",
            "ocr_remote", "scan_queue", "trove_grid", "trove_solution_ocr", "vlm_reader")
 
-UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"
 SAMAAN = 'uploader:"samaan.alshayef@gmail.com"'
 DETECTOR_VERSION = 6
 #: How many of the leaves its item's other editions print their crossword on
@@ -447,12 +447,13 @@ class Fetcher:
             if gap > 0:
                 time.sleep(gap)
             try:
-                req = urllib.request.Request(url, headers={"User-Agent": UA})
+                policy = http_fetch.policy_for(url)
+                req = urllib.request.Request(url, headers={"User-Agent": policy.ua})
                 with self.cond:
                     self.cond.wait_for(lambda: self.in_flight < self.allowed)
                     self.in_flight += 1
                 try:
-                    with urllib.request.urlopen(req, timeout=120) as r:
+                    with urllib.request.urlopen(req, timeout=policy.timeout) as r:
                         data = r.read()
                 finally:
                     with self.cond:

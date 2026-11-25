@@ -43,7 +43,7 @@ EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held":
 #: from a tree that moved meanwhile (test_edition_commit.py checks a commit
 #: loads nothing past these).
 MODULES = ("annotation", "blog_store", "clue_repair", "desktop_busy", "dir_cache", "fetch_puzzle", "file_archive_org_puzzles",
-           "find_answer_leaks", "groups", "hidden_messages",
+           "find_answer_leaks", "groups", "hidden_messages", "http_fetch",
            "ocr_clues", "ocr_remote", "puzzle_integrity", "puzzle_paths", "repair_fetched", "reprints", "scan_queue",
            "shape_queue", "trove_solution_ocr", "validate_annotations", "vlm_reader", "wordplay")
 

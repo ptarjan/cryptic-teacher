@@ -77,11 +77,12 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import downloads
+import http_fetch
 
 #: The tools modules a queue unit's fetch_unit may load, loaded as the unit
 #: starts (under the queue's code lock, edition_queue.snapshot).
 #: test_edition_queue.py checks this is what code_reach finds it reaching.
-MODULES = ("downloads", "local_config", "media_manifest", "scan_queue")
+MODULES = ("downloads", "http_fetch", "local_config", "media_manifest", "scan_queue")
 
 
 @contextlib.contextmanager
@@ -95,8 +96,10 @@ def atomic(path, mode="w"):
     os.replace(part, path)
 
 BASE = "https://trove.nla.gov.au"
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
+# The UA, timeout and default gap are Trove's row in tools/http_fetch.py HOSTS;
+# its UA must never change (the Anubis cookie is tied to it).
+POLICY = http_fetch.policy_for(BASE)
+UA = POLICY.ua
 TILE = 256
 CHALLENGE_RE = re.compile(
     r'<script id="anubis_challenge"[^>]*>\s*(\{.*?\})\s*</script>', re.DOTALL)
@@ -137,7 +140,7 @@ class Trove:
         self.pace()
         t = time.time()
         try:
-            r = self.op.open(urllib.request.Request(url, headers=headers), timeout=60)
+            r = self.op.open(urllib.request.Request(url, headers=headers), timeout=POLICY.timeout)
             body, status = r.read(), r.status
         except urllib.error.HTTPError as e:
             body, status = e.read(), e.code
@@ -442,7 +445,7 @@ def plan(out=str(downloads.TROVE), zones=ZONES_DIR):
     return units
 
 
-def fetch_unit(unit, out=str(downloads.TROVE), zones=ZONES_DIR, delay=1.0, grid_width=600):
+def fetch_unit(unit, out=str(downloads.TROVE), zones=ZONES_DIR, delay=POLICY.delay, grid_width=600):
     """In a queue unit's own process: fetch one article or its clue zones,
     under the article's own lock, Trove paced across every unit (pace()).
     Returns "fetched", "current" (nothing left to do), "busy" (another unit
@@ -491,7 +494,7 @@ def main():
     ap.add_argument("--title", default="11")
     ap.add_argument("--year", type=int)
     ap.add_argument("--limit", type=int)
-    ap.add_argument("--delay", type=float, default=1.0)
+    ap.add_argument("--delay", type=float, default=POLICY.delay)
     ap.add_argument("--grid-width", type=int, default=600)
     ap.add_argument("--out", default=str(downloads.TROVE))
     ap.add_argument("--zones-out", default=ZONES_DIR, help="where `zones` writes")

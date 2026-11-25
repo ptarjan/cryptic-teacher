@@ -264,7 +264,8 @@ class PageSession:
         return r
 
 
-F.PAGE_RETRY_PAUSES, F.PAGE_FETCH_DELAY_SECONDS = (0, 0), 0
+F.PAGE_RETRY_PAUSES = (0, 0)
+F.http_fetch.pace = lambda url: None
 s = PageSession(refusals=1)
 check("the refused page is asked again and the read finishes",
       (F.fetch_full_text(s, "x").split("\x0c"), s.pages),
