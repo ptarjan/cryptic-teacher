@@ -805,10 +805,6 @@
     return true;
   }
 
-  function isTouchPrimary() {
-    return !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
-  }
-
   // The home-screen app's Puzzles and Stats tabs are pages: each has its own
   // hash (#picker, #stats), pushed when it opens or closes so the back gesture
   // walks between them, and applied again on popstate/hashchange. Browser tabs

@@ -6,7 +6,8 @@
 "use strict";
 const src = require("../tools/app_src").read(__dirname + "/..");
 const a = src.indexOf("  function cursorVisible"), b = src.indexOf("  // Redraw only on a change");
-const code = src.slice(a, b);
+const h = src.indexOf("  const softKeyboardPossible");
+const code = src.slice(h, src.indexOf("  const isTouchPrimary")) + src.slice(a, b);
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };
 const vis = (nav, up) => new Function("navigator", "keyboardUp", code + "; return cursorVisible();")(nav, () => up);

@@ -360,11 +360,6 @@
   // in) and gets a pop-in instead; a tile that has no new rect was deleted
   // (Backspace) and gets a fading ghost planted at its last known position,
   // since the real element is already gone by the time this runs.
-  function reduceMotion() {
-    return !!(typeof window !== "undefined" && window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }
-
   function ringTileRects() {
     const rects = {};
     const panel = $("hint-panel");
@@ -428,7 +423,8 @@
       ghost.style.transform = "translateY(-8px) scale(.5)";
       ghost.style.opacity = "0";
     });
-    setTimeout(() => ghost.remove(), 260);
+    // Gone when its own fade ends, whatever --mo-in is.
+    afterMotion(ghost, () => ghost.remove());
   }
 
   // ---------- tapping a tile ----------
@@ -1990,7 +1986,7 @@
   function flipPlay(from) {
     const el = from && flipFind("mk");
     if (!el || !el.getBoundingClientRect || !window.requestAnimationFrame) return;
-    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (reduceMotion()) return;
     const to = el.getBoundingClientRect();
     const dx = from.left - to.left, dy = from.top - to.top;
     if (!dx && !dy) return;

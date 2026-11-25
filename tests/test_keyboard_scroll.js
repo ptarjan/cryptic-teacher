@@ -9,12 +9,15 @@ const s = src.indexOf("  const SCROLL_BLUR_GUARD_MS"), e = src.indexOf('document
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };
 
-function run(deltas) {
+const h = src.indexOf("  const softKeyboardPossible");
+const helper = src.slice(h, src.indexOf("  const isTouchPrimary"));
+
+function run(deltas, up = true, touch = 5) {
   const el = { id: "kbd", blurred: false, blur() { this.blurred = true; } };
   const win = { pageYOffset: 0 };
-  const f = new Function("navigator", "document", "window",
-    src.slice(s, e) + "; return { onPageScroll, markOwnScroll };");
-  const api = f({ maxTouchPoints: 5 }, { activeElement: el }, win);
+  const f = new Function("navigator", "document", "window", "keyboardUp",
+    helper + src.slice(s, e) + "; return { onPageScroll, markOwnScroll };");
+  const api = f({ maxTouchPoints: touch }, { activeElement: el }, win, () => up);
   api.onPageScroll();                       // baseline
   for (const y of deltas) { win.pageYOffset = y; api.onPageScroll(); }
   return el.blurred;
@@ -22,4 +25,7 @@ function run(deltas) {
 check(!run([10, 30, 60, 90]), "a small adjustment (90px in ticks) keeps the keyboard");
 check(!run([40, 0, 50]), "a bounce keeps the keyboard");
 check(run([50, 100, 150, 200]), "a real scroll (200px) still drops the keyboard");
+// A touchscreen laptop has touch points but no soft keyboard: the wheel must not blur.
+check(!run([50, 100, 150, 200], false), "touch points but no keyboard up (touchscreen laptop): a real scroll keeps focus");
+check(!run([50, 100, 150, 200], true, 0), "no touch screen at all: a real scroll keeps focus");
 process.exit(failures ? 1 : 0);

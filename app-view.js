@@ -941,7 +941,7 @@
   // always shows it.
   let cursorWasShown = true;
   function cursorVisible() {
-    if (typeof navigator === "undefined" || !navigator.maxTouchPoints) return true;
+    if (!softKeyboardPossible()) return true;
     return keyboardUp();
   }
   // Redraw only on a change, from the events that raise or drop the keys.

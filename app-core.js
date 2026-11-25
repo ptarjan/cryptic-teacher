@@ -10,6 +10,37 @@
   // reach from the hints; a tablet's grid is a screen tall, so the row goes right
   // above the hint panel (the CSS keys on the .near-panel class this decides).
   const clueNearPanel = () => !!window.matchMedia && matchMedia(PIN_CLUE_MQ).matches && !matchMedia(CLUE_PHONE_MQ).matches;
+  // The one answer to "does this visitor want motion cut": every animation, JS
+  // or CSS driven, asks here (the stylesheet's own @media block is the same
+  // query, so the two cannot disagree).
+  function reduceMotion() {
+    return !!(typeof window !== "undefined" && window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+  // Two different questions that "is this a touch device" used to blur together.
+  // softKeyboardPossible(): can focusing a field raise an on-screen keyboard?
+  // Any touch screen can, whatever its primary pointer: an iPad with a trackpad
+  // reports a fine pointer yet still raises keys. Gate keyboard behaviour on this.
+  const softKeyboardPossible = () =>
+    typeof navigator !== "undefined" && (navigator.maxTouchPoints || 0) > 0;
+  // isTouchPrimary(): is the main pointer a finger, i.e. the (pointer: coarse)
+  // the stylesheet keys its layout on? A touchscreen laptop answers no, and an
+  // iPad with a trackpad answers no. Gate layout and mouse-vs-finger behaviour
+  // (autofocus a search box, scroll a panel into view) on this.
+  const isTouchPrimary = () =>
+    !!(typeof window !== "undefined" && window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+  // Run fn once when el's own CSS animation or transition ends (or is cancelled),
+  // so a JS cleanup follows the stylesheet's duration instead of copying it.
+  // Events from descendants are ignored. Not for reduced motion: nothing runs there.
+  function afterMotion(el, fn) {
+    const types = ["animationend", "animationcancel", "transitionend", "transitioncancel"];
+    const done = (ev) => {
+      if (ev.target !== el) return;
+      types.forEach((t) => el.removeEventListener(t, done));
+      fn();
+    };
+    types.forEach((t) => el.addEventListener(t, done));
+  }
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   // Words of a clue, as shown: stored straight, curled for the page (quotes.js).

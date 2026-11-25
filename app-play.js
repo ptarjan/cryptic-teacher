@@ -269,8 +269,7 @@
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
     // Smooth: the travel is how the reader keeps their place. Reduced motion
     // gets the jump instead, as everywhere else.
-    const still = window.matchMedia &&
-      matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const still = reduceMotion();
     // Ours, not the reader's — see markOwnScroll() below the keyboard rules, so
     // the scroll listener that puts the keyboard away on a real scroll ignores
     // the one this line is about to fire.
@@ -557,7 +556,7 @@
   // typing into anything.
   function keepKbd() {
     if (document.activeElement !== $("kbd")) return;
-    if (typeof navigator !== "undefined" && navigator.maxTouchPoints && !keyboardUp()) return;
+    if (softKeyboardPossible() && !keyboardUp()) return;
     focusKbd();
   }
 
@@ -581,7 +580,9 @@
   //
   // Second, a desktop scroll wheel: there is no soft keyboard to reclaim the
   // screen there, and losing focus mid-type under a mouse would just be
-  // maddening. Gated on the same touch signal as the rest of this file.
+  // maddening. Gated on a soft keyboard being up (softKeyboardPossible and
+  // keyboardUp), not on a touch screen existing: a touchscreen laptop used with
+  // its mouse has touch points but no keyboard to put away.
   //
   // Paul 10-30: "Dropping the keyboard all the time might be wrong. Sometimes I'm
   // slightly adjusting around the clue solve section." So the threshold is a
@@ -609,7 +610,9 @@
     ownScrollTimer = setTimeout(() => { ownScroll = false; ownScrollTimer = null; }, SCROLL_BLUR_GUARD_MS);
   }
   function onPageScroll() {
-    if (typeof navigator === "undefined" || !navigator.maxTouchPoints) return;
+    // Only a keyboard that is actually on screen is worth reclaiming: a
+    // touchscreen laptop's wheel scroll has none up, so it keeps its focus.
+    if (!softKeyboardPossible() || !keyboardUp()) return;
     const el = document.activeElement;
     if (!el || SCROLL_BLUR_IDS.indexOf(el.id) === -1) { scrollBlurBaseline = null; return; }
     if (ownScroll) return;
@@ -685,8 +688,14 @@
   }
 
   function pulseCells(list) {
-    list.forEach((c) => { if (c.el) c.el.classList.add("pulse"); });
-    setTimeout(() => list.forEach((c) => { if (c.el) c.el.classList.remove("pulse"); }), 600);
+    // Reduced motion has no animation to wait out (the CSS turns it off), so
+    // the class is never added there.
+    if (reduceMotion()) return;
+    list.forEach((c) => {
+      if (!c.el) return;
+      c.el.classList.add("pulse");
+      afterMotion(c.el, () => c.el.classList.remove("pulse"));
+    });
   }
 
   // A tint that settles away on the cells you just finished: a gentle
@@ -701,6 +710,7 @@
   // noHintsSolve() reads solvedWith/revealsUsed, both persisted for scoring, so
   // the distinction needs no extra storage and survives a reload the same way
   // the score does.
+  const REDUCED_TINT_MS = 450;
   function celebrateSolve(e) {
     nuxAdvance();
     const clean = noHintsSolve(e);
@@ -710,9 +720,13 @@
       c.el.classList.add("solved-flash");
       if (clean) c.el.classList.add("clean");
     });
-    setTimeout(() => cs.forEach((c) => {
-      if (c.el) c.el.classList.remove("solved-flash", "clean");
-    }), 450);
+    // Off when the animation ends. Reduced motion has none and holds the tint
+    // through the class, so it takes a short timed release instead.
+    cs.forEach((c) => {
+      if (!c.el) return;
+      const off = () => c.el.classList.remove("solved-flash", "clean");
+      if (reduceMotion()) setTimeout(off, REDUCED_TINT_MS); else afterMotion(c.el, off);
+    });
     // A clue solved cold earns a pop of its own, over the box being worked in:
     // the clue panel's own letter boxes, then the panel, and the entry's middle
     // square only when neither is on screen.
