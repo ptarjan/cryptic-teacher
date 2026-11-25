@@ -4153,14 +4153,21 @@ def pitch_even(heads, floor=150):
 #: beside the grid has its clue numbers 11-14 px right of the grid's edge (2002-07-10: x 936-939 of a grid ending 925; 5, 6, 8, 9,
 #: 16, 17 down), and windows_of() opened that column at the grid's edge + 15, so a number's left edge fell outside it and the
 #: clue stood on no light (the numbers at x 940+ and the column's tail, read in the window under the grid, were kept). The
-#: column opens INDY_NEAR_X px right of the edge on those pages (ThirdFrom).
-INDY_NEAR_YEARS, INDY_NEAR_X = ("2002", "2003"), 5
+#: column opens INDY_NEAR_X px right of the edge on those pages (ThirdFrom). Which pages: those whose column's own number
+#: starts, measured (indy_near), stand left of the usual opening, not the years the first ones were found in.
+INDY_NEAR_X = 5
 INDY_NEAR = "Independent 2002-03 page whose third clue column's numbers stood left of its window, read since"
 REREAD_INDY_NEAR = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
 
 
 class ThirdFrom(tuple):
     """windows_of's `third` ((width, top)) with `x0`, where the column opens (the grid's edge + 15 when absent)."""
+
+
+def indy_near(grid, group):
+    """Whether a print column whose number starts are `group` (indy_starts' x's) begins left of where windows_of() opens a
+    third column (the grid's edge + 15): its first numbers would stand outside it."""
+    return bool(group) and min(group) < grid[2] + 15
 
 
 def indy_under(img, grid, right, rapid, key, margin):
@@ -4171,10 +4178,11 @@ def indy_under(img, grid, right, rapid, key, margin):
     x1, split, bottom, *_ = right
     top = gy0 - rise_of(right)
     own = [w for ws in rapid.get("en5") or next(iter(rapid.values())) for w in ws]
-    beside = indy_starts(own, gx1 + 5, x1, top, bottom)
+    beside = indy_starts(own, gx1 + INDY_NEAR_X, x1, top, bottom)
     # (a thin group right of it is a stray number of the chess column or a grid's: moves "1.e4 c6", "10/13, with").
     big = max((len(g) for g in beside), default=0)
-    heads = [g[len(g) // 2] for g in beside if len(g) >= INDY_COLUMN_MIN and len(g) >= INDY_COLUMN_THIN * big]
+    columns = [g for g in beside if len(g) >= INDY_COLUMN_MIN and len(g) >= INDY_COLUMN_THIN * big]
+    heads = [g[len(g) // 2] for g in columns]
     if len(heads) != 1 or any(clue_text.heading_of(w[4]) == "ACROSS" for w in own if gx1 < w[0] < x1 and top <= w[1] <= bottom):
         return None
     plain = {which: rapid_lines(img, grid, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", None, margin,
@@ -4192,7 +4200,7 @@ def indy_under(img, grid, right, rapid, key, margin):
         return None
     edge = min(x1, head + pitch - 20)
     third = (int(edge - gx1 - 15), top)
-    if INDY_NEAR_YEARS[0] <= key[:4] <= INDY_NEAR_YEARS[1]:
+    if indy_near(grid, columns[0]):
         third = ThirdFrom(third)
         third.x0 = gx1 + INDY_NEAR_X
     joined = {}
