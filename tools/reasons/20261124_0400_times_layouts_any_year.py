@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Times page of any year refused not a grid for ink of a grid's size, every grid-location layout tried on it since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T03:24:00+00:00"
 INK = re.compile(r"the ink under the title is (\d+)x(\d+), not a grid")
 GRID_INK = 400
 
