@@ -47,6 +47,7 @@ POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at o
 POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
 RELOAD_ASKED=0      # the script sets it at its top level; reload_due reads it
 EXHAUSTED=99        # the script exports it at its top level; pool_topup_room compares the weekly meter to it
+RESET_AT=0 LANDING_FILE="$tree/landing"   # the script sets them at its top level; weekly_read records the landing in them
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 declare -A NOTHING_DUE=()   # pool_nothing_due keeps its answers here; the script declares it at top level
 declare -A SHAPE_RULE_OF=()  # pool_what reads the rule that listed a puzzle; the script declares it at top level
@@ -72,12 +73,6 @@ run_claude() {
   echo "start $1 $(now)" >>"$EVENTS"
   [ -n "${3:-}" ] && { echo "solve $1" >>"$EVENTS"; echo '{}' >"$3"; }
   sleep "$(awk -v r="$RANDOM" 'BEGIN{printf "%.2f", 0.5 + (r % 40) / 100}')"
-  # FAIL_IN_REPLAN: the failing run ends only once a re-plan has started, so it
-  # fails during one whatever the box's load (its time against the sync
-  # interval's was a race).
-  if [ -n "${FAIL_IN_REPLAN:-}" ] && [ "$1" = "$FAIL_ID" ]; then
-    for _ in $(seq 1 200); do grep -q '^replan ' "$EVENTS" && break; sleep 0.05; done
-  fi
   echo "end $1 $(now)" >>"$EVENTS"
   echo "done $1" >"/tmp/ct-prereset-$1.txt"
   [ "$1" != "$FAIL_ID" ]
@@ -141,6 +136,14 @@ python3() {
       case "$2" in
         --cover-first) echo "replan deadline=${CT_DEADLINE:-} now=$(date +%s)" >>"$EVENTS"
           [ -z "${PLAN_SLEEP:-}" ] || sleep "$PLAN_SLEEP"
+          # PLAN_UNTIL_REFILL: a re-plan with runs under way works until the pool
+          # has started a run after FAIL_ID failed, so that failure is reaped,
+          # and its slot refilled, while this planner still runs. A pool that
+          # never refills holds it to POOL_PLAN_SECS, where it is stopped.
+          if [ -n "${PLAN_UNTIL_REFILL:-}" ] && grep -q '^start ' "$EVENTS"; then
+            until awk -v id="$FAIL_ID" '$1 == "fail" && $2 == id { f = 1 } f && $1 == "start" { s = 1 }
+                                        END { exit !s }' "$EVENTS"; do sleep 0.05; done
+          fi
           case "${PLAN_REVERSE:-}" in
             '') cat ;;
             dedup) tac | awk '!seen[$0]++' ;;   # each id once, as the planner lists them
@@ -312,12 +315,16 @@ PLAN_REVERSE=1 POOL_PLAN_SECS=60 replan_pool t
 check "the re-plan's planner runs under a deadline 42s out of 60" 1 \
   "$(awk '$1 == "replan" { sub("deadline=", "", $2); sub("now=", "", $3); d = $2 - $3; print (d >= 40 && d <= 42); exit }' "$EVENTS")"
 # A run that fails mid re-plan failed on its own puzzle: the pool goes on filling
-# its slots (10-15 it sank from 7 runs to 2 through one re-plan).
+# its slots (10-15 it sank from 7 runs to 2 through one re-plan). The first
+# re-plan starts nothing (no width read yet) and outlasts POOL_SYNC_SECS, so
+# the second begins at the checkpoint after the first run ends, with f3 just
+# launched, and lasts until a run starts after f3's failure: the failure always
+# lands inside it.
 starts_after_fail() {  # runs started after $1 failed, before the next width read
   awk -v id="$1" '$1 == "fail" && $2 == id { f = 1; next } f && $1 == "width" { exit }
        f && $1 == "start" { n++ } END { print n + 0 }' "$EVENTS"
 }
-FAIL_IN_REPLAN=1 FAIL_ID="pooltest-$$-f3" PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool f
+PLAN_UNTIL_REFILL=1 FAIL_ID="pooltest-$$-f3" PLAN_SLEEP=1.5 POOL_PLAN_SECS=30 replan_pool f
 check "a failure mid re-plan: the pool keeps filling its slots" 1 \
   "$(( $(starts_after_fail "pooltest-$$-f3") > 0 ))"
 # A re-plan that hangs is killed at POOL_PLAN_SECS, everything under it too (a

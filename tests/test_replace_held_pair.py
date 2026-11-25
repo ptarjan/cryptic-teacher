@@ -15,9 +15,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 tmp = Path(tempfile.mkdtemp())
 os.environ["HOME"] = str(tmp / "home")
-sys.path.insert(0, str(REPO / "tools"))
-import file_archive_org_puzzles as fa  # noqa: E402
-import replace_held_pair as rhp  # noqa: E402
+import _path  # puts tools/ on sys.path
+import file_archive_org_puzzles as fa
+import replace_held_pair as rhp
 
 fails = 0
 
