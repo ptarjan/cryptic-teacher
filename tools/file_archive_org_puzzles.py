@@ -15138,7 +15138,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                 gbox, side = under, "below"
                 verdict["gridBox"] = "under its title, solution-sized"
         # A 1965-69 Gale Sunday Times page whose clue columns stand between its heading and its grid (SUNDAY_BETWEEN).
-        if tried(SUNDAY_BETWEEN_FIRST_YEARS) and side == "below" and gbox is not None and over_top is None \
+        if tried(SUNDAY_BETWEEN_FIRST_YEARS) and side == "below" and gbox is not None and over_top is None and open_grid() \
                 and gbox[1] - hit["box"][3] >= SUNDAY_BETWEEN_GAP * (gbox[2] - gbox[0]) \
                 and gbox[0] - 0.1 * (gbox[2] - gbox[0]) <= (hit["box"][0] + hit["box"][2]) / 2 <= gbox[2] + 0.1 * (gbox[2] - gbox[0]):
             between = sunday_times_over(img, hit["box"], f"{d.name}_{n}", paper, gbox)
@@ -15149,7 +15149,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         # column under it, ACROSS over DOWN, left of the grid (SUNDAY_BETWEEN's second shape; 1967-06-04: the column's
         # numbers at x 2690, the grid x 3138-3858): read as the one-column page it is (sunday_times_column).
         if tried(SUNDAY_BETWEEN_FIRST_YEARS) and side == "right" and gbox is not None and over_top is None \
-                and right_column is None:
+                and right_column is None and open_grid():
             right_column = sunday_times_column(img, gbox, f"{d.name}_{n}", paper)
             if right_column is not None:
                 side = "below"
