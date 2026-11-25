@@ -215,7 +215,7 @@ def clues(text):
     return out
 
 
-def parse(text):
+def parse(text, per_list=False):
     """fa.parse, with each list read past a stretch that does not parse; a
     list printed with no counts (the 1930s magazine's) is read a clue a line
     (by_lines), since only a count ends a clue for the daily's parser. A
@@ -230,6 +230,12 @@ def parse(text):
         return lined, None
     if secs is None:
         return None, "no ACROSS and DOWN lists"
+    if per_list and lined:
+        # Counted per list: one list printing no counts (No 2541's Across, its two-clue lights) beside one
+        # that does ran into one clue under the page-wide test above. A list whose counts end fewer than
+        # half the clues by_lines finds in it is read by lines.
+        parsed = {k: lined[k] if k in lined and sum(1 for c in cs if c["enums"]) < len(lined[k]) / 2
+                  and len(lined[k]) > len(cs) else cs for k, cs in parsed.items()}
     if not all(parsed.values()):
         return None, "a list has no clue that parses"
     return parsed, None
@@ -826,7 +832,7 @@ def vote(words, verdict, cols=None, lengths=None, figures=False):
     texts = unjoined({k: fa.tidy(ellipsis_heads(text_of(cols(w)))) for k, w in words.items()})
     tried = []
     for k, t in texts.items():
-        parsed, why = parse(t) if t.strip() else (None, "no words")
+        parsed, why = parse(t, per_list=figures) if t.strip() else (None, "no words")
         if parsed is None:
             verdict.setdefault("unparsed", {})[k] = why
             continue

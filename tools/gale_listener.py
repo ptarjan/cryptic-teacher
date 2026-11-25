@@ -2584,7 +2584,8 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     `before`, the page's last ledger row: a reading it wrote under another
     number than it now matches is dropped (disown)."""
     import scan_queue
-    entry = {"file": p.name, "version": VERSION, "readOn": datetime.datetime.now().astimezone().date().isoformat()}
+    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX,
+             "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
     try:
@@ -2774,7 +2775,9 @@ def plan(inbox=SAVED, store=STORE):
             todo[p] = row
     # A Times page first in its rank: ~85 modern pages that may file whole, not behind ~2,850 of the
     # magazine's never read (their mtimes all earlier).
-    due = sorted(((p, TIMES_REREAD if (row or {}).get("version") == VERSION else due_reason(row))
+    due = sorted(((p, (SHORT if p.name in list_fix_names() and (row or {}).get("listFix", 0) < LIST_FIX
+                       and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
+                   else due_reason(row))
                   for p, row in todo.items()),
                  key=lambda pr: (rank_of(pr[1]), clues_left(todo[pr[0]], pr[1]), not is_times(pr[0]),
                                  pr[0].stat().st_mtime))
@@ -2903,10 +2906,32 @@ TIMES_CUTS = 3
 TIMES_REREAD = "Times Listener page read before its cut's fix"
 
 
+#: Bumped when a list printing no counts, beside one that prints them, is read a clue a line (archive_org_listener.parse
+#: per_list: No 2541's Across ran into one clue under the page-wide count test). Only the pages the fix changes are read
+#: again (tools/data/listener_per_list.json, found by comparing the reads fix-off and fix-on), not the corpus.
+LIST_FIX = 1
+LIST_FIX_FILE = ROOT / "tools" / "data" / "listener_per_list.json"
+_LIST_FIX_NAMES = None
+
+
+def list_fix_names():
+    """The saved pages' names LIST_FIX changes (a committed list nothing writes)."""
+    global _LIST_FIX_NAMES
+    if _LIST_FIX_NAMES is None:
+        try:
+            _LIST_FIX_NAMES = frozenset(json.loads(LIST_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _LIST_FIX_NAMES = frozenset()
+    return _LIST_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
-    VERSION, and a Times page's under these TIMES_CUTS."""
-    return (row or {}).get("version") == VERSION and (not is_times(p) or row.get("timesCut", 1) >= TIMES_CUTS)
+    VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
+    changes) at LIST_FIX."""
+    row = row or {}
+    return (row.get("version") == VERSION and (not is_times(p) or row.get("timesCut", 1) >= TIMES_CUTS)
+            and not (row.get("listFix", 0) < LIST_FIX and p.name in list_fix_names()))
 
 
 def due_reason(row):
