@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Breakfast inside?",
     "enumeration": "8"
    },
-   "solution": "PORRIDGE"
+   "solution": "PORRIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Breakfast",
+      "at": 0
+     },
+     {
+      "text": "inside?",
+      "at": 10
+     }
+    ],
+    "explanation": {
+     "surface": "A question about a morning meal eaten indoors.",
+     "walkthrough": "'Inside' is British slang for in prison, and doing time there is called 'doing porridge'.",
+     "definitionFit": "Oat gruel is a classic morning meal, and in British slang the word also means a stretch served in jail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,45 @@
     "text": "Say please, or something like it: that's the law",
     "enumeration": "6"
    },
-   "solution": "POLICE"
+   "solution": "POLICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the law",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "POLICE",
+     "indicators": [
+      {
+       "text": "Say",
+       "at": 0,
+       "note": "say tells the solver to speak the word aloud and hear what it resembles"
+      }
+     ],
+     "parts": [
+      {
+       "words": "please",
+       "at": 4,
+       "gives": "PLEASE",
+       "note": "the word please, spoken quickly with the first vowel swallowed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes that asking politely amounts to legal authority.",
+     "walkthrough": "'or something like it' admits the sound match is loose: POLICE said quickly as 'p'leece' is close to please.",
+     "definitionFit": "'The law' is informal for the constabulary, the officers who enforce it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "please"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +122,41 @@
     "text": "Let the public know about the calves we eat",
     "enumeration": "6"
    },
-   "solution": "REVEAL"
+   "solution": "REVEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Let the public know",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 20,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "the calves we eat",
+       "at": 26,
+       "gives": "VEAL",
+       "note": "veal is the meat of calves"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Disclosing to the public the truth about the calves in our diet.",
+     "definitionFit": "To disclose something is to make it known to everyone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Let"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +170,41 @@
     "text": "Had a pub meal it was instinctive",
     "enumeration": "6"
    },
-   "solution": "INNATE"
+   "solution": "INNATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instinctive",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pub",
+       "at": 6,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "words": "Had",
+       "at": 0,
+       "gives": "ATE",
+       "note": "had, as in had a meal, means ate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats at the local without thinking, purely by habit.",
+     "walkthrough": "Read 'Had a pub meal' as ATE in an INN, which gives INN then ATE.",
+     "definitionFit": "Something inborn comes naturally, without being learned, which is what instinctive means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +218,43 @@
     "text": "Eco-friendly firm has an effect",
     "enumeration": "10"
    },
-   "solution": "GREENHOUSE"
+   "solution": "GREENHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eco-friendly firm has an effect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Eco-friendly",
+       "at": 0,
+       "gives": "GREEN",
+       "note": "green means environmentally friendly"
+      },
+      {
+       "words": "firm",
+       "at": 13,
+       "gives": "HOUSE",
+       "note": "a house is a business firm, as in a publishing house"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An environmentally minded company makes an impact.",
+     "walkthrough": "The whole clue also describes the answer: it is the glasshouse that gave its name to the greenhouse effect.",
+     "definitionFit": "The glass building for plants names the warming effect of gases trapping heat in the atmosphere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +268,41 @@
     "text": "Too sluggish to move tripod?",
     "enumeration": "6"
    },
-   "solution": "TORPID"
+   "solution": "TORPID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Too sluggish to move tripod?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to move",
+       "at": 13,
+       "note": "moving the letters of the three-legged stand rearranges them into a new word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tripod",
+       "at": 21
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Asking whether someone is too lethargic to shift a camera stand.",
+     "definitionFit": "Torpor is inactivity, so someone so sluggish cannot stir."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tripod"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +316,30 @@
     "text": "Estimate too highly-put- ting on the spinners will improve it",
     "enumeration": "8"
    },
-   "solution": "OVERRATE"
+   "solution": "OVERRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Estimate too highly",
+      "at": 0
+     },
+     {
+      "text": "put- ting on the spinners will improve it",
+      "at": 20
+     }
+    ],
+    "explanation": {
+     "surface": "Overvaluing something, while a cricket captain brings on slow bowlers to speed things up.",
+     "walkthrough": "In cricket, the 'over rate' is how many overs are bowled per hour; spin bowlers have short run-ups, so bringing them on raises it.",
+     "definitionFit": "To overvalue is to rate too high; in cricket the pace of play, overs per hour, rises when slow bowlers are used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spinners"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +353,34 @@
     "text": "Hair for a fly-whisk?",
     "enumeration": "8"
    },
-   "solution": "PONYTAIL"
+   "solution": "PONYTAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hair for a fly-whisk?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Hair for a fly-whisk?",
+       "at": 0,
+       "note": "the hairstyle is named after the swishing hair a small horse uses to brush off flies"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what hair might serve to swat flies.",
+     "definitionFit": "A hairstyle gathered at the back resembles the swishing hind hair of a small horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +394,30 @@
     "text": "Don't copy lamb if you're mutton, it's horse work!",
     "enumeration": "8"
    },
-   "solution": "DRESSAGE"
+   "solution": "DRESSAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't copy lamb if you're mutton",
+      "at": 0
+     },
+     {
+      "text": "horse work!",
+      "at": 39
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to older people not to dress young, oddly tied to horses.",
+     "walkthrough": "The British phrase 'mutton dressed as lamb' mocks an older person dressing young; the advice is to DRESS your AGE.",
+     "definitionFit": "Dressing in keeping with your years is the advice to the 'mutton'; it is also the training of a horse in precise movements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lamb"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +431,48 @@
     "text": "Shrub to finish in seaweed",
     "enumeration": "8"
    },
-   "solution": "LAVENDER"
+   "solution": "LAVENDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in tells us one piece sits inside the seaweed word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seaweed",
+       "at": 19,
+       "gives": "LAVER",
+       "note": "laver is an edible seaweed"
+      },
+      {
+       "words": "to finish",
+       "at": 6,
+       "gives": "END",
+       "note": "end means to finish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to close out a planting in seaweed.",
+     "definitionFit": "The fragrant purple-flowered plant is a small woody bush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +486,40 @@
     "text": "In which to materialise ancestors?",
     "enumeration": "6"
    },
-   "solution": "SEANCE"
+   "solution": "SEANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In which to materialise ancestors?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "in points to letters lying inside the clue's words materialise ancestors"
+      }
+     ],
+     "parts": [
+      {
+       "words": "materialise ancestors",
+       "at": 12
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Asking where one might make forebears appear.",
+     "definitionFit": "A spiritualist meeting is where the dead are said to be called up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +533,40 @@
     "text": "Freewheeling variety of agnostic",
     "enumeration": "8"
    },
-   "solution": "COASTING"
+   "solution": "COASTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Freewheeling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "variety of",
+       "at": 13,
+       "note": "a variety of the word gives another arrangement of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agnostic",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a casual, uncommitted kind of doubter.",
+     "definitionFit": "Moving without power, as a cyclist does downhill, is freewheeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Freewheeling"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +580,48 @@
     "text": "Deserter detained by soldiers goes free",
     "enumeration": "6"
    },
-   "solution": "GRATIS"
+   "solution": "GRATIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "free",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "detained by",
+       "at": 9,
+       "note": "detained by means held inside the soldiers' letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldiers",
+       "at": 21,
+       "gives": "GIS",
+       "note": "GIs are American soldiers"
+      },
+      {
+       "words": "Deserter",
+       "at": 0,
+       "gives": "RAT",
+       "note": "a rat is one who deserts, as rats leave a sinking ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runaway soldier is held by troops but released.",
+     "definitionFit": "Something given at no charge costs nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deserter"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +641,53 @@
      }
     ]
    },
-   "solution": "ANNODOMINI"
+   "solution": "ANNODOMINI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old age",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "An",
+       "at": 0,
+       "gives": "AN"
+      },
+      {
+       "words": "agreement",
+       "at": 3,
+       "gives": "NOD",
+       "note": "a nod signals agreement"
+      },
+      {
+       "words": "love",
+       "at": 16,
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      },
+      {
+       "words": "what is small",
+       "at": 21,
+       "gives": "MINI",
+       "note": "mini means small"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Agreeing to love something little in one's later years.",
+     "walkthrough": "Latin for 'in the year of the Lord', the phrase is also used to mean advanced age.",
+     "definitionFit": "The Latin dating term is used informally for advancing years, the toll of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +707,30 @@
      }
     ]
    },
-   "solution": "FORNOTHING"
+   "solution": "FORNOTHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     },
+     {
+      "text": "not good if good",
+      "at": 6
+     }
+    ],
+    "explanation": {
+     "surface": "A paradox about something costless being bad if it is good.",
+     "walkthrough": "Put 'good' in front of the answer and it becomes 'good-for-nothing', meaning not good.",
+     "definitionFit": "Costing nothing means free; preceded by 'good', the phrase describes a worthless idler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +750,28 @@
      }
     ]
    },
-   "solution": "OPENBOOK"
+   "solution": "OPENBOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prepare to read",
+      "at": 0
+     },
+     {
+      "text": "one who is transparent",
+      "at": 16
+     }
+    ],
+    "explanation": {
+     "surface": "Getting ready to read about a person who hides nothing.",
+     "definitionFit": "You part the covers of a volume before reading; a person easy to understand is said to be like one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transparent"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +785,48 @@
     "text": "Cow hit below the forehead?",
     "enumeration": "8"
    },
-   "solution": "BROWBEAT"
+   "solution": "BROWBEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "below",
+       "at": 8,
+       "note": "in a down answer, below puts the hitting word under the forehead word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the forehead",
+       "at": 14,
+       "gives": "BROW",
+       "note": "the brow is the forehead"
+      },
+      {
+       "words": "hit",
+       "at": 4,
+       "gives": "BEAT",
+       "note": "beat means hit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cow struck beneath its forehead.",
+     "definitionFit": "To cow someone is to intimidate them, to bully into submission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cow"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +840,48 @@
     "text": "Where in paper the election of officers etc gets bogged down?",
     "enumeration": "8"
    },
-   "solution": "QUAGMIRE"
+   "solution": "QUAGMIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where in paper the election of officers etc gets bogged down?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "in places the meeting inside the paper word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "paper",
+       "at": 9,
+       "gives": "QUIRE",
+       "note": "a quire is a quantity of paper, 24 or 25 sheets"
+      },
+      {
+       "words": "the election of officers etc",
+       "at": 15,
+       "gives": "AGM",
+       "note": "an AGM, annual general meeting, is where officers are elected"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Asking where, in the newspaper, coverage of a society's elections gets stuck.",
+     "definitionFit": "A bog or marsh is where you get stuck, and so a messy situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +895,28 @@
     "text": "Jane Austen's creed?",
     "enumeration": "10"
    },
-   "solution": "PERSUASION"
+   "solution": "PERSUASION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jane Austen's",
+      "at": 0
+     },
+     {
+      "text": "creed?",
+      "at": 14
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the beliefs of the novelist.",
+     "definitionFit": "It is the title of her last completed novel, and a religious belief or denomination is also so called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "creed"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +930,43 @@
     "text": "Crow heard sound of steam train",
     "enumeration": "6"
    },
-   "solution": "CHOUGH"
+   "solution": "CHOUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHOUGH",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 5,
+       "note": "heard tells us the word is identified by how it sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sound of steam train",
+       "at": 11,
+       "gives": "CHUFF",
+       "note": "a steam locomotive goes chuff"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird hears a steam engine puffing.",
+     "definitionFit": "The red-billed bird is a member of the corvid family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crow"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +980,46 @@
     "text": "One who rolled out the barrels starts working with others",
     "enumeration": "6"
    },
-   "solution": "COOPER"
+   "solution": "COOPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who rolled out the barrels",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "starts",
+       "at": 31,
+       "note": "only the start of the word for working together is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "working with others",
+       "at": 38,
+       "gives": "COOPERATES",
+       "note": "cooperates means works with others"
+      },
+      {
+       "gives": "ATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barrel-roller begins working as part of a team.",
+     "walkthrough": "'Roll Out the Barrel' is a well-known song; the barrel-maker rolls out barrels he has made.",
+     "definitionFit": "A barrel-maker produces casks, the trade being coopering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1033,48 @@
     "text": "Opposition had outside broadcast",
     "enumeration": "6"
    },
-   "solution": "SHADOW"
+   "solution": "SHADOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opposition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 15,
+       "note": "outside means the broadcast word wraps around had"
+      }
+     ],
+     "parts": [
+      {
+       "words": "broadcast",
+       "at": 23,
+       "gives": "SOW",
+       "note": "to sow is to broadcast seed"
+      },
+      {
+       "words": "had",
+       "at": 11,
+       "gives": "HAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The opposition party had an outside broadcast.",
+     "walkthrough": "In British politics the 'shadow cabinet' is the opposition's team of would-be ministers.",
+     "definitionFit": "The opposition's frontbench team in Britain is called the shadow cabinet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1094,49 @@
      }
     ]
    },
-   "solution": "NEWAGE"
+   "solution": "NEWAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the Millennium",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "to change poles",
+       "at": 6,
+       "note": "swapping one pole for the other changes south to north in the waste word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Waste",
+       "at": 0,
+       "gives": "SEWAGE",
+       "note": "sewage is waste"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering if turning the world's waste around heralds the millennium.",
+     "walkthrough": "S (south) becomes N (north).",
+     "definitionFit": "The year 2000 was hailed by some as the dawn of a new spiritual era."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poles"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1156,42 @@
      }
     ]
    },
-   "solution": "POOHPOOH"
+   "solution": "POOHPOOH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an expression of disdain",
+      "at": 6
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bears",
+       "at": 0,
+       "gives": "POOH",
+       "note": "Pooh is A. A. Milne's bear"
+      },
+      {
+       "words": "Bears",
+       "at": 0,
+       "gives": "POOH",
+       "note": "a second Pooh bear, since bears is plural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bears are scornful.",
+     "definitionFit": "To dismiss something scornfully, or the exclamation used in scorn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bears"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1205,42 @@
     "text": "Single drink for Eugene",
     "enumeration": "6"
    },
-   "solution": "ONEGIN"
+   "solution": "ONEGIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eugene",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Single",
+       "at": 0,
+       "gives": "ONE",
+       "note": "single means one"
+      },
+      {
+       "words": "drink",
+       "at": 7,
+       "gives": "GIN",
+       "note": "gin is a drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone drink for a man called Eugene.",
+     "walkthrough": "Eugene is Pushkin's verse-novel hero.",
+     "definitionFit": "Eugene is the first name of Pushkin's title character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Eugene"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1254,59 @@
     "text": "Copper's relation in attempt to buy a tooth",
     "enumeration": "8"
    },
-   "solution": "BICUSPID"
+   "solution": "BICUSPID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tooth",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in places the copper pieces inside the bid word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attempt to buy",
+       "at": 21,
+       "gives": "BID",
+       "note": "a bid is an offer to buy"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Copper's",
+         "at": 0,
+         "gives": "CUS",
+         "note": "Cu is the chemical symbol for copper, plus the S of the possessive"
+        },
+        {
+         "words": "relation",
+         "at": 9,
+         "gives": "PI",
+         "note": "pi is the ratio, or relation, of a circle's circumference to its diameter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman's relative tries to buy a tooth.",
+     "definitionFit": "A premolar with two points is a type of tooth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper's"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1320,41 @@
     "text": "Little furry creature to supply clothes for a number",
     "enumeration": "6"
    },
-   "solution": "KITTEN"
+   "solution": "KITTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Little furry creature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "supply clothes for",
+       "at": 25,
+       "gives": "KIT",
+       "note": "to kit out is to equip with clothes"
+      },
+      {
+       "words": "a number",
+       "at": 44,
+       "gives": "TEN",
+       "note": "ten is a number"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Providing outfits for a number of small furry animals.",
+     "definitionFit": "A young cat is small and furry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1368,41 @@
     "text": "Retreat not devoid of attraction",
     "enumeration": "8"
    },
-   "solution": "WITHDRAW"
+   "solution": "WITHDRAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Retreat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not devoid of",
+       "at": 8,
+       "gives": "WITH",
+       "note": "not lacking something means being with it"
+      },
+      {
+       "words": "attraction",
+       "at": 22,
+       "gives": "DRAW",
+       "note": "a draw is an attraction, as a big name draws a crowd"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Retreat, though not without appeal.",
+     "definitionFit": "To pull back is to retreat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attraction"
+    }
+   }
   }
  ]
 }
