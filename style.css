@@ -108,6 +108,14 @@
 
 * { box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
 html, body { margin: 0; padding: 0; }
+/* Every page is viewport-fit=cover under a translucent status bar, so a page
+   that scrolls passes under the status bar. This paints that strip over, so
+   nothing shows through behind the clock; it is zero-height wherever there is
+   no inset (and the wide frame, which does not scroll, never notices it). */
+body::before {
+  content: ""; position: fixed; left: 0; right: 0; top: 0; z-index: 4;
+  height: env(safe-area-inset-top, 0px); background: var(--bg); pointer-events: none;
+}
 body {
   background: var(--bg);
   color: var(--fg);
@@ -1647,9 +1655,13 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 }
 
 /* Step 9: the one clue, pinned. app-boot.js moves #hint-clue out of the panel
-   (below the fold) to sit above the grid in .left-col, and it sticks to the top
-   of the page while the grid and panel scroll under it. --vv-top is the visual
-   viewport's offset, so it follows the page when the iOS keyboard pushes it. No
+   (below the fold) into .left-col and it sticks to the top of the page while the
+   grid and panel scroll under it. On a phone it sits above the grid; on a tablet
+   (wider than 700px), where the grid is a screen tall, it sits right above the
+   hint panel as .near-panel and also sticks to the foot of the screen, so the
+   words it tags stay beside the rungs that ask for them. --vv-top and --vv-bottom
+   are the visible area's edges, so it follows them when the iOS keyboard pushes
+   the visual viewport around. No
    ancestor sets overflow, so sticky has the whole page.
    Every layout where the page scrolls gets it: a phone, a stacked tablet, and a
    two-column tablet (where .left-col holds grid and panel, so the row sticks for
@@ -1665,6 +1677,13 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
     border-bottom: 1px solid var(--line);
   }
   .left-col:has(> #hint-panel.hidden) > #hint-clue { display: none; }
+  /* A tablet's row (.near-panel, placed by placeClueRow) also sticks to the foot
+     of the visible area, above the tab bar when it is showing, so it stays in
+     view at the top of a tall grid. */
+  #hint-clue.near-panel {
+    bottom: calc(var(--vv-bottom, 0px) + var(--tabbar-clear, 0px));
+    margin: 6px 0 0; border-top: 1px solid var(--line);
+  }
 }
 
 /* ---------- wide screens: one fixed frame, no page scroll ----------
@@ -1975,7 +1994,9 @@ html.ct-boot #boot-grid { display: block; }
    It stays put while a keyboard is up (kbd-up hides only the bar), because
    padding that came and went would reflow the grid under the solver's finger. */
 .tabbar { display: none; }
-html.standalone body { padding-bottom: calc(48px + 56px + max(12px, env(safe-area-inset-bottom, 0px))); }
+html.standalone { --tabbar-h: calc(56px + max(12px, env(safe-area-inset-bottom, 0px))); }
+html.standalone:not(.kbd-up) { --tabbar-clear: var(--tabbar-h); }
+html.standalone body { padding-bottom: calc(48px + var(--tabbar-h)); }
 html.standalone .tabbar {
   display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
   background: var(--bg); border-top: 1px solid var(--line);

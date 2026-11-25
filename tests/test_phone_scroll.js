@@ -80,6 +80,20 @@ const assert = (ok, msg) => { if (!ok) fails.push(msg); };
     await ev("scrollTo(0,0)");
     await swipe(200, 700, 200);
     assert(await num("scrollY") > 0, "the puzzle page scrolls again: " + await num("scrollY"));
+
+    // ---- 4. a tablet: the row sits right above the hint panel, not above the
+    // tall grid, so the words it tags are next to the rungs that ask for them.
+    await send("Emulation.setDeviceMetricsOverride", { width: 820, height: 1180, deviceScaleFactor: 2, mobile: true });
+    await goto("/");
+    await ev("document.querySelector('#picker-list button') && document.querySelector('#picker-list button').click()");
+    await sleep(1500);
+    const tab820 = await ev(`(() => {
+      const c = document.getElementById("hint-clue");
+      return { before: c.nextElementSibling && c.nextElementSibling.id, near: c.classList.contains("near-panel"),
+               inCol: c.parentNode.classList.contains("left-col") };
+    })()`);
+    assert(tab820.inCol && tab820.near, "at tablet width the clue row is in the column, marked near-panel");
+    assert(tab820.before === "hint-panel", "at tablet width the clue row sits right before the hint panel: " + tab820.before);
   });
   if (ran === false) return;     // no Chromium here: said so, not failed
   if (fails.length) { fails.forEach((f) => console.error("FAIL:", f)); process.exit(1); }

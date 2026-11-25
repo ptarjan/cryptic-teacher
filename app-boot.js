@@ -44,17 +44,26 @@
     const clue = $("hint-clue"), panel = $("hint-panel"), grid = $("grid-wrap");
     if (!clue || !panel || !grid || !window.matchMedia) return;
     const pinned = matchMedia(PIN_CLUE_MQ).matches;
+    const nearPanel = clueNearPanel();
     const col = grid.parentNode;
-    if (pinned) { if (col && clue.parentNode !== col) col.insertBefore(clue, grid); }
-    else if (clue.parentNode !== panel) panel.insertBefore(clue, panel.firstChild);
+    clue.classList.toggle("near-panel", nearPanel);
+    if (pinned) {
+      const before = nearPanel ? panel : grid;
+      if (col && before.parentNode === col && clue.nextSibling !== before) col.insertBefore(clue, before);
+    } else if (clue.parentNode !== panel) panel.insertBefore(clue, panel.firstChild);
   }
   // iOS pans the visual viewport inside the layout viewport when the keyboard is
   // up; position: sticky follows the layout viewport, so the row is told where
-  // the visible top is.
-  function trackVisualViewportTop() {
+  // the visible top and bottom are (--vv-top, --vv-bottom: how far each edge of
+  // the visible area is inside the layout viewport).
+  function trackVisualViewport() {
     const vv = window.visualViewport;
     if (!vv || !vv.addEventListener || !document.documentElement || !document.documentElement.style) return;
-    const write = () => document.documentElement.style.setProperty("--vv-top", (vv.offsetTop || 0) + "px");
+    const write = () => {
+      const st = document.documentElement.style, top = vv.offsetTop || 0;
+      st.setProperty("--vv-top", top + "px");
+      st.setProperty("--vv-bottom", Math.max(0, (window.innerHeight || 0) - (top + (vv.height || 0))) + "px");
+    };
     vv.addEventListener("scroll", write);
     vv.addEventListener("resize", write);
     write();
@@ -66,8 +75,10 @@
     if (window.matchMedia) {
       const mq = matchMedia(PIN_CLUE_MQ);
       if (mq.addEventListener) mq.addEventListener("change", placeClueRow);
+      const phone = matchMedia(CLUE_PHONE_MQ);
+      if (phone.addEventListener) phone.addEventListener("change", placeClueRow);
     }
-    trackVisualViewportTop();
+    trackVisualViewport();
     $("btn-stats").onclick = () => { if (toggleStats()) beacon("stats"); };
     $("btn-stats-close").onclick = () => toggleStats(false);
     // #stats is the stats page as a link, which is what a toast points at.
