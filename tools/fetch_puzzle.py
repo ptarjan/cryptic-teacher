@@ -3414,6 +3414,8 @@ def reindex():
     for row in puzzles:
         if row["id"] in big:
             row["tags"] = [k for k in puzzle_tags.TAGS if k in row.get("tags", []) or k == "big-grid"]
+    if not only:
+        stamp_annotated(puzzles, _deployed_index())
     for row in puzzles:
         rating = ratings.get(row["id"])
         # Absent for puzzles with too little to go on — an unrated puzzle
@@ -3505,6 +3507,38 @@ DEPLOYED_INDEX = "https://cryptic.paultarjan.com/puzzles/index.json"
 #: any since the deployed commit makes the deployed index unusable here.
 INDEX_SHAPE_FILES = ("tools/fetch_puzzle.py", "tools/series.py", "tools/data/renamed_ids.json",
                      "tools/data/books.json")
+
+
+def stamp_annotated(rows, before, today=None):
+    """Write `annotatedOn` ("YYYY-MM-DD", the day this build first saw it) on the
+    rows of puzzles that are news, off `before`, the index the last build
+    published (None when it could not be had, and nothing is stamped).
+
+    sync/worker.js announces a stamped puzzle once, and nothing else: the stamp
+    is the one record of "first annotated", written here because the build is
+    the only place that sees an index before and after. A row keeps the stamp it
+    had. A new stamp goes to an annotated puzzle that was absent or unannotated
+    before AND is no older than the newest annotated puzzle of its series then,
+    so the annotation backfill, which works backwards through the archive, stamps
+    none of what it fills, and a puzzle annotated before stamps existed never has
+    one."""
+    if before is None:
+        return
+    prior = {r["id"]: r for key in ("puzzles", "unlisted") for r in before.get(key, [])}
+    newest = {}
+    for r in prior.values():
+        day = series_meta.puzzle_day(r)
+        if r.get("annotated") and day and day > newest.get(r["series"], date.min):
+            newest[r["series"]] = day
+    today = today or datetime.now(timezone.utc).date().isoformat()
+    for row in rows:
+        was = prior.get(row["id"])
+        if was and was.get("annotatedOn"):
+            row["annotatedOn"] = was["annotatedOn"]
+        elif row.get("annotated") is True and not (was and was.get("annotated")):
+            day = series_meta.puzzle_day(row)
+            if day and day >= newest.get(row["series"], date.min):
+                row["annotatedOn"] = today
 
 
 def index_build():
@@ -3982,6 +4016,7 @@ def _merge_rows(index, changed):
         else:
             row["difficulty"] = None
         fresh[row["id"]] = row
+    stamp_annotated(list(fresh.values()), index)
     listed = [fresh.get(r["id"], r) for r in index["puzzles"]]
     unlisted = [dict(fresh.get(r["id"], r), unlisted=True) if r["id"] in fresh else r
                 for r in index["unlisted"]]

@@ -31,9 +31,10 @@ DATE = re.compile(r"^(\d{4})-(\d\d)-(\d\d)$")
 # Keys a compact row spells differently; anything else is copied as it is.
 HANDLED = {"id", "number", "series", "name", "setter", "date", "year", "file", "v",
            "annotated", "hasSolutions", "solutionsUnofficial", "difficulty"}
-# Row keys only the build reads (the page cache's hash of a puzzle's view): not
+# Row keys only the build (and the sync worker, off index.json) reads: the page
+# cache's hash of a puzzle's view, and the day a puzzle was first annotated. Not
 # in the compact rows the browser downloads.
-BUILD_ONLY = {"pageView"}
+BUILD_ONLY = {"pageView", "annotatedOn"}
 # What the static head leaves to the live one, because they change per filing
 # or per rating.
 LIVE_KEYS = {"latest", "build", "snitchRanges"}
