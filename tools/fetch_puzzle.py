@@ -2863,7 +2863,7 @@ def convert(data):
         # reads it into cluePageInstructions.
         **({"preamble": pre} if (pre := merge_preamble(
             preamble(data.get("instructions")), data.get("cluePageInstructions"))) else {}),
-        **({"cluesUnplaced": True} if series == "cryptic" and data["number"] in CLUES_UNPLACED else {}),
+        **({"cluesUnplaced": True} if PREAMBLE_ROWS.get(pid, {}).get("cluesUnplaced") else {}),
         "source": {"url": "https://www.theguardian.com/" + data["id"]},
         "entries": entries,
     }
@@ -4048,19 +4048,13 @@ def _merge_rows(index, changed):
     return len(fresh)
 
 
-# The instructions two 2008 prizes printed only on the PDF their page's note
-# links to (the page's own note is just the link, which preamble() drops):
-# by number, the PDF's words as printed.
-PDF_PREAMBLES = {
-    24307: "Solve the clues and fit the solutions in the diagram jigsaw-wise, wherever they will go.",
-    24433: "This week's Prize has a special set of clues. Because of the symmetry of the grid, "
-           "there are two possible ways of filling it in; but several indications show which is correct.",
-}
-
-# The prizes whose PDF printed the clues lettered A to Z by answer, with no
-# grid numbers: the solver finds where each goes, though the paper never said
-# "jigsaw" (24307 says it; 24433 does not).
-CLUES_UNPLACED = {24307, 24433}
+# What the paper's own page lacks, by puzzle id: tools/data/preambles.json (also
+# the table tools/file_preambles.py files from). Its `preamble` is the setter's
+# words where the page's note is only a link to a PDF (preamble() drops the
+# link), and `cluesUnplaced` marks a prize whose PDF printed the clues lettered
+# A to Z by answer with no grid numbers: the solver finds where each goes,
+# though the paper never said "jigsaw".
+PREAMBLE_ROWS = json.loads((ROOT / "tools" / "data" / "preambles.json").read_text(encoding="utf-8"))
 
 
 # Guardian numbers where the ordinary "try cryptic, then prize" order in
@@ -4246,8 +4240,8 @@ def fetch_number(num, series="cryptic", reindexed=True):
         if forced_number is not None:
             data["number"] = forced_number
     puzzle = convert(data)
-    if data["number"] in PDF_PREAMBLES:
-        puzzle["preamble"] = PDF_PREAMBLES[data["number"]]
+    if PREAMBLE_ROWS.get(puzzle["id"], {}).get("preamble"):
+        puzzle["preamble"] = PREAMBLE_ROWS[puzzle["id"]]["preamble"]
     check_not_copy(puzzle)
     # Through puzzle_path, never spelled here.
     path = puzzle_path(series_of(data["id"]), data["number"])

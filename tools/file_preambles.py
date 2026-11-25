@@ -4,7 +4,9 @@
     python3 tools/file_preambles.py [--dry-run] [ID ...]
 
 tools/data/preambles.json holds, per puzzle id, the `preamble` (and/or the
-`themeClue`) to put on its file, with the `source` it was read from. A themed
+`themeClue`) to put on its file, with the `source` it was read from, and
+`cluesUnplaced` for a prize whose clues carry no grid numbers (fetch_puzzle.convert
+reads it too). A themed
 puzzle filed from a blog post or a page that left the paper's note off cannot
 be explained by an annotator, which withdraws it (tools/failed_inputs.py
 triage annotate). The note is in the blog's quotation of it
@@ -38,6 +40,8 @@ def apply(puzzle, row):
     for key in ("preamble", "themeClue"):
         if row.get(key):
             out[key] = row[key]
+    if row.get("cluesUnplaced"):
+        out["cluesUnplaced"] = True
     if out.get("preamble") or out.get("themeClue"):
         out.pop("awaitsPreamble", None)
     return out, out != puzzle
