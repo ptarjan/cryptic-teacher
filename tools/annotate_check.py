@@ -372,13 +372,9 @@ def hidden_drafts(puzzle, only):
     tools/prefill_hidden.py reads as a hidden word and whose draft validates:
     the mechanical wordplay, shown in `draftAnnotations` for the run to keep and
     complete with `explanation` and `features` (the prompt says how). Computed
-    on the fly; empty, never an error, when the prefill cannot be built, since
-    a draft is a convenience and the run can always parse the clue itself."""
-    try:
-        import prefill_hidden
-        drafts = prefill_hidden.prefill_puzzle(puzzle)
-    except Exception:
-        return {}
+    on the fly; a prefill that fails is a bug and raises, never "no drafts"."""
+    import prefill_hidden  # here, not at the top: prefill_hidden imports this module
+    drafts = prefill_hidden.prefill_puzzle(puzzle)
     return {eid: d for eid, d in drafts.items() if only is None or eid in only}
 
 
@@ -402,10 +398,7 @@ def awaiting_preamble(path, vout, errors):
     then withdraw, and a fix run followed (annotate audit 10-30: 17 sessions)."""
     if not errors or not any(p in vout for p in discard_alert.PREAMBLE_ERRORS):
         return []
-    try:
-        return await_preamble.which(path, read_puzzle_file(path))
-    except Exception:
-        return []
+    return await_preamble.which(path, read_puzzle_file(path))
 
 
 def write_view(path):

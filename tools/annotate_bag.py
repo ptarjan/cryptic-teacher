@@ -172,13 +172,11 @@ def redo_gate(puzzle, part):
 
 
 def bag_redo_gate(pid, part):
-    """redo_gate on puzzle pid's file; [] if it cannot be read (annotate_check says so)."""
-    try:
-        from annotate_check import read_puzzle_file
-        from fetch_puzzle import resolve_puzzle
-        return redo_gate(read_puzzle_file(resolve_puzzle(pid)), part)
-    except Exception:
-        return []
+    """redo_gate on puzzle pid's file. An unreadable file exits through read_puzzle_file /
+    resolve_puzzle with their own message; any other failure is a bug and raises."""
+    from annotate_check import read_puzzle_file
+    from fetch_puzzle import resolve_puzzle
+    return redo_gate(read_puzzle_file(resolve_puzzle(pid)), part)
 
 
 LINE_CAP = 700
@@ -261,10 +259,7 @@ def blog_left(pid):
     if not os.environ.get("CT_BLOG_RECHECK"):
         return ""
     from fetch_puzzle import resolve_puzzle
-    try:
-        left = annotate_check.blog_due(annotate_check.read_puzzle_file(resolve_puzzle(pid)))
-    except Exception:
-        return ""
+    left = annotate_check.blog_due(annotate_check.read_puzzle_file(resolve_puzzle(pid)))
     if not left:
         return ""
     return (f"{pid}: the blog still disagrees on " + "; ".join(f"{c}: {' | '.join(w)}" for c, w in left.items())

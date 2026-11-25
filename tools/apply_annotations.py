@@ -64,7 +64,10 @@ import shape_queue
 import groups  # linked answers
 from groups import entry_id
 import lesson_checks
+import fix_shape_suspects as F
 import validate_annotations
+import validate_annotations as V
+import wordplay
 from validate_annotations import committed_entries
 from fetch_puzzle import (WITHHELD, corrected_clue, read_puzzle_file, reconstructed_clue, resolve_puzzle,
                           source_clue, write_puzzle_file)
@@ -246,7 +249,6 @@ def normalize(ann, entry, entries, puzzle=None):
         # A clue given only its explanation or features (a --patch onto a null entry): the file
         # would hold a stub the first check then calls missing type, definitions and blocks
         # (annotate audit 10-24/25: 82 sessions). Say what the clue is missing, once.
-        import wordplay
         raise wordplay.WordplayError(
             f"has {sorted(ann) or 'nothing'} but no `def` and no `wp`: write the clue whole, "
             f"{{\"def\": \"<definition words>\", \"wp\": \"<expression>\", \"notes\": {{...}}, ...}} "
@@ -254,7 +256,6 @@ def normalize(ann, entry, entries, puzzle=None):
     out = dict(ann)
     if isinstance(out.get("wordplay"), dict):
         # a stored tree is parse -> evaluate -> normalize too: letters checked, shape made canonical
-        import wordplay
         out["wordplay"] = wordplay.normalize(
             out["wordplay"], (entry.get("clue") or {}).get("text", ""), entry.get("solution", ""))[0]
     return out
@@ -382,7 +383,6 @@ def landed(ann, entry, entries, eid, errors, puzzle=None):
     """normalize(), with a wordplay that does not check appended to `errors`
     as "<eid>: why" (None back). `puzzle`, when given, lets a flag the puzzle cannot
     honour be dropped (drop_spare_preamble_flag)."""
-    import wordplay
     try:
         return drop_spare_preamble_flag(
             carry_indicators(repair_pool_gap(normalize(ann, entry, entries), entry, entries), entry), puzzle)
@@ -398,11 +398,7 @@ def carry_indicators(new, entry):
     old = entry.get("annotation")
     if not isinstance(new, dict) or not isinstance(old, dict):
         return new
-    try:
-        import validate_annotations as V
-        return V.carry_old_indicators(old, new, (entry.get("clue") or {}).get("text", ""))
-    except Exception:
-        return new
+    return V.carry_old_indicators(old, new, (entry.get("clue") or {}).get("text", ""))
 
 
 def whole_answer(entry, entries=None):
@@ -426,44 +422,38 @@ def repair_pool_gap(new, entry, entries=None):
     clue = (entry.get("clue") or {}).get("text", "")
     if not isinstance(wp, dict) or not clue:
         return new
-    try:
-        import fix_shape_suspects as F
-        import wordplay
-        answer = whole_answer(entry, entries)
-        counters = rule_counters()
-        # Every bag fixer (F.RULE_REPAIRS, one table): when its rule fires on the fresh tree it
-        # runs and the result is kept if the rule fires less, the tree still gives the answer and
-        # no other shape detector newly fires. A fixer that declines leaves the refusal as it was.
-        # (poolGap 100 sessions, unindicatedBare $27 a day, anaLoneEdge 219 of 3155 first checks.)
-        for rule, fixer in F.RULE_REPAIRS.items():
-            count = counters.get(rule)
-            if count is None or not count(wp, {**new, "wordplay": wp, "_answer": answer}, clue):
+    answer = whole_answer(entry, entries)
+    counters = rule_counters()
+    # Every bag fixer (F.RULE_REPAIRS, one table): when its rule fires on the fresh tree it
+    # runs and the result is kept if the rule fires less, the tree still gives the answer and
+    # no other shape detector newly fires. A fixer that declines leaves the refusal as it was.
+    # (poolGap 100 sessions, unindicatedBare $27 a day, anaLoneEdge 219 of 3155 first checks.)
+    for rule, fixer in F.RULE_REPAIRS.items():
+        count = counters.get(rule)
+        if count is None or not count(wp, {**new, "wordplay": wp, "_answer": answer}, clue):
+            continue
+        try:
+            fixed, used = F.repair_tree(wp, clue, answer, {rule: fixer})
+            if not used:
                 continue
-            try:
-                fixed, used = F.repair_tree(wp, clue, answer, {rule: fixer})
-                if not used:
-                    continue
-                fixed = F.note_deletions(F.repair_tree(fixed, clue, answer, F.FOLLOW_ON)[0])
-                fixed = wordplay.normalize(fixed, clue, answer)[0]
-                now = {**new, "wordplay": wp, "_answer": answer}
-                after = {**new, "wordplay": fixed, "_answer": answer}
-                left = _size(count(fixed, after, clue))
-                better = left < _size(count(wp, now, clue))
-                if rule == "poolGap" and left:
+            fixed = F.note_deletions(F.repair_tree(fixed, clue, answer, F.FOLLOW_ON)[0])
+            fixed = wordplay.normalize(fixed, clue, answer)[0]
+            now = {**new, "wordplay": wp, "_answer": answer}
+            after = {**new, "wordplay": fixed, "_answer": answer}
+            left = _size(count(fixed, after, clue))
+            better = left < _size(count(wp, now, clue))
+            if rule == "poolGap" and left:
+                better = False
+            if rule != "poolGap" and better:
+                # a mend that opens a poolGap (anaLoneEdge pulling F out of "This fine gift") trades one refusal for one the model cannot meet
+                if V.pool_gaps(fixed, clue) > V.pool_gaps(wp, clue):
                     better = False
-                if rule != "poolGap" and better:
-                    import validate_annotations as V
-                    # a mend that opens a poolGap (anaLoneEdge pulling F out of "This fine gift") trades one refusal for one the model cannot meet
-                    if V.pool_gaps(fixed, clue) > V.pool_gaps(wp, clue):
-                        better = False
-                if better and set(F.hits(after, clue, answer)) <= set(F.hits(now, clue, answer)) \
-                        and F.unchecked(fixed) <= F.unchecked(wp):
-                    wp = fixed
-            except Exception:
-                continue
-        return new if wp is new.get("wordplay") else {**new, "wordplay": wp}
-    except Exception:
-        return new
+            if better and set(F.hits(after, clue, answer)) <= set(F.hits(now, clue, answer)) \
+                    and F.unchecked(fixed) <= F.unchecked(wp):
+                wp = fixed
+        except wordplay.WordplayError:  # a repair that breaks its own tree is declined
+            continue
+    return new if wp is new.get("wordplay") else {**new, "wordplay": wp}
 
 
 def _size(x):
@@ -477,8 +467,6 @@ def _size(x):
 def _span_overlaps(tree, clue):
     """V.span_overlaps on a copy of `tree` with its places worked out (the rule reads them)."""
     import copy
-    import validate_annotations as V
-    import wordplay
     try:
         return V.span_overlaps(wordplay.locate(copy.deepcopy(tree), clue))
     except wordplay.WordplayError:
@@ -488,11 +476,10 @@ def _span_overlaps(tree, clue):
 def _gives_not(tree, answer):
     """1 when `tree` does not give `answer` (the refusal the first check names), else 0."""
     import copy
-    import wordplay
     try:
         wordplay.evaluate(copy.deepcopy(tree), answer or "")
         return 0
-    except Exception:
+    except wordplay.WordplayError:
         return 1
 
 
@@ -500,9 +487,6 @@ def _selectors_in_leaves(tree):
     """How many leaves give a letter while holding its selector word ("[socialist leader]S",
     "[leading Italian]I"): the committed-file check refuses these as a block with its selector
     inside (39 sessions' first checks), and r_leaf_select turns each into the selection op."""
-    import fix_shape_suspects as F
-    import validate_annotations as V
-    import wordplay
     return sum(1 for n, parent in F.walk(tree)
                if F.leaf(n) and n.get("gives") and n.get("words") and not n.get("unchecked")
                and (parent or {}).get("op") not in wordplay.SELECT
@@ -514,9 +498,7 @@ def rule_counters():
     that says which RULE_REPAIRS fixers the first check runs (test_apply_rule_repairs.py keeps
     every RULE_REPAIRS key reachable). The first check's own counters come first, then the
     shape queue's validator rules and the shape_suspects detector rules."""
-    import fix_shape_suspects as F
     import shape_queue
-    import validate_annotations as V
     table = {**F._DETECTOR_RULES, **shape_queue._validator_rules()}
     table["unindicatedBare"] = lambda t, a, c: V.unindicated_ops(t)
     table["trimAsSelection"] = lambda t, a, c: V.trims_as_selection(t, a.get("_answer"))
