@@ -13,7 +13,7 @@ const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!o
 function next(w) {
   const f = new Function("w", `
     let guessing = w.guessing || null;
-    const isEntrySolved = () => !!w.solved, annOf = () => ({}), isShown = (e, k) => w.shown.includes(k),
+    const groupSolved = () => !!w.solved, annOf = () => ({}), isShown = (e, k) => w.shown.includes(k),
       piecesLeft = () => w.left || 0, nextPiece = () => w.piece || 0, ladderSteps = () => w.steps.map((key) => ({ key })), ladderFor = ladderSteps,
       clueText = () => "", GUESSABLE = { type: 1, definition: 1, indicators: 1, blocks: 1 },
       rungAvailable = (e, s, k) => !w.locked.includes(k), guessAsk = (e, r) => (w.asks.includes(r) ? {} : null),
@@ -32,7 +32,7 @@ check(next({ ...base, shown: ["definition"], asks: ["blocks"] }).rung === "block
 check(next({ ...base, shown: ["definition", "type"], asks: ["blocks"], locked: ["indicators"] }).rung === "blocks", "a locked or unaskable rung is skipped, not stopped at");
 check(next({ ...base, shown: ["definition", "indicators", "type"], asks: [] }) === null, "no askable rung left asks nothing");
 check(next({ ...base, shown: ["definition"], locked: ["indicators", "type", "blocks"] }) === null, "rungs that are all locked are not asked");
-check(next({ ...base, solved: true }) === null, "a solved clue is not quizzed");
+check(next({ ...base, solved: true }) === null, "a solved clue (every leg of a linked one: groupSolved) is not quizzed");
 check(next({ ...base, guessing: {} }) === null, "no new question over one already on the table");
 check(/if \(verdict && verdict\.right\) advanceLadder\(e\)/.test(src), "finishGuess advances only on a right answer");
 check(/ring\.dealt && ring\.letters\.length/.test(src), "a fully crossed-off wheel advances too");

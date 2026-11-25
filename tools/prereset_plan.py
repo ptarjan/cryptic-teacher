@@ -2103,14 +2103,14 @@ def small_self_test():
              for n in range(1, 6)]
     mrows[4]["annotated"] = True
     mrows[0]["hasSolutions"] = False
-    orows = rows + mrows
+    orows = frows + mrows
     ids = [r["id"] for r in orows if r["id"] != "metro-5"]
     _, pinned, stages = head_of_queue(ids, ["r"], orows, asked=["book-7"], finish=["tls"])
     if priority_ids(orows, {"metro": 3}) != ["metro-5", "metro-4", "metro-3"]:
         print(f"FAIL priority_ids = {priority_ids(orows, {'metro': 3})}", file=sys.stderr)
         bad += 1
-    want = ["r", "book-7", "metro-4", "metro-3", "metro-2"]
-    if pinned[:5] != want or stages[10] != 3 or "metro-1" in pinned[:8]:
+    want = ["r", "book-7", "metro-4", "metro-3", "metro-2", "tls-6", "tls-5"]
+    if pinned[:7] != want or stages[10] != 3 or stages[9] != 2 or "metro-1" in pinned:
         print(f"FAIL head_of_queue priority series pins {pinned} at {stages} (want {want} first)",
               file=sys.stderr)
         bad += 1
