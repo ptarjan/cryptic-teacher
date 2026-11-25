@@ -3684,13 +3684,23 @@ def under_gutter(lines, grid, shares=None):
     whose number starts left of it is read into the left column's row."""
     gx0, _, gx1, gy1 = grid
     gw = gx1 - gx0
-    mid, span = gx0 + gw / 2 - 10, UNDER_SPAN * gw
-    if shares:
-        mid, span = gx0 + gw * sum(shares) / 2, gw * (shares[1] - shares[0]) / 2
     bottom = gy1 + 1.8 * gw
-    split = gutter(lines, (gx0, bottom, gx1, bottom), gy1, mid - span, mid + span)
-    moved = opening_gutter(lines, grid, split)
-    return split if moved is None else moved
+
+    def found(mid, span):
+        split = gutter(lines, (gx0, bottom, gx1, bottom), gy1, mid - span, mid + span)
+        moved = opening_gutter(lines, grid, split)
+        return split if moved is None else moved
+
+    usual = found(gx0 + gw / 2 - 10, UNDER_SPAN * gw)
+    if not shares:
+        return usual
+    # UNDER_CROSSING: the share window's gutter, unless the usual window's has fewer words crossing it (a
+    # 1950-52 page's columns split at the middle, not at UNDER_FIFTIES' 0.4-0.45: 30 words crossed, against 1).
+    mine = found(gx0 + gw * sum(shares) / 2, gw * (shares[1] - shares[0]) / 2)
+
+    def crossing(x):
+        return sum(1 for ws in lines for w in ws if gy1 <= w[1] < bottom and w[0] < x < w[2])
+    return usual if crossing(usual) < crossing(mine) else mine
 
 
 def opening_gutter(lines, grid, split):
