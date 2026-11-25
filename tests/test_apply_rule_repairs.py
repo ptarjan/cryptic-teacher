@@ -413,4 +413,19 @@ check("doesNotGive: removed letters in the other order are one deletion each (FI
 check("doesNotGive: an unclaimed 'a' that does not fix the answer leaves the tree refused",
       mend("ins<when visiting>([politician]MP, [member of the clergy]REV)", "Politician when visiting member of the clergy, a rebuild", "REVAMP").startswith("REFUSED"))
 
+# Fresh annotations (annotate_check lands them through apply_annotations.landed): the registry's repair is made and
+# named in `fired`, and a second pass over the mended tree repairs nothing.
+wp = {"op": "anagram", "indicators": [{"text": "windy", "note": "windy things are blown about"}],
+      "parts": [leaf("Caught", "C"), leaf("tar has"), leaf("cold", "C"), leaf("on")]}
+entry = {"solution": "CASTANCHOR", "clue": {"text": "Caught tar has cold on windy moor"}}
+fired = {}
+errs = []
+new = A.landed({"wordplay": wp}, entry, [entry], "1-across", errs, fired=fired)
+check("landed: a fresh annotation with a lone-edge anagram comes out repaired", new is not None and not errs
+      and new["wordplay"].get("op") == "charade")
+check("landed: the rule that fired is named against the clue", fired == {"anaLoneEdge": ["1-across"]})
+again = []
+A.mend_rules(new, entry, None, again)
+check("landed: the repairs are idempotent (a second pass fires nothing)", again == [])
+
 sys.exit(1 if fails else 0)

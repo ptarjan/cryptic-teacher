@@ -290,9 +290,9 @@ def _size(x):
 
 # ---------- fresh annotations (apply_annotations) ----------
 
-def mend_fresh(new, clue, answer):
+def mend_fresh(new, clue, answer, fired=None):
     """The stored tree of fresh annotation `new` with every rule that fires on it repaired, in RULES
-    order. A repair is kept when its rule fires less after it (a poolGap: not at all), it opens no
+    order; the names of the rules whose repair was kept are appended to the list `fired`, when given. A repair is kept when its rule fires less after it (a poolGap: not at all), it opens no
     poolGap, no shape detector newly fires and no step newly goes unchecked."""
     wp = new["wordplay"]
     for rule in RULES.values():
@@ -317,6 +317,8 @@ def mend_fresh(new, clue, answer):
             if better and set(hits(after, clue, answer)) <= set(hits(now, clue, answer)) \
                     and unchecked(fixed) <= unchecked(wp):
                 wp = fixed
+                if fired is not None:
+                    fired.append(rule.name)
         except W.WordplayError:  # a repair that breaks its own tree is declined
             continue
     return wp

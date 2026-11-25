@@ -379,13 +379,19 @@ def drop_spare_preamble_flag(new, puzzle):
     return new
 
 
-def landed(ann, entry, entries, eid, errors, puzzle=None):
+def landed(ann, entry, entries, eid, errors, puzzle=None, fired=None):
     """normalize(), with a wordplay that does not check appended to `errors`
     as "<eid>: why" (None back). `puzzle`, when given, lets a flag the puzzle cannot
-    honour be dropped (drop_spare_preamble_flag)."""
+    honour be dropped (drop_spare_preamble_flag). `fired`, a dict, gains {rule: [eid]} for each
+    repairs.RULES repair kept (mend_rules)."""
     try:
-        return drop_spare_preamble_flag(
-            carry_indicators(mend_rules(normalize(ann, entry, entries), entry, entries), entry), puzzle)
+        rules = []
+        new = drop_spare_preamble_flag(
+            carry_indicators(mend_rules(normalize(ann, entry, entries), entry, entries, rules), entry), puzzle)
+        if fired is not None:
+            for name in rules:
+                fired.setdefault(name, []).append(eid)
+        return new
     except wordplay.WordplayError as e:
         errors.append(f"{eid}: {e}")
     return None
@@ -414,14 +420,15 @@ def whole_answer(entry, entries=None):
     return solution
 
 
-def mend_rules(new, entry, entries=None):
+def mend_rules(new, entry, entries=None, fired=None):
     """`new` with every mechanical repair whose rule fires on its tree made (repairs.mend_fresh: the
-    one registry, gated there), else `new` as it was. The model never sees a fault a fixer owns."""
+    one registry, gated there), else `new` as it was. The model never sees a fault a fixer owns.
+    The names of the rules that repaired it are appended to the list `fired`, when given."""
     wp = new.get("wordplay") if isinstance(new, dict) else None
     clue = (entry.get("clue") or {}).get("text", "")
     if not isinstance(wp, dict) or not clue:
         return new
-    fixed = repairs.mend_fresh(new, clue, whole_answer(entry, entries))
+    fixed = repairs.mend_fresh(new, clue, whole_answer(entry, entries), fired)
     return new if fixed is wp else {**new, "wordplay": fixed}
 
 
@@ -652,6 +659,7 @@ def apply(path, annotations, by=None, only=None, partial=False):
     relisted = shape_queue.listed(puzzle)
     # Wordplay that does not check refuses the write.
     errors = []
+    mended = {}      # {repairs.RULES name: [entry ids]} the rule repaired on a fresh annotation
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue
@@ -676,7 +684,7 @@ def apply(path, annotations, by=None, only=None, partial=False):
             else:
                 entry.pop(WITHHELD, None)
         else:
-            new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors, puzzle)
+            new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors, puzzle, mended)
             if new is not None:
                 keep_spelling(new, entry, was)
             found = []
@@ -765,6 +773,9 @@ def apply(path, annotations, by=None, only=None, partial=False):
     for eid, new in fixes.items():
         print(f"apply_annotations: {eid} corrected to {new} — it agrees with every "
               f"crossing and printed answer (solutions.corrected)")
+    for name, ids in mended.items():
+        print(f"apply_annotations: rule {name} repaired the tree of {', '.join(ids)} "
+              f"(repairs.RULES, run on every fresh annotation)")
     if held:
         print(f"apply_annotations: {', '.join(held)} kept the committed hint your null "
               f"would have blanked — it validated before; give a hint to replace it")
