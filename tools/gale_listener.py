@@ -1336,10 +1336,17 @@ def numbered_columns(words):
             col = [w for w in col if w[2] <= right + BEYOND * (right - x0)]
             rows = fa.merge_rows(col)
         for line in rows:
+            above = x0 <= start[2] and line[1] <= start[3]
+            if above and x0 <= start[0] < x1:
+                # Above the first heading, in the column it stands in: a
+                # report's heading there ("Report on Crossword No. 20", No
+                # 22's) is the report of the page before, over the list under
+                # the heading, not the prose of a list that runs on past it.
+                continue
             if REPORT_HEAD.match(line[4]) or notice is not None and line[0] >= notice:
                 # A report's prose ("solving 38 Down") is no clue list.
                 break
-            if x0 <= start[2] and line[1] <= start[3]:
+            if above:
                 # Above the first heading, in its columns or those left of
                 # it: the grid, the preamble, another article.
                 continue
@@ -2584,7 +2591,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     `before`, the page's last ledger row: a reading it wrote under another
     number than it now matches is dropped (disown)."""
     import scan_queue
-    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX,
+    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "headFix": HEAD_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2776,7 +2783,8 @@ def plan(inbox=SAVED, store=STORE):
     # A Times page first in its rank: ~85 modern pages that may file whole, not behind ~2,850 of the
     # magazine's never read (their mtimes all earlier).
     due = sorted(((p, (SHORT if ((p.name in list_fix_names() and (row or {}).get("listFix", 0) < LIST_FIX)
-                                 or (p.name in join_fix_names() and (row or {}).get("joinFix", 0) < JOIN_FIX))
+                                 or (p.name in join_fix_names() and (row or {}).get("joinFix", 0) < JOIN_FIX)
+                                 or (p.name in head_fix_names() and (row or {}).get("headFix", 0) < HEAD_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -2946,6 +2954,25 @@ def join_fix_names():
     return _JOIN_FIX_NAMES
 
 
+#: Bumped when numbered_columns reads the list under the first heading in the column the heading stands in, though a
+#: report's heading ("Report on Crossword No. 20") stands above it there. Only the refused pages the fix gives clues
+#: (tools/data/listener_head_report.json, found by reading the cached pages fix-off and fix-on) are read again.
+HEAD_FIX = 1
+HEAD_FIX_FILE = ROOT / "tools" / "data" / "listener_head_report.json"
+_HEAD_FIX_NAMES = None
+
+
+def head_fix_names():
+    """The saved pages' names HEAD_FIX changes (a committed list nothing writes)."""
+    global _HEAD_FIX_NAMES
+    if _HEAD_FIX_NAMES is None:
+        try:
+            _HEAD_FIX_NAMES = frozenset(json.loads(HEAD_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _HEAD_FIX_NAMES = frozenset()
+    return _HEAD_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
     VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
@@ -2953,7 +2980,8 @@ def current(p, row):
     row = row or {}
     return (row.get("version") == VERSION and (not is_times(p) or row.get("timesCut", 1) >= TIMES_CUTS)
             and not (row.get("listFix", 0) < LIST_FIX and p.name in list_fix_names())
-            and not (row.get("joinFix", 0) < JOIN_FIX and p.name in join_fix_names()))
+            and not (row.get("joinFix", 0) < JOIN_FIX and p.name in join_fix_names())
+            and not (row.get("headFix", 0) < HEAD_FIX and p.name in head_fix_names()))
 
 
 def due_reason(row):
