@@ -32,12 +32,15 @@ new_sqlite_classes = ["EventCounter"]
 crons = ["*/20 * * * *"]
 
 [vars]
+# The deployed site, no trailing slash. The one place its host is written: the
+# worker reads the index and builds puzzle links from it, and
+# tools/fetch_puzzle.py reads this file for the index it stamps against. Also the
+# RFC 8292 sender contact: a site is a way to reach whoever is sending, and
+# unlike an address it does not sit in a public repo.
+SITE = "https://cryptic.paultarjan.com"
 # The half of the VAPID pair the browser is given at subscribe time; it is in
 # app.js as well, and the two must match or every push is rejected as 403.
 VAPID_PUBLIC_KEY = "BBaYG5WN1oquOhkTinUjxhbyxNcNM-0VrN_XJ83tnxwH1LoboNch3QIvUFHL7ogMvHjiT1RSCac1hw-4uiASvlY"
-# RFC 8292 wants a way to reach whoever is sending. A site is one, and unlike an
-# address it does not sit in a public repo.
-VAPID_SUBJECT = "https://cryptic.paultarjan.com/"
 
 # The other half is a secret, set once and never in the file:
 #   wrangler secret put VAPID_PRIVATE_JWK      # the private JWK, one line

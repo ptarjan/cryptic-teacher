@@ -14,57 +14,52 @@ import CTMerge from "./merge.js";
 import CTEvents from "./events.js";
 import CTNotify from "./notify.js";
 import { send, GONE } from "./webpush.js";
+import { DAY, HOUR, isBot } from "./common.js";
+import { ID_SERIES, PUZZLE_ID_RE, VOTE_TARGET_RE } from "./ids.js";
+
+const SERIES_RE = new RegExp(`^${ID_SERIES}$`);
 
 // No 0/O/1/I/L — this gets read off one screen and typed into another, by hand.
 const CODE_RE = /^[2-9A-HJ-KMNP-TV-Z]{8}$/;
 const MAX_BODY = 512 * 1024;   // ~100 puzzles of letters is a few tens of KB
 const MAX_PUZZLES = 2000;
-const TTL = 60 * 60 * 24 * 365; // a code untouched for a year is abandoned
-const EVENT_TTL = 60 * 60 * 24 * 90; // a quarter, so this month has a month to compare against
+const TTL = DAY * 365; // a code untouched for a year is abandoned
+const EVENT_TTL = DAY * 90; // a quarter, so this month has a month to compare against
 const MAX_EVENT = 32;           // the longest name on the list, with room to spare
 const MAX_REPORT = 2 * 1024;    // a sentence about a hint, with room for a long clue id
 const MAX_NOTE = 400;           // what fits in the one-line box on the page
-const REPORT_TTL = 60 * 60 * 24 * 365;
+const REPORT_TTL = DAY * 365;
 // What a solver thought of a clue or a puzzle. A year, because the aggregate is
 // the point — a page that says "nobody has rated this" about a puzzle eleven
 // people rated last spring is worse than saying nothing.
-const VOTE_TTL = 60 * 60 * 24 * 365;
+const VOTE_TTL = DAY * 365;
 const MAX_VOTE = 64;
-// c:<puzzle>:<clue> or p:<puzzle>, and nothing else can be voted on. The puzzle
-// id is the one the site publishes (series-number); the clue id is the one in
-// the puzzle file. Checked for shape rather than against the index, for the same
-// reason series names are: an id that matches nothing simply counts toward
-// nothing, and a second copy of the catalogue here is a copy that goes stale.
-const VOTE_TARGET_RE = /^(?:c:[a-z]{4,12}-\d{1,6}:\d{1,3}-(?:across|down)|p:[a-z]{4,12}-\d{1,6})$/;
+// c:<puzzle>:<clue> or p:<puzzle>, and nothing else can be voted on. The shapes
+// are tools/series.py's grammar, generated into ids.js. Checked for shape
+// rather than against the index, for the same reason series names are: an id
+// that matches nothing simply counts toward nothing, and a second copy of the
+// catalogue here is a copy that goes stale.
 const VOTE_VERDICTS = ["up", "down"];
 // GET /v was a KV read per page view, and a headless crawler walking the clue
 // pages made that 100k reads a day. Crawlers are told "no votes" for free, and a
 // puzzle's tally is remembered per isolate for a few minutes.
-const BOT_UA = /bot|crawl|spider|slurp|headless|lightpanda|phantom|puppeteer|playwright/i;
 const TALLY_MEMO = new Map();
 const TALLY_MEMO_MS = 5 * 60 * 1000;
 
-const INDEX_URL = "https://cryptic.paultarjan.com/puzzles/index.json";
 // Which push service a subscription belongs to, for the log; never the endpoint itself.
 function pushService(sub) {
   const h = String((sub && sub.endpoint) || "");
   return /apple\.com/.test(h) ? "apple" : /googleapis\.com/.test(h) ? "fcm" : "other";
 }
-const PUZZLE_URL = "https://cryptic.paultarjan.com/?p=";
 // A phone that has not opened the site in half a year has stopped solving. The
 // page re-registers on every load, so a device still in use never reaches this.
-const PUSH_TTL = 60 * 60 * 24 * 180;
+const PUSH_TTL = DAY * 180;
 const MAX_SUB = 4 * 1024;
-const REFRESH_SLACK = 60 * 60 * 24 * 7;  // see the /n handler
+const REFRESH_SLACK = DAY * 7;  // see the /n handler
 const MAX_SERIES = 12;
 // Only the four push services exist. Storing an arbitrary https URL here would
 // make the cron a machine that POSTs to anywhere anyone asks it to.
 const PUSH_HOSTS = [".googleapis.com", ".mozilla.com", ".apple.com", ".windows.com"];
-// A puzzle is announced when it first appears ANNOTATED, because the hint ladder
-// is the thing worth being told about — and the annotation backlog works
-// backwards through the archive, so without a window every night's catch-up
-// would push a decade of Guardians at whoever subscribed that morning.
-const ANNOUNCE_DAYS = 14;
 // A puzzle waiting for the morning is held per subscriber, newest MAX_HELD kept,
 // so a catch-up run that annotates many puzzles in one night cannot grow the
 // record without bound.
@@ -74,7 +69,7 @@ const cors = (origin) => ({
   "access-control-allow-origin": origin || "*",
   "access-control-allow-methods": "GET,POST,PUT,OPTIONS",
   "access-control-allow-headers": "content-type",
-  "access-control-max-age": "86400",
+  "access-control-max-age": String(DAY),
   "access-control-expose-headers": "x-ct-internal",
 });
 
@@ -114,7 +109,7 @@ function badSubscription(sub) {
     return "keys are not base64url of the right length";
   if (!Array.isArray(sub.series) || sub.series.length > MAX_SERIES)
     return "series must be an array of at most " + MAX_SERIES + " names";
-  if (!sub.series.every((s) => typeof s === "string" && /^[a-z][a-z0-9]{1,19}$/.test(s)))
+  if (!sub.series.every((s) => typeof s === "string" && SERIES_RE.test(s)))
     return "a series name is not one lowercase word";
   // Both optional, and both are rejected rather than ignored when they are
   // malformed: a phone that thinks it asked for a quiet night and is woken at
@@ -175,7 +170,7 @@ export class EventCounter {
       const done = await request.json();
       for (const [d, counts] of Object.entries(done))
         await this.storage.put("f:" + d, JSON.stringify(counts));
-      const cutoff = new Date(Date.now() - COUNTER_DAYS * 864e5).toISOString().slice(0, 10);
+      const cutoff = new Date(Date.now() - COUNTER_DAYS * DAY * 1000).toISOString().slice(0, 10);
       const stale = [];
       for (const k of (await this.storage.list({ prefix: "c:" })).keys())
         if (k.split(":")[1] < cutoff) stale.push(k);
@@ -246,8 +241,7 @@ export default {
       if (Number(request.headers.get("content-length") || 0) > MAX_EVENT) return ok;
       // Bots: no UA at all, or one that names itself. Nothing
       // is stored about the caller, the request is just not counted.
-      const ua = request.headers.get("user-agent") || "";
-      if (!ua || /bot|crawl|spider|slurp|headless|phantom|lighthouse|puppeteer|playwright|selenium|python|curl|wget|httpclient|facebookexternalhit|preview|monitor|go-http|node-fetch|axios/i.test(ua)) return ok;
+      if (isBot(request.headers.get("user-agent"))) return ok;
       const name = (await request.text()).trim();
       if (CTEvents.indexOf(name) < 0 || !env.EVENTS) return ok;
       const day = new Date().toISOString().slice(0, 10);
@@ -307,12 +301,12 @@ export default {
       }
       if (request.method === "GET") {
         const puzzle = url.searchParams.get("p") || "";
-        if (!/^[a-z]{4,12}-\d{1,6}$/.test(puzzle))
+        if (!PUZZLE_ID_RE.test(puzzle))
           return json({ error: "p must be a puzzle id" }, 400, origin);
         // A tally is a nicety, and every read is billed: crawlers get an empty
         // one without a KV read, and a puzzle read in the last few minutes is
         // answered from this isolate's memory. A minute-stale count is fine.
-        if (BOT_UA.test(request.headers.get("user-agent") || ""))
+        if (isBot(request.headers.get("user-agent")))
           return json({}, 200, origin);
         const now = Date.now();
         let hit = TALLY_MEMO.get(puzzle);
@@ -533,7 +527,7 @@ export default {
       console.error("event flush failed:", e);
     }
 
-    const res = await fetch(INDEX_URL, { headers: { "cache-control": "no-cache" } });
+    const res = await fetch(`${env.SITE}/puzzles/index.json`, { headers: { "cache-control": "no-cache" } });
     if (!res.ok) throw new Error(`index.json: HTTP ${res.status}`);
     const index = await res.json();
     // Which paper each series belongs to, put in the index by
@@ -546,19 +540,19 @@ export default {
 
     const seen = await env.SAVES.get("n:seen", "json");
     const now = Date.now();
-    // `date` is "YYYY-MM-DD", so the cutoff is too, and they compare as strings.
-    const cutoff = new Date(now - ANNOUNCE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
     const known = new Set(seen || []);
-    const fresh = puzzles.filter((p) => !known.has(p.id) && p.date >= cutoff);
-    /* Written only when there is news, and holding only the announce window.
-       It used to hold every annotated id and be rewritten whenever that set
-       moved — and the annotation backfill moves it with every deploy, so it
-       was a write on nearly every run, 72 of the namespace's 1,000 a day,
-       about puzzles years too old to announce. Only ids inside the window can
-       ever be fresh, so only those need remembering; one that has aged out is
-       filtered by its date whether or not it is still listed here. */
+    // A puzzle is announced when the build first stamped it `annotatedOn`
+    // (tools/fetch_puzzle.py stamp_annotated), which only a puzzle that is news
+    // gets: the annotation backfill works backwards through the archive and
+    // stamps none of what it fills, so an unstamped puzzle is never a candidate
+    // however old or new it is.
+    const stamped = puzzles.filter((p) => p.annotatedOn);
+    const fresh = stamped.filter((p) => !known.has(p.id));
+    /* Written only when there is news: it holds the stamped ids of the current
+       index, and the stamp never moves, so the set only ever grows when there
+       is something fresh to add. */
     if (!seen || fresh.length)
-      await env.SAVES.put("n:seen", JSON.stringify(puzzles.filter((p) => p.date >= cutoff).map((p) => p.id)));
+      await env.SAVES.put("n:seen", JSON.stringify(stamped.map((p) => p.id)));
     if (!seen) return;   // First run of a fresh namespace: the corpus is not news.
 
     // No early return on an empty `fresh`: the run that delivers a held puzzle
@@ -569,7 +563,7 @@ export default {
     const vapid = {
       jwk: JSON.parse(env.VAPID_PRIVATE_JWK),
       publicKey: env.VAPID_PUBLIC_KEY,
-      subject: env.VAPID_SUBJECT,
+      subject: `${env.SITE}/`,
     };
     for (const k of keys) {
       const sub = await env.SAVES.get(k.name, "json");
@@ -614,7 +608,7 @@ export default {
             title: CTNotify.title(p, papers),
             body: [p.setter && `Set by ${p.setter}`,
                    p.difficulty && p.difficulty.band].filter(Boolean).join(" \u00b7 "),
-            url: PUZZLE_URL + p.id,
+            url: `${env.SITE}/?p=${p.id}`,
             tag: p.id,
           }), vapid);
         } catch (err) {

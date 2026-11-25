@@ -54,22 +54,27 @@ const keys = {
 const env = {
   VAPID_PRIVATE_JWK: JSON.stringify(await crypto.subtle.exportKey("jwk", vapidPair.privateKey)),
   VAPID_PUBLIC_KEY: b64url(await crypto.subtle.exportKey("raw", vapidPair.publicKey)),
-  VAPID_SUBJECT: "mailto:nobody@example.com",
+  SITE: "https://example.com",
 };
 
-// Two puzzles from two papers, dated now so they are inside the announce
-// window, on top of an index where everything else is already seen.
+// Two puzzles from two papers, stamped annotatedOn today the way the build
+// stamps a puzzle that is news, on top of an index where nothing else is.
 let clock = Date.parse("2026-09-08T09:00:00Z");   // 03:00 in Edmonton, in September
 const realNow = Date.now;
 Date.now = () => clock;
 
 const fresh = [
   { id: "cryptic-99001", series: "cryptic", name: "Cryptic crossword No 99,001",
-    setter: "Paul", annotated: true, date: new Date(clock).toISOString().slice(0, 10), difficulty: { band: "Tough" } },
+    setter: "Paul", annotated: true, annotatedOn: new Date(clock).toISOString().slice(0, 10), date: new Date(clock).toISOString().slice(0, 10), difficulty: { band: "Tough" } },
   { id: "everyman-99002", series: "everyman", name: "Everyman crossword No 99,002",
-    setter: "Everyman", annotated: true, date: new Date(clock).toISOString().slice(0, 10), difficulty: null },
+    setter: "Everyman", annotated: true, annotatedOn: new Date(clock).toISOString().slice(0, 10),
+    date: new Date(clock).toISOString().slice(0, 10), difficulty: null },
 ];
-const index = { ...INDEX, puzzles: [...fresh, ...INDEX.puzzles] };
+// Annotated, dated today, but never stamped: what the annotation backfill
+// fills. It must never be announced, however new its date looks.
+const backfilled = { id: "cryptic-99009", series: "cryptic", name: "Cryptic crossword No 99,009",
+  setter: "Paul", annotated: true, date: new Date(clock).toISOString().slice(0, 10), difficulty: null };
+const index = { ...INDEX, puzzles: [...fresh, backfilled, ...INDEX.puzzles] };
 
 const pushed = [];
 globalThis.fetch = async (url, init) => {
@@ -93,7 +98,7 @@ const SAVES = {
 };
 env.SAVES = SAVES;
 
-kv.set("n:seen", JSON.stringify(INDEX.puzzles.filter((p) => p.annotated).map((p) => p.id)));
+kv.set("n:seen", "[]");
 const RETIRES = Math.floor(clock / 1000) + 60 * 60 * 24 * 180;
 // One subscriber who asked to be left alone until seven, and one saved before
 // any of that existed — no `after`, no `tz`, no queue.
@@ -122,6 +127,8 @@ check(expirations.get("n:s:quiet").expiration === RETIRES,
 // queue above can still deliver these.
 check(JSON.parse(kv.get("n:seen")).includes("cryptic-99001"),
   "03:00 — and n:seen already counts the held puzzle as announced");
+check(!JSON.parse(kv.get("n:seen")).includes("cryptic-99009") && !heldNow().includes("cryptic-99009"),
+  "an annotated puzzle the build never stamped is not a candidate");
 
 // --- 04:00, nothing new. Still silent, and no write that changes nothing ---
 clock += 60 * 60 * 1000;
@@ -145,7 +152,8 @@ check(to("legacy") === 1, "for the subscriber with no quiet hours too: " + to("l
 // --- a paper un-ticked while its puzzle waited must not arrive anyway ---
 clock = Date.parse("2026-09-09T09:00:00Z");   // 03:00 again
 const late = { id: "everyman-99003", series: "everyman", name: "Everyman crossword No 99,003",
-  setter: "Everyman", annotated: true, date: new Date(clock).toISOString().slice(0, 10), difficulty: null };
+  setter: "Everyman", annotated: true, annotatedOn: new Date(clock).toISOString().slice(0, 10),
+  date: new Date(clock).toISOString().slice(0, 10), difficulty: null };
 index.puzzles.unshift(late);
 await worker.scheduled({}, env);
 check(JSON.stringify(heldNow()) === JSON.stringify(["everyman-99003"]), "a later night queues again");

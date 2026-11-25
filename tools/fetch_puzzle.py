@@ -3500,8 +3500,18 @@ def _phase(what):
     _PHASE[0] = now
 
 
-#: The live site, whose puzzles/index.json the deploy builds in full.
-DEPLOYED_INDEX = "https://cryptic.paultarjan.com/puzzles/index.json"
+#: The worker's config, where the live site's address is written once (SITE).
+WRANGLER_TOML = Path(__file__).resolve().parent.parent / "sync" / "wrangler.toml"
+
+
+def deployed_index_url():
+    """The live site's puzzles/index.json, which the deploy builds in full; the
+    host is sync/wrangler.toml's SITE, the one place it is written."""
+    import tomllib
+    with open(WRANGLER_TOML, "rb") as f:
+        return tomllib.load(f)["vars"]["SITE"] + "/puzzles/index.json"
+
+
 #: What the index's corpus-wide parts (reprints, papers, books, the row order)
 #: are made by, beside the rows the build's `rows` key covers: a change to
 #: any since the deployed commit makes the deployed index unusable here.
@@ -3560,12 +3570,13 @@ def _git(*args):
 
 def _deployed_index():
     """The live site's index, or None with the reason printed."""
+    url = deployed_index_url()
     try:
-        req = urllib.request.Request(DEPLOYED_INDEX, headers={"User-Agent": "cryptic-teacher-reindex"})
+        req = urllib.request.Request(url, headers={"User-Agent": "cryptic-teacher-reindex"})
         with urllib.request.urlopen(req, timeout=120) as r:
             return json.loads(r.read())
     except (OSError, ValueError) as err:
-        print(f"deployed index: could not fetch {DEPLOYED_INDEX}: {err}")
+        print(f"deployed index: could not fetch {url}: {err}")
         return None
 
 
@@ -3823,7 +3834,7 @@ def _record_made(seen, made):
 
 def reindex_from_deploy():
     """The index the deploy built (pages.yml's full reindex, live at
-    DEPLOYED_INDEX), brought up to this checkout, instead of making every row
+    deployed_index_url()), brought up to this checkout, instead of making every row
     here: a change to the code a row reaches makes all ~63k rows again, ~2000
     CPU-s a time on this machine, and CI makes the same rows for every
     deploy. Used when the deployed index was built at an ancestor of HEAD by

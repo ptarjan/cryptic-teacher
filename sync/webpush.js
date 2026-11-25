@@ -18,6 +18,7 @@
    and then have nothing to show. One puzzle per push, named in the payload.
 
    Nothing in here is specific to crosswords; sync/worker.js is the caller. */
+import { HOUR } from "./common.js";
 
 const enc = new TextEncoder();
 
@@ -96,7 +97,7 @@ export async function encrypt(payload, p256dh, auth) {
    leaves room for a slow clock at either end. */
 export async function vapidHeader(endpoint, jwk, publicKey, subject) {
   const aud = new URL(endpoint).origin;
-  const exp = Math.floor(Date.now() / 1000) + 12 * 60 * 60;
+  const exp = Math.floor(Date.now() / 1000) + 12 * HOUR;
   const part = (o) => bytesToB64url(enc.encode(JSON.stringify(o)));
   const signing = `${part({ typ: "JWT", alg: "ES256" })}.${part({ aud, exp, sub: subject })}`;
   const key = await crypto.subtle.importKey(
@@ -111,7 +112,7 @@ export async function vapidHeader(endpoint, jwk, publicKey, subject) {
    404 and 410 are the answer that matters: the subscription is gone — the app
    was deleted, or the browser rotated it — and the caller must drop the record
    rather than retry it for a year. */
-export async function send(subscription, payload, vapid, ttl = 12 * 60 * 60) {
+export async function send(subscription, payload, vapid, ttl = 12 * HOUR) {
   const body = await encrypt(payload, subscription.keys.p256dh, subscription.keys.auth);
   const res = await fetch(subscription.endpoint, {
     method: "POST",

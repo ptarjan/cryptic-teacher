@@ -440,7 +440,7 @@ SERIES = {
 # resolver and in build_seo_pages.legacy_redirects(). The integer also leaves
 # every \d+ regex, int() and String() key in the repo working untouched:
 # parse_id() below, tools/smoke_test.js's /^[a-z0-9]+-\d+\.json$/ over every
-# filename, sync/worker.js's [a-z]{4,12}-\d{1,6} over every vote id.
+# filename, sync/ids.js's grammar (generated from ID_* below) over every vote id.
 POSITIONS_PER_BOOK = 1000
 
 # How a book's grids end their lights, a row's `grid`: black squares, or bars
@@ -542,9 +542,9 @@ BOOK_BY_IDENTIFIER = {row["identifier"]: row for row in BOOKS.values()}
 # `book` is not a key any feed could take, and it does not have to be: is_book()
 # is asked of this table, never pattern-matched off the key.
 #
-# KEYS ARE 4-12 LETTERS, NO DIGITS: sync/worker.js matches a vote id with
-# [a-z]{4,12}-\d{1,6}, so a key outside that shape would not fail — it would
-# quietly drop this shelf's votes on the floor.
+# KEYS ARE 2-12 LETTERS OR DIGITS (ID_SERIES): sync/ids.js matches a vote id
+# with the same grammar, and puzzle_id() asserts it, so a key outside that shape
+# fails loudly instead of quietly dropping this shelf's votes on the floor.
 BOOK_SERIES = "book"
 SERIES[BOOK_SERIES] = {
     # No "kind" and no "publisher": both are the BOOK's, and kind() and
@@ -1077,10 +1077,22 @@ def name_facts(puzzle):
 # silently dropped from three corpus sweeps instead of failing one. That is why
 # the shape is enforced here, at the one place ids are made, rather than left to
 # be discovered: a key this refuses cannot reach the corpus at all.
+#
+# The grammar, written once. sync/ids.js is generated from these three strings
+# by tools/gen_ids_js.py (tests/test_ids_js.py fails when it is stale), so the
+# sync worker validates the same ids the tools make.
+ID_SERIES = r"[a-z0-9]{2,12}"
+ID_NUMBER = r"\d{1,6}"
+ID_CLUE = r"\d{1,3}-(?:across|down)"
+
+
 def puzzle_id(series, number):
-    assert re.fullmatch(r"[a-z0-9]+", series or "cryptic"), \
-        f"series key {series!r} must be one lowercase word, digits allowed, no hyphen"
-    return f"{series or 'cryptic'}-{number}"
+    series = series or "cryptic"
+    assert re.fullmatch(ID_SERIES, series), \
+        f"series key {series!r} must be one lowercase word of 2-12 letters or digits, no hyphen"
+    assert re.fullmatch(ID_NUMBER, str(number)), \
+        f"number {number!r} must be 1-6 digits"
+    return f"{series}-{number}"
 
 
 def parse_id(pid):
