@@ -27,6 +27,7 @@ import annotate_check
 import annotation
 import apply_annotations
 import hidden_mechanical
+import provenance
 import puzzle_schema
 import validate_annotations
 import wordplay
@@ -35,7 +36,7 @@ from groups import entry_id
 ROOT = Path(__file__).resolve().parent.parent
 
 #: Credited in annotatedBy for --write: the model that ran the tool.
-WRITER = "claude-opus-5-5"
+WRITER = provenance.ANNOTATOR_MODEL
 
 HIDDEN_NOTE = "{} says the answer is a run of letters hidden inside the words that follow"
 REVERSAL_NOTE = "{} says the hidden letters are read backwards"

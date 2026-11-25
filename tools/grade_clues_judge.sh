@@ -13,7 +13,7 @@ cd "$(dirname "$0")/.." || exit 1
 . tools/claude_path.sh
 ROUND=${1:?usage: grade_clues_judge.sh <round-dir> [judges]}
 JUDGES=${2:-3}
-MODEL=${GRADE_MODEL:-claude-opus-5-5}
+MODEL=${GRADE_MODEL:-$(cd tools && python3 -c "import provenance; print(provenance.ANNOTATOR_MODEL)")}
 EFFORT=${GRADE_EFFORT:-medium}  # explicit: the CLI default differs per model
 mkdir -p "$ROUND/scores"
 echo "model=$MODEL effort=$EFFORT judges=$JUDGES" > "$ROUND/scores/judges.txt"

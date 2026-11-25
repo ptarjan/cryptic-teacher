@@ -39,6 +39,7 @@ import tempfile
 from pathlib import Path
 
 import build_authored_puzzle
+import provenance
 
 ROOT = Path(__file__).resolve().parent.parent
 AUTHOR_MD = ROOT / "tools/author_trial_author.md"
@@ -87,7 +88,7 @@ def validate_set(clues):
     try:
         puzzle = build_authored_puzzle.build(FILL, f.name, 999, "trial", "trial",
                                              datetime.date(2026, 1, 1))
-        _, errors = build_authored_puzzle.finish(puzzle, "claude-opus-5-5")
+        _, errors = build_authored_puzzle.finish(puzzle, provenance.ANNOTATOR_MODEL)
     except SystemExit as err:            # build() exits on a mismatched answer
         errors = [str(err)]
     finally:
@@ -210,7 +211,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--base", required=True,
                     help="a passing clue set for the same fill; candidates are swapped into it")
-    ap.add_argument("--model", default="claude-opus-5-5")
+    ap.add_argument("--model", default=provenance.ANNOTATOR_MODEL)
     ap.add_argument("--author-effort", default="high")
     ap.add_argument("--select-effort", default="high")
     ap.add_argument("--repairs", type=int, default=2)

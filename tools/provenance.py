@@ -135,6 +135,12 @@ ANNOTATORS = {
 # pointer that moves.
 MODEL_ID = re.compile(r"claude-[a-z]+(?:-\d+)+")
 
+# The model the annotation pipeline runs, credited in annotatedBy and priced by the audit.
+# The one place its id is written: scripts import it, workflows read it with
+# `python3 -c "import provenance; print(provenance.ANNOTATOR_MODEL)"` from tools/.
+ANNOTATOR_MODEL = "claude-opus-5-5"
+assert MODEL_ID.fullmatch(ANNOTATOR_MODEL)
+
 
 def has_hints(puzzle):
     return any(e.get("annotation") for e in puzzle.get("entries") or [])

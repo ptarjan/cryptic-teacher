@@ -347,7 +347,7 @@ jobs:
           python3 tools/build_authored_puzzle.py
           --clues tools/data/authored_A001_clues.json --number 1
           --date 2026-07-29
-          --annotated-by claude-opus-5-5
+          --annotated-by "$(cd tools && python3 -c 'import provenance; print(provenance.ANNOTATOR_MODEL)')"
       - name: Wait for the puzzle shims
         run: bash tools/cache_bg.sh wait restore shims
       # The cards (~1.2GB) and the IndexNow manifest start only now, once the
@@ -992,7 +992,7 @@ jobs:
           python3 tools/build_authored_puzzle.py
           --clues tools/data/authored_A001_clues.json --number 1
           --date 2026-07-29
-          --annotated-by claude-opus-5-5
+          --annotated-by "$(cd tools && python3 -c 'import provenance; print(provenance.ANNOTATOR_MODEL)')"
       # --drift-out lets a puzzle past its allowance in a rule the burn can
       # redo through (a rule edit or the nightly lexicon rebuild flags puzzles
       # that were committed clean) and writes what it flagged for the requeue
