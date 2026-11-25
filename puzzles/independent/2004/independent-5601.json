@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,43 @@
     "text": "Japanese extract of borage is harmful",
     "enumeration": "6"
    },
-   "solution": "GEISHA"
+   "solution": "GEISHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Japanese",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "extract of",
+       "at": 9,
+       "note": "extract of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "borage is harmful",
+       "at": 20,
+       "gives": "GEISHA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A herbalist warns that a preparation made from borage can do harm.",
+     "walkthrough": "'extract of' sounds like herbal medicine, but it signals letters taken from inside 'borage is harmful': boraGE IS HArmful.",
+     "definitionFit": "A geisha is a traditional female entertainer of Japan, so the adjective here stands as a noun for a Japanese person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extract"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +83,28 @@
     "text": "Speak fast",
     "enumeration": "7"
    },
-   "solution": "EXPRESS"
+   "solution": "EXPRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speak",
+      "at": 0
+     },
+     {
+      "text": "fast",
+      "at": 6
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to talk quickly.",
+     "definitionFit": "To express a view is to voice or speak it; an express train or delivery is a fast one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +118,55 @@
     "text": "Yen to follow road and cross river",
     "enumeration": "4"
    },
-   "solution": "STYX"
+   "solution": "STYX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "at": 4,
+       "note": "the yen piece is set after the road piece, following it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "road",
+       "at": 14,
+       "gives": "ST",
+       "note": "ST is the abbreviation for street, a road"
+      },
+      {
+       "words": "Yen",
+       "at": 0,
+       "gives": "Y",
+       "note": "Y is the symbol for the Japanese yen"
+      },
+      {
+       "words": "cross",
+       "at": 23,
+       "gives": "X",
+       "note": "X is the shape of a cross"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longs to walk along a road and then get over a river.",
+     "walkthrough": "'to follow' puts Y after ST; the clue's 'and cross river' reads as a journey, but 'cross' gives X and 'river' is the definition.",
+     "definitionFit": "In Greek myth the Styx is the river of the underworld the dead must be ferried over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +180,42 @@
     "text": "Repay debt, out of a hole",
     "enumeration": "8"
    },
-   "solution": "AMORTISE"
+   "solution": "AMORTISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Repay debt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
+      },
+      {
+       "words": "hole",
+       "at": 21,
+       "gives": "MORTISE",
+       "note": "a mortise is a hole or slot cut in timber to take a tenon in joinery"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paying off what you owe gets you out of a financial hole.",
+     "walkthrough": "'out of a hole' reads as escaping money trouble, but here 'out of' means 'made from': the answer is built from A plus a carpenter's hole, MORTISE.",
+     "definitionFit": "To amortise a loan is to pay it off gradually in instalments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hole"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +229,61 @@
     "text": "Killer whale following ship turned from side to side",
     "enumeration": "6"
    },
-   "solution": "ACROSS"
+   "solution": "ACROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from side to side",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turned",
+       "at": 28,
+       "note": "turned says the whole run of letters built so far is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "at": 13,
+         "note": "the whale piece is placed after the ship piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ship",
+         "at": 23,
+         "gives": "SS",
+         "note": "SS stands for steamship"
+        },
+        {
+         "words": "Killer whale",
+         "at": 0,
+         "gives": "ORCA",
+         "note": "the orca is the killer whale"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A killer whale swims behind a ship that then swings about.",
+     "walkthrough": "'turned' reverses the whole string, not just the whale; 'following' sets the whale after the ship before the turn. 'from side to side' is the definition, not part of the turning.",
+     "definitionFit": "Across means extending from one side to the other, as a bridge runs across a river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +303,34 @@
      }
     ]
    },
-   "solution": "AIRBAG"
+   "solution": "AIRBAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's blown up by accident",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It's blown up by accident",
+       "at": 0,
+       "note": "reads as something destroyed by mistake, but means a car safety cushion that inflates when a crash happens"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A car's safety cushion inflates automatically in a collision, so it is inflated because of a crash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +350,60 @@
      }
     ]
    },
-   "solution": "READYMADE"
+   "solution": "READYMADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "off the shelf",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Study",
+       "at": 0,
+       "gives": "READ",
+       "note": "to read a subject is to study it"
+      },
+      {
+       "words": "unknown",
+       "at": 6,
+       "gives": "Y",
+       "note": "Y is an unknown in algebra"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 21,
+         "note": "in a down clue picked up means the cheese is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheese",
+         "at": 14,
+         "gives": "EDAM",
+         "note": "Edam is a Dutch cheese"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student reaches for a mystery cheese taken from the supermarket shelf.",
+     "walkthrough": "'picked up' sounds like lifting the cheese, but in a down clue it turns EDAM into MADE.",
+     "definitionFit": "Something ready-made is produced in advance and sold as is, which is what buying off the shelf means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +417,42 @@
     "text": "Fronting the main marine guard",
     "enumeration": "7"
    },
-   "solution": "SEAWARD"
+   "solution": "SEAWARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fronting the main",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "marine",
+       "at": 18,
+       "gives": "SEA",
+       "note": "marine means of the sea"
+      },
+      {
+       "words": "guard",
+       "at": 25,
+       "gives": "WARD",
+       "note": "to ward is to guard, as in ward off"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval sentry stands at the front of the main deck.",
+     "walkthrough": "'the main' is the poetic name for the open sea, so 'Fronting the main' means facing the sea.",
+     "definitionFit": "Seaward describes facing or moving toward the ocean, the old 'main'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +472,41 @@
      }
     ]
    },
-   "solution": "HAPPYHOUR"
+   "solution": "HAPPYHOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "when drinks are cheap",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tipsy",
+       "at": 0,
+       "gives": "HAPPY",
+       "note": "happy is a mild word for slightly drunk"
+      },
+      {
+       "words": "occasion",
+       "at": 6,
+       "gives": "HOUR",
+       "note": "an hour can mean a particular time or occasion, as in 'the hour has come'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night out where people get merry because the bar has cut its prices.",
+     "definitionFit": "Bars run a set period of discounted prices early in the evening to bring in customers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tipsy"
+    }
+   }
   },
   {
    "number": 8,
@@ -184,7 +530,49 @@
      }
     ]
    },
-   "solution": "HEAPSOFTIME"
+   "solution": "HEAPSOFTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ages",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 16,
+       "note": "around means the letters of the words are spun about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fame",
+       "at": 0
+      },
+      {
+       "words": "Hope",
+       "at": 6
+      },
+      {
+       "words": "it's",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan hopes the musical Fame will have a very long run.",
+     "walkthrough": "'around' is the anagram signal; 'for' is a link, and 'Fame!' looks like the musical's title but is plain fodder.",
+     "definitionFit": "Having ages means having plenty of time, a long while to spare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 9,
@@ -198,7 +586,61 @@
     "text": "Help! One's trapped by overturned rock",
     "enumeration": "5"
    },
-   "solution": "AVAIL"
+   "solution": "AVAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trapped by",
+       "at": 12,
+       "note": "trapped by says the numeral goes inside the turned rock"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "at": 23,
+         "note": "overturned means the rock word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rock",
+         "at": 34,
+         "gives": "LAVA",
+         "note": "lava is molten rock from a volcano"
+        }
+       ]
+      },
+      {
+       "words": "One's",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cry for help from someone pinned beneath a rock that has toppled over.",
+     "walkthrough": "'overturned' turns LAVA into AVAL, and 'trapped by' puts I inside it.",
+     "definitionFit": "Avail as a noun means use or benefit, as in 'to no avail', meaning without help."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 10,
@@ -218,7 +660,56 @@
      }
     ]
    },
-   "solution": "LINCOLNSINN"
+   "solution": "LINCOLNSINN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "society of lawyers",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ex-president's",
+       "at": 0,
+       "gives": "LINCOLNS",
+       "note": "Abraham Lincoln was a former US president"
+      },
+      {
+       "op": "homophone",
+       "spelt": "INN",
+       "indicators": [
+        {
+         "text": "said",
+         "at": 15,
+         "note": "said means the last piece is the spelling of a word that sounds the same as the one meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at home",
+         "at": 26,
+         "gives": "IN",
+         "note": "in means at home, as in 'staying in'"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "LINCOLN'S INN",
+    "explanation": {
+     "surface": "A former president is supposedly a member of a legal society.",
+     "walkthrough": "Lincoln's Inn is one of the four Inns of Court in London to which every barrister in England and Wales belongs.",
+     "definitionFit": "The Inns of Court are professional bodies of barristers, so this Inn is a society of lawyers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 11,
@@ -232,7 +723,41 @@
     "text": "It indicates presence of American border",
     "enumeration": "4"
    },
-   "solution": "AHEM"
+   "solution": "AHEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It indicates presence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "words": "border",
+       "at": 34,
+       "gives": "HEM",
+       "note": "a hem is the edged border of a piece of cloth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sign shows the presence of the US frontier.",
+     "walkthrough": "The definition is the small cough people give to announce they are in the room.",
+     "definitionFit": "A throat-clearing noise is made to draw attention, signalling that the speaker is there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 12,
@@ -252,7 +777,41 @@
      }
     ]
    },
-   "solution": "STEADYRAIN"
+   "solution": "STEADYRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it keeps dripping",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Careful",
+       "at": 0,
+       "gives": "STEADY",
+       "note": "steady means careful and controlled"
+      },
+      {
+       "words": "shower",
+       "at": 13,
+       "gives": "RAIN",
+       "note": "a shower is a fall of rain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to go gently with a leaky shower that will not stop dripping.",
+     "definitionFit": "Persistent wet weather falls continuously, which is to keep dripping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 13,
@@ -266,7 +825,34 @@
     "text": "It can be killing to be kept in this",
     "enumeration": "8"
    },
-   "solution": "SUSPENSE"
+   "solution": "SUSPENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It can be killing to be kept in this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It can be killing to be kept in this",
+       "at": 0,
+       "note": "reads as a cell or prison, but means the nervous state of waiting which we call 'killing' when it is unbearable"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Being kept waiting in uncertainty is said to be killing you, as in 'the wait is killing me'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "killing"
+    }
+   }
   },
   {
    "number": 14,
@@ -280,7 +866,62 @@
     "text": "Look: new kid almost dotty",
     "enumeration": "9"
    },
-   "solution": "ECCENTRIC"
+   "solution": "ECCENTRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dotty",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Look",
+       "at": 0,
+       "gives": "ECCE",
+       "note": "ecce is Latin for behold, look"
+      },
+      {
+       "words": "new",
+       "at": 6,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost means the trick word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kid",
+         "at": 10,
+         "gives": "TRICK",
+         "note": "to kid is to trick or hoax"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look at the new child: he seems slightly mad.",
+     "walkthrough": "'kid' looks like a child, but it is the verb meaning to fool; 'almost' cuts TRICK to TRIC. ECCE, Latin 'behold', is a crossword staple.",
+     "definitionFit": "Eccentric and dotty both describe someone odd or slightly unhinged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +935,42 @@
     "text": "Sound made by car coming to roundabout",
     "enumeration": "5"
    },
-   "solution": "AUDIO"
+   "solution": "AUDIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "car",
+       "at": 14,
+       "gives": "AUDI",
+       "note": "Audi is a German car maker"
+      },
+      {
+       "words": "roundabout",
+       "at": 28,
+       "gives": "O",
+       "note": "O is round in shape, like a roundabout"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Noise from a car arriving at a traffic circle.",
+     "walkthrough": "A roundabout is the British name for a traffic circle; its round shape gives O.",
+     "definitionFit": "Audio means relating to sound and its recording."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +984,47 @@
     "text": "Three characters from Glyndebourne opera performing for one at theatre",
     "enumeration": "8"
    },
-   "solution": "PLAYGOER"
+   "solution": "PLAYGOER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one at theatre",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "performing",
+       "at": 41,
+       "note": "performing suggests the letters are acted out in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Three characters from Glyndebourne",
+       "at": 0,
+       "gives": "GLY",
+       "note": "the first three letters of Glyndebourne"
+      },
+      {
+       "words": "opera",
+       "at": 35
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Members of a Glyndebourne opera production put on a show for a single theatre visitor.",
+     "walkthrough": "Glyndebourne is an English country-house opera festival. 'performing' rearranges GLY with OPERA.",
+     "definitionFit": "A playgoer is someone who attends the theatre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performing"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1038,48 @@
     "text": "Foreign money poured into football club",
     "enumeration": "5"
    },
-   "solution": "FRANC"
+   "solution": "FRANC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Foreign money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 21,
+       "note": "into says one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "football club",
+       "at": 26,
+       "gives": "FC"
+      },
+      {
+       "words": "poured",
+       "at": 14,
+       "gives": "RAN",
+       "note": "ran means poured or flowed, as a liquid does"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Overseas cash has been pumped into a football club.",
+     "walkthrough": "'poured into' reads as investment in a club, but 'poured' is a past tense meaning flowed and 'into' is the container signal.",
+     "definitionFit": "The franc was the currency of France and remains that of Switzerland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poured"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1093,41 @@
     "text": "Lover's married, unfortunately",
     "enumeration": "7"
    },
-   "solution": "ADMIRER"
+   "solution": "ADMIRER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lover",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unfortunately",
+       "at": 17,
+       "note": "unfortunately suggests things have gone wrong, so the letters are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "married",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suitor has sadly turned out to be married.",
+     "walkthrough": "'unfortunately' signals rearranging MARRIED; the 's is a link meaning 'is'.",
+     "definitionFit": "An admirer is someone who is romantically attracted to another, a suitor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1141,66 @@
     "text": "Russia in claim against navy: it makes you sick",
     "enumeration": "8"
    },
-   "solution": "ALLERGEN"
+   "solution": "ALLERGEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it makes you sick",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "against",
+       "at": 16,
+       "note": "against means placed next to, so the navy letter is set beside the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "in places the Russia letter inside the claim word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "claim",
+         "at": 10,
+         "gives": "ALLEGE",
+         "note": "to allege is to claim"
+        },
+        {
+         "words": "Russia",
+         "at": 0,
+         "gives": "R",
+         "note": "R is used for Russia"
+        }
+       ]
+      },
+      {
+       "words": "navy",
+       "at": 24,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Russia lodges a legal claim against a foreign navy.",
+     "walkthrough": "'in' puts R inside ALLEGE to make ALLERGE, and 'against' sets N beside it.",
+     "definitionFit": "An allergen is a substance such as pollen that triggers an allergic reaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "claim"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1214,29 @@
     "text": "Commons division — let me through!",
     "enumeration": "7"
    },
-   "solution": "GANGWAY"
+   "solution": "GANGWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Commons division",
+      "at": 0
+     },
+     {
+      "text": "let me through!",
+      "at": 19
+     }
+    ],
+    "explanation": {
+     "surface": "An MP calls for a vote and pushes through the crowd.",
+     "walkthrough": "In the House of Commons a gangway is the aisle dividing the benches; 'Gangway!' is also the shout to clear a path.",
+     "definitionFit": "The aisle splitting the Commons benches is so named, and the same word is shouted to make people stand aside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "division"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1250,55 @@
     "text": "They fly in European newspaper for a schilling",
     "enumeration": "6"
    },
-   "solution": "SWIFTS"
+   "solution": "SWIFTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They fly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 31,
+       "note": "for means the newspaper letters replace the schilling letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European",
+       "at": 12,
+       "gives": "SWISS",
+       "note": "a Swiss person is a European"
+      },
+      {
+       "words": "a schilling",
+       "at": 35,
+       "gives": "S",
+       "note": "S is the abbreviation for the Austrian schilling"
+      },
+      {
+       "words": "newspaper",
+       "at": 21,
+       "gives": "FT",
+       "note": "FT is the Financial Times newspaper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Birds appear in a European paper that once cost a schilling.",
+     "walkthrough": "'for' signals swapping: FT replaces one S in SWISS.",
+     "definitionFit": "Swifts are fast birds that spend almost their whole lives on the wing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "schilling"
+    }
+   }
   },
   {
    "number": 22,
@@ -402,7 +1322,49 @@
      }
     ]
    },
-   "solution": "INMANYWAYS"
+   "solution": "INMANYWAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quite a bit",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Kinky",
+       "at": 0,
+       "note": "kinky means twisted, so the letters are bent into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sin",
+       "at": 6
+      },
+      {
+       "words": "May",
+       "at": 11
+      },
+      {
+       "words": "yawn",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kinky sins may leave someone yawning with boredom.",
+     "walkthrough": "'Kinky' signals rearranging SIN, MAY and YAWN.",
+     "definitionFit": "Saying something is true in many respects means it is so to a considerable degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kinky"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1378,45 @@
     "text": "Rant, stir hearts in opposition",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in opposition",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "hearts",
+       "at": 11,
+       "note": "hearts are the central parts, so take the middle letters of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rant",
+       "at": 0
+      },
+      {
+       "words": "stir",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protester rants and stirs up feelings against the regime.",
+     "walkthrough": "'hearts' takes the middles of RANT and STIR: AN and TI.",
+     "definitionFit": "Anti means against, being opposed to something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hearts"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1430,43 @@
     "text": "Eat up, girl!",
     "enumeration": "4"
    },
-   "solution": "ENID"
+   "solution": "ENID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 8
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 4,
+       "note": "in a down clue up means the word is read from the bottom, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eat",
+       "at": 0,
+       "gives": "DINE",
+       "note": "to dine is to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent tells a daughter to finish her food.",
+     "walkthrough": "'Eat up' reads as a command to finish dinner, but 'up' turns DINE upwards.",
+     "definitionFit": "Enid is a female first name, used in crosswords for any girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1480,57 @@
     "text": "Stray starts to 'oller — real howler",
     "enumeration": "5"
    },
-   "solution": "ERROR"
+   "solution": "ERROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "howler",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stray",
+       "at": 0,
+       "gives": "ERR",
+       "note": "to err is to stray from what is right"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 6,
+         "note": "starts to means take the opening letter of each of the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "'oller",
+         "at": 16
+        },
+        {
+         "words": "real",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dropped-aitch 'holler' from someone straying into a real blunder.",
+     "walkthrough": "'oller is 'holler' with the H dropped, a shout. 'starts to' takes the O and R that begin 'oller and real.",
+     "definitionFit": "A howler is a glaring mistake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "howler"
+    }
+   }
   },
   {
    "number": 26,
@@ -468,7 +1554,49 @@
      }
     ]
    },
-   "solution": "FROMNOWON"
+   "solution": "FROMNOWON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ever after",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "silly",
+       "at": 12,
+       "note": "silly suggests the letters are mixed up foolishly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "frown",
+       "at": 18
+      },
+      {
+       "words": "on",
+       "at": 24
+      },
+      {
+       "words": "Mo",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives a girl called Mo a silly scowl forever after.",
+     "walkthrough": "'silly' rearranges FROWN, ON and MO.",
+     "definitionFit": "From now on means henceforth, for all time after this moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silly"
+    }
+   }
   },
   {
    "number": 27,
@@ -482,7 +1610,42 @@
     "text": "Uproar: Father joins mediation group",
     "enumeration": "6"
    },
-   "solution": "FRACAS"
+   "solution": "FRACAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uproar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Father",
+       "at": 8,
+       "gives": "FR",
+       "note": "Fr is the abbreviation for Father, a priest"
+      },
+      {
+       "words": "mediation group",
+       "at": 21,
+       "gives": "ACAS",
+       "note": "ACAS is the UK Advisory, Conciliation and Arbitration Service, which mediates industrial disputes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest joins the conciliation service during a dispute.",
+     "walkthrough": "ACAS is a British public body that mediates between employers and unions.",
+     "definitionFit": "A fracas is a noisy disturbance or brawl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 28,
@@ -502,7 +1665,43 @@
      }
     ]
    },
-   "solution": "REDEYE"
+   "solution": "REDEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boob in photo",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Embarrassed",
+       "at": 0,
+       "gives": "RED",
+       "note": "red describes a face flushed with embarrassment"
+      },
+      {
+       "words": "look at",
+       "at": 15,
+       "gives": "EYE",
+       "note": "to eye something is to look at it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blushes on seeing an unflattering photograph of themselves.",
+     "walkthrough": "'boob' means a blunder, not anatomy: the photographic flaw where a flash makes pupils glow.",
+     "definitionFit": "Red-eye is a common mistake in flash photography where eyes appear glowing red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boob"
+    }
+   }
   }
  ]
 }
