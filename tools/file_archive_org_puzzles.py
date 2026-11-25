@@ -863,6 +863,9 @@ def locate_grid(img, title, right=False, loose=False):
     left of them)."""
     x0, y0, x1, y1 = title
     w = x1 - x0
+    # The reach is a share of the title's width (1.3); the 80 and 120 px are slack for ink the title's box does not
+    # span (the grid past its edges, the line over its top), pixels at the scan size. KEPT (11-25 audit): they are
+    # tolerances against the ink crop's edge, not a measured length, and what they take in is page ink no cache holds.
     span = int(1.3 * w) + 80
     cx = (x0 + x1) / 2
     tries = (("below", (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + span)), ("top",)),
@@ -1389,6 +1392,10 @@ def sides_headed_due(row):
 
 #: How far right of and below the title of a clues-above puzzle its grid
 #: may reach (the two columns and the grid under them).
+#: Pixels at SCAN_WIDTH (3296): the first crop here is unscaled and the fallback below it scales by img.width / SCAN_WIDTH,
+#: so both are shares of the leaf width on a 3296 page. KEPT as pixels (11-25 audit): scaling the crop too is the same
+#: value on the archive.org items (leaf 3296 on 57-58 of 60 sampled Telegraph pages) but moves it on the Gale
+#: Telegraph's (261 of 300 sampled leaves are not 3296 wide, 3296-4816), and no cache holds the ink the crop cuts.
 CLUES_ABOVE_SPAN = (800, 1700)
 #: The Gale Telegraph's Saturday Prize Crossword from 1999-10 (every one read "no reading parses": the
 #: clues-above layout read the 30px between title and grid): the title sits on the grid's top, the
@@ -1555,6 +1562,8 @@ def across_left(img, grid, title, paper, cache_path):
 #: HEAD_WIDTH the least width of a clue column, HEAD_SPAN how far right of the title the headings are sought.
 #: HEAD_DEPTH: how far under the headings the grid is sought (the grid stands in that middle column, its top within
 #: HEAD_BAND of the headings: the scan took the Quick crossword's grid, far under the title, for the puzzle's).
+#: Already shares of the leaf width: every use multiplies by k = img.width / SCAN_WIDTH. Rewriting the numbers as
+#: fractions is the same value (pixel rounding aside) and moves the Gale Telegraph's scan key for nothing; KEPT.
 HEAD_BAND, HEAD_DOWN, HEAD_PAD, HEAD_GAP, HEAD_WIDTH, HEAD_SPAN = 200, 700, 25, 250, 380, 2000
 HEAD_DEPTH, HEAD_PART = 1250, 300
 
@@ -6257,6 +6266,9 @@ def indy_titled(d, found):
 _GRID_FIRST = threading.local()
 #: How far past a window a detected text line may lie and still be read, in
 #: pixels at the page's own scale.
+#: KEPT as pixels (11-25 audit): slack for the detector's line boxes, a share of the line height if anything; the
+#: median line is 26 px (p10-p90 22-31) so 258 of 300 cached pages would change a pixel, and which lines it takes in
+#: is not in any cache.
 GRID_FIRST_PAD = 8
 
 
@@ -6519,6 +6531,10 @@ INSET_RULE_SHARE = 0.35
 INSET_EVEN = 0.6
 #: How far over and under a grid its title is looked for when archive.org's
 #: text has none: the 1995 Times prints it 250px over the grid.
+#: KEPT as pixels (11-25 audit): it is the depth of the title's own type at the scan size, not a share of the grid
+#: (the half-grid-width bands beside it already are): 297 of 300 cached title bands would change under a grid-width
+#: share (0.51 of the median grid), and 261 of 300 Gale Telegraph leaves (200 of 300 Gale Times) are not 3296 wide so
+#: a leaf-width share moves the band too; each moved band is a title-cache miss no offline cache can judge.
 TITLE_REACH = 300
 
 
@@ -6719,6 +6735,11 @@ SUNTEL_BARE_NUMBER = re.compile(r"^(?:n[o0]\W{0,3})?[\dTIl]?\d?[,.]?\d{3}(?![\d,
 #: read apart, each from its own word or grid.
 SOLUTION_BAND = (30, 560, 25, 70)
 #: The width of a solution grid at SCAN_WIDTH (the puzzle's own is 680-770).
+#: KEPT (11-25 audit): pixels at SCAN_WIDTH, the cap grown by (page width / SCAN_WIDTH) on top of the scaling of
+#: the box, so quadratic in the width above 3296. A plain leaf-width share (cap 480/3296 = 0.146) would reject
+#: the 2006 4600 px pages' 718 px solution grids (3 of 300 cached Gale solution grids on pages over 3296 wide, all
+#: read at blocks 1.0: regressions); a share wide enough for them (510/3296) accepts boxes on 3296 pages no
+#: cache can show.
 SOLUTION_GRID = (200, 480)
 
 
@@ -6809,6 +6830,9 @@ PAGE_READERS = ("ch", "en5")
 HEADING_HINT = re.compile(r"\d[\d,.' ]{2,}\d|s[o0]l[uo0]t|cr[o0e]ss|puzz|pvzz", re.IGNORECASE)
 #: How far a hint's strip reaches past its word: this many pixels at
 #: SCAN_WIDTH left and right, this many of its heights over and under.
+#: Already shares: 150 px at SCAN_WIDTH is scaled by img.width / SCAN_WIDTH at its use, the 1 is a multiple of the
+#: word's own height. Spelling the first as a fraction rounds int() down by a pixel on a 3296 page (0.04551 * 3296 =
+#: 149.99), so the pages it changes are not none; KEPT.
 HINT_PAD = (150, 1)
 
 
@@ -7125,6 +7149,10 @@ FT_NOISY_TITLES = (
 #: The width of the grid and of the solution grid under an FT heading,
 #: which is narrower than either: the box grid_box and read_solution crop
 #: around is this wide, centred on the heading.
+#: KEPT as pixels (11-25 audit): the FT archive.org leaves are 3296 wide (300 of 300 sampled, 13 not exactly: 3313 or
+#: 6592), so a leaf-width share is the same value there; but gale_ft_headings uses both spans on the Gale FT, whose
+#: leaves run 3296-5076 (293 of 300 sampled would change), where the grid is 0.098 of the leaf (median) and fits
+#: its 360 px box at 340 (239 of 300 within 10%): a wider box admits neighbours' ink, no cache can judge it.
 FT_GRID_SPAN = 960
 FT_SOLUTION_SPAN = 360
 
@@ -7486,6 +7514,9 @@ def telegraph_expected_number(day):
 #: around is this wide, centred on the heading.
 TELEGRAPH_SOLUTION = re.compile(r"^\W*s\w?[l1]ut[il1]on\s*n[o0]\W{0,3}\s*([\dTIl]\d?[,.\-\s]?\d{3})\W*$",
                                 re.IGNORECASE)
+#: KEPT as pixels (11-25 audit): archive.org Telegraph leaves are 3296 wide (11 of 300 not exactly), the Gale Telegraph's
+#: and Sunday Telegraph's are not (276 and 281 of 300 sampled would change; grid median 344 of the 380 box, 0.103 of
+#: the leaf, 155 of 300 within 10% of the box): same value on one population, a changed window on the others.
 TELEGRAPH_SOLUTION_SPAN = 380
 
 
