@@ -3530,7 +3530,15 @@ QUARTER_SPANS = ((0.15, 0.35), (0.4, 0.6), (0.65, 0.85))
 #: (1937-02-10: "are doomed to life- 21 Letters of appeal"), the second column's clue wraps into the first's next
 #: row and its number is lost, and 249 of 1,407 pages stand unfiled with 793 lights "no reading laid a clue on it"
 #: (591 of them down lights 13-23).
-QUARTER_ALT_YEARS = ("1936", "1940")
+#: Frozen: the years QUARTER_READ's reread reasons were written for (QUARTER_READ_YEARS), no longer a gate of the
+#: reader: the window is tried by measure now (quarter_gutters).
+QUARTER_READ_YEARS = ("1936", "1940")
+#: WINDOWS_BY_MEASURE: the four-column "quarters" window is tried on any page whose ink under the grid holds a gutter
+#: at each of these shares of the grid's width (quarter_gutters), within QUARTER_SLACK of it, however white
+#: (QUARTER_WHITE: the share of a pixel column's rows inked) the column.
+QUARTER_AT = (0.25, 0.5, 0.75)
+QUARTER_SLACK = 0.1
+QUARTER_WHITE = 0.05
 #: The years (inclusive) of the Gale Times pages whose clue block alone ("block", _read_window's alt) is tried as a
 #: window once the layout's is poor (CLUE_BLOCK): the layout's crop reaches left to the title's lead column
 #: (1930-09-04: x 806-2841, the clue block x 2076-2811), is 4,070 px wide at read_words' 2x and RapidOCR scales it
@@ -3543,9 +3551,18 @@ BLOCK_YEARS = ("1930", "1939")
 BLOCK_YEARS_FORTIES = ("1940", "1949")
 
 
-def block_year(name):
-    """Whether an edition dir name (its date) is of the years whose clue block is tried alone and cut at its ink gutters."""
-    return BLOCK_YEARS[0] <= name[:4] <= BLOCK_YEARS[1] or BLOCK_YEARS_FORTIES[0] <= name[:4] <= BLOCK_YEARS_FORTIES[1]
+def block_wide(img, grid, lead, margin):
+    """Whether the layout's crop under `grid` after the `lead` column (an (x, y) or None: from the grid's margin)
+    is wider, at read_words' UPSCALE, than the RapidOCR down-scale cap (ocr_clues.RAPID_MAX_SIDE): the page-wide
+    read that scales the clue block's columns down, so the block alone is read at full size ("block")."""
+    left = lead[0] if lead else grid[0] - margin
+    return (min(img.width, grid[2] + RIGHT_REACH) - left) * ocr_clues.UPSCALE > ocr_clues.RAPID_MAX_SIDE
+
+
+def block_try(img, grid, lead, margin):
+    """Whether the "block" and "halves" windows are tried on a Gale Times page, by measure on the page: its crop is
+    wider than the RapidOCR cap (block_wide) or its ink under the grid has the four columns' gutters (quarter_gutters)."""
+    return block_wide(img, grid, lead, margin) or quarter_gutters(img, grid)
 
 
 def under_quarters(lines, grid):
@@ -3573,9 +3590,32 @@ SUB_INK = 128
 
 
 def ink_quarters(img, grid):
-    """(first, second, third gutter, right edge) of the four sub-columns of a 1930-39 Gale Times clue block under
+    """(first, second, third gutter, right edge) of the four sub-columns of a Gale Times clue block under
     `grid`, a tuple as under_quarters' is: each gutter in its QUARTER_SPANS share of the grid's width where the
     page's ink under the grid is least (the middle of the longest run of the least inked pixel columns)."""
+    return ink_cuts(img, grid)[0]
+
+
+def quarter_gutters(img, grid):
+    """Whether the ink under `grid` holds all three gutters of four clue columns: each ink_quarters cut within
+    QUARTER_SLACK of QUARTER_AT's share of the grid's width, and the pixel columns about the first two (a few px) white
+    (QUARTER_WHITE of their rows inked)."""
+    cuts, share, gx0 = ink_cuts(img, grid)
+    width = grid[2] - grid[0]
+    if width <= 0 or not len(share):
+        return False
+    for n, (cut, at) in enumerate(zip(cuts, QUARTER_AT)):
+        if abs((cut - gx0) - at * width) > QUARTER_SLACK * width:
+            return False
+        k = int(cut - gx0)
+        near = share[max(0, k - 2):k + 3]
+        if n < 2 and (not len(near) or near.min() > QUARTER_WHITE):
+            return False
+    return True
+
+
+def ink_cuts(img, grid):
+    """(ink_quarters' tuple, the share of each pixel column under `grid` inked, the grid's left edge)."""
     import numpy as np
     gx0, _, gx1, gy1 = grid
     width = gx1 - gx0
@@ -3597,7 +3637,7 @@ def ink_quarters(img, grid):
                 best = max(best, (k - run, a + (run + k) // 2))
                 run = None
         cuts.append(gx0 + best[1])
-    return tuple(cuts) + (gx1 + 15,)
+    return tuple(cuts) + (gx1 + 15,), share, gx0
 
 
 #: The Gale Times days (inclusive) whose page ends soon under the grid (right_columns' room) because the print
@@ -15550,7 +15590,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if wide_read:
         lead = None
     # CLUE_BLOCK: the clue block's own crop, no lead column: the crop is read at its own size (read_words' 2x).
-    block_read = kind in ("block", "halves") and paper.key == "gale" and block_year(d.name)
+    block_read = kind in ("block", "halves") and paper.key == "gale"
+    # WINDOWS_BY_MEASURE: the "block" and "halves" windows are tried by what the page measures (block_try).
+    blocks = paper.key == "gale" and block_try(img, gbox, lead, m) and not wide_read
     if block_read:
         lead = None
     # SUNDAY_WIDE: a 1970-77 Sunday Telegraph page's cut is sunday_left's, not its title's left edge (lead_column took
@@ -15683,8 +15725,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
              and gbox[2] - gbox[0] >= QUARTER_WIDTH else
              under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" else None)) \
             if above is None and left is None and not right else None
-        quartered = paper.key == "gale" and (QUARTER_ALT_YEARS[0] <= d.name[:4] <= QUARTER_ALT_YEARS[1]
-                                             or quarter_print(paper, d)) \
+        quartered = paper.key == "gale" and (quarter_print(paper, d) or quarter_gutters(img, gbox)) \
             and above is None and left is None and not right and not over and not wide
         if over and paper.key == "galeindependent":
             split = indy_under_columns(every, gbox, split, m)
@@ -15707,11 +15748,11 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                 if quartered:
                     # The four columns the print sets under the grid, tried before the other windows.
                     alts.insert(0, ("quarters", None))
-                if lead and paper.key == "gale" and block_year(d.name):
+                if lead and blocks and block_wide(img, gbox, lead, m):
                     # CLUE_BLOCK: the layout's crop reaches left to the title's lead column, a page-wide read that
                     # RapidOCR scales down; the clue block alone is read at full size, tried last.
                     alts.append(("block", None))
-                if paper.key == "gale" and block_year(d.name) and not wide:
+                if blocks and not wide:
                     # SUB_COLUMNS: the block cut in its four sub-columns at the page's ink gutters, tried last.
                     alts.append(("halves", None))
                 bottom = gbox[3] + int(1.8 * gw)
@@ -16040,7 +16081,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if len(blank_now) != len(blank):
             verdict["soloVlm"] = sorted(blank.keys() - blank_now.keys())
         blank = blank_now
-    if vlm_on or (paper.key == "gale" and block_year(d.name) and kind != "halves"):
+    if vlm_on or (blocks and kind != "halves"):
         verdict["_laid"] = {lid: v for lid, v in laid.items() if (v[0] or "").strip() and lid not in blank}
     laid, blank, alike = tail(laid, blank)
     if alike:
@@ -23028,7 +23069,7 @@ def sunday_tall_due(row):
 
 
 #: The year of the Gale Times pages that set four clue columns under the grid like 1934's and 1936-40's but were
-#: read as two: QUARTER_ALT_YEARS began at 1936, so 1935's pages never tried the "quarters" window (the reader's
+#: read as two: QUARTER_READ_YEARS began at 1936, so 1935's pages never tried the "quarters" window (the reader's
 #: cached lines of 1935-04-05 hold "1It'slessdepressed in16ColourinAmerica", a row of two columns joined, and every
 #: clue's second line in a row of its own, the count of one column's clue beside the number of the next).
 QUARTER_1935_YEAR = "1935"
@@ -23126,7 +23167,7 @@ REREAD_NUMBERLESS_EARLY = "2026-11-17T11:54:00+00:00"  # the push minute: a row 
 #: their 171 lights' numbers read by neither recogniser): the clue block alone ("block") and its ink-gutter columns ("halves")
 #: were windows of the 1930-39 pages only (BLOCK_YEARS); a 1940s page's four columns were read joined by line
 #: (1944-11-06 "23 Not a bit of money ; far ' ! 25 The price of freedom (6).", the 25 down never laid). Both are tried for
-#: 1940-49 now (block_year). Once each.
+#: 1940-49 now (block_try, since by measure). Once each.
 BLOCK_FORTIES = "unfiled before its fix, a 1940-49 page's clue block read alone and cut in its columns at the page's ink gutters"
 REREAD_BLOCK_FORTIES = "2026-11-18T02:44:00+00:00"  # the push minute: a row read after it is not due again
 
@@ -23266,7 +23307,7 @@ def tail_read_due(row):
 #: The reason, and its fix's time, of a 1936-40 Gale Times page written unfiled for lights "no reading laid a
 #: clue on" (or refused "no reading parses"): the print sets four clue columns under the grid and the layout's
 #: two-column windows join their rows, so a second column's clue loses its number and its words run into the first
-#: column's next clue. QUARTER_ALT_YEARS' window ("quarters", the four columns cut at their gutters) is tried
+#: column's next clue. The quarters window ("quarters", the four columns cut at their gutters) is tried
 #: first among the alternatives once the layout's window leaves a light blank. Failure shapes r39, 10-31: of
 #: 1,407 latest-row pages 249 stood unfiled with 793 such lights (591 down, mostly 13-23), 68 refused. Once each.
 QUARTER_READ = "unfiled before its fix, the four clue columns read"
@@ -23274,13 +23315,13 @@ REREAD_QUARTER_READ = "2026-10-31T09:30:00+00:00"
 
 
 def quarter_read_due(row):
-    """Whether Gale Times ledger `row` (a 1936-40 page, QUARTER_ALT_YEARS), read before REREAD_QUARTER_READ, holds a
+    """Whether Gale Times ledger `row` (a 1936-40 page, QUARTER_READ_YEARS), read before REREAD_QUARTER_READ, holds a
     verdict refused "no reading parses" or written unfiled with a light "no reading laid a clue on it" (an
     "unfiled" count or its id's copy in CROPS/unfiled), its puzzle not since held with every clue."""
     rel = row.get("edition") or ""
     # (Aug-Dec 1939 pages scanned wide are read in four columns already, QUARTER_DAYS; the ledger does not say
     # which, and the narrow ones of those days gain from the window: 1939-09-30 blanks 25 to 11 without the VLM.)
-    if paper_of(Path(rel)).key != "gale" or not QUARTER_ALT_YEARS[0] <= Path(rel).name[:4] <= QUARTER_ALT_YEARS[1] \
+    if paper_of(Path(rel)).key != "gale" or not QUARTER_READ_YEARS[0] <= Path(rel).name[:4] <= QUARTER_READ_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_QUARTER_READ)):
         return False
     for v in row.get("verdicts", ()):
