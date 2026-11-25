@@ -20,6 +20,9 @@ DENY = [
     "python3 tools/validate_annotations.py", "python3 tools/puzzle_integrity.py --quiet",
     "python3 tools/difficulty.py --validate", "python3 tools/requeue_drift.py --write",
     "python3 tools/series_health.py", "bash tools/coverage.sh",
+    "git log --oneline -3 --all -- \"*indysunday-1274*\"", "git log --all -3", "git log -S foo -5",
+    "git log -3 -- 'puzzles/*/x*.json'", "git log --oneline", "git -C . log --follow -5 -- f",
+    "git rev-list --all", "git merge-base --is-ancestor a b", "git log -G foo --max-count=2",
     "git log | pytest", "echo hi; pytest", "timeout 60 pytest", "env A=1 nohup pytest",
     "bash -c 'python3 -m pytest'", "echo $(python3 -m pytest)",
     "track-job.sh ch --run lbl -- python3 -m pytest",
@@ -27,7 +30,9 @@ DENY = [
     "python3 - <<'EOF'\nfrom pathlib import Path\nfor p in Path('puzzles').rglob('*.json'):\n pass\nEOF",
 ]
 ALLOW = [
-    "", "ls", "git status", "git commit -m 'run pytest in CI'",
+    "", "ls", "git status", "git log -5 -- tools/x.py", "git log --oneline -3 --name-status -- f.json",
+    "git log -n 3", "git log origin/master..HEAD --oneline", "git diff HEAD~1", "git show abc:tools/x.py",
+    "git blame tools/x.py", "git log --since=2.days -- tools/x.py", "git --no-pager log -1", "git commit -m 'run pytest in CI'",
     "git commit -F - <<'EOF'\nfix\npytest\nEOF",
     "gh run list", "node --check tools/smoke_test.js", "ruff check tools/x.py",
     "python3 tools/validate_annotations.py puzzles/times/times-1.json",

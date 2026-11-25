@@ -23,6 +23,10 @@ What is refused (see `verdict`):
   - the corpus jobs below, and the whole-corpus form of the checkers that
     take a file list (no file argument = the whole corpus)
   - python that loops over every puzzles/**/*.json (-c, heredoc or stdin)
+  - git history walks (see `_git_verdict`): the repo is 8+ GB, so a walk of
+    every ref, a pickaxe, a glob pathspec or a log with no bound reads GBs
+    and trips the disk-reread alarm. Git itself stays allowed: status, diff,
+    show, add, commit, a bounded `git log -5 -- <file>` and the like.
 What stays allowed: node --check, ruff, git, gh, reads, tools/prereset_*,
 track-job.sh and wake.sh (track-job.sh --run is looked through: what it
 wraps is judged like any other command).
@@ -84,6 +88,41 @@ def _strip(argv):
     return argv[i:]
 
 
+#: git subcommands that walk commits (blame is one file's lines: not here).
+GIT_WALKS = {"log", "rev-list", "shortlog", "whatchanged", "bisect", "reflog",
+             "cherry", "merge-base"}
+#: Options that make a walk cover all of history, whatever else is bounded.
+GIT_WIDE = re.compile(r"^(--all|--branches(=.*)?|--remotes(=.*)?|--tags(=.*)?|--glob=.*"
+                      r"|--follow|-[SGL].*|--pickaxe-.*|--ancestry-path)$")
+#: A bound on how far a log/rev-list walks.
+GIT_BOUND = re.compile(r"^(-\d+|-n\d*|--max-count(=.*)?|--since(=.*)?|--after(=.*)?"
+                       r"|--until(=.*)?|--before(=.*)?)$|\.\.")
+
+
+def _git_verdict(rest):
+    """Why this git command walks too much history, or None. Global options
+    (-C dir, --no-pager ...) are skipped to find the subcommand."""
+    i = 0
+    while i < len(rest) and rest[i].startswith("-"):
+        i += 2 if rest[i] in ("-C", "-c", "--git-dir", "--work-tree") else 1
+    if i >= len(rest) or rest[i] not in GIT_WALKS:
+        return None
+    sub, args = rest[i], rest[i + 1:]
+    if sub == "merge-base":
+        return "git merge-base walks the whole history: use tools/git_ancestry.py"
+    revs = args[:args.index("--")] if "--" in args else args
+    for a in revs:
+        if GIT_WIDE.match(a):
+            return (f"git {sub} {a} walks every commit of the 8 GB history: scope it to a file "
+                    "with -n, or use rg on evidence/ and docs/")
+    after = args[args.index("--") + 1:] if "--" in args else []
+    if any(re.search(r"[*?\[]", p) for p in after):
+        return f"git {sub} with a glob pathspec ({' '.join(after)}) walks all history: name the file exactly"
+    if sub in ("log", "rev-list") and not any(GIT_BOUND.search(a) for a in revs):
+        return f"git {sub} with no -n/--since/range bound walks all history: add -n N"
+    return None
+
+
 def _script_hits(base, path):
     return base in HEAVY or any(
         re.search(p, path) for p in (r"(^|/)tools/smoke_test[^/]*\.js$",
@@ -98,6 +137,10 @@ def _argv_verdict(argv, depth):
         return None
     prog = os.path.basename(argv[0])
     rest = argv[1:]
+    if prog == "git":
+        v = _git_verdict(rest)
+        if v:
+            return v
     if prog in ALLOWED_PROGRAMS or prog.startswith("prereset_"):
         if prog == "track-job.sh" and "--" in rest:
             return _command_verdict(" ".join(shlex.quote(a) for a in rest[rest.index("--") + 1:]), depth + 1)
