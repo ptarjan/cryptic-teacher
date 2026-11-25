@@ -609,6 +609,19 @@
     ownScrollTimer = null;
     if (typeof window !== "undefined" && window.removeEventListener) window.removeEventListener("scrollend", endOwnScroll);
   }
+  // Brings `child` into view inside `box`, scrolling only that box and never the
+  // page (scrollIntoView cannot be limited to one scroller in Safari, and a page
+  // scroll while typing fights the keyboard and the hint-panel placement). The
+  // margin it keeps comes from the box's own computed scroll-padding, so the
+  // stylesheet owns the numbers.
+  function scrollWithin(box, child) {
+    const cs = getComputedStyle(box);
+    const padTop = parseFloat(cs.scrollPaddingTop) || 0;
+    const padBottom = parseFloat(cs.scrollPaddingBottom) || 0;
+    const b = box.getBoundingClientRect(), c = child.getBoundingClientRect();
+    if (c.top < b.top + padTop) box.scrollTop += c.top - (b.top + padTop);
+    else if (c.bottom > b.bottom - padBottom) box.scrollTop += c.bottom - (b.bottom - padBottom);
+  }
   // The one way the app moves the page. `target` is an element (brought into
   // view at opts.block) or a page offset in px. Smooth by default, instant under
   // prefers-reduced-motion or opts.smooth === false.
@@ -1560,11 +1573,20 @@
     // button's own handler has run. Capture sees the tap first and only
     // disarms; the redraw happens on the way back up (bubble), after the
     // target's handler, so the button it is about to act on still exists.
+    // Bubbling alone is not enough: the answer box and the menu stop the click
+    // from travelling up, which would skip the redraw and leave a stale "tap
+    // again" on screen. A listener on the tapped control itself always runs
+    // (stopPropagation only stops other nodes), and being added now it runs after
+    // that control's own handler. The document listener covers taps on plain
+    // rows that have none. The flag makes whichever fires first the only redraw.
     let redrawAfter = false;
     const away = (ev) => {
       if (!blockArm || armOf(ev.target) === blockArm.id) return;
       disarmBlock(false);
       redrawAfter = true;
+      const t = ev.target;
+      const ctl = t && ((t.closest && t.closest("button,input,select,textarea,a,label")) || t);
+      if (ctl && ctl.addEventListener) ctl.addEventListener(ev.type, redraw, { once: true });
     };
     const redraw = () => {
       if (!redrawAfter) return;
