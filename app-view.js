@@ -1221,11 +1221,13 @@
   }
 
   // Where each building-block piece's clue words sit, by piece index. Placed
-  // among the pieces alone (a piece may overlap an indicator, and the marker
-  // sorts that out) and kept out of placedFragments, whose cut points are drawn
-  // for EVERY fragment: a piece not yet shown must not leave a seam in the clue.
+  // around the definition, indicator and link spans (a word the clue uses twice
+  // goes to the one nothing else claims) and kept out of placedFragments, whose
+  // cut points are drawn for EVERY fragment: a piece not yet shown must not
+  // leave a seam in the clue.
   function placedPieces(e) {
-    const text = clueText(e), taken = [], out = [];
+    const text = clueText(e), out = [];
+    const taken = placedFragments(e).map((f) => ({ i: f.i, len: f.text.length }));
     blockPieces(e).forEach((b, k) => {
       if (!b || !b.clueFragment) return;
       const i = bestOccurrence(text, b.clueFragment, taken);
@@ -1252,7 +1254,11 @@
     // other rungs' words wear theirs. A piece still to come stays plain.
     if (isShown(e, "blocks")) {
       const solved = isEntrySolved(e);
-      placedPieces(e).filter((p) => solved || pieceOut(e, p.k))
+      // A piece that can only sit across a bought hint's words gives way: the
+      // hint's mark stays whole, and the piece is still shown in its chip.
+      const clash = (p) => marks.some((m) => (m.i !== p.i || m.len !== p.len)
+        && p.i < m.i + m.len && m.i < p.i + p.len);
+      placedPieces(e).filter((p) => (solved || pieceOut(e, p.k)) && !clash(p))
         .forEach((p) => marks.push({ i: p.i, len: p.len, cls: "blk" }));
     }
     // Where two marks still overlap — an indicator genuinely sitting inside the

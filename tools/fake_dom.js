@@ -37,6 +37,13 @@ function bootApp(opts) {
     (el.children || []).forEach(unpublish);
   };
 
+  // A stylesheet's animation ends by itself, and the app's afterMotion cleanup
+  // waits for that event. There is no CSS here, so an element that has asked to
+  // hear an animation end is "animating" until the fake clock has run
+  // MOTION_MS (flushTimers), when its animationend fires at it.
+  const MOTION_EVENTS = ["animationend", "animationcancel", "transitionend", "transitioncancel"];
+  const MOTION_MS = 450;
+  const animating = new Set();
   class FakeEl {
     constructor(tag, id) {
       this.tagName = (tag || "div").toUpperCase();
@@ -127,7 +134,14 @@ function bootApp(opts) {
       if (at >= 0) this.children.splice(at, 0, el); else this.children.push(el);
       return el;
     }
-    addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); }
+    addEventListener(type, fn) {
+      (this.listeners[type] = this.listeners[type] || []).push(fn);
+      if (MOTION_EVENTS.includes(type)) animating.add(this);
+    }
+    removeEventListener(type, fn) {
+      const at = (this.listeners[type] || []).indexOf(fn);
+      if (at >= 0) this.listeners[type].splice(at, 1);
+    }
     setAttribute(k, v) { (this.attrs = this.attrs || {})[k] = String(v); }
     getAttribute(k) { return this.attrs && k in this.attrs ? this.attrs[k] : null; }
     querySelector(sel) {
@@ -420,6 +434,12 @@ function bootApp(opts) {
     pending.delete(handle);
   };
   global.flushTimers = (ms = 0) => {
+    if (ms >= MOTION_MS) {
+      for (const el of [...animating]) {
+        animating.delete(el);
+        (el.listeners.animationend || []).slice().forEach((f) => f({ type: "animationend", target: el }));
+      }
+    }
     for (const [id, t] of [...pending]) {
       if (t.ms > ms) continue;              // not due yet at this much fake time
       realClearTimeout(t.handle);
@@ -614,11 +634,13 @@ function bootApp(opts) {
   // A step button only chooses (it never spends), so a click that neither put a
   // question up nor opened a step is followed by the help button (#guess-tell), as the
   // old chip's own tap was: "take the rung" checks keep meaning "take it".
-  const steps = () => (String(registry["hint-body"].innerHTML).match(/class="hint-step/g) || []).length;
+  // A step chosen with no question draws its "Show me" card (data-nonask), which
+  // is neither a question nor an opened step.
+  const steps = () => (String(registry["hint-body"].innerHTML).match(/class="hint-step(?![^>]*data-nonask)/g) || []).length;
   const tapped = (chip) => function () {
     const before = steps();
     const r = chip.onclick.apply(chip, arguments);
-    const showing = registry["hint-body"].innerHTML.includes('class="hint-step guess"');
+    const showing = /class="hint-step guess"(?![^>]*data-nonask)/.test(registry["hint-body"].innerHTML);
     if (!showing && steps() === before && /id="guess-tell"/.test(registry["hint-body"].innerHTML)
         && registry["guess-tell"] && registry["guess-tell"].onclick) registry["guess-tell"].onclick();
     return r;

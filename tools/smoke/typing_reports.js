@@ -172,7 +172,7 @@ const { assert, clueText, entryId, isAsking, panelHTML, pickerRowFor, registry, 
   let pushed = null;
   global.fetch = (url, opts) => {
     pushed = JSON.parse(opts.body);
-    return now({ ok: true, status: 200, json: () => now(stale) });
+    return now({ ok: true, status: 200, headers: { get: () => null }, json: () => now(stale) });
   };
   global.flushTimers(2500);
   assert(pushed, "the click really did schedule a push");

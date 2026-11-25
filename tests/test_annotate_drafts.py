@@ -49,11 +49,13 @@ try:
         raise RuntimeError("prefill broke")
     real, prefill_hidden.prefill_puzzle = prefill_hidden.prefill_puzzle, boom
     try:
-        broken = json.loads(AC.write_view(path).read_text())
+        AC.write_view(path)
+        raised = False
+    except RuntimeError:
+        raised = True
     finally:
         prefill_hidden.prefill_puzzle = real
-    check("a failing prefill leaves the view without drafts",
-          "draftAnnotations" not in broken and broken.get("entries"))
+    check("a failing prefill is a bug and raises, never a view without drafts", raised)
 
     prompt = Path("tools/annotate_prompt.md").read_text()
     check("the prompt names draftAnnotations and what the run adds",

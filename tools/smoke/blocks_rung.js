@@ -91,27 +91,28 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   assert(registry["hint-rungs"].innerHTML === "",
     "the other rungs are not offered as a way around the question: " + registry["hint-rungs"].innerHTML);
 
-  // One button, two jobs: nothing picked is Show me (paid, so it arms and asks
-  // twice); a word picked is Lock in (free, so no data-arm); unpicked, Show me.
+  // One button, two jobs, in the question card: nothing picked is Just tell me
+  // (paid, so it arms and asks twice); a word picked is Lock in (free, so no
+  // data-arm); unpicked, Just tell me again.
   {
-    const bar = () => registry["hint-escape"].innerHTML;
+    const bar = () => panelHTML();
     assert(!/guess-check|Check my answer/.test(bar() + panelHTML()),
       "Check my answer is gone: " + bar());
-    assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(bar()),
-      "with nothing picked the help button is Show me and arms: " + bar());
+    assert(/id="guess-tell"[^>]*data-arm[^>]*>Just tell me\b/.test(bar()),
+      "with nothing picked the help button is Just tell me and arms: " + bar());
     registry["gw-0"].onclick();
-    assert(/id="guess-tell"[^>]*>Lock in</.test(bar()) && !/id="guess-tell"[^>]*data-arm/.test(bar()),
+    assert(/id="guess-tell"[^>]*>Lock in /.test(bar()) && !/id="guess-tell"[^>]*data-arm/.test(bar()),
       "picking a word turns it to Lock in, with no data-arm: " + bar());
     registry["gw-0"].onclick();
-    assert(/id="guess-tell"[^>]*data-arm[^>]*>Show me</.test(bar()),
-      "and unpicking the word turns it back to Show me: " + bar());
+    assert(/id="guess-tell"[^>]*data-arm[^>]*>Just tell me\b/.test(bar()),
+      "and unpicking the word turns it back to Just tell me: " + bar());
   }
 
   // Right: exactly the words, nothing else.
   for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
   {
-    const bar = registry["hint-escape"].innerHTML;
-    assert(/id="guess-tell"[^>]*>Lock in</.test(bar) && !/id="guess-tell"[^>]*data-arm/.test(bar),
+    const bar = panelHTML();
+    assert(/id="guess-tell"[^>]*>Lock in /.test(bar) && !/id="guess-tell"[^>]*data-arm/.test(bar),
       "with words picked the one help button reads Lock in and is free (no data-arm): " + bar);
   }
   registry["guess-tell"].onclick();
