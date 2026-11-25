@@ -1,6 +1,18 @@
 /* Cryptic Teacher — no frameworks, light & dark friendly. */
 
 :root {
+  /* Stacking layers, lowest to highest. Every z-index above 2 in this file and
+     in script names one of these, so the order is read here and nowhere else.
+     0-2 stay literal: they order things inside one component. */
+  --z-strip: 4;          /* the status-bar strip behind the clock */
+  --z-sticky: 5;         /* the pinned clue row */
+  --z-popover: 30;       /* menus and the panels under the header */
+  --z-page-panel: 40;    /* picker/stats as a tab page (standalone) */
+  --z-scrim: 50;         /* the tour's dimmer, and a deleted tile fading */
+  --z-tabbar: 55;
+  --z-toast: 60;         /* toasts and the welcome dialog */
+  --z-celebration: 70;   /* the firework canvas */
+  --z-update: 80;        /* the "updated, tap to reload" pill: over everything */
   --bg: #faf9f6;
   --fg: #1a1a1a;
   --muted: #6b6b6b;
@@ -113,7 +125,7 @@ html, body { margin: 0; padding: 0; }
    nothing shows through behind the clock; it is zero-height wherever there is
    no inset (and the wide frame, which does not scroll, never notices it). */
 body::before {
-  content: ""; position: fixed; left: 0; right: 0; top: 0; z-index: 4;
+  content: ""; position: fixed; left: 0; right: 0; top: 0; z-index: var(--z-strip);
   height: env(safe-area-inset-top, 0px); background: var(--bg); pointer-events: none;
 }
 body {
@@ -191,7 +203,7 @@ button:disabled:hover { border-color: var(--line); }
 
 /* ---------- picker ---------- */
 .panel {
-  position: absolute; z-index: 30; right: 16px; top: 64px;
+  position: absolute; z-index: var(--z-popover); right: 16px; top: 64px;
   width: min(430px, calc(100vw - 32px)); max-height: 70vh; overflow: auto;
   /* The gutter is kept whether or not the content scrolls. Without it the
      content box is a scrollbar wider once the content fits, and every
@@ -356,7 +368,7 @@ button:disabled:hover { border-color: var(--line); }
 .ana-tile.fixed { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 /* A deleted tile's stand-in while it fades — see ghostRingTile() in app.js.
    Fixed and pointer-events:none so it can never be mistaken for a live tile. */
-.ana-ghost { position: fixed; display: flex; align-items: center; justify-content: center; z-index: 50; }
+.ana-ghost { position: fixed; display: flex; align-items: center; justify-content: center; z-index: var(--z-scrim); }
 @media (prefers-reduced-motion: reduce) {
   /* Belt and braces: JS already skips every ring animation when this is set
      (reduceMotion() in app.js), so this only catches a transform left inline
@@ -489,7 +501,7 @@ button:disabled:hover { border-color: var(--line); }
 /* Achievement toasts: top centre, since the bottom of a phone is the
    keyboard's while solving. The whole toast is the link to the stats. */
 #toasts {
-  position: fixed; left: 50%; top: 12px; transform: translateX(-50%); z-index: 60;
+  position: fixed; left: 50%; top: 12px; transform: translateX(-50%); z-index: var(--z-toast);
   display: flex; flex-direction: column; gap: 8px; width: min(92vw, 420px); pointer-events: none;
 }
 .toast {
@@ -504,7 +516,7 @@ button:disabled:hover { border-color: var(--line); }
 @keyframes ct-toast-in { from { transform: translateY(-24px) scale(.9); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .toast { animation: none; } }
 /* The page-wide firework canvas: over everything, catching nothing. */
-.fw-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 70; }
+.fw-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: var(--z-celebration); }
 
 /* ---------- stats panel ---------- */
 #stats-panel h3.stats-h { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
@@ -820,7 +832,7 @@ button:disabled:hover { border-color: var(--line); }
   margin-block: calc((.85rem * 1.25 - var(--btn-font) - 2 * var(--btn-pad) - 2px) / 2); }
 .menu-btn { font-size: 1rem; line-height: 1; padding: 4px 12px; letter-spacing: .1em; }
 .menu {
-  position: absolute; right: 0; top: calc(100% + 4px); z-index: 30; min-width: 11rem;
+  position: absolute; right: 0; top: calc(100% + 4px); z-index: var(--z-popover); min-width: 11rem;
   display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 8px;
   background: var(--bg, #fff); border: 1px solid var(--line); border-radius: 8px;
   box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: .88rem;
@@ -1019,7 +1031,7 @@ span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px
    phone. Fixed and centred over a scrim, so there is nothing else to look at and
    nothing to scroll past — the two buttons are the only way out. */
 .welcome {
-  position: fixed; inset: 0; z-index: 60;
+  position: fixed; inset: 0; z-index: var(--z-toast);
   display: flex; align-items: center; justify-content: center;
   padding: 16px; background: rgba(0,0,0,.45);
   overflow: auto;
@@ -1077,7 +1089,7 @@ span.formula-chip:not(.got) { color: var(--muted); background: none; border: 1px
      pointing at: a fixed hole has to be redrawn on every frame of a scroll,
      and the frame it misses is the one where it sits over the wrong row. The
      shadow is spread far enough to darken any viewport the page can show. */
-  position: absolute; z-index: 50;
+  position: absolute; z-index: var(--z-scrim);
   border-radius: 10px; pointer-events: none;
   outline: 2px solid var(--accent);
   box-shadow: 0 0 0 9999px rgba(0,0,0,.55);
@@ -1672,7 +1684,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    browser too old for "or"/"not" inside a media query. */
 @media (max-width: 700px), ((max-width: 1079px) or (pointer: coarse)) and (not ((min-width: 1280px) and (min-aspect-ratio: 13/10) and (min-height: 560px))) {
   #hint-clue {
-    position: sticky; top: max(env(safe-area-inset-top, 0px), var(--vv-top, 0px)); z-index: 5;
+    position: sticky; top: max(env(safe-area-inset-top, 0px), var(--vv-top, 0px)); z-index: var(--z-sticky);
     background: var(--bg); padding: 4px 0 6px; margin-bottom: 6px;
     border-bottom: 1px solid var(--line);
   }
@@ -1995,12 +2007,20 @@ html.ct-boot #boot-grid { display: block; }
    paint, so nothing moves when the bar arrives and nothing hides under it.
    It stays put while a keyboard is up (kbd-up hides only the bar), because
    padding that came and went would reflow the grid under the solver's finger. */
+/* The "a new version is ready" pill (app-boot.js): clear of the tab bar when
+   there is one, of the home indicator when there is not. */
+.update-pill {
+  position: fixed; left: 50%; transform: translateX(-50%); z-index: var(--z-update);
+  bottom: calc(max(var(--tabbar-clear, 0px), env(safe-area-inset-bottom, 0px)) + 20px);
+  padding: 8px 16px; border: 0; border-radius: 999px; font: inherit; font-weight: 600;
+  background: var(--ok); color: var(--bg); box-shadow: 0 2px 10px rgba(0,0,0,.3);
+}
 .tabbar { display: none; }
 html.standalone { --tabbar-h: calc(56px + max(12px, env(safe-area-inset-bottom, 0px))); }
 html.standalone:not(.kbd-up) { --tabbar-clear: var(--tabbar-h); }
 html.standalone body { padding-bottom: calc(48px + var(--tabbar-h)); }
 html.standalone .tabbar {
-  display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
+  display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-tabbar);
   background: var(--bg); border-top: 1px solid var(--line);
   padding: 0 env(safe-area-inset-right, 0px) max(12px, env(safe-area-inset-bottom, 0px)) env(safe-area-inset-left, 0px);
 }
@@ -2036,7 +2056,7 @@ html.standalone.kbd-up .tabbar { display: none; }
    the screen above the tab bar like a native tab, with no close button (the tab
    bar is how you leave) and nothing floating over the puzzle. */
 html.standalone #picker-panel, html.standalone #stats-panel {
-  position: fixed; z-index: 40; left: 0; right: 0; top: 0;
+  position: fixed; z-index: var(--z-page-panel); left: 0; right: 0; top: 0;
   bottom: calc(56px + max(12px, env(safe-area-inset-bottom, 0px)));
   width: auto; max-height: none; border: 0; border-radius: 0; box-shadow: none;
   background: var(--bg); padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px;

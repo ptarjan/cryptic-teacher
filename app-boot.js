@@ -794,9 +794,7 @@
       b.id = "update-pill";
       b.type = "button";
       b.textContent = "Updated — tap to reload";
-      b.style.cssText = "position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom,0px));" +
-        "z-index:9999;padding:8px 16px;border:0;border-radius:999px;background:#1b5e20;color:#fff;font:600 14px system-ui,sans-serif;" +
-        "box-shadow:0 2px 10px rgba(0,0,0,.3)";
+      b.className = "update-pill";
       b.onclick = reloadNow;
       document.body.appendChild(b);
     }
