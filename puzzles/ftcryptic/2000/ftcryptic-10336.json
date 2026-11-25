@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Children staying at school are the ones who get on",
     "enumeration": "8"
    },
-   "solution": "BOARDERS"
+   "solution": "BOARDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Children staying at school",
+      "at": 0,
+      "meaning": "pupils who live in at a residential school rather than going home each night"
+     },
+     {
+      "text": "the ones who get on",
+      "at": 31,
+      "meaning": "people who climb aboard a train, ship or plane"
+     }
+    ],
+    "explanation": {
+     "surface": "A definition of pupils who live in at school, with a nod to the ones who get along well.",
+     "walkthrough": "'Get on' suggests getting along with others; here it means climbing aboard.",
+     "definitionFit": "Residential pupils and passengers who climb aboard share one word, from 'board' as lodging and 'board' as embarking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "get"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +73,30 @@
     "text": "Very cold beer",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very cold",
+      "at": 0,
+      "meaning": "an adjective for weather that is piercingly chilly"
+     },
+     {
+      "text": "beer",
+      "at": 10,
+      "meaning": "a kind of hoppy British ale"
+     }
+    ],
+    "explanation": {
+     "surface": "An order for a chilled pint at the bar.",
+     "walkthrough": "BITTER is a hoppy British draught ale, and a bitter wind is a piercingly cold one.",
+     "definitionFit": "Both senses share one word: a biting chill and a well-hopped British ale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +110,44 @@
     "text": "Excessive praise for bad spelling ain't aloud",
     "enumeration": "9"
    },
-   "solution": "ADULATION"
+   "solution": "ADULATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excessive praise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bad spelling",
+       "at": 21,
+       "note": "badly spelt letters are letters in the wrong order, so the following words are to be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ain't",
+       "at": 34
+      },
+      {
+       "words": "aloud",
+       "at": 40
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher's complaint that a pupil's misspelling of 'ain't aloud' earned too much praise.",
+     "walkthrough": "'bad spelling' signals that the letters of AIN'T ALOUD are rearranged to give the answer.",
+     "definitionFit": "Adulation is flattery or hero-worship carried beyond what is deserved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +161,42 @@
     "text": "Doctor needing a doctor for practice",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "practice",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Doctor",
+       "at": 0,
+       "gives": "DR"
+      },
+      {
+       "words": "needing a doctor",
+       "at": 7,
+       "gives": "ILL",
+       "note": "someone who needs a doctor is sick, or ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who is himself in need of medical help.",
+     "walkthrough": "'needing a doctor' is a cryptic way of saying 'sick'; 'for' is a link.",
+     "definitionFit": "A drill is repeated exercise or rehearsal, as in a fire drill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "practice"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +210,73 @@
     "text": "Eats in mess after the last of the summer wine",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 13,
+       "note": "the rearranged letters come after the single letter in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the last of",
+         "at": 19,
+         "note": "the final letter of the word summer is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "summer",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mess",
+         "at": 8,
+         "note": "making a mess of the letters jumbles them into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Eats",
+         "at": 0
+        },
+        {
+         "words": "in",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats amid the debris after the summer's final bottle of wine.",
+     "walkthrough": "'mess' turns EATSIN into ETSINA, which comes after R, the last letter of 'summer'.",
+     "definitionFit": "Retsina is a Greek white flavoured with pine resin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +290,48 @@
     "text": "Crazy plan to capture aide-de-camp",
     "enumeration": "6"
    },
-   "solution": "MADCAP"
+   "solution": "MADCAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to capture",
+       "at": 11,
+       "note": "capturing something holds it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plan",
+       "at": 6,
+       "gives": "MAP",
+       "note": "a map is a plan or chart"
+      },
+      {
+       "words": "aide-de-camp",
+       "at": 22,
+       "gives": "ADC",
+       "note": "ADC is the military abbreviation for aide-de-camp"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild military scheme to seize a general's aide.",
+     "walkthrough": "'to capture' is the container signal; an aide-de-camp is a senior officer's personal assistant.",
+     "definitionFit": "A madcap scheme is reckless and wildly impulsive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +345,49 @@
     "text": "Country dancing as a ritual",
     "enumeration": "9"
    },
-   "solution": "AUSTRALIA"
+   "solution": "AUSTRALIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dancing",
+       "at": 8,
+       "note": "letters that dance about move into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as",
+       "at": 16
+      },
+      {
+       "words": "a",
+       "at": 19
+      },
+      {
+       "words": "ritual",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Folk dancing performed in a nation as a ceremonial rite.",
+     "walkthrough": "'dancing' rearranges AS A RITUAL.",
+     "definitionFit": "Australia is a nation occupying a whole continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +401,59 @@
     "text": "Perry, a singer, entertains band leader and forms jazz group",
     "enumeration": "5"
    },
-   "solution": "COMBO"
+   "solution": "COMBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "jazz group",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertains",
+       "at": 17,
+       "note": "to entertain a guest is to take them in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Perry, a singer",
+       "at": 0,
+       "gives": "COMO",
+       "note": "Perry Como was an American crooner"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 33,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "band",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perry Como hosts a bandleader and they form a jazz combo.",
+     "walkthrough": "'entertains' puts B, the first letter of 'band', inside COMO.",
+     "definitionFit": "A combo is a small band of musicians, typically playing jazz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertains"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +467,70 @@
     "text": "Soldier and military leader appreciate invasion, for example",
     "enumeration": "8"
    },
-   "solution": "PARADIGM"
+   "solution": "PARADIGM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "example",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invasion",
+       "at": 39,
+       "note": "an invasion pushes into territory, so one piece goes inside the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Soldier",
+         "at": 0,
+         "gives": "PARA",
+         "note": "a para is a paratrooper"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 21,
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "military",
+           "at": 12
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "appreciate",
+       "at": 28,
+       "gives": "DIG",
+       "note": "to dig something is slang for liking or appreciating it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paratrooper and his commander admire an invasion as a model operation.",
+     "walkthrough": "'invasion' looks like the military example but is the container signal; 'and' is a link and the definition is just 'example'.",
+     "definitionFit": "A paradigm is a typical pattern or model case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invasion"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +544,48 @@
     "text": "Travelling people trans ported it to ussr",
     "enumeration": "8"
    },
-   "solution": "TOURISTS"
+   "solution": "TOURISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Travelling people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trans ported",
+       "at": 18,
+       "note": "transported things are moved about, so these letters are carried into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "it",
+       "at": 31
+      },
+      {
+       "words": "to",
+       "at": 34
+      },
+      {
+       "words": "ussr",
+       "at": 37
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaymakers carried off to the Soviet Union.",
+     "walkthrough": "The printed clue splits 'transported' in two; read together it is the anagram signal.",
+     "definitionFit": "Tourists are sightseers on their travels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +599,50 @@
     "text": "Compound form is more compound form",
     "enumeration": "6"
    },
-   "solution": "ISOMER"
+   "solution": "ISOMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Compound form",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "is",
+       "at": 14
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "compound form",
+         "at": 22,
+         "note": "letters in compound form are mixed together, so these letters are combined into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist's remark that one form of a compound is more complex.",
+     "walkthrough": "The phrase appears twice: first as the definition, then as the signal to mix up IS MORE.",
+     "definitionFit": "An isomer is one of several molecules sharing a formula but differing in structure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compound"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +656,41 @@
     "text": "Escoffier, say -a revolutionary fellow",
     "enumeration": "4"
    },
-   "solution": "CHEF"
+   "solution": "CHEF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Escoffier, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "revolutionary",
+       "at": 18,
+       "gives": "CHE",
+       "note": "Che Guevara was the Argentine-born revolutionary"
+      },
+      {
+       "words": "fellow",
+       "at": 32,
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Was the great Escoffier a radical sort of chap?",
+     "walkthrough": "Auguste Escoffier was a famous French cook; 'say' marks him as an example.",
+     "definitionFit": "Escoffier was a celebrated French cook of haute cuisine, so he is an instance of a cook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +710,53 @@
      }
     ]
    },
-   "solution": "EMAIL"
+   "solution": "EMAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "new-fangled messages",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Introduction of",
+         "at": 0,
+         "note": "the introduction of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "encryption",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "old-fangled protection",
+       "at": 28,
+       "gives": "MAIL",
+       "note": "chain mail was armour worn in the Middle Ages"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Encryption described as old-style armour for modern correspondence.",
+     "walkthrough": "'old-fangled protection' is armour, MAIL, set against the modern sense of the word.",
+     "definitionFit": "Electronic correspondence is a modern form of letters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "protection"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +770,49 @@
     "text": "A novelist named Christopher Robin's home: Prior island",
     "enumeration": "9"
    },
-   "solution": "ISHERWOOD"
+   "solution": "ISHERWOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A novelist named Christopher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Prior",
+       "at": 43,
+       "note": "the island letter is placed before the forest in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "island",
+       "at": 49,
+       "gives": "I"
+      },
+      {
+       "words": "Robin's home",
+       "at": 29,
+       "gives": "SHERWOOD",
+       "note": "Robin Hood lived in Sherwood Forest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Christopher Robin's home sits near a priory on an island.",
+     "walkthrough": "'Christopher Robin' suggests Winnie-the-Pooh, but Robin is Robin Hood, whose home was Sherwood Forest.",
+     "definitionFit": "Christopher Isherwood was the English writer of Goodbye to Berlin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Robin's"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +826,40 @@
     "text": "The rest of the hussies take part",
     "enumeration": "6"
    },
-   "solution": "SIESTA"
+   "solution": "SIESTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The rest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part",
+       "at": 29,
+       "note": "a part of the words is taken, so the answer lies inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hussies take",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The other hussies join in.",
+     "walkthrough": "'part' signals that the answer is found inside 'hussies take'; 'of' is a link.",
+     "definitionFit": "A siesta is an afternoon nap or rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +879,35 @@
      }
     ]
    },
-   "solution": "STILLLIFE"
+   "solution": "STILLLIFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picture in which there's hope yet?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Picture in which there's hope yet?",
+       "at": 0,
+       "note": "plays on the saying 'while there's life there's hope': a painting where life continues, with yet read as a synonym of still"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An optimistic painting.",
+     "walkthrough": "'While there's life there's hope': if there is still life, there is hope yet.",
+     "definitionFit": "A painting of fruit, flowers or other unmoving objects is the genre also read as 'life continues'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +921,48 @@
     "text": "Learner introduced to office work or dental work",
     "enumeration": "7"
    },
-   "solution": "FILLING"
+   "solution": "FILLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dental work",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introduced to",
+       "at": 8,
+       "note": "the letter is put into the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "office work",
+       "at": 22,
+       "gives": "FILING",
+       "note": "filing is sorting documents in an office"
+      },
+      {
+       "words": "Learner",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the learner-driver plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee starts in clerical work or at a dentist's.",
+     "walkthrough": "'introduced to' puts L inside FILING.",
+     "definitionFit": "A filling is material placed in a tooth cavity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +976,45 @@
     "text": "Rising in society and requiring immediate attention",
     "enumeration": "9"
    },
-   "solution": "INSURGENT"
+   "solution": "INSURGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rising",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 7
+      },
+      {
+       "words": "society",
+       "at": 10,
+       "gives": "S"
+      },
+      {
+       "words": "requiring immediate attention",
+       "at": 22,
+       "gives": "URGENT",
+       "note": "urgent means pressing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing in the social world and in pressing need of attention.",
+     "walkthrough": "'Rising' means rebelling, not climbing socially.",
+     "definitionFit": "An insurgent is in revolt against authority, like one in an uprising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rising"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1028,50 @@
     "text": "Outmoded-only-to be thrown out",
     "enumeration": "8"
    },
-   "solution": "OBSOLETE"
+   "solution": "OBSOLETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outmoded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "thrown out",
+       "at": 20,
+       "note": "letters thrown out are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "only",
+       "at": 9,
+       "gives": "SOLE",
+       "note": "sole means only, as in a sole survivor"
+      },
+      {
+       "words": "to",
+       "at": 14
+      },
+      {
+       "words": "be",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old-fashioned things fit only for the rubbish heap.",
+     "walkthrough": "'thrown out' rearranges SOLE (from 'only') with TO BE.",
+     "definitionFit": "Something obsolete has fallen out of use and been superseded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1085,71 @@
     "text": "Blazer badge, first one to include tree",
     "enumeration": "7"
    },
-   "solution": "BONFIRE"
+   "solution": "BONFIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blazer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 14,
+         "note": "the first letter of the word badge is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "badge",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to include",
+         "at": 24,
+         "note": "including something holds it inside, so the tree goes within the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "ONE",
+         "note": "taken as written"
+        },
+        {
+         "words": "tree",
+         "at": 35,
+         "gives": "FIR",
+         "note": "a fir is a conifer"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school blazer badge, with the top one showing a tree.",
+     "walkthrough": "'Blazer' looks like a jacket but is the definition, something that blazes; 'to include' is the container signal.",
+     "definitionFit": "A bonfire is a large open-air fire, something that blazes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blazer"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1163,41 @@
     "text": "Friendship, some people say, means justification",
     "enumeration": "4"
    },
-   "solution": "ENDS"
+   "solution": "ENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "people say, means justification",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 12,
+       "note": "some of the word is taken, so the answer is a run inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Friendship",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Friendship, so it's said, gives reason enough.",
+     "walkthrough": "The saying is 'the ends justify the means', so these are what some people say justify the means.",
+     "definitionFit": "Aims or goals are what the proverb says justify whatever methods are used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "means"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1211,52 @@
     "text": "Thin box with square ends",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "box",
+       "at": 5,
+       "gives": "SPAR",
+       "note": "to spar is to box in practice"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "ends",
+         "at": 21,
+         "note": "the ends of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "square",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slim box with squared-off ends.",
+     "walkthrough": "'box' is the verb, to spar.",
+     "definitionFit": "Sparse means scanty or thinly spread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1276,60 @@
      }
     ]
    },
-   "solution": "SANDEEL"
+   "solution": "SANDEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "burrowing fish",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "written in",
+       "at": 8,
+       "note": "the article is written inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 35,
+         "note": "turned about means turned backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "York shire city",
+         "at": 19,
+         "gives": "LEEDS",
+         "note": "Leeds is a city in Yorkshire, in northern England"
+        }
+       ]
+      },
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An article written about a fish from a Yorkshire city.",
+     "walkthrough": "The printed clue splits 'Yorkshire'. 'about' turns the city round to SDEEL, and 'written in' is the container signal.",
+     "definitionFit": "Sand eels are small fish that bury themselves in sand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1343,58 @@
     "text": "Spirit is king, within reason",
     "enumeration": "6"
    },
-   "solution": "WHISKY"
+   "solution": "WHISKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 16,
+       "note": "the pieces go inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reason",
+       "at": 23,
+       "gives": "WHY",
+       "note": "why means the reason, as in 'the whys and wherefores'"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "at": 7
+        },
+        {
+         "words": "king",
+         "at": 10,
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drink is supreme, within limits.",
+     "walkthrough": "'within reason' looks like a phrase meaning moderately, but 'within' is the container signal and 'reason' the outer word.",
+     "definitionFit": "Whisky is a distilled grain spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reason"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1408,44 @@
     "text": "Having too much on, read novel in translation",
     "enumeration": "9"
    },
-   "solution": "OVERLADEN"
+   "solution": "OVERLADEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having too much on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in translation",
+       "at": 31,
+       "note": "a translated text has its words changed, so these letters are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "read",
+       "at": 20
+      },
+      {
+       "words": "novel",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Overburdened, reading a novel in a foreign tongue.",
+     "walkthrough": "'in translation' rearranges READ NOVEL.",
+     "definitionFit": "Overladen means carrying too heavy a load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1465,46 @@
      }
     ]
    },
-   "solution": "ELCID"
+   "solution": "ELCID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "National hero",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "note",
+       "at": 18,
+       "gives": "E",
+       "note": "E is a musical note"
+      },
+      {
+       "words": "left",
+       "at": 23,
+       "gives": "L"
+      },
+      {
+       "words": "police",
+       "at": 31,
+       "gives": "CID",
+       "note": "CID is the Criminal Investigation Department of British police"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national hero leaves a note at a police station.",
+     "walkthrough": "El Cid was the medieval Castilian knight, Spain's national hero.",
+     "definitionFit": "Rodrigo Díaz, the eleventh-century Spanish warrior, is celebrated as Spain's champion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1518,49 @@
     "text": "Second year with a hogshead for wine",
     "enumeration": "5"
    },
-   "solution": "SYRAH"
+   "solution": "SYRAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "year",
+       "at": 7,
+       "gives": "YR"
+      },
+      {
+       "words": "a",
+       "at": 17
+      },
+      {
+       "words": "hogshead",
+       "at": 19,
+       "gives": "H",
+       "note": "H is the abbreviation for hogshead, a large cask"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second year's vintage in a big cask.",
+     "walkthrough": "A hogshead is a large wine or beer cask, abbreviated H.",
+     "definitionFit": "Syrah is a red grape variety and the red made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1574,42 @@
     "text": "Child taking part in news programmes",
     "enumeration": "5"
    },
-   "solution": "SPROG"
+   "solution": "SPROG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Child",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "taking part in",
+       "at": 6,
+       "note": "taking part in says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "news programmes",
+       "at": 21,
+       "gives": "SPROG",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster appearing on television news.",
+     "walkthrough": "SPROG is British slang for a child; it runs across 'newS PROGrammes'.",
+     "definitionFit": "Sprog is informal British slang for a kid or baby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1623,54 @@
     "text": "Prompt about cover for maths book",
     "enumeration": "6"
    },
-   "solution": "EUCLID"
+   "solution": "EUCLID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "maths book",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "turned about means read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prompt",
+         "at": 0,
+         "gives": "CUE",
+         "note": "a cue is a prompt to an actor"
+        }
+       ]
+      },
+      {
+       "words": "cover",
+       "at": 13,
+       "gives": "LID",
+       "note": "a lid is a cover"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request for a prompt cover for a mathematics textbook.",
+     "walkthrough": "'about' reverses CUE to EUC.",
+     "definitionFit": "Euclid's Elements was the standard geometry textbook, so the author's name stood for the book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prompt"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1684,59 @@
     "text": "Intrepid and noble in iron steamship",
     "enumeration": "8"
    },
-   "solution": "FEARLESS"
+   "solution": "FEARLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intrepid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "the noble is put inside the other pieces"
+        }
+       ],
+       "parts": [
+        {
+         "words": "iron",
+         "at": 22,
+         "gives": "FE",
+         "note": "Fe is the chemical symbol for iron"
+        },
+        {
+         "words": "noble",
+         "at": 13,
+         "gives": "EARL",
+         "note": "an earl is a nobleman"
+        }
+       ]
+      },
+      {
+       "words": "steamship",
+       "at": 27,
+       "gives": "SS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brave aristocrat aboard an iron steamship.",
+     "walkthrough": "'in' is the container signal; the noble sits between the metal and the ship.",
+     "definitionFit": "Intrepid means bold and undaunted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1750,45 @@
     "text": "Dotty did see small whirlpools",
     "enumeration": "6"
    },
-   "solution": "EDDIES"
+   "solution": "EDDIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "small whirlpools",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Dotty",
+       "at": 0,
+       "note": "dotty means crazy, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "did",
+       "at": 6
+      },
+      {
+       "words": "see",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dotty person saw some little whirlpools.",
+     "walkthrough": "'Dotty' looks like a name but signals rearranging DID SEE.",
+     "definitionFit": "Eddies are swirls of water running against the main current."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dotty"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1802,48 @@
     "text": "A little cunning is needed to grasp answer to clue",
     "enumeration": "8"
    },
-   "solution": "SLIGHTLY"
+   "solution": "SLIGHTLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A little",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to grasp",
+       "at": 27,
+       "note": "grasping holds something within, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cunning",
+       "at": 9,
+       "gives": "SLY",
+       "note": "sly means cunning"
+      },
+      {
+       "words": "answer to clue",
+       "at": 36,
+       "gives": "LIGHT",
+       "note": "in crosswords a light is the word entered in the grid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small amount of cunning helps you solve a clue.",
+     "walkthrough": "A 'light' is crossword jargon for a grid entry; 'to grasp' puts it inside SLY.",
+     "definitionFit": "Slightly means to a small degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
