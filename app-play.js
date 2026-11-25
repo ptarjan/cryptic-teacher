@@ -1545,13 +1545,30 @@
     const el = document.querySelector && document.querySelector(`[data-arm="${id}"]`);
     if (el && el.focus) el.focus({ preventScroll: true });
   }
-  function disarmBlock(redraw) {
+  // Every change to what the hint panel shows asks for a redraw here; any number
+  // of asks in one frame are one render, which always runs after the event that
+  // caused them, so a handler never finds its button rebuilt under it.
+  let hintRedrawQueued = false, hintRefocus = null;
+  function scheduleHintRedraw(refocusId) {
+    if (refocusId) hintRefocus = refocusId;
+    if (hintRedrawQueued) return;
+    hintRedrawQueued = true;
+    const run = () => {
+      hintRedrawQueued = false;
+      const id = hintRefocus;
+      hintRefocus = null;
+      renderHintPanel();
+      if (id) focusArm(id);
+    };
+    if (window.requestAnimationFrame) requestAnimationFrame(run); else setTimeout(run, 0);
+  }
+  function disarmBlock(redraw, refocus) {
     if (!blockArm) return;
     clearTimeout(blockArm.timer);
     const id = blockArm.id;
-    const had = armOf(document.activeElement) === id;
+    const had = refocus !== false && armOf(document.activeElement) === id;
     blockArm = null;
-    if (redraw) { renderHintPanel(); if (had) focusArm(id); }
+    if (redraw) scheduleHintRedraw(had ? id : null);
   }
   // True when the tap should go ahead. A second click inside one double-click
   // (detail 2 and up) is the same gesture as the first and confirms nothing.
@@ -1569,34 +1586,17 @@
     return false;
   }
   if (document.addEventListener) {
-    // Two phases, one rule: nothing may rebuild the row until the tapped
-    // button's own handler has run. Capture sees the tap first and only
-    // disarms; the redraw happens on the way back up (bubble), after the
-    // target's handler, so the button it is about to act on still exists.
-    // Bubbling alone is not enough: the answer box and the menu stop the click
-    // from travelling up, which would skip the redraw and leave a stale "tap
-    // again" on screen. A listener on the tapped control itself always runs
-    // (stopPropagation only stops other nodes), and being added now it runs after
-    // that control's own handler. The document listener covers taps on plain
-    // rows that have none. The flag makes whichever fires first the only redraw.
-    let redrawAfter = false;
+    // The arm is state, and the panel follows it: a tap or focus anywhere else
+    // only changes that state (capture, so it is seen whatever the target does
+    // with the event, stopPropagation included), and the state change asks for
+    // one coalesced redraw after the event has finished. Nothing here depends
+    // on how far the event travels.
     const away = (ev) => {
       if (!blockArm || armOf(ev.target) === blockArm.id) return;
-      disarmBlock(false);
-      redrawAfter = true;
-      const t = ev.target;
-      const ctl = t && ((t.closest && t.closest("button,input,select,textarea,a,label")) || t);
-      if (ctl && ctl.addEventListener) ctl.addEventListener(ev.type, redraw, { once: true });
-    };
-    const redraw = () => {
-      if (!redrawAfter) return;
-      redrawAfter = false;
-      renderHintPanel();
+      disarmBlock(true, false);
     };
     document.addEventListener("click", away, true);
     document.addEventListener("focusin", away, true);
-    document.addEventListener("click", redraw);
-    document.addEventListener("focusin", redraw);
   }
 
   // Where the definition sits, and therefore where the wordplay starts. A fair

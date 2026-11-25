@@ -80,6 +80,12 @@ for (const e of blocky) {
     t.d.docListeners["click"].forEach((f) => f({ target: t.reg["hint-meter"] }));
     flushTimers(0);
     check(!t.tellArmed(), `elsewhereDisarms (${id}): a click elsewhere puts it back`);
+    // A click whose propagation is stopped below the document still reaches the
+    // capture listener, and the redraw follows the state change, not the event.
+    t.reg["guess-tell"].onclick();
+    t.d.docListeners["click"][0]({ target: t.reg["hint-meter"] });
+    flushTimers(0);
+    check(!t.tellArmed(), `elsewhereDisarms (${id}): the capture listener alone disarms and redraws`);
     t.reg["guess-tell"].onclick();
     t.reg["guess-tell"].onclick({ detail: 2 });
     check(t.tellArmed(), `firstTapArms (${id}): the second click of a double-click confirms nothing`);
