@@ -1991,17 +1991,9 @@ def load_source_table(name):
     """{(puzzle id, entry id): (served, corrected, why)} from tools/data/<name>.json
     (or its shard folder, tools/sharded_table.py), a flat object keyed "puzzle
     id/entry id", one row per line, sorted: writers add different lines, and
-    tools/json_merge.py (named in .gitattributes) merges them."""
-    for attempt in (0, 1):
-        try:
-            held = sharded_table.load(name)
-            break
-        except json.JSONDecodeError:
-            # a writer caught mid-rewrite (they replace atomically now, but an
-            # older one may still be running): look once more, shortly
-            if attempt:
-                raise
-            time.sleep(0.5)
+    tools/json_merge.py (named in .gitattributes) merges them. Every writer
+    replaces a file whole (json_merge.write_atomic), so a read never meets half a file."""
+    held = sharded_table.load(name)
     return {tuple(key.split("/", 1)): tuple(row) for key, row in held.items()}
 
 
