@@ -35,8 +35,8 @@
     });
   }
 
-  // Step 9: wherever the page scrolls (phone, tablet) the selected clue lives above the grid, pinned, so it is
-  // on screen whatever the keyboard has done to the page; wider, it is the
+  // Step 9: wherever the page scrolls the selected clue lives outside the panel: on a phone above the grid, pinned, so it is
+  // on screen whatever the keyboard has done to the page; on a tablet right above the panel, unpinned; wider, it is the
   // panel's first child as it always was. The words are found by id (gw-N), so
   // moving the node loses nothing. Fake DOM elements have no parentNode, hence
   // the guards.
@@ -53,17 +53,13 @@
     } else if (clue.parentNode !== panel) panel.insertBefore(clue, panel.firstChild);
   }
   // iOS pans the visual viewport inside the layout viewport when the keyboard is
-  // up; position: sticky follows the layout viewport, so the row is told where
-  // the visible top and bottom are (--vv-top, --vv-bottom: how far each edge of
-  // the visible area is inside the layout viewport).
+  // up; position: sticky follows the layout viewport, so the phone's pinned row
+  // is told where the visible top is (--vv-top: how far the visible area starts
+  // inside the layout viewport).
   function trackVisualViewport() {
     const vv = window.visualViewport;
     if (!vv || !vv.addEventListener || !document.documentElement || !document.documentElement.style) return;
-    const write = () => {
-      const st = document.documentElement.style, top = vv.offsetTop || 0;
-      st.setProperty("--vv-top", top + "px");
-      st.setProperty("--vv-bottom", Math.max(0, (window.innerHeight || 0) - (top + (vv.height || 0))) + "px");
-    };
+    const write = () => document.documentElement.style.setProperty("--vv-top", (vv.offsetTop || 0) + "px");
     vv.addEventListener("scroll", write);
     vv.addEventListener("resize", write);
     write();

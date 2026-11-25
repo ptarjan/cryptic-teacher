@@ -54,11 +54,11 @@
   // getBoundingClientRect() speaks. offsetTop is where the visible part starts
   // inside the layout viewport (the keyboard can push it down as well as cut it
   // short). innerHeight is the fallback for browsers without visualViewport.
-  // True when #hint-clue is the sticky row above the grid (PIN_CLUE_MQ) and
+  // True when #hint-clue is the sticky row above the grid (CLUE_PHONE_MQ) and
   // showing.
   function clueIsPinned() {
     const c = $("hint-clue"), grid = $("grid-wrap");
-    return !!(c && grid && window.matchMedia && matchMedia(PIN_CLUE_MQ).matches
+    return !!(c && grid && window.matchMedia && matchMedia(CLUE_PHONE_MQ).matches
       && c.parentNode && c.parentNode === grid.parentNode && c.getBoundingClientRect
       && c.getClientRects && c.getClientRects().length);
   }
@@ -72,13 +72,7 @@
     const rect = bar && bar.getClientRects && bar.getClientRects().length && bar.getBoundingClientRect();
     if (rect && rect.height) band.bottom = Math.min(band.bottom, rect.top);
     // The pinned clue row (step 9) covers the top of the band.
-    // A tablet's row also sticks to the foot of the band; it covers whichever
-    // edge it is stuck to, and neither when it sits in the middle of the page.
-    if (clueIsPinned()) {
-      const r = $("hint-clue").getBoundingClientRect();
-      if (!clueNearPanel() || r.top <= band.top + 1) band.top += r.height || 0;
-      else if (r.bottom >= band.bottom - 1) band.bottom = Math.min(band.bottom, r.top);
-    }
+    if (clueIsPinned()) band.top += $("hint-clue").getBoundingClientRect().height || 0;
     return band;
   }
   // One tap, one move. Scrolling the moment the tap is handled and then

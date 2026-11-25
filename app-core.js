@@ -2,13 +2,14 @@
 
   // ---------- tiny helpers ----------
   const $ = (id) => document.getElementById(id);
-  // When the current clue is pinned above the grid (step 9): every layout whose
-  // page scrolls. Must match the sticky #hint-clue @media in style.css exactly.
+  // Where the current clue lives. CLUE_PHONE_MQ: pinned (sticky) above the grid.
+  // PIN_CLUE_MQ: every layout whose page scrolls, so the clue is moved out of the
+  // panel. Must match the @media rules in style.css exactly.
   const CLUE_PHONE_MQ = "(max-width: 700px)";
   const PIN_CLUE_MQ = CLUE_PHONE_MQ + ", ((max-width: 1079px) or (pointer: coarse)) and (not ((min-width: 1280px) and (min-aspect-ratio: 13/10) and (min-height: 560px)))";
-  // Where the pinned row sits: a phone's grid is short, so above it is a thumb's
-  // reach from the hints; a tablet's grid is a screen tall, so the row goes right
-  // above the hint panel (the CSS keys on the .near-panel class this decides).
+  // A phone's grid is short, so the row sits above it, a thumb's reach from the
+  // hints; a tablet's grid is a screen tall, so the row sits right above the hint
+  // panel, static, as the head of the hint card (the .near-panel class).
   const clueNearPanel = () => !!window.matchMedia && matchMedia(PIN_CLUE_MQ).matches && !matchMedia(CLUE_PHONE_MQ).matches;
   // The one answer to "does this visitor want motion cut": every animation, JS
   // or CSS driven, asks here (the stylesheet's own @media block is the same

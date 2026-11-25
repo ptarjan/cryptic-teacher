@@ -1666,37 +1666,30 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .layout { gap: 10px; }
 }
 
-/* Step 9: the one clue, pinned. app-boot.js moves #hint-clue out of the panel
-   (below the fold) into .left-col and it sticks to the top of the page while the
-   grid and panel scroll under it. On a phone it sits above the grid; on a tablet
-   (wider than 700px), where the grid is a screen tall, it sits right above the
-   hint panel as .near-panel and also sticks to the foot of the screen, so the
-   words it tags stay beside the rungs that ask for them. --vv-top and --vv-bottom
-   are the visible area's edges, so it follows them when the iOS keyboard pushes
-   the visual viewport around. No
-   ancestor sets overflow, so sticky has the whole page.
-   Every layout where the page scrolls gets it: a phone, a stacked tablet, and a
-   two-column tablet (where .left-col holds grid and panel, so the row sticks for
-   as long as that column is on screen). The wide frame further down is the one
-   layout that does not scroll, and its clue already sits in view at the foot of
-   the right column, so it is left out. This query is PIN_CLUE_MQ in app-core.js;
-   the two must stay identical. The bare 700px arm keeps phones pinned on a
-   browser too old for "or"/"not" inside a media query. */
-@media (max-width: 700px), ((max-width: 1079px) or (pointer: coarse)) and (not ((min-width: 1280px) and (min-aspect-ratio: 13/10) and (min-height: 560px))) {
+/* Step 9: the one clue. app-boot.js moves #hint-clue out of the panel (below the
+   fold) into .left-col wherever the page scrolls (PIN_CLUE_MQ in app-core.js).
+   On a phone it sits above the grid and sticks to the top of the page while the
+   grid and panel scroll under it; --vv-top is the visible area's top edge, so it
+   follows it when the iOS keyboard pushes the visual viewport around. No
+   ancestor sets overflow, so sticky has the whole page. The 700px query is
+   CLUE_PHONE_MQ in app-core.js; the two must stay identical. */
+@media (max-width: 700px) {
   #hint-clue {
     position: sticky; top: max(env(safe-area-inset-top, 0px), var(--vv-top, 0px)); z-index: var(--z-sticky);
     background: var(--bg); padding: 4px 0 6px; margin-bottom: 6px;
     border-bottom: 1px solid var(--line);
   }
-  .left-col:has(> #hint-panel.hidden) > #hint-clue { display: none; }
-  /* A tablet's row (.near-panel, placed by placeClueRow) also sticks to the foot
-     of the visible area, above the tab bar when it is showing, so it stays in
-     view at the top of a tall grid. */
-  #hint-clue.near-panel {
-    bottom: calc(var(--vv-bottom, 0px) + var(--tabbar-clear, 0px));
-    margin: 6px 0 0; border-top: 1px solid var(--line);
-  }
 }
+.left-col:has(> #hint-panel.hidden) > #hint-clue { display: none; }
+/* A tablet's grid is a screen tall, so the row (.near-panel, placed by
+   placeClueRow) sits right above the hint panel in normal flow, nothing floats,
+   and the two read as one card: the row is the card's head. */
+#hint-clue.near-panel {
+  margin: 4px 0 0; padding: 12px 15px 0; background: var(--card);
+  border: 1px solid var(--line); border-bottom: 0; border-left: 4px solid var(--accent);
+  border-radius: 8px 8px 0 0;
+}
+#hint-clue.near-panel + #hint-panel { margin-top: 0; border-top: 0; border-radius: 0 0 8px 8px; padding-top: 0; }
 
 /* ---------- wide screens: one fixed frame, no page scroll ----------
    Built for a full-screen browser on a 1080p video (Cracking the Cryptic: ~125%

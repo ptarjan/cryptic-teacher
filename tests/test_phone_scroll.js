@@ -15,7 +15,7 @@ const fails = [];
 const assert = (ok, msg) => { if (!ok) fails.push(msg); };
 
 (async () => {
-  const ran = await withPhone(async ({ goto, ev, sleep, swipe }) => {
+  const ran = await withPhone(async ({ goto, ev, sleep, swipe, send }) => {
     await goto("/");
     const tab = (k) => ev(`document.querySelector('.tabbar a[data-tab=${k}]').click()`).then(() => sleep(800));
     const num = (js) => ev(js);
@@ -82,7 +82,7 @@ const assert = (ok, msg) => { if (!ok) fails.push(msg); };
     assert(await num("scrollY") > 0, "the puzzle page scrolls again: " + await num("scrollY"));
 
     // ---- 4. a tablet: the row sits right above the hint panel, not above the
-    // tall grid, so the words it tags are next to the rungs that ask for them.
+    // tall grid, and does not float: static, in flow, the head of the hint card.
     await send("Emulation.setDeviceMetricsOverride", { width: 820, height: 1180, deviceScaleFactor: 2, mobile: true });
     await goto("/");
     await ev("document.querySelector('#picker-list button') && document.querySelector('#picker-list button').click()");
@@ -90,10 +90,11 @@ const assert = (ok, msg) => { if (!ok) fails.push(msg); };
     const tab820 = await ev(`(() => {
       const c = document.getElementById("hint-clue");
       return { before: c.nextElementSibling && c.nextElementSibling.id, near: c.classList.contains("near-panel"),
-               inCol: c.parentNode.classList.contains("left-col") };
+               inCol: c.parentNode.classList.contains("left-col"), pos: getComputedStyle(c).position };
     })()`);
     assert(tab820.inCol && tab820.near, "at tablet width the clue row is in the column, marked near-panel");
     assert(tab820.before === "hint-panel", "at tablet width the clue row sits right before the hint panel: " + tab820.before);
+    assert(tab820.pos === "static", "at tablet width the clue row does not float: " + tab820.pos);
   });
   if (ran === false) return;     // no Chromium here: said so, not failed
   if (fails.length) { fails.forEach((f) => console.error("FAIL:", f)); process.exit(1); }
