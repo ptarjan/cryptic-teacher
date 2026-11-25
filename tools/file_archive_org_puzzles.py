@@ -2014,7 +2014,7 @@ def indy_three_more_due(row):
 #: and head lines above it were never read ("no reading laid a clue on it", 1 light). With the window INDY_RIGHT_RISE over
 #: the grid 2012-02-24 read 30 of 30 lights agreed (28 of 30 before).
 INDY_RIGHT_RISE = 150
-INDY_RIGHT_YEARS = ("2011", "2013")
+INDY_RIGHT_FIRST_YEARS = ("2011", "2013")
 INDY_RIGHT_PITCH_MIN, INDY_RIGHT_CLIP = 300, 8
 
 
@@ -2025,21 +2025,24 @@ INDY_RIGHT_PITCH_MIN, INDY_RIGHT_CLIP = 300, 8
 #: lists under the grid") and the lead window from x 0 that filed 2007-01-13 and -20 on 11-11 was never read (~45 pages
 #: refused "no reading parses"). Such a page keeps the lead window: no overhang.
 INDY_WIDE_LEAD = "Independent page whose clue columns stood left of its grid under a wide title, read from them since"
-INDY_WIDE_LEAD_YEARS = ("2005", "2008")
+INDY_WIDE_LEAD_FIRST_YEARS = ("2005", "2008")
 INDY_WIDE_LEAD_RATIO = 2.0
 
 
-def indy_wide_lead(paper, d, gbox, title):
+def indy_wide_lead(paper, d, gbox, title, flat=False):
     """Whether the Independent page `d` (grid `gbox`, title box `title`) has a title INDY_WIDE_LEAD_RATIO grids' widths wide
-    over a grid set in from its left edge (indented_column()): its clue columns left of the grid, never a third one under it."""
-    return paper.key == "galeindependent" and INDY_WIDE_LEAD_YEARS[0] <= d.name[:4] <= INDY_WIDE_LEAD_YEARS[1] \
+    over a grid set in from its left edge (indented_column()): its clue columns left of the grid, never a third one under it.
+    The years only ORDER it: the page's own years' plain window is read so, the others' only as the window after it (`flat`:
+    the ("plain", "flat") alt, tried where the plain window's read is poor)."""
+    return paper.key == "galeindependent" and (flat or year_in(INDY_WIDE_LEAD_FIRST_YEARS, d.name)) \
         and gbox is not None and bool(title) and title[2] - title[0] >= INDY_WIDE_LEAD_RATIO * (gbox[2] - gbox[0]) \
         and indented_column(title, gbox) is not None
 
 
-def indy_rise(paper, d):
-    """The `rise` of right_columns for a Gale Independent page of 2011-13 (INDY_RIGHT_RISE), else RIGHT_RISE."""
-    if paper.key == "galeindependent" and INDY_RIGHT_YEARS[0] <= d.name[:4] <= INDY_RIGHT_YEARS[1]:
+def indy_rise(paper, d, raised=False):
+    """The `rise` of right_columns for a Gale Independent page of 2011-13 (INDY_RIGHT_RISE), else RIGHT_RISE; the other years'
+    pages read it as the window after the layout's (`raised`: the "rise" alt, tried where the layout's read is poor)."""
+    if paper.key == "galeindependent" and (raised or year_in(INDY_RIGHT_FIRST_YEARS, d.name)):
         return INDY_RIGHT_RISE
     return RIGHT_RISE
 
@@ -2078,7 +2081,7 @@ def indy_right_cut_due(row):
     refused, not skipped, with a light "no reading laid a clue on it", not yet filed, whose cached window shows the
     right-of-grid columns cut through their first line (indy_right_cut_read)."""
     rel = (row or {}).get("edition") or ""
-    if paper_of(Path(rel)).key != GALE_INDEPENDENT.key or not INDY_RIGHT_YEARS[0] <= Path(rel).name[:4] <= INDY_RIGHT_YEARS[1] \
+    if paper_of(Path(rel)).key != GALE_INDEPENDENT.key or not INDY_RIGHT_FIRST_YEARS[0] <= Path(rel).name[:4] <= INDY_RIGHT_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_RIGHT_CUT)):
         return False
     for v in row.get("verdicts", ()):
@@ -3888,12 +3891,13 @@ def ft_rise(paper, grid, title):
 #: clue columns right of the grid, under the title (2001-02-26 No 4480: grid x 270-1364, title 1391-2192, ACROSS at 1533, three
 #: columns from x 1391): only the Times-family pages read the strip right of a "left" grid, the Independent's were read from a
 #: crop left of it (0-247 px, no words: "too few neighbouring white cells" and "no reading parses", ~48 pages 2001-03).
-INDY_SIDE_YEARS = ("2000", "2004")
+INDY_SIDE_FIRST_YEARS = ("2000", "2004")
 
 
-def indy_side_right(paper, d, gbox, title):
-    """Whether the Independent page `d` (grid `gbox`, title box `title`) has its clue columns right of a grid left of its title."""
-    return paper.key == "galeindependent" and INDY_SIDE_YEARS[0] <= d.name[:4] <= INDY_SIDE_YEARS[1] \
+def indy_side_right(paper, d, gbox, title, kind=None):
+    """Whether the Independent page `d` (grid `gbox`, title box `title`) has its clue columns right of a grid left of its title.
+    The years only ORDER it: the page's own years' layout is read so, the others' as the "sideright" window after it."""
+    return paper.key == "galeindependent" and (kind == "sideright" or year_in(INDY_SIDE_FIRST_YEARS, d.name)) \
         and gbox is not None and bool(title) and title[0] >= gbox[2] - 40 and title[2] - title[0] >= 0.6 * (gbox[2] - gbox[0])
 
 
@@ -4204,7 +4208,7 @@ def indy_under_columns(lines, grid, split, margin):
 #: column's clues lost their numbers and ran into the first's rows. The gutter is cut just left of the second column's numbers
 #: (INDY_UNDER_GAP) and the last window ends a pitch and a tenth right of them, when exactly two print columns of numbers
 #: stand under the grid in the windows left of the old second gutter and the second's lie left of it.
-INDY_PAIR_YEARS = ("2010", "2013")
+INDY_PAIR_FIRST_YEARS = ("2010", "2013")
 INDY_PAIR = "Independent 2010-13 page whose two clue columns under the grid stood right of its thirds, their gutter cut at their numbers since"
 REREAD_INDY_PAIR = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
 
@@ -13787,8 +13791,9 @@ def located_loose(d, img, title, right=False):
     # INDY_SIDE_GRID: the 2000-04 Independent page whose grid under the title locate_grid's LIVE_OVER_SOLUTION rule gave up for a
     # photograph left of the title that is no lattice (2001-02-26 No 4480: grid x 1797-2517 under the title, the "left" box x 270-1364
     # a picture 1.5 times as wide, "too few neighbouring white cells"): the grid under the title is the live one.
+    # (Any year: the page's own evidence decides, the "left" box no lattice and the grid under the title one.)
     if found[1] == "left" and found[0] is not None and not right and paper_of(d).key == "galeindependent" \
-            and INDY_SIDE_YEARS[0] <= d.name[:4] <= INDY_SIDE_YEARS[1] and not box_lattice(img, found[0]):
+            and not box_lattice(img, found[0]):
         under = indy_title_grid(img, title)
         if under is not None and box_lattice(img, under):
             return under, "below"
@@ -15082,13 +15087,13 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     lines = leaf_lines(d / "djvu.xml.gz", {leaf}).get(leaf, [])
     # A 1985-89 Gale Telegraph page titled by the Quick's ACROSS (or a stray word, or a line the width of the page): its
     # cryptic's own heading row, over its clue columns and the SOLUTION heading, is the title (TELE_OVER).
-    if paper.key == "galetelegraph" and TELE_OVER_YEARS[0] <= d.name[:4] <= TELE_OVER_YEARS[1]:
+    if paper.key == "galetelegraph" and year_in(TELE_OVER_FIRST_YEARS, d.name):
         over = telegraph_over_title(d, img, hit, found)
         if over is not None:
             hit = dict(hit, box=over)
             verdict["titleBox"] = "its heading over the clue columns"
     # A 1980-99 Gale Telegraph page whose scan titled it by the Quick crossword's ACROSS (TELE_QUICK_TITLE).
-    if paper.key == "galetelegraph" and "titleBox" not in verdict and TELE_QUICK_YEARS[0] <= d.name[:4] <= TELE_QUICK_YEARS[1]:
+    if paper.key == "galetelegraph" and "titleBox" not in verdict and year_in(TELE_QUICK_FIRST_YEARS, d.name):
         block = tele_quick_title(d, img, hit, found)
         if block is not None:
             hit = dict(hit, box=block)
@@ -15108,6 +15113,28 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # A 1985-2000 Gale Telegraph grid whose first column the crop under the ACROSS-word title cut off (TELE_LEFT).
     if paper.key == "galetelegraph" and paper.clues_above and gbox is not None:
         gbox = tele_left_grid(img, hit["box"], gbox)
+    # The Gale Telegraph titles read from the page's headings (TELE_OVER, TELE_QUICK_TITLE): the page's own years' are taken
+    # as above, a year never gates one, it only ORDERS them: the other years' are tried only where the grid under the
+    # title as scanned is not a grid, each accepted by the page's own evidence (the heading found, a shaped grid under it).
+    if paper.key == "galetelegraph" and paper.clues_above and (gbox is None or not shaped_on(img, gbox)):
+        for years, find, label in ((TELE_OVER_FIRST_YEARS, lambda: telegraph_over_title(d, img, hit, found, ("0000", "9999")),
+                                    "its heading over the clue columns"),
+                                   (TELE_QUICK_FIRST_YEARS, lambda: tele_quick_title(d, img, hit, found),
+                                    "its heading over the clue block")):
+            if year_in(years, d.name) or "titleBox" in verdict:
+                continue
+            box = find()
+            if box is None:
+                continue
+            again = grid_under_clues(img, box)
+            if again is not None and datetime.date.fromisoformat(d.name[:10]).weekday() != 5 \
+                    and WEEKDAY_RIGHT_DAYS[0] <= datetime.date.fromisoformat(d.name[:10]) <= WEEKDAY_RIGHT_DAYS[1]:
+                again = head_grid(d, img, box, left_edge_grid(img, box, again))
+            if again is not None:
+                again = tele_left_grid(img, box, again)
+            if again is not None and shaped_on(img, again):
+                hit, gbox = dict(hit, box=box), again
+                verdict["titleBox"] = label
     # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
     if side != "below" and not paper.clues_above and not paper.four and paper.key == "gale" \
             and SCALED_UNDER_FIRST_YEARS[0] <= d.name[:4] <= SCALED_UNDER_FIRST_YEARS[1]:
@@ -15372,7 +15399,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # A Gale page before 2014 never has its clues right of the grid: the strip
     # there is an advert column (1947-48: the grid at the page's foot made
     # right_columns() read the ads, and the clue column left of the grid went unread).
-    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d), indy_rise(paper, d) if paper.key == "galeindependent" else ft_rise(paper, gbox, hit["box"]),
+    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d), indy_rise(paper, d, kind == "rise") if paper.key == "galeindependent" else ft_rise(paper, gbox, hit["box"]),
                                   paper.key == "galeindependent") if side == "below" and top is None \
         and not sides and not column and not paper.four and not third and kind not in ("plain", "lead") and not two_columns_only(paper, d) \
         else (None, None)
@@ -15387,12 +15414,17 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # window's two columns cut the third off at the gutter: every down clue past the 5th stood blank (INDY_OVER_PLAIN).
     if kind == "plain" and paper.key == "galeindependent" and side == "below" and top is None and not sides \
             and not column and not third and not paper.four and not two_columns_only(paper, d) \
-            and not indy_wide_lead(paper, d, gbox, hit["box"]):
+            and not indy_wide_lead(paper, d, gbox, hit["box"], alt_x == "flat"):
         over = overhang(img, gbox)
     if right and paper.key == "galeft":
         right = ft_foot(img, gbox, right)
     if (right or over) and alts is not None:
         alts.append(("plain", None))
+    # The other years' wide-title pages: the plain window again without the third column's overhang (INDY_WIDE_LEAD's read).
+    if alts is not None and kind is None and paper.key == "galeindependent" and side == "below" and top is None and not sides \
+            and not column and not third and not paper.four and not two_columns_only(paper, d) \
+            and not year_in(INDY_WIDE_LEAD_FIRST_YEARS, d.name) and indy_wide_lead(paper, d, gbox, hit["box"], True):
+        alts.append(("plain", "flat"))
     # A 1939-12 to 1940 Gale Times page that ends soon under its grid: the clue lists run on in two columns right
     # of it (RIGHT_WIDE_DAYS), a window of its own, tried first once the layout's is poor.
     wide = right_columns(img, gbox) if paper.key == "gale" and RIGHT_WIDE_DAYS[0] <= d.name[:10] <= RIGHT_WIDE_DAYS[1] \
@@ -15412,7 +15444,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     sunday_top = side == "left" and paper.key == "galesundaytimes" and band_beside is None and column is None \
         and sunday_top_page(gbox, hit["box"])
     if side == "left" and (paper.key in ("times", "gale", "galeft", "galesundaytelegraph") or sunday_top
-                           or indy_side_right(paper, d, gbox, hit["box"])) \
+                           or indy_side_right(paper, d, gbox, hit["box"], kind)) \
             and not paper.four and not third:
         right = right_columns(img, gbox, SUNDAY_TOP_SPAN if sunday_top else RIGHT_SPAN_LEFT,
                               ft_rise(paper, gbox, hit["box"]),
@@ -15427,6 +15459,11 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             beside, crop = False, None
             if alts is not None:
                 alts.append(("plain", None))
+        elif alts is not None and kind is None and indy_side_right(paper, d, gbox, hit["box"], "sideright") \
+                and not year_in(INDY_SIDE_FIRST_YEARS, d.name):
+            # The other years' page with its grid left of a wide title: the clue columns right of the grid, read as the
+            # window after the layout's (INDY_SIDE_RIGHT's, the page's evidence its title standing right of the grid).
+            alts.append(("sideright", None))
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
         (indented_column(hit["box"], gbox, m) or (indented_column(title_left(img, hit["box"], gbox), gbox, m)
                                                    if paper.key == "gale" and d.name[:4] < "1968" else None)) \
@@ -15461,6 +15498,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         right = (alt_x, *right[1:])
     elif right and alts is not None:
         alts.extend(("right", x) for x in far_edges(img, (gbox[0], gbox[1] - RIGHT_RISE, right[0] + 300, right[1]), right[0]))
+        if kind is None and paper.key == "galeindependent" and not year_in(INDY_RIGHT_FIRST_YEARS, d.name):
+            # The other years' columns right of the grid read from INDY_RIGHT_RISE over its top, the window after the layout's.
+            alts.append(("rise", None))
     if over and kind == "over":
         over = alt_x
     elif over and alts is not None:
@@ -15570,8 +15610,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             and above is None and left is None and not right and not over and not wide
         if over and paper.key == "galeindependent":
             split = indy_under_columns(every, gbox, split, m)
-            if INDY_PAIR_YEARS[0] <= d.name[:4] <= INDY_PAIR_YEARS[1]:
+            if kind == "pair" or year_in(INDY_PAIR_FIRST_YEARS, d.name):
                 split = indy_under_pair(every, gbox, split, m)
+            elif alts is not None and kind is None and indy_under_pair(every, gbox, split, m) != split:
+                # The other years' page whose headings pair the columns under the grid: that split, read as the window
+                # after the layout's (the page's evidence its pair of heads).
+                alts.append(("pair", None))
         if wide_read:
             split = beside_split(every, gbox, wide)
         if split is not None and not over and not isinstance(split, tuple):
@@ -20695,7 +20739,7 @@ def tele_grid_due(row):
 #: heading, and read-time takes its ACROSS (or its DOWN's column) for the title. A read-time change: no scan key moves.
 TELE_OVER = "Gale Telegraph 1985-89 page refused at its grid for a title that was not the cryptic's, its heading over the clue columns read since"
 REREAD_TELE_OVER = "2026-11-17T19:00:00+00:00"
-TELE_OVER_YEARS = ("1985", "1989")
+TELE_OVER_FIRST_YEARS = ("1985", "1989")
 #: How far (px at SCAN_WIDTH) over the SOLUTION heading the cryptic's heading row lies at most, and the least a plausible title's foot lies over it.
 TELE_OVER_REACH, TELE_OVER_GAP = 1800, 700
 #: The cryptic's DOWN heading stands this far (px at SCAN_WIDTH) right of its ACROSS heading (372-381 over 7 pages; the Quick's 280).
@@ -20710,7 +20754,7 @@ def tele_over_due(row):
     # (1990-2000 too, r214: 39 rows read 11-04..17 refused "the ink under the title is WxH, not a grid" on a title box ~780
     # wide, the cryptic's own: the code since reads the grid under it (dry: 1990-02-21, 1992-11-11, 1995-02-15, 1999-04-30
     # and 1999-09-22 give a 28-30 light grid), so they are read again with no change to the title reading, whose
-    # TELE_OVER_YEARS stays 1985-89 (a swap to the heading over the clue columns on 1999-09-22 lost the grid))
+    # TELE_OVER_FIRST_YEARS stays 1985-89 (a swap to the heading over the clue columns on 1999-09-22 lost the grid))
     if not re.match(r"GaleTelegraph(198[5-9]|199\d|2000)", rel) or "inputs" not in row \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_TELE_OVER)):
         return False
@@ -20724,7 +20768,7 @@ def telegraph_over_title(d, img, hit, found, years=None):
     SOLUTION heading), else None. Read from the stretch over the page's one SOLUTION heading by the page readers (cached):
     the ACROSS word with a DOWN word TELE_OVER_PAIR right of it on its row, or, its ACROSS lost, the one such DOWN's column."""
     sols = [s["box"] for s in (found or {}).get("solutions") or () if s.get("leaf") == hit.get("leaf") and s.get("box")]
-    years = years or TELE_OVER_YEARS
+    years = years or TELE_OVER_FIRST_YEARS
     if len(sols) != 1 or not years[0] <= d.name[:4] <= years[1]:
         return None
     sol, box, k = sols[0], hit["box"], img.width / SCAN_WIDTH
@@ -20762,7 +20806,7 @@ def telegraph_over_title(d, img, hit, found, years=None):
 #: ACROSS/DOWN row), so tele_quick_title reads the stretch over the page's one SOLUTION heading to its caption by both page
 #: readers (cached once) and, the title box standing under a QUICK_CAPTION, takes clue_block_heading's box of the cryptic's
 #: clue block (as the scan does) when BOTH readers find it within TELE_QUICK_AGREE px. A read-time change: no scan key moves.
-TELE_QUICK_YEARS = ("1980", "1999")
+TELE_QUICK_FIRST_YEARS = ("1980", "1999")
 TELE_QUICK_REACH, TELE_QUICK_BELOW, TELE_QUICK_AGREE = 1800, 400, 60
 
 
