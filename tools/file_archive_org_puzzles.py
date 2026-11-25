@@ -13838,16 +13838,26 @@ def located_loose(d, img, title, right=False):
     return found
 
 
-def indy_title_grid(img, title):
-    """The grid-shaped ink under `title` (locate_grid's "below" crop and tests, without its solution-dwarfing rule), or None."""
+def title_grid(img, title, over=0, top_gap=2, straddle=False):
+    """The grid-shaped ink under `title` (locate_grid's "below" crop and tests, without its solution-dwarfing rule), or None.
+    The one crop recipe of a Gale paper's title box: the ink is sought from `over` px over the title's foot (a title box
+    running into the grid's top frame), the box must start more than `top_gap` px under the crop's top (the title's own print
+    stands there), start no further right than the title's right edge + 120, and, with `straddle`, cross the title's middle."""
     x0, _, x1, y1 = title
-    crop = (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + int(1.3 * (x1 - x0)) + 80))
+    crop = (max(0, x0 - 120), max(0, y1 - over), min(img.width, x1 + 120), min(img.height, y1 + int(1.3 * (x1 - x0)) + 80))
     if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
         return None
     box = footed(img, ink_in(img, crop, ("top",)))
-    if box is None or box[1] <= crop[1] + 2 or box[0] > x1 + 120 or not shaped_on(img, box):
+    if box is None or box[1] <= crop[1] + top_gap or box[0] > x1 + 120 or not shaped_on(img, box):
+        return None
+    if straddle and not box[0] < (x0 + x1) / 2 < box[2]:
         return None
     return box
+
+
+def indy_title_grid(img, title):
+    """A Gale Independent page's title_grid: ink from the title's foot."""
+    return title_grid(img, title)
 
 
 def box_lattice(img, box):
@@ -14585,14 +14595,7 @@ def sunday_title_grid(img, title):
     """The grid at the foot of a Gale Sunday Times page's `title` box, or None: the box runs SUNDAY_TITLE_OVER px over
     the grid's top frame (1988-01-24: the title to y 2681, the grid's frame from y 2647), so the ink is sought from
     that far up, the title's own print standing a gap above; the box must be grid-shaped and straddle the title's middle."""
-    x0, _, x1, y1 = title
-    crop = (max(0, x0 - 120), max(0, y1 - SUNDAY_TITLE_OVER), min(img.width, x1 + 120), min(img.height, y1 + int(1.3 * (x1 - x0)) + 80))
-    if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
-        return None
-    box = footed(img, ink_in(img, crop, ("top",)))
-    if box is None or not shaped_on(img, box) or not box[0] < (x0 + x1) / 2 < box[2] or box[1] < crop[1] + 2:
-        return None
-    return box
+    return title_grid(img, title, over=SUNDAY_TITLE_OVER, top_gap=1, straddle=True)
 
 
 #: How far over its title box's foot a 1985-89 Gale Sunday Times grid's top frame may start (px).
