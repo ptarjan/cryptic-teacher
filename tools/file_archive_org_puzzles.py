@@ -1016,7 +1016,7 @@ SCALED_UNDER_YEARS = ("1939", "1967")
 #: SCAN_WIDTH, the cap 600 for the page's width) under the title, solution-shaped, and locate_grid took the ad's
 #: frame over the title for the grid (1966-05-15: No 2153, "too few neighbouring white cells", the clue column
 #: right of the grid never read: "no ACROSS and DOWN lists under the grid").
-SUNDAY_SCALED_YEARS = ("1960", "1999")
+SUNDAY_SCALED_FIRST_YEARS = ("1960", "1999")
 
 
 def scaled_under(img, title):
@@ -1297,6 +1297,12 @@ def sunday_foot(img, title, box, side):
     if (box[3] - box[1]) >= w or abs(1 - (raw[3] - raw[1]) / w) >= abs(1 - (box[3] - box[1]) / w):
         return box
     return raw if shaped_on(img, raw) else box
+
+
+def year_in(years, name):
+    """Whether the edition folder `name` (its date) falls in `years`, a (first, last) pair of year strings. A layout's years
+    ORDER its candidate among a paper's (the page's own years first); the page's evidence accepts or refuses it."""
+    return years[0] <= name[:4] <= years[1]
 
 
 def sunday_tall(img, box, side):
@@ -14002,7 +14008,7 @@ def sunday_times_foot_due(row):
 
 
 #: The reason of a Gale Sunday Times 1960-99 page refused "no reading parses" or "not a grid": its grid under its title,
-#: solution-shaped for the page's width (SUNDAY_SCALED_YEARS), read since as the puzzle's.
+#: solution-shaped for the page's width (SUNDAY_SCALED_FIRST_YEARS), read since as the puzzle's.
 SUNDAY_GRID = "Gale Sunday Times page refused, its grid under its title read since as the puzzle's (wide scan)"
 REREAD_SUNDAY_GRID = "2026-11-14T06:00:00+00:00"
 
@@ -14012,7 +14018,7 @@ def sunday_grid_due(row):
     parses" or "not a grid", read before REREAD_SUNDAY_GRID."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_SCALED_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_SCALED_YEARS[1]:
+            or not SUNDAY_SCALED_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_SCALED_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") in ("no-reading-parses", "not-a-grid") for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_GRID))
@@ -14021,7 +14027,7 @@ def sunday_grid_due(row):
 #: The Gale Sunday Times 1960-67 pages set both clue lists in ONE column left of the grid (about 0.8 of the grid's
 #: width, ACROSS over DOWN, from the grid's top to past its foot), the adverts of the page left of it
 #: (1962-12-09: the column's numbers at x 2487, ads ending 2473, the grid from 3055 on a 4092 wide scan).
-SUNDAY_LEFT_YEARS = ("1960", "1967")
+SUNDAY_LEFT_FIRST_YEARS = ("1960", "1967")
 #: How far left of its grid the column's numbers are sought (shares of the grid's width), and the bin (px) its
 #: numbers' left edges are binned in, the fewest numbered lines that make the column, and the room left of the
 #: modal edge the crop starts at.
@@ -14121,7 +14127,7 @@ def sunday_under_due(row):
     with a clue no reading laid, read before REREAD_SUNDAY_UNDER."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_LEFT_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_YEARS[1]:
+            or not SUNDAY_LEFT_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_FIRST_YEARS[1]:
         return False
     return any(v.get("wrote") and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_UNDER)) or sunday_held_due(row)
@@ -14168,7 +14174,7 @@ def sunday_notice_due(row):
     with a clue no reading laid or fewer clues than lights, read before REREAD_SUNDAY_NOTICE."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_LEFT_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_YEARS[1]:
+            or not SUNDAY_LEFT_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_FIRST_YEARS[1]:
         return False
     return any(held_or_wrote(v) and not v.get("complete") and (v.get("blank") or (v.get("lights") or 0) - (v.get("clues") or 0) >= NOTICE_SHORT)
                for v in row.get("verdicts") or ()) \
@@ -14207,7 +14213,7 @@ def sunday_left_due(row):
     parses", read before REREAD_SUNDAY_LEFT."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_LEFT_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_YEARS[1]:
+            or not SUNDAY_LEFT_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_LEFT_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") == "no-reading-parses" for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_LEFT))
@@ -14218,7 +14224,7 @@ def sunday_left_due(row):
 #: then DOWN beside the grid (1980-03-09: columns at x 300, 681 and 1062, ACROSS at y 4130, the grid x 309-1031 from
 #: y 4578, DOWN at x 1206, y 4443, its clues on to y 5500). Read as no column at all, every such page was refused
 #: "no reading parses".
-SUNDAY_BAND_YEARS = ("1980", "1984")
+SUNDAY_BAND_FIRST_YEARS = ("1980", "1984")
 #: The band's depth as a share of the grid's width (least, most), how far right of the grid the crop reaches and how
 #: far under it the DOWN list may run (shares of its width), the fewest numbered lines that make a column, the gap
 #: (px) that starts another column's numbers, and the left edge's room.
@@ -14374,7 +14380,7 @@ def sunday_top_due(row):
     parses", read before REREAD_SUNDAY_TOP."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_BAND_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_YEARS[1]:
+            or not SUNDAY_BAND_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") == "no-reading-parses" for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_TOP))
@@ -14396,7 +14402,7 @@ def sunday_merged_due(row):
     clue no reading laid, read before REREAD_SUNDAY_MERGED."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_BAND_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_YEARS[1]:
+            or not SUNDAY_BAND_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_FIRST_YEARS[1]:
         return False
     return any(held_or_wrote(v) and not v.get("complete") and not v.get("refused")
                and "no reading laid a clue on it" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ()) \
@@ -14414,7 +14420,7 @@ def sunday_merged2_due(row):
     """Whether Gale Sunday Times ledger `row` is due SUNDAY_MERGED2: as sunday_merged_due, read before REREAD_SUNDAY_MERGED2."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_BAND_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_YEARS[1]:
+            or not SUNDAY_BAND_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_FIRST_YEARS[1]:
         return False
     return any(held_or_wrote(v) and not v.get("complete") and not v.get("refused")
                and "no reading laid a clue on it" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ()) \
@@ -14434,7 +14440,7 @@ def sunday_band3_due(row):
     """Whether Gale Sunday Times ledger `row` is due SUNDAY_BAND3: as sunday_merged_due, read before REREAD_SUNDAY_BAND3."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_BAND_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_YEARS[1]:
+            or not SUNDAY_BAND_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_FIRST_YEARS[1]:
         return False
     return any(held_or_wrote(v) and not v.get("complete") and not v.get("refused")
                and "no reading laid a clue on it" in (v.get("blank") or {}).values() for v in row.get("verdicts") or ()) \
@@ -14455,7 +14461,7 @@ def sunday_band_due(row):
     parses", or written incomplete with a clue no reading laid, read before REREAD_SUNDAY_BAND."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_BAND_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_YEARS[1]:
+            or not SUNDAY_BAND_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BAND_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") == "no-reading-parses"
                or held_or_wrote(v) and not v.get("complete") and v.get("blank") for v in row.get("verdicts") or ()) \
@@ -14466,7 +14472,7 @@ def sunday_band_due(row):
 #: both headings on one line (1987-01-25: grid x 866-1582 from y 3223 with the title on it, ACROSS at x 362 over
 #: numbers at 271, DOWN at x 678 over numbers at 577, both at y 3238, the lists to y 4141). left_column needs each
 #: heading alone on its line, and the title on the grid leaves no band: refused "no reading parses".
-SUNDAY_PAIR_YEARS = ("1985", "1989")
+SUNDAY_PAIR_FIRST_YEARS = ("1985", "1989")
 #: The fewest numbered lines the cryptic list has in its column.
 SUNDAY_PAIR_LINES = 10
 #: The 2000-06 pages (r302: 2004-12-12, grid x 921-1641 from y 3798, the title over the columns to y 3790, ACROSS at x 237 over
@@ -14474,7 +14480,7 @@ SUNDAY_PAIR_LINES = 10
 #: columns left of the grid with DOWN's numbers only 0.045 grids left of its heading, under SUNDAY_PAIR's 0.05: no DOWN
 #: column was found, so the page was read for its right-hand print only ("no ACROSS and DOWN lists under the grid"). The
 #: share of the grid's width the DOWN numbers' search stops short of the heading (`late`).
-SUNDAY_PAIR_LATE_YEARS = ("2000", "2006")
+SUNDAY_PAIR_LATE_FIRST_YEARS = ("2000", "2006")
 SUNDAY_PAIR_LATE_GAP = 0.01
 
 
@@ -14528,7 +14534,7 @@ def sunday_times_pair(img, gbox, title, key, paper, late=False):
 #: (1988-01-24: the title x 2088-3067 to y 2681, the grid x 2374-3094 from y 2681, ACROSS at (2149, 2680) over numbers
 #: at x 2040, DOWN at (2158, 3782), the lines to x 2351). locate_grid took the dense print left of it for the grid
 #: ("left"; the 1,060px crop "too few neighbouring white cells"): every such page was refused "no reading parses".
-SUNDAY_RIGHT_YEARS = ("1985", "1989")
+SUNDAY_RIGHT_FIRST_YEARS = ("1985", "1989")
 
 
 def sunday_title_grid(img, title):
@@ -14604,7 +14610,7 @@ def sunday_pair_due(row):
     parses", read before REREAD_SUNDAY_PAIR."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_PAIR_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_PAIR_YEARS[1]:
+            or not SUNDAY_PAIR_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_PAIR_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") == "no-reading-parses" for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_PAIR))
@@ -14622,7 +14628,7 @@ def sunday_title_grid_due(row):
     reading parses" read before REREAD_SUNDAY_TITLE_GRID."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_PAIR_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_PAIR_YEARS[1]:
+            or not SUNDAY_PAIR_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_PAIR_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") == "no-reading-parses" for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_TITLE_GRID))
@@ -14633,7 +14639,7 @@ def sunday_title_grid_due(row):
 #: ("SUNDAY TIMES CROSSWORD") stands over the grid and the clue columns left of it. The ink under the caption was taken
 #: for the grid ("the ink under the title is 718x52, not a grid", 1990) or the grid was read "above" the title with
 #: no lists under it ("no ACROSS and DOWN lists", 1985-89, ~25 pages in the r147 census).
-SUNDAY_CAPTION_YEARS = ("1985", "1994")
+SUNDAY_CAPTION_FIRST_YEARS = ("1985", "1994")
 #: The 1991-94 pages (r147 cluster 16, wide 700px+ captions under the grid) are due from here; 1985-90's from REREAD_SUNDAY_CAPTION.
 REREAD_SUNDAY_CAPTION_LATE = "2026-11-17T10:54:00+00:00"
 #: How far under the grid's foot the caption's top may stand (a share of the grid's width) and how far over the grid
@@ -14671,7 +14677,7 @@ def sunday_caption_due(row):
     parses" or "not a grid", read before REREAD_SUNDAY_CAPTION."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_CAPTION_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_CAPTION_YEARS[1]:
+            or not SUNDAY_CAPTION_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_CAPTION_FIRST_YEARS[1]:
         return False
     cutoff = REREAD_SUNDAY_CAPTION if edition.split("/")[-1][:4] <= "1990" else REREAD_SUNDAY_CAPTION_LATE
     return any(v.get("cause") in ("not-a-grid", "no-reading-parses") for v in row.get("verdicts") or ()) \
@@ -14684,7 +14690,7 @@ def sunday_caption_due(row):
 #: a rule). The grid is the shaped ink over the title, its foot within SUNDAY_OVER_GAP of the grid's width of the
 #: title's top and the title's middle within its width; the columns start at the ACROSS heading found within
 #: SUNDAY_OVER_RISE of the grid's width over its top.
-SUNDAY_OVER_YEARS = ("1968", "1976")
+SUNDAY_OVER_FIRST_YEARS = ("1968", "1976")
 SUNDAY_OVER_GAP, SUNDAY_OVER_RISE = 0.6, 1.7
 #: How far the title's box may lie up into the grid's foot (a share of the grid's width): SUNDAY_1970S, 1971-03-07's
 #: title box tops 3 px over its grid's last row (the grid foot 5314, the title 5311), and the page, its grid found
@@ -14748,7 +14754,7 @@ SUNDAY_STACKED_YEARS = ("1970", "1974")
 #: reading, and the page was refused "no reading parses" (census r209: 14 rows 1965-69, 5 of this shape). The grid
 #: under a title at least SUNDAY_BETWEEN_GAP of its width over it, the title over its middle, is read with the clue
 #: columns from the title down (sunday_times_over's `between`).
-SUNDAY_BETWEEN_YEARS = ("1965", "1969")
+SUNDAY_BETWEEN_FIRST_YEARS = ("1965", "1969")
 SUNDAY_BETWEEN_GAP = 0.6
 SUNDAY_BETWEEN = "Gale Sunday Times 1965-69 page refused no reading parses, its clue columns between its heading and its grid read since"
 REREAD_SUNDAY_BETWEEN = "2026-11-18T20:42:00+00:00"
@@ -14759,7 +14765,7 @@ def sunday_between_due(row):
     parses", read before REREAD_SUNDAY_BETWEEN."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_BETWEEN_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BETWEEN_YEARS[1]:
+            or not SUNDAY_BETWEEN_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_BETWEEN_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") == "no-reading-parses" for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_BETWEEN))
@@ -14781,7 +14787,7 @@ def sunday_over_due(row):
     grid" or "no reading parses", read before REREAD_SUNDAY_OVER."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_OVER_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_OVER_YEARS[1]:
+            or not SUNDAY_OVER_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_OVER_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") in ("not-a-grid", "no-reading-parses") for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_OVER))
@@ -14794,7 +14800,7 @@ def sunday_over_due(row):
 #: 0.51 grid widths), its DOWN heading under that list's end, the list running on in two columns over the grid
 #: (the grid's left and 0.5 widths on). Mephisto's grid and columns stand left of the caption. 1978-10-01 and
 #: 1978-11-12 read: the grid x 3216-3932 (720 wide), ACROSS at x 2868 y 3895, columns at 2850, 3227 and 3560-3580.
-SUNDAY_MID_YEARS = ("1976", "1978")
+SUNDAY_MID_FIRST_YEARS = ("1976", "1978")
 #: How far over the grid the columns' crop starts, how far left of the grid it reaches and under the grid it runs, and
 #: how far right of it (shares of the grid's width).
 SUNDAY_MID_TOP, SUNDAY_MID_LEFT, SUNDAY_MID_FOOT, SUNDAY_MID_RIGHT = 0.64, 0.58, 0.27, 0.12
@@ -14974,7 +14980,7 @@ def sunday_mid_due(row):
     read before REREAD_SUNDAY_MID."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not SUNDAY_MID_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_MID_YEARS[1]:
+            or not SUNDAY_MID_FIRST_YEARS[0] <= edition.split("/")[-1][:4] <= SUNDAY_MID_FIRST_YEARS[1]:
         return False
     return any(v.get("cause") == "not-a-grid" for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_MID))
@@ -15035,8 +15041,7 @@ def number_grid_due(row):
 #: A Gale Sunday Times page of 2000-02 whose ACROSS column runs down to the page's folio line, "54-STYLE" (the page
 #: number and the Style section's name, in the column's own print), read as a clue numbered 54 with no words: the list
 #: held a clue naming no light, the grid was backsolved from it and found none ("no grid: the search found no grid", ~60
-#: pages, 2000-08 to 2002-08, where the lists read since SUNDAY_PAIR_LATE).
-SUNDAY_FOOTER_YEARS = ("2000", "2002")
+#: pages, 2000-08 to 2002-08, where the lists read since SUNDAY_PAIR_LATE). The cut is the lines' own shape (no year gate).
 SUNDAY_FOOTER = re.compile(r"^\W*\d{1,3}\W*STY[\w.]{0,4}\W*$", re.I)
 
 
@@ -15090,7 +15095,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else located_grid(d, leaf, img, hit["box"], paper.key in GRID_RIGHT)
     if paper.key == "galesundaytelegraph":
         gbox = sunday_foot(img, hit["box"], gbox, side)
-    if paper.key == "galesundaytimes" and SUNDAY_TALL_YEARS[0] <= d.name[:4] <= SUNDAY_TALL_YEARS[1]:
+    # A Gale Sunday Times grid right of its title a row short at the foot (sunday_tall): grown on the 1985-89 pages as
+    # always, on the others only where the grid as located is not shaped like one.
+    if paper.key == "galesundaytimes" and (SUNDAY_TALL_FIRST_YEARS[0] <= d.name[:4] <= SUNDAY_TALL_FIRST_YEARS[1]
+                                           or side == "right" and gbox is not None and not shaped_on(img, gbox)):
         gbox = sunday_tall(img, gbox, side)
     if paper.key == "galetelegraph" and paper.clues_above and gbox is not None \
             and datetime.date.fromisoformat(d.name[:10]).weekday() != 5 \
@@ -15100,9 +15108,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if paper.key == "galetelegraph" and paper.clues_above and gbox is not None:
         gbox = tele_left_grid(img, hit["box"], gbox)
     # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
-    if side != "below" and not paper.clues_above and not paper.four \
-            and ((paper.key == "gale" and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1])
-                 or (paper.key == "galesundaytimes" and SUNDAY_SCALED_YEARS[0] <= d.name[:4] <= SUNDAY_SCALED_YEARS[1])):
+    if side != "below" and not paper.clues_above and not paper.four and paper.key == "gale" \
+            and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1]:
         under = scaled_under(img, hit["box"])
         if under is not None:
             gbox, side = under, "below"
@@ -15114,89 +15121,90 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if band is not None:
             gbox, side = band, "below"
             verdict["gridBox"] = "under its title, top in its line"
-    # A 1968-76 Gale Sunday Times page whose title stands under its grid, the clue columns over it (sunday_times_over).
-    over_top = None
-    # A 1965-69 Gale Sunday Times page whose clue columns stand between its heading and its grid (SUNDAY_BETWEEN).
-    if side == "below" and gbox is not None and paper.key == "galesundaytimes" \
-            and SUNDAY_BETWEEN_YEARS[0] <= d.name[:4] <= SUNDAY_BETWEEN_YEARS[1] \
-            and gbox[1] - hit["box"][3] >= SUNDAY_BETWEEN_GAP * (gbox[2] - gbox[0]) \
-            and gbox[0] - 0.1 * (gbox[2] - gbox[0]) <= (hit["box"][0] + hit["box"][2]) / 2 <= gbox[2] + 0.1 * (gbox[2] - gbox[0]):
-        between = sunday_times_over(img, hit["box"], f"{d.name}_{n}", paper, gbox)
-        if between is not None:
-            (gbox, over_top), side = between, "below"
-            verdict["gridBox"] = "under its clue columns"
-    # A 1965-69 Gale Sunday Times page whose title banner stands left of its grid (side "right") with the one clue column
-    # under it, ACROSS over DOWN, left of the grid (SUNDAY_BETWEEN's second shape; 1967-06-04: the column's numbers at x
-    # 2690, the grid x 3138-3858): read as the one-column page it is (sunday_times_column), not as a lead column
-    # centred under the banner, whose window began 190 px inside the column.
-    right_column = None
-    if side == "right" and gbox is not None and paper.key == "galesundaytimes" and over_top is None \
-            and SUNDAY_BETWEEN_YEARS[0] <= d.name[:4] <= SUNDAY_BETWEEN_YEARS[1]:
-        right_column = sunday_times_column(img, gbox, f"{d.name}_{n}", paper)
-        if right_column is not None:
-            side = "below"
-            verdict["gridBox"] = "right of its title, one clue column left of it"
-    if over_top is None and (side is None or side == "above" and d.name[:4] < SUNDAY_MID_YEARS[0]) and paper.key == "galesundaytimes" \
-            and SUNDAY_OVER_YEARS[0] <= d.name[:4] <= SUNDAY_OVER_YEARS[1]:
-        over_grid = sunday_times_over(img, hit["box"], f"{d.name}_{n}", paper)
-        if over_grid is not None:
-            (gbox, over_top), side = over_grid, "below"
-            verdict["gridBox"] = "over its title"
-    # A 1976-78 Gale Sunday Times page whose scanned title is the winners caption mid-page: the live heading, grid and
-    # three columns are right of it (sunday_times_mid).
-    mid_column = None
-    if side is None and paper.key == "galesundaytimes" and SUNDAY_MID_YEARS[0] <= d.name[:4] <= SUNDAY_MID_YEARS[1]:
-        mid = sunday_times_mid(img, hit["box"], n, f"{d.name}_{n + 1}", paper)
-        if mid is not None:
-            gbox, mid_column, mid_box, mid_number = mid
-            side = "below"
-            verdict["gridBox"] = "right of its winners caption"
-            number, day, why = filed_number(d, found, dict(hit, number=mid_number, box=mid_box))
-            if why:
-                return refuse(verdict, "number-date-mismatch", why), None
-            verdict["read_as"], n = n, number
-            verdict["number"] = n
-            hit = dict(hit, number=n, box=mid_box)
-    # A 1987-99 Gale Sunday Times page headed by the short "No N" line, its grid right of it (number_right).
-    # Its two clue columns stand left of the grid, the heading over the first: read as a grid with its title right of
-    # it (side "left": the crop two grids' widths left of it, to the page's foot).
-    number_first = NUMBER_RIGHT_FIRST_YEARS[0] <= d.name[:4] <= NUMBER_RIGHT_FIRST_YEARS[1]
-    if side is None and paper.key == "galesundaytimes" and number_first:
-        beside_box = number_right(img, hit["box"])
-        if beside_box is not None:
-            gbox, side = beside_box, "left"
-            verdict["gridBox"] = "right of its number heading"
-    # A 1985-89 Gale Sunday Times grid touching the foot of its title, the print left of it taken for the grid (SUNDAY_RIGHT).
-    title_grid = None
-    if side == "left" and paper.key == "galesundaytimes" and SUNDAY_RIGHT_YEARS[0] <= d.name[:4] <= SUNDAY_RIGHT_YEARS[1]:
-        title_grid = sunday_title_grid(img, hit["box"])
-        if title_grid is not None:
-            gbox, side = title_grid, "below"
-            verdict["gridBox"] = "touching its title"
-    # A 1985-90 Gale Sunday Times page whose scanned title is a caption under its grid (sunday_caption_grid): the real
-    # heading stands over the grid, the clue columns left of it (the pair/right readers, with a stand-in title).
-    caption = None
-    if side in (None, "above") and paper.key == "galesundaytimes" and over_top is None and mid_column is None \
-            and SUNDAY_CAPTION_YEARS[0] <= d.name[:4] <= SUNDAY_CAPTION_YEARS[1]:
-        caption = sunday_caption_grid(img, hit["box"])
-        if caption is not None:
-            gbox, side = caption, "below"
-            verdict["gridBox"] = "over its caption"
-    # The same candidate for a page outside NUMBER_RIGHT_FIRST_YEARS, tried after the year-ordered ones found nothing.
-    if side is None and paper.key == "galesundaytimes" and not number_first and over_top is None and mid_column is None:
-        beside_box = number_right(img, hit["box"])
-        if beside_box is not None:
-            gbox, side = beside_box, "left"
-            verdict["gridBox"] = "right of its number heading"
-    # A 1980-84 Gale Sunday Times page whose title stands right of its grid, the ACROSS band over the grid and the DOWN
-    # column right of it (sunday_times_band, SUNDAY_BAND_BESIDE): read as a grid with its title under its top.
-    band_beside = None
-    if side == "left" and gbox is not None and paper.key == "galesundaytimes" \
-            and SUNDAY_BAND_YEARS[0] <= d.name[:4] <= SUNDAY_BAND_YEARS[1]:
-        band_beside = sunday_times_band(img, gbox, hit["box"], f"{d.name}_{n}", paper)
-        if band_beside is not None:
-            side = "below"
-            verdict["gridBox"] = "title right of its grid, clues over it"
+    # The Gale Sunday Times layouts that move the grid, each accepted by the page's own evidence (the grid shaped, the
+    # heading level with it, the clue columns found); a year never gates one, it only ORDERS them: the first pass tries
+    # the candidates of the page's own years, in the order below, the second the others, and only where the located
+    # grid is not already a grid (`open_grid`), so a page one candidate reads keeps that read.
+    over_top = right_column = mid_column = title_grid = caption = band_beside = None
+    for late in (False, True):
+        def tried(years, also=False, late=late):
+            return paper.key == "galesundaytimes" and (also or year_in(years, d.name)) != late
+        def open_grid(late=late):
+            return not late or gbox is None or not shaped_on(img, gbox)
+        # A 1960-99 Gale Sunday Times grid under its title measured as a solution grid (scaled_under).
+        if tried(SUNDAY_SCALED_FIRST_YEARS) and side != "below" and not paper.clues_above and not paper.four and open_grid():
+            under = scaled_under(img, hit["box"])
+            if under is not None:
+                gbox, side = under, "below"
+                verdict["gridBox"] = "under its title, solution-sized"
+        # A 1965-69 Gale Sunday Times page whose clue columns stand between its heading and its grid (SUNDAY_BETWEEN).
+        if tried(SUNDAY_BETWEEN_FIRST_YEARS) and side == "below" and gbox is not None and over_top is None \
+                and gbox[1] - hit["box"][3] >= SUNDAY_BETWEEN_GAP * (gbox[2] - gbox[0]) \
+                and gbox[0] - 0.1 * (gbox[2] - gbox[0]) <= (hit["box"][0] + hit["box"][2]) / 2 <= gbox[2] + 0.1 * (gbox[2] - gbox[0]):
+            between = sunday_times_over(img, hit["box"], f"{d.name}_{n}", paper, gbox)
+            if between is not None:
+                (gbox, over_top), side = between, "below"
+                verdict["gridBox"] = "under its clue columns"
+        # A 1965-69 Gale Sunday Times page whose title banner stands left of its grid (side "right") with the one clue
+        # column under it, ACROSS over DOWN, left of the grid (SUNDAY_BETWEEN's second shape; 1967-06-04: the column's
+        # numbers at x 2690, the grid x 3138-3858): read as the one-column page it is (sunday_times_column).
+        if tried(SUNDAY_BETWEEN_FIRST_YEARS) and side == "right" and gbox is not None and over_top is None \
+                and right_column is None:
+            right_column = sunday_times_column(img, gbox, f"{d.name}_{n}", paper)
+            if right_column is not None:
+                side = "below"
+                verdict["gridBox"] = "right of its title, one clue column left of it"
+        # A 1968-76 Gale Sunday Times page whose title stands under its grid, the clue columns over it (sunday_times_over).
+        # (A grid found "above" is the winners-caption page's before 1976; later it is the page's own, read as found.)
+        if tried(SUNDAY_OVER_FIRST_YEARS) and over_top is None and right_column is None \
+                and (side is None or side == "above" and (open_grid() if late else d.name[:4] < SUNDAY_MID_FIRST_YEARS[0])):
+            over_grid = sunday_times_over(img, hit["box"], f"{d.name}_{n}", paper)
+            if over_grid is not None:
+                (gbox, over_top), side = over_grid, "below"
+                verdict["gridBox"] = "over its title"
+        # A 1976-78 Gale Sunday Times page whose scanned title is the winners caption mid-page: the live heading, grid
+        # and three columns are right of it (sunday_times_mid).
+        if tried(SUNDAY_MID_FIRST_YEARS) and side is None:
+            mid = sunday_times_mid(img, hit["box"], n, f"{d.name}_{n + 1}", paper)
+            if mid is not None:
+                gbox, mid_column, mid_box, mid_number = mid
+                side = "below"
+                verdict["gridBox"] = "right of its winners caption"
+                number, day, why = filed_number(d, found, dict(hit, number=mid_number, box=mid_box))
+                if why:
+                    return refuse(verdict, "number-date-mismatch", why), None
+                verdict["read_as"], n = n, number
+                verdict["number"] = n
+                hit = dict(hit, number=n, box=mid_box)
+        # A Gale Sunday Times page headed by the short "No N" line, its grid right of it (number_right). Its two clue
+        # columns stand left of the grid, the heading over the first: read as a grid with its title right of it (side
+        # "left": the crop two grids' widths left of it, to the page's foot).
+        if tried(NUMBER_RIGHT_FIRST_YEARS) and side is None and over_top is None and mid_column is None:
+            beside_box = number_right(img, hit["box"])
+            if beside_box is not None:
+                gbox, side = beside_box, "left"
+                verdict["gridBox"] = "right of its number heading"
+        # A 1985-89 Gale Sunday Times grid touching the foot of its title, the print left of it taken for the grid.
+        if tried(SUNDAY_RIGHT_FIRST_YEARS) and side == "left" and open_grid() and title_grid is None:
+            title_grid = sunday_title_grid(img, hit["box"])
+            if title_grid is not None:
+                gbox, side = title_grid, "below"
+                verdict["gridBox"] = "touching its title"
+        # A 1985-94 Gale Sunday Times page whose scanned title is a caption under its grid (sunday_caption_grid): the
+        # real heading stands over the grid, the clue columns left of it (the pair/right readers, a stand-in title).
+        if tried(SUNDAY_CAPTION_FIRST_YEARS) and side in (None, "above") and over_top is None and mid_column is None \
+                and open_grid() and caption is None:
+            caption = sunday_caption_grid(img, hit["box"])
+            if caption is not None:
+                gbox, side = caption, "below"
+                verdict["gridBox"] = "over its caption"
+        # A 1980-84 Gale Sunday Times page whose title stands right of its grid, the ACROSS band over the grid and the
+        # DOWN column right of it (sunday_times_band): read as a grid with its title under its top.
+        if tried(SUNDAY_BAND_FIRST_YEARS) and side == "left" and gbox is not None and open_grid() and band_beside is None:
+            band_beside = sunday_times_band(img, gbox, hit["box"], f"{d.name}_{n}", paper)
+            if band_beside is not None:
+                side = "below"
+                verdict["gridBox"] = "title right of its grid, clues over it"
     if gbox is None:
         return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
@@ -15295,34 +15303,33 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.probe.json", None, m, None,
                             (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)), None, None, None)
         column = left_column(probe, gbox, heading=PROBE_HEADING)
-    # A 1960-67 Gale Sunday Times page's one column left of its grid, ACROSS over DOWN (sunday_times_column).
-    if column is None and paper.key == "galesundaytimes" and SUNDAY_LEFT_YEARS[0] <= d.name[:4] <= SUNDAY_LEFT_YEARS[1] \
-            and side == "below" and top is None:
-        column = sunday_times_column(img, gbox, key, paper)
-    # A 1980-84 Gale Sunday Times page's ACROSS band over its grid, the third column down beside it (sunday_times_band).
-    if column is None and paper.key == "galesundaytimes" and SUNDAY_BAND_YEARS[0] <= d.name[:4] <= SUNDAY_BAND_YEARS[1] \
-            and side == "below" and top is None:
-        column = sunday_times_band(img, gbox, hit["box"], key, paper)
-    if column is None and band_beside is not None:
-        column = band_beside
-    if column is None and right_column is not None:
-        column = right_column
-    # A 1985-89 Gale Sunday Times page's cryptic list far left of its grid, the Quickie's beside it (sunday_times_pair).
-    late_pair = SUNDAY_PAIR_LATE_YEARS[0] <= d.name[:4] <= SUNDAY_PAIR_LATE_YEARS[1]
-    if column is None and paper.key == "galesundaytimes" and (SUNDAY_PAIR_YEARS[0] <= d.name[:4] <= SUNDAY_PAIR_YEARS[1]
-                                                               or late_pair or caption is not None) \
-            and side == "below" and top is None:
-        column = sunday_times_pair(img, gbox, sunday_caption_title(gbox) if caption is not None else hit["box"], key, paper,
-                                   late=late_pair)
-    # A 1985-89 Gale Sunday Times page whose one clue column stands left of its grid (sunday_times_right).
-    if column is None and paper.key == "galesundaytimes" and (SUNDAY_RIGHT_YEARS[0] <= d.name[:4] <= SUNDAY_RIGHT_YEARS[1]
-                                                               or caption is not None) \
-            and side == "below" and top is None:
-        column = sunday_times_right(img, gbox, sunday_caption_title(gbox) if caption is not None else hit["box"], key, paper)
-    # A 1976-78 Gale Sunday Times page whose own title stands over its three columns (sunday_times_live).
-    if column is None and paper.key == "galesundaytimes" and SUNDAY_MID_YEARS[0] <= d.name[:4] <= SUNDAY_MID_YEARS[1] \
-            and side == "below" and top is None and mid_column is None:
-        column = sunday_times_live(img, gbox, hit["box"], key, paper)
+    # The Gale Sunday Times column readers, each accepted by the page's own evidence (the numbered lines it finds left of
+    # or over the grid); the years only order them, the page's own first and the others after.
+    for late in (False, True):
+        def tried(years, also=False, late=late):
+            return paper.key == "galesundaytimes" and side == "below" and top is None and column is None \
+                and not (late and backsolve) and (also or year_in(years, d.name)) != late
+        # A one column left of its grid, ACROSS over DOWN (sunday_times_column; 1960-67).
+        if tried(SUNDAY_LEFT_FIRST_YEARS):
+            column = sunday_times_column(img, gbox, key, paper)
+        # The ACROSS band over its grid, the third column down beside it (sunday_times_band; 1980-84).
+        if tried(SUNDAY_BAND_FIRST_YEARS):
+            column = sunday_times_band(img, gbox, hit["box"], key, paper)
+        if not late and column is None and band_beside is not None:
+            column = band_beside
+        if not late and column is None and right_column is not None:
+            column = right_column
+        # The cryptic list far left of the grid, the Quickie's beside it (sunday_times_pair; 1985-89, and 2000-06 `late`).
+        for pair_late in (False, True):
+            if tried(SUNDAY_PAIR_LATE_FIRST_YEARS if pair_late else SUNDAY_PAIR_FIRST_YEARS, also=caption is not None and not pair_late):
+                column = sunday_times_pair(img, gbox, sunday_caption_title(gbox) if caption is not None else hit["box"], key,
+                                           paper, late=pair_late)
+        # The one clue column left of the grid (sunday_times_right; 1985-89).
+        if tried(SUNDAY_RIGHT_FIRST_YEARS, also=caption is not None):
+            column = sunday_times_right(img, gbox, sunday_caption_title(gbox) if caption is not None else hit["box"], key, paper)
+        # The three columns under the page's own title (sunday_times_live; 1976-78).
+        if tried(SUNDAY_MID_FIRST_YEARS) and mid_column is None:
+            column = sunday_times_live(img, gbox, hit["box"], key, paper)
     if mid_column is not None:
         column = mid_column
     if headed is not None:
@@ -15395,7 +15402,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # (2003-03-06: grid x 306-1024, columns x 1056-1900 under the title; read from a crop left of the grid, 0 words).
     # SUNTEL_SIDE_RIGHT: the Gale Sunday Telegraph 1995-2000's page the same (1998-09-20: grid x 210-956, title 1149-1578).
     sunday_top = side == "left" and paper.key == "galesundaytimes" and band_beside is None and column is None \
-        and SUNDAY_BAND_YEARS[0] <= d.name[:4] <= SUNDAY_BAND_YEARS[1] and sunday_top_page(gbox, hit["box"])
+        and sunday_top_page(gbox, hit["box"])
     if side == "left" and (paper.key in ("times", "gale", "galeft", "galesundaytelegraph") or sunday_top
                            or indy_side_right(paper, d, gbox, hit["box"])) \
             and not paper.four and not third:
@@ -15652,7 +15659,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         texts = {k: first_clue_set(t) for k, t in texts.items()}
     texts = {k: t if k == "vlm" else ocr_clues.unworn(t) for k, t in texts.items()}
     texts.update(reprints)
-    if paper.key == "galesundaytimes" and SUNDAY_FOOTER_YEARS[0] <= d.name[:4] <= SUNDAY_FOOTER_YEARS[1]:
+    if paper.key == "galesundaytimes":
         texts = {k: sunday_footer_cut(t) for k, t in texts.items()}
     if paper.key == "galeindependent":
         texts = {k: banner_cut(t) for k, t in texts.items()}
@@ -22870,7 +22877,7 @@ def solo_read_due(row):
 
 
 #: The years of the Gale Sunday Times pages whose grid stands right of the title, sunday_tall's.
-SUNDAY_TALL_YEARS = ("1985", "1989")
+SUNDAY_TALL_FIRST_YEARS = ("1985", "1989")
 #: The due reason of a Gale Sunday Times 1985-89 page whose grid went unread "the white cells span 14 rows and 15
 #: columns" (r184, 12 of 1985's rows, 1985-05-26 to 1985-12-15, and 1989's): the grid right of its title was cut a row
 #: and a half short at the foot (ink_in's crop spent its GROW_TIMES growing right first), its clue columns read whole
@@ -22883,7 +22890,7 @@ def sunday_tall_due(row):
     """Whether Gale Sunday Times (1985-89) ledger `row`, read before REREAD_SUNDAY_TALL, holds a verdict whose grid
     was unread for "the white cells span N rows and 15 columns" (N 12-14)."""
     rel = (row or {}).get("edition") or ""
-    if paper_of(rel).key != "galesundaytimes" or not SUNDAY_TALL_YEARS[0] <= Path(rel).name[:4] <= SUNDAY_TALL_YEARS[1] \
+    if paper_of(rel).key != "galesundaytimes" or not SUNDAY_TALL_FIRST_YEARS[0] <= Path(rel).name[:4] <= SUNDAY_TALL_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_TALL)):
         return False
     return any(re.match(r"the white cells span 1[2-4] rows and 15 columns", str(v.get("imageUnread") or ""))
