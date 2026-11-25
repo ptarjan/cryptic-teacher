@@ -8,7 +8,7 @@ whatever its year, read before REREAD (each old reason's own rows are due by the
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page of any year refused not a grid or no reading parses, every layout reader tried on it since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T03:02:00+00:00"
 
 
 def due(row):
