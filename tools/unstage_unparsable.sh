@@ -40,4 +40,10 @@ ct_unstage_refused() {
   done | (cd "$1" && xargs -d '\n' git reset -q --)
   echo "held out of the commit, the pre-push would refuse it:" >&2
   printf '  %s\n' "$out" >&2
+  # A DATE pair of new files, one placed by a count the other's filed
+  # neighbours now contradict: delete that one from the tree and have its
+  # edition read again (tools/replace_held_pair.py); never fails the commit.
+  if [ -f "$1/tools/replace_held_pair.py" ] && grep -q $'\tDATE \|; DATE ' <<<"$out"; then
+    (cd "$1" && python3 tools/replace_held_pair.py . <<<"$out" >/dev/null) || true
+  fi
 }
