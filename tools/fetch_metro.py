@@ -54,7 +54,7 @@ import urllib.error
 import enumeration  # a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (enumeration_separators, flatten_clue, http_bytes, has_words,
                           puzzle_path, write_puzzle_file)
-from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # shared Wayback plumbing
+from fetch_wayback import maybe_gunzip  # shared Wayback plumbing
 import series as series_meta  # puzzle_id(), default_setter(), day_count_number()
 from groups import entry_id
 
@@ -293,13 +293,12 @@ def http_bytes_patient(url):
     """http_bytes, retried past both a stalled read and an outage longer than
     http_bytes's own backoff covers.
 
-    web.archive.org's CDX endpoint stalls mid-response often enough under
-    this fetcher's load to matter: urllib raises that as a bare TimeoutError,
-    not a urllib.error.URLError, so http_bytes's own HTTPError/URLError retry
-    never sees it. Separately, CDX has been observed 503ing for minutes at a
-    stretch — longer than http_bytes's own ~4.5 minutes of internal backoff —
-    so a 503/429 that survives that internal retry is worth one more, slower,
-    round here rather than giving up on what is otherwise a working query.
+    CDX has been observed 503ing (and stalling mid-response) for minutes at a
+    stretch — longer than http_bytes's own ~4.5 minutes of internal backoff
+    (http_fetch.DEFAULT_BACKOFF) — so a failure that survives that internal
+    retry is worth one more, slower, round here rather than giving up on what
+    is otherwise a working query. Not folded into http_fetch: these rounds are
+    deliberately longer than any host's table backoff.
     """
     for wait in (30, 60, 120, 240, None):
         try:
@@ -378,8 +377,6 @@ def backfill_wayback(dry_run=False):
                                   generator="tools/fetch_metro.py --wayback")
                 print(f"wrote {path}")
             written += 1
-
-        time.sleep(SLEEP_SECONDS)
 
     print(f"done: {written} written, {already} already on disk, "
           f"{failed} failed to parse")

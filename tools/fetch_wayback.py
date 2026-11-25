@@ -57,8 +57,9 @@ the range you want and read what actually skipped.
 
 RATE LIMITING. web.archive.org throttles by IP; http_bytes (imported from
 fetch_puzzle) already backs off on 429/5xx honouring Retry-After, but that
-backoff is for when the throttle has already started. SLEEP_SECONDS is the
-polite minimum between requests so it usually doesn't.
+backoff is for when the throttle has already started. The per-host gap in
+tools/http_fetch.py is the polite minimum between requests so it usually
+doesn't.
 
 OUTPUT. Same file shape as every other fetcher here (see fetch_puzzle.convert
 and write_puzzle_file) — this literally calls fetch_puzzle.convert() on the
@@ -81,7 +82,6 @@ import html
 import http.client
 import json
 import sys
-import time
 import urllib.error
 from pathlib import Path
 
@@ -98,7 +98,6 @@ SERIES_CHOICES = ("everyman", "cryptic")
 # Guardian's own week-long withholding on Saturdays are both why the
 # publication-day capture is the wrong one to want.
 YEARS_TO_TRY = (2023, 2024, 2025, 2026)
-SLEEP_SECONDS = 3
 MARKER = 'data-crossword-data="'
 
 
@@ -157,13 +156,10 @@ def fetch_one(series, num, years=YEARS_TO_TRY):
             data, archive_url = fetch_capture(series, num, year)
         except urllib.error.HTTPError as err:
             last_reason = f"HTTP {err.code}"
-            time.sleep(SLEEP_SECONDS)
             continue
         except (OSError, http.client.HTTPException, EOFError, ValueError) as err:
             last_reason = f"{type(err).__name__}: {err}"
-            time.sleep(SLEEP_SECONDS)
             continue
-        time.sleep(SLEEP_SECONDS)
         if not has_full_solutions(data):
             print(f"  {series}-{num} capture {year} ({archive_url}): "
                   f"no solutions in this capture — trying a later year")

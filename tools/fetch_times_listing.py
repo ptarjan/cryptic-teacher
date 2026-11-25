@@ -27,7 +27,6 @@ import gzip
 import json
 import re
 import sys
-import time
 import urllib.error
 
 from fetch_puzzle import http_bytes
@@ -39,12 +38,6 @@ HOSTS = ("thetimes.co.uk", "thetimes.com")
 CDX = ("https://web.archive.org/cdx/search/cdx?url={host}/puzzles/crossword"
        "&output=json&filter=statuscode:200&collapse=timestamp:8")
 CAPTURE = "https://web.archive.org/web/{ts}id_/{url}"
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-
-#: Seconds between captures: Wayback throttles a client much faster than this.
-PAUSE = 10
-
 #: A capture lists about eight days of Jumbos and two Sundays, so one capture
 #: in every five days overlaps the next and misses no number.
 EVERY = datetime.timedelta(days=5)
@@ -62,7 +55,7 @@ MONTHS = {datetime.date(2000, i, 1).strftime("%B"): i for i in range(1, 13)}
 
 
 def get(url):
-    return gunzip(http_bytes(url, timeout=90))
+    return gunzip(http_bytes(url))
 
 
 def gunzip(raw):
@@ -179,7 +172,6 @@ def main(argv=None):
             row = capture_row(ts, gunzip(page).decode("utf-8", errors="replace"))
             media_manifest.record(MANIFEST, CACHE / f"{ts}.html", **row)
             fetched += 1
-            time.sleep(PAUSE)
         print(f"fetched {fetched} of {len(todo)} capture(s)")
     dates = paper_dates()
     for series in sorted(set(SLUGS.values())):

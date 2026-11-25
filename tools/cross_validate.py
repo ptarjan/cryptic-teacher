@@ -554,7 +554,7 @@ class Globe(Adapter):
     origin = "globe"
     series = ("timesquick",)
     exact_clues = True
-    #: Somebody else's CDN: fetch_globeandmail.REQUEST_GAP, one at a time.
+    #: Somebody else's CDN: the cdn-us.amuselabs.com row in http_fetch.HOSTS, one at a time.
     delay = 1.0
     workers = 1
 

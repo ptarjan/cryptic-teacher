@@ -95,8 +95,8 @@ on, "The Weekender Cryptic" since 2026-08-08 — which carries no number
 anywhere in its payload and so cannot be filed into this series at all; see
 convert(), which reports it as an expected condition rather than a failure.
 
-PACING. One request per second, max, with a browser-ish User-Agent (reusing
-fetch_puzzle.UA) — this is somebody else's CDN and getting banned would take
+PACING. One request per second, max (the cdn-us.amuselabs.com row in
+tools/http_fetch.py) — this is somebody else's CDN and getting banned would take
 the puzzle away from every future run, not just this one.
 
 The Globe's No N is the Times Quick Cryptic No N, so it is never filed as a
@@ -110,7 +110,6 @@ import base64
 import json
 import re
 import sys
-import time
 import urllib.error
 from collections import deque
 from datetime import date, datetime, timedelta
@@ -127,7 +126,6 @@ SET = "globeandmail-new-cryptic"
 DATE_PICKER_URL = f"https://cdn-us.amuselabs.com/pmm/date-picker?set={SET}"
 PUZZLE_URL = f"https://cdn-us.amuselabs.com/pmm/crossword?id={{puzzle_id}}&set={SET}&embed=1"
 PLAY_URL = "https://www.theglobeandmail.com/puzzles-and-crosswords/new-cryptic/?date={ymd}"
-REQUEST_GAP = 1.0  # seconds between requests — see PACING above
 # The oldest date the numbered series has a puzzle at. The
 # crossword endpoint 200s with a genuine Amuse "puzzle not found" page (not an
 # HTTP 404, and not a shape change — no rawc field, no title field, nothing to
@@ -506,9 +504,7 @@ def latest():
 
 def run_dates(ymds, out_dir, dry_run):
     fetched = missing = 0
-    for i, ymd in enumerate(ymds):
-        if i:
-            time.sleep(REQUEST_GAP)
+    for ymd in ymds:
         try:
             fetch_date(ymd, out_dir, dry_run)
             fetched += 1
