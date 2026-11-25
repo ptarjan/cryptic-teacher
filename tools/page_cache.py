@@ -114,7 +114,7 @@ TOOLS_PY = re.compile(r"tools/[^/]+\.py")
 #: build_seo_pages.reuse_page() compares and rewrites, never from the file's
 #: bytes. So they are not in the build-wide key: a stylesheet edit re-stamps
 #: the stored pages in place instead of rendering all of them again.
-LINKED_ONLY = {"style.css", "analytics.js", "appnav.js", "landing.js", "og.png",
+LINKED_ONLY = {"style.css", "reader.js", "analytics.js", "appnav.js", "landing.js", "og.png",
                "favicon.svg", "favicon.ico", "apple-touch-icon.png"}
 
 

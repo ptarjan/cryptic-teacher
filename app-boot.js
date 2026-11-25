@@ -422,7 +422,7 @@
       bootWithIndex();
     }
 
-    if (new URLSearchParams(location.search).get("src") === "push") beacon("push-open", true);
+    if (new URLSearchParams(location.search).get("src") === "push") beacon("push-open");
     function bootWithIndex() {
     // A link that names a puzzle by anything but its id needs rows this list
     // may not hold yet: fetch them (one series for a series-date alias, all

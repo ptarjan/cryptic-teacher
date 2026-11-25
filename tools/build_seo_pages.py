@@ -426,6 +426,7 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <meta property="og:image:alt" content="{esc(image_alt)}">
 <meta name="twitter:card" content="summary_large_image">
 {extra}<link rel="stylesheet" href="{asset("style.css")}">
+<script src="{asset("reader.js")}"></script>
 <script src="{asset("analytics.js")}"></script>
 <script src="{asset("appnav.js")}"></script>
 </head>
@@ -2771,13 +2772,16 @@ def moved_page(slug, target, title, body):
 
 def bare_head(title, canonical, extra=""):
     """The <head> of a page that only points somewhere else: a title, where
-    the content really is, and analytics.js, because tools/ga_report.py is how
-    anyone learns that an old address still gets visits. No social tags: the
-    card a share of it should show is the target's."""
+    the content really is, and analytics.js behind reader.js, its gate. A page
+    somebody reads (a which-paper choice) is counted like any other; a refresh
+    that leaves at once never has a reader, so an old address shows up, if at
+    all, as the referrer of the page it sends to. No social tags: the card a
+    share of it should show is the target's."""
     return ('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
             f"<title>{esc(title)}</title>\n"
             f'<link rel="canonical" href="{esc(canonical)}">\n'
             + extra
+            + f'<script src="{asset("reader.js")}"></script>\n'
             + f'<script src="{asset("analytics.js")}"></script>\n</head>\n')
 
 

@@ -14,22 +14,33 @@
 
    Which clue, which puzzle and which answer are not sent to either.
 
+   Nothing is sent, not even the page_view and session GA would record on its
+   own at load, until reader.js says a person is reading (CTReader.when): GA
+   is configured and its script fetched only then. A page with no reader never
+   loads gtag.js at all. If reader.js is missing, GA stays off.
+
    Fails silently from file:// and behind a blocker, like every other thing on
    this page that is not the crossword.
 
-   Not loaded at all in the site owner's own browsers: app.js sets
+   Never configured in the site owner's own browsers: app.js sets
    localStorage "ct-internal" when the sync server says the code is his (see
    sync/worker.js), so his visits never reach GA and no GA filter is needed. */
 (function () {
   "use strict";
-  try { if (localStorage.getItem("ct-internal")) return; } catch (e) { /* counted */ }
+  if (!window.CTReader) return;
   var ID = "G-JX21DWG8J5";
+  // Callers only reach gtag from inside CTReader.when, and this file registers
+  // with CTReader before any script that counts, so the config below always
+  // goes first.
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
-  window.gtag("js", new Date());
-  window.gtag("config", ID);
-  var s = document.createElement("script");
-  s.async = true;
-  s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
-  document.head.appendChild(s);
+  window.CTReader.when(function () {
+    try { if (localStorage.getItem("ct-internal")) return; } catch (e) { /* counted */ }
+    window.gtag("js", new Date());
+    window.gtag("config", ID);
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
+    document.head.appendChild(s);
+  });
 })();

@@ -30,7 +30,7 @@
    Two events, both on sync/events.js's list (tools/smoke_test.js checks it):
    "clue-landed" when a clue was found and marked, "clue-hint" when any row's
    Try with hints was followed. Sent the way app.js's beacon() sends, to GA and the sync Worker,
-   and not at all from the site owner's own browsers (localStorage ct-internal). */
+   once reader.js says a person is reading, and not at all from the site owner's own browsers (localStorage ct-internal). */
 (function () {
   "use strict";
   var script = document.currentScript;
@@ -40,7 +40,11 @@
   var SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   var SEARCH = /(^|\.)(google|bing|duckduckgo|ecosia|yahoo|qwant|startpage|brave|yandex|baidu|kagi)\.[a-z.]+$/;
 
+  // Through the site's one counting gate (reader.js), like app.js's beacon().
   function beacon(name) {
+    if (window.CTReader) window.CTReader.when(function () { send(name); });
+  }
+  function send(name) {
     try { if (localStorage.getItem("ct-internal")) return; } catch (e) { /* counted */ }
     // transport_type beacon: the click that sends this leaves the page at once,
     // and gtag's default transport is cancelled by the navigation.

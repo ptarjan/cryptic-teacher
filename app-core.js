@@ -66,7 +66,7 @@
   function saveFailed() {
     if (saveFailedShown) return;
     saveFailedShown = true;
-    beacon("save-failed", true);
+    beacon("save-failed");
     const box = $("toasts");
     if (!box) return;
     const el = document.createElement("div");
@@ -130,9 +130,9 @@
   function fetchVotes(id) {
     if (votesAsked === id) return;
     votesAsked = id;
-    if (!SYNC_ENDPOINT || typeof fetch !== "function") return;
-    if (looksAutomated()) return;
-    fetch(`${SYNC_ENDPOINT}/v?p=${encodeURIComponent(id)}`)
+    if (!SYNC_ENDPOINT || typeof fetch !== "function" || !window.CTReader) return;
+    // A KV read per page view is the cost a page nobody reads should not run up.
+    window.CTReader.when(() => fetch(`${SYNC_ENDPOINT}/v?p=${encodeURIComponent(id)}`)
       .then((r) => (r.ok ? r.json() : null))
       .then((t) => {
         // The grid may have moved on while this was in the air; a tally is
@@ -145,7 +145,7 @@
         tallyDrawn = false;
         celebrate(wasComplete === true, false);
       })
-      .catch(() => {});
+      .catch(() => {}));
   }
 
   function castVote(target, verdict) {
@@ -158,13 +158,16 @@
     t[verdict]++;
     tallyDrawn = false;
     const body = `${target}|${verdict}`;
-    try {
-      if (!SYNC_ENDPOINT) return;
-      if (navigator.sendBeacon)
-        navigator.sendBeacon(SYNC_ENDPOINT + "/v", new Blob([body], { type: "text/plain" }));
-      else if (typeof fetch === "function")
-        fetch(SYNC_ENDPOINT + "/v", { method: "POST", body, keepalive: true }).catch(() => {});
-    } catch (e) { /* a vote is never worth an exception in the middle of a solve */ }
+    // A tally is a count like any other, so it waits on the same gate (reader.js).
+    if (!SYNC_ENDPOINT || !window.CTReader) return;
+    window.CTReader.when(() => {
+      try {
+        if (navigator.sendBeacon)
+          navigator.sendBeacon(SYNC_ENDPOINT + "/v", new Blob([body], { type: "text/plain" }));
+        else if (typeof fetch === "function")
+          fetch(SYNC_ENDPOINT + "/v", { method: "POST", body, keepalive: true }).catch(() => {});
+      } catch (e) { /* a vote is never worth an exception in the middle of a solve */ }
+    });
   }
 
   // The row reads as a sentence once it has been answered: what you said, and
@@ -238,40 +241,17 @@
   // Not "ct:"-prefixed, so localEnvelope() never mistakes it for a puzzle.
   // analytics.js reads the same key by name.
   const INTERNAL_KEY = "ct-internal";
-  // Automation announces itself (webdriver) or names itself (UA). Such a page
-  // is not a visitor, so it counts nothing; the Worker drops the same UAs.
-  const BOT_UA = /bot|crawl|spider|slurp|headless|phantom|lighthouse|puppeteer|playwright|selenium|python|curl|wget|httpclient|facebookexternalhit|preview|monitor/i;
-  function looksAutomated() {
-    try {
-      return !!(navigator.webdriver || BOT_UA.test(navigator.userAgent || "") ||
-                (navigator.languages && navigator.languages.length === 0));
-    } catch (e) { return false; }
-  }
-  /* A stealth headless Chrome has a normal UA and webdriver false, so the check
-     above cannot see it (11-12 on: ~3700 then ~6100 "new visits" a day, each
-     with an open and almost never a letter). What it cannot fake cheaply is a
-     person: it never presses, types or scrolls. So nothing is reported until
-     the first real gesture; before it, beacons wait here. A visitor who leaves
-     without touching anything is not counted, which is the point. */
-  let humanSeen = false;
-  const awaitingHuman = [];
-  function onHuman(fn) { if (humanSeen) fn(); else awaitingHuman.push(fn); }
-  function humanArrived(e) {
-    if (humanSeen || !e || e.isTrusted === false) return;
-    humanSeen = true;
-    ["pointerdown", "keydown", "touchstart", "wheel"].forEach((t) =>
-      window.removeEventListener(t, humanArrived, true));
-    awaitingHuman.splice(0).forEach((fn) => { try { fn(); } catch (err) { /* best effort */ } });
-  }
-  ["pointerdown", "keydown", "touchstart", "wheel"].forEach((t) =>
-    window.addEventListener(t, humanArrived, true));
-  function beacon(name, skipGate) {
+  // Nothing goes anywhere until reader.js says a person is reading this page
+  // (CTReader.when, the one gate every count on the site waits on); until then
+  // the send waits there, and on a page that never gets a reader it never runs.
+  function beacon(name) {
     if (eventsSent.has(name)) return;
-    if (looksAutomated()) return;
-    if (!humanSeen && !skipGate) { onHuman(() => beacon(name)); return; }
-    if (store.get(INTERNAL_KEY, null)) return;
     eventsSent.add(name);
     if (AB_MIRROR[name]) abSend(AB_MIRROR[name]);
+    if (window.CTReader) window.CTReader.when(() => sendEvent(name));
+  }
+  function sendEvent(name) {
+    if (store.get(INTERNAL_KEY, null)) return;
     // The list is the contract with the Worker and is checked at both ends, so a
     // name that is not on it is a bug in this file and stops here.
     if (typeof CTEvents === "undefined" || CTEvents.indexOf(name) < 0) return;
@@ -353,10 +333,10 @@
     abEnrollIfFirst(); // A/B 1 (a no-op when bindWelcome already did it at load)
     abVisitWhenSeen();
     nuxSeed(first);
-    // Only once a person has touched the page (see onHuman): the tally is
-    // written then too, so a bounce does not turn tomorrow's first visit into a
+    // Only once the page has a reader (reader.js): the tally is written then
+    // too, so a page nobody read does not turn tomorrow's first visit into a
     // "return".
-    onHuman(() => {
+    if (window.CTReader) window.CTReader.when(() => {
       const seenNow = store.get("ct:seen", null);
       if (seenNow && seenNow.last === today) return;
       const days = (seenNow ? seenNow.days : (hasAnySave() ? 1 : 0)) + 1;
@@ -440,10 +420,11 @@
   function abSend(step) {
     if (!ab || ab.day !== abToday() || ab.sent.indexOf(step) >= 0) return;
     ab.sent.push(step); abSave();
-    // The visit step skips the gesture gate: arm a's blocking dialog made
-    // arm a's bouncers never touch the page, so gating on a touch undercounted
-    // arm a only. UA bot filtering (looksAutomated, in beacon) still applies.
-    beacon("ab1-" + ab.arm + "-" + step, step === "visit");
+    // Through the same gate as everything else. The visit step is still fair
+    // to both arms: reader.js also passes a page that has held the reader's
+    // attention for a few seconds untouched, so arm a's dialog, which nobody
+    // can scroll past, does not cost its bouncers their count.
+    beacon("ab1-" + ab.arm + "-" + step);
   }
   // The A/B "visit" step: the page has been visible for 3 continuous seconds.
   // Nothing the arm changes can affect it, so both arms are counted alike.

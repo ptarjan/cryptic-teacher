@@ -27,11 +27,19 @@ check(ab().arm === "b", "the first visit is enrolled in arm b: " + st["ct-ab1"])
 check(!(ab().sent || []).includes("visit"), "the visit step waits for 3 visible seconds");
 global.flushTimers(3000);
 check(ab().sent && ab().sent.indexOf("visit") >= 0, "the visit step is recorded for arm b after 3s visible");
-// With no gesture at all (a bounce), the visit still counts: not gesture-gated.
-const dBot = boot({ query: "?p=" + ID, arm: "b", bot: true });
+// With no gesture at all (a bounce), the visit still counts: a few seconds of
+// attention pass reader.js's gate as well as a touch does.
+const names = (dd) => dd.beacons.map((b) => b.body.parts);
+const dStill = boot({ query: "?p=" + ID, arm: "b", untouched: true });
 global.flushTimers(3000);
-check(JSON.parse(dBot.storage["ct-ab1"] || "null").sent.includes("visit") && dBot.beacons.length === 1,
-      "a visitor who never touches the page is still counted as a visit");
+check(JSON.parse(dStill.storage["ct-ab1"] || "null").sent.includes("visit") && names(dStill).includes("ab1-b-visit"),
+      "a visitor who never touches the page is still counted as a visit: " + names(dStill));
+// A page that never has focus is a headless browser, and counts nothing, even
+// when its driver sends trusted input.
+const dHeadless = boot({ query: "?p=" + ID, arm: "b", unfocused: true });
+global.flushTimers(3000);
+check(dHeadless.beacons.length === 0, "a page that never has focus sends no beacon: " + names(dHeadless));
+dStill.stop(); dHeadless.stop();
 check(st["ct:nux"] === "0", "the first-visit cursor is written: " + st["ct:nux"]);
 check(!!reg["grid"] && reg["grid"].children.length > 0, "the grid renders");
 check(hidden(reg, "welcome"), "arm b does not block the grid with the dialog");

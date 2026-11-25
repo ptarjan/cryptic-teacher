@@ -62,7 +62,9 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
 </script>
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
-     first events of a session would find no gtag to call. -->
+     first events of a session would find no gtag to call. reader.js first:
+     it is the gate analytics.js and every counter wait on. -->
+<script src="reader.js"></script>
 <script src="analytics.js"></script>
 <script src="appnav.js" data-app></script>
 <!-- Merge rules, shared verbatim with the sync Worker so the two ends cannot

@@ -271,6 +271,9 @@ function bootApp(opts) {
     .match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
   const document = {
     visibilityState: "visible", // app-core's A/B visit waits on 3s of visibility
+    // reader.js counts nothing on a page without focus; opts.unfocused is the
+    // headless browser whose page never has it.
+    hasFocus() { return !options.unfocused; },
     readyState: "complete",
     activeElement: null,
     head: new FakeEl("head"),
@@ -567,6 +570,11 @@ function bootApp(opts) {
   // quotes.js the same way: app.js curls every clue it shows through CTQuotes.
   new Function("window", fs.readFileSync(path.join(ROOT, "quotes.js"), "utf8"))(global.window);
   global.window.CTQuotes = global.CTQuotes;
+  // reader.js, the gate every count waits on (window.CTReader). Loaded after the
+  // fake clock above, as the page loads it before app.js, so its dwell timer is
+  // one flushTimers can reach.
+  new Function("window", "document", "navigator", fs.readFileSync(path.join(ROOT, "reader.js"), "utf8"))(
+    global.window, document, navigator);
   // idx.js the same way: the progressive index's decoder, which app.js's
   // loadShards calls (window.ctIdx) to turn a fetched shard back into rows.
   new Function("window", fs.readFileSync(path.join(ROOT, "idx.js"), "utf8"))(global.window);
@@ -608,11 +616,11 @@ function bootApp(opts) {
     abbrevSrc + "\n" + appSrc)(global.window, document, global.window.localStorage,
                                global.confirm, navigator);
 
-  // app-core.js counts nothing until a person's first gesture (humanArrived: a
-  // pointerdown, keydown, touchstart or wheel on the window, 67863a74609), so a
-  // boot presses once, as a visitor would. opts.bot leaves the page untouched,
-  // for a check of the gate itself.
-  if (!options.bot) (winListeners.pointerdown || []).slice().forEach((fn) => fn({ isTrusted: true }));
+  // Nothing is counted until reader.js sees a reader (a trusted gesture on a
+  // focused page, or a few seconds of attention), so a boot presses once, as a
+  // visitor would. opts.untouched leaves the page alone, for a check of the
+  // gate itself.
+  if (!options.untouched) (winListeners.pointerdown || []).slice().forEach((fn) => fn({ isTrusted: true }));
 
   // appSrc goes back out because the smoke test greps app.js's own source (the
   // LABELS ladder) — an assertion about the code, not about the rendered DOM.

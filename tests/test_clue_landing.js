@@ -19,7 +19,7 @@ const assert = (ok, msg) => { if (!ok) fails.push(msg); };
 
 // Three clues stacked 300px apart; the viewport is 800 tall.
 function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", navType = "navigate",
-               touch = false, internal = false } = {}) {
+               touch = false, internal = false, reader = true } = {}) {
   const sent = [], gtagged = [], listeners = {};
   class El {
     constructor(tag, id, top) {
@@ -51,6 +51,8 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
   const window = {
     scrollY, innerHeight: 800,
     addEventListener: (t, f) => { (listeners[t] = listeners[t] || []).push(f); },
+    // reader.js's gate: open, or (reader: false) a page nobody is reading.
+    CTReader: { when: (f) => { if (reader) f(); } },
     gtag: (_e, name, opts) => { gtagged.push(name); assert(!opts || opts.transport_type === "beacon", "gtag uses beacon transport"); },
   };
   const document = {
@@ -115,6 +117,11 @@ for (const [why, opts] of [
 ]) {
   const r = run(opts);
   assert(r.landed.length === 0 && r.sent.length === 0, `nothing marked or sent when ${why}`);
+}
+// A page nobody is reading (reader.js never passes) is marked but not counted.
+{
+  const r = run({ scrollY: 600, reader: false });
+  assert(r.landed.length === 1 && r.sent.length === 0 && r.gtagged.length === 0, "nothing is sent before reader.js passes");
 }
 // The owner's own browser is marked but not counted.
 {
