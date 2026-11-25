@@ -13,7 +13,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Independent or Telegraph page of any year refused for its grid or columns, every layout candidate tried on it since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T03:47:00+00:00"
 INK = re.compile(r"the ink under the title is (\d+)x(\d+), not a grid")
 GRID_INK = 400
 
