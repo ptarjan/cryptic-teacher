@@ -67,7 +67,7 @@ const SMOKE_DEPS = [
     "tools/daily_fetch.py", "tools/daily_update.sh", "tools/dashes.py", "tools/data/", "tools/definitions.py", "tools/deleted_paths.py", "tools/desktop_busy.py", "tools/desktop_hosts.py", "tools/difficulty.py",
     "tools/difficulty_check.py", "tools/difficulty_page.html", "tools/dir_cache.py", "tools/downloads.py", "tools/edition_commit.py", "tools/enumeration.py",
     "tools/errata.py", "tools/fake_dom.js", "tools/fetch_lexicon.sh",
-    "tools/fetch_archive_org_editions.py", "tools/fetch_ia_book.py", "tools/fetch_nation.py", "tools/nation_images.py", "tools/fetch_privateeye.py", "tools/fetch_puzzle.py", "tools/fetch_times_listing.py",
+    "tools/fetch_archive_org_editions.py", "tools/fetch_ia_book.py", "tools/fetch_nation.py", "tools/nation_images.py", "tools/fetch_privateeye.py", "tools/fetch_puzzle.py", "tools/http_fetch.py", "tools/fetch_times_listing.py",
     "tools/file_archive_org_puzzles.py", "tools/file_penguin_puzzle.py", "tools/fix_shape_suspects.py", "tools/fix_shape_base.py", "tools/fix_shape_leaves.py", "tools/fix_shape_indicators.py", "tools/fix_shape_container.py", "tools/fix_shape_cuts.py", "tools/fix_shape_ana.py", "tools/fix_shape_notes.py", "tools/flatten_anagram_fodder.py",
     "tools/file_trove_puzzles.py", "tools/find_answer_leaks.py", "tools/grid_fill.py", "tools/grid_ocr_cache.py", "tools/grid_verdict.py",
     "tools/groups.py", "tools/hidden_messages.py", "tools/indicator_keys.py", "tools/index_idx.py", "tools/json_merge.py", "tools/leading_quote.py", "tools/mem_gate.py",

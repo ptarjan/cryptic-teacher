@@ -42,7 +42,6 @@ import fnmatch
 import functools
 import hashlib
 import html
-import http.client
 import itertools
 import json
 import os
@@ -58,6 +57,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import sharded_table  # the big ledgers kept as shard folders
+from http_fetch import RETRY_STATUSES, polite_bytes as http_bytes, polite_get as http_get, polite_reply
 import series as series_meta  # what each series IS; see tools/series.py
 import provenance  # where each puzzle came from; see tools/provenance.py
 import corroborate  # every other source we hold; see tools/corroborate.py
@@ -84,7 +84,6 @@ from puzzle_paths import (  # re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle as resolve_puzzle, shim_path)
 
 ROOT = Path(__file__).resolve().parent.parent
-UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 # The three series this fetcher can reach, each with its own number sequence and
 # its own Guardian series page. What each series IS — publisher, display name,
 # how gentle — lives in tools/series.py, because the SEO builder and the backfill
@@ -187,50 +186,12 @@ PER_LIGHT_ENUMERATION = {s for s, m in series_meta.SERIES.items()
 COMPACT = (",", ":")
 
 
-# A throttled request and a missing puzzle look identical to a walk: both are
-# an exception where a page should have been. Every walker here reads that as
-# "this number was never published" and moves on, so without these a throttled
-# stretch is written into the archive as a run of holes, and a long enough one
-# looks like the end of the archive and retires the source for the run.
-RETRY_STATUSES = (429, 500, 502, 503, 504)
-RETRY_WAITS = (5, 20, 60, 180)
-
-
-def http_fetch(url, timeout=30):
-    """(final url, bytes) of one GET, backing off on the statuses that mean
-    "not now" rather than "not here", and on a body cut short or a dropped
-    connection. Retry-After wins over our own schedule when the server sends
-    one, capped so a silly value cannot park the walk for an afternoon."""
-    for wait in RETRY_WAITS + (None,):
-        try:
-            req = urllib.request.Request(url, headers=UA)
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                return r.geturl(), r.read()
-        except urllib.error.HTTPError as err:
-            if wait is None or err.code not in RETRY_STATUSES:
-                raise
-            try:
-                wait = max(wait, min(float(err.headers.get("Retry-After")), 600))
-            except (AttributeError, TypeError, ValueError):
-                pass
-            print(f"  HTTP {err.code} on {url} — waiting {wait:.0f}s")
-        except urllib.error.URLError as err:
-            if wait is None:
-                raise
-            print(f"  {err.reason} on {url} — waiting {wait}s")
-        except (http.client.HTTPException, ConnectionError, TimeoutError) as err:
-            if wait is None:
-                raise
-            print(f"  {type(err).__name__} on {url} — waiting {wait}s")
-        time.sleep(wait)
-
-
-def http_bytes(url, timeout=30):
-    return http_fetch(url, timeout)[1]
-
-
-def http_get(url):
-    return http_bytes(url).decode("utf-8")
+# Fetching, pacing and retrying live in tools/http_fetch.py; these names stay for the
+# fetchers that import them from here.
+def http_fetch(url, timeout=None):
+    """(final url, bytes) of one GET: tools/http_fetch.py owns the UA, pacing and retries."""
+    reply = polite_reply(url, timeout=timeout)
+    return reply.url, reply.body
 
 
 TAG_RE = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)[^>]*>")
