@@ -173,10 +173,12 @@
     // Coming back to a tab is exactly when the other machine's work is waiting,
     // and it is the cheapest possible moment to ask.
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) { pauseTiming(); syncFlush(); return; }
+      if (document.hidden) { pauseTiming(); pageLeaving(); return; }
       resumeTiming();
       if (syncOn()) syncPull();
     });
+    // pagehide covers the closes where visibilitychange never fires (iOS swipe-away, bfcache).
+    window.addEventListener("pagehide", () => pageLeaving());
     // A desktop tab stays visible behind another window, so hidden is only half
     // of "in front of you"; focus is the other half.
     window.addEventListener("blur", pauseTiming);
@@ -788,12 +790,7 @@
       .map((m) => m.slice(m.indexOf('"') + 1, -1)));
     function reloadNow() {
       try { sessionStorage.setItem(UPDATE_RELOAD_KEY, String(Date.now())); } catch (e) { /* no storage */ }
-      try { syncFlush(); } catch (e) { /* nothing to flush */ }
-      const t0 = Date.now();
-      (function go() {
-        if ((syncBusy || syncTimer !== null) && Date.now() - t0 < 3000) { setTimeout(go, 150); return; }
-        location.reload();
-      })();
+      pageLeaving().then(() => location.reload());
     }
     function pill() {
       if ($("update-pill")) return;

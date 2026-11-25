@@ -238,7 +238,7 @@
      and a tab being hidden pushes whatever is waiting straight away. */
   const SYNC_QUIET_MS = 2000, SYNC_MIN_GAP_MS = 60 * 1000;
   const SYNC_RETRY_MS = 30 * 1000, SYNC_RETRY_MAX_MS = 15 * 60 * 1000;
-  let syncTimer = null, syncBusy = false, syncAgain = false;
+  let syncTimer = null, syncBusy = false, syncAgain = false, syncInFlight = null;
   let syncLastPush = 0, syncFails = 0, syncRetryTimer = null;
   function syncPushSoon() {
     if (!syncOn()) return;
@@ -247,11 +247,23 @@
     syncTimer = setTimeout(() => { syncTimer = null; syncPush(); }, wait);
   }
   // A push waiting on its timer goes now: the tab is being put down.
+  // Returns a promise for the push in flight (or none), so a caller about to
+  // lose the page can wait for it rather than poll the busy flag.
   function syncFlush() {
-    if (syncTimer === null) return;
-    clearTimeout(syncTimer);
-    syncTimer = null;
-    syncPush();
+    if (syncTimer !== null) {
+      clearTimeout(syncTimer);
+      syncTimer = null;
+      syncPush();
+    }
+    return syncInFlight || Promise.resolve();
+  }
+  // The page is going away (tab hidden, closed, or reloading): every write
+  // still waiting on a debounce timer goes now, local store first and then the
+  // server. Resolves when the push settles, or after `ms` — whichever is first.
+  function pageLeaving(ms) {
+    let done;
+    try { flushState(); done = syncFlush(); } catch (e) { done = Promise.resolve(); }
+    return Promise.race([done, new Promise((r) => setTimeout(r, ms || 3000))]);
   }
   function syncFailed(retry) {
     syncFails++;
@@ -280,7 +292,7 @@
     if (syncBusy) { syncAgain = true; return Promise.resolve(); }
     syncBusy = true;
     syncLastPush = Date.now();
-    return syncFetch("PUT", localEnvelope())
+    return (syncInFlight = syncFetch("PUT", localEnvelope())
       .then((merged) => {
         // The response is the merged truth, including anything another machine
         // pushed while this one was typing — so a push is also a pull.
@@ -290,8 +302,9 @@
       .catch(() => syncFailed())
       .then(() => {
         syncBusy = false;
+        syncInFlight = null;
         if (syncAgain) { syncAgain = false; syncPushSoon(); }
-      });
+      }));
   }
   /* `missing` is what to do when the code has nothing stored under it, and only
      the join below passes one: there, a 404 means the code was typed wrong, and

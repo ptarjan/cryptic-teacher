@@ -168,9 +168,8 @@ function harness() {
     await h.advance(60 * 1000);
     assert(h.server.puts === 2 && h.onServer("everyman-1"), "and goes up a minute after the last push");
     h.type("everyman-1", "G");
-    h.api.syncFlush();
-    await h.advance(0);
-    assert(h.server.puts === 3 && h.onServer("everyman-1"), "a hidden tab pushes the waiting change at once");
+    await h.api.syncFlush();
+    assert(h.server.puts === 3 && h.onServer("everyman-1"), "a hidden tab pushes the waiting change at once, and the flush promise settles with the push");
     assert(h.pending().length === 0, "and leaves no timer behind");
   }
 
