@@ -266,6 +266,7 @@ WORKER_JOB="pre-reset backfill"
 wave_width() {
   local w err said="${RUNS:-/tmp}/.width_said" key
   err=$(mktemp)
+  weekly_read >/dev/null   # the pacing loop lives on this call: keep the landing current
   w=$(CT_SPAN_RUNS="${POOL_SPAN_RUNS:-}" python3 tools/prereset_plan.py --may-pause --width ${wide:-} 2>"$err")
   # One line when the width or its caps change, not at every checkpoint.
   key=$(head -1 "$err" | grep '^width ' | sed 's/ · .*//')
@@ -389,6 +390,17 @@ fi
 # leftovers were worth having.
 LANDING_FILE=".prereset_landing"
 LANDING_OK="${LANDING_OK:-90}"
+# The one place the weekly meter is read: prints the percent and records it as
+# the landing, so the file holds the last reading taken before the reset by
+# whatever path took it (a pool checkpoint, the pacing loop, the deadline exit),
+# not only the one at the end of a wave. Fails, writing nothing, on an unread meter.
+weekly_read() {
+  local w
+  w=$(python3 tools/weekly_usage.py 2>/dev/null) || return 1
+  [ -n "$w" ] || return 1
+  echo "$w $RESET_AT" > "$LANDING_FILE"
+  echo "$w"
+}
 if [ -z "$REEXEC_STATE" ] && [ -f "$LANDING_FILE" ]; then
   read -r landed deadline < "$LANDING_FILE"
   if [ "$(date +%s)" -ge "${deadline:-0}" ]; then
@@ -402,7 +414,7 @@ fi
 # A spent week has nothing to buy, and everything below — the archive fetch,
 # the republish, the smoke test — is not worth running hourly for nothing.
 if [ -z "$REEXEC_STATE" ]; then
-weekly_now=$(python3 tools/weekly_usage.py 2>/dev/null)
+weekly_now=$(weekly_read)
 # Not a death: this fire ends, and the plugin's next one, five minutes on, asks
 # the meter again, so the burn starts by itself the minute the week (or a manual
 # reset) gives it room. A fire is the waiting here, and it survives what a
@@ -1089,7 +1101,7 @@ pool_kill_tree() {
 pool_topup_room() {
   local w
   [ ${#WAVE_FAILED_IDS[@]} -eq 0 ] && return 0
-  w=$(python3 tools/weekly_usage.py 2>/dev/null) || return 1
+  w=$(weekly_read) || return 1
   awk -v n="$w" -v e="$EXHAUSTED" 'BEGIN{exit !(n != "" && n < e)}'
 }
 POOL_HOLD=0          # 1 while the pool drains or stops: nothing new starts
@@ -1137,7 +1149,7 @@ pool_interval_start() {
   fi
   # Read after the re-plan, which can take longer than a window has
   # left on a loaded machine: the width launched is the one for now.
-  POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
+  POOL_BEFORE=$(weekly_read || echo 0)
   wide=$(wave_width)
   pool_mark
   POOL_RUN_US=0
@@ -1198,6 +1210,7 @@ run_pool() {
     log_pipe_check
     if [ "$stop" = 0 ] && past_deadline; then
       if [ -e "$PRERESET_PAUSE" ]; then echo "paused ($PRERESET_PAUSE) — stopping"; else echo "deadline reached — stopping"; fi
+      weekly_read >/dev/null
       stop=1
       POOL_HOLD=1
     fi
@@ -1617,13 +1630,13 @@ sync_wave() {
 after_wave() {
   local before="$1" hours="$2" avg="$3" failed="$4" pool="$5" now
   publish_shared_data
-  now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
+  now=$(weekly_read || echo "$before")
   echo "  weekly ${before}% -> ${now}% in ${hours}h at width ${avg} (pool of ${pool})"
   # Where the weekly meter stood, and when it turns over. The meter reads 0% the
   # instant it does, so a week that landed at 100% and one that landed at 54%
   # look identical the morning after; the landing report above reads this back
-  # on the first fire after the reset and says the number out loud.
-  echo "$now $RESET_AT" > "$LANDING_FILE"
+  # on the first fire after the reset and says the number out loud (weekly_read
+  # records it).
   [ "${failed:-1}" -eq 0 ] && return 0
   # Only the seven-day number gets to end the run. awk -v, never string interpolation: an empty
   # reading spliced into the program is a syntax error, not a missing number.

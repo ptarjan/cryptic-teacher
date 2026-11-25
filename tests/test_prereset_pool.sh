@@ -54,7 +54,7 @@ ROUND_LAUNCHED=0            # pool_launch counts into it; the script sets it at 
 NAP_SAID=0 SHAPE_SWEPT=0 BURN_ROUND=1 annotate_stopped=0   # the script sets these at top level; run_pool and REEXEC_VARS read them
 ledger_tick() { :; }        # the sync's cost-ledger tick; run_pool calls it
 for fn in pool_what bag_rule pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
-          pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done pool_nothing_due \
+          pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room weekly_read pool_finished pool_adopted_done pool_nothing_due \
           needs_solve solve_applied resumed_first reload_due; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
@@ -363,7 +363,7 @@ CODE=old
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 declare -A NOTHING_DUE=()   # pool_nothing_due keeps its answers here; the script declares it at top level
 for fn in pool_what bag_rule pool_live pool_mark pool_launch pool_reap pool_adopted_done pool_nothing_due pool_interval_start \
-          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load pool_topup pool_topup_room reload_due; do
+          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load pool_topup pool_topup_room weekly_read reload_due; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   [ -n "$block" ] || { echo "ALERT tools/prereset_backfill.sh no longer defines $fn()" >>"$EVENTS"; exit 1; }
   eval "$block"
