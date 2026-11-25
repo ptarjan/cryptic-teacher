@@ -517,13 +517,19 @@ def clue_html(e, blog_note=True, pid=None, puz=None):
     # Bare elements, one line per clue: style.css styles them by position
     # under .s-list, because this runs once per clue on the site and a class on
     # each piece was the bulk of what the pages weighed.
+    # The clue's own words are its heading. Most of these pages' search
+    # impressions are somebody typing one clue, and a heading is what a search
+    # engine matches a result's title and its jump-to link against; the
+    # article's id is that link's anchor, which landing.js marks on arrival.
+    # Under it, the number, the answer and the way into the solver on this
+    # clue, its hint ladder ready: most search visitors cannot be told which
+    # clue they came for, so every row carries it.
     bits = [f'<article id="{esc(entry_id(e))}">',
-            f'<h3><span>{esc(num)}</span> <b>{esc(answer)}</b>'
-            # The way to the hint ladder for this clue, on every row: most search
-            # visitors cannot be told which clue they came for.
-            + (f' <a rel="nofollow" href="{solve_url(pid, entry_id(e))}">Hint</a>' if pid else "")
-            + '</h3>',
-            f'<p>{clue_html_text(e["clue"])}</p>']
+            # A clue the paper printed blank still heads its row with something.
+            f'<h3>{clue_html_text(e["clue"]) or "No clue printed"}</h3>',
+            f'<p><span>{esc(num)}</span> <b>{esc(answer)}</b>'
+            + (f' <a rel="nofollow" href="{solve_url(pid, entry_id(e))}">Try with hints</a>' if pid else "")
+            + '</p>']
 
     # A definition, type or indicators tools/letter_facts.py read off the letters are not the blogger's.
     inferred = (e.get("blog") or {}).get("inferred", ()) if ann.get("fromBlog") else ()
@@ -734,6 +740,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     down = [e for e in puz["entries"] if e["direction"] == "down"]
     across.sort(key=lambda e: e["number"])
     down.sort(key=lambda e: e["number"])
+    first_eid = entry_id((across + down)[0]) if across + down else None
 
     facts = [f"Set by: <strong>{esc(setter)}</strong>"] if setter else []
     if when:
@@ -782,8 +789,11 @@ def puzzle_page(puz, meta, prev_p, next_p):
         *(f'<p class="s-reprint">Reprinted in the {esc(series_meta.publisher(r["series"], r["number"]))}'
           f' as No {r["number"]:,}' + (f', {date.fromisoformat(r["date"]):%A %-d %B %Y}' if r.get("date") else "")
           + '.</p>' for r in puz.get("source", {}).get("reprintedIn", ())),
-        f'<p class="s-cta"><a class="cta" rel="nofollow" href="{solve_url(puz["id"])}">Solve it yourself, '
-        f'with hints one step at a time &rarr;</a></p>',
+        # The same words as every clue row's link, so the page has one way in,
+        # and like them it names a clue (the first), which is what brings the
+        # app's hint panel up ready on a phone.
+        f'<p class="s-cta"><a class="cta" rel="nofollow" href="{solve_url(puz["id"], first_eid)}">Try with hints '
+        f'&rarr;</a> <span class="muted">a nudge at a time, the answer only if you ask</span></p>',
     ]
     # A page that prints answers has to say where the answers came from. For a
     # prize puzzle solved here before the paper published its key, the answers

@@ -1,5 +1,5 @@
 // landing.js marks the clue a search visitor came for on a /puzzles/<id>/
-// answers page and offers the rest of the crossword with hints under it:
+// answers page, which fills in that row's own Try with hints and adds nothing:
 // found by Google's text-fragment scroll (fresh navigation from a search
 // engine, page already scrolled, no input yet) or by a #12-across anchor, and
 // left alone otherwise. Its two beacons are on sync/events.js's list, its
@@ -36,7 +36,7 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
     }
     get firstChild() { return this.children[0]; }
     get nextSibling() { const s = this.parentNode.children; return s[s.indexOf(this) + 1] || null; }
-    querySelector(sel) { return sel === "h3 + p" ? this.children[1] : null; }
+    querySelector(sel) { return sel === "h3" ? this.children[0] : null; }
     addEventListener(t, f) { this.handlers[t] = f; }
     getBoundingClientRect() { return { top: this.top - scrollY, bottom: this.top - scrollY + 250 }; }
     text() { return this.textContent + this.children.map((c) => c.text ? c.text() : c.data).join(""); }
@@ -77,9 +77,8 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
   }
   new Function(...Object.keys(sandbox), SRC)(...Object.values(sandbox));
   const landed = arts.filter((a) => a.getAttribute("data-landed"));
-  const hint = landed.length && landed[0].children.find((c) => c.className === "s-hint");
-  const rowClick = () => (listeners["doc-click"] || []).forEach((f) => f({ target: { closest: () => ({}) } }));
-  return { arts, landed, hint, sent, gtagged, rowClick };
+  const rowClick = () => (listeners["doc-click"] || []).forEach((f) => f({ target: { closest: (sel) => (sel === ".s-list h3 + p > a" ? {} : null) } }));
+  return { arts, landed, sent, gtagged, rowClick };
 }
 
 // Text fragment from Google: page scrolled so 5-across (900..1150) spans the middle (scrollY 600 -> mid at 1000).
@@ -87,21 +86,18 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
   const r = run({ scrollY: 600 });
   assert(r.landed.length === 1 && r.landed[0].id === "5-across", "fragment scroll marks the clue across the viewport middle: " + r.landed.map((a) => a.id));
   assert(r.landed[0] && r.landed[0].className.includes("s-landed"), "the marked clue carries s-landed");
-  assert(r.landed[0] && r.landed[0].children[2] === r.hint, "the hint line sits straight under the clue text");
-  const link = r.hint && r.hint.children.find((c) => c.tagName === "A");
-  assert(link && link.href === "../../?p=everyman-4172&c=5A", "the line opens the solver on this clue: " + (link && link.href));
-  assert(r.hint && / · /.test(r.hint.text()), "the line uses the site's ' · ' separator: " + (r.hint && r.hint.text()));
+  assert(r.arts.every((a) => a.children.length === 3), "marking adds nothing to the page: the row's own Try with hints is the way in");
   assert(r.sent.length === 1 && r.sent[0][1] === "clue-landed" && /\/e$/.test(r.sent[0][0]), "a landing sends clue-landed: " + JSON.stringify(r.sent));
   assert(r.gtagged.join() === "clue_landed", "and tells GA: " + r.gtagged);
-  link && link.handlers.click();
-  assert(r.sent.map((s) => s[1]).join() === "clue-landed,clue-hint", "following the line sends clue-hint: " + JSON.stringify(r.sent));
+  r.rowClick();
+  assert(r.sent.map((s) => s[1]).join() === "clue-landed,clue-hint", "following the landed row's Try with hints sends clue-hint: " + JSON.stringify(r.sent));
 }
-// Every row's Hint link beacons clue-hint through one delegated listener, landed or not,
+// Every row's Try with hints beacons clue-hint through one delegated listener, landed or not,
 // and GA gets it by beacon transport so the navigation cannot cancel it.
 {
   const r = run({ scrollY: 0 });
   r.rowClick();
-  assert(r.sent.map((x) => x[1]).join() === "clue-hint", "a row Hint click sends clue-hint without any landing: " + JSON.stringify(r.sent));
+  assert(r.sent.map((x) => x[1]).join() === "clue-hint", "a row's Try with hints click sends clue-hint without any landing: " + JSON.stringify(r.sent));
   assert(r.gtagged.join() === "clue_hint", "and tells GA: " + r.gtagged);
 }
 // A #3-down anchor marks that clue whatever the referrer.
@@ -143,16 +139,19 @@ print(B.puzzle_page(puz, None, None, None))
 assert(/<script src="[^"]*landing\.js\?v=[^"]*" data-p="everyman-4172" defer><\/script>/.test(page),
   "a puzzle page loads stamped landing.js with its id");
 
-// Every clue row on an answer page carries its own nofollow Hint link into the solver.
+// Every clue row on an answer page is headed by the clue's own words (what a
+// clue search matches) and carries its own nofollow Try with hints into the
+// solver on that clue.
 const rows = execFileSync("python3", ["-c", `
 import build_seo_pages as B
 for n, d, t, a in ((5, "across", "Test clue (4)", "TEST"), (3, "down", "Other clue (3)", "CAT")):
     print(B.clue_html({"number": n, "direction": d, "clue": {"text": t}, "solution": a}, pid="everyman-4172"))
 `], { env: { ...process.env, PYTHONPATH: path.join(ROOT, "tools") }, encoding: "utf8" });
 for (const ref of ["5A", "3D"])
-  assert(new RegExp('<a rel="nofollow" href="[^"]*\\?p=everyman-4172&amp;c=' + ref + '">Hint</a></h3>').test(rows),
-    "clue " + ref + " has its own Hint link");
-assert(/<b>TEST<\/b>/.test(rows), "answers stay visible beside the link");
+  assert(new RegExp('<a rel="nofollow" href="[^"]*\\?p=everyman-4172&amp;c=' + ref + '">Try with hints</a></p>').test(rows),
+    "clue " + ref + " has its own Try with hints link");
+assert(/<article id="5-across"><h3>Test clue \(4\)<\/h3><p><span>5 across<\/span> <b>TEST<\/b>/.test(rows),
+  "the clue is the row's heading, the number and answer under it: " + rows);
 
 if (fails.length) { console.error(fails.join("\n")); process.exit(1); }
 console.log("ok");

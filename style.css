@@ -1780,21 +1780,19 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 }
 
 /* A clue, as tools/build_seo_pages.py clue_html() writes it, a million times
-   over: <article> holding an <h3> of number <span> and answer <b>, the clue as
-   the <p> after it, the definition as <dfn>, fragments and indicators as
-   <mark>. Elements rather than classes, because a class repeated on every clue
+   over: <article> holding the clue as its <h3>, then a <p> of number <span>,
+   answer <b> and the "Try with hints" <a>, the definition as <dfn>, fragments
+   and indicators as <mark>. Elements rather than classes, because a class repeated on every clue
    of every page is most of what the site weighs. None of these elements is on
    the clue-text whitelist (esc_clue), so a publisher's markup cannot pick one
    of these styles up; <span> is, which is why .s-type and .s-note stay classes. */
 .s-list article { border-bottom: 1px solid var(--line); padding: 14px 0; }
 .s-list article:last-child { border-bottom: 0; }
 /* The clue a visitor arrived at (landing.js, or a #12-across link): marked the
-   way the glossary marks its :target, with the one quiet line under it. */
+   way the glossary marks its :target, its Try with hints filled in. */
 .s-list article.s-landed, .s-list article:target {
   background: var(--accent-soft); box-shadow: 0 0 0 8px var(--accent-soft); border-radius: 2px;
 }
-.s-list article > p.s-hint { font-size: .9rem; color: var(--muted); margin: 0 0 8px; }
-.s-hint a { font-weight: 700; }
 /* landing.js's box for a search visitor whose link named no clue. */
 .s-find { margin: 12px 0 18px; font-size: .92rem; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .s-find label { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--muted); }
@@ -1804,12 +1802,17 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   border: 1px solid var(--line); border-radius: 6px; background: transparent; color: inherit;
 }
 .s-find-said { color: var(--muted); }
-.s-list h3 { font-size: 1rem; margin: 0 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
-.s-list h3 > span { color: var(--muted); font-weight: 400; min-width: 5.5em; }
-.s-list h3 > b { letter-spacing: 1px; }
-.s-list h3 > a { margin-left: auto; padding: 0 6px; font-size: .82rem; font-weight: 400; color: var(--muted); text-decoration: underline; }
+.s-list h3 { font-size: 1rem; font-style: italic; font-weight: 600; margin: 0 0 6px; }
 .s-list article > p { margin: 0 0 8px; font-size: .92rem; }
-.s-list h3 + p { font-size: 1rem; font-style: italic; }
+.s-list h3 + p { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+.s-list h3 + p > span { color: var(--muted); min-width: 5.5em; }
+.s-list h3 + p > b { letter-spacing: 1px; }
+.s-list h3 + p > a, .s-list h3 + p > a:visited {
+  margin-left: auto; padding: 2px 12px; border-radius: 999px; font-size: .85rem; font-weight: 700;
+  color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); text-decoration: none;
+}
+@media (hover: hover) { .s-list h3 + p > a:hover { background: var(--accent-soft); } }
+.s-landed h3 + p > a, .s-landed h3 + p > a:visited, .s-list article:target h3 + p > a { background: var(--accent); color: var(--bg); }
 .s-list dfn { font-style: normal; font-weight: 700; background: var(--def-bg); color: var(--def-fg); padding: 0 4px; border-radius: 3px; }
 .s-type { color: var(--muted); }
 .s-list ul { margin: 0 0 8px; padding-left: 20px; font-size: .92rem; }
