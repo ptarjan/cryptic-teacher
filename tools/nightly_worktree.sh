@@ -115,8 +115,14 @@ _ct_cfg merge.puzzle-json.driver "python3 tools/json_merge.py --puzzle %O %A %B"
 # — leaves it behind, and that wakes the room: every job reading it runs old
 # code until it moves. The alert text names no count, so it repeats only on
 # alert.sh's schedule while the cause is unchanged.
+#
+# Lock contention is not a stuck checkout: a long git process in the shared repo
+# can hold a lock past the retries, and the next start fast-forwards anyway. So
+# a failure that is only a lock is counted in $common/ct-follow-behind and
+# alerts, with its own message, once the checkout has stayed behind for
+# CT_FF_LOCK_STARTS (3) starts running; any success or any other cause clears it.
 _ct_follow_origin() {
-  local common home path cur edits why clobber target
+  local common home path cur edits why clobber target locked=0 count state msg
   common="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute --git-common-dir)"
   home="$(dirname "$common")"
   # One job at a time; a job that finds another mid-update leaves it to that one.
@@ -148,10 +154,13 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
       compgen -G "$common/index.lock" >/dev/null || compgen -G "$common/HEAD.lock" >/dev/null ||
         compgen -G "$common/refs/heads/master.lock" >/dev/null ||
         grep -qi "lock" <<<"$ff_err" || break
-      sleep 5
+      sleep "${CT_FF_RETRY_SLEEP:-5}"
     done
   fi
-  if ! git -C "$home" merge-base --is-ancestor "${target:-origin/master}" HEAD; then
+  state="$common/ct-follow-behind"
+  if git -C "$home" merge-base --is-ancestor "${target:-origin/master}" HEAD; then
+    rm -f "$state"
+  else
     edits="$(git -C "$home" diff --name-only HEAD -- | head -8 | tr '\n' ' ')"
     clobber="$(comm -12 <(git -C "$home" ls-files --others --exclude-standard | sort) \
                         <(git -C "$home" diff --name-only --diff-filter=A HEAD origin/master | sort) | head -8 | tr '\n' ' ')"
@@ -165,7 +174,19 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
       why="untracked files origin/master would overwrite: $clobber"
     else
       why="git merge --ff-only failed: $(tail -1 <<<"${ff_err:-no output}")"
+      grep -qi "lock" <<<"${ff_err:-}" && locked=1
     fi
+    if [ "$locked" = 1 ]; then
+      count=$(( $(cat "$state" 2>/dev/null || echo 0) + 1 ))
+      echo "$count" > "$state"
+      echo "WORKTREE: $home could not fast-forward to origin/master, git was busy ($count start(s) running): $why" >&2
+      [ "$count" -ge "${CT_FF_LOCK_STARTS:-3}" ] || { exec 7>&-; return 0; }
+      msg="the main checkout $home has stayed behind origin/master for $count job starts in a row, each time because another git process held a lock in the repository ($why). Nothing is wrong with the checkout's contents; look for a git process that never finishes or a stale lock file under $common (index.lock, HEAD.lock, refs/heads/master.lock). Every scheduled job reads its manifest and entry script from there, so they run old code until it moves."
+      . "$home/tools/alert.sh" 2>/dev/null && alert "$msg"
+      exec 7>&-
+      return 0
+    fi
+    rm -f "$state"
     echo "WORKTREE: $home cannot fast-forward to origin/master: $why" >&2
     . "$home/tools/alert.sh" 2>/dev/null &&
       alert "the main checkout $home is behind origin/master and a job start could not fast-forward it — $why. Every scheduled job reads its manifest and entry script from there, so they run old code until it moves. Commit those changes from a worktree and put the checkout back (\`git -C $home checkout -- <file>\`); the next job start fast-forwards it."

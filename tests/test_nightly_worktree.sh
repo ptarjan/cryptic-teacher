@@ -213,6 +213,29 @@ git -C "$tmp/main" checkout -q -- manifest.toml
 out="$(run "$tmp/trees")"
 check "once it is put back the next start fast-forwards" "$(at_origin)" yes
 
+# 6b. A lock held on the main checkout is contention, not a stuck checkout: it
+#     stays quiet for the first starts, then alerts with its own message once
+#     the checkout has stayed behind CT_FF_LOCK_STARTS starts, and a start that
+#     gets through clears the count.
+upstream manifest.toml 'schedule = "weekly"'
+touch "$tmp/main/.git/index.lock"
+export CT_FF_RETRY_SLEEP=0 CT_FF_LOCK_STARTS=3
+out="$(run "$tmp/trees")"
+check "a lock-blocked start raises no alert" "$(echo "$out" | grep -c '^ALERT: ')" 0
+check "and the job still runs" "$(echo "$out" | grep -c '^RAN IN ')" 1
+out="$(run "$tmp/trees")"
+check "nor does the second" "$(echo "$out" | grep -c '^ALERT: ')" 0
+out="$(run "$tmp/trees")"
+check "the third in a row alerts about the lock" \
+  "$(echo "$out" | grep '^ALERT: ' | grep -c 'held a lock')" 1
+check "without the local-changes advice" \
+  "$(echo "$out" | grep '^ALERT: ' | grep -c 'Commit those changes')" 0
+rm -f "$tmp/main/.git/index.lock"
+out="$(run "$tmp/trees")"
+check "once the lock is gone it fast-forwards" "$(at_origin)" yes
+check "and clears the count" "$(test -e "$tmp/main/.git/ct-follow-behind" && echo kept || echo gone)" gone
+unset CT_FF_RETRY_SLEEP CT_FF_LOCK_STARTS
+
 # 6. An existing tree is reused, not re-cut: after origin moves, the next start
 #    fetches and resets the same worktree to it. A file the reset does not
 #    touch (an untracked one, like fetched data) is still there afterwards.
