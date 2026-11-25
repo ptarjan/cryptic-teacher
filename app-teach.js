@@ -1993,7 +1993,7 @@
     if (!dx && !dy) return;
     el.style.transition = "none";
     el.style.transform = `translate(${dx}px, ${dy}px)`;
-    requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
       el.style.transition = "transform var(--mo-in) var(--mo-ease)";
       el.style.transform = "";
     });

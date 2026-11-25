@@ -69,6 +69,9 @@ def fake_main(argv):
 
 
 annotate_check.main = fake_main
+# "a" and "b" stand in for puzzles and have no file on disk; the redo gate reads
+# the puzzle file (and is tested on its own above), so here it finds nothing to say.
+annotate_bag.bag_redo_gate = lambda pid, part: []
 annotate_bag.TOOLS = annotate_bag.Path(__import__("tempfile").mkdtemp())
 f = annotate_bag.TOOLS / "_ann_bag_a.json"
 f.write_text('{"a": {"1-across": null}, "b": {"2-down": null}}')

@@ -1554,7 +1554,7 @@
       renderHintPanel();
       if (id) focusArm(id);
     };
-    if (window.requestAnimationFrame) requestAnimationFrame(run); else setTimeout(run, 0);
+    if (window.requestAnimationFrame) window.requestAnimationFrame(run); else setTimeout(run, 0);
   }
   function disarmBlock(redraw, refocus) {
     if (!blockArm) return;

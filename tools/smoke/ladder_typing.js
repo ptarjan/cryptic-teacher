@@ -55,11 +55,12 @@ while (leadRung() && clicks < 12) {
     // That rung's own section, not everything after it: the blocks rung below
     // names the precise mechanism and is entitled to, so a match on the rest of
     // the panel would fail on exactly the ladders that are behaving.
-    // Split at every rung's opening tag, wherever its class sits among the
-    // id and hidden attributes: a split on a fixed '<div class="hint-step'
-    // prefix fuses rungs that open with an id into one section.
-    const fam = (registry["hint-body"].innerHTML.split(/<div (?=[^>]*class="hint-step)/)
-      .find((sec) => sec.includes("What kind of clue is this?")) || "");
+    // Split at every card's opening tag, wherever its class sits among the
+    // id and hidden attributes, and take the type step's own note by its id.
+    // The step's label alone is no mark of it: the card offering the next
+    // step (help-next) carries the same label before anything is revealed.
+    const fam = (registry["hint-body"].innerHTML.split(/<div (?=[^>]*class="(?:hint-step|help-next))/)
+      .find((sec) => sec.startsWith('id="hint-note-type"')) || "");
     if (fam) {
     assert(/Double or cryptic definition|&amp;lit|&lit|Anagram|Homophone|Charade|Container, reversal or deletion|Hidden or letter selection/.test(fam),
       "the family rung names a clue family: " + fam);

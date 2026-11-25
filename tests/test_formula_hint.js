@@ -165,8 +165,12 @@ for (const e of candidates.slice(0, 80)) {
   t.showMe();
   // Show me on a piece that asks takes back a blocks rung the solver had earned
   // (rungCosts tell): it armed and charged what it warned, so at most one hint,
-  // once, over the rung's own.
-  check(t.chipsGot() === g0 + 2 && t.hints() <= h1 + 1,
+  // once, over the rung's own. A piece settled in turn moves the count, and the
+  // pieces after it with no question ride out with it (revealPiece), so the
+  // tapped chip is out but more than one chip may have filled.
+  check(t.chipsGot() >= g0 + 2 && !t.formula().includes(`data-piece="${g0}"`),
+    `fillsIn (${id}): a second chip, in the middle, comes out (${t.chipsGot()} got of ${n}, chip ${g0} ${t.formula().includes(`data-piece="${g0}"`) ? "still blank" : "out"})`);
+  check(t.hints() <= h1 + 1,
     `fillsIn (${id}): a second chip, in the middle, adds at most the take-back of an earned rung: ${h1} -> ${t.hints()}`);
   check(!t.row().some((b) => /^Next building block/.test(b.textContent || "")),
     `noRepeat (${id}): there is no Next building block button`);
