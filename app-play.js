@@ -1556,14 +1556,25 @@
     return false;
   }
   if (document.addEventListener) {
-    // Capture, so it sees the tap before whatever it lands on acts on it; the
-    // redraw waits a tick so that target's own handler still finds its button.
+    // Two phases, one rule: nothing may rebuild the row until the tapped
+    // button's own handler has run. Capture sees the tap first and only
+    // disarms; the redraw happens on the way back up (bubble), after the
+    // target's handler, so the button it is about to act on still exists.
+    let redrawAfter = false;
     const away = (ev) => {
       if (!blockArm || armOf(ev.target) === blockArm.id) return;
       disarmBlock(false);
-      setTimeout(renderHintPanel, 0);
+      redrawAfter = true;
     };
-    document.addEventListener("click", away, true);    document.addEventListener("focusin", away, true);
+    const redraw = () => {
+      if (!redrawAfter) return;
+      redrawAfter = false;
+      renderHintPanel();
+    };
+    document.addEventListener("click", away, true);
+    document.addEventListener("focusin", away, true);
+    document.addEventListener("click", redraw);
+    document.addEventListener("focusin", redraw);
   }
 
   // Where the definition sits, and therefore where the wordplay starts. A fair
