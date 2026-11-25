@@ -956,11 +956,15 @@ def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips
             reading.get("verdict", {}).get("seePages"))
         return None, verdict, None
     exact = [g for g in grids if g["fit"]["exact"]]
-    if not exact:
+    # A grid whose fitted numbering the printed numbers do not all agree with
+    # is tried after the exact ones, the clue list the judge:
+    # a misread number is no grid.
+    judged = [g for g in grids if not g["fit"]["exact"] and g["fit"].get("rows") and g["fit"].get("printed")]
+    if not exact and not judged:
         verdict["lacks"] = "grid: no exact fit to the printed numbers"
         return None, verdict, None
     whys = []
-    for g in exact:
+    for g in exact + judged:
         fit = g["fit"]
         page, shifted, why = unstrayed(g["fit"], renumbered(g["fit"], clues))
         rows = sides = None
@@ -980,7 +984,7 @@ def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips
                 skip, note = skipped(g["fit"]["rows"], got[0])
                 if skip and lights_fit(g["fit"]["rows"], skip) is None:
                     rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
-        if not rows and (got := as_read(g, clues, theme) or closed_as_read(g, clues, theme)):
+        if not rows and g["fit"]["exact"] and (got := as_read(g, clues, theme) or closed_as_read(g, clues, theme)):
             fit, (rows, laid, notes), sides = got, got["laid"], []
         if rows:
             clues = laid
@@ -988,8 +992,10 @@ def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips
             break
         whys.append(why)
     else:
-        verdict["lacks"] = "grid: " + "; ".join(whys)
+        verdict["lacks"] = "grid: " + ("no exact fit to the printed numbers" if not exact else "; ".join(whys[:len(exact)]))
         return None, verdict, None
+    if not fit["exact"]:
+        verdict["numbersMisread"] = [list(c) for c in fit["disagree"]]
     if sides:
         verdict["flipped"] = [list(side) for side in sides]
     if notes:
