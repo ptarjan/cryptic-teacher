@@ -59,8 +59,14 @@ NO_NUMBER = "no Jumbo number in the citation or the prize text"
 #: reading too, as every other paper's grid is): only the pages refused "grid unread" are read again.
 GRID_FIX = 1
 GRID_UNREAD = "grid unread"
-#: A grid on the page, in the page's pixels: 23x23 or 27x27 cells.
-GRID_PX = (600, 3600)
+#: A grid on the page, as shares of the leaf's width (the median Jumbo solution leaf is 4,775 px wide, so
+#: 600-3,600 px there): 23x23 or 27x27 cells, whatever the scan's scale.
+GRID_SHARE = (0.125, 0.75)
+
+
+def grid_px(img, share=GRID_SHARE):
+    """(least, most) width in pixels of a grid on the leaf `img`."""
+    return round(share[0] * img.width), round(share[1] * img.width)
 SOLUTIONS = downloads.TIMES_JUMBO_SOLUTIONS
 DOCS = Path(os.path.expanduser("~/.cache/gale_inbox/docs.json"))
 SOLVED = "solved.jsonl"
@@ -283,7 +289,7 @@ def plan_solutions(store=STORE, solutions=SOLUTIONS, docs=DOCS):
     return out
 
 
-def grid_candidates(img, px=GRID_PX):
+def grid_candidates(img, share=GRID_SHARE):
     """[box] of the grid-sized ink on a solution page: page_grids' boxes and every square patch of ink
     (a Times page prints its grid ~38% of the page wide; page_grids keeps the widest *lattice-like* box,
     which can be a photo or a text block, and then never offers the real grid). The block fit judges them."""
@@ -292,10 +298,11 @@ def grid_candidates(img, px=GRID_PX):
         b = list(b)
         if not any(max(abs(x - y) for x, y in zip(b, o)) < 0.05 * (b[2] - b[0]) for o in out):
             out.append(b)
+    px = grid_px(img, share)
     return [b for b in out if px[0] <= b[2] - b[0] <= px[1]]
 
 
-def solution_box(path, grid, store=STORE, px=GRID_PX, scale=1):
+def solution_box(path, grid, store=STORE, share=GRID_SHARE, scale=1):
     """(block agreement, page index, box) of the grid-sized ink on a solution page whose blocks are the
     puzzle's `grid`'s, or None. The page's grid-shaped boxes are kept in the store."""
     import numpy as np
@@ -307,7 +314,7 @@ def solution_box(path, grid, store=STORE, px=GRID_PX, scale=1):
     if cache.exists():
         boxes = json.loads(cache.read_text())
     else:
-        boxes = [[i, b] for i, (img, _) in enumerate(pages) for b in grid_candidates(img, px)]
+        boxes = [[i, b] for i, (img, _) in enumerate(pages) for b in grid_candidates(img, share)]
         cache.parent.mkdir(parents=True, exist_ok=True)
         cache.write_text(json.dumps(boxes))
     best = None
@@ -441,15 +448,17 @@ def links(files, dated):
     return out
 
 
-def grid_boxes(img):
+def grid_boxes(img, share=GRID_SHARE):
     """The page's grid-shaped patches of ink, largest first."""
-    boxes = [b for b in gi.page_grids(img) if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]]
+    px = grid_px(img, share)
+    boxes = [b for b in gi.page_grids(img) if px[0] <= b[2] - b[0] <= px[1]]
     return sorted(boxes, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]), reverse=True)
 
 
-def extra_boxes(img, boxes):
-    """The page's square patches of ink in GRID_PX that `boxes` do not hold, largest first."""
-    squares = [b for b in fa.grids_on(img, shaped=gi.square) if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]
+def extra_boxes(img, boxes, share=GRID_SHARE):
+    """The page's square patches of ink in GRID_SHARE that `boxes` do not hold, largest first."""
+    px = grid_px(img, share)
+    squares = [b for b in fa.grids_on(img, shaped=gi.square) if px[0] <= b[2] - b[0] <= px[1]
                and not any(abs(b[0] - o[0]) < 20 and abs(b[1] - o[1]) < 20 for o in boxes)]
     return sorted(squares, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]), reverse=True)
 

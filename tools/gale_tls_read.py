@@ -194,8 +194,12 @@ def plan_solutions(store=STORE, saved=SAVED):
     return out
 
 
-#: The small solution grid's width on a page, in pixels (556 on a 3,384-px page, ~720 on a 5,509-px one).
-SOLUTION_PX = (400, 1500)
+#: The small solution grid's width on a leaf, as shares of the leaf's width (556 px on a 3,384-px page, ~720 on a
+#: 5,509-px one; 400-1,500 px on the median 3,246-px leaf the bounds were tuned on).
+SOLUTION_SHARE = (0.12, 0.46)
+#: The puzzle grid's width on a leaf, as shares of the leaf's width: the Jumbo's 600-3,600 px bounds on the median
+#: 3,246-px TLS leaf (the 300 cached grids' shares run 0.25-1.0 of the leaf, all inside).
+TLS_GRID_SHARE = (0.185, 1.1)
 #: The grid is fitted and read at twice its size: a 37-px cell's thin rules put the lattice at the wrong
 #: pitch (tls-724: 0.73 as it is, 1.0 at 2x).
 SOLUTION_SCALE = 2
@@ -260,7 +264,7 @@ def solution_box(path, grid, store=STORE):
     (square_lattice) when that fits better."""
     import numpy as np
     from PIL import Image
-    found = jr.solution_box(path, grid, store, px=SOLUTION_PX, scale=SOLUTION_SCALE)
+    found = jr.solution_box(path, grid, store, share=SOLUTION_SHARE, scale=SOLUTION_SCALE)
     if found is not None and found[0] >= jr.FIT:
         return found
     cache = Path(store) / "solboxes2" / f"{Path(path).stem}.json"
@@ -1364,11 +1368,11 @@ def read_page(path, store=STORE, asker=None, known=None):
             verdict["refused"] = f"the page prints No {seen}, the anchors give No {n}"
             return verdict, None
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
-    boxes = jr.grid_boxes(img)
+    boxes = jr.grid_boxes(img, TLS_GRID_SHARE)
     if not boxes:
         # The page's ink patches the lists' gutter-shaped test passes may all be small (1992-05-01's real grid
         # is the largest square of ink, its "grid" patch the little solution of the last puzzle beside it).
-        boxes = jr.extra_boxes(img, [])
+        boxes = jr.extra_boxes(img, [], TLS_GRID_SHARE)
     if not boxes:
         verdict["refused"] = "no grid on the page"
         return verdict, None
@@ -1399,13 +1403,13 @@ def read_page(path, store=STORE, asker=None, known=None):
         # The patch found may be the last puzzle's little solution grid (1428's) with the puzzle's own grid, the
         # larger, among the patches only the wider search finds: that one is read if it is twice the area.
         area = (box[2] - box[0]) * (box[3] - box[1])
-        larger = [b for b in jr.extra_boxes(img, boxes) if (b[2] - b[0]) * (b[3] - b[1]) >= 2 * area]
+        larger = [b for b in jr.extra_boxes(img, boxes, TLS_GRID_SHARE) if (b[2] - b[0]) * (b[3] - b[1]) >= 2 * area]
         if larger:
             box2, g2, _ = pick_grid(larger, reader)
             if g2:
                 box, g = box2, g2
     if not g:
-        box, g, again = pick_grid(jr.extra_boxes(img, boxes), reader)
+        box, g, again = pick_grid(jr.extra_boxes(img, boxes, TLS_GRID_SHARE), reader)
         why = again or why
     if not g:
         verdict["refused"] = f"grid unread: {why}"

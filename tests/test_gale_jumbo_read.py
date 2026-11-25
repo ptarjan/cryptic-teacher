@@ -204,7 +204,7 @@ _pg, _gs = gj.gi.page_grids, gj.fa.grids_on
 gj.gi.page_grids = lambda img: [[10, 10, 1210, 1210]]
 gj.fa.grids_on = lambda img, shaped=None: [(12, 12, 1208, 1208), (2000, 3000, 3800, 4800), (0, 0, 100, 100)]
 check("square patches join page_grids' boxes, near duplicates and tiny ones dropped",
-      [[10, 10, 1210, 1210], [2000, 3000, 3800, 4800]], gj.grid_candidates(object()))
+      [[10, 10, 1210, 1210], [2000, 3000, 3800, 4800]], gj.grid_candidates(type('Leaf', (), {'width': 4775})()))
 gj.gi.page_grids, gj.fa.grids_on = _pg, _gs
 held = puzzle()
 held["entries"][0]["solution"] = "COT"
