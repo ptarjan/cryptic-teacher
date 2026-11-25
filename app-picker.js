@@ -1140,7 +1140,10 @@
       beacon("done");
       // A solved grid changes which puzzles come next: top the saved batch up.
       savedCache = null;
-      setTimeout(() => offlineAuto(true), 2000);
+      // Idle, not a guess at how long the celebration takes.
+      const topUp = () => offlineAuto(true);
+      if (window.requestIdleCallback) requestIdleCallback(topUp, { timeout: 10000 });
+      else setTimeout(topUp, 2000);
     }
     celebrate(complete, earned);
   }
