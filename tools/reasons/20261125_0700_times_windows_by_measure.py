@@ -9,7 +9,7 @@ light "no clue read for it"), read before REREAD; a row an older, specific reaso
 from fix_reasons import Reason
 
 TEXT = "Gale Times page of any year refused for its grid or clue columns, the quarters and block windows tried on it by measure since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T09:36:00+00:00"
 OLD_YEARS = ("1930", "1949")
 
 
