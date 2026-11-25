@@ -1352,7 +1352,10 @@
       let d;
       while (cuts && cuts.length && (d = dash.exec(m[0]))) {
         const h = m.index + d.index;
-        if (d.index > from - 1 && cuts.some((b) => b === h || b === h + 1)) {
+        // A fragment edge at the dash itself splits only when something of the
+        // word stands before it: at the word's own start (a definition that
+        // opens on a printed blank, "—— ——") it is a word boundary already.
+        if (cuts.some((b) => (b === h && d.index > from) || b === h + 1)) {
           out.push({ i: m.index + from, text: m[0].slice(from, d.index + 1) });
           from = d.index + 1;
         }
@@ -2011,7 +2014,7 @@
   // the chain behaves the same on every clue; stepping over it never marks it
   // shown or earned, and it stays on the row to be bought as before.
   function nextQuestion(e) {
-    if (!e || isEntrySolved(e) || guessing) return null;
+    if (!e || groupSolved(e) || guessing) return null;
     const ann = annOf(e);
     if (!ann) return null;
     if (isShown(e, "blocks") && piecesLeft(e)) {

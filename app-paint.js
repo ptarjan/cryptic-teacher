@@ -99,7 +99,7 @@
         // re-asked question or a chosen step does not change) keeps its note in
         // front and the tap seems to do nothing.
         tabPick.delete(tabKeyOf(on));
-        const asked = GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at);
+        const asked = GUESSABLE[b.rung] && !groupSolved(on) && guessAsk(on, b.rung, at);
         if (asked) {
           helpOn = null;
           guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [] };
@@ -175,7 +175,7 @@
     if (guessing && guessing.key === key && currentAsk() && !staleAsk(e)) {
       return { rung: guessing.rung, step: guessing.step, asked: true };
     }
-    const solved = isEntrySolved(e);
+    const solved = groupSolved(e);
     const steps = ladderFor(e);
     const has = (r) => steps.some((s) => s.key === r);
     const piecesOpen = !solved && isShown(e, "blocks") && piecesLeft(e) > 0;
@@ -187,6 +187,13 @@
     if (piecesOpen) return { rung: "blocks", step: nextPiece(e) };
     const s = steps.find((x) => !isShown(e, x.key) && rungAvailable(e, steps, x.key));
     return s ? { rung: s.key, step: 0 } : null;
+  }
+  // The step chosen on the track that is still to open and still the help
+  // button's target (helpTarget), or null: what draws its own card in front.
+  function chosenStep(e) {
+    if (!helpOn || helpOn.key !== entryKey(e) || isShown(e, helpOn.rung)) return null;
+    const t = helpTarget(e);
+    return t && t.rung === helpOn.rung ? ladderFor(e).find((s) => s.key === helpOn.rung) || null : null;
   }
   const helpArm = (t) => t.asked ? t.rung + "-tell" : t.rung === "blocks" ? "blocks-" + t.step : t.rung;
   // Whether the question on the table has an answer ready to lock in: a word
@@ -262,7 +269,7 @@
     // A piece with no question in it — no fragment to point at, or no
     // letters to point at it with — is simply handed over. The rung still
     // moves forward by exactly one. A solved clue shows every piece already.
-    if (rung === "blocks" && !isEntrySolved(on)) settlePiece(on, at);
+    if (rung === "blocks" && !groupSolved(on)) settlePiece(on, at);
   }
   // Never a dead end: being told is a legitimate answer to "do you know this
   // yet?", and it costs what the step has always cost. Reads the entry, the
@@ -460,7 +467,7 @@
     if (helpMore && helpMore !== key) helpMore = null;
     const canReveal = canCheck() && !solved;
     // Solved: the help button goes; the steps still shut are free tabs on the track.
-    const helpT = ann && !solved ? helpTarget(e) : null;
+    const helpT = ann && !groupSolved(e) ? helpTarget(e) : null;
     const fill = offerFill ? fillHTML(e) : "";
     const moreOpen = helpMore === key || !!(report && report.key === key);
     const moreHTML = (helpT ? fill : "") + reportHTML() + blogLinkHTML(e, ann);
@@ -497,8 +504,9 @@
     const key = entryKey(e);
     wheelOn = wheelOn === key ? null : key;
     // The wheel's letters are picked off the clue's own words, so the question
-    // on the table steps aside for it: one meaning per tap at a time.
-    if (wheelOn) guessing = null;
+    // on the table, or the step chosen on the track, steps aside for it: one
+    // front panel at a time.
+    if (wheelOn) { guessing = null; helpOn = null; }
     // Focus first so the ring's focus outline is on the first draw and
     // the solver can type straight away, as a tap on the disc does.
     const ak = $("ana-kbd");
@@ -536,6 +544,12 @@
     const level = shownRungs(e).filter((r) => r !== ANSWER_RUNG).length;
 
     const solved = isEntrySolved(e);
+    // The ladder is free, and asks nothing, only once the whole clue is in:
+    // every leg of a linked one (groupSolved), the same test rungCosts prices
+    // its steps by. One leg filled by its crossers leaves the steps paid, so
+    // they keep their questions and their help button; free tabs there would
+    // be taps that rungCosts still charges for, and nothing would open.
+    const finished = groupSolved(e);
     // The nod lands beside the clue as well as on the grid. celebrateSolve tints
     // the cells for 450ms, which is a thing you miss entirely if you were reading
     // the clue while you typed the last letter into it.
@@ -620,12 +634,16 @@
       arriveAt(e);
       // The wheel and a question never share the clue's words. Every piece out
       // and the whole answer an anagram: the wheel opens holding the fodder,
-      // once per clue, and the question gives way. Otherwise a question chosen
-      // while the wheel is open (a step, a formula chip, the next question once
-      // the dealt wheel is finished) puts the wheel away; the Letters toggle
-      // opening it puts the question away (wheelToggleTap).
-      if (!solved && isShown(e, "blocks") && !piecesLeft(e) && !wheelDealt.has(key) && dealWheel(e, ann)) guessing = null;
-      else if (guessing && guessing.key === key && wheelOn === key) wheelOn = null;
+      // once per clue, and the question or chosen step gives way. Otherwise a
+      // question (a step, a formula chip, the next question once the dealt
+      // wheel is finished) or a step chosen on the track while the wheel is
+      // open puts the wheel away, since that step's card carries the help
+      // button and the wheel would hide it; the Letters toggle opening the
+      // wheel puts both away (wheelToggleTap).
+      if (!solved && isShown(e, "blocks") && !piecesLeft(e) && !wheelDealt.has(key) && dealWheel(e, ann)) {
+        guessing = null;
+        helpOn = null;
+      } else if (wheelOn === key && ((guessing && guessing.key === key) || chosenStep(e))) wheelOn = null;
       // Computed before the rungs are drawn, not after them: an earlier rung's
       // verdict has to know whether the clue line above is currently a set of
       // buttons, and that is only knowable from the question being asked now.
@@ -634,9 +652,8 @@
       // One panel at a time, like tabs. A question or the wheel on the table
       // is the front panel until a step's tab is picked; with nothing pending
       // the front panel is the picked step's note, else the last one opened.
-      chosen = !solved && !ask && helpOn && helpOn.key === key && !isShown(e, helpOn.rung) && helpTarget(e) && helpTarget(e).rung === helpOn.rung
-        ? steps.find((s) => s.key === helpOn.rung) : null;
-      pendingFront = !solved && !!(ask || wheelOn === key || chosen) && !pickedStep(e);
+      chosen = !finished && !ask ? chosenStep(e) : null;
+      pendingFront = !finished && !!(ask || wheelOn === key || chosen) && !pickedStep(e);
       tapping = !!(ask && !ask.choices && guessing && holder === e && pendingFront);
       // The blocks rung as much of it as has been handed over. A solved clue
       // gets the lot: its score is settled, and the rest of the ladder is free
@@ -647,7 +664,7 @@
       const paced = (s) => {
         // Each fact once: with the blocks listed above, the walkthrough keeps only
         // how they join.
-        if (s.key === "walkthrough" && s.afterBlocks && isShown(e, "blocks") && (solved || !piecesLeft(e))) {
+        if (s.key === "walkthrough" && s.afterBlocks && isShown(e, "blocks") && (finished || !piecesLeft(e))) {
           return { ...s, html: s.afterBlocks };
         }
         if (s.key === "type" && s.formula) {
@@ -661,7 +678,7 @@
         const formula = s.formula ? formulaHTML(e, s.formula, true) : "";
         // The pieces that are out, in clue order, however they came out: the
         // count reaching them, or a chip in the formula taking them early.
-        const out = s.pieces.filter((_, k) => solved || pieceOut(e, k));
+        const out = s.pieces.filter((_, k) => finished || pieceOut(e, k));
         // The type rung already named and explained the mechanism when it is open.
         const lead = isShown(e, "type") && !s.leadAlways ? "" : s.lead;
         return { ...s, html: lead + `<ul>${out.join("")}</ul>`,
@@ -718,7 +735,7 @@
       const open = togo.filter(({ s }) => rungAvailable(e, steps, s.key));
       // The rest of the Pieces step is not a button: the blank chips in its
       // formula are, and "Show me" fills the current one (helpTarget).
-      const left = !solved && isShown(e, "blocks") ? piecesLeft(e) : 0;
+      const left = !finished && isShown(e, "blocks") ? piecesLeft(e) : 0;
       // The track: every step this clue has, in step order. Open steps are
       // filled (starred when the solver worked them out), available ones are
       // outlined, later tiers are dim. The current step, the one "Show me"
@@ -742,7 +759,7 @@
         // Solved: every step left is a free tab, the same as the open ones
         // beside it. Tapping it opens the step and shows it (openStep: a
         // solved clue's count is frozen, so nothing arms and nothing is asked).
-        if (solved) {
+        if (finished) {
           trackSpec.push({ rung: s.key, label: s.label, tab: true, sel: false,
             cls: "step avail" + tint, text: name, title: "Free now: tap to see this step" });
           return;
@@ -752,7 +769,7 @@
             sel: pendingFront && (ask ? guessing.rung === s.key : !!chosen && chosen.key === s.key),
             cls: "step avail" + tint + (s.key === lead && !left ? " lead" : "")
               + (target && target.rung === s.key ? " cur" + (pendingFront && (ask ? guessing.rung === s.key : chosen && chosen.key === s.key) ? " sel" : "") : "")
-              + (s.key === lead && !left && nuxFreeRung(e, s.key, solved) ? " rung-point" : ""),
+              + (s.key === lead && !left && nuxFreeRung(e, s.key, finished) ? " rung-point" : ""),
             text: name });
           return;
         }
@@ -778,7 +795,7 @@
     if (pendingHTML) bodyHTML += `<div class="hint-pending" role="tabpanel"${pendingFront ? "" : " hidden"}>${pendingHTML}</div>`;
     // No question and no chosen step: the current step still has its button,
     // in a card of its own under the notes (the only place it is drawn).
-    const tellT = ann && !solved && !ask && !chosen ? helpTarget(e) : null;
+    const tellT = ann && !finished && !ask && !chosen ? helpTarget(e) : null;
     if (tellT) bodyHTML += nextCardHTML(e, tellT, false);
     drawWheelToggle(!solved, wheelOpen);
     // Written last, because whether its words are targets is decided by whether a

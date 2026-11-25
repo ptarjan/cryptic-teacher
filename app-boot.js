@@ -383,7 +383,7 @@
       if (data.piece !== undefined && e) {
         const i = Number(data.piece);
         const ann = annOf(e);
-        if (!ann || !Number.isInteger(i) || pieceOut(e, i) || isEntrySolved(e)) return;
+        if (!ann || !Number.isInteger(i) || pieceOut(e, i) || groupSolved(e)) return;
         if (!rungAvailable(e, ladderFor(e), "blocks")) return;
         const key = entryKey(e);
         helpOn = { key, rung: "blocks", step: i };

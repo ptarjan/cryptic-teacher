@@ -28,6 +28,11 @@ check(words(T, [at(T, "well-known")]).includes("|well-known|"), "a whole compoun
 check(words(T, [at(T, "Post"), at(T, "match")]).endsWith("|Post–|match"), "en-dashed compound cuts the same way: " + words(T, [at(T, "Post"), at(T, "match")]));
 const C = "Clock-maker's tools";
 check(words(C, [at(C, "Clock-maker")]) === "Clock-maker's|tools", "apostrophe'd compound is one word when the fragment is the compound");
+// A printed blank is a word of dashes; a fragment starting on it is at a word
+// boundary already, so the blank stays one chip.
+const B = "toto naves \u2014\u2014 \u2014\u2014";
+check(words(B, [at(B, "toto naves"), at(B, "\u2014\u2014 \u2014\u2014")]) === "toto|naves|\u2014\u2014|\u2014\u2014",
+  "a fragment starting on a blank does not split it: " + words(B, [at(B, "toto naves"), at(B, "\u2014\u2014 \u2014\u2014")]));
 {
   const t = "Drug-free period";
   frags = [at(t, "free")];

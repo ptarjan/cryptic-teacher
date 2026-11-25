@@ -134,7 +134,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
   assert(noted, "at least one annotation explains a definition that disagrees with its answer");
   openClue(noted);
   assert(!registry["hint-body"].innerHTML.includes("def-note"),
-    "the definition note is NOT on the definition rung — it names the answer: " +
+    `${noted.id} ${entryId(noted.e)}: the definition note is NOT on the definition rung — it names the answer: ` +
     registry["hint-body"].innerHTML);
   for (let i = 0; i < 8; i++) {
     const btn = registry["hint-rungs"].children[0];
@@ -142,7 +142,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     takeRung(btn);
   }
   assert(registry["hint-body"].innerHTML.includes("def-note"),
-    "the definition note is shown on the walkthrough rung: " + registry["hint-body"].innerHTML);
+    `${noted.id} ${entryId(noted.e)}: the definition note is shown on the walkthrough rung: ` + registry["hint-body"].innerHTML);
 
   // --- a cryptic definition must not sell the answer on the blocks rung ---
   // The type has no wordplay, so the only "block" available is the whole clue
@@ -884,6 +884,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
   // synthesised here rather than waiting on a puzzle that happens to carry one.
   {
     const e = withInd.e;
+    const where = `${withInd.id} ${entryId(e)}`;
     e.annotation.explanation.definitionFit = "SMOKE-FIT: the answer is an instance of the definition.";
     registry["clue-" + entryId(e)].listeners.click[0]();
     let guard = 0;
@@ -893,17 +894,17 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
     }
     const walk = registry["hint-body"].innerHTML;
     assert(walk.includes("SMOKE-FIT"),
-      "the walkthrough never explains why the answer matches the definition: " + walk.slice(-400));
+      `${where}: the walkthrough never explains why the answer matches the definition: ` + walk.slice(-400));
     const fitLine = (walk.match(/<p class="def-fit">[\s\S]*?<\/p>/) || [""])[0];
     // letters only: esc() turns an apostrophe in FERMAT'S LAST THEOREM into an
     // entity, so a raw substring match would flake on the puzzle, not the code
     const bare = (s) => s.replace(/[^A-Za-z]/g, "");
     assert(fitLine.includes('mark class="def"') && bare(fitLine).includes(bare(e.annotation.answer)),
-      "the fit line must name both ends it is joining: " + fitLine);
+      `${where}: the fit line must name both ends it is joining: ` + fitLine);
     // The fit line is the last thing the walkthrough says and names the answer,
     // so the answer is printed once, not again under it (02ee84cec57).
     assert(!walk.includes("Answer:") && answerShown(walk, bare(e.annotation.answer).toUpperCase()),
-      "with a fit line the answer is named there and printed once: " + walk.slice(-400));
+      `${where}: with a fit line the answer is named there and printed once: ` + walk.slice(-400));
     delete e.annotation.explanation.definitionFit;
   }
 }
