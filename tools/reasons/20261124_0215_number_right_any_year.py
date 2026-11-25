@@ -8,7 +8,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page of any year refused not a grid under its short No N heading, its grid right of it read since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-25T02:21:00+00:00"
 INK = re.compile(r"the ink under the title is (\d+)x(\d+), not a grid")
 
 
