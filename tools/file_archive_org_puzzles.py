@@ -13436,8 +13436,8 @@ def held_settled(d, verdict):
     return True
 
 
-# KEPT as a year gate (11-25 principled audit, harness /data/home/.cache/plainprint_scr, 60 filed pages per group, cached
-# leaves, overhang() run with the gate off): overhang() does not tell adverts/listings from a third clue column, it
+# KEPT as a year gate (measured on 60 filed pages per group from their cached leaves, overhang() run with the gate
+# off): overhang() does not tell adverts/listings from a third clue column, it
 # measures "text-like ink right of the grid under it" and saturates at its own OVER_REACH cap (0.71 grid widths) on
 # 56/60 Gale Times 1950-59, 48/60 1960s, 57/60 1970s, 60/60 1980s and 60/60 FT 1982-86 (34/60 FT 1987-92): the same
 # answer in every decade, so it cannot replace the decade. The other measure tried, "a clue column's room left of the
