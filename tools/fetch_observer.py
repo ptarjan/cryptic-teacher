@@ -342,7 +342,7 @@ def walk(numbers, what="backfill"):
     """Fetch each number in turn, skipping what's on disk and what 404s.
     Returns how many arrived."""
     return daily_fetch.walk(numbers, lambda num: puzzle_path("everyman", num).exists(),
-                            lambda num: fetch_number(num), what, finish=reindex)
+                            lambda num: fetch_number(num), what, finish=reindex_changed)
 
 
 def backfill(count=30):

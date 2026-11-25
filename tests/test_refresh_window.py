@@ -170,7 +170,7 @@ try:
             mock.patch.object(obs, "puzzle_manifest", lambda uuid: {}), \
             mock.patch.object(obs, "puzzle_data", lambda m: {"copy": {"settings": {"solution": None}}}), \
             mock.patch.object(obs.daily_fetch.time, "sleep", lambda s: None), \
-            mock.patch.object(obs, "reindex", lambda: obs_reindexed.append(1)):
+            mock.patch.object(obs, "reindex_changed", lambda: obs_reindexed.append(1)):
         obs.refresh_unsolved()
 finally:
     shutil.rmtree(d, ignore_errors=True)

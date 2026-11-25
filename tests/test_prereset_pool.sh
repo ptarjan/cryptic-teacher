@@ -72,6 +72,12 @@ run_claude() {
   echo "start $1 $(now)" >>"$EVENTS"
   [ -n "${3:-}" ] && { echo "solve $1" >>"$EVENTS"; echo '{}' >"$3"; }
   sleep "$(awk -v r="$RANDOM" 'BEGIN{printf "%.2f", 0.5 + (r % 40) / 100}')"
+  # FAIL_IN_REPLAN: the failing run ends only once a re-plan has started, so it
+  # fails during one whatever the box's load (its time against the sync
+  # interval's was a race).
+  if [ -n "${FAIL_IN_REPLAN:-}" ] && [ "$1" = "$FAIL_ID" ]; then
+    for _ in $(seq 1 200); do grep -q '^replan ' "$EVENTS" && break; sleep 0.05; done
+  fi
   echo "end $1 $(now)" >>"$EVENTS"
   echo "done $1" >"/tmp/ct-prereset-$1.txt"
   [ "$1" != "$FAIL_ID" ]
@@ -311,7 +317,7 @@ starts_after_fail() {  # runs started after $1 failed, before the next width rea
   awk -v id="$1" '$1 == "fail" && $2 == id { f = 1; next } f && $1 == "width" { exit }
        f && $1 == "start" { n++ } END { print n + 0 }' "$EVENTS"
 }
-FAIL_ID="pooltest-$$-f3" PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool f
+FAIL_IN_REPLAN=1 FAIL_ID="pooltest-$$-f3" PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool f
 check "a failure mid re-plan: the pool keeps filling its slots" 1 \
   "$(( $(starts_after_fail "pooltest-$$-f3") > 0 ))"
 # A re-plan that hangs is killed at POOL_PLAN_SECS, everything under it too (a

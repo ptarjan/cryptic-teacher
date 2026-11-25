@@ -73,6 +73,6 @@ finally:
 for f in ("independent", "telegraph", "globeandmail", "observer", "wayback"):
     src = (REPO / "tools" / f"fetch_{f}.py").read_text(encoding="utf-8")
     import re
-    check(f"fetch_{f} never calls the full reindex()", [], re.findall(r"^\s+reindex\(\)", src, re.M))
+    check(f"fetch_{f} never calls the full reindex()", [], re.findall(r"^[ \t]+reindex\(\)", src, re.M))
 
 sys.exit(1 if fails else 0)

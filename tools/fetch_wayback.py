@@ -71,7 +71,7 @@ never the web.archive.org one — it is the address a reader would cite, and
 several tools read it expecting that. source.retrievedFrom "wayback" says
 the bytes came from a capture.
 
-reindex() (puzzles/index.json + puzzles/idx/) only runs when writing into the
+reindex_changed() (puzzles/index.json + puzzles/idx/) only runs when writing into the
 real puzzle directory. Anything written to a --out override is a sample, not
 part of the site, and must not touch the real index.
 """
