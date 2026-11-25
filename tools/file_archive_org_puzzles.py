@@ -3510,6 +3510,9 @@ UNDER_SPAN = 0.1
 #: narrower (the 1957-03-04 page: text to 0.33, the second from 0.39 of 720px),
 #: so the usual window about the grid's middle began inside the second.
 UNDER_FIFTIES = (0.25, 0.45)
+#: KEPT as a decade window (round 5 audit): a left-column-text-width rule (gutter sought from the 90th percentile of the
+#: left words' right edges) moved the gutter over 10 px in 152 of 297 cached 1950-59 windows, 140 of them changing which
+#: column some word's start falls in, and no cached evidence judges those on the filed clues (reads need the page).
 
 
 #: The Gale Times days (QUARTER_DAYS, inclusive) whose clues stand under the grid in four columns, ACROSS in
@@ -3521,6 +3524,9 @@ QUARTER_DAYS = ("1939-08-01", "1939-12-31")
 #: The least grid width (px) of such a page: the wide scans (1939-10-21's grid is 1,318px). A page of those
 #: days scanned at the usual size (its grid ~720px) is read in two columns, as before.
 QUARTER_WIDTH = 1000
+#: KEPT with the days (round 5 audit): width does not separate the days. Of 1938-09..1940-02 Times grid crops (cached PNG headers)
+#: the median is 1,330 px every month, Sep 1938 - Jul 1939 included (quartered by quarter_print/quarter_gutters, not here), so a width
+#: rule would move ~400 filed pages' primary split, unreadable offline.
 #: Where, as shares of the grid's width from its left edge, each of the four columns' three gutters may lie.
 QUARTER_SPANS = ((0.15, 0.35), (0.4, 0.6), (0.65, 0.85))
 #: The years (inclusive) of the Gale Times pages whose four clue columns under the grid are tried as a window of
@@ -15582,6 +15588,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             # The other years' page with its grid left of a wide title: the clue columns right of the grid, read as the
             # window after the layout's (INDY_SIDE_RIGHT's, the page's evidence its title standing right of the grid).
             alts.append(("sideright", None))
+    # The year gate below is KEPT (round 5 audit): title_left() measures the ink left of the title, which no cached OCR/box file
+    # holds, so what a 1968+ Times page would do without it cannot be compared offline.
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
         (indented_column(hit["box"], gbox, m) or (indented_column(title_left(img, hit["box"], gbox), gbox, m)
                                                    if paper.key == "gale" and d.name[:4] < "1968" else None)) \
