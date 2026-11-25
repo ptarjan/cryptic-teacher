@@ -17,6 +17,8 @@ def due(row):
     if fa.paper_of(rel).key != "galesundaytimes" or "inputs" not in row \
             or not fa.scan_queue.read_before(row, fa.scan_queue.when(REREAD)):
         return False
+    if fa.specific_fix_reason(row):
+        return False  # an older, specific reason makes the row due: it keeps the row and its rank
     return any(v.get("cause") in ("not-a-grid", "no-reading-parses") for v in row.get("verdicts") or ())
 
 

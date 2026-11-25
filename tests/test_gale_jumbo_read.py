@@ -223,16 +223,20 @@ check("another tool's file is never filled", None, new)
 
 # --- a crashed page read comes back as due, and writes nothing
 def boom(path, store):
-    raise NameError("scan_queue")
+    raise RuntimeError("injected crash")
 
 
 gj.read_page, real = boom, gj.read_page
+import contextlib, io as _io
+_quiet = contextlib.redirect_stderr(_io.StringIO())  # the injected crash is reported on stderr by design
+_quiet.__enter__()
 check("a crash is a failed unit", "failed", gj.read_unit("jumbo:D.pdf", saved, store))
 check("the page is still due", True, "jumbo:D.pdf" in [u["rel"] for u in gj.plan_pages(saved, store)])
 check("no puzzle file written", [], sorted(p.name for p in (root / "puzzles").rglob("*.json")) if (root / "puzzles").exists() else [])
 gj.read_unit("jumbo:D.pdf", saved, store)
 gj.read_unit("jumbo:D.pdf", saved, store)
 check("settled as refused after CRASH_LIMIT crashes", False, "jumbo:D.pdf" in [u["rel"] for u in gj.plan_pages(saved, store)])
+_quiet.__exit__(None, None, None)
 gj.read_page = real
 
 # --- PRINTED_FIX: a rare word the page and the VLM spell alike is the print's

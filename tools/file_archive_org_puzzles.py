@@ -27795,6 +27795,12 @@ def fix_reason(row):
     registered = fix_reasons.due(row)
     if registered:
         return registered
+    return specific_fix_reason(row)
+
+
+def specific_fix_reason(row):
+    """fix_reason's own chain, without the registry: the older, specific reasons. A registered any-year blanket
+    reason defers to a row this makes due, so the specific reason (its text, its rank) keeps the row."""
     # Named puzzles Paul asked be fixed from the source: first, whatever else the row is due for.
     if clue_garbled_due(row):
         return CLUE_GARBLED
