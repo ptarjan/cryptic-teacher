@@ -1220,6 +1220,22 @@
     return frags.filter((f) => f.i >= 0);
   }
 
+  // Where each building-block piece's clue words sit, by piece index. Placed
+  // among the pieces alone (a piece may overlap an indicator, and the marker
+  // sorts that out) and kept out of placedFragments, whose cut points are drawn
+  // for EVERY fragment: a piece not yet shown must not leave a seam in the clue.
+  function placedPieces(e) {
+    const text = clueText(e), taken = [], out = [];
+    blockPieces(e).forEach((b, k) => {
+      if (!b || !b.clueFragment) return;
+      const i = bestOccurrence(text, b.clueFragment, taken);
+      if (i < 0) return;
+      taken.push({ i, len: b.clueFragment.length });
+      out.push({ k, i, len: b.clueFragment.length });
+    });
+    return out;
+  }
+
   // Which stretches of the clue are lit, and why. Kept apart from clueHTML
   // because the same ranges have to be painted twice over: once across the whole
   // string, and once word by word when the words themselves are the targets of a
@@ -1232,6 +1248,13 @@
     const marks = placedFragments(e)
       .filter((f) => isShown(e, rungOf[f.kind]))
       .map((f) => ({ i: f.i, len: f.text.length, cls: f.kind }));
+    // The pieces already on the table wear the Pieces colour, the same way the
+    // other rungs' words wear theirs. A piece still to come stays plain.
+    if (isShown(e, "blocks")) {
+      const solved = isEntrySolved(e);
+      placedPieces(e).filter((p) => solved || pieceOut(e, p.k))
+        .forEach((p) => marks.push({ i: p.i, len: p.len, cls: "blk" }));
+    }
     // Where two marks still overlap — an indicator genuinely sitting inside the
     // definition — markUp gives each cut piece to the FIRST mark that covers it,
     // so shortest-first hands the overlap to the more specific of the two and
