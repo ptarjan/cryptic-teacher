@@ -14986,7 +14986,13 @@ def sunday_mid_due(row):
 #: it saw was a corner of the grid ("the ink under the title is 28x20, not a grid", ~240 pages 1987-99). The widest
 #: heading taken, the farthest the grid's left edge from the heading's right, the highest its top over the heading's
 #: top and the lowest under it, all at SCAN_WIDTH.
-NUMBER_RIGHT_YEARS = ("1987", "2009")
+#:
+#: Measured, not year-gated: every Gale Sunday Times page whose located grid failed tries number_right, whatever its year.
+#: The heading's number was already placed in the filed sequence (filed_number) before any layout is tried, and the
+#: grid must be a lattice level with the heading (shaped_on, box_lattice, the rise/drop), so the page itself accepts or
+#: refuses the candidate. The years (NUMBER_RIGHT_FIRST_YEARS, where ~all such pages were found) only ORDER it: inside
+#: them it goes before the caption/band candidates, outside after, so a page another candidate reads keeps that read.
+NUMBER_RIGHT_FIRST_YEARS = ("1987", "2009")
 NUMBER_RIGHT_TITLE, NUMBER_RIGHT_GAP, NUMBER_RIGHT_RISE, NUMBER_RIGHT_DROP = 220, 600, 150, 150
 
 
@@ -15020,7 +15026,7 @@ def number_grid_due(row):
     read before REREAD_NUMBER_GRID."""
     edition = (row or {}).get("edition") or ""
     if paper_of(edition).key != "galesundaytimes" or "inputs" not in row \
-            or not NUMBER_RIGHT_YEARS[0] <= edition.split("/")[-1][:4] <= NUMBER_RIGHT_YEARS[1]:
+            or not edition.startswith("GaleSundayTimes"):
         return False
     return any(v.get("cause") == "not-a-grid" for v in row.get("verdicts") or ()) \
         and scan_queue.read_before(row, scan_queue.when(REREAD_NUMBER_GRID))
@@ -15154,7 +15160,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # A 1987-99 Gale Sunday Times page headed by the short "No N" line, its grid right of it (number_right).
     # Its two clue columns stand left of the grid, the heading over the first: read as a grid with its title right of
     # it (side "left": the crop two grids' widths left of it, to the page's foot).
-    if side is None and paper.key == "galesundaytimes" and NUMBER_RIGHT_YEARS[0] <= d.name[:4] <= NUMBER_RIGHT_YEARS[1]:
+    number_first = NUMBER_RIGHT_FIRST_YEARS[0] <= d.name[:4] <= NUMBER_RIGHT_FIRST_YEARS[1]
+    if side is None and paper.key == "galesundaytimes" and number_first:
         beside_box = number_right(img, hit["box"])
         if beside_box is not None:
             gbox, side = beside_box, "left"
@@ -15175,6 +15182,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         if caption is not None:
             gbox, side = caption, "below"
             verdict["gridBox"] = "over its caption"
+    # The same candidate for a page outside NUMBER_RIGHT_FIRST_YEARS, tried after the year-ordered ones found nothing.
+    if side is None and paper.key == "galesundaytimes" and not number_first and over_top is None and mid_column is None:
+        beside_box = number_right(img, hit["box"])
+        if beside_box is not None:
+            gbox, side = beside_box, "left"
+            verdict["gridBox"] = "right of its number heading"
     # A 1980-84 Gale Sunday Times page whose title stands right of its grid, the ACROSS band over the grid and the DOWN
     # column right of it (sunday_times_band, SUNDAY_BAND_BESIDE): read as a grid with its title under its top.
     band_beside = None
