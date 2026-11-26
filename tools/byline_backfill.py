@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import byline  # noqa: E402
+import byline
 
 CROPS = Path(os.path.expanduser("~/.cache/archive_org_crops/titles"))
 TLS_PAGES = Path(os.path.expanduser("~/.cache/gale_listener/ocr"))
