@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,30 @@
      }
     ]
    },
-   "solution": "HOLDUP"
+   "solution": "HOLDUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Display",
+      "at": 0,
+      "meaning": "to put something up where people can see it"
+     },
+     {
+      "text": "support",
+      "at": 11,
+      "meaning": "to prop something up so it does not fall"
+     }
+    ],
+    "explanation": {
+     "surface": "A show of backing for a cause, such as a placard raised by a crowd.",
+     "definitionFit": "Both senses come from raising something: lifting an item for viewing exhibits it, and lifting from beneath bears its weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +76,42 @@
     "text": "Thought of attaching ring to small wheel",
     "enumeration": "7"
    },
-   "solution": "OPINION"
+   "solution": "OPINION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thought",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ring",
+       "at": 21,
+       "gives": "O",
+       "note": "a ring is round, the shape of the letter O"
+      },
+      {
+       "words": "small wheel",
+       "at": 29,
+       "gives": "PINION",
+       "note": "a pinion is a small cogwheel that meshes with a larger gear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone considering fixing a ring onto a little wheel in a mechanism.",
+     "walkthrough": "'Thought' looks like a verb (thought of doing something), but it is the noun definition; 'of' and 'attaching ... to' only join the pieces.",
+     "definitionFit": "A view or belief someone holds is a thought they have formed on a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thought"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +125,11 @@
     "text": "Trick fee out of priest",
     "enumeration": "4"
    },
-   "solution": "DUPE"
+   "solution": "DUPE",
+   "annotationWithheld": {
+    "why": "Clue held as 'Trick fee out of priest' (OCR): DUE (fee) around P (priest) gives DUPE, but 'out of' does not signal a container; the printed indicator word is probably misread and no reprint was found.",
+    "clue": "Trick fee out of priest"
+   }
   },
   {
    "number": 4,
@@ -78,7 +143,57 @@
     "text": "Show reduced church attendance",
     "enumeration": "8"
    },
-   "solution": "PRESENCE"
+   "solution": "PRESENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attendance",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 5,
+         "note": "cut short, so the word for show loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Show",
+         "at": 0,
+         "gives": "PRESENT",
+         "note": "to show something is to present it"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 13,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that fewer people are going to church services.",
+     "walkthrough": "'reduced' drops the final letter of the word for show; 'church attendance' reads as one phrase, but the definition starts after 'church'.",
+     "definitionFit": "Being present somewhere, such as at a meeting, is attendance there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +207,11 @@
     "text": "cate tropical tree",
     "enumeration": "6"
    },
-   "solution": "CASHEW"
+   "solution": "CASHEW",
+   "annotationWithheld": {
+    "why": "Clue held as 'cate tropical tree (6)' (OCR): the start of the clue is cut off ('cate' is a fragment), so the wordplay for CASHEW cannot be recovered; no scan or reprint found.",
+    "clue": "cate tropical tree"
+   }
   },
   {
    "number": 5,
@@ -106,7 +225,48 @@
     "text": "Old King's note written in foreign language",
     "enumeration": "6"
    },
-   "solution": "CREOLE"
+   "solution": "CREOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foreign language",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "written in",
+       "at": 16,
+       "note": "the note is set down inside the king's name, so one goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old King's",
+       "at": 0,
+       "gives": "COLE",
+       "note": "Old King Cole is the merry old soul of the nursery rhyme"
+      },
+      {
+       "words": "note",
+       "at": 11,
+       "gives": "RE",
+       "note": "re is the second note of the sol-fa scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nursery-rhyme king jotting down a message in another tongue.",
+     "definitionFit": "A creole is a language formed from a mix of tongues, such as Haitian Creole from French."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +286,42 @@
      }
     ]
    },
-   "solution": "STANDOVER"
+   "solution": "STANDOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supervise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "position",
+       "at": 10,
+       "gives": "STAND",
+       "note": "a stand is a stance or a place taken up"
+      },
+      {
+       "words": "extra",
+       "at": 28,
+       "gives": "OVER",
+       "note": "over means extra, as in left over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manager watching a film extra take his place on set.",
+     "walkthrough": "'taken by' only joins the two pieces.",
+     "definitionFit": "To watch over someone at work, checking what they do, is to oversee them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extra"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +335,48 @@
     "text": "Always remaining outside without a kiss",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Always remaining",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 25,
+       "note": "lacking, so the kiss is taken away from the word for outside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "outside",
+       "at": 17,
+       "gives": "EXTERNAL",
+       "note": "external means on the outside"
+      },
+      {
+       "words": "a kiss",
+       "at": 33,
+       "gives": "X",
+       "note": "X is the kiss at the end of a letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone always left standing outside without being kissed.",
+     "definitionFit": "Something that lasts forever goes on existing for all time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remaining"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +390,36 @@
     "text": "Fake one that's a bit of a shock",
     "enumeration": "9"
    },
-   "solution": "HAIRPIECE"
+   "solution": "HAIRPIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fake one that's a bit of a shock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fake one that's a bit of a shock",
+       "at": 0,
+       "note": "a shock is a thick mass of hair, so a false bit of one is a wig or toupee"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forgery that gives people a small fright.",
+     "walkthrough": "'shock' looks like a fright, but here it is a shock of hair.",
+     "definitionFit": "A toupee is false hair worn to look like part of one's own thick head of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +439,42 @@
      }
     ]
    },
-   "solution": "HIGHCOMMAND"
+   "solution": "HIGHCOMMAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "senior officers",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tall",
+       "at": 0,
+       "gives": "HIGH",
+       "note": "high means tall"
+      },
+      {
+       "words": "order",
+       "at": 5,
+       "gives": "COMMAND",
+       "note": "a command is an order"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A demanding request sent to the top brass.",
+     "walkthrough": "'Tall order' is an idiom for a hard task, but it splits into two pieces; 'for' only joins.",
+     "definitionFit": "The military leadership who direct an army are its top-ranking generals and staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tall"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +488,41 @@
     "text": "Regions in the far East",
     "enumeration": "5"
    },
-   "solution": "AREAS"
+   "solution": "AREAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regions",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the answer sits inside the words that follow, spanning the gap between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "far East",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Countries out in East Asia.",
+     "walkthrough": "'in' points into 'fAR EASt'.",
+     "definitionFit": "Districts or zones of a country are parts of its territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "far"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +542,35 @@
      }
     ]
    },
-   "solution": "STARTERHOME"
+   "solution": "STARTERHOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Place you don't finish up living in?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Place you don't finish up living in?",
+       "at": 0,
+       "note": "a first house bought to begin on the property ladder, not one you end up in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering about a home you will not stay in for good.",
+     "walkthrough": "The question mark flags the wordplay on 'finish': you start in this place, you don't finish there.",
+     "definitionFit": "A small first home bought by people beginning on the property ladder is meant to be moved on from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +584,46 @@
     "text": "Benefit once more when head goes off",
     "enumeration": "4"
    },
-   "solution": "GAIN"
+   "solution": "GAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Benefit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "head goes off",
+       "at": 23,
+       "note": "the head of the word is its first letter, which is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "once more",
+       "at": 8,
+       "gives": "AGAIN",
+       "note": "again means once more"
+      },
+      {
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second advantage that appears when someone loses their head.",
+     "walkthrough": "'when' only joins the two halves.",
+     "definitionFit": "A profit or advantage is something you get out of a situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +637,52 @@
     "text": "New label girl stuck on plant",
     "enumeration": "10"
    },
-   "solution": "BELLADONNA"
+   "solution": "BELLADONNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "at": 0,
+         "note": "something new is made over, so the letters of the word label are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "label",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "words": "girl",
+       "at": 10,
+       "gives": "DONNA",
+       "note": "Donna is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh label being stuck onto a pot plant by a girl.",
+     "walkthrough": "'New' rearranges LABEL into BELLA; 'stuck on' only joins.",
+     "definitionFit": "Deadly nightshade is a poisonous plant of the potato family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +696,49 @@
     "text": "Ringleader is within reach for agreement",
     "enumeration": "8"
    },
-   "solution": "CONTRACT"
+   "solution": "CONTRACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is within",
+       "at": 11,
+       "note": "sits inside, so the letter goes into the word for reach"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reach",
+       "at": 21,
+       "gives": "CONTACT",
+       "note": "to reach someone is to contact them"
+      },
+      {
+       "words": "Ringleader",
+       "at": 0,
+       "gives": "R",
+       "note": "the leader, or first letter, of ring is R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The head of a gang is close enough to strike a deal.",
+     "walkthrough": "'Ringleader' looks like a gang boss, but it is the first letter of 'ring'.",
+     "definitionFit": "A legal deal binding two parties is a written agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ringleader"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +752,42 @@
     "text": "Continue with the German sell off",
     "enumeration": "9"
    },
-   "solution": "REMAINDER"
+   "solution": "REMAINDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sell off",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Continue",
+       "at": 0,
+       "gives": "REMAIN",
+       "note": "to remain is to continue, carry on staying"
+      },
+      {
+       "words": "the German",
+       "at": 14,
+       "gives": "DER",
+       "note": "der is German for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping going and the German company sells off its stock.",
+     "walkthrough": "'with' only joins.",
+     "definitionFit": "Publishers dispose of unsold books cheaply, and the verb for that discount clearance is this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Continue"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +801,11 @@
     "text": "Old soldier briefly re: vant",
     "enumeration": "5"
    },
-   "solution": "VALET"
+   "solution": "VALET",
+   "annotationWithheld": {
+    "why": "Clue held as 'Old soldier briefly re: vant (5)' (OCR): garbled ('re: vant' is probably 'servant' plus missing words), so the wordplay for VALET cannot be recovered; no scan or reprint found.",
+    "clue": "Old soldier briefly re: vant"
+   }
   },
   {
    "number": 16,
@@ -292,7 +819,57 @@
     "text": "Key money sorted out in case he forgets",
     "enumeration": "8"
    },
-   "solution": "AMNESIAC"
+   "solution": "AMNESIAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he forgets",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Key",
+       "at": 0,
+       "gives": "A",
+       "note": "A is a musical key"
+      },
+      {
+       "words": "money",
+       "at": 4,
+       "gives": "M"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sorted out",
+         "at": 10,
+         "note": "put in order again, so the letters of in case are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in case",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Key money arranged in a case, kept just in case someone forgets it.",
+     "walkthrough": "'Key money' reads as a deposit, but it gives A and M; 'sorted out' rearranges IN CASE into NESIAC.",
+     "definitionFit": "A person who has lost their memory is one who forgets, a sufferer of memory loss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +883,42 @@
     "text": "Kind of mass produced computer attachment",
     "enumeration": "5"
    },
-   "solution": "MODEM"
+   "solution": "MODEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "computer attachment",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Kind",
+       "at": 0,
+       "gives": "MODE",
+       "note": "a mode is a kind or manner"
+      },
+      {
+       "words": "mass",
+       "at": 8,
+       "gives": "M",
+       "note": "M is the symbol for mass in physics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mass-produced gadget plugged into a computer.",
+     "walkthrough": "'mass produced' looks like one phrase, but 'mass' gives M and 'produced' only joins; 'of' is a link.",
+     "definitionFit": "A device connected to a computer to send data over phone lines is a peripheral for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "produced"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +932,11 @@
     "text": "Jingle was one he made up Equip one of many involved in test",
     "enumeration": "7"
    },
-   "solution": "DICKENS"
+   "solution": "DICKENS",
+   "annotationWithheld": {
+    "why": "Clue held as 'Jingle was one he made up Equip one of many involved in test' (OCR): the clue of 20-down has run into it, so the text is shown on two lights; no scan to give the clue as printed.",
+    "clue": "Jingle was one he made up Equip one of many involved in test"
+   }
   },
   {
    "number": 19,
@@ -334,7 +950,42 @@
     "text": "Declare oneself right but not fit",
     "enumeration": "8"
    },
-   "solution": "IMPROPER"
+   "solution": "IMPROPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not fit",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Declare oneself",
+       "at": 0,
+       "gives": "IM",
+       "note": "saying of oneself 'I am', shortened to I'm"
+      },
+      {
+       "words": "right",
+       "at": 16,
+       "gives": "PROPER",
+       "note": "proper means right or correct"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who claims to be correct but is not suitable.",
+     "walkthrough": "'but' only joins.",
+     "definitionFit": "Unsuitable or indecent behaviour is unseemly, not fitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +999,60 @@
     "text": "Equip one of many involved in test",
     "enumeration": "7"
    },
-   "solution": "PROVIDE"
+   "solution": "PROVIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Equip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 18,
+       "note": "wrapped up inside, so the letters go into the word for test"
+      }
+     ],
+     "parts": [
+      {
+       "words": "test",
+       "at": 30,
+       "gives": "PROVE",
+       "note": "to prove something is to test it, as in proving ground"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 6,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "many",
+         "at": 13,
+         "gives": "D",
+         "note": "D is the Roman numeral 500, a large number"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kitting out one of many who take part in an exam.",
+     "walkthrough": "'one of many' looks like a single person, but gives I and D; 'of' only joins.",
+     "definitionFit": "To supply someone with what they need is to fit them out with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1066,31 @@
     "text": "May be simple to correct",
     "enumeration": "6"
    },
-   "solution": "REMEDY"
+   "solution": "REMEDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "May be simple",
+      "at": 0,
+      "meaning": "a simple is a medicinal herb, one kind of cure"
+     },
+     {
+      "text": "correct",
+      "at": 17,
+      "meaning": "to put right a fault"
+     }
+    ],
+    "explanation": {
+     "surface": "Something easy to put right.",
+     "walkthrough": "'simple' is the noun, an old word for a medicinal plant.",
+     "definitionFit": "A cure is a treatment such as a herbal simple, and to cure a fault is to put it right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "simple"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1104,40 @@
     "text": "Greek physicist set out amid cheers",
     "enumeration": "10"
    },
-   "solution": "ARCHIMEDES"
+   "solution": "ARCHIMEDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek physicist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "set out",
+       "at": 16,
+       "note": "arranged afresh, so the letters of amid cheers are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "amid cheers",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient scientist parading through an applauding crowd.",
+     "definitionFit": "The Syracusan scientist of Eureka fame worked on buoyancy and levers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1157,29 @@
      }
     ]
    },
-   "solution": "TODO"
+   "solution": "TODO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outstanding",
+      "at": 0,
+      "meaning": "still waiting to be done, as on a list of tasks"
+     },
+     {
+      "text": "fuss",
+      "at": 12,
+      "meaning": "a commotion or bother"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Unfinished tasks are still to be done, and a hullabaloo is a palaver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Outstanding"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1193,44 @@
     "text": "Fly that sounds angry",
     "enumeration": "4"
    },
-   "solution": "SOAR"
+   "solution": "SOAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SOAR",
+     "indicators": [
+      {
+       "text": "that sounds",
+       "at": 4,
+       "note": "says the word for angry is heard, giving a word spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "angry",
+       "at": 16,
+       "gives": "SORE",
+       "note": "sore means angry, as in feeling sore about something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect that buzzes angrily.",
+     "walkthrough": "'Fly' looks like the insect but is the verb.",
+     "definitionFit": "To rise high in the air is to fly upwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1244,48 @@
     "text": "Rex going in doesn't feel great anxiety",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "great anxiety",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going in",
+       "at": 4,
+       "note": "entering, so the letter goes inside the word for unfeeling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doesn't feel",
+       "at": 13,
+       "gives": "DEAD",
+       "note": "dead means numb, without feeling"
+      },
+      {
+       "words": "Rex",
+       "at": 0,
+       "gives": "R",
+       "note": "R stands for Rex, king, as in royal signatures"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king entering a room numb with fear.",
+     "definitionFit": "Fear of something coming is deep apprehension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feel"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1299,55 @@
     "text": "See top one I'm prepared to represent",
     "enumeration": "9"
    },
-   "solution": "EPITOMISE"
+   "solution": "EPITOMISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "represent",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "prepared",
+       "at": 16,
+       "note": "made ready, so the letters of see top, I and I'm are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See",
+       "at": 0
+      },
+      {
+       "words": "top",
+       "at": 4
+      },
+      {
+       "words": "one",
+       "at": 8,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "I'm",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ready to stand for the top person.",
+     "walkthrough": "'prepared' rearranges SEE TOP, I and IM.",
+     "definitionFit": "To be a perfect example of something is to typify it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1361,60 @@
     "text": "None run into Scottish river bird",
     "enumeration": "6"
    },
-   "solution": "OSPREY"
+   "solution": "OSPREY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "None",
+       "at": 0,
+       "gives": "O",
+       "note": "O is zero, nothing"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 9,
+         "note": "entering, so the letter goes inside the river's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish river",
+         "at": 14,
+         "gives": "SPEY",
+         "note": "the Spey is a river in Scotland famous for salmon"
+        },
+        {
+         "words": "run",
+         "at": 5,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody running into a Scottish river bird.",
+     "walkthrough": "The SPEY is a Scottish salmon river.",
+     "definitionFit": "The fish hawk is a bird of prey that dives for fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1428,36 @@
     "text": "Pile on the floor",
     "enumeration": "6"
    },
-   "solution": "CARPET"
+   "solution": "CARPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pile on the floor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Pile on the floor",
+       "at": 0,
+       "note": "pile is the raised fibre of a woven floor covering, not a heap"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heap of things left on the floor.",
+     "walkthrough": "'Pile' suggests a heap, but it is the soft surface of a rug.",
+     "definitionFit": "A woven floor covering has a pile of tufted fibres."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pile"
+    }
+   }
   }
  ]
 }
