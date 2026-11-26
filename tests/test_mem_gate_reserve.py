@@ -49,18 +49,34 @@ check("reserve=None keeps the old signature's rule", True,
 # Old units already at peak: only the new units' expected peak is reserved.
 old = [("read", 300 * M)] * 20
 res_old, parts = mg.up_reserve(old, 2, peaks)
-check("old units at peak: no growth left, 2 new x 800 MB (all-kind p90)", 2 * 800 * M, res_old)
-check("parts text names the growth", True, "0 MB growth" in parts)
+# 2 new units, each 300 or 800 MB: mean 550, sd 250 -> 2 x 550 + 1.645 x 250 x sqrt(2)
+want_old = int(2 * 550 * M + 1.645 * 250 * M * 2 ** 0.5)
+check("old units at peak: only 2 new units from the all-kinds mix", want_old, res_old)
+check("parts text names mean and sd", True, "growth (mean 1100 + 1.645 sd 353) in 20 running + 2 new" in parts)
 check("old units: a 5.2 GB VM is no longer held", None,
       mg.step_up_held(20, 22, 0, None, mg.FLOOR + 2200 * M, (res_old, parts)))
 
 # Young units: still growing toward their peak.
 young = [("read", 100 * M)] * 10 + [("scan", 380 * M)] * 10
 res_young, _ = mg.up_reserve(young, 2, peaks)
-check("young units: growth 10 x 200 + 10 x 420 MB + 2 new x 800", (2000 + 4200 + 1600) * M, res_young)
+check("young units: identical peaks per kind, so sd only from the 2 new", int((2000 + 4200 + 1100) * M + 1.645 * 250 * M * 2 ** 0.5), res_young)
 check("young units: held where old units were not", True,
       mg.step_up_held(20, 22, 0, None, mg.FLOOR + 5000 * M, (res_young, "")) is not None)
-check("a unit above its peak adds no negative growth", 800 * M, mg.up_reserve([("read", 900 * M)], 1, peaks)[0])
+check("a unit above its peak adds no negative growth (1 new unit from the 300/800 mix)",
+      int(550 * M + 1.645 * 250 * M), mg.up_reserve([("read", 900 * M)], 1, peaks)[0])
+
+# Statistics: 12 units of one kind with spread peaks reserve far less than 12 x p90 growth; one unit, its p90.
+spread = hist(w=[(100 + 10 * i) * M for i in range(20)])  # 100..290 MB, p90 = 270 MB
+twelve, txt = mg.up_reserve([("w", 0)] * 12, 1, spread)
+p90 = mg._high(spread["w"])
+check("12 spread units reserve clearly less than 12 x p90 growth", True, twelve < 0.9 * 13 * p90)
+check("12 spread units still reserve more than their mean growth", True, twelve > 13 * 195 * M)
+one, _ = mg.up_reserve([], 1, spread)
+check("a single unit reserves at least its p90 growth", True, one >= p90)
+tight = hist(w=[300 * M] * 10)
+check("a single unit with equal peaks reserves exactly its p90 growth", 300 * M, mg.up_reserve([], 1, tight)[0])
+check("a single running unit reserves its p90 growth left (one running, no new beyond the min 1 is mean-only)",
+      True, mg.up_reserve([("w", 100 * M)], 1, tight)[0] == 500 * M)
 
 # Fallbacks: kind without history uses all kinds; record_peak keeps the last PEAK_KEEP.
 check("unknown kind falls back to all kinds", 800 * M, mg.expected_peak("trove", peaks))
@@ -80,7 +96,8 @@ check("fine kind with history uses its own peaks (jumbo)", 1400 * M, mg.expected
 check("new fine kind falls back to its pool", 1400 * M, mg.expected_peak("listener tls", fine))
 few = hist(**{"read times GaleTimes1935UKEnglish": [1100 * M], "read ft GaleFT1975UKEnglish": [600 * M] * 4})
 check("fine kind under KIND_MIN uses its pool", 1100 * M, mg.expected_peak("read times GaleTimes1935UKEnglish", few))
-check("small Listener pages leave little growth", 0, mg.up_reserve([("listener", 300 * M)] * 5, 1, fine)[0] - 1400 * M)
+check("small Listener pages leave no growth: reserve is the one new unit's mix draw",
+      int(850 * M + 1.645 * 550 * M), mg.up_reserve([("listener", 300 * M)] * 5, 1, fine)[0])
 
 # CT_VM_UP_UNITS restores the old rule.
 mg.VM_UP_FIXED = True

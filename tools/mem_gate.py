@@ -221,19 +221,48 @@ def expected_peak(kind, peaks=None):
     return _high([x for d in peaks.values() for x in d]) or UNIT
 
 
+#: One-sided 95% point of the normal: the reserve covers the TOTAL growth with this confidence.
+RESERVE_Z = 1.645
+
+
+def _peak_list(kind, peaks):
+    """The recorded peaks a unit of `kind` is drawn from, same fallback as expected_peak: its own (KIND_MIN
+    or more), else its pool's plus its own, else every kind's, else [UNIT] (no history)."""
+    own = list(peaks.get(kind) or ())
+    if len(own) >= KIND_MIN:
+        return own
+    pool = kind.split(" ", 1)[0]
+    near = [x for k, d in peaks.items() if k.split(" ", 1)[0] == pool for x in d]
+    if near:
+        return near + own
+    return [x for d in peaks.values() for x in d] or [UNIT]
+
+
 def up_reserve(running, adding, peaks=None):
-    """(reserve bytes, parts text) a step up of `adding` units needs the VM to have free over FLOOR:
-    the remaining growth of the `running` units ([(kind, resident bytes)]: expected peak less size now,
-    never under 0) plus the expected peak of each unit added (the mix of all kinds). With no history
+    """(reserve bytes, parts text) a step up of `adding` units needs the VM to have free over FLOOR.
+    Rule: each running unit ([(kind, resident bytes)]) has remaining growth g = max(0, P - rss), P a peak
+    drawn from its kind's recorded peaks (_peak_list); each new unit has g = P drawn from the all-kinds mix
+    (rss 0). Units are independent, so the total's reserve is sum of means + RESERVE_Z (1.645, one-sided
+    95%) x sqrt(sum of variances), never under the largest single unit's p90 growth (one unit alone keeps
+    the old p90 guard). Summing every unit's p90 would assume all reach their p90 at once. With no history
     at all, or CT_VM_UP_UNITS set, the old VM_UP_UNITS x UNIT."""
     peaks = PEAKS if peaks is None else peaks
     if VM_UP_FIXED or not any(peaks.values()):
         return VM_UP_UNITS * UNIT, f"fixed {VM_UP_UNITS} x {UNIT >> 20} MB units"
-    growth = sum(max(0, expected_peak(k, peaks) - rss) for k, rss in running)
-    each = _high([x for d in peaks.values() for x in d]) or UNIT
-    add = max(1, adding) * each
-    return growth + add, (f"{growth >> 20} MB growth left in {len(running)} running + {max(1, adding)} new x "
-                          f"{each >> 20} MB expected peak")
+    mix = [x for d in peaks.values() for x in d]
+    n_new = max(1, adding)
+    units = [([max(0, p - rss) for p in _peak_list(k, peaks)]) for k, rss in running]
+    units += [[max(0, p) for p in mix]] * n_new
+    mean = var = 0.0
+    big = 0
+    for g in units:
+        m = sum(g) / len(g)
+        mean += m
+        var += sum((x - m) ** 2 for x in g) / len(g)
+        big = max(big, _high(g))
+    total = max(int(mean + RESERVE_Z * var ** 0.5), big)
+    return total, (f"{total >> 20} MB growth (mean {int(mean) >> 20} + {RESERVE_Z} sd {int(var ** 0.5) >> 20}) "
+                   f"in {len(running)} running + {n_new} new")
 
 
 def step_up_held(cur, new, now, cool_until, vm_avail, reserve=None):
