@@ -86,7 +86,16 @@ jobs:
           fi
           echo "diff base: $BEFORE"
           python3 tools/ci_scope.py decide "$BEFORE" | tee "$RUNNER_TEMP/verdict.txt"
-          python3 tools/ci_scope.py files "$BEFORE" > "$RUNNER_TEMP/changed.txt"
+          # Exit 3: more puzzles than the fast path checks (the verdict above is `full`
+          # then). No per-file checks run; tests.yml has the whole suite.
+          rc=0
+          python3 tools/ci_scope.py files "$BEFORE" > "$RUNNER_TEMP/changed.txt" || rc=$?
+          if [ "$rc" = 3 ]; then
+            echo "::notice::$(wc -l < "$RUNNER_TEMP/changed.txt") puzzles changed, over the fast path's cap (MAX_FILES in tools/ci_scope.py): skipping the per-file checks"
+            : > "$RUNNER_TEMP/changed.txt"
+          elif [ "$rc" != 0 ]; then
+            exit "$rc"
+          fi
           echo "$(wc -l < "$RUNNER_TEMP/changed.txt") puzzle(s) changed in this push"
           # tests.yml ignores these paths, so it did not start for this push. When the
           # verdict is `full` (a deleted or renamed puzzle, too many files, an entry

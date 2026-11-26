@@ -88,6 +88,11 @@ class Decide(unittest.TestCase):
         got = S.puzzle_files([("A", P), ("M", "tools/x.py"), ("D", "puzzles/a/1/a-1.json"), ("M", "puzzles/a/1/a-2.json")])
         self.assertEqual(got, ["puzzles/a/1/a-2.json", P])
 
+    def test_more_puzzles_than_the_fast_path_checks_is_full(self):
+        many = [("M", f"puzzles/times/1954/times-{n}.json") for n in range(S.MAX_FILES + 1)]
+        self.assertEqual(S.decide(many)[0], "full")
+        self.assertEqual(S.decide(many[:-1])[0], "fast")
+
 
 class Wiring(unittest.TestCase):
     """The workflow and the smoke cache agree with this module."""

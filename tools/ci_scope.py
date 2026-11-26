@@ -140,6 +140,8 @@ def decide(changes, base_text=None, head_text=None, site=False, code_ok=False):
             code.append(path)
         else:
             return "full", f"{st} {path}"
+    if len(stems) > MAX_FILES:
+        return "full", f"{len(stems)} puzzles changed, over the fast path's {MAX_FILES}"
     if rows - stems:
         # A row for a puzzle this push did not change binds a puzzle nobody re-checked.
         return "full", "an entry table row names an unchanged puzzle: " + ", ".join(sorted(rows - stems)[:3])
