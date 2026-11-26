@@ -280,7 +280,10 @@ Working here:
 - A clue you cannot annotate honestly costs that clue, not the puzzle: give it
   `{"withheld": "<the clue as held, and what is missing or which word does two jobs>"}`
   and annotate the rest. That is a clue cut short, garbled or wrong for its answer as held,
-  when neither the scan nor a WebSearch of its exact text in quotes gives the rest; or one
+  when neither the scan, a WebSearch of its exact text in quotes, nor a reprint gives the
+  rest (`grep -rlF "<the held words>" puzzles/<series>/`: papers rerun clues, and another
+  print often holds the words a feed or OCR cut; give those words as `printedClue`, the
+  evidence naming that print, metro-10116 15-across from metro-10101 3-down); or one
   whose only parse has a word doing two jobs (indicator and fodder at once, "preserved" as
   CAN and the container), which the check refuses on purpose. The rest ships, and the
   reason is kept so the clue can be fixed later. Search first: clue databases and blogs
