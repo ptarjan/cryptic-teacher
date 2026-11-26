@@ -59,6 +59,25 @@ os.chdir(REPO)
 import _path  # puts tools/ on sys.path
 
 
+def series_size_groups(paths):
+    """{(series, (cols, rows)): [path]} -- the one rule for what a series/size
+    bucket is, used by the sampler and by the check that it drew from every one.
+
+    Reading the head of each file is enough for the size and costs a fraction
+    of parsing the whole corpus, which this test does not otherwise need to do.
+    """
+    import re
+    cols_re = re.compile(r'"cols":\s*(\d+)')
+    rows_re = re.compile(r'"rows":\s*(\d+)')
+    groups = {}
+    for path in paths:
+        head = path.read_bytes()[:3000].decode("utf-8", "replace")
+        wide, tall = cols_re.search(head), rows_re.search(head)
+        size = (int(wide.group(1)), int(tall.group(1))) if wide and tall else (0, 0)
+        groups.setdefault((path.name.rsplit("-", 1)[0], size), []).append(path)
+    return groups
+
+
 def group0():
     import reconstruct_grid as R
     from fetch_puzzle import read_puzzle_file, resolve_puzzle
@@ -253,22 +272,14 @@ if len(sys.argv) > 1 and sys.argv[1] == "2":  # module level: its worker pool pi
     import reconstruct_grid as R
     from fetch_puzzle import read_puzzle_file, puzzle_files
 
-    COLS = re.compile(r'"cols":\s*(\d+)')
-    ROWS = re.compile(r'"rows":\s*(\d+)')
-
 
     def stratify(paths, want):
         """One draw per (series, size), then proportional, then the remainder.
 
-        Reading the head of each file is enough for the size and costs a fraction
-        of parsing the whole corpus, which this test does not otherwise need to do.
+        The grouping is series_size_groups(), which the test also uses to count
+        the buckets it expects the draw to cover.
         """
-        groups = {}
-        for path in paths:
-            head = path.read_bytes()[:3000].decode("utf-8", "replace")
-            wide, tall = COLS.search(head), ROWS.search(head)
-            size = (int(wide.group(1)), int(tall.group(1))) if wide and tall else (0, 0)
-            groups.setdefault((path.name.rsplit("-", 1)[0], size), []).append(path)
+        groups = series_size_groups(paths)
         rng = random.Random(20260918)
         keys = sorted(groups)
         for key in keys:
@@ -551,27 +562,14 @@ for ln in out2.splitlines():
 
 n_num, ex_num, amb_num, miss_num, unc_num, bud_num = tally(out2, "NUMBERED ")
 n_bare, ex_bare, amb_bare, miss_bare, unc_bare, bud_bare = tally(out2, "NUMBERLESS ")
-# One (series, size) bucket per line of the corpus, counted by hand and written
-# here as a number rather than computed: a sample that stops covering a series
-# is exactly what this file exists to catch, and a count derived from the same
-# files it is checking would agree with itself whatever arrived. A new series
-# fails here and is meant to — read the number off `puzzles/*/*/*.json` (index.json
-# is not a puzzle) and update it. 52 = cryptic at six sizes, listener at seventeen
-# (9x9, 10x10, 10x11, 10x12, 11x11, 11x12, 12x12, 13x9, 13x10, 13x11, 13x13, 14x8, 14x14, 15x15, 15x19, 17x17, 18x22),
-# azed at three (12x12, 13x11, 13x13), canberra (15x15, 13x13), cyclops, sundaytimes and timesjumbo at two, and book, everyman, ftcryptic,
-# genius, independent, indysunday, mephisto, metro, nation, quiptic, sundaytel, sundaytough, telegraph,
-# times, timesclub, timesquick, tls and toughie at one each. Every scanned printed book is the one `book` series, so
-# another book does not move this number.
-# Updated 44 -> 48 after nightly-smoke run 40147551416: listener gained four sizes.
-# Updated 48 -> 49 after nightly-smoke run 41038728387: listener-1016 (1949) is 13x9.
-# Updated 49 -> 50 after CI run 41266857315: listener-1313 (1955) is 11x11.
-# Updated 50 -> 52 after CI run 42051654405: listener gained 9x9 and 14x8.
-# Updated 52 -> 53 after CI run 42998941672: one more series/size bucket arrived in puzzles/.
-# Updated 53 -> 54 after CI run 43618384233: one more series/size bucket arrived in puzzles/.
-# Updated 54 -> 55 after CI run 43683853301: one more series/size bucket arrived in puzzles/.
-# Updated 55 -> 56 after CI run 43725675980: the nationmag series arrived in puzzles/.
-# Updated 56 -> 57 after CI run 44307824156: one more series/size bucket arrived in puzzles/.
-same("every series and size was drawn from", field("GROUPS", out2), "57")
+# The sampler takes one puzzle from every (series, size) bucket before it draws
+# any more, so a run that reports fewer buckets than the corpus holds has stopped
+# covering a series -- which is what this file exists to catch. The expected
+# count is read off the corpus with the sampler's own grouping rule, so a new
+# series or size is expected to be drawn from, not a surprise to be pinned by hand.
+from fetch_puzzle import puzzle_files
+same("every series and size was drawn from", field("GROUPS", out2),
+     len(series_size_groups(puzzle_files())))
 same("every attempt lands in exactly one of the five buckets",
      ex_num + amb_num + miss_num + unc_num + bud_num, n_num)
 # Everything below is stated against the attempts that finished AND whose
