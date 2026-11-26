@@ -3978,7 +3978,7 @@ class _Poller:
         self.reload_check()
         if self.ceiling_ctl:
             running = sum(1 for _, (u, _) in self.units_running() if u["kind"] != "fetch")
-            for line in self.ceiling_ctl.poll(running=running):
+            for line in self.ceiling_ctl.poll(running=running, kinds={pid: slot_of(u) for pid, (u, _) in self.units_running() if u["kind"] != "fetch"}):
                 log(line)
         for b in self.beside:
             b.poll(self.may_start() and not self.game_now[0], None if self.seconds is None else self.seconds - (time.monotonic() - self.begun))
@@ -4301,13 +4301,16 @@ class _Children:
         # A unit this process started before a re-exec is adopted and still its child.
         while self.running or self.adopted:
             try:
-                pid, status = os.waitpid(-1, os.WNOHANG)
+                pid, status, usage = os.wait4(-1, os.WNOHANG)
             except ChildProcessError:
                 return
             if pid == 0:
                 return
             if pid not in self.running and pid not in self.adopted:
                 continue
+            kind = slot_of((self.running.get(pid) or self.adopted[pid])[0])
+            if kind.split()[0] != "fetch":  # peak resident size (KiB on Linux), for the ceiling's step-up reserve
+                mem_gate.record_peak(kind, usage.ru_maxrss if sys.platform == "darwin" else usage.ru_maxrss << 10)
             unit, t0 = self.running.pop(pid) if pid in self.running else self.adopted.pop(pid)
             self.ended(unit, t0)
             rc = os.waitstatus_to_exitcode(status)

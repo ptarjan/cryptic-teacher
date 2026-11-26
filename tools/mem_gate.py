@@ -180,22 +180,66 @@ SWAP_COOL = int(os.environ.get("CT_SWAP_COOL") or 1800)
 VM_UP_UNITS = int(os.environ.get("CT_VM_UP_UNITS") or 4)
 
 
-def step_up_held(cur, new, now, cool_until, vm_avail):
+#: CT_VM_UP_UNITS set: the old fixed reserve (that many units) instead of the measured one.
+VM_UP_FIXED = bool(os.environ.get("CT_VM_UP_UNITS"))
+#: Peak resident bytes of finished units (the unit's own and its reaped children's: wait4's ru_maxrss),
+#: the last PEAK_KEEP per kind (slot: scan / read / trove / listener ...), in memory.
+PEAK_KEEP = 50
+PEAKS = {}
+
+
+def record_peak(kind, peak, peaks=None):
+    """Remember one finished unit's peak resident bytes under its kind."""
+    if peak and peak > 0:
+        (PEAKS if peaks is None else peaks).setdefault(kind, collections.deque(maxlen=PEAK_KEEP)).append(int(peak))
+
+
+def _high(values):
+    """The 90th percentile of `values` (a peak a unit of the kind mostly stays under), None when empty."""
+    v = sorted(values)
+    return v[int(0.9 * (len(v) - 1))] if v else None
+
+
+def expected_peak(kind, peaks=None):
+    """What a unit of `kind` is expected to peak at: its kind's recent peaks, else every kind's, else
+    UNIT (no history)."""
+    peaks = PEAKS if peaks is None else peaks
+    return _high(peaks.get(kind) or ()) or _high([x for d in peaks.values() for x in d]) or UNIT
+
+
+def up_reserve(running, adding, peaks=None):
+    """(reserve bytes, parts text) a step up of `adding` units needs the VM to have free over FLOOR:
+    the remaining growth of the `running` units ([(kind, resident bytes)]: expected peak less size now,
+    never under 0) plus the expected peak of each unit added (the mix of all kinds). With no history
+    at all, or CT_VM_UP_UNITS set, the old VM_UP_UNITS x UNIT."""
+    peaks = PEAKS if peaks is None else peaks
+    if VM_UP_FIXED or not any(peaks.values()):
+        return VM_UP_UNITS * UNIT, f"fixed {VM_UP_UNITS} x {UNIT >> 20} MB units"
+    growth = sum(max(0, expected_peak(k, peaks) - rss) for k, rss in running)
+    each = _high([x for d in peaks.values() for x in d]) or UNIT
+    add = max(1, adding) * each
+    return growth + add, (f"{growth >> 20} MB growth left in {len(running)} running + {max(1, adding)} new x "
+                          f"{each >> 20} MB expected peak")
+
+
+def step_up_held(cur, new, now, cool_until, vm_avail, reserve=None):
     """Why a step up from `cur` to `new` is held, or None (not a step up, or nothing holds it): a swap
-    cool-down still running (now < cool_until), or the VM with under FLOOR + VM_UP_UNITS x UNIT available
-    (vm_avail bytes; None: no figure, no hold)."""
+    cool-down still running (now < cool_until), or the VM with under FLOOR + reserve available (vm_avail
+    bytes; None: no figure, no hold). `reserve` is (bytes, parts text) from up_reserve; None: the old
+    VM_UP_UNITS x UNIT."""
     if new <= cur:
         return None
     if cool_until is not None and now < cool_until:
         return f"swap cool-down, {int(cool_until - now)} s left"
-    if vm_avail is not None and vm_avail < FLOOR + VM_UP_UNITS * UNIT:
-        return f"VM has {vm_avail >> 20} MB available, under {(FLOOR + VM_UP_UNITS * UNIT) >> 20} MB"
+    size, parts = reserve if reserve is not None else (VM_UP_UNITS * UNIT, f"fixed {VM_UP_UNITS} x {UNIT >> 20} MB units")
+    if vm_avail is not None and vm_avail < FLOOR + size:
+        return f"VM has {vm_avail >> 20} MB available, under {(FLOOR + size) >> 20} MB (floor {FLOOR >> 20} MB + {parts})"
     return None
 
 
-def hold_step_up(cur, new, now, cool_until, vm_avail):
+def hold_step_up(cur, new, now, cool_until, vm_avail, reserve=None):
     """`new` unless it is a step up that step_up_held() holds; then `cur`."""
-    return cur if step_up_held(cur, new, now, cool_until, vm_avail) else new
+    return cur if step_up_held(cur, new, now, cool_until, vm_avail, reserve) else new
 
 
 def cool_after(cur, new, swap_mb, now, cool_until):
@@ -339,6 +383,7 @@ class CeilingController:
         self.swapped = None
         left = cool_left()  # (a cool-down the image before this one started goes on)
         self.cool_until = time.monotonic() + left if left else None  # no step up before this (monotonic) after VM swap stepped down
+        self.kinds = {}  # {pid: slot} of the unit children running, given to poll() (their sizes are the reserve's growth)
         self.running = None  # unit children running, given to poll() by the queue (None: unknown)
 
     def _swap_rate(self):
@@ -379,7 +424,11 @@ class CeilingController:
         if self.cool_until is not None and self.cool_until != was:
             cool_store(self.cool_until - now)
         avail = available()
-        held = step_up_held(cur, new, now, self.cool_until, avail)
+        reserve = None
+        if new > cur:
+            sizes = tree_rss(list(self.kinds)) if self.kinds else {}
+            reserve = up_reserve([(self.kinds[p], r) for p, r in sizes.items()], new - cur)
+        held = step_up_held(cur, new, now, self.cool_until, avail, reserve)
         if held is None and new == cur and swap and swap > SWAP_HOLD_MB and ceiling_step(
                 cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
                 int(env("CT_CEILING_CPU_HI") or 90), int(env("CT_CEILING_CPU_LO") or 80), 0, faults, low, self.running) > cur:
@@ -387,7 +436,7 @@ class CeilingController:
         if held:
             self.lines.append(f"ceiling: step up from {cur} held: {held} (win free {free} MB, cpu {cpu}%, "
                               f"swap {swap} MB/min, faults {faults}/s)")
-        new = hold_step_up(cur, new, now, self.cool_until, avail)
+        new = hold_step_up(cur, new, now, self.cool_until, avail, reserve)
         if new != cur:
             path = os.path.expanduser(env("CT_UNIT_CEILING_FILE") or CEILING_FILE)
             try:
@@ -400,9 +449,10 @@ class CeilingController:
             self.lines.append(f"ceiling: win free {free} MB (low {low}) cpu {cpu}% swap {swap} MB/min "
                               f"faults {faults}/s: {cur} -> {new}")
 
-    def poll(self, now=None, running=None):
+    def poll(self, now=None, running=None, kinds=None):
         now = time.monotonic() if now is None else now
         self.running = running
+        self.kinds = dict(kinds or {})
         if (self.thread is None or not self.thread.is_alive()) and (self.last is None or now - self.last >= self.every):
             import threading
             self.last = now
