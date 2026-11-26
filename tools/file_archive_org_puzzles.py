@@ -13397,7 +13397,12 @@ VLM_SKIPPED = []
 
 
 def held_file(series, number):
-    """The parsed held file of `series`' puzzle `number`, or None."""
+    """The parsed held file of `series`' puzzle `number`, or None.
+
+    Puzzle numbers start at 1: a neighbour search around No 1 or 2 (wrong_grid's reach) asks for
+    0 or below, which no series files, so it holds nothing (puzzle_id asserts on them)."""
+    if number < 1:
+        return None
     reader = _HELD_READER["read"]
     try:
         if reader is not None:
