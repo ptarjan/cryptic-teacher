@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,67 @@
     "text": "Monk does 1 Ac anagram in a tank",
     "enumeration": "10"
    },
-   "solution": "CISTERCIAN"
+   "solution": "CISTERCIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "the shuffled letters are placed inside the word for a tank, so 'in' signals a container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a tank",
+       "at": 26,
+       "gives": "CISTERN",
+       "note": "a cistern is a water tank"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "anagram",
+         "at": 15,
+         "note": "the clue says outright that the preceding letters are to be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "1",
+         "at": 10,
+         "gives": "I",
+         "note": "1 is I in Roman numerals"
+        },
+        {
+         "words": "Ac",
+         "at": 12,
+         "gives": "AC",
+         "note": "taken as the letters A and C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monk performs an anagram while sitting in a tank.",
+     "walkthrough": "'anagram' rearranges I (Roman 1) and AC into CIA, and 'in' puts CIA inside CISTERN.",
+     "definitionFit": "Cistercians are members of a Benedictine order of monks founded at Citeaux."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tank"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +107,60 @@
     "text": "100 + 21 -50 in the island",
     "enumeration": "5"
    },
-   "solution": "CAPRI"
+   "solution": "CAPRI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the island",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "100",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "-",
+         "at": 9,
+         "note": "the minus sign tells you to subtract the following figure's letter from the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "21",
+         "at": 6,
+         "gives": "APRIL",
+         "note": "the answer to clue 21 across, the month in Rosalind's line"
+        },
+        {
+         "words": "50",
+         "at": 10,
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arithmetic sum that ends up on an island.",
+     "walkthrough": "The '+' joins C to the answer to 21 across, APRIL, and '-' then takes away L (Roman 50), leaving C + APRI.",
+     "definitionFit": "Capri is an Italian island in the Bay of Naples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "100"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +180,59 @@
      }
     ]
    },
-   "solution": "SHEEPDIPS"
+   "solution": "SHEEPDIPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They improve the flock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amid",
+       "at": 47,
+       "note": "amid means in the middle of, so the jumbled letters go into the middle of the vessels word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ships",
+       "at": 51,
+       "gives": "SHIPS",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trouble",
+         "at": 39,
+         "note": "to trouble something is to stir it up, so the letters of deep are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deep",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sheep treatments help the flock, but cause havoc at sea in the middle of a vessel.",
+     "walkthrough": "'amidships' is split into 'amid' and 'ships'; 'trouble' turns DEEP into EEPD, which goes inside SHIPS after SH.",
+     "definitionFit": "Sheep dips are disinfectant baths that rid sheep of parasites, so they keep a flock healthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "amidships"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +246,40 @@
     "text": "I lament sixties' strange doctrine of life",
     "enumeration": "14"
    },
-   "solution": "EXISTENTIALISM"
+   "solution": "EXISTENTIALISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "doctrine of life",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "strange",
+       "at": 18,
+       "note": "something strange is out of its normal order, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I lament sixties'",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mourns the 1960s and their peculiar philosophy.",
+     "definitionFit": "Existentialism is a philosophy concerned with the meaning of individual existence and free choice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lament"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +293,29 @@
     "text": "Beam on the goddess Bast",
     "enumeration": "7"
    },
-   "solution": "CATHEAD"
+   "solution": "CATHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beam",
+      "at": 0
+     },
+     {
+      "text": "the goddess Bast",
+      "at": 8
+     }
+    ],
+    "explanation": {
+     "surface": "Light shining on an Egyptian deity.",
+     "walkthrough": "A cathead is a beam projecting from a ship's bow to hold the anchor; the Egyptian goddess Bast is shown with the head of a cat.",
+     "definitionFit": "Both senses: a timber jutting from the bow for raising the anchor, and Bast's feline head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beam"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +329,59 @@
     "text": "Hermit's case altered over nervous trouble",
     "enumeration": "7"
    },
-   "solution": "ASCETIC"
+   "solution": "ASCETIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hermit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 22,
+       "note": "in a down clue the first piece sits over, above, the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "altered",
+         "at": 14,
+         "note": "altered means changed in form, so the letters of case are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "case",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "nervous trouble",
+       "at": 27,
+       "gives": "TIC",
+       "note": "a tic is an involuntary twitch caused by a nervous disorder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recluse's condition has changed on top of a twitchy disorder.",
+     "walkthrough": "'altered' rearranges CASE into ASCE, which goes 'over' TIC in the down light; the 's after Hermit stands for 'is' and links.",
+     "definitionFit": "An ascetic lives in severe self-denial, often alone like a recluse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +395,36 @@
     "text": "Exult ? Not this bird",
     "enumeration": "4"
    },
-   "solution": "CROW"
+   "solution": "CROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exult ? Not this bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Exult ? Not this bird",
+       "at": 0,
+       "note": "the verb meaning to boast in triumph shares its name with a black bird; the clue asks for the verb, not the bird"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asked whether to rejoice, a bird declines.",
+     "walkthrough": "The bird reading looks like the definition, but 'Not this bird' tells you the bird is not meant: the answer is the verb that means to exult, which happens to share the bird's name.",
+     "definitionFit": "To crow is to boast or gloat triumphantly over a success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +438,40 @@
     "text": "Assessed effect of trade disruption",
     "enumeration": "5"
    },
-   "solution": "RATED"
+   "solution": "RATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assessed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disruption",
+       "at": 25,
+       "note": "disruption throws things out of order, so the letters of trade are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trade",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Evaluating the impact of a breakdown in commerce.",
+     "definitionFit": "To rate something is to judge or value it, so assessed means the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "effect"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +485,36 @@
     "text": "When Mrs. Grundy received her name",
     "enumeration": "9"
    },
-   "solution": "WEDNESDAY"
+   "solution": "WEDNESDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "When Mrs. Grundy received her name",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "When Mrs. Grundy received her name",
+       "at": 0,
+       "note": "in the nursery rhyme Solomon Grundy was married midweek, the day his wife took the Grundy surname"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about when a prim lady got her name.",
+     "walkthrough": "Mrs Grundy, a byword for prudishness, is here the wife of Solomon Grundy from the nursery rhyme, who was 'married on' this day; a bride takes her husband's name on marriage.",
+     "definitionFit": "The rhyme gives the wedding day as the third day after Monday, when a bride traditionally takes her husband's surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +538,35 @@
      }
     ]
    },
-   "solution": "DUCKSANDDRAKES"
+   "solution": "DUCKSANDDRAKES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The spendthrift makes many a splash playing them with his money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The spendthrift makes many a splash playing them with his money",
+       "at": 0,
+       "note": "the stone-skimming game makes splashes, and to play it with money is an idiom for squandering it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wastrel throws money about like stones skimmed across water.",
+     "walkthrough": "The game is skimming flat stones across water; 'to play ducks and drakes with' money is an old idiom for wasting it recklessly.",
+     "definitionFit": "The stone-skipping pastime gives its name to the phrase for frittering away a fortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "splash"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +580,41 @@
     "text": "What have pollsters to do with a public relations proclamation?",
     "enumeration": "7"
    },
-   "solution": "PREDICT"
+   "solution": "PREDICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What have pollsters to do",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "public relations",
+       "at": 33,
+       "gives": "PR"
+      },
+      {
+       "words": "proclamation",
+       "at": 50,
+       "gives": "EDICT",
+       "note": "an edict is an official proclamation or decree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What use are opinion pollsters to a PR announcement?",
+     "walkthrough": "The definition is the opening phrase: pollsters have to forecast results.",
+     "definitionFit": "Pollsters exist to forecast how people will vote, that is, to say in advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +628,42 @@
     "text": "Edward entitled to be included in census",
     "enumeration": "7"
    },
-   "solution": "COUNTED"
+   "solution": "COUNTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "included in census",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "entitled",
+       "at": 7,
+       "gives": "COUNT",
+       "note": "a count is a titled nobleman, someone entitled"
+      },
+      {
+       "words": "Edward",
+       "at": 0,
+       "gives": "ED",
+       "note": "Ed is the short form of the name Edward"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Edward claims the right to appear in the census.",
+     "walkthrough": "'entitled' does not mean having a right here: it means bearing a title, as a COUNT does.",
+     "definitionFit": "A census is a head count, so anyone included in it has been tallied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entitled"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +677,60 @@
     "text": "I'm open about one-don't be so restless",
     "enumeration": "9"
    },
-   "solution": "IMPATIENT"
+   "solution": "IMPATIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "restless",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I'm",
+       "at": 0,
+       "gives": "IM",
+       "note": "taken as written, without the apostrophe"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 9,
+         "note": "the word for open goes round, about, the letter for one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "open",
+         "at": 4,
+         "gives": "PATENT",
+         "note": "patent means open or plain to see"
+        },
+        {
+         "words": "one",
+         "at": 15,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frank about a single matter is told to calm down.",
+     "walkthrough": "'about' puts I inside PATENT to make PATIENT, after IM; the words 'don't be so' are a link phrasing the definition as a rebuke.",
+     "definitionFit": "Someone restless cannot wait calmly, which is to be fidgety and eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +744,44 @@
     "text": "Knowledge fore and aft of how to use an anchor",
     "enumeration": "5"
    },
-   "solution": "KEDGE"
+   "solution": "KEDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "how to use an anchor",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "fore and aft",
+       "at": 10,
+       "note": "only the front and back of the word are kept, so its middle letters are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Knowledge",
+       "at": 0
+      },
+      {
+       "gives": "NOWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Knowing all about how to anchor a boat, from bow to stern.",
+     "walkthrough": "'fore and aft' keeps the front K and the back EDGE of KNOWLEDGE, dropping NOWL; the nautical phrase suits the anchor surface.",
+     "definitionFit": "To kedge is to move a ship by dropping a small anchor ahead and hauling up to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fore"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +795,45 @@
     "text": "Rule of J Pluvius, say?",
     "enumeration": "5"
    },
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rule",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "REIGN",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 19,
+       "note": "say signals that the word is spoken, so a sound-alike is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of J Pluvius",
+       "at": 5,
+       "gives": "RAIN",
+       "note": "Jupiter Pluvius is the Roman god of showers, so his gift is wet weather"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the rule of the Roman rain god.",
+     "walkthrough": "J Pluvius is Jupiter Pluvius, 'Jupiter the rain-giver', so what comes from him is RAIN; 'say' gives the same-sounding word for rule.",
+     "definitionFit": "A monarch's reign is the period or fact of their rule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rule"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +853,36 @@
      }
     ]
    },
-   "solution": "REDCARPET"
+   "solution": "REDCARPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "V.I.P.'s give it a going-over",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "V.I.P.'s give it a going-over",
+       "at": 0,
+       "note": "a going-over usually means an inspection or beating, but here the VIPs literally go over it, walking along it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Important people subject something to a thorough inspection.",
+     "walkthrough": "A going-over sounds like an inspection, but the dignitaries simply walk over the carpet laid out for their arrival.",
+     "definitionFit": "A long crimson carpet is rolled out for honoured guests to walk along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "going-over"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +896,49 @@
     "text": "One's right indeed to have thumped a tub",
     "enumeration": "9"
    },
-   "solution": "DECLAIMED"
+   "solution": "DECLAIMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thumped a tub",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "the word for one's right sits inside the word for an act"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deed",
+       "at": 14,
+       "gives": "DEED",
+       "note": "taken as written"
+      },
+      {
+       "words": "One's right",
+       "at": 0,
+       "gives": "CLAIM",
+       "note": "a claim is something one asserts as one's right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was right to make a soapbox speech.",
+     "walkthrough": "'indeed' splits into 'in' and 'deed': CLAIM goes in DEED. To thump a tub is to rant like a soapbox orator.",
+     "definitionFit": "A tub-thumper is a ranting orator, so to thump a tub is to speak in a loud oratorical way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "indeed"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +952,64 @@
     "text": "Many raise capital and a number of notes",
     "enumeration": "9"
    },
-   "solution": "MEMORANDA"
+   "solution": "MEMORANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "number of notes",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Many",
+       "at": 0,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand, so many"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raise",
+         "at": 5,
+         "note": "in a down clue raising a word reads it from bottom to top, so it is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 11,
+         "gives": "ROME",
+         "note": "Rome is the capital of Italy"
+        }
+       ]
+      },
+      {
+       "words": "and",
+       "at": 19,
+       "gives": "AND"
+      },
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of people raise funds and a collection of written messages.",
+     "walkthrough": "'capital' looks like money, but it is a city, ROME, which 'raise' turns into EMOR in the down light; AND and A follow.",
+     "definitionFit": "Memoranda is the plural of memorandum, a written note or reminder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1023,50 @@
     "text": "Ends parade of young ladies of the underworld?",
     "enumeration": "9"
    },
-   "solution": "DISMISSES"
+   "solution": "DISMISSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ends parade",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 28,
+       "note": "the young ladies belong to the underworld, so its name stands before them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the underworld",
+       "at": 31,
+       "gives": "DIS",
+       "note": "Dis is the Roman god of the underworld and his realm"
+      },
+      {
+       "words": "young ladies",
+       "at": 15,
+       "gives": "MISSES",
+       "note": "misses are young unmarried women"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Young women from the underworld put on a show.",
+     "walkthrough": "The answer reads as 'Dis misses', the girls of the underworld. 'Dismiss!' is the order that ends a parade.",
+     "definitionFit": "A parade is ended with the order to dismiss, so whoever ends it lets the soldiers go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parade"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1080,35 @@
     "text": "Swinburne's fleet sweet sister",
     "enumeration": "7"
    },
-   "solution": "SWALLOW"
+   "solution": "SWALLOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swinburne's fleet sweet sister",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Swinburne's fleet sweet sister",
+       "at": 0,
+       "note": "Swinburne's poem Itylus addresses a fast-flying bird as 'sister, my sister, O fleet sweet' sister"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's speedy, lovable sibling.",
+     "walkthrough": "Swinburne's poem 'Itylus' opens 'Swallow, my sister, O sister swallow', the nightingale speaking to her sister bird from the Greek myth of Procne and Philomela.",
+     "definitionFit": "In the myth one sister became a nightingale and the other this fast-flying migratory bird, the one Swinburne's poem addresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fleet"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1122,47 @@
     "text": "One statue oddly placed",
     "enumeration": "7"
    },
-   "solution": "SITUATE"
+   "solution": "SITUATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "placed",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "oddly",
+       "at": 11,
+       "note": "oddly means in an unusual way, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "statue",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single sculpture stands in an odd position.",
+     "walkthrough": "'oddly' rearranges I (one) and STATUE. Situate as an adjective is an old form of situated.",
+     "definitionFit": "Situate, an old legal adjective, means located or set in a given spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1176,29 @@
     "text": "Lay figure shows his hand",
     "enumeration": "5"
    },
-   "solution": "DUMMY"
+   "solution": "DUMMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lay figure",
+      "at": 0
+     },
+     {
+      "text": "shows his hand",
+      "at": 11
+     }
+    ],
+    "explanation": {
+     "surface": "A layman shows what cards he holds.",
+     "walkthrough": "A lay figure is an artist's jointed model; in bridge the dummy's hand is laid face up on the table for all to see.",
+     "definitionFit": "Both senses: a mannequin, and the bridge player whose cards are exposed on the table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lay"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1212,35 @@
     "text": "\" Men are when they woo \" said Rosalind",
     "enumeration": "5"
    },
-   "solution": "APRIL"
+   "solution": "APRIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\" Men are when they woo \" said Rosalind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\" Men are when they woo \" said Rosalind",
+       "at": 0,
+       "note": "a fill-in-the-blank: Rosalind in As You Like It says men are a spring month when they woo, December when they wed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quotation from Shakespeare's heroine about men in courtship.",
+     "walkthrough": "The page prints a dash for the missing word. In As You Like It, Rosalind says 'Men are April when they woo, December when they wed'.",
+     "definitionFit": "Rosalind compares wooing men to a fresh spring month, and married men to midwinter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Men"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1254,61 @@
     "text": "Country deity upset about the old town",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "the turned word for the god goes round the ancient city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 14,
+         "note": "in a down clue upset means turned upside down, so the word reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deity",
+         "at": 8,
+         "gives": "LAR",
+         "note": "a lar is a Roman household god"
+        }
+       ]
+      },
+      {
+       "words": "the old town",
+       "at": 26,
+       "gives": "UR",
+       "note": "Ur is the ancient Mesopotamian city"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national god, overturned, concerning an ancient settlement.",
+     "walkthrough": "'upset' turns LAR into RAL, and 'about' wraps it round UR, the biblical city.",
+     "definitionFit": "Country as an adjective, as in country life, means of the countryside, rustic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1322,42 @@
     "text": "Perhaps rope-craft increases the farmer's profit",
     "enumeration": "9"
    },
-   "solution": "AFTERCROP"
+   "solution": "AFTERCROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "increases the farmer's profit",
+      "at": 19,
+      "note": "a phrase standing for a thing that adds to a farm's income, a noun in effect"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Perhaps",
+       "at": 0,
+       "note": "perhaps suggests the letters might be arranged some other way, signalling an anagram"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rope-craft",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skill with ropes may boost a farm's earnings.",
+     "walkthrough": "'Perhaps' rearranges ROPECRAFT. The definition describes what the answer does rather than giving a synonym: a second crop in one season adds to a farmer's income.",
+     "definitionFit": "A second harvest taken from the same field in a season adds to the grower's yield and income."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rope-craft"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1371,43 @@
     "text": "No war we hear for a bit",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a bit",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PIECE",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 7,
+       "note": "we hear signals that the word is listened to, so a sound-alike is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No war",
+       "at": 0,
+       "gives": "PEACE",
+       "note": "peace is the absence of war"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short break from fighting, it is reported.",
+     "definitionFit": "A piece is a portion or fragment, as is a bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "war"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1421,56 @@
     "text": "Equality, like love and money, is somewhat shady",
     "enumeration": "7"
    },
-   "solution": "PARASOL"
+   "solution": "PARASOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhat shady",
+      "at": 34,
+      "note": "an adjective phrase for something giving partial shade; the answer is the object that gives it"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Equality",
+       "at": 0,
+       "gives": "PAR",
+       "note": "par means equality, as in on a par"
+      },
+      {
+       "words": "like",
+       "at": 10,
+       "gives": "AS",
+       "note": "as means like"
+      },
+      {
+       "words": "love",
+       "at": 15,
+       "gives": "O",
+       "note": "love is nil in tennis, the shape of the letter O"
+      },
+      {
+       "words": "money",
+       "at": 24,
+       "gives": "L",
+       "note": "L stands for the pound, from Latin libra"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fairness, like love and cash, has something shady about it.",
+     "walkthrough": "The surface suggests a moral judgement, but 'shady' means casting shade; L is the pound sign's initial, a British money abbreviation.",
+     "definitionFit": "A sunshade carried over the head gives a little shade, a small umbrella against the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shady"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1484,53 @@
     "text": "Request a North Carolina direction — answer \" Sideways \"",
     "enumeration": "7"
    },
-   "solution": "ASKANCE"
+   "solution": "ASKANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sideways",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Request",
+       "at": 0,
+       "gives": "ASK",
+       "note": "to ask is to request"
+      },
+      {
+       "words": "a",
+       "at": 8,
+       "gives": "A"
+      },
+      {
+       "words": "North Carolina",
+       "at": 10,
+       "gives": "NC",
+       "note": "NC is the US state abbreviation for North Carolina"
+      },
+      {
+       "words": "direction",
+       "at": 25,
+       "gives": "E",
+       "note": "E for east is a compass direction"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking an American state the way, someone gets a sidelong reply.",
+     "walkthrough": "'answer' is a link before the definition, which is given in quotes.",
+     "definitionFit": "To look askance is to look sideways, with a sidelong glance of suspicion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1544,29 @@
     "text": "List in lists",
     "enumeration": "4"
    },
-   "solution": "TILT"
+   "solution": "TILT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "List",
+      "at": 0
+     },
+     {
+      "text": "in lists",
+      "at": 5
+     }
+    ],
+    "explanation": {
+     "surface": "Lean over in the jousting arena.",
+     "walkthrough": "To list is to lean to one side, as a ship does; the lists were the arena for a medieval joust, where knights would tilt.",
+     "definitionFit": "Both senses: to lean over, and to joust with lances in a tournament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lists"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1580,58 @@
     "text": "Skinhead is very unhappy, to take the big gamble",
     "enumeration": "10"
    },
-   "solution": "SWEEPSTAKE"
+   "solution": "SWEEPSTAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the big gamble",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 4,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Skin",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "is very unhappy",
+       "at": 9,
+       "gives": "WEEPS",
+       "note": "to weep is to be very unhappy"
+      },
+      {
+       "words": "take",
+       "at": 29,
+       "gives": "TAKE",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shaven-headed thug is miserable after betting big.",
+     "walkthrough": "'Skinhead' splits into 'Skin' and 'head', giving S; the definition is a lottery where the winner takes all the stakes.",
+     "definitionFit": "A sweepstake is a form of gambling in which all the stakes go to the winners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Skinhead"
+    }
+   }
   }
  ]
 }
