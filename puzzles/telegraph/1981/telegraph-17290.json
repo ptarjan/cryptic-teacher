@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "She fought once and still runs",
     "enumeration": "6"
    },
-   "solution": "AMAZON"
+   "solution": "AMAZON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She fought once",
+      "at": 0
+     },
+     {
+      "text": "still runs",
+      "at": 20
+     }
+    ],
+    "explanation": {
+     "surface": "A woman warrior of old who is still going.",
+     "definitionFit": "The Amazons were a legendary race of women warriors, and the Amazon is the great South American river that still flows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,61 @@
     "text": "Puzzle set by Costa Rica without a conclusion",
     "enumeration": "8"
    },
-   "solution": "ACROSTIC"
+   "solution": "ACROSTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "set",
+       "at": 7,
+       "note": "set is read as arranged or placed anew, so the letters are put in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Costa",
+       "at": 14
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without a conclusion",
+         "at": 25,
+         "note": "the last letter of Rica is dropped, leaving its first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rica",
+         "at": 20,
+         "gives": "RICA"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword compiled by a Central American country.",
+     "walkthrough": "'without a conclusion' trims Rica to RIC; 'set' rearranges COSTARIC into the answer.",
+     "definitionFit": "An acrostic is a word game whose lines' initial letters spell out a hidden word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +137,28 @@
     "text": "Recommend a Scottish silk, perhaps",
     "enumeration": "8"
    },
-   "solution": "ADVOCATE"
+   "solution": "ADVOCATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recommend",
+      "at": 0
+     },
+     {
+      "text": "a Scottish silk, perhaps",
+      "at": 10
+     }
+    ],
+    "explanation": {
+     "surface": "Endorsing a senior barrister from north of the border.",
+     "definitionFit": "To advocate is to urge or support a course; in Scotland a barrister is called an advocate, and a silk is a senior counsel (QC), so 'perhaps' marks an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silk"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +172,42 @@
     "text": "French department's alternative to Tyneside",
     "enumeration": "4"
    },
-   "solution": "ORNE"
+   "solution": "ORNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "French department",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "alternative",
+       "at": 20,
+       "gives": "OR",
+       "note": "or introduces an alternative"
+      },
+      {
+       "words": "Tyneside",
+       "at": 35,
+       "gives": "NE",
+       "note": "Tyneside lies in the North East of England, abbreviated NE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A region of France offered as a substitute for Newcastle's area.",
+     "walkthrough": "Tyneside is the area round Newcastle in north-east England.",
+     "definitionFit": "The Orne is a department of Normandy in northern France, named after its river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +221,59 @@
     "text": "How a girl felt with Sid turning away for a month and Edward following",
     "enumeration": "8"
    },
-   "solution": "DISMAYED"
+   "solution": "DISMAYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How a girl felt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning away",
+         "at": 25,
+         "note": "Sid is turned round so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sid",
+         "at": 21,
+         "gives": "SID"
+        }
+       ]
+      },
+      {
+       "words": "a month",
+       "at": 42,
+       "gives": "MAY",
+       "note": "May is a month of the year"
+      },
+      {
+       "words": "Edward",
+       "at": 54,
+       "gives": "ED",
+       "note": "Ed is a short form of Edward"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl upset when Sid leaves her for a month and Edward takes his place.",
+     "walkthrough": "'turning away' reverses SID to DIS, then MAY and ED follow.",
+     "definitionFit": "Dismayed means distressed and disheartened, a state of feeling attributed to the girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +287,48 @@
     "text": "Daisy is corny in a way; hence the peculiarity",
     "enumeration": "12"
    },
-   "solution": "IDIOSYNCRASY"
+   "solution": "IDIOSYNCRASY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the peculiarity",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a way",
+       "at": 15,
+       "note": "in a way says the letters of the three words are rearranged into another form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Daisy",
+       "at": 0
+      },
+      {
+       "words": "is",
+       "at": 6
+      },
+      {
+       "words": "corny",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that Daisy is rather trite, offered as an explanation of her oddness.",
+     "definitionFit": "An idiosyncrasy is a personal quirk or distinctive habit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corny"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +342,29 @@
     "text": "Spot a worker in the dark",
     "enumeration": "4"
    },
-   "solution": "MOLE"
+   "solution": "MOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     },
+     {
+      "text": "a worker in the dark",
+      "at": 5
+     }
+    ],
+    "explanation": {
+     "surface": "Noticing someone who labours unseen.",
+     "definitionFit": "A mole is a small dark blemish on the skin, and also the burrowing animal that works underground, or a spy working secretly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +378,62 @@
     "text": "Cry to make you sick if non. U",
     "enumeration": "6"
    },
-   "solution": "YOICKS"
+   "solution": "YOICKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "make",
+       "at": 7,
+       "note": "make is read as 'make into', so the letters left are reworked into a new word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "non",
+         "at": 24,
+         "note": "non means without, so the letter U is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you sick",
+         "at": 12,
+         "gives": "YOUSICK",
+         "note": "taken as written"
+        },
+        {
+         "words": "U",
+         "at": 29,
+         "gives": "U",
+         "note": "the letter U itself"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shout that would upset you if you weren't upper class.",
+     "walkthrough": "Non-U is the British label for speech or manners not of the upper class; here 'non. U' removes U from YOU SICK, and 'make' rearranges YOSICK.",
+     "definitionFit": "Yoicks is a huntsman's shout urging on the hounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sick"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +447,36 @@
     "text": "Companion of Honour in the Peninsula?",
     "enumeration": "6"
    },
-   "solution": "DUENNA"
+   "solution": "DUENNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Companion of Honour in the Peninsula?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Companion of Honour in the Peninsula?",
+       "at": 0,
+       "note": "not the British order of chivalry, but a chaperone guarding a young woman's honour in Spain or Portugal, the Iberian Peninsula"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British decoration awarded somewhere on the Iberian Peninsula.",
+     "walkthrough": "Companion of Honour is a British order; here it is an older woman who safeguards a girl's reputation in Spain.",
+     "definitionFit": "A duenna is an older woman employed as a chaperone to girls in a Spanish family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Honour"
+    }
+   }
   },
   {
    "number": 9,
@@ -166,7 +500,36 @@
    "group": [
     "9-across",
     "21-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Was she infuriated by failing become Miss World?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Was she infuriated by failing become Miss World?",
+       "at": 0,
+       "note": "a pageant entrant furious at losing would be wild with anger, yet the phrase for one fit to win means a stunningly lovely woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contestant fuming after losing a beauty pageant.",
+     "walkthrough": "'infuriated' points to the sense of raving as mad with anger; the phrase as a whole means extremely attractive.",
+     "definitionFit": "A woman of dazzling looks is commonly called stunning, the sort expected to win a world pageant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "infuriated"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +549,35 @@
      }
     ]
    },
-   "solution": "KILLTIME"
+   "solution": "KILLTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What hired assassins do between assignments?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What hired assassins do between assignments?",
+       "at": 0,
+       "note": "a contract killer idle between jobs passes the hours, and the idiom for that sounds like murder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how hitmen fill their spare time.",
+     "definitionFit": "To pass idle hours while waiting is a fixed idiom built on the verb for slaying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "assassins"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +597,29 @@
      }
     ]
    },
-   "solution": "JACOBSLADDER"
+   "solution": "JACOBSLADDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sailors recognise this",
+      "at": 0
+     },
+     {
+      "text": "plant as a climber",
+      "at": 23
+     }
+    ],
+    "spelling": "JACOB'S LADDER",
+    "explanation": {
+     "surface": "Seamen can identify a vine that climbs.",
+     "definitionFit": "On ships it is a rope ladder with wooden rungs; it is also the garden plant Polemonium, and in Genesis the ladder to heaven was climbed by angels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +633,29 @@
     "text": "Falstaff's favourite bag",
     "enumeration": "4"
    },
-   "solution": "SACK"
+   "solution": "SACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Falstaff's favourite",
+      "at": 0
+     },
+     {
+      "text": "bag",
+      "at": 21
+     }
+    ],
+    "explanation": {
+     "surface": "Shakespeare's fat knight's preferred pouch.",
+     "walkthrough": "Falstaff, Shakespeare's comic knight, constantly calls for sack, a dry white wine like sherry.",
+     "definitionFit": "Sack was an old Spanish fortified wine; a sack is also a large bag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bag"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +669,34 @@
     "text": "A self-deceiving epithet",
     "enumeration": "5"
    },
-   "solution": "FALSE"
+   "solution": "FALSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A self-deceiving epithet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A self-deceiving epithet",
+       "at": 0,
+       "note": "a describing word that is untrue to itself: an adjective meaning untrue, which therefore would be lying if applied to itself"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description that fools the person it describes.",
+     "definitionFit": "The adjective meaning untrue or deceptive is itself an epithet about deception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "self-deceiving"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +710,50 @@
     "text": "Relative to a sort of ink",
     "enumeration": "4"
    },
-   "solution": "AKIN"
+   "solution": "AKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 12
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sort of",
+         "at": 14,
+         "note": "sort of suggests a version of ink with its letters rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ink",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something resembling a type of ink.",
+     "walkthrough": "A is given as it is; 'sort of' rearranges INK to KIN. 'to' joins the definition to the wordplay.",
+     "definitionFit": "Akin means related or similar, as relatives are of one kin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relative"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +767,49 @@
     "text": "Drove round in style for a king",
     "enumeration": "5"
    },
-   "solution": "HEROD"
+   "solution": "HEROD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "king",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in style",
+       "at": 12,
+       "note": "in style says the round letter is set within the drove"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drove",
+       "at": 0,
+       "gives": "HERD",
+       "note": "a drove is a herd of animals driven together"
+      },
+      {
+       "words": "round",
+       "at": 6,
+       "gives": "O",
+       "note": "a round shape is the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Driving around grandly as befits a monarch.",
+     "walkthrough": "'Drove' looks like a verb but is the noun, a herd.",
+     "definitionFit": "The Biblical ruler of Judea who ordered the massacre of the innocents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drove"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +823,28 @@
     "text": "Honest man",
     "enumeration": "5"
    },
-   "solution": "FRANK"
+   "solution": "FRANK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Honest",
+      "at": 0
+     },
+     {
+      "text": "man",
+      "at": 7
+     }
+    ],
+    "explanation": {
+     "surface": "A straightforward fellow.",
+     "definitionFit": "Frank means candid and outspoken; Frank is also a man's first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +868,50 @@
      }
     ]
    },
-   "solution": "INTHECOUNTRY"
+   "solution": "INTHECOUNTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outside the metropolitan area",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "gets",
+       "at": 12,
+       "note": "gets is read as becomes, so the letters together are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tonic",
+       "at": 0
+      },
+      {
+       "words": "Henry",
+       "at": 6
+      },
+      {
+       "words": "Trade Union",
+       "at": 22,
+       "gives": "TU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry's tonic water comes with the help of a trade union, away from the city.",
+     "walkthrough": "'gets' rearranges TONIC, HENRY and TU together; 'with ... help' links them.",
+     "definitionFit": "Rural places lie beyond the city, the rustic setting away from urban life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tonic"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +925,35 @@
     "text": "Known facts about a strain",
     "enumeration": "8"
    },
-   "solution": "PEDIGREE"
+   "solution": "PEDIGREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Known facts about a strain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Known facts about a strain",
+       "at": 0,
+       "note": "not stress or effort but a breed: the recorded ancestry of an animal line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What is known about some kind of stress.",
+     "definitionFit": "A pedigree is the documented lineage of a breed or family line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strain"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +967,57 @@
     "text": "Getting up late around here is heavenly",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heavenly",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 16,
+       "note": "the reversed word goes around the word here"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Getting up",
+         "at": 0,
+         "note": "in a down clue getting up means the word late is read from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "late",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "here",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lying in bed late in this place feels divine.",
+     "walkthrough": "'Getting up' turns LATE to ETAL, which goes 'around' HERE.",
+     "definitionFit": "Ethereal means celestial, of the upper heavens, light and airy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Getting"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1031,49 @@
     "text": "Herts market town in agreement with restrictive power",
     "enumeration": "12"
    },
-   "solution": "CONSTRINGENT"
+   "solution": "CONSTRINGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with restrictive power",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "the town is placed inside the word for agreement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreement",
+       "at": 21,
+       "gives": "CONSENT",
+       "note": "consent is agreement"
+      },
+      {
+       "words": "Herts market town",
+       "at": 0,
+       "gives": "TRING",
+       "note": "Tring is a market town in Hertfordshire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Hertfordshire town agreeing with some controlling authority.",
+     "walkthrough": "Herts is short for Hertfordshire, a county north of London.",
+     "definitionFit": "Constringent means causing contraction or binding tight, which is a restricting effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1100,42 @@
     "text": "Listener coverage for a flattering creature",
     "enumeration": "6"
    },
-   "solution": "EARWIG"
+   "solution": "EARWIG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flattering creature",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Listener",
+       "at": 0,
+       "gives": "EAR",
+       "note": "the ear is the organ that listens"
+      },
+      {
+       "words": "coverage",
+       "at": 9,
+       "gives": "WIG",
+       "note": "a wig covers the head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something to cover your ears with, for a fawning sort.",
+     "walkthrough": "The insect also gives a verb meaning to pester with private flattery, so an old sense of the noun is a flatterer.",
+     "definitionFit": "The insect's name also served for a whispering sycophant, as the verb means to sway someone with insinuating flattery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Listener"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1149,40 @@
     "text": "Cheese that pleased America's middle part",
     "enumeration": "4"
    },
-   "solution": "EDAM"
+   "solution": "EDAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cheese",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "middle part",
+       "at": 30,
+       "note": "the letters are taken from the middle of the words pleased America's"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pleased America's",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese that delighted the United States.",
+     "definitionFit": "Edam is a mild round Dutch cheese with a red wax rind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pleased"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1196,49 @@
     "text": "Bedevilled alchemist quick to go round the bend",
     "enumeration": "5"
    },
-   "solution": "FAUST"
+   "solution": "FAUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bedevilled alchemist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to go round",
+       "at": 27,
+       "note": "the word for quick is to go round the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quick",
+       "at": 21,
+       "gives": "FAST",
+       "note": "fast means quick"
+      },
+      {
+       "words": "the bend",
+       "at": 39,
+       "gives": "U",
+       "note": "a U-bend is shaped like the letter U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tormented chemist hurrying to take a corner.",
+     "walkthrough": "'the bend' is U, as in a U-bend.",
+     "definitionFit": "Faust is the legendary scholar who sold his soul to the devil, Mephistopheles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1252,43 @@
     "text": "Christopher has note and gets the bird",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the bird",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Christopher",
+       "at": 0,
+       "gives": "KIT",
+       "note": "Kit is a pet form of Christopher"
+      },
+      {
+       "words": "note",
+       "at": 16,
+       "gives": "E",
+       "note": "E is a musical note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Christopher receives a message and is given the bird, booed off.",
+     "walkthrough": "'gets the bird' is British slang for being jeered off, but here 'the bird' is the definition.",
+     "definitionFit": "The kite is a bird of prey with a forked tail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1302,45 @@
     "text": "Leading male character 15 finally cut off",
     "enumeration": "4"
    },
-   "solution": "HERO"
+   "solution": "HERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leading male character",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "finally cut off",
+       "at": 26,
+       "note": "the last letter of that king's name is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "15",
+       "at": 23,
+       "gives": "HEROD",
+       "note": "the answer to 15 down, the Judean king"
+      },
+      {
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading actor whose part ends abruptly.",
+     "definitionFit": "The protagonist of a story is its principal male figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1354,29 @@
     "text": "Cleaner fish",
     "enumeration": "4"
    },
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cleaner",
+      "at": 0
+     },
+     {
+      "text": "fish",
+      "at": 8
+     }
+    ],
+    "explanation": {
+     "surface": "A cleaning woman who is a fish.",
+     "walkthrough": "A char, or charwoman, is British for a cleaning lady.",
+     "definitionFit": "A char is a daily cleaning woman; it is also a trout-like freshwater fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleaner"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1390,45 @@
     "text": "Poor wine duly casked proves hard to handle",
     "enumeration": "8"
    },
-   "solution": "UNWIELDY"
+   "solution": "UNWIELDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hard to handle",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Poor",
+       "at": 0,
+       "note": "poor wine suggests the letters of the two words have gone bad and are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wine",
+       "at": 5
+      },
+      {
+       "words": "duly",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inferior wine, properly barrelled, is awkward to manage.",
+     "walkthrough": "'Poor' rearranges WINE and DULY; 'casked proves' links them to the definition.",
+     "definitionFit": "Unwieldy means cumbersome and awkward to manage because of size or weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "casked"
+    }
+   }
   },
   {
    "number": 29,
@@ -467,7 +1442,28 @@
     "text": "A rush for one's money ?",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A rush",
+      "at": 0
+     },
+     {
+      "text": "for one's money",
+      "at": 7
+     }
+    ],
+    "explanation": {
+     "surface": "A dash that is worth paying for.",
+     "definitionFit": "A charge is a headlong attack; it is also the price or fee asked for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rush"
+    }
+   }
   },
   {
    "number": 30,
@@ -481,7 +1477,44 @@
     "text": "Food that makes Roy tough",
     "enumeration": "8"
    },
-   "solution": "YOGHOURT"
+   "solution": "YOGHOURT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "makes",
+       "at": 10,
+       "note": "makes signals that the letters of the two words form a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Roy",
+       "at": 16
+      },
+      {
+       "words": "tough",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish that toughens up Roy.",
+     "definitionFit": "A fermented milk product, here in an older spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tough"
+    }
+   }
   },
   {
    "number": 31,
@@ -495,7 +1528,36 @@
     "text": "The flower of Manchester",
     "enumeration": "6"
    },
-   "solution": "IRWELL"
+   "solution": "IRWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The flower of Manchester",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The flower of Manchester",
+       "at": 0,
+       "note": "flower is read as something that flows, a river, the one running through Manchester"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The finest the city of Manchester has to offer.",
+     "walkthrough": "'flower' means one that flows: a river.",
+     "definitionFit": "The river that runs between Manchester and Salford is the city's waterway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   }
  ]
 }
