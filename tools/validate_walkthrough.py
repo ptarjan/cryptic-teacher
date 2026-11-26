@@ -252,6 +252,23 @@ BACKTRACKS = ("no wait", "no, wait", "hold on,", "hold on!", "hold on —", "hol
               "that's not it", "that is not it", "not it either", "re-examine",
               "let me try", "let me reconsider", "on second thought",
               "correct parse", "actually:", "ignore that", "wait—", "wait --")
+
+
+def backtracks(text, clue="", answer=""):
+    """The BACKTRACKS markers a published field uses as its own words. A marker is a whole phrase
+    (`no waiters`, `that is not italic` are not `no wait`, `that is not it`), and one the clue or
+    the answer prints is quoted, not used: 'on second thoughts' is an indicator, RE-EXAMINE an answer,
+    "Hold on, can't move!" a clue."""
+    low, clue_low = (text or "").lower(), (clue or "").lower()
+    squash = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
+    found = []
+    for m in BACKTRACKS:
+        whole = re.search(r"(?<![a-z])" + re.escape(m) + (r"(?![a-z])" if m[-1].isalpha() else ""), low)
+        if whole and m not in clue_low and squash(m) not in squash(answer or ""):
+            found.append(m)
+    return found
+
+
 WALKTHROUGH_HARD_MAX = 60
 # The surface is one sentence of picture. A warning, not an error: a long one is
 # still better than a missing one.

@@ -121,7 +121,7 @@ from validate_base import (
 from validate_walkthrough import (
     MAX_CRYPTIC_DEFINITIONS, MAX_WALKTHROUGH_WORDS, WALKTHROUGH_PREAMBLE, WALKTHROUGH_EMPTY_CLOSER,
     check_two_pieces, check_walkthrough_opener, check_walkthrough_closer, check_walkthrough_budget,
-    FILLER_WORDS, HEDGES, MISSING_FIELD_FIX, _QUOTED, walkthrough_hedges, BACKTRACKS, WALKTHROUGH_HARD_MAX,
+    FILLER_WORDS, HEDGES, MISSING_FIELD_FIX, _QUOTED, walkthrough_hedges, BACKTRACKS, backtracks, WALKTHROUGH_HARD_MAX,
     SURFACE_MAX, SURFACE_MIN_WORDS, SURFACE_OPTIONAL_TYPES, WORD_RE, check_surface, SURFACE_MECHANISM,
     check_authored_surface, check_authored_puns,
 )
@@ -665,11 +665,10 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
                              ("definitionFit", explanation(ann).get("definitionFit") or "")]
                             + [("block note", b.get("note") or "")
                                for b in ann.get("blocks", [])]):
-            for marker in BACKTRACKS:
-                if marker in text.lower():
-                    errors.append(f"{tag}: {field} contains {marker!r} — that is "
-                                  f"working-out, not an explanation. Settle the parse "
-                                  f"first, then write the finished sentence")
+            for marker in backtracks(text, clue, ann.get("answer")):
+                errors.append(f"{tag}: {field} contains {marker!r} — that is "
+                              f"working-out, not an explanation. Settle the parse "
+                              f"first, then write the finished sentence")
 
 
     errors.extend(message_problems(puzzle))

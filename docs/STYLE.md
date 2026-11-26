@@ -165,7 +165,7 @@ Add new hedges to `HEDGES` in the validator when they appear.
 
 Publish the finished explanation, never the working-out. A walkthrough,
 `explanation.definitionFit` or block `note` that argues with itself ("No wait—", "Still
-wrong.", "Actually:", "Correct parse:") is an ERROR. So is a walkthrough longer
+wrong.", "Actually:", "Correct parse:") is an ERROR (a phrase the clue or answer prints is quoted, not working-out). So is a walkthrough longer
 than `WALKTHROUGH_HARD_MAX` words. Settle the parse first, taking as long as you
 need, then write the sentence. If you cannot settle it, the annotation is not
 ready: an unannotated clue is better than a published argument.

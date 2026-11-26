@@ -881,6 +881,20 @@ for walk, clue, want in [
     got = va.walkthrough_hedges(walk, clue)
     check(f"walkthrough hedges {walk[:40]!r}", got == want, got)
 
+# A backtrack marker is a whole phrase, and one the clue or answer prints is quoted, not used
+# (annotate audit 11-25/26: clue indicator 'on second thoughts', answer RE-EXAMINE, clue "Hold on, can't move!").
+for text, clue, ans, want in [
+    ("'On second thoughts' turns it round.", "Reply on second thoughts", "", []),
+    ("RE-EXAMINE is to look again.", "Look again at old exam", "REEXAMINE", []),
+    ("Hold on, can't move: the anagram.", "Hold on, can't move!", "", []),
+    ("Where there are no waiters you serve yourself.", "Self-service", "", []),
+    ("Printing type that is not italic.", "Upright type", "", []),
+    ("No wait, it is a reversal.", "Upright type", "", ["no wait"]),
+    ("On second thought it is a charade.", "Upright type", "", ["on second thought"]),
+]:
+    got = va.backtracks(text, clue, ans)
+    check(f"backtracks {text[:40]!r}", got == want, got)
+
 # pal<ind>() over a clue with one definition: the definition's words are the palindrome, so the
 # wordplay gets its block (annotate audit 10-24/25: 16 'missing annotation field blocks').
 e = entry(6, "down", "TOT", "Add up as well as down")
