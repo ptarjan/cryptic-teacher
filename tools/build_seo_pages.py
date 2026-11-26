@@ -905,9 +905,15 @@ def harder_than(pct):
     return f"harder than {pct}% of rated puzzles here"
 
 
-def series_badge(series):
-    """A series' pill, as the app's seriesChip() draws it."""
-    return f'<span class="badge series">{esc(series_meta.badge(series))}</span>'
+def series_badge(series, setter=""):
+    """A series' pill, as the app's seriesChip() draws it: the paper, and the
+    setter as a second segment when there is one (and it is not the paper's
+    own name said twice)."""
+    name = series_meta.badge(series)
+    if not setter or setter.lower() == name.lower():
+        return f'<span class="badge series">{esc(name)}</span>'
+    return (f'<span class="badge series has-setter"><span class="series-name">{esc(name)}</span>'
+            f'<span class="series-setter"><span class="sr-only">, set by </span>{esc(setter)}</span></span>')
 
 
 def hub_row(p, note=None):
@@ -938,7 +944,7 @@ def hub_row(p, note=None):
     # Every row is badged, because the numbers alone ("No 1,393" among the
     # 30,000s) don't explain themselves and an unbadged row reads as one we
     # forgot rather than as the default. Mirrors seriesBadge() in app.js.
-    series = series_badge(p.get("series") or "cryptic")
+    series = series_badge(p.get("series") or "cryptic", p.get("setter") or "")
     # An archive row's own link is the canonical answer page, which is what a
     # crawler should follow and index; a small nofollow link opens the app. A
     # showcase row (note) is a reader page and opens the app directly.
@@ -947,7 +953,6 @@ def hub_row(p, note=None):
     main = solve_url(p["id"]) if note is not None else f'{BASE}/puzzles/{p["id"]}/'
     return (f'<li><a href="{main}">'
             f'<span class="p-num">{esc(title)}</span>'
-            f'<span class="p-setter">{esc(p.get("setter"))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
             f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a>{answers}</li>')
 

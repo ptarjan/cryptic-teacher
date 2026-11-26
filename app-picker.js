@@ -213,16 +213,26 @@
 
 
   function seriesBadge(p) {
-    return seriesChip(p.series || "cryptic");
+    return seriesChip(p.series || "cryptic", p.setter);
   }
 
   // The pill for one series key. The picker rows and the notify list both name
   // papers, and a paper a solver has learnt to recognise in one of them has to
   // look the same in the other.
-  function seriesChip(series) {
+  //
+  // A setter, when the puzzle has one, is the chip's second segment:
+  // [GUARDIAN | Dice]. A paper that prints no setter gets the plain chip, so
+  // nothing in the row reads as missing. The "set by" is for screen readers
+  // only; sighted readers get the divider. A setter who is the paper's own
+  // name (Everyman by Everyman) would just say it twice, so is left off.
+  function seriesChip(series, setter) {
     const badge = SERIES_BADGE[series];
     if (!badge) return "";  // guarded by the smoke test; never the normal path
-    return `<span class="badge series" title="${badge[1]}">${badge[0]}</span>`;
+    if (!setter || setter.toLowerCase() === badge[0].toLowerCase()) {
+      return `<span class="badge series" title="${badge[1]}">${badge[0]}</span>`;
+    }
+    return `<span class="badge series has-setter" title="${badge[1]}"><span class="series-name">${badge[0]}</span>`
+      + `<span class="series-setter"><span class="sr-only">, set by </span>${esc(setter)}</span></span>`;
   }
 
   // What the picker lists, and why it isn't everything.
@@ -645,7 +655,6 @@
     // gluing it onto the date made the one nowrap element in the row long
     // enough to shove everything else off the line.
     btn.innerHTML = `<span class="p-num" data-number="${p.number}">${title}</span>
-        <span class="p-setter">${esc(p.setter || "")}</span>
         <span class="p-meta">${d}</span>
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated, p.blog)}${sourceBadge(p)}${tagBadges(p)}
           ${!st.filled ? ""

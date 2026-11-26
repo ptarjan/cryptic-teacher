@@ -200,10 +200,10 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
        is a 430px panel: "Saturday 3 October 2026" there, "Sat 3 Oct 2026" here. */
 {
   const AXES = ["series", "difficulty", "coverage", "source", "progress"];
-  const PARTS = ["p-num", "p-setter", "p-meta", "p-tags"];
+  const PARTS = ["p-num", "p-meta", "p-tags"];
 
   const partsOf = (html) =>
-    [...html.matchAll(/<span class="(p-num|p-setter|p-meta|p-tags)"/g)].map((m) => m[1]);
+    [...html.matchAll(/<span class="(p-num|p-meta|p-tags)"/g)].map((m) => m[1]);
   // The coverage badge and the source badge are both .badge.auto — style.css's
   // rule is one colour per axis, not per badge — so those two alone are told
   // apart by what they say.
@@ -349,15 +349,15 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   assert(wideBlock, "style.css still has a wide branch for the archive list");
   const wide = rulesIn(wideBlock[2]);
   const base = rulesIn(css.replace(/@media[^{]+\{(?:[^{}]|\{[^{}]*\})*\}/g, ""));
-  const PARTS = ["p-num", "p-setter", "p-meta", "p-tags"];
+  const PARTS = ["p-num", "p-meta", "p-tags"];
   const colOf = (cls) => Number(prop(wide, ".s-index ." + cls, "grid-column")
     || prop(base, "." + cls, "grid-column"));
   const rowOf = (cls) => prop(wide, ".s-index ." + cls, "grid-row");
 
   /* Grid's auto-placement cursor never moves backwards (sparse packing, CSS
      Grid §8.5): an item whose column is behind the cursor does not go back to
-     it, it starts a NEW ROW. The date is column 4 and comes before the badges
-     in the markup, so badges that named only column 3 were given a second line
+     it, it starts a NEW ROW. The date is column 3 and comes before the badges
+     in the markup, so badges that named only column 2 were given a second line
      under a row that had just been told to be one line. Simulated here rather
      than described, because the markup order and the column numbers are written
      in two different files and either one may move. */
@@ -379,9 +379,9 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   /* And no track on this list may be sized by its contents. The list is twelve
      thousand rows long, so a content-sized track is as wide as its single worst
      row and every other row pays: one 47-character copyright line in a setter
-     field took 272px of a 728px list away from the badges beside it. .p-setter
-     carries an ellipsis for exactly this, and an `auto` track never lets it
-     fire. */
+     field took 272px of a 728px list away from the badges beside it. The setter
+     now sits in the paper chip, whose .series-setter carries an ellipsis for
+     exactly this; it fires only if the badges' track is not content-sized. */
   {
     const tracks = (() => {
       const out = []; let depth = 0, cur = "";
@@ -398,15 +398,12 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     assert(tracks.length === Math.max(...columns) + 1,
       `the wide list declares one track per column (${Math.max(...columns)} + answers), got ` +
       tracks.length + ": " + tracks.join(" "));
-    const elastic = PARTS.filter((cls) =>
-      /ellipsis/.test(prop(base, "." + cls, "text-overflow") || ""));
-    assert(elastic.length, "some row part still truncates rather than pushing the row wide");
-    elastic.forEach((cls) => {
-      const track = tracks[colOf(cls) - 1];
-      assert(track && !/^(auto|max-content|min-content)$/.test(track),
-        `.${cls} truncates, but its track is '${track}' — a content-sized track is ` +
-        "as wide as the worst row in the archive, so the ellipsis never fires");
-    });
+    assert(/ellipsis/.test(prop(base, ".series-setter", "text-overflow") || ""),
+      "the chip's setter still truncates rather than pushing the row wide");
+    const track = tracks[colOf("p-tags") - 1];
+    assert(track && !/^(auto|max-content|min-content)$/.test(track),
+      `the setter truncates inside the badges, but their track is '${track}' — a ` +
+      "content-sized track is as wide as the worst row in the archive, so the ellipsis never fires");
   }
 
   /* The narrow form is not a fallback, it is the design for a 430px panel (see
