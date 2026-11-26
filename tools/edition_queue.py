@@ -4348,6 +4348,9 @@ class _Children:
                 elif not full_end:
                     self.vlm_held.add(key_of(unit))
                     self.vlm_lost_at[0] = time.monotonic()
+            # 11-26: a read deferred for the VLM by an earlier run of the queue (defer_runs is kept across reloads,
+            # new_asks is not) spooled its asks there; its finishing run here sees 0 and would mark its reason dry.
+            asks_unseen = unit["kind"] == "read" and key_of(unit) in self.defer_runs and key_of(unit) not in self.new_asks
             if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) or media_retry:
                 self.tried.discard(key_of(unit))  # started again once the desktop is idle, the VLM or the media share answers
                 self.tried.difference_update(batch_mate_keys(unit))  # ... each batched edition on its own
@@ -4366,7 +4369,7 @@ class _Children:
                 self.defer_until.pop(key_of(unit), None)
             if unit["kind"] == "read" and rc not in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) and not media_retry:
                 asks = self.new_asks.pop(key_of(unit), 0)
-                if rc == 0 and unit.get("reason") and needs_vlm(unit):  # finished: the new asks of its whole read (the reason's window)
+                if rc == 0 and unit.get("reason") and needs_vlm(unit) and not asks_unseen:  # finished: the new asks of its whole read (the reason's window)
                     ask_yield_note(ask_yield_key(unit), asks)
             if unit["kind"] == "scan" and rc == 0:
                 self.scanned.add((unit["paper"], unit["rel"]))
