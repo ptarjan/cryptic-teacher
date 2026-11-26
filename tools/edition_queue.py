@@ -2681,6 +2681,67 @@ def no_ask_sunday(unit):
     return band is not None and int(band[1]) < SUNDAY_ASKS_FROM
 
 
+#: The window of finished reads per reason whose new (uncached) VLM asks are kept, and how many of them
+#: a reason needs before its average counts: 11-25 18:00 local, ten Gale Times 1930 rereads (FAR_RIGHT) held
+#: the reserve slots while their answers were all cached ("vlm 14 cached"), the spool sat at 0 and the GPU at
+#: 0%. A reason with fewer finished reads than ASK_MIN stays a fill, so a new reason is tried.
+ASK_WINDOW = 8
+ASK_MIN = 3
+ASK_REASONS_MAX = 600
+
+
+def ask_yield_path():
+    return Path(os.environ.get("HOME") or "/tmp") / ".cache" / "corpus_queue" / "ask_yield.json"
+
+
+#: [path, {reason: [new asks of its last ASK_WINDOW finished reads, oldest first]}] as last loaded or saved.
+_ASK_YIELD = [None, {}]
+
+
+def ask_yield_load(path=None):
+    path = path or ask_yield_path()
+    try:
+        got = json.loads(path.read_text())
+        return {str(k): [int(n) for n in v][-ASK_WINDOW:] for k, v in got.items()} if isinstance(got, dict) else {}
+    except (OSError, ValueError, TypeError):
+        return {}
+
+
+def ask_yield_store():
+    """The per-reason window (ask_yield_load), read once per file path, kept in step by ask_yield_note."""
+    path = ask_yield_path()
+    if _ASK_YIELD[0] != path:
+        _ASK_YIELD[:] = [path, ask_yield_load(path)]
+    return _ASK_YIELD[1]
+
+
+def ask_yield_note(reason, asks, path=None):
+    """Record that a read of `reason` finished having spooled `asks` new VLM asks; the file keeps the last
+    ASK_WINDOW per reason (read again first, so another queue's notes are kept). Returns the window."""
+    path = path or ask_yield_path()
+    store = ask_yield_load(path)
+    window = (store.pop(reason, []) + [max(0, int(asks))])[-ASK_WINDOW:]
+    store[reason] = window  # most recently read reasons last
+    while len(store) > ASK_REASONS_MAX:
+        store.pop(next(iter(store)))
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(store, indent=0))
+        os.replace(tmp, path)
+    except OSError:
+        pass
+    _ASK_YIELD[:] = [path, store]
+    return window
+
+
+def ask_dry(reason):
+    """Whether the last finished reads of `reason` (at least ASK_MIN, at most ASK_WINDOW) averaged under one
+    new VLM ask each: they run in plan order but fill no GPU slot (fills_gpu)."""
+    window = ask_yield_store().get(reason) or []
+    return len(window) >= ASK_MIN and sum(window) < len(window)
+
+
 def fills_gpu(unit):
     """Whether `unit` is a read that asks the VLM: another paper's never-read read, or a
     CT_NEWEST_FIRST paper's reread of a page refused or unfiled before its fix (it reads
@@ -2698,6 +2759,8 @@ def fills_gpu(unit):
         return False  # 11-10: Gale Sunday Telegraph Quickie-set rereads spool 0 asks ("0 asks spooled, target 4"); as fills they held the GPU empty
     if reason.startswith(fa.FOOTER_TITLE):
         return False  # 10-29: ~18 min of whole-page OCR before any ask; 6 counted as fills held the feed shut, GPU ~1%
+    if ask_dry(reason):
+        return False  # 11-25: measured, not listed: its last finished reads spooled under one new VLM ask each (ask_yield_note)
     # Never-read reads of any paper, fix-landed rereads and canary-proven rereads ask the VLM.
     # 11-22: registry fix reasons (tools/reasons/, unfiled_first without fix_landed) were no fill: the feed's
     # never-read picks took the slots the reserve holds, and 170 Telegraph early-heading and 42 Independent
@@ -4258,6 +4321,8 @@ class _Children:
             if rc == EXITS["vlm"]:
                 spooled_by = vlm_reader.spooled_by(pid)
                 spooled_end = bool(spooled_by)
+                if unit["kind"] == "read":  # its new asks, kept across its deferred runs until it finishes (ask_yield_note)
+                    self.new_asks[key_of(unit)] = self.new_asks.get(key_of(unit), 0) + len(spooled_by)
                 full_end = vlm_reader.full_mark(pid).exists()
                 if full_end:
                     vlm_reader.full_mark(pid).unlink(missing_ok=True)
@@ -4293,6 +4358,10 @@ class _Children:
                     self.defer_until.pop(key_of(unit), None)
                     keep_defers(self.defer_file, self.defer_runs, self.defer_until)
                 self.defer_until.pop(key_of(unit), None)
+            if unit["kind"] == "read" and rc not in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) and not media_retry:
+                asks = self.new_asks.pop(key_of(unit), 0)
+                if rc == 0 and unit.get("reason"):  # finished: the new asks of its whole read (the reason's window)
+                    ask_yield_note(unit["reason"], asks)
             if unit["kind"] == "scan" and rc == 0:
                 self.scanned.add((unit["paper"], unit["rel"]))
             elif unit["kind"] == "scan" and rc != EXITS["deferred"] and not media_retry:
@@ -5032,6 +5101,7 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
         self.losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
         self.overruns = overruns_load()  # overrun_key(unit): [kills at its limit, when last] (overrun_hold)
         self.overrun_pids = set()
+        self.new_asks = {}  # key_of(read unit): new VLM asks its deferred runs spooled so far (ask_yield_note)
         self.unbatched = set()  # keys of the editions of a batch that ended deferred: read alone from then on (batch_mates)
         # Paul 10-13: "If the vision model is down and you need it just go onto
         # the next scan and do it when it is back". The reads that ended deferred

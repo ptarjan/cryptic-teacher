@@ -3572,6 +3572,7 @@ check("the queue's cap is the reader's", True, eq.vlm_spool_max() == vlm_reader.
 _pipe0, _sl0 = vlm_reader.PIPELINE, vlm_reader._SLOTS[0]
 vlm_reader.PIPELINE, vlm_reader._SLOTS[0] = 1, 2
 os.environ["CT_NEWEST_FIRST"] = "gale"
+eq.ask_yield_path().unlink(missing_ok=True); eq._ASK_YIELD[:] = [None, {}]  # the fake reads above finished with no asks: no ask history for the fill cases
 _mk = lambda paper, rel, rank, reason: {"kind": "read", "paper": paper, "rel": rel, "rank": rank, "reason": reason, "needs": []}
 _tm = [_mk("gale", f"g{k}", 2, "scan stale, answers linked") for k in range(3)]
 _ft = [_mk("times", f"t{k}", 1, "never read") for k in range(3)]
