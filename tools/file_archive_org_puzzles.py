@@ -16722,7 +16722,10 @@ def byline(img, hit, series=FT.series, day=None):
     RapidOCR reads there too: archive.org alone misreads ("Grifftn")."""
     read = hit.get("setterRead")
     if not read and day and series in BYLINED_SERIES and not byline_mod.is_unprinted(series, day.isoformat()):
-        return title_byline(img, hit)
+        # A title byline is taken only when the series' files already name that setter: two OCR readers can agree
+        # on a misread ("Aclred", "Spurlus" in the 11-26 backfill), and a misread names no filed puzzle.
+        name = title_byline(img, hit)
+        return name if name in setters(series) else None
     if not read or read in setters(series) or is_word(read.lower()):
         return read
     import numpy as np
