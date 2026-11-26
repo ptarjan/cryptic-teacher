@@ -184,15 +184,58 @@ VM_UP_UNITS = int(os.environ.get("CT_VM_UP_UNITS") or 4)
 VM_UP_FIXED = bool(os.environ.get("CT_VM_UP_UNITS"))
 #: Peak resident bytes of finished units (the unit's own and its reaped children's: wait4's ru_maxrss),
 #: the last PEAK_KEEP per kind (edition_queue.mem_kind: pool, paper and reader/series, e.g. "listener
-#: listener jumbo", "read times GaleTimes1935UKEnglish"), in memory.
+#: listener jumbo", "read times GaleTimes1935UKEnglish"). Measured history survives restarts: load_peaks()
+#: (the queue's `run`) reads them from peaks_path() and from then on record_peak saves them (atomically,
+#: at most every PEAKS_SAVE seconds); until it is called (tests, other tools) they stay in memory.
 PEAK_KEEP = 50
 PEAKS = {}
+PEAKS_SAVE = 60
+_peaks_saving = False
+_peaks_saved = 0.0
+
+
+def peaks_path():
+    """Beside the queue's other state (overruns.json, ask_yield.json); HOME read at call time."""
+    return Path(os.environ.get("HOME") or "/tmp") / ".cache" / "corpus_queue" / "mem_peaks.json"
+
+
+def load_peaks(path=None, peaks=None):
+    """Fill `peaks` (PEAKS) from the saved file (missing or bad: nothing) and, for PEAKS, turn saving on."""
+    global _peaks_saving
+    peaks = PEAKS if peaks is None else peaks
+    try:
+        data = json.loads(Path(path or peaks_path()).read_text())
+        for kind, vals in data.items():
+            vals = [int(v) for v in vals if int(v) > 0]
+            if vals:
+                peaks[str(kind)] = collections.deque(vals, maxlen=PEAK_KEEP)
+    except (OSError, ValueError, TypeError, AttributeError):
+        pass
+    if peaks is PEAKS:
+        _peaks_saving = True
+
+
+def save_peaks(path=None, peaks=None):
+    """Write `peaks` (PEAKS) as JSON, tmp + replace; False when it could not."""
+    path = Path(path or peaks_path())
+    tmp = path.with_name(path.name + f".{os.getpid()}.tmp")
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp.write_text(json.dumps({k: list(v) for k, v in (PEAKS if peaks is None else peaks).items()}))
+        os.replace(tmp, path)
+        return True
+    except OSError:
+        return False
 
 
 def record_peak(kind, peak, peaks=None):
     """Remember one finished unit's peak resident bytes under its kind."""
+    global _peaks_saved
     if peak and peak > 0:
         (PEAKS if peaks is None else peaks).setdefault(kind, collections.deque(maxlen=PEAK_KEEP)).append(int(peak))
+        if peaks is None and _peaks_saving and time.monotonic() - _peaks_saved >= PEAKS_SAVE:
+            _peaks_saved = time.monotonic()
+            save_peaks()
 
 
 def _high(values):

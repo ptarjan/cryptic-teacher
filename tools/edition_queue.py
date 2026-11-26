@@ -5672,6 +5672,7 @@ def main(argv=None):
         return unit_main(json.loads(os.environ["CT_EDITION_UNIT"]))
     if args.cmd == "run":
         cap_arenas()
+        mem_gate.load_peaks()  # measured peaks survive a restart (and start being saved)
     papers = args.paper or PAPERS
     reread = scan_queue.when(args.reread)
     if args.cmd == "plan":

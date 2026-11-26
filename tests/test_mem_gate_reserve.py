@@ -104,4 +104,20 @@ mg.VM_UP_FIXED = True
 check("CT_VM_UP_UNITS set: old rule despite history", mg.VM_UP_UNITS * mg.UNIT, mg.up_reserve(old, 2, peaks)[0])
 mg.VM_UP_FIXED = False
 
+# Peaks survive a restart: save, load into a fresh dict, equal; bad file = empty. Temp HOME only.
+import tempfile
+with tempfile.TemporaryDirectory() as home:
+    os.environ["HOME"] = home
+    check("peaks path under HOME", home, str(mg.peaks_path())[:len(home)])
+    saved = hist(**{"listener": [300 * M, 310 * M], "read times X": [1100 * M] * 3})
+    check("save ok", True, mg.save_peaks(peaks=saved))
+    back = {}
+    mg.load_peaks(peaks=back)
+    check("reloaded peaks equal", {k: list(v) for k, v in saved.items()}, {k: list(v) for k, v in back.items()})
+    check("loading into a private dict leaves saving off", False, mg._peaks_saving)
+    mg.peaks_path().write_text("{not json")
+    empty = {}
+    mg.load_peaks(peaks=empty)
+    check("bad file = empty", {}, empty)
+
 sys.exit(1 if failed else 0)
