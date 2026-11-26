@@ -152,4 +152,9 @@ check("no page lines, no extension", 210, lgaps.reach(acol, acol, 0))
 img = Image.new("RGB", (1000, 600), "white")
 check("column_boxes without page lines keeps the pad", lgaps.column_boxes(img, acol), lgaps.column_boxes(img, acol, ()))
 check("column_boxes runs the short column down to its sibling's bottom", True, lgaps.column_boxes(img, acol, acol + bcol, [1, 2, 3])[0][3] > lgaps.column_boxes(img, acol)[0][3])
+# ENUM_FIX: build() splits a clue's own count (equal to the light's length) off its words; another bracket stays.
+_b = fgl.build({"number": 1, "name": "x", "date": "2020-01-01", "source": {"url": "u"},
+                "clues": {"1-across": {"text": "Its leaves yield a drink! (4)", "enumeration": None}}}, ["....", "...."])
+_c = {f"{e['number']}-{e['direction']}": e["clue"] for e in _b["entries"]}
+check("enum split off words", ("Its leaves yield a drink!", "4"), (_c["1-across"]["text"], _c["1-across"].get("enumeration")))
 sys.exit(1 if fails else 0)

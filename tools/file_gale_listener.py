@@ -90,6 +90,7 @@ import threading
 from pathlib import Path
 from pypdf.errors import PyPdfError
 import cross_validate as cv
+import enumeration
 import file_archive_org_puzzles as fa
 import gale_inbox as gi
 import gale_listener as gl
@@ -865,9 +866,17 @@ def build(reading, rows):
         lid = f"{n}-{d}"
         clue = reading["clues"].get(lid) or {}
         text = (clue.get("text") or "").strip()
+        enum = clue.get("enumeration")
+        # A clue the vote left with its own count on its words (listener-1694 40 across, "... incessantly! (5)",
+        # enumeration none): the count the light's length says goes to clue.enumeration (ENUM_FIX), as the write
+        # gate (puzzle_integrity SHAPE) wants. A bracket saying anything else is the clue's own words and stays.
+        if text and not enum and enumeration.unsplit({"text": text}, {len(cells)}) \
+                and sum(enumeration.counts(enumeration.split(text)[1])) == len(cells):
+            text, enum = enumeration.split(text)
+            text = (text or "").strip()
         e = {"number": n, "direction": d, "position": {"x": cells[0][1], "y": cells[0][0]},
              "length": len(cells),
-             "clue": {"text": text, **({"enumeration": clue["enumeration"]} if clue.get("enumeration") else {}),
+             "clue": {"text": text, **({"enumeration": enum} if enum else {}),
                       **({"asPrinted": clue["asPrinted"]} if clue.get("asPrinted") else {})}
              if text else {"missing": True} if clue.get("noCluePrinted") else {"text": "", "missing": True},
              "solution": None}
