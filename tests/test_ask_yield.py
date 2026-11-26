@@ -40,27 +40,29 @@ def unit(reason):
     return {"paper": "gale", "kind": "read", "rank": 2, "reason": reason, "needs": []}
 
 
+KFAR = eq.ask_yield_key(unit(FAR))
+KNEW = eq.ask_yield_key(unit(NEW))
 path = eq.ask_yield_path()
 check("the file lives under the fake HOME, not the live cache", True, str(path).startswith(_tmp))
 check("no history: a fill", True, eq.fills_gpu(unit(FAR)))
 for _ in range(2):
-    eq.ask_yield_note(FAR, 0)
+    eq.ask_yield_note(KFAR, 0)
 check("two finished reads is too few to judge: still a fill", True, eq.fills_gpu(unit(FAR)))
-eq.ask_yield_note(FAR, 0)
+eq.ask_yield_note(KFAR, 0)
 check("three reads, 0 new asks each: no longer a fill", False, eq.fills_gpu(unit(FAR)))
 check("another reason with no history is still one", True, eq.fills_gpu(unit(NEW)))
 check("a unit that is not a read is not touched", False, eq.fills_gpu({**unit(FAR), "kind": "scan"}))
-eq.ask_yield_note(FAR, 5)
+eq.ask_yield_note(KFAR, 5)
 check("5 asks over 4 reads (over one a read): a fill again", True, eq.fills_gpu(unit(FAR)))
-eq.ask_yield_note(FAR, 0)
+eq.ask_yield_note(KFAR, 0)
 check("5 asks over 5 reads (one a read): a fill", True, eq.fills_gpu(unit(FAR)))
 for _ in range(2):
-    eq.ask_yield_note(FAR, 0)
+    eq.ask_yield_note(KFAR, 0)
 check("5 asks over 7 reads: dry again", False, eq.fills_gpu(unit(FAR)))
 for _ in range(6):
-    eq.ask_yield_note(FAR, 0)
-check("the window holds the last 8 reads", [0] * 8, eq.ask_yield_store()[FAR])
-check("the window is on disk", [0] * 8, eq.ask_yield_load(path)[FAR])
+    eq.ask_yield_note(KFAR, 0)
+check("the window holds the last 8 reads", [0] * 8, eq.ask_yield_store()[KFAR])
+check("the window is on disk", [0] * 8, eq.ask_yield_load(path)[KFAR])
 eq._ASK_YIELD[:] = [None, {}]
 check("a reload reads it back from the file: still dry", False, eq.fills_gpu(unit(FAR)))
 path.write_text("not json")
@@ -68,7 +70,7 @@ eq._ASK_YIELD[:] = [None, {}]
 check("a damaged file is no history: a fill", True, eq.fills_gpu(unit(FAR)))
 check("hand exclusions kept: a LOW_ASK reason is no fill", False, eq.fills_gpu(unit(eq.LOW_ASK[0])))
 for n in (3, 0, 2):
-    eq.ask_yield_note(NEW, n)
+    eq.ask_yield_note(KNEW, n)
 check("a reason averaging 5/3 new asks a read stays a fill", True, eq.fills_gpu(unit(NEW)))
 for k in range(eq.ASK_REASONS_MAX + 5):
     eq.ask_yield_note(f"r{k}", 1)

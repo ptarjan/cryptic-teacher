@@ -2735,6 +2735,12 @@ def ask_yield_note(reason, asks, path=None):
     return window
 
 
+def ask_yield_key(unit):
+    """The window's key: paper and reason, since one reason text ("never read") spans papers that ask the
+    VLM and papers that never do (the Listener reader), and only reads that need the VLM are noted."""
+    return f"{unit.get('paper')}\t{unit.get('reason') or ''}"
+
+
 def ask_dry(reason):
     """Whether the last finished reads of `reason` (at least ASK_MIN, at most ASK_WINDOW) averaged under one
     new VLM ask each: they run in plan order but fill no GPU slot (fills_gpu)."""
@@ -2759,7 +2765,7 @@ def fills_gpu(unit):
         return False  # 11-10: Gale Sunday Telegraph Quickie-set rereads spool 0 asks ("0 asks spooled, target 4"); as fills they held the GPU empty
     if reason.startswith(fa.FOOTER_TITLE):
         return False  # 10-29: ~18 min of whole-page OCR before any ask; 6 counted as fills held the feed shut, GPU ~1%
-    if ask_dry(reason):
+    if ask_dry(ask_yield_key(unit)):
         return False  # 11-25: measured, not listed: its last finished reads spooled under one new VLM ask each (ask_yield_note)
     # Never-read reads of any paper, fix-landed rereads and canary-proven rereads ask the VLM.
     # 11-22: registry fix reasons (tools/reasons/, unfiled_first without fix_landed) were no fill: the feed's
@@ -4360,8 +4366,8 @@ class _Children:
                 self.defer_until.pop(key_of(unit), None)
             if unit["kind"] == "read" and rc not in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) and not media_retry:
                 asks = self.new_asks.pop(key_of(unit), 0)
-                if rc == 0 and unit.get("reason"):  # finished: the new asks of its whole read (the reason's window)
-                    ask_yield_note(unit["reason"], asks)
+                if rc == 0 and unit.get("reason") and needs_vlm(unit):  # finished: the new asks of its whole read (the reason's window)
+                    ask_yield_note(ask_yield_key(unit), asks)
             if unit["kind"] == "scan" and rc == 0:
                 self.scanned.add((unit["paper"], unit["rel"]))
             elif unit["kind"] == "scan" and rc != EXITS["deferred"] and not media_retry:
