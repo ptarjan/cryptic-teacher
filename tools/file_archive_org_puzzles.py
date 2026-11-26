@@ -174,6 +174,7 @@ import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair, fix_reasons
+import byline as byline_mod
 import clue_text
 import quotes
 import crop_window
@@ -16141,7 +16142,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         verdict["blank"] = blank
     puzzle = build(n, day, grid, how, laid, edition_of(d, found), leaf, series=paper.series,
                    name=paper.name.format(n), url=page_url(d, found, leaf), printed=alike)
-    setter = byline(img, hit, paper.series)
+    setter = byline(img, hit, paper.series, day)
     if setter:
         puzzle["setter"] = setter
     sol = solutions.get(n)
@@ -16695,11 +16696,33 @@ LABEL_GAP = 3
 LABEL_FOOT_PAD = -3
 
 
-def byline(img, hit, series=FT.series):
+#: The series whose titles print a setter in some era (tools/data/setter_unprinted.json lists the eras that do not).
+BYLINED_SERIES = ("independent", "ftcryptic")
+
+
+def title_byline(img, hit):
+    """BYLINE_READ: the setter RapidOCR reads (en5 and ch alike) in the title's neighbourhood ("No.5466 Saturday 24
+    April by Phi", "CRYPTIC CROSSWORD 7344 BY PHI"), for a title whose scan found no "Set by": read time only, the
+    scan's own code untouched."""
+    import numpy as np
+    x0, y0, x1, y1 = hit["box"]
+    h = max(y1 - y0, 1)
+    crop = img.crop((max(0, x0 - 20), max(0, y0 - h // 2), min(img.width, x1 + 200), min(img.height, y1 + 2 * h))).convert("RGB")
+    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+    names = []
+    for which in ("en5", "ch"):
+        res, _ = engine(which)(np.asarray(crop), use_cls=False)
+        names.append(byline_mod.name_in(" ".join(t for _, t, _ in res or ())))
+    return names[0] if names[0] and names[0] == names[1] else None
+
+
+def byline(img, hit, series=FT.series, day=None):
     """The setter archive.org's words name under the title ("Set by DANTE"),
     when it is one the series' files name, a dictionary word, or what
     RapidOCR reads there too: archive.org alone misreads ("Grifftn")."""
     read = hit.get("setterRead")
+    if not read and day and series in BYLINED_SERIES and not byline_mod.is_unprinted(series, day.isoformat()):
+        return title_byline(img, hit)
     if not read or read in setters(series) or is_word(read.lower()):
         return read
     import numpy as np
@@ -16708,8 +16731,7 @@ def byline(img, hit, series=FT.series):
     crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
     for which in ("en5", "ch"):
         res, _ = engine(which)(np.asarray(crop), use_cls=False)
-        m = FT_SETTER.search(" ".join(t for _, t, _ in res or ()))
-        if m and m.group(1).title() == read:
+        if byline_mod.name_in(" ".join(t for _, t, _ in res or ())) == read:
             return read
     return None
 
