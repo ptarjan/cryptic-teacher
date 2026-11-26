@@ -18033,7 +18033,8 @@ def prize_rescan(paper, key, rel):
                         _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2], _WINNERS_BAND_FIX["gale"][2],
                         _TELEGRAPH_SATURDAY_FIX["gale"][2], _TELEPRIZE_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2],
                         _WINNERS_NUMBER_FIX["gale"][2], _WINNERS_1996_FIX["gale"][2],
-                        _SUNDAY_WEEKLY_FIX["gale"][2], _FT_SMALL_FIX["gale"][2], _SUNTEL_BARE_FIX["gale"][2])
+                        _SUNDAY_WEEKLY_FIX["gale"][2], _FT_SMALL_FIX["gale"][2], _SUNTEL_BARE_FIX["gale"][2],
+                        _PLANES_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 

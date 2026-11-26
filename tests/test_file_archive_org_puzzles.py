@@ -481,7 +481,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._SUNTEL_BARE_FIX[gt.key][:2],
                                                                       *f._FT_TITLE_FIX.get(gt.key, ())[:2],
                                                                       *f._FT_PROSE_FIX.get(gt.key, ())[:2],
-                                                                      *f._FT_NOISY_FIX.get(gt.key, ())[:2]},
+                                                                      *f._FT_NOISY_FIX.get(gt.key, ())[:2],
+                                                                      *f._PLANES_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3594,6 +3595,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._PLANES_FIX:
+        return f._PLANES_FIX[paper][2]
     if paper in f._FT_NOISY_FIX:
         return f._FT_NOISY_FIX[paper][2]
     if paper in f._FT_PROSE_FIX:
