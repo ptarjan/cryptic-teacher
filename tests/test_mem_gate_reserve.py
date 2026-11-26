@@ -72,6 +72,16 @@ check("history keeps the last PEAK_KEEP", (mg.PEAK_KEEP, 11 * M), (len(h["read"]
 mg.record_peak("read", 0, h)
 check("a zero peak is not recorded", mg.PEAK_KEEP, len(h["read"]))
 
+# Finer kinds: a kind with KIND_MIN peaks uses its own; fewer, its pool's (first word); a small
+# Listener page reader is not charged the Jumbo solution reads' peak.
+fine = hist(**{"listener": [300 * M] * 5, "listener jumbo": [1400 * M] * 5})
+check("fine kind with history uses its own peaks", 300 * M, mg.expected_peak("listener", fine))
+check("fine kind with history uses its own peaks (jumbo)", 1400 * M, mg.expected_peak("listener jumbo", fine))
+check("new fine kind falls back to its pool", 1400 * M, mg.expected_peak("listener tls", fine))
+few = hist(**{"read times GaleTimes1935UKEnglish": [1100 * M], "read ft GaleFT1975UKEnglish": [600 * M] * 4})
+check("fine kind under KIND_MIN uses its pool", 1100 * M, mg.expected_peak("read times GaleTimes1935UKEnglish", few))
+check("small Listener pages leave little growth", 0, mg.up_reserve([("listener", 300 * M)] * 5, 1, fine)[0] - 1400 * M)
+
 # CT_VM_UP_UNITS restores the old rule.
 mg.VM_UP_FIXED = True
 check("CT_VM_UP_UNITS set: old rule despite history", mg.VM_UP_UNITS * mg.UNIT, mg.up_reserve(old, 2, peaks)[0])

@@ -183,7 +183,8 @@ VM_UP_UNITS = int(os.environ.get("CT_VM_UP_UNITS") or 4)
 #: CT_VM_UP_UNITS set: the old fixed reserve (that many units) instead of the measured one.
 VM_UP_FIXED = bool(os.environ.get("CT_VM_UP_UNITS"))
 #: Peak resident bytes of finished units (the unit's own and its reaped children's: wait4's ru_maxrss),
-#: the last PEAK_KEEP per kind (slot: scan / read / trove / listener ...), in memory.
+#: the last PEAK_KEEP per kind (edition_queue.mem_kind: pool, paper and reader/series, e.g. "listener
+#: listener jumbo", "read times GaleTimes1935UKEnglish"), in memory.
 PEAK_KEEP = 50
 PEAKS = {}
 
@@ -200,11 +201,24 @@ def _high(values):
     return v[int(0.9 * (len(v) - 1))] if v else None
 
 
+#: A kind's own peaks count once it has this many; fewer, its pool's (the kind's first word) stand in.
+KIND_MIN = 3
+
+
 def expected_peak(kind, peaks=None):
-    """What a unit of `kind` is expected to peak at: its kind's recent peaks, else every kind's, else
-    UNIT (no history)."""
+    """What a unit of `kind` is expected to peak at: its kind's recent peaks (KIND_MIN or more), else the
+    higher of its pool's (kinds sharing the first word: "listener jumbo", "listener") and its own
+    highest, else every kind's, else UNIT (no history). A pool mixes readers of very different size (Listener pages ~0.3 GB beside
+    Jumbo/TLS solution reads over 1 GB), so the finer kind is asked first."""
     peaks = PEAKS if peaks is None else peaks
-    return _high(peaks.get(kind) or ()) or _high([x for d in peaks.values() for x in d]) or UNIT
+    own = peaks.get(kind) or ()
+    if len(own) >= KIND_MIN:
+        return _high(own)
+    pool = kind.split(" ", 1)[0]
+    near = _high([x for k, d in peaks.items() if k.split(" ", 1)[0] == pool for x in d])
+    if near is not None:
+        return max(near, max(own, default=0))  # never under a peak this kind already reached
+    return _high([x for d in peaks.values() for x in d]) or UNIT
 
 
 def up_reserve(running, adding, peaks=None):

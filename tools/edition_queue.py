@@ -3248,6 +3248,16 @@ def slot_of(unit):
     return unit["paper"] if unit["paper"] in ("trove", "listener") else unit["kind"]
 
 
+def mem_kind(unit):
+    """The memory kind a unit's peak resident size is recorded and expected under (mem_gate): its pool,
+    paper and reader (the rel's prefix before its last ":", e.g. jumbo, tls:solution) or series (the
+    rel's first path part, e.g. GaleTimes1935UKEnglish), as units of one pool differ several-fold
+    (Listener pages ~0.3 GB, Jumbo/TLS solution reads over 1 GB; 1930s Times reads ~1.1 GB)."""
+    rel = str(unit.get("rel") or "")
+    reader = rel.rpartition(":")[0] if ":" in rel else (rel.split("/", 1)[0] if "/" in rel else "")
+    return " ".join(x for x in (slot_of(unit), unit["paper"], reader) if x)
+
+
 def rels_by_paper(pairs):
     """{paper: {rel}} of (paper, rel) pairs: what read_waits tests needs against."""
     out = {}
@@ -3978,7 +3988,7 @@ class _Poller:
         self.reload_check()
         if self.ceiling_ctl:
             running = sum(1 for _, (u, _) in self.units_running() if u["kind"] != "fetch")
-            for line in self.ceiling_ctl.poll(running=running, kinds={pid: slot_of(u) for pid, (u, _) in self.units_running() if u["kind"] != "fetch"}):
+            for line in self.ceiling_ctl.poll(running=running, kinds={pid: mem_kind(u) for pid, (u, _) in self.units_running() if u["kind"] != "fetch"}):
                 log(line)
         for b in self.beside:
             b.poll(self.may_start() and not self.game_now[0], None if self.seconds is None else self.seconds - (time.monotonic() - self.begun))
@@ -4308,7 +4318,7 @@ class _Children:
                 return
             if pid not in self.running and pid not in self.adopted:
                 continue
-            kind = slot_of((self.running.get(pid) or self.adopted[pid])[0])
+            kind = mem_kind((self.running.get(pid) or self.adopted[pid])[0])
             if kind.split()[0] != "fetch":  # peak resident size (KiB on Linux), for the ceiling's step-up reserve
                 mem_gate.record_peak(kind, usage.ru_maxrss if sys.platform == "darwin" else usage.ru_maxrss << 10)
             unit, t0 = self.running.pop(pid) if pid in self.running else self.adopted.pop(pid)
