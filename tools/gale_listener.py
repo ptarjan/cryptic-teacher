@@ -2594,7 +2594,8 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     `before`, the page's last ledger row: a reading it wrote under another
     number than it now matches is dropped (disown)."""
     import scan_queue
-    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "headFix": HEAD_FIX, "gapFix": GAP_FIX,
+    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "flipFix": FLIP_FIX, "headFix": HEAD_FIX,
+             "gapFix": GAP_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2787,6 +2788,7 @@ def plan(inbox=SAVED, store=STORE):
     # magazine's never read (their mtimes all earlier).
     due = sorted(((p, (SHORT if ((p.name in list_fix_names() and (row or {}).get("listFix", 0) < LIST_FIX)
                                  or (p.name in join_fix_names() and (row or {}).get("joinFix", 0) < JOIN_FIX)
+                                 or (p.name in flip_fix_names() and (row or {}).get("flipFix", 0) < FLIP_FIX)
                                  or (p.name in head_fix_names() and (row or {}).get("headFix", 0) < HEAD_FIX)
                                  or (p.name in gap_fix_names() and (row or {}).get("gapFix", 0) < GAP_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
@@ -2958,6 +2960,27 @@ def join_fix_names():
     return _JOIN_FIX_NAMES
 
 
+#: Bumped when the join (file_gale_listener.wide_flips) tries more of a grid's bars when no grid read on the pages fits
+#: the clue list: sides from 0.5 to 3.2 times the rule's width, up to three put in or taken out, in the lines the lights
+#: disagree on, the one set that makes them the clue list's exactly. Only the pages it makes join whole
+#: (tools/data/listener_wide_flips.json, found by joining the refused readings fix-off and fix-on on the cached grids)
+#: are read and joined again.
+FLIP_FIX = 1
+FLIP_FIX_FILE = ROOT / "tools" / "data" / "listener_wide_flips.json"
+_FLIP_FIX_NAMES = None
+
+
+def flip_fix_names():
+    """The saved pages' names FLIP_FIX changes (a committed list nothing writes)."""
+    global _FLIP_FIX_NAMES
+    if _FLIP_FIX_NAMES is None:
+        try:
+            _FLIP_FIX_NAMES = frozenset(json.loads(FLIP_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _FLIP_FIX_NAMES = frozenset()
+    return _FLIP_FIX_NAMES
+
+
 #: Bumped when numbered_columns reads the list under the first heading in the column the heading stands in, though a
 #: report's heading ("Report on Crossword No. 20") stands above it there. Only the refused pages the fix gives clues
 #: (tools/data/listener_head_report.json, found by reading the cached pages fix-off and fix-on) are read again.
@@ -3004,6 +3027,7 @@ def current(p, row):
     return (row.get("version") == VERSION and (not is_times(p) or row.get("timesCut", 1) >= TIMES_CUTS)
             and not (row.get("listFix", 0) < LIST_FIX and p.name in list_fix_names())
             and not (row.get("joinFix", 0) < JOIN_FIX and p.name in join_fix_names())
+            and not (row.get("flipFix", 0) < FLIP_FIX and p.name in flip_fix_names())
             and not (row.get("headFix", 0) < HEAD_FIX and p.name in head_fix_names())
             and not (row.get("gapFix", 0) < GAP_FIX and p.name in gap_fix_names()))
 

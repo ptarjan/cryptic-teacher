@@ -509,6 +509,12 @@ def misfit_lines(rows, clues):
     return out
 
 
+#: The bar widths (times the page's rule width) flips() puts in or takes out
+#: when no unsure side's flip fits, and the most it flips: a faint bar under
+#: 1.0 reads as nothing, a bar's end beside a heavier one over UNSURE's 2.4.
+WIDE, WIDE_FLIPS, WIDE_NEAR = (0.5, 3.2), 3, 14
+
+
 def flips(grid, fit, lay):
     """[(sides, rows, clues, notes)] of each fewest set of `grid`'s unsure
     sides (listener_grid.UNSURE) whose flip in `rows` makes its lights the
@@ -523,25 +529,41 @@ def flips(grid, fit, lay):
     A fit leaving its 2-cell runs unnumbered is flipped with them open and
     closed again (reclosed), none flipped first: No 261 numbers one, 30
     across. A flip must keep the page's own word (unmoved): its read
-    numbers on their starts, no cell left in no light. [] when none does."""
+    numbers on their starts, no cell left in no light. [] when none does.
+    wide_flips() is the same search over the WIDE sides in the lines the two
+    disagree on, of any numbering, up to WIDE_FLIPS bars (No 2494's three,
+    one printed 2.4 times the rule): a set of bars that makes the lights the
+    clue list's exactly, its numbers and counts, is the one the page prints."""
+    return _flips(grid, fit, lay, lg.UNSURE, False)
+
+
+def wide_flips(grid, fit, lay):
+    """flips() over the WIDE sides (join_one's second pass, when no grid read
+    on the pages fits the clue list otherwise)."""
+    return _flips(grid, fit, lay, WIDE, True)
+
+
+def _flips(grid, fit, lay, reach, wide):
     thin = max(grid["thin"], 1.0)
     edge = math.log(lg.BAR_RATIO)
-    unsure = sorted((side for side, width in grid["sides"].items() if lg.UNSURE[0] <= width / thin <= lg.UNSURE[1]),
+    unsure = sorted((side for side, width in grid["sides"].items()
+                     if width > 0 and reach[0] <= width / thin <= reach[1]),
                     key=lambda side: abs(math.log(grid["sides"][side] / thin) - edge))
     rows = fit["rows"]
     got = lay(rows)
-    lines = misfit_lines(rows, got[0]) if got and fit.get("numbering") == "printed" else set()
+    lines = misfit_lines(rows, got[0]) if got and (wide or fit.get("numbering") == "printed") else set()
     # A fit leaving 2-cell runs unnumbered has them barred shut (lg.closed):
     # its sides are flipped on the grid with them open, which is closed again
     # (reclosed) as the page may number them.
     shut = fit.get("shortest") == 3
     base = opened(rows) if shut else rows
     bars = bars_of(base)
-    near = [side for side in unsure if not bars.get(side)
-            and (side[2], side[0] if side[2] == "r" else side[1]) in lines][:NEAR]
-    for k in range(0 if shut else 1, MOST_FLIPS + 1):
+    # The wide stage flips bars both ways, and only in lines holding a misfit.
+    near = [side for side in unsure if (wide or not bars.get(side))
+            and (side[2], side[0] if side[2] == "r" else side[1]) in lines][:WIDE_NEAR if wide else NEAR]
+    for k in range(0 if shut else 1, (WIDE_FLIPS if wide else MOST_FLIPS) + 1):
         hits, seen = [], {tuple(rows)}
-        for sides in itertools.combinations(unsure if k <= 1 else near, k):
+        for sides in itertools.combinations(unsure if k <= 1 and not wide else near, k):
             flipped = lg.with_bars(base, {**bars, **{side: not bars.get(side) for side in sides}})
             for alt in (reclosed(flipped) if shut else [flipped]):
                 if tuple(alt) in seen:
@@ -626,7 +648,7 @@ def reclosed(rows):
             for keep in itertools.combinations(twos, k)]
 
 
-def fit_to_clues(grid, fit, lay):
+def fit_to_clues(grid, fit, lay, wide=False):
     """(rows, flipped sides, clues, notes, why, mends): the fitted grid when
     its lights are the clue list's as lay(rows) lays it, else the one
     fewest set of unsure sides whose flip makes them so (flips), else
@@ -636,7 +658,7 @@ def fit_to_clues(grid, fit, lay):
     why = lights_fit(rows, got[0]) if got else "the printed numbers number none of its starts"
     if why is None:
         return rows, [], *got, None, 0
-    fixes = flips(grid, fit, lay)
+    fixes = (wide_flips if wide else flips)(grid, fit, lay)
     if len(fixes) == 1:
         return fixes[0][1], fixes[0][0], *fixes[0][2:], None, 1
     return None, None, None, None, f"the grid's lights are not the clue list's: {why}" + (
@@ -977,7 +999,9 @@ def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips
         verdict["lacks"] = "grid: no exact fit to the printed numbers"
         return None, verdict, None
     whys = []
-    for g in exact + judged:
+    # A grid that fits the clue list as read, or by an unsure bar, is the page's;
+    # only when none does are the wide flips (wide_flips) tried on each.
+    for wide, g in [(False, g) for g in exact + judged] + [(True, g) for g in exact + judged]:
         fit = g["fit"]
         page, shifted, why = unstrayed(g["fit"], renumbered(g["fit"], clues))
         rows = sides = None
@@ -992,18 +1016,19 @@ def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips
                 laid, notes = mended(rows if fit.get("numbering") == "printed" else fit["rows"], got[0], theme)
                 return laid, {**shifted, **got[1], **notes}
 
-            rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay)
-            if not rows and not mends and (got := lay(g["fit"]["rows"])):
+            rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay, wide)
+            if not rows and not mends and not wide and (got := lay(g["fit"]["rows"])):
                 skip, note = skipped(g["fit"]["rows"], got[0])
                 if skip and lights_fit(g["fit"]["rows"], skip) is None:
                     rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
-        if not rows and g["fit"]["exact"] and (got := as_read(g, clues, theme) or closed_as_read(g, clues, theme)):
+        if not rows and not wide and g["fit"]["exact"] and (got := as_read(g, clues, theme) or closed_as_read(g, clues, theme)):
             fit, (rows, laid, notes), sides = got, got["laid"], []
         if rows:
             clues = laid
             reading = {**reading, "clues": laid}
             break
-        whys.append(why)
+        if not wide:
+            whys.append(why)
     else:
         verdict["lacks"] = "grid: " + ("no exact fit to the printed numbers" if not exact else "; ".join(whys[:len(exact)]))
         return None, verdict, None
