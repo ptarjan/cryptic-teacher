@@ -1544,6 +1544,10 @@ f.linked_solutions = lambda paper, found, held: found["solutions"]
 text_read = []
 f.text_headings = lambda d, deadline=None: text_read.append(d.name) or (
     [(90101, 1)] if d.name == "1980-02-06_3" else [])
+# Hermetic: the corpus filed is this fixture's alone. Clearing _HELD_PATH does not hide the checkout's
+# puzzles: held_dates' next full listing (HELD_FRESH after the last) fills it again, and a real Times
+# filed without answers whose host is one of these editions' dates then has that edition's text read.
+real_held_dates, f.held_dates = f.held_dates, lambda series: f.Held()
 f._HELD_PATH.clear()
 _, reads = f.plan(f.TIMES, lc)
 got = [(u["rel"].split("/")[1], u["reason"], u["rank"], u.get("likely")) for u in reads]
@@ -1728,6 +1732,7 @@ check("mirror: another paper's grid (the classifier reads only the Times's) is n
       f.short_cause("times", {**old_read, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"},
                     v(90210, **classified_part(3)), {}))
 f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings = real[:4]
+f.held_dates = real_held_dates
 f._HELD_PATH.clear()
 f._HELD_PATH.update(real[4])
 
