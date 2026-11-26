@@ -1916,13 +1916,14 @@ def times_block(img, key, cut=None, words=None):
     return crop, ck
 
 
-def read_page(img, key, lengths=None):
+def read_page(img, key, lengths=None, keep=None):
     """(verdict, {light: (text, enumeration, None)} or None) for one page:
     the whole page read by every ocr_clues.READERS reader band by band, each
     reading's lists found by page_columns, and voted on (al.vote). The
     1930s lists run on above their heading in the next column, so no box
     under a heading holds them all. `lengths` ({light: cells}) is the
-    page's grid, when the caller has read it (al.vote)."""
+    page's grid, when the caller has read it (al.vote). `keep`, a dict, is
+    given the readings' words ({reader: words}) as voted on."""
     verdict = {}
     located = figures(page_words(img, key))
     if WORD_FIX:
@@ -1965,6 +1966,8 @@ def read_page(img, key, lengths=None):
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
+    if keep is not None:
+        keep.update(words)
     verdict, laid = al.vote(words, verdict, cols=page_columns, lengths=lengths, figures=True)
     if laid and not all(t for t, _, _ in laid.values()):
         laid = greek_mended(img, key, words, verdict, laid)
@@ -2591,7 +2594,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     `before`, the page's last ledger row: a reading it wrote under another
     number than it now matches is dropped (disown)."""
     import scan_queue
-    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "headFix": HEAD_FIX,
+    entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "headFix": HEAD_FIX, "gapFix": GAP_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2784,7 +2787,8 @@ def plan(inbox=SAVED, store=STORE):
     # magazine's never read (their mtimes all earlier).
     due = sorted(((p, (SHORT if ((p.name in list_fix_names() and (row or {}).get("listFix", 0) < LIST_FIX)
                                  or (p.name in join_fix_names() and (row or {}).get("joinFix", 0) < JOIN_FIX)
-                                 or (p.name in head_fix_names() and (row or {}).get("headFix", 0) < HEAD_FIX))
+                                 or (p.name in head_fix_names() and (row or {}).get("headFix", 0) < HEAD_FIX)
+                                 or (p.name in gap_fix_names() and (row or {}).get("gapFix", 0) < GAP_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -2973,6 +2977,25 @@ def head_fix_names():
     return _HEAD_FIX_NAMES
 
 
+#: Bumped when file_gale_listener.run reads a joined puzzle's few blank clues again from where they must be
+#: (listener_gaps). Only the refused pages that lack 1-3 plain clue texts (tools/data/listener_gap_clues.json, the
+#: refused numbers' pages: no filed puzzle's) are read and joined again.
+GAP_FIX = 1
+GAP_FIX_FILE = ROOT / "tools" / "data" / "listener_gap_clues.json"
+_GAP_FIX_NAMES = None
+
+
+def gap_fix_names():
+    """The saved pages' names GAP_FIX changes (a committed list nothing writes)."""
+    global _GAP_FIX_NAMES
+    if _GAP_FIX_NAMES is None:
+        try:
+            _GAP_FIX_NAMES = frozenset(json.loads(GAP_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _GAP_FIX_NAMES = frozenset()
+    return _GAP_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
     VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
@@ -2981,7 +3004,8 @@ def current(p, row):
     return (row.get("version") == VERSION and (not is_times(p) or row.get("timesCut", 1) >= TIMES_CUTS)
             and not (row.get("listFix", 0) < LIST_FIX and p.name in list_fix_names())
             and not (row.get("joinFix", 0) < JOIN_FIX and p.name in join_fix_names())
-            and not (row.get("headFix", 0) < HEAD_FIX and p.name in head_fix_names()))
+            and not (row.get("headFix", 0) < HEAD_FIX and p.name in head_fix_names())
+            and not (row.get("gapFix", 0) < GAP_FIX and p.name in gap_fix_names()))
 
 
 def due_reason(row):

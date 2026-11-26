@@ -92,6 +92,7 @@ import cross_validate as cv
 import file_archive_org_puzzles as fa
 import gale_inbox as gi
 import gale_listener as gl
+import listener_gaps
 import media_manifest
 import listener_grid as lg
 import ocr_clues
@@ -1364,6 +1365,30 @@ def report_ask(png, prompt):
         return vlm.ask_png(base64.b64decode(png), prompt, max_tokens=40)
 
 
+def gap_open(puzzle):
+    """Whether `puzzle` lacks 1 to listener_gaps.MAX_GAPS clue texts (the
+    lights it leaves unclued, printed with no clue, aside)."""
+    n = sum(1 for e in puzzle["entries"] if not (e["clue"].get("text") or "").strip() and e["clue"].get("missing")
+            and e["clue"] != {"missing": True})
+    return 0 < n <= listener_gaps.MAX_GAPS
+
+
+def gap_pages(paths):
+    """[(img, words, laid)] of the pages `paths` hold, for listener_gaps.fill: each read again from its
+    cached OCR (gale_listener.read_page); none when a page cannot be opened."""
+    out = []
+    for p in paths:
+        try:
+            for img, _ in gi.images(p):
+                kept = {}
+                _, laid = gl.read_page(img, gl.image_key(img), keep=kept)
+                if laid and kept:
+                    out.append((img, kept, laid))
+        except (OSError, ValueError):
+            continue
+    return out
+
+
 def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout,
         grids_of=page_grids, read_letters=None, reports_to=REPORTS, numbers=None, read_probs=None,
         read_strips=None, ask=None):
@@ -1416,6 +1441,10 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     for n, reading in sorted(readings.items()):
         mine = [g for sha, e in files if e.get("number") == n for g in grids.get(e["file"], ()) if g["fit"]]
         puzzle, verdict, printed = join(reading, mine, reports, read_letters, read_probs, read_strips, ask)
+        if puzzle is not None and "lacks" not in verdict and gap_open(puzzle):
+            if gaps := listener_gaps.fill(puzzle, gap_pages([where[e["file"]] for _, e in files
+                                                              if e.get("number") == n and e["file"] in where])):
+                verdict["gaps"] = gaps
         if printed and write:
             Path(reports_to).mkdir(parents=True, exist_ok=True)
             (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
