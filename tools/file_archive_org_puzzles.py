@@ -18037,6 +18037,32 @@ def prize_rescan(paper, key, rel):
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before ocr_clues.read_words held its upscaled image as
+#: planes (upscaled_planes: a whole-page read held ~1 GB of RGB copies while RapidOCR read its 2000px reduction): an
+#: edit to code every paper's scan reaches that moves no reading (tests/test_read_words_planes.py: the same image
+#: bytes, cache name, reduction and words), so the scans under the old keys stand.
+_PLANES_FIX = {
+    'ft': ('f1b028663e9ee949', '2d97ee179a0a8781', '73c422e5600c9eee'),
+    'gale': ('a53e30c9be8c1058', 'dc7cb7d0551cb60f', 'c0098ef32bc0d4a0'),
+    'galeft': ('8817c574c15050c0', '8ee0c5d4587f36a5', 'b538dad976d0eac1'),
+    'galeindependent': ('45a7cb927fd95e81', 'f242f59fb0a0bbd9', '46bdaa3f3a4e46d4'),
+    'galeindysunday': ('7e5c69a6bd640244', 'd8600b83c0d3c35e', '8bd1cca43e057a11'),
+    'galesundaytelegraph': ('9467aef25ecc6306', 'e3ed35cce0038725', '7a39b6e21784cf95'),
+    'galesundaytimes': ('fe6c08669195d94f', '0ade2d11261e0b3f', '4035e268529f0779'),
+    'galetelegraph': ('87a44e1fb9227d03', '2152675b4396f0fd', 'aa677fe2457d03e7'),
+    'galetls': ('618b48f0a83a85a0', '0ca2d5be43920af8', 'bbba3b074ae626a5'),
+    'guardian': ('678756038657be0e', '35ce56b5cb252d2e', '5dd9634f43edc638'),
+    'telegraph': ('463b5fe907c9199d', '201e7f58604c56bc', '7baef7b87cdb410a'),
+    'times': ('9eed52025f211b01', '7a706c02bda07838', '6b8649d886124c64'),
+    'times1930': ('37f7fd9f5f36cc33', '79aa0a46face8c50', 'bb9dbe1c2759b972'),
+}
+for _paper, _pins in _PLANES_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+
+
 def current_keys(paper):
     """The scanKeys a scan of one of `paper`'s editions stands under."""
     key, sized = scan_key(paper), sized_scan_key(paper)

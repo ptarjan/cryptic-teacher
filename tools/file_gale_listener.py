@@ -123,8 +123,11 @@ def code_key(module, *roots):
     """A key that changes when the code `roots` (names in `module`) reach
     does (tools/code_reach.py), not on an edit to the rest of the file."""
     if (module, roots) not in _KEYS:
+        import code_pins
         import code_reach
-        _KEYS[(module, roots)] = code_reach.key(module, set(roots))
+        # (code_pins is left out of the reach: a pin names the key of the code it stands for)
+        key = code_reach.key(module, set(roots), opaque=(*code_reach.TRANSPORT, "code_pins"))
+        _KEYS[(module, roots)] = code_pins.STANDS.get(key, key)
     return _KEYS[(module, roots)]
 
 

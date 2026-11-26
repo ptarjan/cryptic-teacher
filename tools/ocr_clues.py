@@ -264,24 +264,99 @@ def read_words(img, which):
     """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `img`,
     read at UPSCALE times its size, in `img`'s own pixels: none in an image
     with no pixels or too thin for the reader (too_thin). Read on the desktop when tools/ocr_remote.py can, the
-    same reading as here."""
+    same reading as here. The upscaled image is held as its planes (upscaled_planes), never whole in RGB
+    beside an array of it: a whole page is 34M pixels, 0.5 GB as PIL's RGB and 0.4 GB as the array RapidOCR
+    is handed, both held while it read the 2000px reduction it makes of them first."""
     import ocr_remote
-    crop = img.convert("RGB")
-    if not crop.width or not crop.height:
+    if not img.width or not img.height:
         return []
-    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
-    if too_thin(crop.width, crop.height, which):
+    if too_thin(img.width * UPSCALE, img.height * UPSCALE, which):
         return []
-    path = words_cache_path(crop, which)
+    planes = upscaled_planes(img)
+    path = planes_cache_path(planes, which)
     words = words_cached(path)
     if words is None:
-        words = ocr_remote.words(crop, which)
+        # The whole image only for who takes one: the desktop (its PNG) and Tesseract (its file).
+        crop = planes_image(planes) if which in TESS_MODELS or ocr_remote.hosts() else None
+        words = None if crop is None else ocr_remote.words(crop, which)
         if words is None:
+            if which not in TESS_MODELS:
+                crop = None
             with ocr_remote.local_slot():
-                words = raw_words(crop, which)
+                words = planes_words(planes, which) if crop is None else raw_words(crop, which)
         words_cache_put(path, words)
     return [(int(x0 / UPSCALE), int(y0 / UPSCALE), int(x1 / UPSCALE), int(y1 / UPSCALE), t)
             for x0, y0, x1, y1, t in words]
+
+
+#: Rows of an upscaled image hashed at a time (planes_cache_path).
+HASH_ROWS = 256
+
+
+def upscaled_planes(img):
+    """The planes of img.convert("RGB") resized to UPSCALE times its size, each an "L" image: all three,
+    or the one that stands for all when they are the same (a grey page, whatever mode its file is in).
+    Pillow resamples each band of an image by itself, so a plane is that band of the resized RGB image,
+    to the pixel, at a quarter of what Pillow holds an RGB image in."""
+    rgb = img if img.mode in ("L", "RGB") else img.convert("RGB")
+    bands = rgb.split()
+    if len(bands) == 3 and bands[0].tobytes() == bands[1].tobytes() == bands[2].tobytes():
+        bands = bands[:1]
+    size = (img.width * UPSCALE, img.height * UPSCALE)
+    return [b.resize(size) for b in bands]
+
+
+def planes_image(planes):
+    """The RGB image upscaled_planes holds the planes of."""
+    from PIL import Image
+    return Image.merge("RGB", planes if len(planes) == 3 else planes * 3)
+
+
+def planes_cache_path(planes, which):
+    """words_cache_path(planes_image(planes), which), the image never made: its bytes are hashed
+    HASH_ROWS rows at a time."""
+    root = os.environ.get("CT_OCR_WORDS_CACHE")
+    root = WORDS_CACHE if root is None else Path(root) if root not in ("", "0") else None
+    if root is None:
+        return None
+    import hashlib
+    import numpy as np
+    width, height = planes[0].size
+    h = hashlib.sha256()
+    h.update(f"RGB {width}x{height}\n".encode())
+    for y in range(0, height, HASH_ROWS):
+        rows = [np.asarray(p.crop((0, y, width, min(height, y + HASH_ROWS)))) for p in planes]
+        h.update(np.stack(rows if len(rows) == 3 else rows * 3, axis=2))
+    h.update(f"\n{reader_key(which)}\n{_reader_identity(which)}".encode())
+    return root / h.hexdigest()[:2] / f"{h.hexdigest()}.json"
+
+
+def planes_words(planes, which):
+    """raw_words(planes_image(planes), which) for a RapidOCR reader, to the last digit, the image never
+    made: RapidOCR's own steps (its __call__ with use_cls=False), its reduction to RAPID_MAX_SIDE
+    (preprocess: cv2.resize, which like Pillow scales each channel by itself) made of each plane, so
+    what is held while the detector and recogniser run is the reduced image alone."""
+    import numpy as np
+    eng = engine(which)
+    height, width = planes[0].height, planes[0].width
+    reduced = []
+    for p in planes:
+        plane, ratio_h, ratio_w = eng.preprocess(np.asarray(p))
+        reduced.append(plane)
+    im = np.stack(reduced if len(reduced) == 3 else reduced * 3, axis=2)
+    del reduced, plane
+    op = {"preprocess": {"ratio_h": ratio_h, "ratio_w": ratio_w}}
+    im, op = eng.maybe_add_letterbox(im, op)
+    boxes, _ = eng.auto_text_det(im)
+    if boxes is None:
+        return []
+    rec, _ = eng.text_rec(eng.get_crop_img_list(im, boxes), False)
+    res, _ = eng.get_final_res(eng._get_origin_points(boxes, op, height, width), None, rec, 0.0, 0.0, 0.0)
+    words = []
+    for b, t, _ in res or ():
+        xs, ys = [p[0] for p in b], [p[1] for p in b]
+        words.append((min(xs), min(ys), max(xs), max(ys), t))
+    return words
 
 
 def windowed_words(img, which, windows, state):
