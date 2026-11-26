@@ -1,10 +1,8 @@
 """Plain ok/FAIL checks of tools/byline.py and the TLS byline pattern (no pytest)."""
 import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-import byline  # noqa: E402
-import byline_backfill as bb  # noqa: E402
+import _path  # puts tools/ on sys.path
+import byline
+import byline_backfill as bb
 
 bad = 0
 

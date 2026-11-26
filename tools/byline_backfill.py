@@ -16,9 +16,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import byline
+import gale_listener
 
 CROPS = Path(os.path.expanduser("~/.cache/archive_org_crops/titles"))
-TLS_PAGES = Path(os.path.expanduser("~/.cache/gale_listener/ocr"))
+TLS_PAGES = gale_listener.OCR_CACHE
 SERIES_OF = {"galeindependent": "independent", "galeft": "ftcryptic"}
 
 
@@ -99,6 +100,7 @@ def tls_names():
 def write(pid, name, apply):
     """Whether puzzle `pid`'s file lacks a setter (and gets `name` when apply)."""
     import puzzle_paths
+    import puzzle_schema
     path = puzzle_paths.find(pid)
     if not path:
         return False
@@ -106,12 +108,7 @@ def write(pid, name, apply):
     if data.get("setter"):
         return False
     if apply:
-        out = {}
-        for k, v in data.items():
-            out[k] = v
-            if k == "date":
-                out["setter"] = name
-        out.setdefault("setter", name)
+        out = puzzle_schema.order({**data, "setter": name})
         path.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     return True
 

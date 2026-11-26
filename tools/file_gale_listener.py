@@ -88,6 +88,7 @@ import subprocess
 import sys
 import threading
 from pathlib import Path
+from pypdf.errors import PyPdfError
 import cross_validate as cv
 import file_archive_org_puzzles as fa
 import gale_inbox as gi
@@ -1409,7 +1410,7 @@ def gap_pages(paths):
                 _, laid = gl.read_page(img, gl.image_key(img), keep=kept)
                 if laid and kept:
                     out.append((img, kept, laid))
-        except (OSError, ValueError):
+        except (OSError, ValueError, PyPdfError):  # an unreadable PDF is a page with no gaps to fill
             continue
     return out
 

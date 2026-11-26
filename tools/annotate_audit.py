@@ -240,9 +240,9 @@ def stopped_names(text):
     if not m:
         return {"STOPPED: ?"}
     # An entry id ("20-across:", tagged or not) and the clue's own words are per-instance:
-    # refusal_class cuts them, so every instance of one complaint is one name.
+    # normalise_refusal cuts them, so every instance of one complaint is one name.
     rest = re.sub(r"^(?:[A-Z]+ )?\d+-(?:across|down)\s*:?\s*", "", m.group(1))
-    return {"STOPPED: " + re.sub(r"puzzles/\S+", "<puzzle>", refusal_class(rest))}
+    return {"STOPPED: " + re.sub(r"puzzles/\S+", "<puzzle>", normalise_refusal(rest))}
 
 
 def refusal_class(rest):
@@ -260,12 +260,18 @@ def refusal_class(rest):
     for needle, name in named:
         if needle in rest:
             return name
+    return "schema " + normalise_refusal(rest)
+
+
+def normalise_refusal(rest):
+    """A refusal's wording with its instance parts out: entry paths, indexes, quoted words
+    (the clue's own) and numbers, cut to the first nine words."""
     rest = re.sub(r"\$\.entries\[\d+\]\.?", "", rest.partition(" — ")[0])
     rest = re.sub(r"\[\d+\]", "[]", rest)
     if "missing required key" not in rest:    # the key named is the class; other quotes are the clue's
         rest = re.sub(r"'[^']*'|\"[^\"]*\"", "'…'", rest)
     rest = re.sub(r"(?<![\w'])\d+", "N", rest)
-    return "schema " + " ".join(rest.split()[:9])
+    return " ".join(rest.split()[:9])
 
 
 def failed_command(command):
