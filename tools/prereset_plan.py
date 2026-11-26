@@ -155,6 +155,8 @@ PRESSURE_STATE = ".prereset.pressure"  # mem_pressure.py: the cap held while mem
 # Since 11-03 width() sets both switches itself (auto_rush, owner: "spend any
 # resets we have so rush when we have one and don't when we don't"): a manual
 # reset free arms RUSH, none free writes NATURAL_ONLY to the natural reset.
+# While the owner is away (/data/owner-away.json, owner_away) he cannot press a reset, so
+# none is rushed for or planned: the burn paces to the natural reset as if none were free.
 RUSH = ".prereset.rush"
 NATURAL_ONLY = ".prereset.natural_until"  # epoch: until then plan no manual resets
 RUSH_TARGET = 100.0
@@ -421,6 +423,28 @@ def anchor_path():
     return Path(os.environ.get("RESET_ANCHOR", "/data/reset-anchor.json"))
 
 
+def away_path():
+    """The household-wide owner-away record: JSON {"until": epoch, "why": "..."}."""
+    return Path(os.environ.get("OWNER_AWAY", "/data/owner-away.json"))
+
+
+def owner_away(now):
+    """The epoch the owner is away until, or None when he is home (the record
+    missing, unreadable, or its `until` past). Only he can press a manual reset, so
+    while he is away none is planned or rushed for: every rush and reset-plan
+    decision reads this one answer."""
+    try:
+        until = float(json.loads(_read(away_path()) or "")["until"])
+    except (TypeError, ValueError, KeyError):
+        return None
+    return until if until > now else None
+
+
+def no_manual_resets(home, now):
+    """True while no manual reset may be planned: NATURAL_ONLY is ahead or the owner is away."""
+    return natural_only(_read(home / NATURAL_ONLY), now) or owner_away(now) is not None
+
+
 def anchor_self_test():
     import tempfile
     bad = 0
@@ -445,6 +469,52 @@ def anchor_self_test():
                 os.environ.pop("RESET_ANCHOR")
             else:
                 os.environ["RESET_ANCHOR"] = old
+    return bad
+
+
+def away_self_test():
+    import tempfile
+    bad = 0
+    with tempfile.TemporaryDirectory() as tmp:
+        old = os.environ.get("OWNER_AWAY")
+        os.environ["OWNER_AWAY"] = str(Path(tmp) / "away.json")
+        home = Path(tmp)
+        now = 1_000_000.0
+        until = now + 4 * 86400
+        try:
+            def fail(what):
+                nonlocal bad
+                print(f"FAIL {what}", file=sys.stderr)
+                bad += 1
+            if owner_away(now) is not None or no_manual_resets(home, now):
+                fail("a missing away file read as away")
+            away_path().write_text(json.dumps({"until": now + 86400, "why": "cruise"}))
+            if owner_away(now) != now + 86400 or not no_manual_resets(home, now):
+                fail("an active away record was not read")
+            rush, words = rush_choice(10, until, now, owner_away(now))
+            if rush or "owner away until" not in words or "no manual resets planned" not in words:
+                fail(f"rush_choice while away = {rush!r} {words!r} (want pacing, away words)")
+            if not rush_choice(10, until, now)[0]:
+                fail("rush_choice at home with 10 free did not rush")
+            (home / RUSH).write_text("1\n")
+            auto_rush(home, 10, until, now, owner_away(now))
+            if (home / RUSH).exists() or not natural_only(_read(home / NATURAL_ONLY), now):
+                fail("auto_rush while away left RUSH armed or NATURAL_ONLY unwritten")
+            (home / NATURAL_ONLY).unlink()
+            away_path().write_text(json.dumps({"until": now - 1, "why": "cruise"}))
+            if owner_away(now) is not None or no_manual_resets(home, now):
+                fail("an expired away record still read as away")
+            auto_rush(home, 10, until, now, owner_away(now))
+            if not (home / RUSH).exists() or (home / NATURAL_ONLY).exists():
+                fail("auto_rush with the away record expired did not rush")
+            away_path().write_text("junk")
+            if owner_away(now) is not None:
+                fail("an unparseable away record read as away")
+        finally:
+            if old is None:
+                os.environ.pop("OWNER_AWAY")
+            else:
+                os.environ["OWNER_AWAY"] = old
     return bad
 
 
@@ -506,13 +576,16 @@ def abt(epoch):
     return f"{t:%a %H:%M} ABT"
 
 
-def rush_choice(left, until, now):
+def rush_choice(left, until, now, away=None):
     """(rush, words) for `left` manual resets free now and the natural reset at
     `until` (owner 11-03: "spend any resets we have so rush when we have one and
     don't when we don't"), the last MANUAL_RESERVE kept unspent (11-08: rush only with two or
     more free). Words are the status line's: "rushing; 2 of 25 manual resets left" or
     "pacing to Wed 04:00 ABT reset; 1 of 25 manual resets left; 1 kept in reserve"."""
     tally = f"{left} of {MANUAL_RESETS} manual resets left"
+    if away is not None:
+        return False, (f"pacing to {abt(until)} reset; owner away until {abt(away)}, "
+                       f"no manual resets planned")
     if until - now < RUSH_MIN_H * 3600:
         return False, f"pacing to {abt(until)} reset; {tally}; natural reset near"
     if left > MANUAL_RESERVE:
@@ -521,7 +594,7 @@ def rush_choice(left, until, now):
     return False, f"pacing to {abt(until)} reset; {tally}{held}"
 
 
-def auto_rush(home, left, until, now):
+def auto_rush(home, left, until, now, away=None):
     """Arm or disarm the rush from the manual resets free: more than
     MANUAL_RESERVE free arms RUSH (to the natural reset) and clears
     NATURAL_ONLY, so the meter is spent and the room woken to reset; no more
@@ -529,7 +602,7 @@ def auto_rush(home, left, until, now):
     the natural reset, so the burn paces the meter to EXHAUSTED by then. The
     files stay the burn's switches (--rush, --natural-only), now set from the
     count each call instead of by hand. Returns rush_choice's words."""
-    rush, words = rush_choice(left, until, now)
+    rush, words = rush_choice(left, until, now, away)
     try:
         if rush:
             if not rush_active(_read(home / RUSH), 0.0, now):
@@ -1182,7 +1255,8 @@ def show_resets():
     until = now + hours_left * 3600
     used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
-    natural = natural_only(_read(home / NATURAL_ONLY), now)
+    away = owner_away(now)
+    natural = no_manual_resets(home, now)
     anchor = known_left(_read(anchor_path()), used, now)
     slots = [] if natural else spendable(capped_slots(reset_slots(used, now, until), anchor))
     bridge, rate = bridge_spend()
@@ -1198,7 +1272,10 @@ def show_resets():
     tally = (f"{anchor} of {MANUAL_RESETS} manual resets left (owner's count)" if anchor is not None
              else f"{len(used)} of {MANUAL_RESETS} manual resets used in 30 days")
     print(f"weekly {pct:g}%, natural reset {at(until)}; {tally}; free before it: {', '.join(map(at, slots)) or 'none'}")
-    if natural:
+    if away is not None:
+        print(f"owner away until {at(away)}: no manual resets planned, the meter fills to "
+              f"{EXHAUSTED:g}% at the natural reset, no night guard")
+    elif natural:
         print(f"natural-only until {at(float(_read(home / NATURAL_ONLY)))}: no manual resets "
               f"planned, the meter fills to {EXHAUSTED:g}% at the natural reset, no night guard")
     print(f"plan: {k} manual resets, meter to {EXHAUSTED:g}% by {at(fill)} at "
@@ -1284,7 +1361,7 @@ def width(arg=None, floor=1):
             left = max(0, MANUAL_RESETS - len(used))
             anchor = known_left(_read(anchor_path()), used, now)
             left = left if anchor is None else min(left, anchor)
-            choice = auto_rush(home, left, now + hours_left * 3600, now)
+            choice = auto_rush(home, left, now + hours_left * 3600, now, owner_away(now))
         stamp = _read(home / RUSH)
         armed = stamp is not None
         if armed:
@@ -1297,7 +1374,7 @@ def width(arg=None, floor=1):
         if hours_left is not None and hours_left > 0 and pct is not None:
             until = now + hours_left * 3600
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
-            natural = natural_only(_read(home / NATURAL_ONLY), now)
+            natural = no_manual_resets(home, now)
             anchor = known_left(_read(anchor_path()), used, now)
             slots = [] if natural else spendable(capped_slots(reset_slots(used, now, until), anchor))
             plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge), sleep)
@@ -1398,7 +1475,7 @@ def self_test():
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test()
-           + anchor_self_test())
+           + anchor_self_test() + away_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES) + len(MEM_DETAIL_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 4 + 3 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6
