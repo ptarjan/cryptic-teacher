@@ -163,7 +163,7 @@ def group1():
     import reconstruct_grid as R
     from fetch_puzzle import read_puzzle_file, puzzle_files
 
-    total = sym = min2_row = min1_col = min2_col = gap_row = gap_col = 0
+    total = sym = min1_row = min2_row = min1_col = min2_col = gap_row = gap_col = 0
     thin = short = 0
     for path in list(puzzle_files())[::int(os.environ["STEP"])]:
         puzzle = read_puzzle_file(path)
@@ -212,6 +212,8 @@ def group1():
 
         lines = [[c == "." for c in row] for row in grid]
         columns = [[lines[y][x] for y in range(rows)] for x in range(cols)]
+        if min(sum(line) for line in lines) >= 1:
+            min1_row += 1
         if min(sum(line) for line in lines) >= 2:
             min2_row += 1
         if min(sum(col) for col in columns) >= 1:
@@ -247,6 +249,7 @@ def group1():
             pmf *= (total - allowed) / (allowed + 1) * p / (1 - p)
             allowed += 1
     print("ASYMMETRIC_ALLOWED", allowed)
+    print("ROWS_AT_LEAST_ONE_WHITE", min1_row)
     print("ROWS_AT_LEAST_TWO_WHITE", min2_row)
     print("COLS_AT_LEAST_ONE_WHITE", min1_col)
     print("COLS_AT_LEAST_TWO_WHITE", min2_col)
@@ -255,6 +258,10 @@ def group1():
     # whose only white cell is inside 20-across.
     genius = next(p for p in puzzle_files() if p.name == "genius-209.json")
     print("GENIUS_209_BROKEN", repr(R.conventions_broken(R.grid_of(read_puzzle_file(genius)))))
+    # The grid that lowered the row rule from two to one: Listener 1,199, a
+    # diamond, prints `#######.#######` as its first and last rows.
+    ragman = next(p for p in puzzle_files() if p.name == "listener-1199.json")
+    print("LISTENER_1199_BROKEN", repr(R.conventions_broken(R.grid_of(read_puzzle_file(ragman)))))
     print("NO_TWO_BARE_ROWS", gap_row)
     print("NO_TWO_BARE_COLS", gap_col)
     print("HAS_A_TWO_CELL_LIGHT", short)
@@ -518,9 +525,10 @@ n_total = int(field("TOTAL", out1))
 print(f"  (corpus: {n_total} puzzles)")
 # The strict rules are enforced with no exception at all, so anything short of
 # every puzzle here is the tool refusing to find a grid somebody published.
-same("every puzzle has two or more white cells in every row", field("ROWS_AT_LEAST_TWO_WHITE", out1), n_total)
+same("every puzzle has one or more white cells in every row", field("ROWS_AT_LEAST_ONE_WHITE", out1), n_total)
 same("and one or more in every column", field("COLS_AT_LEAST_ONE_WHITE", out1), n_total)
 check(out1, "GENIUS_209_BROKEN []", "Genius 209, with a one-cell column, breaks none of the tool's rules")
+check(out1, "LISTENER_1199_BROKEN []", "Listener 1,199, with one-cell rows, breaks none of the tool's rules")
 # The live corpus is filed continuously and a few filed grids are mis-read (sundaytel-1207, -1210, -1229
 # ... have columns of two bare cells), so which of them the every-40th draw lands on moves with each
 # filing. These two are therefore floors like symmetry: only a sample proving the corpus below 99.5% fails.
@@ -544,6 +552,9 @@ least("thousands still have a light under half checked, so no checking rule may 
       field("HAS_A_LIGHT_UNDER_HALF_CHECKED", out1), 1000 // STEP)
 # Genius 209 is one puzzle, so a sample usually misses it; the full pass is
 # what says a published column still holds a single white cell.
+# Listener 1,199 is one puzzle too, with the same caveat.
+least("some puzzle still has a row with one white cell, so rows may not be held to two",
+      n_total - int(field("ROWS_AT_LEAST_TWO_WHITE", out1)), 1 if STEP == 1 else 0)
 least("some puzzle still has a column with one white cell, so columns may not be held to two",
       n_total - int(field("COLS_AT_LEAST_TWO_WHITE", out1)), 1 if STEP == 1 else 0)
 

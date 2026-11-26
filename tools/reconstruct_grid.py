@@ -65,14 +65,19 @@ Beyond the numbering the search enforces these, and only these:
     four sides is not an unchecked square, it is a hole;
   * the grid is 180-degree symmetric, unless that search finishes empty and
     the caller allows the fallback;
-  * every row holds at least two white cells, and every column at least
-    one -- columns get the weaker rule because Genius 209 (2020-11-02)
-    has a column whose only white cell sits inside an across light.
-    That is the only kind of lone cell there can be (a cell in no light is
-    already a hole), so "two, unless the single cell is an across light's"
-    would be the same rule spelled longer. It costs no speed: columns are
-    only judged on finished grids, while the row rule, which prunes as each
-    row is decided, stays at two;
+  * every row and every column holds at least one white cell. Both get the
+    weakest rule a grid can meet, because a published grid has broken each
+    stronger one. Genius 209 has a column whose only white cell sits inside
+    an across light, and Listener 1,199 (a diamond) has first and last rows
+    of a single white cell, `#######.#######`, inside a down light. That is
+    the only kind of lone cell there can be (a cell in no light is already a
+    hole), so "two, unless the single cell is in a light across the line"
+    would be the same rule spelled longer. What the rule still forbids is the
+    all-black line, which is numbered perfectly well and is not a crossword.
+    Columns are only judged on finished grids; the row rule prunes as each
+    row is decided, so a lower floor widens the search slightly, which
+    tests/test_reconstruct_budget.py bounds. A series known to keep every row
+    at two or three cells or more can still say so with `min_row_white`;
   * no two adjacent rows both lack an across light, and no two adjacent
     columns both lack a down light;
   * the white cells are all connected;
@@ -164,7 +169,7 @@ class _Solver:
     def __init__(self, across, down, anum, dnum, cols, rows,
                  limit, symmetry, max_nodes, strict=True, words=None,
                  max_black_run=None, groups=None, min_light=2, no_square=False,
-                 min_row_white=2):
+                 min_row_white=1):
         self.min_light = min_light
         self.min_row_white = min_row_white
         self.no_square = no_square
@@ -807,7 +812,7 @@ class _Solver:
         """Two rules about a single row, checked the moment it is decided."""
         white = sum(1 for x in range(self.cols) if self.get(x, y) == WHITE)
         if white < self.min_row_white:
-            return False        # no row of any puzzle has fewer than two
+            return False        # an all-black row is no crossword
         has_across = bool(self.across_runs(y))
         if not has_across and not self.prev_across:
             return False        # no puzzle has two such rows in a row
@@ -918,8 +923,7 @@ def conventions_broken(grid, symmetry=True):
         bare = 0
         for line in lines:
             if sum(line) < least:
-                broken.append(f"a {what} has fewer than two white cells"
-                              if least == 2 else f"a {what} has no white cell")
+                broken.append(f"a {what} has no white cell")
                 return
             longest, run = 0, 0
             for cell in list(line) + [False]:
@@ -930,8 +934,8 @@ def conventions_broken(grid, symmetry=True):
                 broken.append(f"two adjacent {what}s with no light along them")
                 return
 
-    # Rows two, columns one: see the module docstring for Genius 209.
-    scan(white, "row", 2)
+    # One white cell per row and per column: see the module docstring.
+    scan(white, "row", 1)
     scan([[white[y][x] for y in range(rows)] for x in range(cols)], "column", 1)
 
     start = next(((x, y) for y in range(rows) for x in range(cols)
@@ -1023,7 +1027,7 @@ def split_words(spec, words):
 def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
                 max_nodes=DEFAULT_MAX_NODES, fallback=False, strict=True,
                 words=None, max_black_run=None, groups=None, min_light=2,
-                no_square=False, min_row_white=2):
+                no_square=False, min_row_white=1):
     """Every grid whose numbering would print these lights.
 
     Returns (solutions, info). Each solution is a tuple of row strings, '#'
@@ -1064,7 +1068,7 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
     Cyclops grids filed, a checked-alternately style, and it prunes hard: the
     caller's, for a series it has been counted on.
 
-    `min_row_white` is the fewest white cells a row may hold (2, the least
+    `min_row_white` is the fewest white cells a row may hold (1, the least
     any published grid has). Cyclops has none under three in 777 filed grids.
 
     `groups`, a list of ([(direction, index), ...], total), ties lights of
@@ -1100,7 +1104,7 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
 
 def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
                 max_black_run=None, pick=None, limit=DEFAULT_LIMIT, search=None,
-                groups=None, min_light=2, no_square=False, min_row_white=2):
+                groups=None, min_light=2, no_square=False, min_row_white=1):
     """(grid, None) when exactly one grid prints these lights and the search
     finished, else (None, why not): a filer backsolving a grid from its clue
     list files it only then. `pick`, given every grid of a finished search
@@ -1116,7 +1120,7 @@ def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
                                   **({"min_light": min_light} if min_light != 2 else {}),
                                   **({"no_square": True} if no_square else {}),
                                   **({"min_row_white": min_row_white}
-                                     if min_row_white != 2 else {}))
+                                     if min_row_white != 1 else {}))
     except ValueError as e:
         return None, f"clue list unusable: {e}"
     if info.get("gaps"):
