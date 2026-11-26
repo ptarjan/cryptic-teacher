@@ -46,7 +46,8 @@ COLUMNS = True
 #: heading lines): 0.9 is a letter in ten, the readings of a clue both right.
 AGREE = 0.9
 #: A count printed after a clue: "(5)", "(3,4)", "(4-4)".
-COUNT = re.compile(r"\s*\((\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\)\W{0,2}$")
+#: The words a setter prints with it are no part of it: "(11, two words)", "(7, hyphen)", "(Two words. 7)".
+COUNT = re.compile(r"\s*\((?:[A-Za-z]+(?: [A-Za-z]+)?[.,:]\s*)?(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)(?:,\s*[A-Za-z]+(?: [A-Za-z]+)?)?\)\W{0,2}$")
 
 
 def letters(t):
@@ -169,6 +170,11 @@ def sections(reply, way):
     return out
 
 
+#: Where a transcribed line holds another clue: after a closing count's bracket, its full stop, then
+#: the next number, a full stop and a capital or quote.
+INLINE_CLUE = re.compile(r"(?<=\))\.?\s+(?=\d{1,2}\.\s+[A-Z\"'‘“])")
+
+
 def clues_in(lines):
     """{number: parsed()'s (text, count, printed count)} of the clues the
     transcribed `lines` number. A clue runs on over the lines up to the next
@@ -176,6 +182,11 @@ def clues_in(lines):
     and the first numbered line that does not (the other list's, a number
     read twice, a stray figure) ends the column."""
     out, last, rows = {}, 0, []
+    # The model runs a column's lines on as it reads: "... Light Infantry from a knock-out (8). 10.
+    # Sobriquet ..." has the clue 10 inside a line. A clue that ends on its printed count and is
+    # followed by a number and a capital opens a new clue there (only after a count: the
+    # figures a clue's own words hold do not split it).
+    lines = [part for ln in lines for part in INLINE_CLUE.split(ln)]
     for ln in lines:
         m = al.LINE_CLUE.match(ln)
         if m and int(m.group(1)) > last:

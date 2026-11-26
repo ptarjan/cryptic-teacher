@@ -71,5 +71,15 @@ check("an ascent broken by another list's number ends the column", ["1", "2"], s
 check("a number twice ends the column at its first", ["4"], sorted(lgaps.clues_in(["4. First (3)", "4. Again (3)"])))
 check("no heading: all lines are the list's", ["1. a (1)"], lgaps.sections("1. a (1)", "down"))
 check("only the list's heading's lines", ["2. b (2)"], lgaps.sections("ACROSS\n1. a (1)\nDOWN\n2. b (2)", "down"))
+inline = lgaps.clues_in(["CLUES ignored", "1. Art Editor introduces a fishy friend (6). 4. Brown dog intervenes to save the",
+                         "Light Infantry (8). 10. Sobriquet not for Mrs. Woolf's Orlando (15, three",
+                         "words). 11. Prester John's son-in- law (10). 12. Take 3. away (4)."])
+check("clues run on in one line are split after a count", ["1", "10", "11", "12", "4"], sorted(inline))
+check("an inline clue keeps its own count", (8, "8"), inline["4"][1:])
+check("a number in a clue's words does not split it", "Take 3. away", inline["12"][0])
+words = lgaps.clues_in(["1. English town (15, hyphens). 2. Sounds a question (7, hyphen). 3. Legal Holiday? (Two words. 7)."
+                        " 4. Three words (3, 4, five)"])
+check("words printed with a count are no part of it", [(15, "15"), (7, "7"), (7, "7")],
+      [words[k][1:] for k in ("1", "2", "3")])
 gl.page_columns = gl_page_columns
 sys.exit(1 if fails else 0)

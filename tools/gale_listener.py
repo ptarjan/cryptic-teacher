@@ -3023,7 +3023,9 @@ def gap_fix_names():
 #: Bumped when listener_gaps.fill_columns reads a joined puzzle's unclued lights from the VLM's transcription of
 #: their list's column crops (any number of gaps; a clue checked by number, count and no clash). Only the pages of
 #: numbers refused for unread clues (tools/data/listener_col_clues.json: no filed puzzle's) are read again.
-COL_FIX = 1
+#: 2: a line holding several clues is split after each count; a count may carry its words ("(11, two words)").
+#: A page read at 1 is read again once (its asks mostly cached).
+COL_FIX = 2
 COL_FIX_FILE = ROOT / "tools" / "data" / "listener_col_clues.json"
 _COL_FIX_NAMES = None
 
