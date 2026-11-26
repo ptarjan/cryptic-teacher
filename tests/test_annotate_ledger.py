@@ -21,6 +21,7 @@ CLUES_LEFT = 1000
 L.clues_left = lambda mean_clues, days=None: CLUES_LEFT  # set via left(n) below
 L.NO_LEVER = pathlib.Path("/nonexistent/annotate_no_lever.json")
 L.PENDING_NO_LEVER = pathlib.Path("/nonexistent/annotate_no_lever_pending.json")
+L.in_main_checkout = lambda repo=None: False   # CI runs in a main checkout; each check below sets its own
 
 fails = 0
 def check(got, want, what):
@@ -120,14 +121,9 @@ check(("Sonnet worker" in t, "not worth a fix" in t, "investigated 2 times" in t
       "not worth fixing: no 'have one Sonnet worker fix it', and the investigation count shows")
 with tempfile.TemporaryDirectory() as d:
     d = pathlib.Path(d)
-    saved = (L.NO_LEVER, L.OLD_NO_LEVER)
-    L.NO_LEVER, L.OLD_NO_LEVER = d / "data" / "nl.json", d / "old.json"
-    check(L.read_no_lever(), {}, "no repo file and no old cache: empty book")
-    L.OLD_NO_LEVER.write_text(json.dumps({"rule:x": {"per_clue": 0.1, "date": "2026-10-25"}}))
-    check(L.read_no_lever(), {"rule:x": {"per_clue": 0.1, "date": "2026-10-25"}}, "first run migrates the old cache file")
-    check(json.loads(L.NO_LEVER.read_text()), {"rule:x": {"per_clue": 0.1, "date": "2026-10-25"}}, "...into the repo file")
-    L.OLD_NO_LEVER.write_text("{}")
-    check(len(L.read_no_lever()), 1, "an existing repo file is never overwritten by the old cache")
+    saved = L.NO_LEVER
+    L.NO_LEVER = d / "data" / "nl.json"
+    check(L.read_no_lever(), {}, "no repo file: empty book")
     rows5 = [row(i, 0.04) for i in range(1, 4)]
     r1 = L.mark_no_lever("rule:a", rows5, (None, None, None), now)
     r2 = L.mark_no_lever("rule:a", rows5, (None, None, None), now)
@@ -146,7 +142,6 @@ with tempfile.TemporaryDirectory() as d:
     # In the main checkout the tracked file stays untouched; only the pending cache is written.
     L.NO_LEVER = d / "main" / "nl.json"
     L.PENDING_NO_LEVER = d / "pending2.json"
-    saved_f = L.in_main_checkout
     L.in_main_checkout = lambda repo=None: True
     L.mark_no_lever("rule:a", rows5, (None, None, None), now)
     check((L.NO_LEVER.exists(), "rule:a" in json.loads(L.PENDING_NO_LEVER.read_text())), (False, True),
@@ -154,9 +149,8 @@ with tempfile.TemporaryDirectory() as d:
     L.in_main_checkout = lambda repo=None: False
     L.mark_no_lever("rule:a", rows5, (None, None, None), now)
     check(json.loads(L.NO_LEVER.read_text())["rule:a"]["count"], 2, "worktree: tracked file written with pending folded in")
-    L.in_main_checkout = saved_f
     L.PENDING_NO_LEVER = saved_p
-    L.NO_LEVER, L.OLD_NO_LEVER = saved
+    L.NO_LEVER = saved
 left(1000)
 
 recent = {"woken": (now - datetime.timedelta(minutes=30)).isoformat(), "top": "rule:a"}

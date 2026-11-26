@@ -74,7 +74,6 @@ LEDGER = pathlib.Path(os.environ.get("ANNOTATE_LEDGER", CACHE / "annotate_cost_l
 STATE = pathlib.Path(os.environ.get("ANNOTATE_WAKE_STATE", CACHE / "annotate_cost_wake.json"))
 # The no-lever book is tracked repo data (11-19): the room's settled causes survive a cache wipe.
 NO_LEVER = pathlib.Path(os.environ.get("ANNOTATE_NO_LEVER", REPO / "tools" / "data" / "annotate_no_lever.json"))
-OLD_NO_LEVER = CACHE / "annotate_no_lever.json"   # where the book lived until 11-19: migrated once
 # A --no-lever run edits the repo file of whichever checkout it ran in, but the burn reads its own
 # worktree, which is reset to origin/master on every commit: until that edit is pushed, the burn
 # never sees it. Every record is also kept here, outside any checkout, and read with the repo book.
@@ -242,14 +241,7 @@ def report(rows=None):
 
 def read_no_lever():
     """{cause key: {label, date, per_clue, commit, commit_time, count}} the room marked
-    investigated. The first run without the repo file copies the old cache file's contents in."""
-    if not NO_LEVER.exists() and OLD_NO_LEVER != NO_LEVER and OLD_NO_LEVER.exists():
-        try:
-            book = json.loads(OLD_NO_LEVER.read_text())
-            NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
-            NO_LEVER.write_text(json.dumps(book, indent=1) + "\n")
-        except (OSError, ValueError):
-            pass
+    investigated: the repo book, with every newer pending record folded in."""
     try:
         book = json.loads(NO_LEVER.read_text())
     except (OSError, ValueError):
