@@ -143,6 +143,18 @@ with tempfile.TemporaryDirectory() as d:
     check(L.read_no_lever()["rule:a"]["count"], 3, "a pending record newer than the repo book's wins")
     L.NO_LEVER.write_text(json.dumps({"rule:a": {"date": "2999-01-01", "count": 9}}))
     check(L.read_no_lever()["rule:a"]["count"], 9, "an older pending record never undoes a newer pushed one")
+    # In the main checkout the tracked file stays untouched; only the pending cache is written.
+    L.NO_LEVER = d / "main" / "nl.json"
+    L.PENDING_NO_LEVER = d / "pending2.json"
+    saved_f = L.in_main_checkout
+    L.in_main_checkout = lambda repo=None: True
+    L.mark_no_lever("rule:a", rows5, (None, None, None), now)
+    check((L.NO_LEVER.exists(), "rule:a" in json.loads(L.PENDING_NO_LEVER.read_text())), (False, True),
+          "main checkout: pending cache only, tracked file not written")
+    L.in_main_checkout = lambda repo=None: False
+    L.mark_no_lever("rule:a", rows5, (None, None, None), now)
+    check(json.loads(L.NO_LEVER.read_text())["rule:a"]["count"], 2, "worktree: tracked file written with pending folded in")
+    L.in_main_checkout = saved_f
     L.PENDING_NO_LEVER = saved_p
     L.NO_LEVER, L.OLD_NO_LEVER = saved
 left(1000)

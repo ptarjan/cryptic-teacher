@@ -38,6 +38,10 @@ whatever code commits land; each re-mark counts an investigation, which adds $6 
 cause's assumed fix cost; the payback horizon is the clues the burn does in PAYBACK_DAYS; and
 only a wake (real, not -q) is sent when should_wake fires. Every other line stays in the log.
 
+A --no-lever run never edits the tracked file in the main checkout (that dirty file blocked the
+scheduled jobs' fast-forward): there it writes only the pending cache and says so. A run from a
+worktree writes the tracked file with the record plus every newer pending one folded in.
+
 Paul 10-23: "why aren't you doing cost fixing more often?" - at $0.015-0.021/clue the
 old fixed $0.022 target never woke, even with one retry cause burning dollars an hour.
 Then: "Lower the goal. I want to spend inference fixing the per clue as long as it pays
@@ -75,6 +79,18 @@ OLD_NO_LEVER = CACHE / "annotate_no_lever.json"   # where the book lived until 1
 # worktree, which is reset to origin/master on every commit: until that edit is pushed, the burn
 # never sees it. Every record is also kept here, outside any checkout, and read with the repo book.
 PENDING_NO_LEVER = pathlib.Path(os.environ.get("ANNOTATE_NO_LEVER_PENDING", CACHE / "annotate_no_lever_pending.json"))
+
+
+def in_main_checkout(repo=REPO):
+    """True when repo is the main checkout (git-dir == git-common-dir), not a linked worktree."""
+    try:
+        out = subprocess.run(["git", "-C", str(repo), "rev-parse", "--path-format=absolute",
+                              "--git-dir", "--git-common-dir"], capture_output=True, text=True, check=True).stdout.split()
+    except (OSError, subprocess.CalledProcessError):
+        return False
+    return len(out) == 2 and out[0] == out[1]
+
+
 NO_LEVER_RISE = 1.5   # a no-lever cause wakes again when its $/clue passes this x the recorded
 NO_LEVER_DAYS = 14    # ...or when this many days have passed since the record's date
 FIX_COST_PER_INVESTIGATION = 6.0   # each earlier look at a cause adds this to its assumed fix cost
@@ -295,9 +311,7 @@ def mark_no_lever(cause, rows, commit, now=None):
                     rec["wall_s_per_clue"] = round(wall_s, 4)
                 book = read_no_lever()
                 rec["count"] = (book.get(key, {}).get("count") or (1 if key in book else 0)) + 1
-                book[key] = rec
-                NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
-                NO_LEVER.write_text(json.dumps(book, indent=1) + "\n")
+                book[key] = rec   # read_no_lever already folded in every newer pending record
                 try:
                     pending = json.loads(PENDING_NO_LEVER.read_text())
                 except (OSError, ValueError):
@@ -306,6 +320,14 @@ def mark_no_lever(cause, rows, commit, now=None):
                 with contextlib.suppress(OSError):
                     PENDING_NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
                     PENDING_NO_LEVER.write_text(json.dumps(pending, indent=1) + "\n")
+                if in_main_checkout():
+                    # An uncommitted edit here would block the scheduled jobs' fast-forward of
+                    # the main checkout: only the pending cache is written.
+                    print(f"no-lever record for {key!r} is pending (~/.cache); it is folded into "
+                          f"{NO_LEVER.name} on the next --no-lever run from a worktree.")
+                else:
+                    NO_LEVER.parent.mkdir(parents=True, exist_ok=True)
+                    NO_LEVER.write_text(json.dumps(book, indent=1) + "\n")
                 return dict(rec, key=key)
     return None
 
