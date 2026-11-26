@@ -55,9 +55,10 @@ def letters(t):
 
 
 def lines_of(words, lid):
-    """(reader, [line]) of the first reading whose lists number `lid`: its
+    """(reader, [line], page) of the first reading whose lists number `lid`: its
     numbered line and the lines run on under it up to the next numbered
-    one, each (y0, y1, x0, x1, text)."""
+    one, each (y0, y1, x0, x1, text). `page`: all the lines of the reading's lists when the region
+    is the list's last (no numbered line ends it, so its crop runs on to reach()), else ()."""
     n, way = lid.split("-")
     for which in ["page", *ocr_clues.READERS]:
         cols = gl.page_columns(words.get(which) or [])
@@ -66,8 +67,8 @@ def lines_of(words, lid):
         if at is None:
             continue
         end = next((j for j in range(at + 1, len(lines)) if al.LINE_CLUE.match(lines[j][4])), len(lines))
-        return which, lines[at:end]
-    return None, []
+        return which, lines[at:end], [ln for c in cols for ln in c] if end == len(lines) else ()
+    return None, [], ()
 
 
 def columns_of(lines):
@@ -83,13 +84,49 @@ def columns_of(lines):
     return out
 
 
-def boxes_of(img, lines):
-    """One padded crop box a column of the region's lines."""
+def reach(col, page, after=0):
+    """The y the column `col` (its lines) of a list runs down to, from what the page's readings measure: a
+    column's last clue may be a line no reading kept (or run on over lines none kept), below its last line
+    read. Two measures say how far down it is, the larger taken:
+    - the columns of a page's lists end level: the clue block's bottom is the lowest line of any list's
+      lines `page`;
+    - `after` clues (the lights numbered between the column's last numbered line and the next column's
+      first) are missing under it, each as tall as the column's numbered clues are on average.
+    Another line lying under the column (the other list's heading, the next block) stops it at that line's
+    top. At least the column's own last line's bottom."""
+    x0, x1, last = min(ln[2] for ln in col), max(ln[3] for ln in col), max(ln[1] for ln in col)
+    mine = {id(ln) for ln in col}
+    below = [ln for ln in page if id(ln) not in mine and ln[0] >= last - (ln[1] - ln[0]) // 2
+             and min(x1, ln[3]) - max(x0, ln[2]) > (x1 - x0) / 2]
+    numbered = sum(bool(al.LINE_CLUE.match(ln[4])) for ln in col)
+    pitch = (last - min(ln[0] for ln in col)) / numbered if numbered else 0
+    far = max(max((ln[1] for ln in page), default=last), last + after * pitch)
+    return int(max(last, min(far, min((ln[0] for ln in below), default=far))))
+
+
+def missing_after(cols, lights):
+    """[count] a column of `cols` (columns_of's cuts of one list): how many of the list's `lights` (the
+    puzzle's light numbers of its direction) are numbered above the column's last numbered line and under the
+    next column's first (any above, for the last column): the clues no reading kept under it."""
+    heads = [[int(m.group(1)) for ln in c if (m := al.LINE_CLUE.match(ln[4]))] for c in cols]
     out = []
-    for col in columns_of(lines):
+    for i, nums in enumerate(heads):
+        nxt = next((h[0] for h in heads[i + 1:] if h), None)
+        out.append(sum(1 for k in lights if nums and k > nums[-1] and (nxt is None or k < nxt)))
+    return out
+
+
+def boxes_of(img, lines, page=(), lights=()):
+    """One padded crop box a column of the region's lines. `page`: all the lines of the page's lists,
+    when the region is the list's last clue (no numbered line under it to end it): its column then
+    runs down to reach(), as far as the `lights` (numbers) after it need."""
+    out = []
+    cols = columns_of(lines)
+    for col, after in zip(cols, missing_after(cols, lights)):
         h = max(ln[1] - ln[0] for ln in col)
+        bottom = max(max(ln[1] for ln in col) + h // 4, reach(col, page, after) if page else 0)
         out.append((max(0, min(ln[2] for ln in col) - h), max(0, min(ln[0] for ln in col) - h // 4),
-                    min(img.width, max(ln[3] for ln in col) + h), min(img.height, max(ln[1] for ln in col) + h // 4)))
+                    min(img.width, max(ln[3] for ln in col) + h), min(img.height, bottom)))
     return out
 
 
@@ -144,14 +181,17 @@ def merged(boxes):
     return out
 
 
-def column_boxes(img, lines):
-    """The padded crop boxes of a list's `lines`, one a column."""
+def column_boxes(img, lines, page=(), lights=()):
+    """The padded crop boxes of a list's `lines`, one a column, each running down to reach() (over the
+    lines `page` of the page's lists, and the `lights` numbers of the list's direction) when that is lower
+    than the pad."""
     out = []
-    for col in columns_of(lines):
+    cols = columns_of(lines)
+    for col, after in zip(cols, missing_after(cols, lights)):
         h = max(ln[1] - ln[0] for ln in col)
+        bottom = max(max(ln[1] for ln in col) + PAD_LINES * h, reach(col, page, after) + h // 4 if page else 0)
         out.append((max(0, min(ln[2] for ln in col) - h), max(0, min(ln[0] for ln in col) - PAD_LINES * h),
-                    min(img.width, max(ln[3] for ln in col) + h),
-                    min(img.height, max(ln[1] for ln in col) + PAD_LINES * h)))
+                    min(img.width, max(ln[3] for ln in col) + h), min(img.height, bottom)))
     return merged(out)
 
 
@@ -249,6 +289,11 @@ def clues_in(lines):
     return out
 
 
+def lights_of(puzzle, way):
+    """The numbers of the puzzle's lights of direction `way`."""
+    return sorted({int(e["number"]) for e in puzzle["entries"] if e["direction"] == way})
+
+
 def suspect_text(e):
     """Whether light `e` has clue text that ocr_clues.suspect flags (a misread word), not a blank."""
     c = e["clue"]
@@ -318,7 +363,7 @@ def fill_columns(puzzle, pages, read_all=None):
             if not mine or not lines:
                 continue
             try:
-                replies = read_all([vlm.crop(img, b) for b in column_boxes(img, lines)])
+                replies = read_all([vlm.crop(img, b) for b in column_boxes(img, lines, [ln for c in best for ln in c], lights_of(puzzle, way))])
             except RuntimeError as err:
                 if isinstance(err, vlm.Spooled):
                     out.spool(err)
@@ -385,10 +430,10 @@ def fill(puzzle, pages, read_all=None):
     for e in missing:
         lid = f"{e['number']}-{e['direction']}"
         for img, words, laid in pages:
-            which, lines = lines_of(words, lid)
+            which, lines, page = lines_of(words, lid)
             if not lines:
                 continue
-            crops = [vlm.crop(img, b) for b in boxes_of(img, lines)]
+            crops = [vlm.crop(img, b) for b in boxes_of(img, lines, page, lights_of(puzzle, e['direction']))]
             try:
                 reply = "\n".join(read_all(crops))
             except RuntimeError as err:

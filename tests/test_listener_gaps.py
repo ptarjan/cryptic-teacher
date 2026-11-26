@@ -137,4 +137,19 @@ check("number-less transcription takes the OCR numbers", [["1. " + verse[0], ver
 check("a line count that differs leaves it alone", [verse[:3]], lgaps.numbered_by_ocr([verse[:3]], verse_ocr))
 check("lines that disagree with the OCR leave it alone", [["x" * 20] * 4], lgaps.numbered_by_ocr([["x" * 20] * 4], verse_ocr))
 check("an already numbered transcription is unchanged", [["1. A b", "2. C d"]], lgaps.numbered_by_ocr([["1. A b", "2. C d"]], verse_ocr[:2]))
+# A list's last clues lie under its last line read: the crop runs down to the page's measured clue block, and as far
+# as the clues missing there need (the column's average clue height), stopping at a line under it.
+L = lambda y0, y1, x0, x1, t: (y0, y1, x0, x1, t)
+acol = [L(100, 130, 50, 400, "1. One"), L(140, 170, 50, 400, "2. Two"), L(180, 210, 50, 400, "3. Three (4)")]
+bcol = [L(100, 130, 500, 900, "1. Uno"), L(140, 170, 500, 900, "2. Dos"), L(180, 210, 500, 900, "3. Tres"),
+        L(220, 250, 500, 900, "4. Cuatro"), L(260, 290, 500, 900, "5. Cinco")]
+check("missing_after counts the lights past the last numbered line", [2], lgaps.missing_after([acol], [1, 2, 3, 4, 5]))
+check("missing_after stops at the next column's first number", [1, 0], lgaps.missing_after([acol, [L(100, 130, 500, 900, "5. Five")]], [1, 3, 4, 5]))
+check("a column level with its sibling's block reaches the sibling's bottom", 290, lgaps.reach(acol, acol + bcol))
+check("two clues missing under a column no other line is under reach their pitch each", 283, lgaps.reach(acol, acol, 2))
+check("a line under the column stops the reach at its top", 230, lgaps.reach(acol, acol + [L(230, 260, 60, 390, "DOWN")], 5))
+check("no page lines, no extension", 210, lgaps.reach(acol, acol, 0))
+img = Image.new("RGB", (1000, 600), "white")
+check("column_boxes without page lines keeps the pad", lgaps.column_boxes(img, acol), lgaps.column_boxes(img, acol, ()))
+check("column_boxes runs the short column down to its sibling's bottom", True, lgaps.column_boxes(img, acol, acol + bcol, [1, 2, 3])[0][3] > lgaps.column_boxes(img, acol)[0][3])
 sys.exit(1 if fails else 0)
