@@ -3160,6 +3160,9 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
         with scan_queue.lock(store / "filing", wait_for_it=True):
             file_gale_listener.run(store, inbox, out=out, numbers=numbers,
                                    grids_of=file_gale_listener.filing_grids(p.name, out=out))
+    if file_it:
+        # Numbers refused under older join code are joined again, a few a unit (file_gale_listener.rejoin_refused).
+        file_gale_listener.rejoin_refused(store, inbox, out=out)
     return "read"
 
 

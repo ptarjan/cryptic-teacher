@@ -137,6 +137,18 @@ def file_key(module):
     return hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()[:16]
 
 
+#: The code a number's verdict depends on: run() stamps each verdict with join_key(), and a refused number
+#: stamped with another key (or none) is joined again from its saved reading and cached grids (rejoin_refused).
+JOIN_CODE = ("run",)
+#: Refused numbers rejoin_refused() joins per call.
+REJOIN_PER_UNIT = 6
+
+
+def join_key():
+    """A key over the code run() joins and files with: it moves when that code does."""
+    return code_key(sys.modules[__name__], *JOIN_CODE)
+
+
 #: What page_grids() runs of listener_grid.
 GRID_CODE = ("find_grids", "fit", "printed_numbers")
 
@@ -1535,6 +1547,7 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     reports = [{"grid": g["grid"], "page": f, "number": number_of_page.get(f)}
                for f, gs in grids.items() for g in gs if g["fit"] is None]
     verdicts = {}
+    stamp = join_key()
     for n, reading in sorted(readings.items()):
         mine = [g for sha, e in files if e.get("number") == n for g in grids.get(e["file"], ()) if g["fit"]]
         puzzle, verdict, printed = join(reading, mine, reports, read_letters, read_probs, read_strips, ask)
@@ -1595,6 +1608,7 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
             # No report joined on this reading's grid (or none built): a held
             # file of this tool's is joined on its own.
             held_report(n, puzzles, verdict, reports, (read_letters, read_probs, read_strips, ask), write)
+        verdict["joinKey"] = stamp
         verdicts[n] = verdict
         print(f"No {n}: " + "; ".join(v for v in (
             verdict.get("lacks"), verdict.get("skip"), verdict.get("refusedWrite"), verdict.get("writeFailed"),
@@ -1615,6 +1629,45 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
             merged = {**kept, **verdicts}
             gl.write_whole(store / LEDGER, json.dumps({n: merged[n] for n in sorted(merged)}, indent=1) + "\n")
     return verdicts
+
+
+def stale_refused(store=gl.STORE, inbox=gl.SAVED, limit=REJOIN_PER_UNIT, cache=GRIDS):
+    """The first `limit` numbers (ascending) the ledger holds refused (a verdict with "lacks", nothing
+    written or held) under other join code than join_key(), each with a reading and every page's grids
+    cached: joined again they read no page. A number filed, written or held is never listed."""
+    key = join_key()
+    ledger = gl.read_json(store / LEDGER) or {}
+    where = {p.name: p for p in gl.page_files(inbox)}
+    pages = None
+    out = []
+    for k in sorted(ledger, key=int):
+        v = ledger[k]
+        if not isinstance(v, dict) or not v.get("lacks") or v.get("wrote") or v.get("skip") or v.get("joinKey") == key:
+            continue
+        n = int(k)
+        if not (store / f"listener-{n}.json").exists():
+            continue
+        if pages is None:
+            pages = joined_pages(gl.load_ledger(store), where)
+        if any(cached_grids(sha, cache) is None for sha, e in pages if e.get("number") == n):
+            continue
+        out.append(n)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def rejoin_refused(store=gl.STORE, inbox=gl.SAVED, limit=REJOIN_PER_UNIT, out=sys.stdout):
+    """Join the refused numbers stale_refused() lists again, from their saved readings and cached grids
+    (none found, no page read), under the filing lock. Returns the numbers joined."""
+    if not stale_refused(store, inbox, 1):
+        return []
+    with scan_queue.lock(store / "filing", wait_for_it=True):
+        nums = stale_refused(store, inbox, limit)
+        if nums:
+            print(f"rejoining refused Nos {nums} on changed join code", file=out)
+            run(store, inbox, out=out, numbers=set(nums), grids_of=filing_grids(None, out=out))
+    return nums
 
 
 def main(argv=None):
