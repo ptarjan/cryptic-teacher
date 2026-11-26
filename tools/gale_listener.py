@@ -2595,7 +2595,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     number than it now matches is dropped (disown)."""
     import scan_queue
     entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "flipFix": FLIP_FIX, "headFix": HEAD_FIX,
-             "gapFix": GAP_FIX,
+             "gapFix": GAP_FIX, "colFix": COL_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2790,7 +2790,8 @@ def plan(inbox=SAVED, store=STORE):
                                  or (p.name in join_fix_names() and (row or {}).get("joinFix", 0) < JOIN_FIX)
                                  or (p.name in flip_fix_names() and (row or {}).get("flipFix", 0) < FLIP_FIX)
                                  or (p.name in head_fix_names() and (row or {}).get("headFix", 0) < HEAD_FIX)
-                                 or (p.name in gap_fix_names() and (row or {}).get("gapFix", 0) < GAP_FIX))
+                                 or (p.name in gap_fix_names() and (row or {}).get("gapFix", 0) < GAP_FIX)
+                                 or (p.name in col_fix_names() and (row or {}).get("colFix", 0) < COL_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -3019,6 +3020,25 @@ def gap_fix_names():
     return _GAP_FIX_NAMES
 
 
+#: Bumped when listener_gaps.fill_columns reads a joined puzzle's unclued lights from the VLM's transcription of
+#: their list's column crops (any number of gaps; a clue checked by number, count and no clash). Only the pages of
+#: numbers refused for unread clues (tools/data/listener_col_clues.json: no filed puzzle's) are read again.
+COL_FIX = 1
+COL_FIX_FILE = ROOT / "tools" / "data" / "listener_col_clues.json"
+_COL_FIX_NAMES = None
+
+
+def col_fix_names():
+    """The saved pages' names COL_FIX changes (a committed list nothing writes)."""
+    global _COL_FIX_NAMES
+    if _COL_FIX_NAMES is None:
+        try:
+            _COL_FIX_NAMES = frozenset(json.loads(COL_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _COL_FIX_NAMES = frozenset()
+    return _COL_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
     VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
@@ -3029,7 +3049,8 @@ def current(p, row):
             and not (row.get("joinFix", 0) < JOIN_FIX and p.name in join_fix_names())
             and not (row.get("flipFix", 0) < FLIP_FIX and p.name in flip_fix_names())
             and not (row.get("headFix", 0) < HEAD_FIX and p.name in head_fix_names())
-            and not (row.get("gapFix", 0) < GAP_FIX and p.name in gap_fix_names()))
+            and not (row.get("gapFix", 0) < GAP_FIX and p.name in gap_fix_names())
+            and not (row.get("colFix", 0) < COL_FIX and p.name in col_fix_names()))
 
 
 def due_reason(row):

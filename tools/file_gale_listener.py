@@ -1392,11 +1392,12 @@ def report_ask(png, prompt):
 
 
 def gap_open(puzzle):
-    """Whether `puzzle` lacks 1 to listener_gaps.MAX_GAPS clue texts (the
-    lights it leaves unclued, printed with no clue, aside)."""
+    """Whether `puzzle` lacks any clue text (the lights it leaves unclued,
+    printed with no clue, aside): listener_gaps.fill reads them by column
+    crops, those that are 1 to MAX_GAPS also from their own lines."""
     n = sum(1 for e in puzzle["entries"] if not (e["clue"].get("text") or "").strip() and e["clue"].get("missing")
             and e["clue"] != {"missing": True})
-    return 0 < n <= listener_gaps.MAX_GAPS
+    return n > 0
 
 
 def gap_pages(paths):
