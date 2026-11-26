@@ -128,4 +128,13 @@ gl.page_columns = gl_page_columns
 import file_gale_listener as fgl
 check("a verdict with no pending asks is due", True, fgl.asks_answered(None))
 check("an unanswered ask holds the number", False, fgl.asks_answered(["no-such-key-xyz"]))
+# A transcription that dropped every clue number (verse clues) takes the OCR lines' numbers, line for line.
+verse_ocr = [line(100, "1. Tom in despair has hid"), line(140, "Four words in letters two"), line(180, "3. Enjoy or else engage"),
+             line(220, "Its heart to cheer is said")]
+verse = ["Tom in despair has hid", "Four words in letters two", "Enjoy or else engage", "Its heart to cheer is said"]
+check("number-less transcription takes the OCR numbers", [["1. " + verse[0], verse[1], "3. " + verse[2], verse[3]]],
+      lgaps.numbered_by_ocr([verse[:2], verse[2:]], verse_ocr))
+check("a line count that differs leaves it alone", [verse[:3]], lgaps.numbered_by_ocr([verse[:3]], verse_ocr))
+check("lines that disagree with the OCR leave it alone", [["x" * 20] * 4], lgaps.numbered_by_ocr([["x" * 20] * 4], verse_ocr))
+check("an already numbered transcription is unchanged", [["1. A b", "2. C d"]], lgaps.numbered_by_ocr([["1. A b", "2. C d"]], verse_ocr[:2]))
 sys.exit(1 if fails else 0)

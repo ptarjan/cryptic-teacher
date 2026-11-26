@@ -189,6 +189,37 @@ def parenthesised(lines):
     return [part.strip() for part in PAREN_NUMBER.sub(lambda m: f"\n{m.group(1)}. ", text).split("\n") if part.strip()]
 
 
+#: The share of a list's lines a number-less transcription must match, line for line, with the OCR reading
+#: of the same list before it takes the OCR lines' numbers. Three in four lines agreeing at AGREE makes a shifted
+#: or merged line (which would misnumber every line after it) all but impossible; a light still needs normal acceptance.
+LINE_AGREE = 0.75
+
+
+def line_letters(t):
+    return letters(re.sub(r"^\W{0,2}\d{1,2}\W{0,2}\s+", "", t))
+
+
+def numbered_by_ocr(secs, lines):
+    """`secs` (the transcription's lines of one list, a list a crop) with the clue numbers its lines lack taken from
+    the OCR reading `lines` of the same list, or `secs` unchanged. Some pages' clues (the 1920s-30s Listener's verse
+    couplets) are transcribed with their numbers dropped; the lines are all there, one a printed line. When the
+    transcription holds no numbered line, has as many lines as the OCR list and every one of at least LINE_AGREE
+    of them agrees with its OCR line's letters at AGREE, line i is the OCR line i: it opens a clue when the OCR
+    line does (and takes its number), else it runs the clue on."""
+    flat = [ln for s in secs for ln in s]
+    if not flat or any(al.LINE_CLUE.match(ln) for ln in flat) or len(flat) != len(lines):
+        return secs
+    close = sum(difflib.SequenceMatcher(None, line_letters(a), line_letters(b[4])).ratio() >= AGREE
+                for a, b in zip(flat, lines))
+    if close < LINE_AGREE * len(flat):
+        return secs
+    out = []
+    for ln, ocr in zip(flat, lines):
+        m = al.LINE_CLUE.match(ocr[4])
+        out.append(f"{m.group(1)}. {ln}" if m else ln)
+    return [out]
+
+
 def clues_in(lines):
     """{number: parsed()'s (text, count, printed count)} of the clues the
     transcribed `lines` number. A clue runs on over the lines up to the next
@@ -292,7 +323,7 @@ def fill_columns(puzzle, pages, read_all=None):
                 if isinstance(err, vlm.Spooled):
                     out.spool(err)
                 return out
-            gots = [clues_in(sections(reply, way)) for reply in replies]
+            gots = [clues_in(s) for s in numbered_by_ocr([sections(reply, way) for reply in replies], lines)]
             for got in gots:
                 for n, e in mine.items():
                     c = got.get(n)
