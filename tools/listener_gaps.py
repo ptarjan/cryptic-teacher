@@ -232,6 +232,20 @@ def in_page(text, words):
     return bool(mine) and sum(w in seen for w in mine) >= AGREE * len(mine)
 
 
+class Filled(dict):
+    """{light id: reason} of the lights fill/fill_columns filled, and `keys`: the VLM asks they spooled
+    unanswered (vlm_reader.Spooled), or None when none was. A reading with keys is not tried to the end:
+    its caller must not stamp it done, but read it again once the asks are answered (cached)."""
+    keys = None
+
+    def spool(self, err):
+        self.keys = list(dict.fromkeys([*(self.keys or []), *getattr(err, "keys", ())]))
+
+    @property
+    def pending(self):
+        return self.keys is not None
+
+
 def fill_columns(puzzle, pages, read_all=None):
     """{light id: "column"} of the unclued lights of `puzzle` read from the
     VLM's transcription of their list's column crops, written into its
@@ -247,7 +261,7 @@ def fill_columns(puzzle, pages, read_all=None):
     itself suspect."""
     import vlm_reader as vlm
     read_all = read_all or vlm.read_all
-    out = {}
+    out = Filled()
 
     def unclued():
         return {(str(e["number"]), e["direction"]): e for e in puzzle["entries"]
@@ -274,7 +288,9 @@ def fill_columns(puzzle, pages, read_all=None):
                 continue
             try:
                 replies = read_all([vlm.crop(img, b) for b in column_boxes(img, lines)])
-            except RuntimeError:
+            except RuntimeError as err:
+                if isinstance(err, vlm.Spooled):
+                    out.spool(err)
                 return out
             gots = [clues_in(sections(reply, way)) for reply in replies]
             for got in gots:
@@ -323,13 +339,13 @@ def fill(puzzle, pages, read_all=None):
     text and are read here, written into its entries. `pages`: [(img, words)]
     of the number's pages, words as gale_listener.read_page(keep=) gives.
     A transcription not answered (spooled, the VLM down) leaves the clue
-    blank to be asked again."""
+    blank to be asked again; the result's `pending` says so for a spooled one (Filled)."""
     def lacking():
         return [e for e in puzzle["entries"] if not (e["clue"].get("text") or "").strip() and e["clue"].get("missing")
                 and "text" in e["clue"]]
     if not lacking() and not (COLUMNS and any(suspect_text(e) for e in puzzle["entries"])):
-        return {}
-    out = fill_columns(puzzle, pages, read_all) if COLUMNS else {}
+        return Filled()
+    out = fill_columns(puzzle, pages, read_all) if COLUMNS else Filled()
     missing = lacking()
     if not missing or len(missing) > MAX_GAPS:
         return out
@@ -344,7 +360,9 @@ def fill(puzzle, pages, read_all=None):
             crops = [vlm.crop(img, b) for b in boxes_of(img, lines)]
             try:
                 reply = "\n".join(read_all(crops))
-            except RuntimeError:
+            except RuntimeError as err:
+                if isinstance(err, vlm.Spooled):
+                    out.spool(err)
                 break
             ocr = " ".join(ln[4] for ln in lines)
             got = accepted(parsed(reply, str(e["number"])), str(e["number"]), e["length"], ocr, counted(laid))

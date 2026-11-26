@@ -107,4 +107,25 @@ two = ["ACROSS\n3. Ruined by the gate (4)", "ACROSS\n3. Ruined by a gate (4)"]
 lgaps.fill_columns(puzzle, pages, lambda crops: two[:len(crops)])
 check("a number the column read gives twice leaves a suspect text", "Ruined by the g8te", puzzle["entries"][0]["clue"]["text"])
 gl.page_columns = gl_page_columns
+# A spooled (unanswered) ask leaves the result pending, so its caller stamps nothing done; answered, it does not.
+import vlm_reader as vlm
+puzzle = {"entries": [entry(3, "across", 4)]}
+gl.page_columns = lambda words: [across, []] if words else None
+
+
+def spooling(crops):
+    raise vlm.Spooled("spooled", ["k1", "k2"])
+
+
+got = lgaps.fill(puzzle, pages, spooling)
+check("spooled column asks: pending, with the asks' keys", (True, ["k1", "k2"]), (got.pending, got.keys))
+check("spooled: nothing filled", {}, dict(got))
+puzzle = {"entries": [entry(3, "across", 4)]}
+got = lgaps.fill(puzzle, pages, read_all)
+check("answered asks: not pending", (False, {"3-across": "column"}), (got.pending, dict(got)))
+check("a puzzle with nothing to fill is not pending", False, lgaps.fill({"entries": [entry(1, "across", 3, "Dog food")]}, pages, read_all).pending)
+gl.page_columns = gl_page_columns
+import file_gale_listener as fgl
+check("a verdict with no pending asks is due", True, fgl.asks_answered(None))
+check("an unanswered ask holds the number", False, fgl.asks_answered(["no-such-key-xyz"]))
 sys.exit(1 if fails else 0)

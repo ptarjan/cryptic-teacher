@@ -1555,9 +1555,13 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
         mine = [g for sha, e in files if e.get("number") == n for g in grids.get(e["file"], ()) if g["fit"]]
         puzzle, verdict, printed = join(reading, mine, reports, read_letters, read_probs, read_strips, ask)
         if puzzle is not None and "lacks" not in verdict and gap_open(puzzle):
-            if gaps := listener_gaps.fill(puzzle, gap_pages([where[e["file"]] for _, e in files
-                                                              if e.get("number") == n and e["file"] in where])):
-                verdict["gaps"] = gaps
+            gaps = listener_gaps.fill(puzzle, gap_pages([where[e["file"]] for _, e in files
+                                                         if e.get("number") == n and e["file"] in where]))
+            if gaps:
+                verdict["gaps"] = dict(gaps)
+            if gaps.pending:
+                # Asks spooled, not answered: not tried to the end, so no joinKey below (it stays due).
+                verdict["gapsPending"] = gaps.keys
         if printed and write:
             Path(reports_to).mkdir(parents=True, exist_ok=True)
             (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
@@ -1611,7 +1615,8 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
             # No report joined on this reading's grid (or none built): a held
             # file of this tool's is joined on its own.
             held_report(n, puzzles, verdict, reports, (read_letters, read_probs, read_strips, ask), write)
-        verdict["joinKey"] = stamp
+        if "gapsPending" not in verdict:
+            verdict["joinKey"] = stamp
         verdicts[n] = verdict
         print(f"No {n}: " + "; ".join(v for v in (
             verdict.get("lacks"), verdict.get("skip"), verdict.get("refusedWrite"), verdict.get("writeFailed"),
@@ -1634,6 +1639,15 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     return verdicts
 
 
+def asks_answered(keys):
+    """Whether a verdict's spooled gap asks `keys` (gapsPending) are all answered (cached) now; True for
+    a verdict with none, or none it can wait on (an empty list: tried again)."""
+    if not keys:
+        return True
+    import vlm_reader as vlm
+    return all(vlm.answered(k) for k in keys)
+
+
 def stale_refused(store=gl.STORE, inbox=gl.SAVED, limit=REJOIN_PER_UNIT, cache=GRIDS):
     """The first `limit` numbers (ascending) the ledger holds refused (a verdict with "lacks", nothing
     written or held) under other join code than join_key(), each with a reading and every page's grids
@@ -1646,6 +1660,8 @@ def stale_refused(store=gl.STORE, inbox=gl.SAVED, limit=REJOIN_PER_UNIT, cache=G
     for k in sorted(ledger, key=int):
         v = ledger[k]
         if not isinstance(v, dict) or not v.get("lacks") or v.get("wrote") or v.get("skip") or v.get("joinKey") == key:
+            continue
+        if not asks_answered(v.get("gapsPending")):
             continue
         n = int(k)
         if not (store / f"listener-{n}.json").exists():

@@ -19,4 +19,7 @@ STANDS = {
     # words (FILL_FIX): only the pages of tools/data/listener_fill_clues.json move; refused numbers elsewhere
     # are not rejoined (their cached transcriptions are read again by a page's own reread).
     "234ea287bf880305": "445be7454385737b",  # file_gale_listener's join_key
+    # listener_gaps.fill/fill_columns report a spooled (unanswered) ask (Filled.pending) and run() then withholds
+    # the verdict's joinKey (gapsPending): a number whose asks are answered is joined again, nothing else moves.
+    "ec13d012a15c6479": "445be7454385737b",  # file_gale_listener's join_key
 }
