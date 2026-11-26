@@ -308,6 +308,19 @@ def in_page(text, words):
     return bool(mine) and sum(w in seen for w in mine) >= AGREE * len(mine)
 
 
+def own_line(text, words, n, way):
+    """Whether clue `text` (a transcription) is the very clue the page's OCR reads under number `n` of list `way`:
+    its letters and figures agree with those of the OCR's numbered line and the lines run on under it up to the
+    next number (lines_of) at AGREE. A neighbour's run-on text, a clue cut short, a text that opens on another
+    clue's number or a line the OCR lost does not agree (the figures tell "See 13 Down." from "See 25 Down.")."""
+    _, lines, _ = lines_of(words, f"{n}-{way}")
+    mine = re.sub(r"[^a-z0-9]", "", text.lower())
+    if not lines or not mine or al.LINE_CLUE.match(text.strip()):
+        return False
+    theirs = re.sub(r"[^a-z0-9]", "", re.sub(r"^\W{0,2}\d{1,2}\W{0,2}\s+", "", " ".join(ln[4] for ln in lines)).lower())
+    return difflib.SequenceMatcher(None, mine, theirs).ratio() >= AGREE
+
+
 class Filled(dict):
     """{light id: reason} of the lights fill/fill_columns filled, and `keys`: the VLM asks they spooled
     unanswered (vlm_reader.Spooled), or None when none was. A reading with keys is not tried to the end:
@@ -350,7 +363,8 @@ def fill_columns(puzzle, pages, read_all=None):
         return sum(bool(al.LINE_CLUE.match(ln[4])) for c in cols for ln in c)
 
     for img, words, laid in pages:
-        want = {**unfit(), **unclued()}
+        blank = unclued()
+        want = {**unfit(), **blank}
         if not want:
             break
         best = None
@@ -376,8 +390,12 @@ def fill_columns(puzzle, pages, read_all=None):
                         continue
                     # A list that prints no counts (no clue of the column read has one) cannot check a clue by its
                     # count: the words the model read must be words the page's own readers read.
-                    if c[1] is None and not any(v[1] for g in gots for v in g.values()):
-                        if not in_page(c[0], words):
+                    # A blank light's clue the OCR's own line for its number spells out is as good as that: the
+                    # words may be ones the OCR misreads (accents) and a clue may repeat another's ("Square.").
+                    uncounted = c[1] is None and not any(v[1] for g in gots for v in g.values())
+                    own = uncounted and (n, way) in blank and own_line(c[0], words, n, way)
+                    if uncounted:
+                        if not own and not in_page(c[0], words):
                             continue
                     elif c[1] != e["length"]:
                         continue
@@ -387,7 +405,7 @@ def fill_columns(puzzle, pages, read_all=None):
                         continue
                     others = [letters(o["clue"]["text"]) for o in puzzle["entries"]
                               if o is not e and (o["clue"].get("text") or "").strip()]
-                    if any(difflib.SequenceMatcher(None, letters(c[0]), o).ratio() >= CLASH for o in others):
+                    if not own and any(difflib.SequenceMatcher(None, letters(c[0]), o).ratio() >= CLASH for o in others):
                         continue
                     e["clue"] = {"text": c[0], "enumeration": c[2]}
                     out[f"{n}-{way}"] = "column"

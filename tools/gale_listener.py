@@ -2595,7 +2595,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     number than it now matches is dropped (disown)."""
     import scan_queue
     entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "flipFix": FLIP_FIX, "headFix": HEAD_FIX,
-             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX, "lostFix": LOST_FIX, "fillFix": FILL_FIX, "cropFix": CROP_FIX, "enumFix": ENUM_FIX,
+             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX, "lostFix": LOST_FIX, "fillFix": FILL_FIX, "cropFix": CROP_FIX, "enumFix": ENUM_FIX, "ownFix": OWN_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2796,7 +2796,8 @@ def plan(inbox=SAVED, store=STORE):
                                  or (p.name in lost_fix_names() and (row or {}).get("lostFix", 0) < LOST_FIX)
                                  or (p.name in fill_fix_names() and (row or {}).get("fillFix", 0) < FILL_FIX)
                                  or (p.name in crop_fix_names() and (row or {}).get("cropFix", 0) < CROP_FIX)
-                                 or (p.name in enum_fix_names() and (row or {}).get("enumFix", 0) < ENUM_FIX))
+                                 or (p.name in enum_fix_names() and (row or {}).get("enumFix", 0) < ENUM_FIX)
+                                 or (p.name in own_fix_names() and (row or {}).get("ownFix", 0) < OWN_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -3154,6 +3155,26 @@ def enum_fix_names():
     return _ENUM_FIX_NAMES
 
 
+#: Bumped when listener_gaps.fill_columns takes a blank light's clue the page's own OCR line for its number spells
+#: out (the words the OCR misreads, or a clue that repeats another's, no longer refuse it). Only the pages of the
+#: refused numbers it gains clues for (tools/data/listener_own_clues.json, found on the cached VLM replies) are read
+#: again.
+OWN_FIX = 1
+OWN_FIX_FILE = ROOT / "tools" / "data" / "listener_own_clues.json"
+_OWN_FIX_NAMES = None
+
+
+def own_fix_names():
+    """The saved pages' names OWN_FIX changes (a committed list nothing writes)."""
+    global _OWN_FIX_NAMES
+    if _OWN_FIX_NAMES is None:
+        try:
+            _OWN_FIX_NAMES = frozenset(json.loads(OWN_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _OWN_FIX_NAMES = frozenset()
+    return _OWN_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
     VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
@@ -3170,7 +3191,8 @@ def current(p, row):
             and not (row.get("lostFix", 0) < LOST_FIX and p.name in lost_fix_names())
             and not (row.get("fillFix", 0) < FILL_FIX and p.name in fill_fix_names())
             and not (row.get("cropFix", 0) < CROP_FIX and p.name in crop_fix_names())
-            and not (row.get("enumFix", 0) < ENUM_FIX and p.name in enum_fix_names()))
+            and not (row.get("enumFix", 0) < ENUM_FIX and p.name in enum_fix_names())
+            and not (row.get("ownFix", 0) < OWN_FIX and p.name in own_fix_names()))
 
 
 def due_reason(row):

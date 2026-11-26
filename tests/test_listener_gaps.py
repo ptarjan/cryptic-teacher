@@ -157,4 +157,22 @@ _b = fgl.build({"number": 1, "name": "x", "date": "2020-01-01", "source": {"url"
                 "clues": {"1-across": {"text": "Its leaves yield a drink! (4)", "enumeration": None}}}, ["....", "...."])
 _c = {f"{e['number']}-{e['direction']}": e["clue"] for e in _b["entries"]}
 check("enum split off words", ("Its leaves yield a drink!", "4"), (_c["1-across"]["text"], _c["1-across"].get("enumeration")))
+# OWN_FIX: in a list that prints no counts a blank light takes the clue the page's own OCR line for its number spells out,
+# though its words are ones the OCR misread (accents) and though it repeats another clue's ("Square."); a neighbour's
+# run-on text, a clue another number opens on and a clue that differs in its figures are not that line.
+own_lines = [line(100, "1. Square."), line(140, "2. Square."), line(180, "3. Fruit seen in flght, on"), line(220, "the wing"),
+             line(260, "4. See 13 Down."), line(300, "5. Fruit seen in flight, on the wing 6. Next clue")]
+gl.page_columns = lambda words: [own_lines, []] if words else None
+own_words = {"page": [(0, 0, 0, 0, "Square."), (0, 0, 0, 0, "flght,")]}
+own_reply = lambda crops: ["1. Square.\n2. Square.\n3. Fruit seen in flight, on\nthe wing\n4. See 13 Down.\n5. Fruit seen in flight, on the wing"] * len(crops)
+puzzle = {"entries": [entry(1, "across", 6), entry(2, "across", 6), entry(3, "across", 8), entry(4, "across", 4),
+                      entry(5, "across", 4), entry(9, "across", 6, "Square."), entry(8, "across", 4, "See 25 Down.")]}
+got = lgaps.fill_columns(puzzle, [(img, own_words, {})], own_reply)
+check("a repeated clue its own OCR line spells is taken (1, 2); words the OCR misread (3); figures that agree (4)",
+      {"1-across", "2-across", "3-across", "4-across"}, set(got))
+check("an uncounted clue whose OCR line is longer stays out", False, "5-across" in got)
+check("own_line: a run-on text is not the line", False, lgaps.own_line("Fruit seen in flight, on the wing and the next clue's words", own_words, "3", "across"))
+check("own_line: a text opening on another number is not the line", False, lgaps.own_line("2. Square.", own_words, "1", "across"))
+check("own_line: other figures are not the line", False, lgaps.own_line("See 31 Down.", own_words, "4", "across"))
+gl.page_columns = gl_page_columns
 sys.exit(1 if fails else 0)

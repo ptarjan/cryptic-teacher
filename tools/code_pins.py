@@ -29,4 +29,7 @@ STANDS = {
     # file_gale_listener.build splits a clue's own count off its words (ENUM_FIX): only the pages of
     # tools/data/listener_enum_clues.json move; refused numbers elsewhere are not rejoined.
     "518107eb8b89e740": "445be7454385737b",  # file_gale_listener's join_key
+    # listener_gaps.fill_columns takes a blank light's clue its own OCR line spells out in a list with no counts
+    # (OWN_FIX): only the pages of tools/data/listener_own_clues.json move; refused numbers elsewhere are not rejoined.
+    "78b51cb84315a6bc": "445be7454385737b",  # file_gale_listener's join_key
 }
