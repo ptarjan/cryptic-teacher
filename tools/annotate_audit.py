@@ -237,7 +237,12 @@ def stopped_names(text):
         return {f"apply refused: {f}" for f in found}
     m = re.search(r"STOPPED — (.{0,200})", text)
     # The path ends the sentence the same way every time: one class, not one per series.
-    return {"STOPPED: " + re.sub(r"puzzles/\S+", "<puzzle>", m.group(1))[:60] if m else "STOPPED: ?"}
+    if not m:
+        return {"STOPPED: ?"}
+    # An entry id ("20-across:", tagged or not) and the clue's own words are per-instance:
+    # refusal_class cuts them, so every instance of one complaint is one name.
+    rest = re.sub(r"^(?:[A-Z]+ )?\d+-(?:across|down)\s*:?\s*", "", m.group(1))
+    return {"STOPPED: " + re.sub(r"puzzles/\S+", "<puzzle>", refusal_class(rest))}
 
 
 def refusal_class(rest):

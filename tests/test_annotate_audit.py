@@ -73,6 +73,9 @@ check(any(n.startswith("STOPPED") for n in a.stopped_names(
     "  QUOTE 9-across: indicator 'put ... in' is not in the clue 'Monarch put ten in pot'\n\n"
     "annotate_check x: STOPPED — the annotations were not applied")), False,
       "a tagged refusal line is classed, not left as the generic STOPPED")
+check(a.stopped_names("annotate_check x: STOPPED — 20-across: printedClue the evidence 'OCR misread: baccy' is not the clue"),
+      a.stopped_names("annotate_check x: STOPPED — 26-across: printedClue the evidence \"OCR misread: 'in is in\" is not the clue"),
+      "the bare STOPPED fallback drops the entry id and the clue's words: one class")
 check(a.stopped_names("apply_annotations: x.json: refused to write, fix these in the _ann file:\n"
                       "  7-down explanation: missing required key 'walkthrough'\n"
                       "  11-across explanation: missing required key 'walkthrough'\n"
