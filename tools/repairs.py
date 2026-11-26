@@ -38,7 +38,7 @@ from fix_shape_leaves import (
 from fix_shape_indicators import (
     r_role_swap, r_role_move, r_ind_trade, r_shared_indicator, r_unindicated_move, r_unindicated_spare,
     r_hidden_link, r_hidden_possessive, r_swapped_pair, r_misplaced_indicator, r_shared_charade,
-    r_split_shared_indicator,
+    r_split_shared_indicator, r_double_indicator,
 )
 from fix_shape_container import (
     r_container_inside, r_nested_container, r_container_cut, r_extremes_outer, r_extremes_pair, r_pool_gap,
@@ -181,7 +181,7 @@ _FIXES = (
     ("wrongRole", r_wrong_role), ("delSelection", r_del_selection),
     ("sharedIndicator", _first(r_shared_indicator, r_shared_charade)),
     ("poolGap", _first(r_pool_gap, r_pool_absorb, r_pool_eject)),
-    ("misplacedIndicator", r_misplaced_indicator),
+    ("misplacedIndicator", r_misplaced_indicator), ("doubleIndicator", r_double_indicator),
     ("deletionInside", r_deletion_inside), ("deletionScope", r_deletion_inside), ("deletionScopeAnswer", r_deletion_inside),
     ("unindicatedBare", _unindicated_bare), ("spanOverlap", r_span_overlap),
     ("del_single", r_del_single), ("indInLeaf", r_ind_in_leaf), ("ind_in_leaf", r_ind_in_leaf),
@@ -482,6 +482,8 @@ MODEL_MENDS = (
          (), _note_letters),
     Mend("misplacedIndicator", "indicators filed on a charade that signal another op, moved onto that op",
          ("+",), _rule_mend("misplacedIndicator")),
+    Mend("doubleIndicator", "reversals, deletions, hidden words and selections with two separate indicators, "
+         "cut to the one the corpus files under the op", ("><",), _rule_mend("doubleIndicator")),
 )
 
 

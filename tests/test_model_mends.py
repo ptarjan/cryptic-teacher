@@ -107,5 +107,26 @@ check("noteLetters: an answer with letters outside A-G is left alone",
       not mend("noteLetters", {"wp": "[keys]CLOSE"}, "Keys", "CLOSE"))
 check("noteLetters: no clue or answer, no change", not mend("noteLetters", {"wp": "[keys]CADGE"}, "", ""))
 
+# doubleIndicator: two separate indicators on one op are cut to the one the corpus files under the op
+for name, clue, ans, wp, want in [
+        ("reversal split round its fodder", "Turn me back before I become harsh and go abroad", "EMIGRATE",
+         "rev<Turn><back>([me]) +<before> [I] + [become harsh]GRATE", "rev<back>([me]) +<before> [I] + [become harsh]GRATE"),
+        ("deletion phrase split round its fodder", "Intended leaving name out of banking", "FIANCE",
+         "del<leaving><out of>([banking]FINANCE, [name]N)", "del<leaving>([banking]FINANCE, [name]N)"),
+        ("hidden word with a lead-in word", "Gantry displaying hotel merchandise, in part", "ELMER",
+         "hid<displaying><in part>([hotel merchandise]ELMER)", "hid<in part>([hotel merchandise]ELMER)")]:
+    a = {"wp": wp}
+    check(f"doubleIndicator ({name}): the shape is a finding to begin with",
+          V.double_indicators(wordplay.parse(wp, clue)))
+    check(f"doubleIndicator ({name}): the mend reports a change", mend("doubleIndicator", a, clue, ans))
+    check(f"doubleIndicator ({name}): one indicator is left", a["wp"] == want)
+    check(f"doubleIndicator ({name}): no finding is left", not V.double_indicators(wordplay.parse(a["wp"], clue)))
+    check(f"doubleIndicator ({name}): it still gives the answer", gives(a["wp"], clue, ans))
+    check(f"doubleIndicator ({name}): a second mend changes nothing", not mend("doubleIndicator", a, clue, ans))
+    check(f"doubleIndicator ({name}): no clue or answer, no change", not mend("doubleIndicator", {"wp": wp}, "", ""))
+# two indicators that touch in the clue are one phrase, left alone
+check("doubleIndicator: a phrase cut in two is left alone",
+      not mend("doubleIndicator", {"wp": "hid<in><part>([hotel merchandise]ELMER)"}, "Gantry displaying hotel merchandise, in part", "ELMER"))
+
 print("FAILED" if fails else "all ok")
 raise SystemExit(1 if fails else 0)

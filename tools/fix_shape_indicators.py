@@ -738,3 +738,31 @@ def r_split_shared_indicator(node, parent, ctx):
     new["parts"] = [copy.deepcopy(q) for q in node["parts"] if not any(q is x for x in ns)]
     new["parts"].insert(at, merged)
     return new if _eval_swapped(node, parent, new, ctx) else None
+
+
+#: How many times more often the corpus files the kept indicator under the op's type than the dropped one:
+#: below it neither word is clearly the op's own, and which one the clue means is the model's call.
+DOUBLE_IND_MARGIN = 2
+
+
+def r_double_indicator(node, parent, ctx):
+    """doubleIndicator: a reversal, deletion, hidden word or selection files two indicators that do not touch
+    (rev<Turn><back>([me]) for "Turn me back", del<leaving><out of> for "leaving ... out of", hid<displaying>
+    <in part>). The op reads on one: the word the corpus files under the op's type most often stays, and
+    only when it leads every other own word by DOUBLE_IND_MARGIN; the others are dropped and their words
+    are left to the clue's links. Kept only when the node still gives what it gave."""
+    kind = V._OP_LEXICON.get(node.get("op"))
+    inds = [i for i in node.get("indicators") or [] if isinstance(i, dict)]
+    if not kind or node.get("op") not in V._ONE_IND_OPS or node.get("unchecked") or len(inds) < 2 \
+            or all(V._ind_adjacent(inds[k], inds[k + 1]) for k in range(len(inds) - 1)):
+        return None
+    own = [i for i in inds if V._own_word(node["op"], i.get("text"))]
+    if len(own) < 2:
+        return None
+    uses = [V._role_counts(V.indicator_role_key(i.get("text"))).get(kind, 0) for i in own]
+    best = max(range(len(own)), key=uses.__getitem__)
+    if any(u * DOUBLE_IND_MARGIN > uses[best] for k, u in enumerate(uses) if k != best):
+        return None
+    new = copy.deepcopy(node)
+    new["indicators"] = [i for i in new["indicators"] if i not in own or i == own[best]]
+    return new
