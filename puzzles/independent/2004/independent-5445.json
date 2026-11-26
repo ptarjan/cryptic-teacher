@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Beat in short instrumental passage",
     "enumeration": "4"
    },
-   "solution": "LICK"
+   "solution": "LICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0,
+      "meaning": "to beat an opponent soundly is to thrash or whip them"
+     },
+     {
+      "text": "short instrumental passage",
+      "at": 8,
+      "meaning": "a brief riff played by a guitarist or other soloist in jazz and rock"
+     }
+    ],
+    "explanation": {
+     "surface": "A musician finds the rhythm within a brief solo passage.",
+     "definitionFit": "Both senses are informal: one means to defeat or thrash, the other a quick melodic phrase a player improvises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,66 @@
     "text": "Chapter about which there's elegant quality, without force, achieving clarity",
     "enumeration": "8"
    },
-   "solution": "LUCIDITY"
+   "solution": "LUCIDITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clarity",
+      "at": 70
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about which there's",
+       "at": 8,
+       "note": "the phrase puts a word around the chapter abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 45,
+         "note": "without means the letter for force is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elegant quality",
+         "at": 28,
+         "gives": "FLUIDITY",
+         "note": "fluidity is smooth, graceful ease of movement or style"
+        },
+        {
+         "words": "force",
+         "at": 53,
+         "gives": "F",
+         "note": "F is the physics symbol for force"
+        }
+       ]
+      },
+      {
+       "words": "Chapter",
+       "at": 0,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book chapter with graceful writing, lacking punch, still manages to be clear.",
+     "walkthrough": "'without' drops F from FLUIDITY to leave LUIDITY, and 'about which there's' wraps it around C.",
+     "definitionFit": "Lucid writing is clear, so its quality of being easy to understand is clarity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +145,55 @@
     "text": "Game played on board ship, south of Cuba, with ambassador",
     "enumeration": "5"
    },
-   "solution": "CHESS"
+   "solution": "CHESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game played on board",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "south of",
+       "at": 27,
+       "note": "in a down clue the ship's letters come below the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cuba",
+       "at": 36,
+       "gives": "C",
+       "note": "C is the international vehicle registration code for Cuba"
+      },
+      {
+       "words": "ambassador",
+       "at": 47,
+       "gives": "HE",
+       "note": "HE stands for His Excellency, an ambassador's title"
+      },
+      {
+       "words": "ship",
+       "at": 21,
+       "gives": "SS",
+       "note": "SS stands for steamship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A game played aboard a vessel heading south of Cuba with a diplomat.",
+     "walkthrough": "'on board' looks like aboard the ship, but it belongs to the definition: a board game.",
+     "definitionFit": "The game of kings and pawns is played on a chequered board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +207,65 @@
     "text": "Note about nonsense presented by man in court",
     "enumeration": "8"
    },
-   "solution": "CROTCHET"
+   "solution": "CROTCHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 5,
+       "gives": "C",
+       "note": "c. (circa) is the abbreviation for about with dates"
+      },
+      {
+       "words": "nonsense",
+       "at": 11,
+       "gives": "ROT",
+       "note": "rot is rubbish or nonsense"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 37,
+         "note": "the word for a man goes inside the abbreviation for court"
+        }
+       ],
+       "parts": [
+        {
+         "words": "court",
+         "at": 40,
+         "gives": "CT"
+        },
+        {
+         "words": "man",
+         "at": 33,
+         "gives": "HE",
+         "note": "he is the pronoun standing for a man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical note dismissing some legal claptrap uttered by someone in a courtroom.",
+     "walkthrough": "'in' puts HE inside CT to make CHET, which follows C and ROT.",
+     "definitionFit": "A quarter-length musical symbol is one of the standard written notes in a score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +279,67 @@
     "text": "Inexperience displayed by artist in front of onlooker, losing it",
     "enumeration": "7"
    },
-   "solution": "RAWNESS"
+   "solution": "RAWNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inexperience",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "at": 33,
+       "note": "the artist's letters stand before the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "artist",
+       "at": 26,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, a recognised artist"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 55,
+         "note": "losing means the following word is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "onlooker",
+         "at": 45,
+         "gives": "WITNESS",
+         "note": "a witness is someone who looks on"
+        },
+        {
+         "words": "it",
+         "at": 62,
+         "gives": "IT",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter shows naivety in front of a spectator who loses composure.",
+     "walkthrough": "'losing it' looks like losing one's temper; 'losing' removes IT from WITNESS to leave WNESS.",
+     "definitionFit": "Being raw means new and untrained, so the quality is lack of experience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "losing"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +363,52 @@
      }
     ]
    },
-   "solution": "TRISTANDACUNHA"
+   "solution": "TRISTANDACUNHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group of islands",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Variety of",
+       "at": 0,
+       "note": "a variety is a mixture, so the letters that follow are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "data",
+       "at": 11
+      },
+      {
+       "words": "in",
+       "at": 16
+      },
+      {
+       "words": "charts",
+       "at": 19
+      },
+      {
+       "words": "UN",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Figures from UN tables cover a remote archipelago.",
+     "walkthrough": "'Variety of' rearranges DATA IN CHARTS UN.",
+     "definitionFit": "The remote South Atlantic territory is a small archipelago of volcanic islands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +432,75 @@
      }
     ]
    },
-   "solution": "HITORMISS"
+   "solution": "HITORMISS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "casual",
+      "at": 85
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filled with",
+       "at": 33,
+       "note": "the hissing sound has the other pieces put inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sound from disapproving audience",
+       "at": 0,
+       "gives": "HISS",
+       "note": "an audience boos or hisses to show disapproval"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "when opening's cancelled",
+           "at": 50,
+           "note": "the first letter of the rage word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rage",
+           "at": 45,
+           "gives": "STORM",
+           "note": "a storm is a fit of rage, as in a storm of anger"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 75,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Booing erupts in fury when an opening night is cancelled, with someone acting carelessly.",
+     "walkthrough": "'when opening's cancelled' cuts STORM to TORM; with I it goes inside HISS after HI, the meaning of 'filled with'.",
+     "definitionFit": "Something done haphazardly, with no planning, is careless or casual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening's"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +514,40 @@
     "text": "Join right rank",
     "enumeration": "4"
    },
-   "solution": "TIER"
+   "solution": "TIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rank",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Join",
+       "at": 0,
+       "gives": "TIE",
+       "note": "to tie is to join or fasten"
+      },
+      {
+       "words": "right",
+       "at": 5,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sign up with the right row.",
+     "definitionFit": "A tier is a row or level, as in tiers of seating, so it means a rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rank"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +561,67 @@
     "text": "Carry on about being promoted, supporting board with boldness",
     "enumeration": "14"
    },
-   "solution": "ENTERPRISINGLY"
+   "solution": "ENTERPRISINGLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with boldness",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 31,
+       "note": "in a down clue the supporting piece sits beneath the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "board",
+       "at": 42,
+       "gives": "ENTER",
+       "note": "to board a vehicle is to enter it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 9,
+         "note": "the word for carry on goes around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Carry on",
+         "at": 0,
+         "gives": "PLY",
+         "note": "to ply a trade is to carry it on"
+        },
+        {
+         "words": "being promoted",
+         "at": 15,
+         "gives": "RISING",
+         "note": "rising means going up in rank"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keep going about your promotion, backing the board with daring.",
+     "walkthrough": "'about' puts RISING inside PLY; 'supporting' places that under ENTER in this down answer. 'board' looks like a company board; it is the verb.",
+     "definitionFit": "An enterprising person shows initiative and daring, so acting that way is acting boldly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +635,65 @@
     "text": "Take total prize, finally, when coming first",
     "enumeration": "6"
    },
-   "solution": "ASSUME"
+   "solution": "ASSUME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "coming first",
+       "at": 32,
+       "note": "the word for when is placed at the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when",
+       "at": 27,
+       "gives": "AS",
+       "note": "as can mean when, as in 'as he left'"
+      },
+      {
+       "words": "total",
+       "at": 5,
+       "gives": "SUM",
+       "note": "a sum is a total"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 18,
+         "note": "the last letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prize",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A winner collects the whole prize when finishing first.",
+     "walkthrough": "'finally' takes E from 'prize'.",
+     "definitionFit": "To take on a role or take something for granted is to assume it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +721,31 @@
      }
     ]
    },
-   "solution": "CLEANASAWHISTLE"
+   "solution": "CLEANASAWHISTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gleaming",
+      "at": 0,
+      "meaning": "spotless and shining, perfectly washed"
+     },
+     {
+      "text": "like pearly king's suit?",
+      "at": 10,
+      "meaning": "in Cockney rhyming slang 'whistle and flute' means suit, so the suit is a whistle; a pearly king is a Cockney costermonger in a suit covered with pearl buttons"
+     }
+    ],
+    "explanation": {
+     "surface": "A Cockney pearly king's button-covered outfit shining brightly.",
+     "walkthrough": "The second reading needs the Cockney rhyming slang 'whistle' for suit; a pearly king is a London street-trader figure in a pearl-button suit.",
+     "definitionFit": "The idiom describes something spotless; the question mark flags the rhyming-slang second reading of the suit itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +759,49 @@
     "text": "Feud's carrying on? Shame",
     "enumeration": "9"
    },
-   "solution": "DISREPUTE"
+   "solution": "DISREPUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shame",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 7,
+       "note": "the word for a feud holds the other piece within it, carrying it along"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Feud's",
+       "at": 0,
+       "gives": "DISPUTE",
+       "note": "a feud is a dispute between parties"
+      },
+      {
+       "words": "on",
+       "at": 16,
+       "gives": "RE",
+       "note": "re means on or concerning, as in business letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long-running quarrel continues, and it is a disgrace.",
+     "walkthrough": "'carrying' puts RE inside DISPUTE; 'carrying on' looks like one phrase meaning continuing, but 'on' is RE.",
+     "definitionFit": "Being in bad repute means having lost honour, so shame and dishonour are synonyms here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +815,49 @@
     "text": "Lake and river in shade",
     "enumeration": "4"
    },
-   "solution": "TARN"
+   "solution": "TARN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the river's abbreviation sits inside the colour word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shade",
+       "at": 18,
+       "gives": "TAN",
+       "note": "tan is a light brown shade"
+      },
+      {
+       "words": "river",
+       "at": 9,
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Water features shown in a darker tint.",
+     "walkthrough": "'in' puts R inside TAN.",
+     "definitionFit": "A small mountain pool, a word used in northern England, is a kind of lake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +871,52 @@
     "text": "Odd features of tyre with substantial tread",
     "enumeration": "7"
    },
-   "solution": "TRAMPLE"
+   "solution": "TRAMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tread",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Odd features of",
+         "at": 0,
+         "note": "the odd-numbered letters of the word, first and third, are picked out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tyre",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "substantial",
+       "at": 26,
+       "gives": "AMPLE",
+       "note": "ample means large or substantial"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peculiarities of a tyre that has a deep, chunky tread.",
+     "walkthrough": "'Odd features of' takes the first and third letters of 'tyre', T and R. 'tread' looks like a noun for the tyre's grooves; it is the verb.",
+     "definitionFit": "To tread on something heavily is to crush it underfoot, the same as stamping on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tread"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +930,76 @@
     "text": "A miserable man, I bet, broken by love and hate",
     "enumeration": "9"
    },
-   "solution": "ABOMINATE"
+   "solution": "ABOMINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hate",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "broken by",
+         "at": 24,
+         "note": "the anagrammed letters are split open and the love letter goes in"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "miserable",
+           "at": 2,
+           "note": "miserable means in a wretched state, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "man",
+           "at": 12
+          },
+          {
+           "words": "I",
+           "at": 17
+          },
+          {
+           "words": "bet",
+           "at": 19
+          }
+         ]
+        },
+        {
+         "words": "love",
+         "at": 34,
+         "gives": "O",
+         "note": "love is zero in tennis, written as O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy man wagers his heart has been shattered by love and hatred.",
+     "walkthrough": "'miserable' rearranges MAN I BET into BMINATE, and 'broken by' puts O inside after the B.",
+     "definitionFit": "To abominate something is to loathe it, an intensified synonym of hate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1013,11 @@
     "text": "Agent with disc moving",
     "enumeration": "6"
    },
-   "solution": "SYNDIC"
+   "solution": "SYNDIC",
+   "annotationWithheld": {
+    "why": "Clue held as 'Agent with disc moving' (6): SYN (with) plus the letters of DISC makes seven letters and the Y, N are not both accounted for in any parse; OCR text likely garbled and no scan or reprint available.",
+    "clue": "Agent with disc moving"
+   }
   },
   {
    "number": 16,
@@ -289,7 +1031,70 @@
     "text": "Leading pair of Olympians, inhabiting Greek mountain, seek adulation",
     "enumeration": "8"
    },
-   "solution": "IDOLATRY"
+   "solution": "IDOLATRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "adulation",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inhabiting",
+         "at": 27,
+         "note": "inhabiting means living inside, so the pair of letters goes within the mountain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greek mountain",
+         "at": 38,
+         "gives": "IDA",
+         "note": "Mount Ida is a mountain in Crete, Greece"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Leading pair of",
+           "at": 0,
+           "note": "the first two letters of the word are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Olympians",
+           "at": 16
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "seek",
+       "at": 54,
+       "gives": "TRY",
+       "note": "to try is to seek or attempt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple of top athletes living on Mount Olympus crave hero-worship.",
+     "walkthrough": "'Leading pair of' takes OL from 'Olympians'; 'inhabiting' puts it inside IDA.",
+     "definitionFit": "Idolatry is excessive worship, and adulation is extreme admiration, so they are near synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Olympians"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1108,57 @@
     "text": "Company turnover for instance shareholder initially follows",
     "enumeration": "6"
    },
-   "solution": "COPIES"
+   "solution": "COPIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "follows",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Company",
+       "at": 0,
+       "gives": "CO"
+      },
+      {
+       "words": "turnover for instance",
+       "at": 8,
+       "gives": "PIE",
+       "note": "an apple turnover is one example of a pie"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 42,
+         "note": "the first letter of the following word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shareholder",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's annual turnover, illustrated by the shareholder's report.",
+     "walkthrough": "'turnover' looks like business revenue; it is the folded pastry. 'initially' takes S from 'shareholder'.",
+     "definitionFit": "To copy someone is to imitate them, which is to follow their example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turnover"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1172,71 @@
     "text": "Broadcast talk coming up about new Spanish drink",
     "enumeration": "7"
    },
-   "solution": "SANGRIA"
+   "solution": "SANGRIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish drink",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 25,
+       "note": "the reversed pieces go around the letter for new"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming up",
+         "at": 15,
+         "note": "in a down clue coming up reverses the letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Broadcast",
+           "at": 0,
+           "gives": "AIR",
+           "note": "to air a programme is to broadcast it"
+          },
+          {
+           "words": "talk",
+           "at": 10,
+           "gives": "GAS",
+           "note": "gas is idle chatter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "at": 31,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radio chat show features a new Spanish cocktail.",
+     "walkthrough": "'coming up' turns AIR + GAS into SAGRIA, and 'about' puts N inside it.",
+     "definitionFit": "The red wine and fruit punch is a traditional drink from Spain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1250,78 @@
     "text": "Approved article is penned by left-winger after pressure",
     "enumeration": "7"
    },
-   "solution": "PRAISED"
+   "solution": "PRAISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Approved",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 42,
+       "note": "the left-winger's part comes after the letter for pressure"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pressure",
+       "at": 48,
+       "gives": "P",
+       "note": "P is the physics symbol for pressure"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penned by",
+         "at": 20,
+         "note": "being penned by something means being enclosed inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "left-winger",
+         "at": 30,
+         "gives": "RED",
+         "note": "a red is a socialist or communist"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "article",
+           "at": 9,
+           "gives": "A",
+           "note": "a is the indefinite article"
+          },
+          {
+           "words": "is",
+           "at": 17,
+           "gives": "IS",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of writing gets the nod after a radical politician signs it under pressure.",
+     "walkthrough": "'penned by' puts A and IS inside RED, and 'after' places that behind P.",
+     "definitionFit": "To speak well of something is to approve of it, so commended and approved coincide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1335,57 @@
     "text": "Film, pleasant, mostly showing meal outdoors",
     "enumeration": "6"
    },
-   "solution": "PICNIC"
+   "solution": "PICNIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "meal outdoors",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Film",
+       "at": 0,
+       "gives": "PIC",
+       "note": "a pic is a film or movie"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pleasant",
+         "at": 6,
+         "gives": "NICE",
+         "note": "nice means pleasant"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant film about a meal in the open air.",
+     "walkthrough": "'mostly' cuts NICE to NIC.",
+     "definitionFit": "A packed meal eaten outside in a park or field is the classic outdoor meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Film"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1399,40 @@
     "text": "In park I will see bird",
     "enumeration": "4"
    },
-   "solution": "KIWI"
+   "solution": "KIWI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the answer lies inside the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "park I will",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher's promise: in the park I will spot a bird.",
+     "walkthrough": "'In' signals the letters inside parK I WIll.",
+     "definitionFit": "The flightless New Zealand native is a species of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1446,75 @@
     "text": "Drama, quiet apart from ending involving twist occurring after dark",
     "enumeration": "9"
    },
-   "solution": "NOCTURNAL"
+   "solution": "NOCTURNAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "occurring after dark",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drama",
+       "at": 0,
+       "gives": "NO",
+       "note": "No (Noh) is classical Japanese masked drama"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involving",
+         "at": 31,
+         "note": "involving means enclosing the next piece within"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "apart from ending",
+           "at": 13,
+           "note": "the last letter of the word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "quiet",
+           "at": 7,
+           "gives": "CALM",
+           "note": "calm means quiet or still"
+          },
+          {
+           "gives": "M"
+          }
+         ]
+        },
+        {
+         "words": "twist",
+         "at": 41,
+         "gives": "TURN",
+         "note": "a turn is a twist or rotation"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A play, hushed except for its finale, that features a plot twist set at night.",
+     "walkthrough": "'apart from ending' cuts CALM to CAL; 'involving' puts TURN inside it to make CTURNAL, after NO. 'Drama' is the Japanese form Noh, also spelt No.",
+     "definitionFit": "Something active or happening at night, like owls or bats, is described with this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drama"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1528,72 @@
     "text": "Regular imbibing last of beer raised bottle",
     "enumeration": "5"
    },
-   "solution": "NERVE"
+   "solution": "NERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "raised",
+       "at": 30,
+       "note": "in a down clue raised means the letters read upward"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "imbibing",
+         "at": 8,
+         "note": "imbibing means drinking in, so one letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Regular",
+         "at": 0,
+         "gives": "EVEN",
+         "note": "even means regular or uniform"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 17,
+           "note": "the final letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "beer",
+           "at": 25
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regular drinker finishes the beer and lifts the bottle.",
+     "walkthrough": "'last of' takes R from 'beer', 'imbibing' puts it inside EVEN to make EVREN, and 'raised' reverses it. 'bottle' is British slang for courage.",
+     "definitionFit": "Bottle in British slang means courage, and nerve means the same daring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1607,40 @@
     "text": "Vain eccentric lied",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "eccentric",
+       "at": 5,
+       "note": "eccentric means odd or off-centre, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lied",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conceited oddball told a lie.",
+     "definitionFit": "Vain here means futile or pointless, like idle threats or idle hopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vain"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1660,77 @@
      }
     ]
    },
-   "solution": "DJANGOREINHARDT"
+   "solution": "DJANGOREINHARDT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jazz musician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "presenter of radio programme",
+       "at": 15,
+       "gives": "DJ",
+       "note": "a disc jockey hosts a music show on radio"
+      },
+      {
+       "words": "one",
+       "at": 44,
+       "gives": "AN",
+       "note": "an is the indefinite article, meaning one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "at": 56,
+         "note": "keeping means holding the next pieces inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "caught",
+         "at": 48,
+         "gives": "GOT",
+         "note": "got means caught, as with a ball"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "control",
+           "at": 64,
+           "gives": "REIN",
+           "note": "to rein in is to control"
+          },
+          {
+           "words": "forcefully",
+           "at": 72,
+           "gives": "HARD",
+           "note": "hard means with great force"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz player and a radio host who restrained someone captured with great force.",
+     "walkthrough": "'keeping' puts REIN and HARD inside AN + GOT, giving ANGOREINHARDT after DJ.",
+     "definitionFit": "The Belgian-born Romani guitarist was a leading figure of 1930s Paris gypsy jazz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1744,61 @@
     "text": "Famous person, going around, stopped by extremely ordinary person",
     "enumeration": "8"
    },
-   "solution": "EVERYMAN"
+   "solution": "EVERYMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ordinary person",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopped by",
+       "at": 29,
+       "note": "the reversed piece is plugged in the middle by the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going around",
+         "at": 15,
+         "note": "going around means the word turns back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Famous person",
+         "at": 0,
+         "gives": "NAME",
+         "note": "a big name is a celebrity"
+        }
+       ]
+      },
+      {
+       "words": "extremely",
+       "at": 40,
+       "gives": "VERY",
+       "note": "very means extremely"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity on tour is halted by a very average member of the public.",
+     "walkthrough": "'going around' turns NAME into EMAN, and 'stopped by' puts VERY inside it.",
+     "definitionFit": "The medieval morality play's title figure stands for the typical common human being."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1812,59 @@
     "text": "Reject theory's conclusion following study",
     "enumeration": "4"
    },
-   "solution": "DENY"
+   "solution": "DENY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reject",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 27,
+       "note": "the theory's end comes after the word for study"
+      }
+     ],
+     "parts": [
+      {
+       "words": "study",
+       "at": 37,
+       "gives": "DEN",
+       "note": "a den is a private room or study"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "conclusion",
+         "at": 16,
+         "note": "the final letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theory's",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An academic throws out a theory after reaching its conclusion through research.",
+     "walkthrough": "'conclusion' takes Y from 'theory's'.",
+     "definitionFit": "To refuse or turn down a request is to reject it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   }
  ]
 }
