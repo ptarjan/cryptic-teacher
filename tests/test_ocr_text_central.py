@@ -42,7 +42,6 @@ CENTRAL = {
     "enumeration.py": "enumeration/count text and space collapsing",
     "punctuation.py": "clue punctuation",
     "leading_quote.py": "a clue's opening quote",
-    "collapse_clue_spaces.py": "space collapsing in clues",
     "vlm_reader.py": "the VLM reader",
 }
 
