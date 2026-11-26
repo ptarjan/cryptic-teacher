@@ -1397,7 +1397,7 @@ def gap_open(puzzle):
     crops, those that are 1 to MAX_GAPS also from their own lines."""
     n = sum(1 for e in puzzle["entries"] if not (e["clue"].get("text") or "").strip() and e["clue"].get("missing")
             and e["clue"] != {"missing": True})
-    return n > 0
+    return n > 0 or any(listener_gaps.suspect_text(e) for e in puzzle["entries"])
 
 
 def gap_pages(paths):

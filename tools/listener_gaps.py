@@ -202,6 +202,12 @@ def clues_in(lines):
     return out
 
 
+def suspect_text(e):
+    """Whether light `e` has clue text that ocr_clues.suspect flags (a misread word), not a blank."""
+    c = e["clue"]
+    return bool((c.get("text") or "").strip() and ocr_clues.suspect(c["text"], printed=c.get("asPrinted") or ()))
+
+
 def fill_columns(puzzle, pages, read_all=None):
     """{light id: "column"} of the unclued lights of `puzzle` read from the
     VLM's transcription of their list's column crops, written into its
@@ -210,7 +216,11 @@ def fill_columns(puzzle, pages, read_all=None):
     A clue is taken only when its number is an unclued light's of the list's
     direction, its printed count equals the light's length, it is the only
     clue of that number in the transcription and its text is no copy of a
-    clue the puzzle already has."""
+    clue the puzzle already has. A light whose clue text is there but suspect
+    (ocr_clues.suspect: a misread word) is read the same way and its text
+    replaced, only when the column read gives exactly one clue of its number
+    on the page's list (not twice, over its columns) and that clue is not
+    itself suspect."""
     import vlm_reader as vlm
     read_all = read_all or vlm.read_all
     out = {}
@@ -219,11 +229,14 @@ def fill_columns(puzzle, pages, read_all=None):
         return {(str(e["number"]), e["direction"]): e for e in puzzle["entries"]
                 if not (e["clue"].get("text") or "").strip() and e["clue"].get("missing") and "text" in e["clue"]}
 
+    def unfit():
+        return {(str(e["number"]), e["direction"]): e for e in puzzle["entries"] if suspect_text(e)}
+
     def numbered(cols):
         return sum(bool(al.LINE_CLUE.match(ln[4])) for c in cols for ln in c)
 
     for img, words, laid in pages:
-        want = unclued()
+        want = {**unfit(), **unclued()}
         if not want:
             break
         best = None
@@ -239,11 +252,15 @@ def fill_columns(puzzle, pages, read_all=None):
                 replies = read_all([vlm.crop(img, b) for b in column_boxes(img, lines)])
             except RuntimeError:
                 return out
-            for reply in replies:
-                got = clues_in(sections(reply, way))
+            gots = [clues_in(sections(reply, way)) for reply in replies]
+            for got in gots:
                 for n, e in mine.items():
                     c = got.get(n)
                     if c is None or c[1] != e["length"] or not re.search(r"[A-Za-z]{2}", c[0]):
+                        continue
+                    # Text there but misread: only a column read that names its number once, in a text
+                    # that checks out, takes its place.
+                    if suspect_text(e) and (sum(n in g for g in gots) != 1 or ocr_clues.suspect(c[0])):
                         continue
                     others = [letters(o["clue"]["text"]) for o in puzzle["entries"]
                               if o is not e and (o["clue"].get("text") or "").strip()]
@@ -279,7 +296,7 @@ def fill(puzzle, pages, read_all=None):
     def lacking():
         return [e for e in puzzle["entries"] if not (e["clue"].get("text") or "").strip() and e["clue"].get("missing")
                 and "text" in e["clue"]]
-    if not lacking():
+    if not lacking() and not (COLUMNS and any(suspect_text(e) for e in puzzle["entries"])):
         return {}
     out = fill_columns(puzzle, pages, read_all) if COLUMNS else {}
     missing = lacking()

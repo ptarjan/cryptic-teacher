@@ -81,5 +81,30 @@ words = lgaps.clues_in(["1. English town (15, hyphens). 2. Sounds a question (7,
                         " 4. Three words (3, 4, five)"])
 check("words printed with a count are no part of it", [(15, "15"), (7, "7"), (7, "7")],
       [words[k][1:] for k in ("1", "2", "3")])
+# A clue text that is there but suspect (a digit inside a word) is replaced by the column read's clue of the
+# same number when its count is the light's length and the reply names that number once.
+def entry_text(n, way, length, text):
+    return {"number": n, "direction": way, "length": length, "clue": {"text": text, "enumeration": str(length)}}
+
+
+puzzle = {"entries": [entry_text(3, "across", 4, "Ruined by the g8te"), entry_text(5, "across", 5, "Another cl1ue"),
+                      entry_text(1, "down", 4, "Cat food")]}
+check("a suspect text is flagged, a plain one not", [True, True, False], [lgaps.suspect_text(e) for e in puzzle["entries"]])
+asks.clear()
+got = lgaps.fill_columns(puzzle, pages, read_all)
+by = {f"{e['number']}-{e['direction']}": e["clue"] for e in puzzle["entries"]}
+check("a suspect text takes the column read's clue of its number and count", "Ruined by the gate", by["3-across"]["text"])
+check("both suspect lights replaced, the plain one kept", {"3-across": "column", "5-across": "column"}, got)
+check("a plain clue is never replaced", "Cat food", by["1-down"]["text"])
+
+puzzle = {"entries": [entry_text(3, "across", 5, "Ruined by the g8te")]}
+lgaps.fill_columns(puzzle, pages, read_all)
+check("a suspect text stays when the count is not the light's length", "Ruined by the g8te", puzzle["entries"][0]["clue"]["text"])
+
+puzzle = {"entries": [entry_text(3, "across", 4, "Ruined by the g8te")]}
+gl.page_columns = lambda words: [across + [line(220, "9. Spare (3)", 500)], []] if words else None
+two = ["ACROSS\n3. Ruined by the gate (4)", "ACROSS\n3. Ruined by a gate (4)"]
+lgaps.fill_columns(puzzle, pages, lambda crops: two[:len(crops)])
+check("a number the column read gives twice leaves a suspect text", "Ruined by the g8te", puzzle["entries"][0]["clue"]["text"])
 gl.page_columns = gl_page_columns
 sys.exit(1 if fails else 0)
