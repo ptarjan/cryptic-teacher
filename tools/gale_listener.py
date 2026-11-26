@@ -2595,7 +2595,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     number than it now matches is dropped (disown)."""
     import scan_queue
     entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "flipFix": FLIP_FIX, "headFix": HEAD_FIX,
-             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX, "lostFix": LOST_FIX,
+             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX, "lostFix": LOST_FIX, "fillFix": FILL_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2793,7 +2793,8 @@ def plan(inbox=SAVED, store=STORE):
                                  or (p.name in gap_fix_names() and (row or {}).get("gapFix", 0) < GAP_FIX)
                                  or (p.name in col_fix_names() and (row or {}).get("colFix", 0) < COL_FIX)
                                  or (p.name in sus_fix_names() and (row or {}).get("susFix", 0) < SUS_FIX)
-                                 or (p.name in lost_fix_names() and (row or {}).get("lostFix", 0) < LOST_FIX))
+                                 or (p.name in lost_fix_names() and (row or {}).get("lostFix", 0) < LOST_FIX)
+                                 or (p.name in fill_fix_names() and (row or {}).get("fillFix", 0) < FILL_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -3090,6 +3091,26 @@ def lost_fix_names():
     return _LOST_FIX_NAMES
 
 
+#: Bumped when listener_gaps.fill_columns reads a column transcription that numbers its clues "(23) text" and, in a
+#: list that prints no counts, takes a clue whose words the page's own readers read (in_page) in place of the count.
+#: Only the pages of the numbers it makes whole (tools/data/listener_fill_clues.json, found on the cached
+#: transcriptions: no filed puzzle's) are read again.
+FILL_FIX = 1
+FILL_FIX_FILE = ROOT / "tools" / "data" / "listener_fill_clues.json"
+_FILL_FIX_NAMES = None
+
+
+def fill_fix_names():
+    """The saved pages' names FILL_FIX changes (a committed list nothing writes)."""
+    global _FILL_FIX_NAMES
+    if _FILL_FIX_NAMES is None:
+        try:
+            _FILL_FIX_NAMES = frozenset(json.loads(FILL_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _FILL_FIX_NAMES = frozenset()
+    return _FILL_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
     VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
@@ -3103,7 +3124,8 @@ def current(p, row):
             and not (row.get("gapFix", 0) < GAP_FIX and p.name in gap_fix_names())
             and not (row.get("colFix", 0) < COL_FIX and p.name in col_fix_names())
             and not (row.get("susFix", 0) < SUS_FIX and p.name in sus_fix_names())
-            and not (row.get("lostFix", 0) < LOST_FIX and p.name in lost_fix_names()))
+            and not (row.get("lostFix", 0) < LOST_FIX and p.name in lost_fix_names())
+            and not (row.get("fillFix", 0) < FILL_FIX and p.name in fill_fix_names()))
 
 
 def due_reason(row):

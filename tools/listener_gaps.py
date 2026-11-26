@@ -175,6 +175,20 @@ def sections(reply, way):
 INLINE_CLUE = re.compile(r"(?<=\))\.?\s+(?=\d{1,2}\.\s+[A-Z\"'‘“])")
 
 
+#: A clue number the model set in brackets, "(23) 'A gentleman ...'", for the page's "23." (a list whose
+#: numbers it reads as counts): a bracketed figure before a capital or a quote opens a clue.
+PAREN_NUMBER = re.compile(r"(?:^|(?<=\s))\((\d{1,2})\)\s+(?=[A-Z\"'‘“])")
+
+
+def parenthesised(lines):
+    """`lines` with each bracketed clue number turned into "N. ", on a line of its own, when the
+    transcription numbers its clues that way (clues_in's reading of lines that open "N.")."""
+    text = " ".join(lines)
+    if len(PAREN_NUMBER.findall(text)) < 3:
+        return lines
+    return [part.strip() for part in PAREN_NUMBER.sub(lambda m: f"\n{m.group(1)}. ", text).split("\n") if part.strip()]
+
+
 def clues_in(lines):
     """{number: parsed()'s (text, count, printed count)} of the clues the
     transcribed `lines` number. A clue runs on over the lines up to the next
@@ -187,6 +201,8 @@ def clues_in(lines):
     # followed by a number and a capital opens a new clue there (only after a count: the
     # figures a clue's own words hold do not split it).
     lines = [part for ln in lines for part in INLINE_CLUE.split(ln)]
+    if sum(bool(al.LINE_CLUE.match(ln)) for ln in lines) < 3:
+        lines = parenthesised(lines)
     for ln in lines:
         m = al.LINE_CLUE.match(ln)
         if m and int(m.group(1)) > last:
@@ -206,6 +222,14 @@ def suspect_text(e):
     """Whether light `e` has clue text that ocr_clues.suspect flags (a misread word), not a blank."""
     c = e["clue"]
     return bool((c.get("text") or "").strip() and ocr_clues.suspect(c["text"], printed=c.get("asPrinted") or ()))
+
+
+def in_page(text, words):
+    """Whether AGREE of the words of `text` (3+ letters) are words some OCR reading of the page has."""
+    seen = {letters(w[4]) for ws in words.values() for w in ws}
+    seen |= {x for w in list(seen) for x in re.split(r"\W+", w) if x}
+    mine = [letters(w) for w in text.split() if len(letters(w)) >= 3]
+    return bool(mine) and sum(w in seen for w in mine) >= AGREE * len(mine)
 
 
 def fill_columns(puzzle, pages, read_all=None):
@@ -256,7 +280,14 @@ def fill_columns(puzzle, pages, read_all=None):
             for got in gots:
                 for n, e in mine.items():
                     c = got.get(n)
-                    if c is None or c[1] != e["length"] or not re.search(r"[A-Za-z]{2}", c[0]):
+                    if c is None or not re.search(r"[A-Za-z]{2}", c[0]):
+                        continue
+                    # A list that prints no counts (no clue of the column read has one) cannot check a clue by its
+                    # count: the words the model read must be words the page's own readers read.
+                    if c[1] is None and not any(v[1] for g in gots for v in g.values()):
+                        if not in_page(c[0], words):
+                            continue
+                    elif c[1] != e["length"]:
                         continue
                     # Text there but misread: only a column read that names its number once, in a text
                     # that checks out, takes its place.

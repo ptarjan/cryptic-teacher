@@ -15,4 +15,8 @@ STANDS = {
     # took these pins: the same image bytes, cache name, reduction and words (tests/test_read_words_planes.py).
     "e4203a9eabd54183": "d585db93f7b3d46e",  # listener_grid's GRID_CODE: ~11,700 Listener pages' grids
     "bb25f3e31f03d90a": "445be7454385737b",  # file_gale_listener's join_key
+    # listener_gaps.fill_columns reads "(23) text" columns and takes a clue in a countless list by the page's own
+    # words (FILL_FIX): only the pages of tools/data/listener_fill_clues.json move; refused numbers elsewhere
+    # are not rejoined (their cached transcriptions are read again by a page's own reread).
+    "234ea287bf880305": "445be7454385737b",  # file_gale_listener's join_key
 }
