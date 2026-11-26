@@ -21,8 +21,9 @@ it takes the taut string (the lowest top rate), uses the most slots whose top
 rate the memory cap can spend, and paces to the first window's fill, moved out
 of the owner's predicted night: tools/awake.py learns it from the times of his own
 messages (23:00-07:00 Pacific when they are too few), and a message in the last
-75 minutes says he is up now. Unless the meter is due full before his bedtime,
-the burn is capped (overnight_cap) so that the bridge alone, at 1.5 times its
+75 minutes says he is up now. Unless the meter is due full before his bedtime
+(the plan's fill, or when rushing the fill a flat-out burn reaches, since a meter
+full while he is awake ends in a reset he is up to press), the burn is capped (overnight_cap) so that the bridge alone, at 1.5 times its
 rate, could not take the meter past EXHAUSTED before he wakes: nothing locks
 him out asleep. At RUSH_SPENT with a slot free it wakes the room once (held
 until he is up) so he resets. The rates and the bridge's spend are in weekly
@@ -551,16 +552,22 @@ def natural_only(text, now):
         return False
 
 
-def night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural=False):
+def night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural=False, reach=None):
     """(overnight_cap's runs, the epoch it guards to) unless the meter is due
     full (the plan's fill, else the reset) by the owner's next bedtime; None then
     or when the meter is unread. `natural`: the target is the natural reset,
-    which needs no owner, so nothing holds the meter back for his sleep."""
+    which needs no owner, so nothing holds the meter back for his sleep.
+    `reach`: the points an hour a flat-out burn spends (rushing); the meter then
+    fills when it can, not when the plan paces it, and a fill before his bedtime
+    ends in a reset he is awake to press, so the hours up to it need no cap."""
     if natural or pct is None or hours_left is None or hours_left <= 0 or not rate:
         return None
     until = now + hours_left * 3600
     bed, up = awake.next_sleep(now, sleep)
-    if (plan[1] if plan and plan[0] else until) <= bed:
+    fill = plan[1] if plan and plan[0] else until
+    if reach and reach > 0:
+        fill = min(fill, now + max(0.0, EXHAUSTED - pct) / reach * 3600)
+    if fill <= bed:
         return None
     end = min(up, until)
     runs = overnight_cap(pct, now, end, rate, bridge, bed)
@@ -1184,7 +1191,8 @@ def show_resets():
     sleep = awake.load(home, now)
     k, fill, need_rate = reset_plan(pct, now, until, slots, cap, sleep)
     night = night_guard(pct, now, hours_left, (k, fill, need_rate), rate, bridge, sleep,
-                        natural and k == 0)
+                        natural and k == 0,
+                        cap if rush_active(_read(home / RUSH), pct, now) else None)
     def at(t):
         return f"{dt.datetime.fromtimestamp(t, PACIFIC):%a %m-%d %H:%M} Pacific"
     tally = (f"{anchor} of {MANUAL_RESETS} manual resets left (owner's count)" if anchor is not None
@@ -1303,7 +1311,8 @@ def width(arg=None, floor=1):
                     f"The burn resumes by itself once it falls.", sleep)
         proj = bridge_mean(home, now, bridge)
         runs_needed = paced_need(pct, aim_h, rate, proj or 0.0)
-        night = night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural)
+        night = night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural,
+                            capacity_rate(mem, rate, bridge) if rushing else None)
         if night is not None and runs_needed is not None and night[0] < runs_needed:
             runs_needed = night[0]
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
@@ -1740,6 +1749,12 @@ GUARD_CASES = [
     # 15h read 107% and 0 runs; 1x until 22:30 and 1.5x after leaves 10.3 points, 2 runs
     ((24, NOON, 15, (0, NOON + 15 * 3600, 5.0), 0.3, 3.6, LEARNED), (2, NOON + 15 * 3600)),
     ((None, NOON, 15, None, 0.5, 1.0, LEARNED), None),
+    # rushing at noon, 60%, the plan paced to fill at 07:00 tomorrow: flat out at 10 pts/h the
+    # meter is full in 3.8h, long before his 22:30 bedtime, so no cap...
+    ((60, NOON, 60, (1, MON22 + 9 * 3600, 4.0), 0.5, 1.0, LEARNED, False, 10.0), None),
+    # ...but at 2 pts/h it cannot be, and the cap holds as without a rush
+    ((60, NOON, 60, (1, MON22 + 9 * 3600, 4.0), 0.5, 1.0, LEARNED, False, 2.0),
+     (1, MON22 + 8.5 * 3600)),
 ]
 
 
