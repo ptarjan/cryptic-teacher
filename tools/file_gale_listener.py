@@ -184,12 +184,31 @@ def lights_fit(rows, clues):
     return "; ".join(parts) or None
 
 
+def unread(rows, fit, clues):
+    """(clues, notes): `clues` with a blank clue ({"text": ""}, which listener_gaps
+    reads again from the page's columns) laid on each light of `rows` the
+    list names no clue for, where the page itself prints its number: both
+    readers of the cell numbers read, at the light's start cell, the
+    number it carries (fit "printed"). The grid is then the page's, its
+    numbering confirmed on that very light, and the clue is a line the
+    reading lost. A light the numbers do not confirm stays unclued, and
+    refuses the grid (lights_fit)."""
+    printed = {(y, x): n for y, x, n in fit.get("printed") or ()}
+    clues, notes = dict(clues), {}
+    for (n, d), cells in rg.light_cells(rows).items():
+        lid = f"{n}-{d}"
+        if lid not in clues and printed.get(cells[0]) == n:
+            clues[lid] = {"text": ""}
+            notes[lid] = "no clue read: its number is printed at its start"
+    return clues, notes
+
+
 def number_of(lid):
     n, d = lid.split("-")
     return int(n), d
 
 
-def mended(rows, clues, theme=None):
+def mended(rows, clues, theme=None, lenient=False):
     """(clues, notes): the clue list (`clues` {light id: {"text", ...}}) laid
     on the grid's lights where the page itself is wrong or read twice;
     `notes` {light id: what was done}. Each mend needs the page's own word:
@@ -204,7 +223,12 @@ def mended(rows, clues, theme=None):
         clue is "missing" with no text;
       - so is a light no clue names that the page's theme line (`theme`,
         the reading's verdict "theme": themed) names, No 447's CANVAS
-        lights, which the theme line clues and no list does."""
+        lights, which the theme line clues and no list does.
+    `lenient` (join_one's second pass, once no grid fits the list as it is
+    read) adds two mends of a page whose reading lost lines: a clue read
+    under the other direction's heading whose number is the one unclued light
+    of that number there, and as many misread numbers as lights lacking a
+    clue in a direction, the k-th of each in the list's order."""
     have = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
     clues, notes = linked_across(have, dict(clues))
     text = {lid: " ".join((c.get("text") or "").split()).lower() for lid, c in clues.items()}
@@ -213,19 +237,37 @@ def mended(rows, clues, theme=None):
         if twin:
             del clues[lid]
             notes[lid] = f"read twice: {twin}'s text"
+    # A clue the list set under the other direction's heading: its number is
+    # no light's here and is the number of a light of the other direction no
+    # clue is read for (No 23's last across clue, "38 Initials of a
+    # well-known author", is read among the downs). The number is the page's
+    # word, so it is taken only where the one light of that number lacks its
+    # clue and the clue's count, where it prints one, is that light's.
+    for lid in sorted(set(clues) - set(have), key=order) if lenient else ():
+        n, d = number_of(lid)
+        twin = f"{n}-{'down' if d == 'across' else 'across'}"
+        enum = clues[lid].get("enumeration")
+        if (text.get(lid) and twin in have and twin not in clues
+                and not (enum and gl.al.ftp.count(enum) != have[twin])):
+            clues[twin] = clues.pop(lid)
+            notes[twin] = f"read under the {d} heading: printed as {lid}"
     for d in ("across", "down"):
         spare = [lid for lid in clues if lid not in have and text.get(lid) and lid.endswith("-" + d)]
         bare = [lid for lid in have if lid not in clues and lid.endswith("-" + d)]
-        if len(spare) != 1 or len(bare) != 1:
+        # As many numbers misread as lights lacking a clue: the k-th spare
+        # (in the list's order) is the k-th bare light's, each pair held to
+        # the one-pair rules below (no clue on a light between them).
+        if len(spare) != (len(bare) if lenient else 1) or len(bare) != (len(spare) if lenient else 1):
             continue
-        (s, _), (u, _) = number_of(spare[0]), number_of(bare[0])
-        between = [lid for lid in clues if lid in have and lid.endswith("-" + d)
-                   and min(s, u) < number_of(lid)[0] < max(s, u)]
-        enum = clues[spare[0]].get("enumeration")
-        if between or (enum and gl.al.ftp.count(enum) != have[bare[0]]):
-            continue
-        clues[bare[0]] = clues.pop(spare[0])
-        notes[bare[0]] = f"printed as {spare[0]}"
+        for spare_id, bare_id in zip(sorted(spare, key=order), sorted(bare, key=order)):
+            (s, _), (u, _) = number_of(spare_id), number_of(bare_id)
+            between = [lid for lid in clues if lid in have and lid.endswith("-" + d)
+                       and min(s, u) < number_of(lid)[0] < max(s, u)]
+            enum = clues[spare_id].get("enumeration")
+            if between or (enum and gl.al.ftp.count(enum) != have[bare_id]):
+                continue
+            clues[bare_id] = clues.pop(spare_id)
+            notes[bare_id] = f"printed as {spare_id}"
     # A clue with words numbered past the grid's last light (the highest number
     # any light starts at) is not the list's: a puzzle's lights number
     # 1..last, so what is read after them is the page's own noise, the
@@ -934,16 +976,19 @@ def report_copy(puzzle, words):
 def join(reading, grids, reports, read_letters, read_probs=None, read_strips=None, ask=None):
     """_join of the grids as read (and by their unsure bars); only when no cut,
     alone or together, joins on them, _join again with the wide bar flips
-    (wide_flips): a flip set must not stand in for a cut's clues left unread
-    (a reading with no Across list made whole by barring its lights away)."""
-    got = _join(reading, grids, reports, read_letters, read_probs, read_strips, ask, (False,))
-    if got[0] is not None:
-        return got
-    wide = _join(reading, grids, reports, read_letters, read_probs, read_strips, ask, (True,))
-    return wide if wide[0] is not None else got
+    (wide_flips), and last with the reading's list read as one that lost
+    lines (lenient): neither may stand in for a cut's clues left unread (a
+    reading with no Across list made whole by barring its lights away)."""
+    got = None
+    for stages, lenients in (((False,), (False,)), ((True,), (False,)), ((False,), (True,))):
+        tried = _join(reading, grids, reports, read_letters, read_probs, read_strips, ask, stages, lenients)
+        if tried[0] is not None:
+            return tried
+        got = got or tried
+    return got
 
 
-def _join(reading, grids, reports, read_letters, read_probs, read_strips, ask, stages):
+def _join(reading, grids, reports, read_letters, read_probs, read_strips, ask, stages, lenients):
     """join_one of the reading's clues, else of the first of its
     "alternatives" (a Times page's other cuts, gale_listener.times_read)
     whose lights are the grid's and whose clues all read (reads_whole), its
@@ -951,14 +996,15 @@ def _join(reading, grids, reports, read_letters, read_probs, read_strips, ask, s
     them ("alternative": {light id: cut}). No 3121's down list set above its
     headings reads its top only from the title down, No 3120's lists read
     only from the headings."""
-    got = join_one(reading, grids, reports, read_letters, read_probs, read_strips, ask, stages)
-    alts = reading.get("alternatives") or () if got[0] is None else ()
+    got = join_one(reading, grids, reports, read_letters, read_probs, read_strips, ask, stages, lenients)
+    # A join of the lenient pass (the list read as one that lost lines) is the last resort: the cuts are tried first.
+    alts = reading.get("alternatives") or () if got[0] is None or got[1].get("lenient") else ()
     # An alternative whose lights are the grid's but whose clues are not all read (No 3181's title cut,
     # its 18 Across and 27 Down unread there, read in the reading) goes behind the cuts read together.
     fallback = None
     for alt in alts:
         tried = join_one({**reading, "clues": alt["clues"]}, grids, reports, read_letters, read_probs, read_strips,
-                         ask, stages)
+                         ask, stages, (False,))
         if tried[0] is not None:
             tried[1]["alternative"] = alt["cut"]
             if reads_whole(tried[0]):
@@ -974,7 +1020,7 @@ def _join(reading, grids, reports, read_letters, read_probs, read_strips, ask, s
             if alt := next((a for a in alts if ((a["clues"].get(lid) or {}).get("text") or "").strip()), None):
                 clues[lid], took[lid] = alt["clues"][lid], alt["cut"]
         if took and (tried := join_one({**reading, "clues": clues}, [g], reports, read_letters, read_probs,
-                                       read_strips, ask, stages))[0] is not None:
+                                       read_strips, ask, stages, (False,)))[0] is not None:
             tried[1]["alternative"] = took
             if fallback is None or reads_whole(tried[0]):
                 return tried
@@ -989,7 +1035,7 @@ def reads_whole(puzzle):
 
 
 def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips=None, ask=None,
-             stages=(False, True)):
+             stages=(False, True), lenients=(False, True)):
     """(puzzle or None, verdict, the report's copy or None) for one reading: `grids` the unfilled
     grids read on its pages ({"grid", "fit"}), `reports` every filled grid
     on any saved page ({"grid", "page"}), read_letters(report, lts) its
@@ -1015,38 +1061,48 @@ def join_one(reading, grids, reports, read_letters, read_probs=None, read_strips
     whys = []
     # A grid that fits the clue list as read, or by an unsure bar, is the page's;
     # only when none does are the wide flips (wide_flips) tried on each.
-    # `stages` picks the passes (join tries the wide one only after every cut).
-    for wide, g in [(wide, g) for wide in stages for g in exact + judged]:
-        fit = g["fit"]
-        page, shifted, why = unstrayed(g["fit"], renumbered(g["fit"], clues))
-        rows = sides = None
-        if page is not None:
-            def lay(rows, fit=g["fit"], page=page, shifted=shifted):
-                # The page's own errors are mended on the fitted grid: a faint
-                # bar flipped must fit the list as mended there. A page
-                # numbering its lights as printed is read again on each grid.
-                got = as_page(rows if fit.get("numbering") == "printed" else fit["rows"], fit, page)
-                if got is None:
-                    return None
-                laid, notes = mended(rows if fit.get("numbering") == "printed" else fit["rows"], got[0], theme)
-                return laid, {**shifted, **got[1], **notes}
+    # Where none does, the same again with the clue list read as a page that lost lines
+    # (lenient: mended's wrong-heading and k-for-k number mends, unread's blank clues).
+    # `stages` and `lenients` pick the passes (join tries each only after every cut fails the one before).
+    for lenient in lenients:
+        for wide, g in [(wide, g) for wide in stages if not (wide and lenient) for g in exact + judged]:
+            fit = g["fit"]
+            page, shifted, why = unstrayed(g["fit"], renumbered(g["fit"], clues))
+            rows = sides = None
+            if page is not None:
+                def lay(rows, fit=g["fit"], page=page, shifted=shifted, lenient=lenient):
+                    # The page's own errors are mended on the fitted grid: a faint
+                    # bar flipped must fit the list as mended there. A page
+                    # numbering its lights as printed is read again on each grid.
+                    got = as_page(rows if fit.get("numbering") == "printed" else fit["rows"], fit, page)
+                    if got is None:
+                        return None
+                    on = rows if fit.get("numbering") == "printed" else fit["rows"]
+                    laid, notes = mended(on, got[0], theme, lenient)
+                    laid, lost = unread(on, fit, laid) if lenient else (laid, {})
+                    return laid, {**shifted, **got[1], **notes, **lost}
 
-            rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay, wide)
-            if not rows and not mends and not wide and (got := lay(g["fit"]["rows"])):
-                skip, note = skipped(g["fit"]["rows"], got[0])
-                if skip and lights_fit(g["fit"]["rows"], skip) is None:
-                    rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
-        if not rows and not wide and g["fit"]["exact"] and (got := as_read(g, clues, theme) or closed_as_read(g, clues, theme)):
-            fit, (rows, laid, notes), sides = got, got["laid"], []
-        if rows:
-            clues = laid
-            reading = {**reading, "clues": laid}
-            break
-        if not wide:
-            whys.append(why)
+                rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay, wide)
+                if not rows and not mends and not wide and (got := lay(g["fit"]["rows"])):
+                    skip, note = skipped(g["fit"]["rows"], got[0])
+                    if skip and lights_fit(g["fit"]["rows"], skip) is None:
+                        rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
+            if not rows and not wide and g["fit"]["exact"] and (got := as_read(g, clues, theme) or closed_as_read(g, clues, theme)):
+                fit, (rows, laid, notes), sides = got, got["laid"], []
+            if rows:
+                clues = laid
+                reading = {**reading, "clues": laid}
+                break
+            if not wide and not lenient:
+                whys.append(why)
+        else:
+            continue
+        break
     else:
         verdict["lacks"] = "grid: " + ("no exact fit to the printed numbers" if not exact else "; ".join(whys[:len(exact)]))
         return None, verdict, None
+    if lenient:
+        verdict["lenient"] = True
     if not fit["exact"]:
         verdict["numbersMisread"] = [list(c) for c in fit["disagree"]]
     if sides:

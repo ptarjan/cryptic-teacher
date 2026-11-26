@@ -2595,7 +2595,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     number than it now matches is dropped (disown)."""
     import scan_queue
     entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "flipFix": FLIP_FIX, "headFix": HEAD_FIX,
-             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX,
+             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX, "lostFix": LOST_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2792,7 +2792,8 @@ def plan(inbox=SAVED, store=STORE):
                                  or (p.name in head_fix_names() and (row or {}).get("headFix", 0) < HEAD_FIX)
                                  or (p.name in gap_fix_names() and (row or {}).get("gapFix", 0) < GAP_FIX)
                                  or (p.name in col_fix_names() and (row or {}).get("colFix", 0) < COL_FIX)
-                                 or (p.name in sus_fix_names() and (row or {}).get("susFix", 0) < SUS_FIX))
+                                 or (p.name in sus_fix_names() and (row or {}).get("susFix", 0) < SUS_FIX)
+                                 or (p.name in lost_fix_names() and (row or {}).get("lostFix", 0) < LOST_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -3061,6 +3062,28 @@ def sus_fix_names():
     return _SUS_FIX_NAMES
 
 
+#: Bumped when the join (file_gale_listener.join_one's lenient pass) lays a clue list that lost lines on an exact grid: a
+#: clue read under the other direction's heading goes to the light of its number, k misread numbers to the k lights lacking
+#: a clue, and a light the clue list lacks whose number the page prints at its start (both cell readers) is a blank clue for
+#: listener_gaps to read. Only the pages of the numbers the fix joins (tools/data/listener_lost_lines.json, found by joining
+#: the refused readings fix-off and fix-on on the cached grids, the 67 that join with the fewest blank clues: no filed
+#: puzzle's) are read again.
+LOST_FIX = 1
+LOST_FIX_FILE = ROOT / "tools" / "data" / "listener_lost_lines.json"
+_LOST_FIX_NAMES = None
+
+
+def lost_fix_names():
+    """The saved pages' names LOST_FIX changes (a committed list nothing writes)."""
+    global _LOST_FIX_NAMES
+    if _LOST_FIX_NAMES is None:
+        try:
+            _LOST_FIX_NAMES = frozenset(json.loads(LOST_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _LOST_FIX_NAMES = frozenset()
+    return _LOST_FIX_NAMES
+
+
 def current(p, row):
     """Whether the saved page `p`, last ledgered `row`, is read at this
     VERSION, and a Times page's under these TIMES_CUTS, and (a page LIST_FIX
@@ -3073,7 +3096,8 @@ def current(p, row):
             and not (row.get("headFix", 0) < HEAD_FIX and p.name in head_fix_names())
             and not (row.get("gapFix", 0) < GAP_FIX and p.name in gap_fix_names())
             and not (row.get("colFix", 0) < COL_FIX and p.name in col_fix_names())
-            and not (row.get("susFix", 0) < SUS_FIX and p.name in sus_fix_names()))
+            and not (row.get("susFix", 0) < SUS_FIX and p.name in sus_fix_names())
+            and not (row.get("lostFix", 0) < LOST_FIX and p.name in lost_fix_names()))
 
 
 def due_reason(row):

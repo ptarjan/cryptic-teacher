@@ -91,6 +91,27 @@ far = {k: v for k, v in named.items() if k != "7-across"} | {"2-across": {"text"
 got, notes = f.mended(OPEN, far)
 check("not where a clued light lies between them (mirror)", ({}, "no light for 2-across; no clue for 7-across"),
       (notes, f.lights_fit(OPEN, got)))
+# join_one's lenient pass: the list of a page that lost lines.
+heading = {k: v for k, v in named.items() if k != "4-down"} | {"4-across": {"text": "read among the across clues"}}
+got, notes = f.mended(OPEN, heading, None, True)
+check("lenient: a clue under the wrong heading goes to the one light of its number (No 23's 38)",
+      (None, ["4-down"], "read among the across clues"), (f.lights_fit(OPEN, got), list(notes), got["4-down"]["text"]))
+got, notes = f.mended(OPEN, heading)
+check("and not in the first pass (mirror: filed puzzles join as they did)", ({}, "no light for 4-across; no clue for 4-down"),
+      (notes, f.lights_fit(OPEN, got)))
+across = [lid for lid in lids if lid.endswith("-across")]
+twin = {k: v for k, v in named.items() if k not in across[:2]} | {"3-across": {"text": "a"}, "4-across": {"text": "b"}}
+got, notes = f.mended(OPEN, twin, None, True)
+check("lenient: two misread numbers go to the two bare lights in the list's order",
+      (None, sorted(across[:2])), (f.lights_fit(OPEN, got), sorted(notes)))
+got, notes = f.mended(OPEN, twin)
+check("not in the first pass, which wants one spare and one bare (mirror)", {}, notes)
+short = {k: v for k, v in named.items() if k != "4-down"}
+got, lost = f.unread(OPEN, {"printed": [(*lts[(4, "down")][0], 4)]}, short)
+check("a light with no clue is a blank clue where both readers print its number at its start",
+      (None, ["4-down"], ""), (f.lights_fit(OPEN, got), sorted(lost), got["4-down"]["text"]))
+got, lost = f.unread(OPEN, {"printed": [(*lts[(4, "down")][0], 5)]}, short)
+check("not where they print another number there (mirror)", ({}, "no clue for 4-down"), (lost, f.lights_fit(OPEN, got)))
 cite = {k: v for k, v in named.items() if k != "4-down"} | {"2-down": {"text": "Wonderful 4."}}
 got, notes = f.mended(OPEN, cite)
 check("a light other clues cite is printed with no clue", (None, {"4-down": "printed with no clue: other clues cite it"}),
