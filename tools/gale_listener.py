@@ -2812,6 +2812,12 @@ def clues_left(row, reason):
     return float("inf")
 
 
+def plan_rejoin(store=STORE, inbox=SAVED):
+    """edition_queue's rejoin unit while refused numbers wait on changed join code (file_gale_listener.plan_rejoin)."""
+    import file_gale_listener
+    return file_gale_listener.plan_rejoin(store, inbox)
+
+
 def rank_of(reason):
     """A plan reason's rank: fa.RANKS', "version changed" a blanket re-read."""
     return fa.BLANKET if reason == "version changed" else fa.RANKS[reason]

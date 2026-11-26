@@ -651,4 +651,27 @@ rows_of = {"a": {"file": "a.pdf", "number": 5}, "b": {"file": "b.pdf", "number":
            "d": {"file": "gone.pdf", "number": 6}}
 check("the pages joined for No 5 are No 5's to REPORT_WITHIN on, of those saved",
       ["a", "b"], [sha for sha, _ in f.joined_pages(rows_of, {"a.pdf": 1, "b.pdf": 1, "c.pdf": 1}, {5})])
+# The queue's rejoin unit: planned while a refused number is stale under join_key(), cached between filed.json
+# changes, and gone once nothing is stale.
+rstore = tmp / "rejoin-store"
+rstore.mkdir()
+(rstore / f.LEDGER).write_text(json.dumps({"7": {"lacks": "a clue", "joinKey": "old"}}))
+real_stale, real_rejoin, calls = f.stale_refused, f.rejoin_refused, []
+f.stale_refused = lambda store, inbox, limit=1: calls.append(limit) or [7]
+f._rejoin_seen.clear()
+units = f.plan_rejoin(rstore, tmp, now=0.0)
+check("a stale refused number plans one rejoin unit", [f.REJOIN_PREFIX + "refused"], [u["rel"] for u in units])
+f.plan_rejoin(rstore, tmp, now=1.0)
+check("the plan is cached between plans", 1, len(calls))
+f.plan_rejoin(rstore, tmp, now=f.REJOIN_PLAN_SECONDS + 5)
+check("the cache lapses", 2, len(calls))
+f.stale_refused = lambda store, inbox, limit=1: []
+f._rejoin_seen.clear()
+check("no stale number, no unit", [], f.plan_rejoin(rstore, tmp, now=0.0))
+check("no ledger, no unit", [], f.plan_rejoin(tmp / "nowhere", tmp, now=0.0))
+f.rejoin_refused = lambda store, inbox, out=None: [7]
+check("the unit reads when it rejoined a number", "read", f.rejoin_unit("rejoin:refused", rstore, tmp, out=io.StringIO()))
+f.rejoin_refused = lambda store, inbox, out=None: []
+check("the unit is current when none was stale", "current", f.rejoin_unit("rejoin:refused", rstore, tmp, out=io.StringIO()))
+f.stale_refused, f.rejoin_refused = real_stale, real_rejoin
 sys.exit(1 if fails else 0)

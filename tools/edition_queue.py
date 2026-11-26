@@ -404,6 +404,9 @@ def run_unit(unit, cache, puzzles, reread):
         import gale_jumbo_read as jumbo  # a unit process exits before the queue's own imports
         import gale_tls_read as tls
         import gale_mephisto_read as mephisto
+        if unit["rel"].startswith("rejoin:"):  # file_gale_listener.REJOIN_PREFIX
+            import file_gale_listener
+            return file_gale_listener.rejoin_unit(unit["rel"])
         if unit["rel"].startswith(mephisto.PREFIX):
             return mephisto.read_unit(unit["rel"])
         if unit["rel"].startswith(jumbo.PREFIX):
@@ -1466,7 +1469,7 @@ def plan_inputs(papers, cache, reread, asked):
         stamps[k] = None if stamp is None else (stamp, ledger_held(fa.ledger_of(cache, paper)))
     extra = {}
     if "listener" in papers:
-        extra["listener"] = gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()
+        extra["listener"] = gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan() + gale_listener.plan_rejoin()
     if "trove" in papers:
         led = media_manifest.trove_ledger(ftp.CACHE)
         trove_held = ledger_held(led)
@@ -1521,7 +1524,7 @@ def _plan(papers, cache, reread, out, asked=None):
         took[key] = time.monotonic()
         if key == "listener":
             reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
-                      for n, u in enumerate(gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan()) if blanket or evidence_reason(u["reason"])]
+                      for n, u in enumerate(gale_mephisto_read.plan() + gale_jumbo_read.plan() + gale_tls_read.plan_back() + gale_tls_read.plan() + gale_listener.plan() + gale_listener.plan_rejoin()) if blanket or evidence_reason(u["reason"])]
             continue
         if key == "trove":
             led = media_manifest.trove_ledger(ftp.CACHE)
@@ -2222,6 +2225,8 @@ def ordered_by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=fro
     listener_order = back_first(listener_order, gale_tls_read.BACK_PREFIX)
     # The Sunday Times Mephisto pages (gale_mephisto_read, "mephisto:NAME", ~185 so far, the fetch still adding) lead.
     listener_order = back_first(listener_order, gale_mephisto_read.PREFIX)
+    # The rejoin unit (refused numbers joined again on changed join code, saved readings only) leads: one small unit.
+    listener_order = back_first(listener_order, "rejoin:")
     others = [u for *_, u in units if u.get("paper") != "listener"]
     # Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest
     # priority". The named papers' solution rereads (answers-only work, few or no VLM asks) go first of

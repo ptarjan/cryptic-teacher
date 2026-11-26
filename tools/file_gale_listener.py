@@ -1670,6 +1670,45 @@ def rejoin_refused(store=gl.STORE, inbox=gl.SAVED, limit=REJOIN_PER_UNIT, out=sy
     return nums
 
 
+#: The rel of the queue's rejoin unit (edition_queue plans it beside the Listener's page reads).
+REJOIN_PREFIX = "rejoin:"
+#: How long plan_rejoin() keeps its answer while filed.json is unchanged (a cache may fill meanwhile).
+REJOIN_PLAN_SECONDS = 600
+_rejoin_seen = {}
+
+
+def plan_rejoin(store=None, inbox=None, now=None):
+    """The queue's one rejoin unit ([] or a one-item list), planned while stale_refused() lists a number:
+    refused numbers joined under older join code are otherwise retried only at the end of a page read,
+    and nearly every page is read already. Cheap: stale_refused() runs once per (join_key(), filed.json
+    mtime) and for REJOIN_PLAN_SECONDS, no matter how often the queue plans."""
+    import time
+    store = gl.STORE if store is None else store
+    inbox = gl.SAVED if inbox is None else inbox
+    try:
+        stamp = (str(store), join_key(), (Path(store) / LEDGER).stat().st_mtime_ns)
+    except OSError:
+        return []
+    now = time.monotonic() if now is None else now
+    seen = _rejoin_seen.get(stamp)
+    if seen is None or now - seen[0] > REJOIN_PLAN_SECONDS:
+        seen = _rejoin_seen[stamp] = (now, bool(stale_refused(store, inbox, 1)))
+    if len(_rejoin_seen) > 8:
+        for k in [k for k in _rejoin_seen if k != stamp]:
+            del _rejoin_seen[k]
+    if not seen[1]:
+        return []
+    return [{"rel": REJOIN_PREFIX + "refused", "rank": fa.RANKS["never read (Gale fetch)"],
+             "reason": "never read (Gale fetch)", "needs": []}]
+
+
+def rejoin_unit(rel=None, store=None, inbox=None, out=sys.stdout):
+    """Run the rejoin unit: REJOIN_PER_UNIT stale refused numbers joined again under the filing lock, from
+    saved readings and cached grids (no OCR, no VLM). Returns "read" when any was joined, else "current"."""
+    nums = rejoin_refused(gl.STORE if store is None else store, gl.SAVED if inbox is None else inbox, out=out)
+    return "read" if nums else "current"
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--dry-run", action="store_true", help="say what each puzzle lacks, write nothing")
