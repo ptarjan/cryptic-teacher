@@ -1466,6 +1466,10 @@ check("with no new unit left the refusal rereads come back", 2, len(rd_y))
 unit_l = {"paper": "listener", "rel": "GALE_GM1.pdf", "reason": "refused clues-short before its fix", "needs": []}
 _, rd_l = eq.hold_refusal_rereads([], [tup(unit_n), tup(unit_l), tup(unit_c)])
 check("a Listener refusal reread (local OCR, no VLM) is not held", ["X/n", "GALE_GM1.pdf"], [t[3]["rel"] for t in rd_l])
+unit_z = {"paper": "trove", "rel": "t2", "reason": eq.ftp.ZONES_ARRIVED, "needs": []}
+_, rd_z = eq.hold_refusal_rereads([], [tup(unit_n), tup(unit_z), tup(unit_t)])
+check("a read refused for an input since fetched (Trove zones arrived) is not held; other cured-since ones are",
+      ["X/n", "t2"], [t[3]["rel"] for t in rd_z])
 
 # ---- canary-proven refusal rereads skip the hold and go right after the never-read work
 gk = lambda rel, date, reason="refused no-reading-parses before its fix", paper="gale": tup(

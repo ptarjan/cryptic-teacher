@@ -1602,6 +1602,11 @@ def solution_needs(reads):
 
 #: Reasons of a puzzle never read or scanned: new work, filed before any refusal is read again.
 NEW_WORK = ("never read", "never scanned", "never read (Gale fetch)", "just laid out")
+#: Rereads whose refusal was an input not yet fetched, the input there since: a first real read of
+#: the page, not a bet on a code fix, so hold_refusal_rereads keeps them like never-read work (11-27:
+#: 2,697 Canberra Times articles refused "zones-not-fetched" waited behind every never-read unit after
+#: their clue-column images arrived; no Trove read started from 11-03 on).
+INPUT_ARRIVED = (ftp.ZONES_ARRIVED,)
 
 
 #: Title and heading rescans of a fix: pages scanned wrong, so as good as never read; never refusal rereads,
@@ -1711,7 +1716,7 @@ def hold_refusal_rereads(scans, reads, out=None):
     # Nor a crash's (11-23): a crashed page was never read at all, and its crash was fixed in code
     # (Gale Independent 1999-02..03's 30 pages waited behind every never-read unit after placed()'s fix).
     held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])
-            and t[3]["reason"] != "refused crashed before its fix"
+            and t[3]["reason"] != "refused crashed before its fix" and t[3]["reason"] not in INPUT_ARRIVED
             and not (t[3]["reason"] in FIX_LANDED and not t[3]["reason"].endswith((" before its fix", " cured since")))
             and t[3]["paper"] != "listener" and (t[3]["paper"] not in named or canary_failed(t[3]))]
     if not held:
