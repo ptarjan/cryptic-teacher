@@ -21360,7 +21360,7 @@ REREAD_INDY_TITLED = "2026-11-18T13:15:00+00:00"  # the push minute: a row read 
 #: the date as the second witness: indy_day_number's number-then-weekday pattern allowed a comma between them but not
 #: the period the 1994-98 headings print ("3446. Monday 3 November"), so the one clean heading read never counted. The
 #: pattern now allows either. Such a scan (indyLooked, no title) read before REREAD_INDY_DOT is scanned again.
-REREAD_INDY_DOT = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the real minute
+REREAD_INDY_DOT = "2026-11-27T12:35:00+00:00"
 
 
 def indy_titled_due(row):
