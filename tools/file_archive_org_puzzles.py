@@ -5790,6 +5790,8 @@ def scan_anywhere(d):
     found = telegraph_titled(d, found)
     # No title read on a Gale Telegraph page: its solution heading (the other column's words run on after it) or bare number line, off the cached page reads.
     found = tele_sol_titled(d, found)
+    # No title read on a Gale Sunday Times page: the heading its reader tore, off the cached page reads (SUNDAY_LOOKED).
+    found = sunday_titled(d, found)
     # No title read on an archive.org Guardian weekday page: its title read through the glued words, or its "Set by" line.
     found = guardian_titled(d, found)
     # No title read on an archive.org FT 1985-94 page: the band right of each grid it holds (FT_RIGHT).
@@ -6111,6 +6113,123 @@ def tele_sol_stale(row):
     return bool(scan.get(WHOLE_UNTITLED)) and not scan.get(TELE_SOL_LOOKED) and not scan.get("failed") \
         and "inputs" in row and not row.get("verdicts") and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) \
         and str(scan.get("item", "")).startswith("GaleTelegraph") and row.get("scanKey") in current_keys(GALE_TELEGRAPH)
+
+
+#: The key of a Gale Sunday Times scan (scan_anywhere's) sunday_titled looked the cached whole-page reads of over, titled
+#: by them or not: the scan is current for it (sunday_stale) once it holds this.
+SUNDAY_LOOKED = "sundayLooked"
+#: A number a Sunday Times heading prints, as the readers give it ("2601", "2,601", "2 601").
+SUNDAY_HEAD_NUMBER = re.compile(r"(?<![\d,.])(\d[,.\s]?\d{3})(?![\d,])")
+#: How like "crossword" a heading's word reads (SequenceMatcher ratio of its letters), "rossword", "CROSSWDRD", "Crosword".
+SUNDAY_HEAD_LIKE = 0.7
+
+
+def sunday_heading_blocks(words):
+    """[[line, ...]] of `words`' printed lines, each with the lines near it on the page: those whose own top and foot lie
+    within three of its heights of its own and that overlap it across or stand within four heights of it, so a heading the
+    reader tore into "SUNDAYTIMES" over "rossword" and "No.2601" (their boxes overlapping, printed_lines giving each its own
+    line) is one block."""
+    lines = printed_lines(words)
+    out = []
+    for line in lines:
+        b = box_of(line)
+        h = max(b[3] - b[1], 1)
+        group = [line]
+        for other in lines:
+            c = box_of(other)
+            if other is not line and abs(c[1] - b[1]) <= 3 * h and abs(c[3] - b[3]) <= 3 * h \
+                    and c[0] < b[2] + 4 * h and c[2] > b[0] - 4 * h \
+                    and (c[0] < b[2] and c[2] > b[0] or abs(c[1] - b[1]) < h):
+                group.append(other)
+        out.append(group)
+    return out
+
+
+def sunday_headings_loose(words, want, slack):
+    """[(number, box)] of the headings of `words` (a Gale Sunday Times page's cached reads) the strict parser missed: a block
+    (sunday_heading_blocks) holding a word like "crossword" (SUNDAY_HEAD_LIKE, or holding "ossw") and a number within `slack`
+    of `want`, and no word like "solution" (a solution heading is last week's)."""
+    import difflib
+    found = []
+    for group in sunday_heading_blocks(words):
+        toks = [w for line in sorted(group, key=lambda ln: (box_of(ln)[1], box_of(ln)[0])) for w in line]
+        text = " ".join(str(w[4]) for w in toks)
+        if re.search(r"solut|sol\w*\s+t[o0]", re.sub(r"[^a-z ]", "", text.lower())):
+            continue
+        letters = [re.sub(r"[^a-z]", "", str(w[4]).lower()) for w in toks]
+        word = [w for w, t in zip(toks, letters)
+                if "ossw" in t or len(t) >= 4 and difflib.SequenceMatcher(None, t, "crossword").ratio() >= SUNDAY_HEAD_LIKE]
+        if not word:
+            continue
+        for m in SUNDAY_HEAD_NUMBER.finditer(text):
+            n = int(re.sub(r"\D", "", m.group(1)))
+            # the box: the heading's word and the words that spell its number, not the block's other lines
+            digits = [w for w in toks if re.search(r"\d", str(w[4])) and re.sub(r"\D", "", str(w[4])) in str(n)]
+            if abs(n - want) <= slack and digits:
+                # the heading line only: the word and the number word nearest it
+                near = min(digits, key=lambda w: abs(w[1] - word[0][1]) + abs(w[0] - word[0][2]))
+                found.append((n, tuple(box_of([word[0], near]))))
+    return found
+
+
+def sunday_titled(d, found):
+    """Scan `found` of edition directory `d` with its puzzle titled from the whole-page reads its scan left in the crop
+    cache (never made here) where it is a Gale Sunday Times page scan() found no title on: the heading the strict parser
+    missed because the reader tore it (its words overlapping, "Mo." for "No.", "CROSSWDRD", the number a line of its own
+    over or under the word: sunday_headings_loose), the one number every page reader (PAGE_READERS) gives within the paper's
+    slack of the date's; its box that block's. Two numbers, or a reader that gives none, titles nothing. Stamped
+    SUNDAY_LOOKED. Outside scan(), whose key a change here would move: it titles only pages scan() titled none on."""
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or paper_of(d) is not GALE_SUNDAY_TIMES:
+        return found
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+        want = GALE_SUNDAY_TIMES.expected(datetime.date.fromisoformat(str(found.get("date", ""))))
+    except (OSError, ValueError, KeyError, TypeError):
+        return found
+    stamped = {**found, SUNDAY_LOOKED: True}
+    for leaf in leaves:
+        key = f"{d.parent.name}_{d.name}_{leaf}"
+        reads = []
+        for which in PAGE_READERS:
+            try:
+                words = json.loads((CROPS / "titles" / f"{key}_page.{reader_key(which)}.json").read_text())["words"]
+            except (OSError, ValueError, KeyError, TypeError):
+                continue
+            reads.append([(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5])
+        if len(reads) < len(PAGE_READERS):
+            continue
+        votes, boxes = {}, {}
+        for ri, words in enumerate(reads):
+            for n, box in sunday_headings_loose(words, want, GALE_SUNDAY_TIMES.slack):
+                votes.setdefault(n, set()).add(ri)
+                boxes.setdefault(n, box)
+        agreed = [n for n, v in votes.items() if len(v) >= len(reads)]
+        if len(agreed) != 1 or len(votes) != 1:
+            continue
+        return {**stamped, "puzzles": [{"number": agreed[0], "leaf": leaf, "box": boxes[agreed[0]], "titleReadBy": ["loose"]}],
+                "solutions": [s for s in found.get("solutions") or () if s["number"] != agreed[0]]}
+    return stamped
+
+
+def sunday_stale(row):
+    """Whether Gale Sunday Times ledger `row` holds a scan under a current key that read its page whole (WHOLE_UNTITLED),
+    found no title and was not looked over by sunday_titled (no SUNDAY_LOOKED), with no verdict: scanned again once."""
+    scan = (row or {}).get("scan") or {}
+    return bool(scan.get(WHOLE_UNTITLED)) and not scan.get(SUNDAY_LOOKED) and not scan.get("failed") \
+        and "inputs" in row and not row.get("verdicts") and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) \
+        and str(scan.get("item", "")).startswith("GaleSundayTimes") and row.get("scanKey") in current_keys(GALE_SUNDAY_TIMES) \
+        and (row.get("edition") or "") in sunday_loose_rows()
+
+
+@functools.lru_cache(maxsize=None)
+def sunday_loose_rows():
+    """The editions sunday_titled titles off their cached reads (tools/data/sunday_loose_title.json), the only rows
+    sunday_stale holds for a rescan: the others' reads hold no heading it could take."""
+    try:
+        return frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_loose_title.json").read_text()))
+    except (OSError, ValueError):
+        return frozenset()
 
 
 #: The key of a scan (scan_anywhere's) of an archive.org Guardian weekday edition no title was read on whose pages were
@@ -18375,7 +18494,7 @@ def rekey_scans(ledger):
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
                     and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not tele_grid_due(r) and not tel_title_far_due(r) and not block_forties_due(r) and not telegraph_dated_rescan(r) and not guardian_set_rescan(r) and not ft_right_rescan(r) and not suntel_bare_due(r) and not telegraph_host(r) \
-                    and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ft_title_host(r) and not ft_noisy_host(r) and not ios_title_rescan(r) and not tele_sol_stale(r):
+                    and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ft_title_host(r) and not ft_noisy_host(r) and not ios_title_rescan(r) and not tele_sol_stale(r) and not sunday_stale(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -29892,7 +30011,7 @@ def scan_current(row, fh, rel=None):
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not tel_title_far_due(row) and not block_forties_due(row) and not telegraph_dated_rescan(row) and not guardian_set_rescan(row) and not ft_right_rescan(row) and not suntel_bare_due(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ft_title_host(row) and not ft_noisy_host(row) and not ios_title_rescan(row) \
-        and not indy_titled_due(row) and not tele_sol_stale(row)
+        and not indy_titled_due(row) and not tele_sol_stale(row) and not sunday_stale(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
