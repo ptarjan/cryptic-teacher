@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "No address; more often away",
     "enumeration": "8"
    },
-   "solution": "HOMELESS"
+   "solution": "HOMELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No address",
+      "at": 0,
+      "meaning": "having nowhere to live, so no fixed address"
+     },
+     {
+      "text": "more often away",
+      "at": 12,
+      "meaning": "read as '...': at ... often, so out more"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone with no fixed abode is out and about more than ever.",
+     "walkthrough": "The second definition splits the answer into two words: someone who is at home less is more often away.",
+     "definitionFit": "A person sleeping rough has no dwelling and therefore no postal address."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,43 @@
     "text": "New Year present for Humperdinck's hero, say.?",
     "enumeration": "7"
    },
-   "solution": "HANDSEL"
+   "solution": "HANDSEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "New Year present",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HANDSEL",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 41,
+       "note": "'say' asks us to pronounce the hero's name, which matches the gift's name in speech"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Humperdinck's hero",
+       "at": 21,
+       "gives": "HANSEL",
+       "note": "Hansel is the boy in Humperdinck's opera Hansel and Gretel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seasonal gift chosen for the boy in Humperdinck's fairy-tale opera.",
+     "definitionFit": "In Scotland a handsel is a gift given at the start of the year, a token of good luck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hero"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +121,43 @@
     "text": "Only one tool for this flying machine",
     "enumeration": "9"
    },
-   "solution": "MONOPLANE"
+   "solution": "MONOPLANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this flying machine",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Only one",
+       "at": 0,
+       "gives": "MONO",
+       "note": "mono- is the prefix meaning single or only one"
+      },
+      {
+       "words": "tool",
+       "at": 9,
+       "gives": "PLANE",
+       "note": "a plane is a carpenter's tool for smoothing wood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single implement is all that is needed for this aircraft.",
+     "walkthrough": "'tool' is the woodworker's plane, which also happens to be the flying sense of the second half.",
+     "definitionFit": "An aircraft with a single pair of wings is the kind of flying machine described."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tool"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +171,59 @@
     "text": "Side-issue when Ballater's short of capital",
     "enumeration": "7"
    },
-   "solution": "LATERAL"
+   "solution": "LATERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Side",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "issue",
+       "at": 5,
+       "note": "what issues from the shortened town name is its letters brought out in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short of capital",
+         "at": 27,
+         "note": "lacking its capital letter, so the initial B of the town name goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ballater's",
+         "at": 16,
+         "gives": "BALLATER",
+         "note": "Ballater is a town on Royal Deeside in Scotland"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A secondary matter arises when a Scottish town runs out of money.",
+     "walkthrough": "'short of capital' removes the capital B, leaving ALLATER; 'issue' then rearranges those letters. 'capital' looks like money but is the initial letter.",
+     "definitionFit": "Lateral means to the side, as in lateral movement or a lateral branch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +237,53 @@
     "text": "The Sea Foam tie-up is more than enough",
     "enumeration": "7"
    },
-   "solution": "SURFEIT"
+   "solution": "SURFEIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "more than enough",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sea Foam",
+       "at": 4,
+       "gives": "SURF",
+       "note": "surf is the foam of breaking waves"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 17,
+         "note": "in a down clue 'up' tells us to read the word tie from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tie",
+         "at": 13,
+         "gives": "TIE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A merger involving a company called The Sea Foam is excessive.",
+     "walkthrough": "'tie-up' looks like a merger; in the down light 'up' turns TIE to EIT.",
+     "definitionFit": "A surfeit is an excess, an amount beyond what is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie-up"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +297,46 @@
     "text": ".Man of title loses heart to London borough.",
     "enumeration": "6"
    },
-   "solution": "BARNET"
+   "solution": "BARNET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "London borough",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loses heart",
+       "at": 14,
+       "note": "losing its heart means the central letter of the word goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Man of title",
+       "at": 1,
+       "gives": "BARONET",
+       "note": "a baronet holds a hereditary title, Sir before his name"
+      },
+      {
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A titled gentleman gives up his affections to a district of London.",
+     "walkthrough": "BARONET has seven letters, so its heart is the fourth, O.",
+     "definitionFit": "Barnet is one of the boroughs of Greater London, on its northern edge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +350,31 @@
     "text": "Polished off like Cleopatra's barge",
     "enumeration": "9"
    },
-   "solution": "BURNISHED"
+   "solution": "BURNISHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Polished",
+      "at": 0,
+      "meaning": "rubbed to a shine"
+     },
+     {
+      "text": "like Cleopatra's barge",
+      "at": 13,
+      "meaning": "Shakespeare's Enobarbus says 'The barge she sat in, like a burnish'd throne, burn'd on the water'"
+     }
+    ],
+    "explanation": {
+     "surface": "Finished off in the style of the Egyptian queen's famous vessel.",
+     "walkthrough": "'off' is a link here, making 'Polished off' look like 'finished'. The second definition is a quotation from Antony and Cleopatra.",
+     "definitionFit": "Metal rubbed until it gleams is said to be burnished, and Shakespeare uses that word for the queen's gilded barge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +388,43 @@
     "text": "Be waspish again when not acting",
     "enumeration": "7"
    },
-   "solution": "RESTING"
+   "solution": "RESTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "when not acting",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "again",
+       "at": 11,
+       "gives": "RE",
+       "note": "re- is the prefix meaning again"
+      },
+      {
+       "words": "Be waspish",
+       "at": 0,
+       "gives": "STING",
+       "note": "to sting is what a wasp does"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is spiteful once more while out of work.",
+     "walkthrough": "'waspish' suggests a sharp temper, but here it means doing what a wasp does. An actor between jobs is politely said to be resting.",
+     "definitionFit": "Theatrical slang calls an unemployed actor resting, between engagements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "waspish"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +438,40 @@
     "text": "Next, remember to be immoderate in this!",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "immoderate",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in this",
+       "at": 32,
+       "note": "'in this' points at the clue words just given, whose letters hold the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Next, remember",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reminder that the following act should be excessive.",
+     "walkthrough": "The letters run across 'nEXT, REMEmber', ignoring the comma.",
+     "definitionFit": "Something extreme goes far beyond the reasonable, so it lacks moderation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +491,35 @@
      }
     ]
    },
-   "solution": "NONSTARTER"
+   "solution": "NONSTARTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He doesn't come under. orders",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He doesn't come under. orders",
+       "at": 0,
+       "note": "a racehorse is 'under orders' at the start; one that fails to leave the stalls never runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who disobeys instructions.",
+     "walkthrough": "'under orders' is the racing term for horses lined up for the start; the stray full stop after 'under' is a print speck.",
+     "definitionFit": "A horse that never starts a race is the original sense; the word now also means a plan with no chance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "orders"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +533,43 @@
     "text": "Here sound's O.K. for vision",
     "enumeration": "4"
    },
-   "solution": "SITE"
+   "solution": "SITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Here",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SITE",
+     "indicators": [
+      {
+       "text": "sound's O.K. for",
+       "at": 5,
+       "note": "the sound is right for the word vision, so the answer is said the same way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vision",
+       "at": 22,
+       "gives": "SIGHT",
+       "note": "sight is the faculty of vision"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "This venue has good acoustics and good sight lines.",
+     "definitionFit": "A site is a place, the spot one indicates by saying 'here'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Here"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +583,41 @@
     "text": "One of the film crowd, responsive but extremely touchy",
     "enumeration": "14"
    },
-   "solution": "SUPERSENSITIVE"
+   "solution": "SUPERSENSITIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extremely touchy",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One of the film crowd",
+       "at": 0,
+       "gives": "SUPER",
+       "note": "a super, short for supernumerary, is an extra in a crowd scene"
+      },
+      {
+       "words": "responsive",
+       "at": 23,
+       "gives": "SENSITIVE",
+       "note": "sensitive means quick to respond"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film extra who is receptive yet thin-skinned.",
+     "definitionFit": "Supersensitive means abnormally easily hurt or offended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +631,42 @@
     "text": "Sheet allowed to be handed round",
     "enumeration": "7"
    },
-   "solution": "LEAFLET"
+   "solution": "LEAFLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to be handed round",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sheet",
+       "at": 0,
+       "gives": "LEAF",
+       "note": "a leaf is a sheet of paper in a book"
+      },
+      {
+       "words": "allowed",
+       "at": 6,
+       "gives": "LET",
+       "note": "let means allowed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of paper permitted to be passed among the group.",
+     "walkthrough": "'Sheet' looks like the definition, but it is the first piece; the definition is the closing phrase.",
+     "definitionFit": "A printed handout is distributed to people, passed from hand to hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sheet"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +680,45 @@
     "text": "Recite tax-amendment to get out of a fix",
     "enumeration": "9"
    },
-   "solution": "EXTRICATE"
+   "solution": "EXTRICATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "get out of a fix",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "amendment",
+       "at": 11,
+       "note": "an amendment is a change, so the letters of the two words are altered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Recite",
+       "at": 0
+      },
+      {
+       "words": "tax",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reading out a change to the tax rules as a way to escape trouble.",
+     "walkthrough": "'tax-amendment' looks like a budget change, but 'amendment' rearranges RECITE and TAX together.",
+     "definitionFit": "To extricate means to free from a difficulty or entanglement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tax-amendment"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +732,33 @@
     "text": "Strangling Eastern superstition",
     "enumeration": "7"
    },
-   "solution": "THUGGEE"
+   "solution": "THUGGEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strangling Eastern superstition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Strangling Eastern superstition",
+       "at": 0,
+       "note": "the ritual murder by strangling practised by a religious cult of robbers in India"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Thuggee was the practice of the Indian thugs, who strangled travellers as an offering to Kali."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "superstition"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +772,42 @@
     "text": "English is translated by a Teutonic expert",
     "enumeration": "9"
    },
-   "solution": "GERMANIST"
+   "solution": "GERMANIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "expert",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Teutonic",
+       "at": 27,
+       "gives": "GERMAN",
+       "note": "Teutonic means of the Germanic peoples"
+      },
+      {
+       "words": "English is translated",
+       "at": 0,
+       "gives": "IST",
+       "note": "the English word 'is' rendered in the other language becomes ist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English word put into German by a scholar of that tongue.",
+     "walkthrough": "'by a' is the link. The suffix -ist marks a specialist, so a Germanist is an expert in German language or culture.",
+     "definitionFit": "A Germanist is a scholar who specialises in German studies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +821,36 @@
     "text": "What a witty soul!",
     "enumeration": "7"
    },
-   "solution": "BREVITY"
+   "solution": "BREVITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What a witty soul!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What a witty soul!",
+       "at": 0,
+       "note": "Polonius says that this quality is the soul of wit, so it is wit's soul"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation praising a clever companion.",
+     "walkthrough": "From Hamlet: 'brevity is the soul of wit'. The clue reads 'soul' as a person, but it is wit's essence.",
+     "definitionFit": "Brevity means conciseness, which Shakespeare's Polonius calls the essence of wit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "soul"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +870,42 @@
      }
     ]
    },
-   "solution": "RAWDEAL"
+   "solution": "RAWDEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shabby treatment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "natural",
+       "at": 20,
+       "gives": "RAW",
+       "note": "raw means in its natural, unprocessed state"
+      },
+      {
+       "words": "wood",
+       "at": 28,
+       "gives": "DEAL",
+       "note": "deal is pine or fir timber"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unfinished timber treated poorly.",
+     "walkthrough": "'treatment of natural wood' sounds like varnishing, but 'of' is only a link.",
+     "definitionFit": "A raw deal is unfair handling, as in getting the worst of an arrangement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +919,56 @@
     "text": "Measurement of Force Five gale to readjust",
     "enumeration": "7"
    },
-   "solution": "VOLTAGE"
+   "solution": "VOLTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Measurement of Force",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Five",
+       "at": 21,
+       "gives": "V",
+       "note": "V is the Roman numeral five"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "readjust",
+         "at": 34,
+         "note": "to readjust is to set in a new order, so the letters of gale and to are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gale",
+         "at": 26
+        },
+        {
+         "words": "to",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Adjusting a force five wind on the Beaufort scale.",
+     "walkthrough": "'Force Five' looks like a wind strength, but 'Force' belongs to the definition and 'Five' gives V.",
+     "definitionFit": "Voltage measures electromotive force, the electrical pressure in volts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Force"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +982,36 @@
     "text": "One of Crichton's fans?",
     "enumeration": "7"
    },
-   "solution": "ADMIRER"
+   "solution": "ADMIRER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of Crichton's fans?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One of Crichton's fans?",
+       "at": 0,
+       "note": "J. M. Barrie's play The Admirable Crichton, so a fan of the butler is someone who finds him admirable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A follower of a novelist named Crichton.",
+     "walkthrough": "Michael Crichton the novelist comes to mind, but the reference is Barrie's play The Admirable Crichton.",
+     "definitionFit": "A fan is someone who looks up to and esteems another person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fans"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1025,35 @@
     "text": "What' a bird, the phoenix !",
     "enumeration": "7"
    },
-   "solution": "ARABIAN"
+   "solution": "ARABIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What' a bird, the phoenix !",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What' a bird, the phoenix !",
+       "at": 0,
+       "note": "the mythical phoenix is traditionally called the bird of Arabia, said to live there alone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of wonder at the legendary firebird.",
+     "walkthrough": "'What a bird' reads as admiration, but it asks what kind of bird the phoenix is. The stray apostrophe is a print mark.",
+     "definitionFit": "The phoenix is known in literature as the Arabian bird, as in Shakespeare's Cymbeline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "What'"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1073,35 @@
      }
     ]
    },
-   "solution": "MUDHOLE"
+   "solution": "MUDHOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuge better for a hippopotamus than for Old Bill?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Refuge better for a hippopotamus than for Old Bill?",
+       "at": 0,
+       "note": "Old Bill is Bairnsfather's First World War soldier in a shell-hole saying 'If you knows of a better 'ole, go to it'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shelter that suits a river beast more than a cartoon soldier.",
+     "walkthrough": "Old Bill is also British slang for the police, a tempting wrong track; here he is the cartoon Tommy sheltering in a muddy shell crater.",
+     "definitionFit": "A wallow of wet earth is a pit where hippos bathe and soldiers took cover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1116,36 @@
     "enumeration": "7",
     "countFrom": "grid"
    },
-   "solution": "ROYALTY"
+   "solution": "ROYALTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of princely income ?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Source of princely income ?",
+       "at": 0,
+       "note": "payments made to an author or patent holder, which may be princely sums, also name the class that includes princes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where a prince gets his money.",
+     "walkthrough": "'princely' means generous here: a royalty is a fee paid per copy sold, and the word also means the royal family.",
+     "definitionFit": "A royalty is a percentage payment to a creator, and royalty means kings, queens and princes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "princely"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1169,36 @@
      }
     ]
    },
-   "solution": "WILLIAMANDMARY"
+   "solution": "WILLIAMANDMARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They were two for a sovereign after the revolution",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They were two for a sovereign after the revolution",
+       "at": 0,
+       "note": "the joint monarchs who shared the English throne after the Glorious Revolution of 1688"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bargain price, two items for a gold coin, after the uprising.",
+     "walkthrough": "A sovereign is also a British gold coin worth a pound, so 'two for a sovereign' reads like a price. In 1689 a husband and wife jointly took the throne.",
+     "definitionFit": "After James II fled, his daughter and her Dutch husband reigned together as co-monarchs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1212,36 @@
     "text": "Classic egg-laying mammal",
     "enumeration": "4"
    },
-   "solution": "LEDA"
+   "solution": "LEDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Classic egg-laying mammal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Classic egg-laying mammal",
+       "at": 0,
+       "note": "in Greek myth a mortal woman, seduced by Zeus as a swan, laid eggs from which her children hatched"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A textbook example of an egg-laying mammal such as the platypus.",
+     "walkthrough": "'Classic' means from classical myth, not typical: the platypus is a false trail.",
+     "definitionFit": "In Greek legend the queen of Sparta bore Helen and the Dioscuri from eggs after Zeus came to her as a swan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Classic"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1255,40 @@
     "text": "In Calais to turn against tho community",
     "enumeration": "10"
    },
-   "solution": "ANTISOCIAL"
+   "solution": "ANTISOCIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "against tho community",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "turn",
+       "at": 13,
+       "note": "to turn is to change round, so the letters of the three words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In Calais to",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Going to France and then rejecting society.",
+     "definitionFit": "Antisocial behaviour runs counter to the norms of society and harms others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1302,32 @@
     "text": "Record-keeper 'rolled up to work",
     "enumeration": "6"
    },
-   "solution": "SLEEVE"
+   "solution": "SLEEVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record-keeper",
+      "at": 0,
+      "meaning": "the cardboard cover that holds a vinyl disc"
+     },
+     {
+      "text": "rolled up to work",
+      "at": 15,
+      "meaning": "the arm of a shirt, pushed up when getting down to a job"
+     }
+    ],
+    "explanation": {
+     "surface": "An archivist turns up ready for the job.",
+     "walkthrough": "'Record-keeper' suggests an archivist, but it is the cover of a gramophone record; one rolls up one's shirt sleeves before working.",
+     "definitionFit": "A sleeve is both the jacket of an LP and the arm part of a garment, rolled up for hard work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Record-keeper"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1341,39 @@
     "text": "Any crest may show lineage",
     "enumeration": "8"
    },
-   "solution": "ANCESTRY"
+   "solution": "ANCESTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lineage",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "may show",
+       "at": 10,
+       "note": "what the letters may show when rearranged is the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Any crest",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family coat of arms can reveal one's descent.",
+     "definitionFit": "Ancestry means descent or line of forebears, the same as lineage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
