@@ -6237,7 +6237,7 @@ def indy_dated_number(text, day, want):
 
 #: The 2004-05 Independent's number line under "THE MONDAY CROSSWORD": "No. 5455 Monday 12 April" (the readers drop the
 #: "No." or run it all together: "5455Monday12April"), also "No 7294, 2 March".
-_INDY_DAY_NUMBER = re.compile(r"(?<!\d)(\d{4})\s*,?\s*(?:(mon|tues|wednes|thurs|fri|satur|sun)day\W{0,3}\s*)?"
+_INDY_DAY_NUMBER = re.compile(r"(?<!\d)(\d{4})\s*[,.]?\s*(?:(mon|tues|wednes|thurs|fri|satur|sun)day\W{0,3}\s*)?"
                               r"(\d{1,2})\s*([A-Za-z]{3,9})\b", re.IGNORECASE)
 
 
@@ -21354,6 +21354,13 @@ INDY_TITLED = "Gale Independent page with no title, its crossword heading read f
 #: 2007-01-25, 2008-01-01, 2011-04-18). scan_current now holds such a row stale (indy_titled_due) until it is scanned
 #: again, as gf_rescan's rows are; the scan keeps its key (indy_titled is outside scan_key's reach).
 REREAD_INDY_TITLED = "2026-11-18T13:15:00+00:00"  # the push minute: a row read after it is not due again
+#: r305 11-27: 424 Gale Independent 1994-98 pages (newly fetched, read 11-18..11-27) stood wholeUntitled with no verdict. Their
+#: crossword heading "THE INDEPENDENT CROSSWORD No. 3446. Monday 3 November By Portia" stands in an advertisement's line in
+#: both whole-page reads (glued to its words), so one strip reader alone holds it, and indy_titled wants two readers or
+#: the date as the second witness: indy_day_number's number-then-weekday pattern allowed a comma between them but not
+#: the period the 1994-98 headings print ("3446. Monday 3 November"), so the one clean heading read never counted. The
+#: pattern now allows either. Such a scan (indyLooked, no title) read before REREAD_INDY_DOT is scanned again.
+REREAD_INDY_DOT = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the real minute
 
 
 def indy_titled_due(row):
@@ -21363,8 +21370,8 @@ def indy_titled_due(row):
     scan = (row or {}).get("scan") or {}
     if paper_of(Path(rel)).key != GALE_INDEPENDENT.key or not scan.get(WHOLE_UNTITLED) or scan.get("failed") \
             or any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) or row.get("verdicts") \
-            or scan.get(INDY_LOOKED) \
-            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_TITLED)):
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_TITLED if not scan.get(INDY_LOOKED)
+                                                               else REREAD_INDY_DOT)):
         return False
     return True
 
