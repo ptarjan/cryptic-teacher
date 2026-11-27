@@ -13,7 +13,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose ACROSS list under the grid was lost among a Sudoku's digit columns, its clue columns joined since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-27T22:23:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 MARGIN = 40
 
 

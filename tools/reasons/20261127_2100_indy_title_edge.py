@@ -6,7 +6,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose clue column left of its grid was cut inside its first words, read from the title's edge since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD = "2026-11-27T22:23:00+00:00"  # placeholder: the push minute (UTC)
 _ASKING = []
 
 
