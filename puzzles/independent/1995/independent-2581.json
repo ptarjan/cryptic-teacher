@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Changing form of punishment?",
     "enumeration": "9"
    },
-   "solution": "SWITCHING"
+   "solution": "SWITCHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Changing",
+      "at": 0,
+      "meaning": "swapping one thing for another, as in changing trains"
+     },
+     {
+      "text": "form of punishment?",
+      "at": 9,
+      "meaning": "beating with a thin flexible stick, a once-common punishment"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how punishment might change its form.",
+     "definitionFit": "Both senses share one word: altering or exchanging, and thrashing someone with a cane-like rod."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,69 @@
     "text": "Philosopher's treatment of topics not primarily philosophical",
     "enumeration": "5"
    },
-   "solution": "STOIC"
+   "solution": "STOIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Philosopher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "treatment of",
+       "at": 14,
+       "note": "a treatment of something works it over, so the letters are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 34,
+         "note": "not tells us a letter is to be left out of the word topics"
+        }
+       ],
+       "parts": [
+        {
+         "words": "topics",
+         "at": 27
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 38,
+           "note": "primarily points to the opening letter of the word philosophical"
+          }
+         ],
+         "parts": [
+          {
+           "words": "philosophical",
+           "at": 48
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker deals with subjects that are not mainly philosophical.",
+     "walkthrough": "'not primarily philosophical' takes P out of TOPICS, leaving TOICS, which 'treatment of' rearranges; the 's after 'Philosopher' is 'is', a link.",
+     "definitionFit": "A Stoic was a follower of Zeno's school of thought in ancient Athens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +146,61 @@
     "text": "In pub by church you get fish served in sauce",
     "enumeration": "9"
    },
-   "solution": "INSOLENCE"
+   "solution": "INSOLENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sauce",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "served in",
+         "at": 30,
+         "note": "the fish is served inside the pub, so one piece goes within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pub",
+         "at": 3,
+         "gives": "INN",
+         "note": "an inn is a pub"
+        },
+        {
+         "words": "fish",
+         "at": 25,
+         "gives": "SOLE",
+         "note": "sole is a flatfish"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 10,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner orders fish in a sauce at a pub next to a church.",
+     "walkthrough": "'sauce' looks like part of the meal but is the definition, in its British sense of cheek.",
+     "definitionFit": "In British slang sauce means cheek or impudent talk, which is rudeness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sauce"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +220,34 @@
      }
     ]
    },
-   "solution": "CASUSBELLI"
+   "solution": "CASUSBELLI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient Roman battle ground",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ancient Roman battle ground",
+       "at": 0,
+       "note": "read not as a battlefield but as the Latin phrase an old Roman would use for a ground, or justification, for going to war"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The Latin phrase means a cause or pretext for war, literally an occasion of war."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +267,40 @@
      }
     ]
    },
-   "solution": "INPLACE"
+   "solution": "INPLACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ready",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "popular",
+       "at": 20,
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      },
+      {
+       "words": "resort",
+       "at": 28,
+       "gives": "PLACE",
+       "note": "a resort is a place one goes to"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable holiday spot ready for visitors.",
+     "definitionFit": "Something set up and in position is prepared and ready for use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +314,61 @@
     "text": "Heretic can be made to sign confession, for a start",
     "enumeration": "7"
    },
-   "solution": "GNOSTIC"
+   "solution": "GNOSTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heretic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "can be made",
+         "at": 8,
+         "note": "the letters can be made into something new, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to sign",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for a start",
+         "at": 40,
+         "note": "for a start takes the opening letter of the word confession"
+        }
+       ],
+       "parts": [
+        {
+         "words": "confession",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accused heretic might be forced to sign a confession to begin with.",
+     "walkthrough": "'can be made' rearranges TO SIGN; C, the first letter of 'confession' ('for a start'), ends the word.",
+     "definitionFit": "Gnostics were early Christian sects the Church condemned as holding heretical beliefs about secret knowledge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +382,57 @@
     "text": "Record has almost everything wrong",
     "enumeration": "5"
    },
-   "solution": "ALBUM"
+   "solution": "ALBUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 11,
+         "note": "almost means the word is cut short by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everything",
+         "at": 18,
+         "gives": "ALL",
+         "note": "all means everything"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "wrong",
+       "at": 29,
+       "gives": "BUM",
+       "note": "bum is slang for bad or wrong, as in a bum note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recording where nearly everything has gone wrong.",
+     "walkthrough": "'almost' cuts ALL to AL.",
+     "definitionFit": "An album is a long-playing recording of several tracks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +446,40 @@
     "text": "Line a cricket team's following",
     "enumeration": "4"
    },
-   "solution": "AXIS"
+   "solution": "AXIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Line",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 5,
+       "gives": "A"
+      },
+      {
+       "words": "cricket team's",
+       "at": 7,
+       "gives": "XIS",
+       "note": "a cricket team is an eleven, written XI, with the possessive S kept on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team's batting line-up following on.",
+     "walkthrough": "Here the possessive 's gives a real S; 'following' is a link.",
+     "definitionFit": "An axis is a straight line about which a body turns or a graph is drawn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +493,49 @@
     "text": "Dim student has broken shoulder",
     "enumeration": "5"
    },
-   "solution": "BLEAR"
+   "solution": "BLEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has broken",
+       "at": 12,
+       "note": "the student has broken into the other word, so goes inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shoulder",
+       "at": 23,
+       "gives": "BEAR",
+       "note": "to shoulder a burden is to bear it"
+      },
+      {
+       "words": "student",
+       "at": 4,
+       "gives": "L",
+       "note": "L is a learner, from the L-plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow student has broken a shoulder.",
+     "walkthrough": "'shoulder' is a verb here, to carry; 'Dim' looks like dull-witted but means blurred.",
+     "definitionFit": "Blear means blurred or misty, as eyes or light can be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shoulder"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +555,33 @@
      }
     ]
    },
-   "solution": "MEREWORDS"
+   "solution": "MEREWORDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lake, loch, lough, etc?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Lake, loch, lough, etc?",
+       "at": 0,
+       "note": "each listed item is a word meaning a small lake, so the list is a set of synonyms for that old word for a pond, and also just talk"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A mere is a lake, so lake, loch and lough are words for it; the phrase also means talk with no action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +595,34 @@
     "text": "Places of relaxation where some may have dates?",
     "enumeration": "5"
    },
-   "solution": "OASES"
+   "solution": "OASES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Places of relaxation where some may have dates?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Places of relaxation where some may have dates?",
+       "at": 0,
+       "note": "reads like romantic meeting spots, but the dates are fruit growing on palms in desert watering holes"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Desert springs with palms offer rest to travellers, and date palms grow there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dates"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +636,39 @@
     "text": "Anyhow, I prefer to make a lot of money",
     "enumeration": "9"
    },
-   "solution": "PROFITEER"
+   "solution": "PROFITEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make a lot of money",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Anyhow",
+       "at": 0,
+       "note": "anyhow means in a disordered way, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I prefer to",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says that, whatever happens, they would rather get rich.",
+     "definitionFit": "To profiteer is to make excessive gains, especially by exploiting shortages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +688,31 @@
      }
     ]
    },
-   "solution": "COLDSTARTS"
+   "solution": "COLDSTARTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What happens as a result of bug",
+      "at": 0,
+      "meaning": "a bug is a germ, so a sniffly illness begins"
+     },
+     {
+      "text": "in reloading of computer programs?",
+      "at": 32,
+      "meaning": "restarting a machine from power off"
+     }
+    ],
+    "explanation": {
+     "surface": "A virus causes trouble when a computer reloads its programs.",
+     "definitionFit": "A chill coming on starts with a germ; in computing a reboot from scratch has the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +726,48 @@
     "text": "Crest king used in London area",
     "enumeration": "4"
    },
-   "solution": "BROW"
+   "solution": "BROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used in",
+       "at": 11,
+       "note": "the king is used inside the area, so goes within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "London area",
+       "at": 19,
+       "gives": "BOW",
+       "note": "Bow is a district in east London"
+      },
+      {
+       "words": "king",
+       "at": 6,
+       "gives": "R",
+       "note": "R is rex, king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal crest used in part of London.",
+     "definitionFit": "The brow of a hill is its top or crest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crest"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +787,31 @@
      }
     ]
    },
-   "solution": "COVERPOINT"
+   "solution": "COVERPOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Field",
+      "at": 0,
+      "meaning": "a fielding position in cricket"
+     },
+     {
+      "text": "in which one has to deal with a matter someone's raised",
+      "at": 6,
+      "meaning": "dealing with, or covering, a point that has been raised"
+     }
+    ],
+    "explanation": {
+     "surface": "A field of work where one handles issues others bring up.",
+     "definitionFit": "In cricket this is a fielding position on the off side; to cover a point is to handle an issue raised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Field"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +825,48 @@
     "text": "Allow French military leader to circumscribe Council of Europe",
     "enumeration": "7"
    },
-   "solution": "CONCEDE"
+   "solution": "CONCEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Allow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to circumscribe",
+       "at": 29,
+       "note": "to circumscribe is to draw a line around, so one piece encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French military leader",
+       "at": 6,
+       "gives": "CONDE",
+       "note": "the Prince de Conde was a great 17th-century French general"
+      },
+      {
+       "words": "Council of Europe",
+       "at": 45,
+       "gives": "CE",
+       "note": "CE abbreviates Council of Europe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French general is allowed to surround a European body.",
+     "definitionFit": "To concede is to grant or admit something, giving way on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circumscribe"
+    }
+   }
   },
   {
    "number": 14,
@@ -284,7 +880,59 @@
     "text": "Infectious sort of chat featured in some TV programmes?",
     "enumeration": "9"
    },
-   "solution": "CATCHABLE"
+   "solution": "CATCHABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Infectious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "featured in",
+       "at": 24,
+       "note": "featured in places the anagram inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some TV programmes",
+       "at": 36,
+       "gives": "CABLE",
+       "note": "cable is a kind of television service"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sort of",
+         "at": 11,
+         "note": "sort of signals a version of the word chat, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chat",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contagious kind of chatter on certain television shows.",
+     "walkthrough": "'Infectious' sits at the front as the definition; 'sort of' makes ATCH from the chat, and 'featured in' sets it after the first letter of the TV word.",
+     "definitionFit": "A disease that is infectious can be picked up from someone else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chat"
+    }
+   }
   },
   {
    "number": 15,
@@ -298,7 +946,29 @@
     "text": "Impose heavy tax on clothing",
     "enumeration": "7"
    },
-   "solution": "CLOBBER"
+   "solution": "CLOBBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impose heavy tax on",
+      "at": 0,
+      "meaning": "to hit hard, as a government hitting earners with taxes"
+     },
+     {
+      "text": "clothing",
+      "at": 20,
+      "meaning": "British slang for clothes and gear"
+     }
+    ],
+    "explanation": {
+     "surface": "A government taxes clothes heavily.",
+     "definitionFit": "The word means both to hit hard, as with taxes, and, in British slang, one's clothes or kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +982,59 @@
     "text": "Engaged revolutionary element in plot",
     "enumeration": "9"
    },
-   "solution": "BETROTHED"
+   "solution": "BETROTHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Engaged",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in puts the revolutionary and element inside the plot"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plot",
+       "at": 33,
+       "gives": "BED",
+       "note": "a bed is a garden plot"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "revolutionary",
+         "at": 8,
+         "gives": "TROT",
+         "note": "a Trot is a Trotskyist"
+        },
+        {
+         "words": "element",
+         "at": 22,
+         "gives": "HE",
+         "note": "He is the symbol for helium"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary is involved in a plot.",
+     "definitionFit": "Two people engaged to marry are promised to each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 17,
@@ -326,7 +1048,61 @@
     "text": "Structure used in French very bad, on reflection",
     "enumeration": "7"
    },
-   "solution": "TRELLIS"
+   "solution": "TRELLIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Structure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used in",
+       "at": 10,
+       "note": "used in puts one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French very",
+       "at": 18,
+       "gives": "TRES",
+       "note": "tres is French for very"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on reflection",
+         "at": 35,
+         "note": "a reflection shows a mirror image, so the word for bad is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bad",
+         "at": 30,
+         "gives": "ILL",
+         "note": "ill means bad"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building used in France is, thinking it over, very poor.",
+     "walkthrough": "'French' belongs to the first piece, not the definition, and 'Structure' is the definition, not part of the picture; 'on reflection' turns the word for bad backwards, and 'used in' puts that inside the French word.",
+     "definitionFit": "A trellis is a lattice framework for climbing plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +1116,29 @@
     "text": "Academic pupil",
     "enumeration": "7"
    },
-   "solution": "SCHOLAR"
+   "solution": "SCHOLAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Academic",
+      "at": 0,
+      "meaning": "a learned university person"
+     },
+     {
+      "text": "pupil",
+      "at": 9,
+      "meaning": "a schoolchild or learner"
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil who is academic.",
+     "definitionFit": "The word means a learned expert and, more old-fashioned, a schoolchild."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -354,7 +1152,34 @@
     "text": "What you take on doctor's orders, maybe?",
     "enumeration": "7"
    },
-   "solution": "BREATHS"
+   "solution": "BREATHS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What you take on doctor's orders, maybe?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What you take on doctor's orders, maybe?",
+       "at": 0,
+       "note": "suggests medicine, but a doctor with a stethoscope tells you to inhale deeply"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A doctor examining your chest asks you to draw air in, deeply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 19,
@@ -368,7 +1193,47 @@
     "text": "Hotel employee giving signal to start dance",
     "enumeration": "7"
    },
-   "solution": "BELLHOP"
+   "solution": "BELLHOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hotel employee",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to start",
+       "at": 29,
+       "note": "to start puts the signal at the head of the dance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "signal",
+       "at": 22,
+       "gives": "BELL",
+       "note": "a bell is a signal"
+      },
+      {
+       "words": "dance",
+       "at": 38,
+       "gives": "HOP",
+       "note": "a hop is a dance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel worker gives the signal for the dance to begin.",
+     "definitionFit": "A bellhop is a hotel porter who carries luggage, chiefly in American use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -382,7 +1247,48 @@
     "text": "Order evident in male habitat",
     "enumeration": "4"
    },
-   "solution": "HOME"
+   "solution": "HOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "habitat",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "evident in",
+       "at": 6,
+       "note": "the order is evident inside the male, so it goes within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "male",
+       "at": 17,
+       "gives": "HE",
+       "note": "he is a male"
+      },
+      {
+       "words": "Order",
+       "at": 0,
+       "gives": "OM",
+       "note": "OM is the Order of Merit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Order is plain to see in a man's living space.",
+     "definitionFit": "An animal's natural home is its habitat, the place it lives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 21,
@@ -396,7 +1302,31 @@
     "text": "Party man needing a tonic?",
     "enumeration": "5"
    },
-   "solution": "MIXER"
+   "solution": "MIXER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Party man",
+      "at": 0,
+      "meaning": "a sociable person who mingles well at gatherings"
+     },
+     {
+      "text": "a tonic?",
+      "at": 18,
+      "meaning": "tonic water added to a spirit, as in gin and tonic"
+     }
+    ],
+    "explanation": {
+     "surface": "A party-goer needing a pick-me-up.",
+     "definitionFit": "A good mingler is a sociable type; a drink such as tonic added to spirits has the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tonic"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1340,30 @@
     "text": "Like medicine bottles adduced as evidence in juvenile court?",
     "enumeration": "10"
    },
-   "solution": "CHILDPROOF"
+   "solution": "CHILDPROOF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like medicine bottles",
+      "at": 0,
+      "meaning": "medicine bottles have caps youngsters cannot open"
+     },
+     {
+      "text": "adduced as evidence in juvenile court?",
+      "at": 22,
+      "meaning": "evidence about a youngster, as offered in a youth court"
+     }
+    ],
+    "explanation": {
+     "surface": "Medicine bottles offered as evidence in a youth court.",
+     "definitionFit": "Safety caps keep youngsters out; read as two words it is evidence about a youngster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1377,48 @@
     "text": "Monarch flanked by cook and chauffeur",
     "enumeration": "5"
    },
-   "solution": "FERRY"
+   "solution": "FERRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chauffeur",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "flanked by",
+       "at": 8,
+       "note": "the monarch has the cook's letters on each side"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cook",
+       "at": 19,
+       "gives": "FRY",
+       "note": "to fry is to cook"
+      },
+      {
+       "words": "Monarch",
+       "at": 0,
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch with a cook on one side and a chauffeur on the other.",
+     "definitionFit": "To ferry someone is to drive or carry them about, as a chauffeur does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chauffeur"
+    }
+   }
   },
   {
    "number": 24,
@@ -438,7 +1432,55 @@
     "text": "Organ specialist takes taxi up to hospital",
     "enumeration": "4"
    },
-   "solution": "BACH"
+   "solution": "BACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Organ specialist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 28,
+         "note": "in a down clue up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "taxi",
+         "at": 23,
+         "gives": "CAB",
+         "note": "a cab is a taxi"
+        }
+       ]
+      },
+      {
+       "words": "hospital",
+       "at": 34,
+       "gives": "H",
+       "note": "H is hospital, as on road signs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist takes a taxi to hospital.",
+     "walkthrough": "'up' turns CAB to BAC; 'Organ specialist' suggests a surgeon but is the composer who wrote for the church organ.",
+     "definitionFit": "J S Bach was a great organist and composer for the organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Organ"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1494,60 @@
     "text": "Itinerant trader to fight repeal of act (note 6)",
     "enumeration": "9"
    },
-   "solution": "BOXWALLAH"
+   "solution": "BOXWALLAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Itinerant trader",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fight",
+       "at": 20,
+       "gives": "BOX",
+       "note": "to box is to fight"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "repeal of",
+         "at": 26,
+         "note": "repeal read as re-peal, peeling back, so the law is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "act",
+         "at": 36,
+         "gives": "LAW",
+         "note": "a law is an act of parliament"
+        }
+       ]
+      },
+      {
+       "words": "note 6",
+       "at": 41,
+       "gives": "LAH",
+       "note": "lah is the sixth note in tonic sol-fa"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling trader fights to have a law repealed.",
+     "walkthrough": "'repeal of' turns LAW to WAL. A boxwallah is an Anglo-Indian word for a pedlar.",
+     "definitionFit": "In India a boxwallah was a pedlar going door to door with goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repeal"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1561,42 @@
     "text": "Divine flower produced by organic horticulture",
     "enumeration": "5"
    },
-   "solution": "ICHOR"
+   "solution": "ICHOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Divine flower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "produced by",
+       "at": 14,
+       "note": "the letters are produced by the run of these words, sitting across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "organic horticulture",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavenly flower grown by organic gardening.",
+     "walkthrough": "'flower' is something that flows: the fluid that ran in the veins of the Greek gods.",
+     "definitionFit": "In Greek myth this was the ethereal fluid that flowed in the gods' veins instead of blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1610,47 @@
     "text": "Ground Londoners might associate with cricket?",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ground",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Londoners might",
+       "at": 7,
+       "note": "Cockney Londoners drop the initial aitch, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "associate with cricket?",
+       "at": 23,
+       "gives": "HEARTH",
+       "note": "Dickens wrote The Cricket on the Hearth, so the fireside links with crickets"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soil that Londoners might link with cricket.",
+     "walkthrough": "'cricket' suggests the London sport, but is the insect of Dickens's story; Cockneys (working-class East Londoners) say the fireside word without its H.",
+     "definitionFit": "Earth is soil, the ground under our feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1664,60 @@
     "text": "Express journalist breaking into bank, it's said",
     "enumeration": "9"
    },
-   "solution": "REPUTEDLY"
+   "solution": "REPUTEDLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's said",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking into",
+       "at": 19,
+       "note": "breaking into puts the pieces inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bank",
+       "at": 33,
+       "gives": "RELY",
+       "note": "to bank on is to rely on"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Express",
+         "at": 0,
+         "gives": "PUT",
+         "note": "to put something is to express it"
+        },
+        {
+         "words": "journalist",
+         "at": 8,
+         "gives": "ED",
+         "note": "ED is an editor"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Express journalist reportedly breaks into a bank.",
+     "walkthrough": "'Express' looks like the newspaper but is a verb, to put into words.",
+     "definitionFit": "Something reputedly true is so according to report or general belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   }
  ]
 }
