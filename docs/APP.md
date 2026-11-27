@@ -100,14 +100,14 @@ Terms used below:
   default, so arming shows only through `data-arm` or twoTap boots. There is no
   "Check my answer" (`#guess-check` is gone) and no "Skip for now": choosing
   another step is the skip. A right Lock in (`finishGuess`) opens the step as
-  worked out with the green verdict; a wrong one opens it as a tell does and
-  costs 1 hint, with no marked clue copy, no red and no "Not X" line for a
-  wrong clue family, only a plain `.step-result.miss` "Not quite — this is the
-  right one." over the step. Every lock-in is kept in `lastGuess` (a tell
-  clears it), and the next question's panel opens with
-  `carriedResultHTML`: "✓ <Step>: right" or "<Step>: not quite — the right one
-  is under its tab", because a right answer moves straight on and its verdict
-  goes behind its tab. The first lock-in on a step is the one that
+  worked out with the green verdict; a wrong one opens nothing and keeps the same question on the table
+  (`guessing` is rebuilt with empty picks; the step goes into `rungsMissed`, so it
+  can never be earned afterwards), with a `.step-result.miss` "Not quite — try
+  again, or tap “Just tell me”." from `carriedResultHTML`, shown only while that
+  question is in front (`carriedFor`). A right one is kept in `lastGuess` (a
+  tell clears it) and the next step's panel, a question or a no-question card
+  (`nextCardHTML`), opens with "✓ <Step>: right", because a right answer moves
+  straight on and its verdict goes behind its tab. The first lock-in on a step is the one that
   can earn it: a wrong piece then a right one keeps Pieces paid
   (`tools/smoke/rung_rules.js`). "More" (always in the markup, `hidden` until
   tapped) holds Reveal answer, Report a bad hint and the blog link; Reveal

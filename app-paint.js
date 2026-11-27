@@ -238,7 +238,11 @@
   function nextCardHTML(e, t, front) {
     const steps = ladderFor(e);
     const at = steps.findIndex((s) => s.key === t.rung);
-    return `<div class="${front ? "hint-step guess" : "help-next"}" data-nonask>${
+    // A right answer that led here (a step with no question to ask) still says
+    // so, as it does over a question.
+    const carried = front && carriedFor(e, lastGuess, null)
+      ? carriedResultHTML(lastGuess, STEP_NAMES[lastGuess.rung] || lastGuess.rung) : "";
+    return `<div class="${front ? "hint-step guess" : "help-next"}" data-nonask>${carried}${
       at >= 0 ? `<span class="step-label">${at + 1} \u00b7 ${esc(steps[at].label)}</span>` : ""}
       ${tellSlotHTML(e, t)}</div>`;
   }
@@ -708,7 +712,7 @@
         const fm = formulaAsks && steps[at].formula ? formulaHTML(e, steps[at].formula, true) : "";
         // How the last lock-in went heads the next question, whose panel is
         // now the one in front (carriedResultHTML).
-        const carried = lastGuess ? carriedResultHTML(lastGuess,
+        const carried = carriedFor(e, lastGuess, guessing) ? carriedResultHTML(lastGuess,
           lastGuess.rung === "blocks" ? "That piece" : STEP_NAMES[lastGuess.rung] || lastGuess.rung) : "";
         const q = carried + guessHTML(ask, at + 1, steps[at].label, holder === e, fm,
           tellSlotHTML(e, helpTarget(e)));

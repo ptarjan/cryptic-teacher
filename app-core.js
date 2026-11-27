@@ -1014,7 +1014,7 @@
       idxHave.add(key);
       window.ctIdx.expandShard(key, compact, stat, cuts).forEach((r) => { (r.unlisted ? unlisted : rows).push(r); });
     };
-    const json = (name) => fetch(at("puzzles/idx/" + name))
+    const json = (name) => fetchWithin(at("puzzles/idx/" + name))
       .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
     const settle = (ok) => {
       if (ok) { idxMerge(rows, unlisted); cb(true); return; }
@@ -1126,6 +1126,20 @@
   // once it has settled. Settled, not loaded: a file that 404s answers everyone
   // waiting and is never asked for again, because a loader that retries on
   // missing is a loader that spins.
+  // A fetch that cannot hang. A captive or dead wifi accepts the connection and
+  // never answers, and a bare fetch then waits forever: the page sat blank (Paul,
+  // 11-27). This gives up when no ANSWER (headers) has arrived in `ms`, with the
+  // same rejection a dead network gives, so every caller has exactly one failure
+  // path. A body that is slow once the answer began is left alone.
+  const NET_WAIT_MS = 8000;
+  function fetchWithin(url, opts, ms) {
+    const ctl = window.AbortController ? new AbortController() : null;
+    if (!ctl) return window.fetch(url, opts);
+    const timer = setTimeout(() => ctl.abort(), ms || NET_WAIT_MS);
+    return window.fetch(url, { ...(opts || {}), signal: ctl.signal })
+      .then((r) => { clearTimeout(timer); return r; }, (e) => { clearTimeout(timer); throw e; });
+  }
+
   const puzzleLoad = {};
   function loadPuzzle(id, done) {
     const q = puzzleLoad[id];
@@ -1134,9 +1148,14 @@
     const p = BY_ID[id];
     if (!p) return done();
     puzzleLoad[id] = [done];
+    // Settled for good only when the server ANSWERED (a puzzle, or a 404 that
+    // means it is gone). A network that never answered leaves the id free to be
+    // asked for again: otherwise one dropped connection made a puzzle
+    // permanently "missing" until the page was reloaded.
+    let answered = false;
     const settle = () => {
       const waiting = puzzleLoad[id];
-      puzzleLoad[id] = 1;
+      if (answered || window.CRYPTIC_PUZZLES[id]) puzzleLoad[id] = 1; else delete puzzleLoad[id];
       waiting.forEach((f) => f());
     };
     // ?v=<content hash> so an updated puzzle is never served from cache
@@ -1153,12 +1172,12 @@
     // the script tag would run it. The .js script tag is the way in wherever
     // that fails: file:// (no fetch), a checkout served as it stands (no .gz
     // built), and the Node harnesses, whose window has no fetch.
-    if (!window.fetch) return script();
-    window.fetch(at("puzzles/" + p.file + ".gz" + v))
-      .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); })
+    if (!window.fetch) { answered = true; return script(); }
+    fetchWithin(at("puzzles/" + p.file + ".gz" + v))
+      .then((r) => { answered = true; if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); })
       .then(unzipText)
       .then((text) => { new Function("window", text)(window); settle(); })
-      .catch(() => (window.CRYPTIC_PUZZLES[id] ? settle() : script()));
+      .catch(() => (window.CRYPTIC_PUZZLES[id] || !answered ? settle() : script()));
   }
 
   // The text in a .gz's bytes. DecompressionStream where the browser has it;

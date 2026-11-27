@@ -500,7 +500,12 @@
         // Say which one and why. The alternative — falling back to some other
         // puzzle — hides a broken deploy behind a crossword nobody asked for.
         $("puzzle-title").textContent =
-          `Could not load puzzle ${want}. Check your connection and reload.`;
+          `Could not load puzzle ${want}. You may be offline, or the site can’t be reached. `;
+        const retry = document.createElement("button");
+        retry.className = "ghost small";
+        retry.textContent = "Retry";
+        retry.onclick = () => location.reload();
+        $("puzzle-title").appendChild(retry);
         showApp();
         return;
       }
@@ -541,7 +546,7 @@
   function fastOpen(done) {
     const raw = new URLSearchParams(location.search).get("p") || store.get("ct:last", null);
     if (!raw || !/^[A-Za-z0-9_.-]+$/.test(raw) || !window.fetch || location.hash) return done();
-    window.fetch(at("puzzles/" + raw + ".js.gz"), { cache: "no-cache" })
+    fetchWithin(at("puzzles/" + raw + ".js.gz"), { cache: "no-cache" })
       .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); })
       .then(unzipText)
       .then((text) => {

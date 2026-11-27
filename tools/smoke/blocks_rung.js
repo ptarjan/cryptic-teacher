@@ -187,15 +187,22 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     "a wrong Lock in has no verdict, no miss marks and no red: " + html);
   assert(!/class="gw[^"]*(spare|missed)"/.test(html + registry["hint-clue"].innerHTML),
     "and no word is marked wrong: " + html);
-  assert(html.includes("hint-step") && !html.includes("guess-clue ask"),
-    "the rung opens exactly as Show me opens it — never a gate: " + html);
+  assert(html.includes("guess-clue ask") && /step-result miss">Not quite/.test(html),
+    "the same question stays up with one plain Not quite line, never a gate to the answer: " + html);
+  assert(!/id="hint-note-definition"/.test(html),
+    "and the step is not opened by a wrong answer: " + html);
+  assert(/\b0<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
+    "a wrong Lock in costs nothing: Just tell me is what pays: " + registry["scorebar"].innerHTML);
+  registry["guess-tell"].onclick();
+  assert(registry["hint-body"].innerHTML.includes("hint-step"), "Just tell me then opens the step it asked about");
+  assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
+    "for 1 hint, the same as Show me: " + registry["scorebar"].innerHTML);
+  html = panelHTML();
   assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
     "its words are highlighted in the clue as the step's own highlights");
   global.flushTimers(10000);
   assert(panelHTML() === html,
     "and it is left on screen to be read: " + registry["hint-body"].innerHTML);
-  assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
-    "a wrong Lock in costs 1 hint, the same as Show me: " + registry["scorebar"].innerHTML);
 
   // And the escape hatch out of the question itself.
   openIt();

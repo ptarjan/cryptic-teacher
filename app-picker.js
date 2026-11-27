@@ -671,7 +671,20 @@
         setHTML($("picker-note"), "You’re offline and that puzzle isn’t saved on this device. Puzzles marked “saved offline” will open.");
         return;
       }
-      openPuzzle(opens); togglePicker(false);
+      // The picker closes only once the puzzle is really there. A file that
+      // cannot be fetched (offline, a captive network) used to fall through to
+      // "open it", find nothing, and close the picker on the puzzle already
+      // open, as if the tap had been ignored.
+      setHTML($("picker-note"), "Opening…");
+      loadPuzzle(opens, () => {
+        if (!window.CRYPTIC_PUZZLES[opens]) {
+          setHTML($("picker-note"), isOffline()
+            ? "You’re offline and that puzzle isn’t saved on this device. Puzzles marked “saved offline” will open."
+            : "Couldn’t open that puzzle: the site didn’t answer. Check your connection and tap it again.");
+          return;
+        }
+        openPuzzle(opens); togglePicker(false);
+      });
     };
     li.appendChild(btn);
     return li;
@@ -1065,7 +1078,7 @@
     store.set("ct:last", id);
     if (chosen) pointUrlAtPuzzle(id);
     buildModel();
-    hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
+    hintsShown = {}; hintsEarned = {}; rungsMissed.clear(); hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
     solvedWith = {}; timing = {};
     // Forget the last puzzle's completeness, so the first render of this one
     // only records where it stands. Opening a puzzle you finished last week is

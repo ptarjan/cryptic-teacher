@@ -37,6 +37,21 @@ const PUZZLES = "ct-puzzles-1";
 const MAX_PUZZLES = 250;        // above the page's batch of 100
 const MAX_FILE_BYTES = 300 * 1024;   // a single puzzle file bigger than this is skipped
 const NETWORK_WAIT_MS = 4000;
+const FETCH_GIVE_UP_MS = 8000;   // no answer at all: the network is dead
+
+// A fetch that cannot hang. A captive or dead wifi accepts the connection and
+// never answers, so a bare fetch holds the page blank forever. With no answer
+// (headers) in FETCH_GIVE_UP_MS this rejects like a dead network, and each
+// caller's offline path (a held copy, an error the page shows) takes over.
+function fetchTimed(req) {
+  // A race, not an abort signal: a navigation request cannot take an init
+  // object without changing its mode, and a stalled fetch left running costs nothing.
+  let timer;
+  const giveUp = new Promise((ok, no) => {
+    timer = setTimeout(() => no(new TypeError("no answer in " + FETCH_GIVE_UP_MS + "ms: " + req.url)), FETCH_GIVE_UP_MS);
+  });
+  return Promise.race([fetch(req), giveUp]).finally(() => clearTimeout(timer));
+}
 
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (event) => event.waitUntil(self.clients.claim()));
@@ -94,7 +109,7 @@ async function cacheFirst(req, name) {
   const hit = await cache.match(req);
   if (hit) return hit;
   let res;
-  try { res = await fetch(req); } catch (e) { res = null; }
+  try { res = await fetchTimed(req); } catch (e) { res = null; }
   if (res && res.ok && !res.redirected) {
     await cache.put(req, res.clone());
     if (name === PUZZLES) await trimPuzzles(cache);
@@ -122,7 +137,7 @@ function offlineHome(url) {
 async function networkFirst(req, name, key, onFresh) {
   const cache = await caches.open(name);
   const held = await cache.match(key);
-  const net = fetch(req).then((res) => {
+  const net = fetchTimed(req).then((res) => {
     if (res.ok && !res.redirected) { cache.put(key, res.clone()); if (onFresh) onFresh(res.clone()); }
     return res;
   });
@@ -139,7 +154,7 @@ async function heldFirst(req) {
   const cache = await caches.open(PUZZLES);
   const held = await cache.match(req, { ignoreSearch: true });
   if (held) return held;   // freshness comes from the page's stamped saves
-  const res = await fetch(req);
+  const res = await fetchTimed(req);
   if (res.ok && !res.redirected) {
     await cache.put(req, res.clone());
     await trimPuzzles(cache);
@@ -163,7 +178,7 @@ self.addEventListener("fetch", (event) => {
     } else {
       // Another page (archive, /learn/, a /puzzles/<id>/ bar): live when
       // online; offline, a redirect to the app (see offlineHome).
-      event.respondWith(fetch(req).catch(() =>
+      event.respondWith(fetchTimed(req).catch(() =>
         caches.match(new Request(SCOPE)).then((r) => (r ? Response.redirect(offlineHome(url), 302) : Response.error()))));
     }
     return;
@@ -254,7 +269,7 @@ async function savePuzzles(urls, port, drop, keep) {
     try {
       const req = new Request(new URL(u, SCOPE).href);
       if (!(await cache.match(req))) {
-        const res = await fetch(req);
+        const res = await fetchTimed(req);
         if (!res.ok) throw new Error("HTTP " + res.status);
         const buf = await res.arrayBuffer();
         // Oversize: not saved, not an error (the puzzle still opens online).

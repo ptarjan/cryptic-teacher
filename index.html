@@ -484,34 +484,61 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   // declares a const it reads), which ctBootParsed() says have run.
   function start() { if (!started && ready && parsed) { started = true; ready(); } }
   window.ctBootParsed = function () { parsed = true; start(); };
-  function fail() {
-    if (ready) return;
-    if (++tries < 3) { setTimeout(load, 1000 * tries); return; }
-    var box = document.createElement("div");
-    box.id = "ct-boot-error";
-    box.setAttribute("role", "alert");
-    box.style.cssText = "padding:2em;text-align:center;font:16px sans-serif";
-    box.appendChild(document.createTextNode("The puzzle list could not be loaded. Check your connection and try again. "));
+  var GIVE_UP_MS = 8000;   // no answer at all: a captive or dead network hangs rather than failing
+  function say(text) {
+    var box = document.getElementById("ct-boot-error");
+    if (!box) {
+      box = document.createElement("div");
+      box.id = "ct-boot-error";
+      box.setAttribute("role", "alert");
+      box.style.cssText = "padding:2em;text-align:center;font:16px sans-serif";
+      document.body.insertBefore(box, document.body.firstChild);
+    }
+    box.textContent = "";
+    box.appendChild(document.createTextNode(text + " "));
     var b = document.createElement("button");
     b.textContent = "Retry";
     b.onclick = function () { location.reload(); };
     box.appendChild(b);
-    document.body.insertBefore(box, document.body.firstChild);
+  }
+  // Said as soon as the first try fails, not after the last: a page that is
+  // quietly retrying looks the same as a page that is stuck.
+  function fail() {
+    if (ready) return;
+    say(navigator.onLine === false
+      ? "You\u2019re offline, and the puzzle list isn\u2019t saved on this device yet."
+      : "Can\u2019t reach the site (the network may be offline or need a login). Retrying\u2026");
+    if (++tries < 3) { setTimeout(load, 1000 * tries); return; }
+    say("Can\u2019t reach the site. Check your connection.");
+  }
+  window.addEventListener("online", function () { if (!ready) { tries = 0; load(); } });
+  function within(ms) {
+    var ctl = window.AbortController ? new AbortController() : null;
+    var t = { signal: ctl && ctl.signal, fired: false, done: function () { clearTimeout(timer); } };
+    var timer = setTimeout(function () { t.fired = true; if (ctl) ctl.abort(); fail(); }, ms);
+    return t;
   }
   function load() {
     if (!window.fetch || !window.ctIdx) { fail(); return; }
-    fetch("puzzles/idx/head-live.json", { cache: "no-cache" })
-      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    var t = within(GIVE_UP_MS);
+    var opts = { cache: "no-cache" };
+    if (t.signal) opts.signal = t.signal;
+    fetch("puzzles/idx/head-live.json", opts)
+      .then(function (r) { t.done(); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then(function (live) {
+        var t2 = within(GIVE_UP_MS);
         add("puzzles/idx/" + live.static, function () {
+          t2.done();
           try {
             window.CRYPTIC_INDEX = window.ctIdx.compose(window.CRYPTIC_INDEX_STATIC, live);
           } catch (e) { fail(); return; }
+          var box = document.getElementById("ct-boot-error");
+          if (box) box.parentNode.removeChild(box);
           ready = function () { apps.forEach(function (a) { add(a); }); };
           start();
-        }, fail);
+        }, function () { t2.done(); fail(); });
       })
-      .catch(fail);
+      .catch(function () { t.done(); if (!t.fired) fail(); });
   }
   load();
 })();

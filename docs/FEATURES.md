@@ -18,10 +18,12 @@ the site offers.
   no "Skip for now", picking another step is the skip). A right Lock in opens
   the step as worked out, with the green verdict, and moves on to the next
   question, which opens with a "✓ Definition: right" line so the result is never
-  lost behind the tab. A wrong Lock in opens it as Just tell me does and costs 1
-  hint: no miss marks and no red, only a plain "Not quite — this is the right
-  one." line over the step (and "Definition: not quite" on the next question
-  picked); a wrong clue family has no "Not X" line. A wrong piece followed by a
+  lost behind the tab. A wrong Lock in opens nothing: the same
+  question stays up with the picks cleared and a plain "Not quite — try again,
+  or tap “Just tell me”." line, so the tab in front, its content and its
+  button all belong to the one step; "Just tell me" is the paid way to see it.
+  No miss marks, no red, no "Not X" line for a wrong clue family. A step that
+  was missed once is never marked worked out, however it is answered after. A wrong piece followed by a
   right one keeps Pieces paid. A rung you worked out is scored separately from
   one you bought.
 - **A piece with only one possible answer is handed over, not asked.** If the

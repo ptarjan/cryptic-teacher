@@ -1602,6 +1602,8 @@
   // persisted: what survives a reload is hintsEarned, because that is the part
   // that changed the score. A half-made guess is not progress.
   let guessing = null;   // { key, rung, step, picked: [] }
+  // "<clue>|<rung>" for every step a wrong answer was given on: it cannot be earned afterwards.
+  const rungsMissed = new Set();
   let lastGuess = null;  // { key, rung, tokens, known, mk: <verdict> }
   // Which block of the panel the last tap on the ladder produced: a rung key
   // for a rung that opened, "guess" for a question that was asked. The panel
@@ -1831,7 +1833,9 @@
   // I got it right"): one plain line, above the step that now shows the right
   // words.
   function verdictHTML(g, quiet) {
-    if (!g.mk.right) return `<p class="step-result miss">Not quite \u2014 this is the right one.</p>`;
+    // A wrong answer opens nothing, so there is no step for it to head; its line
+    // is carriedResultHTML's, on the question that is still being asked.
+    if (!g.mk.right) return "";
     const fresh = g.fresh ? " fresh" : "";
     g.fresh = false;
     return `<div class="guess-result${fresh}"><p class="guess-verdict ${
@@ -1960,16 +1964,20 @@
     return { ...v, right: false };
   }
 
-  // The last lock-in's result, carried onto the next question. A right answer
-  // moves straight on to the next question, and the step it judged (with its
+  // The last lock-in's result, as one line over the step now in front. A right
+  // answer moves straight on to the next step, and the step it judged (with its
   // full verdict) goes behind its tab, so without this line the solver would
-  // never see whether they were right (Paul 11-22). The same line follows a
-  // wrong one onto the next question they pick. Its step's tab keeps the
-  // lasting mark: a star when worked out.
+  // never see whether they were right (Paul 11-22). A wrong one leaves the same
+  // question up and says so (Paul 11-27: the next step's button under the
+  // previous step's text); the line goes once another step comes to the front.
   function carriedResultHTML(g, name) {
-    const right = !!g.mk.right;
-    return `<p class="step-result ${right ? "right" : "miss"}">${right ? "\u2713 " : ""}${esc(name)}: ${
-      right ? "right" : "not quite \u2014 the right one is under its tab"}</p>`;
+    if (!g.mk.right) return `<p class="step-result miss">Not quite \u2014 try again, or tap \u201cJust tell me\u201d.</p>`;
+    return `<p class="step-result right">\u2713 ${esc(name)}: right</p>`;
+  }
+  // Whether the result in hand belongs to the question now in front.
+  function carriedFor(e, g, at) {
+    if (!g || g.key !== entryKey(e)) return false;
+    return g.mk.right || (!!at && g.rung === at.rung && (g.step || 0) === (at.step || 0));
   }
 
   // The marked clue is the same words in a different place. The question sits at
@@ -2060,32 +2068,44 @@
     const e = currentEntry();
     if (!e || entryKey(e) !== guessing.key) { guessing = null; return; }
     const from = flipCapture();
-    // Every lock-in has a verdict to keep; "Show me" (no verdict) has none. A
-    // wrong lock-in is shown the step as "Show me" shows it (Paul 11-20): no
-    // marked copy of the clue, nothing red, the picks give way to the step's
-    // own highlights, and one plain "Not quite" line (verdictHTML) says so.
+    // A right answer opens the step as worked out and goes on to the next one.
+    // A wrong one opens nothing and goes nowhere: the same question stays on the
+    // table, with its picks cleared and one plain "Not quite" line over it
+    // (carriedResultHTML), so the tab in front, its content and every button
+    // all still belong to THIS step. "Just tell me" is the way to see it. The
+    // step stays unearned: rungsMissed outlives the retry (even one reached again from the tabs), because a step that is
+    // guessed again until it is right was not worked out. "Show me" (no
+    // verdict) opens the step as handed over, and has no line.
     const right = !!(verdict && verdict.right);
-    lastGuess = verdict ? { key: guessing.key, rung: guessing.rung, step: guessing.step, fresh: true,
+    const rung = guessing.rung;
+    lastGuess = verdict ? { key: guessing.key, rung, step: guessing.step, fresh: true,
                             tokens: ask.tokens, known: ask.known, mk: verdict } : null;
     // Earned means every piece taken was pointed at correctly. A rung asked in
     // pieces must not turn into three chances to have already won it, so a
-    // wrong one — or a "Show me" — takes it back off the free list, and a
-    // right one after that does not put it back: the first lock-in on a step
-    // is the one that can earn it, and a later piece can only keep it. One
-    // rung, one price.
-    const won = earnedRungs(e).indexOf(guessing.rung);
-    if (right) { if (won < 0 && !isShown(e, guessing.rung)) earnedRungs(e).push(guessing.rung); }
-    else if (won >= 0) earnedRungs(e).splice(won, 1);
+    // wrong one (or a "Show me") takes it off the free list, and a right one
+    // after that does not put it back: the first lock-in on a step is the one
+    // that can earn it, and a later piece can only keep it. One rung, one price.
+    const won = earnedRungs(e).indexOf(rung);
+    if (verdict && !right) {
+      if (won >= 0) earnedRungs(e).splice(won, 1);
+      rungsMissed.add(guessing.key + "|" + rung);
+      guessing = { key: guessing.key, rung, step: guessing.step, picked: [] };
+      focusHint("guess");
+      refreshAll();
+      return;
+    }
+    if (right && !rungsMissed.has(guessing.key + "|" + rung) && won < 0 && !isShown(e, rung)) earnedRungs(e).push(rung);
+    else if (!verdict && won >= 0) earnedRungs(e).splice(won, 1);
     // The piece just settled goes up, and only that one (blocksAt holds how many
     // are out). Whether to go on to the next piece is the solver's call, and the
     // rung is theirs either way: a question is never a dead end.
-    if (guessing.rung === "blocks") settlePiece(e, guessing.step);
-    const guessing_rung = guessing.rung, guessing_choice = verdict && verdict.choice;
-    focusHint(guessing.rung);
-    showHint(e, guessing.rung);
+    if (rung === "blocks") settlePiece(e, guessing.step);
+    const guessing_rung = rung, guessing_choice = verdict && verdict.choice;
+    focusHint(rung);
+    showHint(e, rung);
     guessing = null;
     // A right answer finishes the rung well, and every step goes on the same way.
-    if (verdict && verdict.right) goOn(e, guessing_rung, guessing_choice);
+    if (right) goOn(e, guessing_rung, guessing_choice);
     refreshAll();
     flipPlay(from);
   }

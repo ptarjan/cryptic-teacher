@@ -215,11 +215,22 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
   }
   {
     const wrong = verdict(marks.slice(1));
-    assert(!/guess-verdict/.test(wrong) && wrong.includes("hint-step"),
-      "but dropping a word that carries the meaning opens the step with no red verdict on "
+    // Paul 11-27: a wrong answer left the next step's button under the previous
+    // step's text. It now opens nothing: the same question stays up, one plain
+    // "Not quite" line over it, and its own "Just tell me" under it.
+    assert(!/guess-verdict/.test(wrong) && isAsking(registry["hint-body"]),
+      "dropping a word that carries the meaning keeps the same question up, with no red verdict on "
         + clueText(found.e) + ": " + wrong);
-    assert(/<div id="hint-note-definition" class="hint-step" role="tabpanel"><p class="step-result miss">Not quite/.test(wrong),
-      "and one plain \"Not quite\" line heads the step it opened: " + wrong);
+    assert(/<p class="step-result miss">Not quite/.test(wrong),
+      "and one plain \"Not quite\" line says so: " + wrong);
+    assert(!/<div id="hint-note-definition"/.test(wrong),
+      "the step it asked about is not opened by a wrong answer: " + wrong);
+    assert(/id="guess-tell"[^>]*aria-label="Just tell me: /.test(wrong),
+      "its button is Just tell me for this very step: " + wrong);
+    // And it can be answered again, right this time.
+    const again = verdict(marks.slice(0, -1));
+    assert(/guess-verdict right/.test(again),
+      "a second try at the same question can be right on " + clueText(found.e));
     assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
       "and the step's own highlights show where the definition was");
   }
@@ -389,9 +400,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     }
   }
 
-  // A wrong piece, then a right one: the rung stays paid. The wrong lock-in is
-  // shown the piece as "Show me" would (1 hint, no verdict); a right lock-in on
-  // the NEXT piece must not hand the rung back as earned.
+  // A wrong piece, then the right one for the same piece: the rung stays paid.
+  // The wrong lock-in opens nothing and costs nothing; the right retry must not
+  // count as worked out.
   //
   // Driven as the screen is: the clue's words are boxes in #hint-clue, and the
   // next piece is asked by tapping its blank chip in the Pieces formula (there
@@ -439,16 +450,12 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
         const cold = registry["scorebar"].innerHTML;
         registry["gw-" + wrongPick].onclick();
         registry["guess-tell"].onclick();
-        const paid = registry["scorebar"].innerHTML;
-        const next = blanks().find((c) => c.n !== cur.n);
-        if (!next || paid === cold) continue;
-        tapChip(next.n);
-        if (!asking()) continue;
-        const second = fragWords(e, all[next.n]);
-        if (!second || !second.every((i) => pickable().indexOf(i) >= 0)) continue;
-        second.forEach((i) => registry["gw-" + i].onclick());
+        // A wrong piece opens nothing and costs nothing: the same piece is asked again.
+        const missed = { still: asking(), score: registry["scorebar"].innerHTML };
+        if (!missed.still || missed.score !== cold) continue;
+        first.forEach((i) => registry["gw-" + i].onclick());
         registry["guess-tell"].onclick();
-        walked = { id, e, paid, after: registry["scorebar"].innerHTML,
+        walked = { id, e, missed, after: registry["scorebar"].innerHTML, cold,
           right: registry["hint-body"].innerHTML.includes("guess-verdict right") };
         break;
       }
@@ -456,9 +463,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     }
     if (shape("a two-piece clue asked piece by piece", walked)) {
       assert(walked.right, `${walked.id} ${entryId(walked.e)}: the second piece's own words are graded right`);
-      assert(walked.after === walked.paid,
-        `${walked.id} ${entryId(walked.e)}: a right piece after a wrong one keeps Pieces paid, `
-          + `neither refunded nor charged again: ${walked.paid} then ${walked.after}`);
+      assert(walked.after !== walked.cold,
+        `${walked.id} ${entryId(walked.e)}: a right piece after a wrong one is not worked out, `
+          + `so Pieces is paid: ${walked.cold} then ${walked.after}`);
     }
   }
 }
