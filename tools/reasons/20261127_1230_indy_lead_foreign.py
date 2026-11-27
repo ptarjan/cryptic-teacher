@@ -11,7 +11,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose clue window opened on a column of other print left of its clue numbers, that print cut since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-27T12:35:00+00:00"
 YEARS = re.compile(r"GaleIndependent(199\d|20[01]\d)UKEnglish/")
 
 

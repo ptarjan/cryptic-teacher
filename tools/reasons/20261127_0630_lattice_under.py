@@ -11,7 +11,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Telegraph page refused 'not a grid' for a small square ink under its title, the lattice it shows taken for the grid since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-27T12:35:00+00:00"
 INK = re.compile(r"the ink under the title is (\d+)x(\d+), not a grid")
 GRID_INK = 400
 
