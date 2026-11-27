@@ -20,7 +20,10 @@
   // grid sits fixed. The only thing the Pieces step adds is the opening deal:
   // once every piece is out and they show the WHOLE answer is an anagram, the
   // wheel opens by itself holding the fodder (Paul 10-30: never for a part).
-  let ring = null;     // { key, letters, order, struck, sel, words, forbidden, dealt }: one clue's wheel
+  let ring = null;     // { key, letters, order, struck, sel, words, forbidden, dealt }: the current clue's wheel
+  // Every clue's wheel, by entryKey, so going to another clue and back finds the
+  // letters as they were left (selected, crossed off, shuffled). In memory only.
+  const rings = {};
   let wheelOn = null;  // the entryKey whose wheel is open, or null
   // Clues whose wheel the Pieces step has already opened and dealt, so closing
   // it stays closed. In memory only: the save format does not change.
@@ -149,9 +152,10 @@
     const key = entryKey(e);
     wheelDealt.add(key);
     if (!fodder) return false;
+    if (rings[key] && rings[key].letters.length) { ring = rings[key]; wheelOn = key; return true; }
     const letters = fodder.split("");
     const forbidden = [fodder, ann.answer, (ringAnagram(ann) || {}).gives];
-    ring = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {}, dealt: true };
+    ring = rings[key] = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {}, dealt: true };
     wheelOn = key;
     return true;
   }
@@ -161,7 +165,9 @@
   // empty: there is no fodder or answer to steer a shuffle away from.
   function wheelHTML(e, ann) {
     const key = entryKey(e);
-    if (!ring || ring.key !== key) ring = { key, letters: [], forbidden: [], order: [], struck: {} };
+    if (!ring || ring.key !== key) {
+      ring = rings[key] || (rings[key] = { key, letters: [], forbidden: [], order: [], struck: {} });
+    }
     return ringDraw(ann, key);
   }
 
@@ -2033,6 +2039,19 @@
     return true;
   }
 
+  // Where a right answer leads, one rule for every step. Naming the clue an
+  // anagram (the whole answer, so the wheel has fodder to deal) opens the free
+  // letters wheel. Otherwise the next free question; and where the next step
+  // has none, that step's own tab comes to the front with its (paid, never
+  // auto-opened) button, so the panel never stays on the step just finished.
+  function goOn(e, rung, choice) {
+    const ann = annOf(e);
+    if (rung === "type" && ann && choice === pickerOf(familyOf(["anagram"])).label && dealWheel(e, ann)) return;
+    if (advanceLadder(e)) return;
+    const t = helpTarget(e);
+    if (t && !t.asked && t.rung !== rung) helpOn = { key: entryKey(e), rung: t.rung, step: t.step };
+  }
+
   // Opens the rung and ends the guess, in the same tick as the tap that asked
   // for it. Nothing waits: the answer and the explanation of it arrive together
   // and both stay, so there is no moment the solver has to catch.
@@ -2061,11 +2080,12 @@
     // are out). Whether to go on to the next piece is the solver's call, and the
     // rung is theirs either way: a question is never a dead end.
     if (guessing.rung === "blocks") settlePiece(e, guessing.step);
+    const guessing_rung = guessing.rung, guessing_choice = verdict && verdict.choice;
     focusHint(guessing.rung);
     showHint(e, guessing.rung);
     guessing = null;
-    // A right answer finishes the rung well; go straight on to the next question.
-    if (verdict && verdict.right) advanceLadder(e);
+    // A right answer finishes the rung well, and every step goes on the same way.
+    if (verdict && verdict.right) goOn(e, guessing_rung, guessing_choice);
     refreshAll();
     flipPlay(from);
   }

@@ -991,8 +991,17 @@
   // which is Check grid and the end of paper mode in one press. The switch
   // says whether this puzzle is on paper, and is gone where there is nothing
   // to hide.
+  // Once every clue is solved there is nothing left to clear or start over:
+  // the two menu items go (Paul 11-27). Not in paper mode, where nothing is
+  // known to be solved until the verdict.
+  function puzzleSolved() {
+    return !paperHides() && entries.length > 0 && entries.every((e) => groupSolved(e));
+  }
   function drawPaperTools() {
     const on = paperHides();
+    const done = puzzleSolved();
+    $("clear-entry").classList.toggle("hidden", done);
+    $("reset-puzzle").classList.toggle("hidden", done);
     $("paper-done").classList.toggle("hidden", !on);
     // After a verdict, a second button is the way to see where (and end paper).
     $("paper-reveal").classList.toggle("hidden", !(on && paperAsked()));

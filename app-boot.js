@@ -267,6 +267,7 @@
       // The Pieces step deals the wheel once per clue "per attempt": a fresh
       // attempt deals it again.
       wheelDealt.clear(); wheelOn = null;
+      Object.keys(rings).forEach((k) => delete rings[k]); ring = null;
       if (paper.on && paperable()) setOnPaper(P.id, true);
       refreshAll();
       syncPushSoon();
