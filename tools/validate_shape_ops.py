@@ -72,9 +72,7 @@ def anagram_edge_pieces(tree, answer, stand=_stand_in_piece):
     not be in it.) Needs the answer."""
     if not answer or not isinstance(tree, dict):
         return 0
-    try:
-        wordplay.evaluate(copy.deepcopy(tree), answer)
-    except Exception:
+    if not wordplay.gives(copy.deepcopy(tree), answer):
         return 0
     found, stack = 0, [tree]
     while stack:
@@ -93,11 +91,8 @@ def anagram_edge_pieces(tree, answer, stand=_stand_in_piece):
             for k in range(trail + 1):
                 if j + k and j + k < len(parts) and not done:
                     cand = _pulled_edges(tree, node, j, k)
-                    try:
-                        wordplay.evaluate(cand, answer)
+                    if wordplay.gives(cand, answer):
                         done = True
-                    except Exception:
-                        pass
         found += done
     return found
 
@@ -844,9 +839,7 @@ def unverified_unchecked(tree, answer=None):
     if not any(n.get("unchecked") for n in _walk(tree)):
         return []  # most trees: no flag, nothing to evaluate
     if answer is not None:
-        try:
-            wordplay.evaluate(tree, answer)
-        except (wordplay.WordplayError, KeyError, TypeError, ValueError, IndexError):
+        if not wordplay.gives(tree, answer):
             return [n for n in _walk(tree) if n.get("unchecked")]
     for n in _walk(tree):
         leaf = _verified_leaf(n) if n.get("op") else None
@@ -897,8 +890,7 @@ def _recomputes(node):
             if want in run and len(want) < len(run):
                 return True
         if want:
-            wordplay.evaluate(live, want)
-            return True
+            return wordplay.gives(live, want)
         return bool(wordplay.values(live))
     except Exception:  # any failure to compute leaves the step flagged
         return False

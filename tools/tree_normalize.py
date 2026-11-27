@@ -97,11 +97,7 @@ def _flatten(tree):
 
 
 def _gives(tree, answer):
-    try:
-        wordplay.evaluate(copy.deepcopy(tree), answer)
-        return True
-    except Exception:
-        return False
+    return wordplay.gives(copy.deepcopy(tree), answer)
 
 
 # ---------- A: deletion over a charade <-> deletion inside one piece ----------

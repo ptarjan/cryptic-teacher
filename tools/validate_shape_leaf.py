@@ -42,9 +42,7 @@ def _select_edge_swapped(tree, answer):
     answer once taken out (r23 FN GLEAM: ana<breaks>(Male, first<head>(gymnast's)) is G + ana(MALE))."""
     if not answer or not isinstance(tree, dict):
         return 0
-    try:
-        wordplay.evaluate(copy.deepcopy(tree), answer)
-    except Exception:
+    if not wordplay.gives(copy.deepcopy(tree), answer):
         return 0
     for node in _walk(tree):
         parts = node.get("parts") or []
@@ -65,11 +63,8 @@ def _select_edge_swapped(tree, answer):
                         cur.clear()
                         cur.update({"op": "charade", "parts": [piece, mid] if front else [mid, piece]})
                         break
-                try:
-                    wordplay.evaluate(t, answer)
+                if wordplay.gives(t, answer):
                     return 1
-                except Exception:
-                    pass
     return 0
 
 
@@ -945,9 +940,7 @@ def _anagrams_with_pulled_part(tree, answer, pick, keep_order=False, clue=None):
     fodder from the middle of the pool, so the F-first answer is a coincidence, not a lone edge)."""
     if not answer or not isinstance(tree, dict):
         return 0
-    try:
-        wordplay.evaluate(copy.deepcopy(tree), answer)
-    except Exception:
+    if not wordplay.gives(copy.deepcopy(tree), answer):
         return 0
     n = 0
     for node in _walk(tree):
@@ -962,12 +955,9 @@ def _anagrams_with_pulled_part(tree, answer, pick, keep_order=False, clue=None):
                 t = _pull_part(tree, node, idx, front)
                 if clue and t is not None and pool_gaps(t, clue) > pool_gaps(tree, clue):
                     continue
-                try:
-                    wordplay.evaluate(t, answer)
+                if wordplay.gives(t, answer):
                     done = True
                     break
-                except Exception:
-                    pass
             if done:
                 break
         n += done

@@ -571,10 +571,9 @@ def _bad_tree(entry, ann):
     """True when the wordplay tree does not give the answer (or cannot be evaluated)."""
     import wordplay
     try:
-        wordplay.evaluate(ann["wordplay"], _answer(entry))
-    except (wordplay.WordplayError, KeyError, TypeError, ValueError, IndexError):
+        return not wordplay.gives(ann["wordplay"], _answer(entry))
+    except KeyError:
         return True
-    return False
 
 
 def _walkthrough_gap(entry, ann):

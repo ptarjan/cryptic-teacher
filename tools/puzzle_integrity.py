@@ -1559,11 +1559,7 @@ def annotated_for(ann, word):
         return re.sub(r"[^A-Z]", "", ann["spelling"].upper()) == word
     if not isinstance(ann.get("wordplay"), dict):
         return False
-    try:
-        wordplay.evaluate(copy.deepcopy(ann["wordplay"]), word)
-    except (wordplay.WordplayError, KeyError, TypeError, ValueError, StopIteration):
-        return False
-    return True
+    return wordplay.gives(copy.deepcopy(ann["wordplay"]), word)
 
 
 def check_key_grades_model(old, new, flags):

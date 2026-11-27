@@ -1557,6 +1557,49 @@ def _match_run(parts, want, got):
     return False
 
 
+def _scatter_positions(want, n, gives, bag):
+    """The position sets (ascending tuples inside `want`, edges excluded) of size `n` whose letters could be
+    the scattered inner argument, in the order itertools.combinations gives them. `gives` is the exact set of
+    strings the inner argument spells, `bag` the sorted-letter strings it may spell in any order; with
+    neither, every combination. Only sets that spell a given string (or fit a bag) are walked, so a long
+    answer costs the matches, not C(len, n)."""
+    lo, hi = 1, len(want) - 1
+    if gives is None and bag is None:
+        yield from itertools.combinations(range(lo, hi), n)
+        return
+    found = set()
+    if gives is not None:
+        def walk(v, i, start, acc):
+            if i == len(v):
+                found.add(tuple(acc))
+                return
+            for j in range(start, hi - (len(v) - i - 1)):
+                if want[j] == v[i]:
+                    acc.append(j)
+                    walk(v, i + 1, j + 1, acc)
+                    acc.pop()
+        for v in gives:
+            if len(v) == n:
+                walk(v, 0, lo, [])
+    else:
+        def fit(left, i, start, acc):
+            if i == n:
+                found.add(tuple(acc))
+                return
+            for j in range(start, hi - (n - i - 1)):
+                if left.get(want[j], 0):
+                    left[want[j]] -= 1
+                    acc.append(j)
+                    fit(left, i + 1, j + 1, acc)
+                    acc.pop()
+                    left[want[j]] += 1
+        for b in bag:
+            if len(b) == n:
+                fit(collections.Counter(b), 0, lo, [])
+        found = {t for t in found if "".join(sorted(want[j] for j in t)) in bag}
+    yield from sorted(found)
+
+
 def _match_container(node, want, got):
     outer, inner = parts_of(node)
     for n in sorted(lengths(inner) or range(1, len(want))):
@@ -1570,16 +1613,19 @@ def _match_container(node, want, got):
         # A selection (or a bare leaf) matches exactly the strings values() gives, so ask
         # values() once: the combinations whose letters are not among them fail without
         # a match() each, which re-ran values() on every one (C(14,7) of them).
-        gives = None
+        gives = bag = None
         if not inner.get("unchecked") and (inner.get("op") is None or inner.get("op") in SELECT):
             try:
                 gives = values(inner)
             except (_NeedTarget, WordplayError):
                 gives = None
+        if gives is None and not inner.get("unchecked"):
+            try:
+                bag = _bag(inner)
+            except (_NeedTarget, WordplayError, KeyError, IndexError, TypeError):
+                bag = None
         for n in sorted(lengths(inner) or range(2, len(want))):
-            for pos in itertools.combinations(range(1, len(want) - 1), n):
-                if gives is not None and "".join(want[j] for j in pos) not in gives:
-                    continue
+            for pos in _scatter_positions(want, n, gives, bag):
                 trial = dict(got)
                 rest = "".join(c for j, c in enumerate(want) if j not in pos)
                 if (match(inner, "".join(want[j] for j in pos), trial) is not None
@@ -2058,9 +2104,10 @@ def _check_arity(node):
         _check_arity(p)
 
 
-def evaluate(tree, answer):
+def evaluate(tree, answer, explain=True):
     """{id(node): letters} with every node of `tree` giving its share of
-    `answer`'s letters; raises WordplayError naming the node that breaks."""
+    `answer`'s letters; raises WordplayError naming the node that breaks. `explain=False` (see gives())
+    skips the diagnosis a failed match would build, for a caller that only wants pass or fail."""
     want = letters(answer)
     if not want:
         raise WordplayError(f"this entry has no answer filed yet, so no wordplay can be checked against it: "
@@ -2069,7 +2116,7 @@ def evaluate(tree, answer):
     try:
         got = match(tree, want)
         if got is None:
-            raise WordplayError(f"the wordplay does not give {want}: {diagnose(tree, want)}")
+            raise WordplayError(f"the wordplay does not give {want}" + (f": {diagnose(tree, want)}" if explain else ""))
     except _NeedTarget as e:
         raise WordplayError(f"{render(e.args[0])} sits where its letters have to be known in "
                             f"order (inside del, sub, a selection or a homophone): write the "
@@ -2081,6 +2128,16 @@ def evaluate(tree, answer):
     _check_rebus(tree, want)
     _check_reverse(tree, want)
     return got
+
+
+def gives(tree, answer):
+    """True when `tree` gives `answer` (evaluate() succeeds), without building the diagnosis a miss would
+    carry: the pass-or-fail probe for callers that discard the message."""
+    try:
+        evaluate(tree, answer, explain=False)
+    except (WordplayError, KeyError, TypeError, ValueError, IndexError, StopIteration):
+        return False
+    return True
 
 
 #: A run of capitals and figures in a reading, naming the picture's own
@@ -2286,9 +2343,7 @@ def _with_fodder_trimmed(tree, answer):
     repaired = copy.deepcopy(tree)
     if not wordplay_fodder_mend.drop_surplus_fodder_word(repaired, answer):
         return None
-    try:
-        evaluate(repaired, answer)
-    except WordplayError:
+    if not gives(repaired, answer):
         return None
     return repaired
 
@@ -2496,9 +2551,7 @@ def _with_after_swapped(tree, answer):
     repaired = copy.deepcopy(tree)
     if not swap_after_pieces(repaired):
         return None
-    try:
-        evaluate(repaired, answer)
-    except WordplayError:
+    if not gives(repaired, answer):
         return None
     return repaired
 
@@ -2528,9 +2581,7 @@ def _with_hidden_merged(tree, clue, answer):
     repaired = copy.deepcopy(tree)
     if not merge_hidden_run(repaired, clue):
         return None
-    try:
-        evaluate(repaired, answer)
-    except WordplayError:
+    if not gives(repaired, answer):
         return None
     return repaired
 
@@ -2576,9 +2627,7 @@ def _with_picks_dropped(tree, answer):
     repaired = copy.deepcopy(tree)
     if not drop_written_picks(repaired):
         return None
-    try:
-        evaluate(repaired, answer)
-    except WordplayError:
+    if not gives(repaired, answer):
         return None
     return repaired
 
