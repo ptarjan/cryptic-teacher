@@ -38,7 +38,8 @@ def section_scheduled(arg):
         "book_queue.py": ["text_of", "queue", "rereads"],
         "media_manifest.py": ["rows", "latest", "unread", "advance", "parse_new", "posts", "post_ids",
                               "comment_keys", "record_post", "record_comments",
-                              "on_media", "record_file", "folder_files", "trove_hits"],
+                              "on_media", "record_file", "folder_files", "trove_hits",
+                              "trove_zones_complete"],
         # daily_update.sh's blog units (every 10 min / 3 h / nightly): the
         # fetchers append to the posts manifests, readers ask the manifests.
         "fetch_wp_blog.py": ["cached_ids", "fetch_category", "fetch_comments"],
@@ -69,12 +70,12 @@ def section_scheduled(arg):
         # gale_fetch.py run() asks this every pass of its loop.
         "gale_fetch.py": ["have_docs"],
         # edition_queue plan (every corpus slice) dates each due Trove article.
-        "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held", "plan", "article_dirs", "input_hash",
+        "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held", "zones_complete", "plan", "article_dirs", "input_hash",
                                   "trove_inputs", "_fold_input"],
         # edition_queue's trove fetch slice plans off the caches.
         # blog:telegraph (every 3 h) asks served() which numbers the calendars repeat.
         "fetch_telegraph.py": ["served", "repeated", "held_calendar_rows", "record_calendar"],
-        "fetch_trove.py": ["plan", "pending_zones", "fetched_ids", "zoned_ids", "_in"],
+        "fetch_trove.py": ["plan", "pending_zones", "fetched_ids", "zoned_ids", "_in", "zones_complete"],
         # coverage.py daily (daily_update.sh): the FT PDFs fetched.
         "coverage.py": ["ft_pdf_rows", "trove_articles", "trove_dates"],
         "privateeye_wayback.py": ["lost", "summary", "summary_path", "summary_version"],

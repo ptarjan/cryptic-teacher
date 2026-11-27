@@ -70,7 +70,8 @@ ARCHIVE_EDITIONS = "archiveorg-editions"
 #: `fetch_trove.py search` appends a row for each hit it adds to a year's index.
 TROVE_DATES = "trove-dates"
 #: Whether a Trove article has clue zones to read (file_trove_puzzles.has_readings):
-#: {"article": id, "readings": bool, "at"}. fetch_trove.fetch_zones appends
+#: {"article": id, "readings": bool, "complete": bool, "at"} (complete: it holds
+#: every zone its meta.json lists, trove_zones_missing). fetch_trove.fetch_zones appends
 #: one as it writes an article's zone PNGs (downloads.TROVE_CLUES/<id>/).
 TROVE_ZONES = "trove-zones"
 #: A Trove article's inputs as file_trove_puzzles.input_hash keys them:
@@ -116,6 +117,31 @@ def trove_zone_names(zdir):
         names = []
     return " ".join(sorted((n for n in names if n.startswith("zone") and n.endswith(".png")),
                            key=lambda n: int(n[4:-4])))
+
+
+def trove_zones_missing(adir, zdir):
+    """The clue zone images Trove article dir `adir`'s meta.json lists (every
+    zone but the grid) that zone dir `zdir` lacks, as names in print order;
+    [] when it lists none or has no readable meta.json."""
+    try:
+        with open(os.path.join(adir, "meta.json")) as f:
+            meta = json.load(f)
+        zones, grid = meta.get("zones") or [], meta.get("grid")
+    except (OSError, ValueError, AttributeError):
+        return []
+    held = set(trove_zone_names(zdir).split())
+    return [f"zone{i}.png" for i, z in enumerate(zones) if z != grid and f"zone{i}.png" not in held]
+
+
+def trove_zones_complete():
+    """{article: whether its zone dir holds every zone its meta.json lists},
+    off TROVE_ZONES. A row from before `complete` was recorded stands as its
+    `readings`; `build trove-zones` rewrites them all."""
+    out = {}
+    for r in memo_rows(TROVE_ZONES):
+        if "article" in r:
+            out[str(r["article"])] = bool(r.get("complete", r.get("readings")))
+    return out
 
 
 def record_edition(d):
@@ -785,11 +811,15 @@ def build_trove_zones(out=sys.stdout):
     zones to read, into TROVE_ZONES, whole. Never scheduled."""
     has_readings = importlib.import_module("file_trove_puzzles").has_readings
     root = downloads.TROVE_CLUES
-    found = [{"article": name, "readings": has_readings(name, root), "at": time.time()}
-             for name in sorted(os.listdir(root)) if (root / name).is_dir()]
+    found = []
+    for name in sorted(os.listdir(root)):
+        if (root / name).is_dir():
+            readings = has_readings(name, root)
+            found.append({"article": name, "readings": readings, "at": time.time(), "complete": readings and not
+                          trove_zones_missing(downloads.TROVE / name, root / name)})
     write(TROVE_ZONES, found)
     complete_path(TROVE_ZONES).write_text(json.dumps({"at": time.time()}))
-    print(f"{TROVE_ZONES}: {len(found)} articles, {sum(r['readings'] for r in found)} with readings", file=out)
+    print(f"{TROVE_ZONES}: {len(found)} articles, {sum(r['readings'] for r in found)} with readings, {sum(r['complete'] for r in found)} complete", file=out)
 
 
 def complete_path(name):

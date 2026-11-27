@@ -67,14 +67,33 @@ def fake(tv_, out_, zones_, aid):
     seen.append(aid)
     if aid == '1':
         raise OSError('HTTP 503')
-ft.fetch_zones = fake
+real_fetch_zones, ft.fetch_zones = ft.fetch_zones, fake
+# Article 4 lists one clue zone and holds it: complete, so not pending.
+(out / '4' / 'meta.json').write_text(json.dumps({'zones': [{'x': 0}]}))
+(zones / '4').mkdir(parents=True); (zones / '4' / 'zone0.png').write_bytes(b'')
+# Article 5 lists three clue zones (and a grid), has one cached: partial, so
+# pending; article 3 (no zones listed) keeps its one image and is complete.
+(out / '5' / 'meta.json').write_text(json.dumps({'zones': [{'x': 0}, {'x': 1}, {'x': 2}], 'grid': {'x': 1}}))
+(zones / '5').mkdir(parents=True); (zones / '5' / 'zone0.png').write_bytes(b'')
 want = ft.pending_zones(str(out), str(zones))
 buf = io.StringIO()
 with contextlib.redirect_stdout(buf):
     nfail, stopped = ft.fetch_all_zones(tv, str(out), str(zones), want, 2)
 check("zones: only pending articles without zones, capped, past a failure",
-      want == ['1', '4', '5'] and (nfail, stopped) == (1, False) and seen == ['1', '4']
+      want == ['1', '5'] and (nfail, stopped) == (1, False) and seen == ['1', '5']
       and '503' in buf.getvalue())
+# A partial article's fetch downloads only the zones it lacks, and keeps the one it holds.
+ft.fetch_zones = real_fetch_zones
+cut = []
+class Img:
+    def save(self, f, format): f.write(b'png')
+tv.crop = lambda page, z, pad: (cut.append(z['x']) or Img(), None)
+(out / '5' / 'meta.json').write_text(json.dumps({'zones': [{'page': 1, 'x': 0}, {'page': 1, 'x': 1}, {'page': 1, 'x': 2}],
+                                                 'grid': {'page': 1, 'x': 1}}))
+ft.fetch_zones(tv, str(out), str(zones), '5')
+check("zones: a partial article fetches only its missing zone and is then complete",
+      cut == [2] and sorted(os.listdir(zones / '5')) == ['zone0.png', 'zone2.png']
+      and ft.zones_complete(str(out), str(zones), '5') and ft.pending_zones(str(out), str(zones)) == ['1'])
 # Past its ITEM_SECONDS an article's failed request is not retried.
 tv.deadline = 0
 script(*[(500, b"boom")] * 4)

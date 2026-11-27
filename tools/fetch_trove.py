@@ -334,7 +334,8 @@ def zone_images(zones, aid):
 
 
 def fetch_zones(tv, out, zones, aid):
-    """Cache article `aid`'s text zones (every zone but the grid) under `zones`."""
+    """Cache article `aid`'s text zones (every zone but the grid) under `zones`;
+    the ones it already holds are kept, only the missing ones are fetched."""
     with open(os.path.join(out, str(aid), "meta.json")) as f:
         meta = json.load(f)
     d = os.path.join(zones, str(aid))
@@ -347,18 +348,27 @@ def fetch_zones(tv, out, zones, aid):
                 img.save(f, format="PNG")
     import media_manifest
     media_manifest.record(media_manifest.TROVE_INPUTS, d, article=str(aid), zones=media_manifest.trove_zone_names(d))
-    media_manifest.record(media_manifest.TROVE_ZONES, d, article=str(aid), readings=bool(zone_images(zones, aid)))
+    media_manifest.record(media_manifest.TROVE_ZONES, d, article=str(aid), readings=bool(zone_images(zones, aid)),
+                           complete=zones_complete(out, zones, aid))
+
+
+def zones_complete(out, zones, aid):
+    """Whether `aid` holds every clue zone its meta.json lists, off the disk."""
+    import media_manifest
+    return bool(zone_images(zones, aid)) and not media_manifest.trove_zones_missing(
+        os.path.join(out, str(aid)), os.path.join(zones, str(aid)))
 
 
 def pending_zones(out, zones):
-    """Article ids the filing ledger leaves pending whose zones are not cached
-    (its last row an article standing: the ledger is appended to)."""
+    """Article ids the filing ledger leaves pending whose zones are not all
+    cached: none, or only some of those meta.json lists (its last row an
+    article standing: the ledger is appended to)."""
     import media_manifest
     import scan_queue
     rows = scan_queue.ledger_rows(media_manifest.trove_ledger(Path(out)), "article").values()
     fetched, zoned = fetched_ids(out), zoned_ids(zones)
     return sorted(r["article"] for r in rows
-                  if r.get("pending") and not _in(zoned, r["article"], lambda a: zone_images(zones, a))
+                  if r.get("pending") and not _in(zoned, r["article"], lambda a: zones_complete(out, zones, a))
                   and _in(fetched, r["article"], lambda a: _fetched_listed(out, a)))
 
 
@@ -382,11 +392,11 @@ def fetched_ids(out):
 
 
 def zoned_ids(zones):
-    """The ids of the articles with clue zones cached in `zones`, off the
+    """The ids of the articles with every clue zone cached in `zones`, off the
     trove-zones manifest once complete; None when it is not (ask the disk)."""
     import media_manifest
     if media_manifest.on_media(zones) and media_manifest.complete(media_manifest.TROVE_ZONES):
-        return {a for a, r in media_manifest.memo(media_manifest.TROVE_ZONES, "article", "readings").items() if r}
+        return {a for a, r in media_manifest.trove_zones_complete().items() if r}
     return None
 
 
@@ -457,7 +467,7 @@ def fetch_unit(unit, out=str(downloads.TROVE), zones=ZONES_DIR, delay=POLICY.del
         if not mine:
             return "busy"
         if unit.get("zones"):
-            if zone_images(zones, aid):
+            if zones_complete(out, zones, aid):
                 return "current"
             tv = Trove(out, delay, ZONE_WIDTH)
 

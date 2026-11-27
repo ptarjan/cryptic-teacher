@@ -75,6 +75,12 @@ assert {("trove", k) for k, *_ in trove.CAUSES} <= set(cov.CAUSES)
 (tmp / "trove-clues" / "5" / "zone0.png").write_bytes(b"")
 (tmp / "trove-clues" / "7").mkdir(parents=True)
 (tmp / "trove-clues" / "7" / "zone0.png").write_bytes(b"")
+# Article 8 lists two clue zones and one grid; only one zone is cached: partial.
+(tmp / "trove" / "8").mkdir(parents=True)
+(tmp / "trove" / "8" / "meta.json").write_text(json.dumps({
+    "zones": [{"x": 0}, {"x": 1}, {"x": 2}], "grid": {"x": 1}}))
+(tmp / "trove-clues" / "8").mkdir(parents=True)
+(tmp / "trove-clues" / "8" / "zone0.png").write_bytes(b"")
 rows = [trove.ledger_row("1", "h", trove.wait({"grid": "image"}, "clues-unread", "clues unread: 5-across")),
         trove.ledger_row("2", "h", trove.refuse({}, "clues-dont-parse", "across clues do not parse")),
         {"article": "3", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues"},
@@ -82,13 +88,19 @@ rows = [trove.ledger_row("1", "h", trove.wait({"grid": "image"}, "clues-unread",
         {"article": "5", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues"},
         {"article": "6", "inputs": "h", "refused": "no print date in the OCR's first line"},
         {"article": "7", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues",
+         "cause": "zones-not-fetched"},
+        {"article": "8", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues",
          "cause": "zones-not-fetched"}]
 (tmp / "trove" / "filed.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
 cov.TROVE = tmp / "trove"
 got = {b["cause"]: b["sample"] for b in cov.trove().result()["buckets"]}
 assert got == {"clues-unread": ["article-1"], "clues-dont-parse": ["article-2"], "zones-not-fetched": ["article-3"],
                "pending-no-cause": ["article-4", "article-5"], "refused-no-cause": ["article-6"],
-               "zones-arrived": ["article-7"]}, got
+               "zones-arrived": ["article-7"], "zones-partial": ["article-8"]}, got
+assert trove.zones_complete("7", tmp / "trove-clues", tmp / "trove")
+assert not trove.zones_complete("8", tmp / "trove-clues", tmp / "trove")
+(tmp / "trove-clues" / "8" / "zone2.png").write_bytes(b"")
+assert trove.zones_complete("8", tmp / "trove-clues", tmp / "trove")
 due = [r["article"] for r in rows if trove.stamp_cause(r, tmp / "trove-clues")]
 assert due == ["4", "5", "6"] and all(r["inputs"] == "" for r in rows[3:6]), rows
 for bad in ({"pending": "no grid: x"}, {"refused": "crashed"}, {"pending": "x", "cause": "crashed"},

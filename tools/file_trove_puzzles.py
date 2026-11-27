@@ -986,6 +986,24 @@ def zones_held(aid, zones):
     return has_readings(aid, zones)
 
 
+def zones_complete(aid, zones, cache):
+    """Whether article `aid` holds every clue zone its meta.json (in `cache`,
+    zones_of(cache) being `zones`) lists, off the trove-zones manifest once
+    `build trove-zones` has completed it; a partial set is held (zones_held)
+    but not complete: the fetcher still owes the rest."""
+    if media_manifest.on_media(zones) and media_manifest.complete(media_manifest.TROVE_ZONES):
+        if not _COMPLETE:
+            _COMPLETE.update(media_manifest.trove_zones_complete())
+            _COMPLETE.setdefault("", False)
+        return _COMPLETE.get(str(aid), False)
+    return has_readings(aid, zones) and not media_manifest.trove_zones_missing(
+        Path(cache) / str(aid), Path(zones) / str(aid))
+
+
+#: {article id: zones_complete} off the trove-zones manifest, loaded once a process.
+_COMPLETE = {}
+
+
 def stacked(images):
     """The zone images one under another, as the article prints them."""
     from PIL import Image

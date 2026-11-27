@@ -191,6 +191,9 @@ def _causes():
     out[("trove", "zones-arrived")] = Cause(
         "tools/file_trove_puzzles.py", "read before its clue columns were fetched; they are cached now, so "
         "the filer reads it again (due_reason ZONES_ARRIVED): nothing left to download", True, False)
+    out[("trove", "zones-partial")] = Cause(
+        "tools/fetch_trove.py", "some of the article's clue columns are cached, not all those its meta.json "
+        "lists: `fetch_trove.py zones` downloads the missing ones", True, False)
     out[("trove", "written-not-filed")] = Cause(
         "tools/file_trove_puzzles.py", "the ledger has an id and no file holds it", True, False)
     for status in ("no-credentials", "borrow-refused", "lending-limit", "text-not-public"):
@@ -775,9 +778,10 @@ def trove():
         file_trove_puzzles.stamp_cause(r, zones)
         if r.get("refused") or r.get("pending"):
             cause = r.get("cause") or ("refused-no-cause" if r.get("refused") else "pending-no-cause")
-            # Its clue columns landed after the read: a re-read is due, not a download.
-            if cause == "zones-not-fetched" and file_trove_puzzles.zones_held(art, zones):
-                cause = "zones-arrived"
+            if file_trove_puzzles.zones_held(art, zones) and not file_trove_puzzles.zones_complete(art, zones, TROVE):
+                cause = "zones-partial"  # some columns cached: the rest are a download
+            elif cause == "zones-not-fetched" and file_trove_puzzles.zones_held(art, zones):
+                cause = "zones-arrived"  # all landed after the read: a re-read is due
             led.claim(key, "trove", cause)
     unread = [a for a in trove_articles() if a not in read]
     for art in unread:
