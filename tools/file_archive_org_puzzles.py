@@ -4277,6 +4277,41 @@ def indy_under(img, grid, right, rapid, key, margin):
     return third, joined
 
 
+#: INDY_LEAD_FOREIGN (r305: ~60 Gale Independent 1995-2014 rows, 2-7 lights "no reading laid a clue on it"): the clue window right
+#: of the grid opens at the grid's edge, and a column of other print (the Saturday's "Last Saturday's solution" box and prize
+#: rules, 2014-11-08: x 975-1230 against ACROSS's numbers at 1262) stands in it left of the first clue column. Its lines share
+#: rows with the clues, so each row read "next Friday receive copies of the 22 Regalia from electrified": the number no longer
+#: opened its line and 22, 24, 25 across laid on no light. The boxes left of the first print column of clue numbers (one of at
+#: least INDY_COLUMN_MIN starts, not thinner than INDY_COLUMN_THIN of the biggest) are dropped when INDY_LEAD_FOREIGN_MIN or more
+#: stand wholly left of it, the cut midway between that print's far edge and the column's numbers.
+INDY_LEAD_FOREIGN_MIN = 2 * INDY_COLUMN_MIN
+
+
+def lead_foreign_cut(words, left, top, x1, bottom):
+    """The x left of which `words` (every reading's boxes of the clue window x `left` to `x1`, `top` to `bottom`) are other
+    print: the middle of the gap between a column of at least INDY_LEAD_FOREIGN_MIN boxes ending left of the first print
+    column of clue numbers and that column's numbers; None when there is no such column."""
+    groups = [g for g in indy_starts(words, left, x1, top, bottom) if len(g) >= INDY_COLUMN_MIN]
+    if not groups:
+        return None
+    big = max(len(g) for g in groups)
+    groups = [g for g in groups if len(g) >= INDY_COLUMN_THIN * big]
+    edge = min(groups[0])
+    stands = [w for w in words if left <= w[0] and w[2] < edge - INDY_COLUMN_SNAP / 3 and top <= w[1] <= bottom]
+    if len(stands) < INDY_LEAD_FOREIGN_MIN:
+        return None
+    return (max(w[2] for w in stands) + edge) / 2
+
+
+def lead_foreign(rapid, grid, right):
+    """`rapid` ({reader: [[word]]}) without the boxes left of lead_foreign_cut(), as it was when there is none."""
+    cut = lead_foreign_cut([w for lines in rapid.values() for ws in lines for w in ws], grid[2] + 5,
+                           grid[1] - rise_of(right), right[0], right[1])
+    if cut is None:
+        return rapid
+    return {k: [ws for ws in lines if ws and ws[0][0] >= cut] for k, lines in rapid.items()}
+
+
 #: INDY_UNDER_SPLIT: the Gale Independent 2011-12's page with three clue columns under its grid (numbers at x 170, 420, 671 on
 #: 2012-02-13, pitch 250) and other print right of them (weather, x 981): over_gutters() split the span to the print's far
 #: edge in thirds (585, 957, 1399), so the first window held columns one and two row by row (column one's lines reach x 415,
@@ -15676,6 +15711,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if right:
         was = right
         right, rapid = right_foreign(rapid, gbox, right)
+        if paper.key == "galeindependent":
+            rapid = lead_foreign(rapid, gbox, right)
         # A window whose edge runs through its own clue column (no other print past it: the
         # cut boxes are clue lines) is widened to that column's far edge and read again
         # (crop_window.cut_edge: the mid-2014 Times' down column, its line ends cut off).
@@ -15688,6 +15725,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
                                         None, m, top, crop, lead, x0, right) for which in READERS}
             right, rapid = right_foreign(rapid, gbox, right)
+            if paper.key == "galeindependent":
+                rapid = lead_foreign(rapid, gbox, right)
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
