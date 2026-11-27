@@ -5673,6 +5673,7 @@ def main(argv=None):
     if args.cmd == "run":
         cap_arenas()
         mem_gate.load_peaks()  # measured peaks survive a restart (and start being saved)
+        mem_gate.load_pool()  # likewise the step-up reserve's measured falls and steady sizes
     papers = args.paper or PAPERS
     reread = scan_queue.when(args.reread)
     if args.cmd == "plan":

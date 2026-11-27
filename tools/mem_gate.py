@@ -264,10 +264,6 @@ def expected_peak(kind, peaks=None):
     return _high([x for d in peaks.values() for x in d]) or UNIT
 
 
-#: One-sided 95% point of the normal: the reserve covers the TOTAL growth with this confidence.
-RESERVE_Z = 1.645
-
-
 def _peak_list(kind, peaks):
     """The recorded peaks a unit of `kind` is drawn from, same fallback as expected_peak: its own (KIND_MIN
     or more), else its pool's plus its own, else every kind's, else [UNIT] (no history)."""
@@ -281,31 +277,153 @@ def _peak_list(kind, peaks):
     return [x for d in peaks.values() for x in d] or [UNIT]
 
 
-def up_reserve(running, adding, peaks=None):
+#: The step-up reserve's measurements (up_reserve), both taken by the ceiling controller at each probe:
+#: DROPS, how far MemAvailable fell within DROP_SPAN seconds of a probe while the ceiling stood still (bytes,
+#: the last DROP_KEEP), and STEADY, {kind: resident bytes of its running units as each probe found them, the
+#: last STEADY_KEEP}: a probe meets a unit at a random age, so their mean is what a unit of the kind holds
+#: averaged over its life, which is what one more slot costs the pool. Both survive restarts in pool_path()
+#: once load_pool() (the queue's `run`) turned saving on.
+#: DROP_SPAN is ten minutes: a new unit is grown within ~140 s, and a step that proves wrong is undone only
+#: as running units end (most within 10 min). CT_VM_DROP_SPAN overrides.
+#: Measured 11-26 over 216 ten-minute windows at a held ceiling of 13-14 units (full_pass.log): the fall was
+#: median 623, p90 1880, p95 2196, p99 2765, max 3281 MB (the plan fork alone comes and goes with 2.4 GB),
+#: while the reserve then in force (every unit to its peak at once) asked 7404 MB at the median. Until
+#: DROP_MIN falls are measured the reserve uses DROP_DEFAULT, just over that p99.
+RESERVE_Q = 0.95
+DROP_SPAN = int(os.environ.get("CT_VM_DROP_SPAN") or 600)
+DROP_KEEP = 500
+DROP_MIN = 30
+DROP_DEFAULT = 2800 << 20
+STEADY_KEEP = 200
+DROPS = collections.deque(maxlen=DROP_KEEP)
+STEADY = {}
+_pool_saving = False
+_pool_saved = 0.0
+
+
+def pool_path():
+    """Beside mem_peaks.json; HOME read at call time."""
+    return Path(os.environ.get("HOME") or "/tmp") / ".cache" / "corpus_queue" / "mem_pool.json"
+
+
+def load_pool(path=None, drops=None, steady=None):
+    """Fill `drops` (DROPS) and `steady` (STEADY) from the saved file (missing or bad: nothing) and, for the
+    module's own, turn saving on."""
+    global _pool_saving
+    own = drops is None and steady is None
+    drops = DROPS if drops is None else drops
+    steady = STEADY if steady is None else steady
+    try:
+        data = json.loads(Path(path or pool_path()).read_text())
+        drops.extend(int(v) for v in data.get("drops") or () if int(v) >= 0)
+        for kind, vals in (data.get("steady") or {}).items():
+            vals = [int(v) for v in vals if int(v) > 0]
+            if vals:
+                steady[str(kind)] = collections.deque(vals, maxlen=STEADY_KEEP)
+    except (OSError, ValueError, TypeError, AttributeError):
+        pass
+    if own:
+        _pool_saving = True
+
+
+def save_pool(path=None, drops=None, steady=None):
+    """Write `drops` (DROPS) and `steady` (STEADY) as JSON, tmp + replace; False when it could not."""
+    path = Path(path or pool_path())
+    tmp = path.with_name(path.name + f".{os.getpid()}.tmp")
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp.write_text(json.dumps({"drops": list(DROPS if drops is None else drops),
+                                   "steady": {k: list(v) for k, v in (STEADY if steady is None else steady).items()}}))
+        os.replace(tmp, path)
+        return True
+    except OSError:
+        return False
+
+
+def note_avail(history, now, avail, ceiling, drops=None, span=None):
+    """One probe's MemAvailable (`avail` bytes; None: nothing) at `ceiling`, added to `history` (the
+    caller's deque of (time, avail, ceiling)). Each probe now `span` (DROP_SPAN) seconds old leaves history
+    and, when every probe within `span` after it ran at its ceiling and they reach at least half the span,
+    records in `drops` (DROPS) how far MemAvailable fell under its own reading in that time (0: it never
+    did). A window the ceiling moved in says what the step did, not how the pool swings, and is left out."""
+    drops = DROPS if drops is None else drops
+    span = DROP_SPAN if span is None else span
+    if avail is None:
+        return
+    history.append((now, avail, ceiling))
+    while history and now - history[0][0] >= span:
+        t0, a0, c0 = history.popleft()
+        window = [(t, a, c) for t, a, c in history if t - t0 <= span]
+        if window and window[-1][0] - t0 >= span / 2 and all(c == c0 for _, _, c in window):
+            drops.append(max(0, a0 - min(a for _, a, _ in window)))
+
+
+def record_steady(kind, rss, steady=None):
+    """Remember what one running unit of `kind` held (resident bytes, it and its children) at a probe; saves
+    the pool file (at most every PEAKS_SAVE seconds) once load_pool() turned saving on."""
+    global _pool_saved
+    if rss and rss > 0:
+        (STEADY if steady is None else steady).setdefault(kind, collections.deque(maxlen=STEADY_KEEP)).append(int(rss))
+        if steady is None and _pool_saving and time.monotonic() - _pool_saved >= PEAKS_SAVE:
+            _pool_saved = time.monotonic()
+            save_pool()
+
+
+def steady_size(kind, steady=None, peaks=None):
+    """What a unit of `kind` holds averaged over its life: the mean of its probe readings (KIND_MIN or
+    more), else of its pool's (kinds sharing the first word), else of every kind's; with no reading at all,
+    the mean of its recorded peaks (_peak_list: over what it holds on average, so the safe side). `kind`
+    None: a unit of no known kind (one about to start), every kind's readings as the pool has them."""
+    steady = STEADY if steady is None else steady
+    own = list(steady.get(kind) or ()) if kind is not None else []
+    if len(own) < KIND_MIN:
+        pool = kind.split(" ", 1)[0] if kind is not None else None
+        own = [x for k, d in steady.items() if k.split(" ", 1)[0] == pool for x in d] \
+            or [x for d in steady.values() for x in d]
+    if not own:
+        own = _peak_list(kind or "", PEAKS if peaks is None else peaks)
+    return sum(own) // len(own)
+
+
+def _quantile(values, q):
+    """The q-quantile of `values`, rounded up to a value that occurred."""
+    v = sorted(values)
+    return v[min(len(v) - 1, -int(-q * (len(v) - 1) // 1))]
+
+
+def up_reserve(running, adding, peaks=None, drops=None, steady=None):
     """(reserve bytes, parts text) a step up of `adding` units needs the VM to have free over FLOOR.
-    Rule: each running unit ([(kind, resident bytes)]) has remaining growth g = max(0, P - rss), P a peak
-    drawn from its kind's recorded peaks (_peak_list); each new unit has g = P drawn from the all-kinds mix
-    (rss 0). Units are independent, so the total's reserve is sum of means + RESERVE_Z (1.645, one-sided
-    95%) x sqrt(sum of variances), never under the largest single unit's p90 growth (one unit alone keeps
-    the old p90 guard). Summing every unit's p90 would assume all reach their p90 at once. With no history
-    at all, or CT_VM_UP_UNITS set, the old VM_UP_UNITS x UNIT."""
+
+    Rule: a pool of units at a fixed ceiling is stationary (as one unit grows another ends and a small one
+    starts), so what a step up costs is not every running unit's growth to its peak but three things, each
+    measured here and none assumed:
+      new     `adding` x steady_size(None): what one more slot holds averaged over a unit's life;
+      young   how far the `running` units ([(kind, resident bytes)]) are, together, under the sum of their
+              kinds' steady sizes (a pool just started, or stepped up a probe ago, has that growth still to
+              come; a grown pool has none);
+      swing   the RESERVE_Q (95%) quantile of DROPS, how far MemAvailable really fell within DROP_SPAN of a
+              probe at a standing ceiling (everything on the VM: units, the plan fork, page cache), scaled
+              by (running + adding) / running, at most 2, as the larger pool swings more; DROP_DEFAULT until
+              DROP_MIN falls are measured.
+    reserve = new + young + swing. It is a 95% figure on top of FLOOR, not a bound: the ceiling's swap and
+    fault step-downs, the severe halving and the swap cool-down (ceiling_step, cool_after) are unchanged
+    and catch the rest. With nothing measured at all, or CT_VM_UP_UNITS set, the old VM_UP_UNITS x UNIT."""
     peaks = PEAKS if peaks is None else peaks
-    if VM_UP_FIXED or not any(peaks.values()):
+    drops = DROPS if drops is None else drops
+    steady = STEADY if steady is None else steady
+    if VM_UP_FIXED or not (any(peaks.values()) or any(steady.values()) or drops):
         return VM_UP_UNITS * UNIT, f"fixed {VM_UP_UNITS} x {UNIT >> 20} MB units"
-    mix = [x for d in peaks.values() for x in d]
-    n_new = max(1, adding)
-    units = [([max(0, p - rss) for p in _peak_list(k, peaks)]) for k, rss in running]
-    units += [[max(0, p) for p in mix]] * n_new
-    mean = var = 0.0
-    big = 0
-    for g in units:
-        m = sum(g) / len(g)
-        mean += m
-        var += sum((x - m) ** 2 for x in g) / len(g)
-        big = max(big, _high(g))
-    total = max(int(mean + RESERVE_Z * var ** 0.5), big)
-    return total, (f"{total >> 20} MB growth (mean {int(mean) >> 20} + {RESERVE_Z} sd {int(var ** 0.5) >> 20}) "
-                   f"in {len(running)} running + {n_new} new")
+    n, n_new = len(running), max(1, adding)
+    each = steady_size(None, steady, peaks)
+    young = max(0, sum(steady_size(k, steady, peaks) for k, _ in running) - sum(rss for _, rss in running))
+    measured = len(drops) >= DROP_MIN
+    swing = _quantile(drops, RESERVE_Q) if measured else DROP_DEFAULT
+    swing = int(swing * min(2.0, (n + n_new) / n)) if n else swing
+    total = n_new * each + young + swing
+    return total, (f"{total >> 20} MB reserve: {n_new} new x {each >> 20} MB steady + {young >> 20} MB the {n} running "
+                   f"are under their steady size + {swing >> 20} MB "
+                   + (f"p{int(RESERVE_Q * 100)} fall in {DROP_SPAN} s of {len(drops)} measured" if measured
+                      else f"default fall ({len(drops)} of {DROP_MIN} measured)"))
 
 
 def step_up_held(cur, new, now, cool_until, vm_avail, reserve=None):
@@ -471,6 +589,7 @@ class CeilingController:
         self.cool_until = time.monotonic() + left if left else None  # no step up before this (monotonic) after VM swap stepped down
         self.kinds = {}  # {pid: slot} of the unit children running, given to poll() (their sizes are the reserve's growth)
         self.running = None  # unit children running, given to poll() by the queue (None: unknown)
+        self.seen = collections.deque()  # (monotonic, MemAvailable, ceiling) of the probes of the last DROP_SPAN (note_avail)
 
     def _swap_rate(self):
         """MB a minute swapped in+out since the last probe (None on the first)."""
@@ -481,6 +600,11 @@ class CeilingController:
         return int((pages - last[0]) * 4 / 1024 * 60 / (now - last[1]))
 
     def _run(self):
+        # Every probe measures the reserve's inputs, whether or not it steps: how MemAvailable moves at a
+        # standing ceiling, and what each running unit holds now.
+        note_avail(self.seen, time.monotonic(), available(), unit_ceiling())
+        for p, r in (tree_rss(list(self.kinds)) if self.kinds else {}).items():
+            record_steady(self.kinds.get(p, ""), r)
         swap = self._swap_rate()
         free = _win_free(self.host)
         low = free
@@ -512,8 +636,8 @@ class CeilingController:
         avail = available()
         reserve = None
         if new > cur:
-            sizes = tree_rss(list(self.kinds)) if self.kinds else {}
-            reserve = up_reserve([(self.kinds[p], r) for p, r in sizes.items()], new - cur)
+            sizes = tree_rss(list(self.kinds)) if self.kinds else {}  # (read again: a cache drop slept DROP_SETTLE)
+            reserve = up_reserve([(self.kinds.get(p, ""), r) for p, r in sizes.items()], new - cur)
         held = step_up_held(cur, new, now, self.cool_until, avail, reserve)
         if held is None and new == cur and swap and swap > SWAP_HOLD_MB and ceiling_step(
                 cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),
