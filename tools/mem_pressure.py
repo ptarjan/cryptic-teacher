@@ -3,16 +3,24 @@
 Free memory alone misses a box that is thrashing its page cache: rereading
 files the kernel keeps dropping does not lower MemAvailable, but it shows in
 /proc/pressure/memory ("some avg10", the share of the last 10 s some task
-stalled on memory) and, once it swaps, in /proc/vmstat pswpin. The burn read
-~950 MB/min of cache with 7.7 GB "free" (11-14).
+stalled on memory) and, once it swaps, in /proc/vmstat as swap traffic. The burn
+read ~950 MB/min of cache with 7.7 GB "free" (11-14).
+
+Swap thrash is pages cycling both ways: the kernel evicts anon pages to swap
+(pswpout) and faults others back in (pswpin) in the same window. Swap-in with
+no swap-out is swap draining back into memory that has room for it (a process
+touching pages swapped out long ago, or swap being emptied): nothing is being
+pushed out, so it is not pressure, and any stall it does cause shows in PSI.
+So the swap rate here is the smaller of the two directions.
 
 `cap(state_path, alive, now)` returns (width cap or None, words). Hot: full
 avg10 AND avg60 above HOT_PSI (every task stalled at once and
-sustained: thrash, not one 10 s burst), or swap-in above HOT_SWAPIN_MB_MIN since the last call. While
+sustained: thrash, not one 10 s burst), or swap cycled (both in and out) above
+HOT_SWAPIN_MB_MIN since the last call. While
 hot the cap is 3/4 of itself (of the runs alive when not yet held; never
 under 1), lowered at most once per STEP_S. Calm (not hot) for BAND_S: the cap
-rises by 1 per BAND_S. Quiet (avg10 under QUIET_PSI, swap-in under
-QUIET_SWAPIN) for QUIET_S straight: it rises by RAISE_STEP per STEP_S until
+rises by 1 per BAND_S. Quiet (full avg60 under QUIET_FULL_PSI, swap cycled
+under QUIET_SWAPIN_MB_MIN) for QUIET_S straight: it rises by RAISE_STEP per STEP_S until
 it is dropped. If either file is unreadable the cap is None: the old
 free-memory behaviour. State is one JSON line at state_path."""
 import json
@@ -54,8 +62,9 @@ def read_psi(text, field="avg10", kind="some"):
     return float(m[1]) if m else None
 
 
-def read_pswpin(text):
-    m = re.search(r"^pswpin (\d+)", text or "", re.MULTILINE)
+def read_pswpin(text, name="pswpin"):
+    """The `name` counter (pswpin, pswpout: pages swapped in, out) from /proc/vmstat text."""
+    m = re.search(rf"^{name} (\d+)", text or "", re.MULTILINE)
     return int(m[1]) if m else None
 
 
@@ -66,24 +75,28 @@ def _read(path):
         return None
 
 
-def step(state, psi, pswpin, alive, now, psi60=None, full=None, full60=None):
+def step(state, psi, pswpin, alive, now, psi60=None, full=None, full60=None, pswpout=0):
     """(new state, cap or None, words) from the previous state and readings.
     `psi60` (some avg60) defaults to `psi`; `full`/`full60` (full avg10/avg60,
-    the hot test) default to `psi`/`psi60`."""
+    the hot test) default to `psi`/`psi60`. `pswpin`/`pswpout` are the vmstat
+    page counters; the swap rate is the smaller direction's MB/min (see the
+    module doc). A state without both counters starts a new window."""
     st = dict(state or {})
     psi60 = psi if psi60 is None else psi60
     full = psi if full is None else full
     full60 = psi60 if full60 is None else full60
     rate = None
+    if "pswpout" not in st:  # a state from before swap-out was read: its rate was swap-in alone
+        st.pop("t", None)
+        st.pop("rate", None)
     if st.get("t") is not None and st.get("pswpin") is not None and now > st["t"]:
-        rate = max(0, pswpin - st["pswpin"]) * PAGE / 1048576 / ((now - st["t"]) / 60)
+        cycled = min(max(0, pswpin - st["pswpin"]), max(0, pswpout - st["pswpout"]))
+        rate = cycled * PAGE / 1048576 / ((now - st["t"]) / 60)
     # a window shorter than 20 s is too short to call a rate
     if rate is not None and now - st["t"] < 20:
         rate = None
-        keep_t, keep_p = st["t"], st["pswpin"]
     else:
-        keep_t, keep_p = now, pswpin
-    st["t"], st["pswpin"] = keep_t, keep_p
+        st["t"], st["pswpin"], st["pswpout"] = now, pswpin, pswpout
     swap = rate if rate is not None else st.get("rate", 0.0)
     st["rate"] = swap
     # a short window's burst (new runs paging in after a reload) is not thrash
@@ -120,7 +133,7 @@ def step(state, psi, pswpin, alive, now, psi60=None, full=None, full60=None):
             if st["moved"] == now and cap > max(alive, 1) + RAISE_STEP:
                 cap = None
     st["cap"] = cap
-    words = f"pressure some avg10 {psi:.2f} avg60 {psi60:.2f}, full avg10 {full:.2f} avg60 {full60:.2f}, swap-in {swap:.2f} MB/min" + (
+    words = f"pressure some avg10 {psi:.2f} avg60 {psi60:.2f}, full avg10 {full:.2f} avg60 {full60:.2f}, swap cycled {swap:.2f} MB/min" + (
         f", held to {cap}" if cap is not None else "")
     return st, cap, words
 
@@ -130,15 +143,16 @@ def cap(state_path, alive, now=None, psi_text=None, vmstat_text=None):
     now = time.time() if now is None else now
     psi_text = _read("/proc/pressure/memory") if psi_text is None else psi_text
     psi, psi60 = read_psi(psi_text), read_psi(psi_text, "avg60")
-    pin = read_pswpin(_read("/proc/vmstat") if vmstat_text is None else vmstat_text)
-    if psi is None or pin is None:
+    vmstat = _read("/proc/vmstat") if vmstat_text is None else vmstat_text
+    pin, pout = read_pswpin(vmstat), read_pswpin(vmstat, "pswpout")
+    if psi is None or pin is None or pout is None:
         return None, None
     try:
         state = json.loads(Path(state_path).read_text())
     except (OSError, ValueError):
         state = None
     full, full60 = read_psi(psi_text, kind="full"), read_psi(psi_text, "avg60", "full")
-    state, held, words = step(state, psi, pin, alive, now, psi60, full, full60)
+    state, held, words = step(state, psi, pin, alive, now, psi60, full, full60, pout)
     try:
         Path(state_path).write_text(json.dumps(state) + "\n")
     except OSError:
@@ -157,6 +171,7 @@ def self_test():
     check("psi", read_psi("some avg10=2.50 avg60=1.00 avg300=0.10 total=5\nfull avg10=0.00"), 2.5)
     check("psi missing", read_psi(""), None)
     check("pswpin", read_pswpin("pgpgin 5\npswpin 77\n"), 77)
+    check("pswpout", read_pswpin("pswpin 77\npswpout 9\n", "pswpout"), 9)
     s, c, _ = step(None, 0.1, 0, 20, 1000)
     check("first quiet", c, None)
     s, c, _ = step(s, 12.0, 0, 20, 1060)
@@ -192,11 +207,21 @@ def self_test():
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": 6, "moved": 0}, 5.0, 0, 1, 1000, 4.0, 12.0, 11.0)
     check("full stall cuts", c, 4)
     check("full", read_psi("some avg10=1 avg60=2\nfull avg10=3.5 avg60=1", kind="full"), 3.5)
-    # swap-in: 8192 pages = 32 MB over a minute is hot with psi calm
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 8192, 8, 60)
-    check("swap-in hot", c, 6)
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": None}, 0.0, 100, 8, 60)
-    check("swap-in small", c, None)
+    # swap cycling: 8192 pages = 32 MB in and out over a minute is hot with psi calm
+    z = {"t": 0, "pswpin": 0, "pswpout": 0}
+    s, c, _ = step(dict(z, cap=None), 0.0, 8192, 8, 60, pswpout=8192)
+    check("swap cycling hot", c, 6)
+    s, c, _ = step(dict(z, cap=None), 0.0, 100, 8, 60, pswpout=100)
+    check("swap cycling small", c, None)
+    # 11-26: 107 MB/min in, nothing out, swap used falling 0.8 -> 0.0 GB, full PSI
+    # under 1, 5 GB available: swap draining into room, which cut a width of 5 to 1
+    s, c, _ = step(dict(z, cap=None), 0.7, 27392, 5, 60, 8.7, 0.7, 6.6, pswpout=0)
+    check("swap draining is not hot", c, None)
+    s, c, _ = step(dict(z, cap=None), 0.0, 27392, 5, 60, pswpout=40)
+    check("one-way swap with a trickle out is not hot", c, None)
+    # a state written before swap-out was read starts a new window, its old rate dropped
+    s, c, _ = step({"t": 0, "pswpin": 0, "rate": 50.0, "cap": None}, 0.0, 99999, 8, 60, pswpout=99999)
+    check("old state restarts the window", (c, s["rate"], s["pswpout"]), (None, 0.0, 99999))
     # band with swap-in quiet: holds, then creeps up after BAND_S
     s, c, _ = step({"t": 0, "pswpin": 0, "cap": 1, "moved": 0}, 0.5, 0, 1, 60, 0.5, 3.0, 3.0)
     check("band floor holds", c, 1)
@@ -210,9 +235,9 @@ def self_test():
     s, c, _ = step(s, 0.6, 0, 3, 100 + QUIET_S + STEP_S, 1.6, 0.3, 0.6)
     check("ambient some still quiet", c, 1 + RAISE_STEP)
     # a 10 MB burst over a 30 s window is 20 MB/min: not hot; 100 MB/min is
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 4, "moved": 0}, 0.0, 3000, 8, 30)
+    s, c, _ = step(dict(z, cap=4, moved=0), 0.0, 3000, 8, 30, pswpout=3000)
     check("short burst holds", c, 4)
-    s, c, _ = step({"t": 0, "pswpin": 0, "cap": 4, "moved": -1000}, 0.0, 12000, 8, 30)
+    s, c, _ = step(dict(z, cap=4, moved=-1000), 0.0, 12000, 8, 30, pswpout=12000)
     check("huge short burst cuts", c, 3)
     return bad
 

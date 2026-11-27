@@ -37,14 +37,14 @@ check(bare(run(["width 22 (cap: memory 22, cpu —, load —, quota pace 22) · 
 check(bare(run(["width 0 (cap: memory 0, cpu —, load —, quota pace 0) · weekly 100% now, 3.0h to its reset"])),
       ["── paused: weekly 100% used, resets in 3h"], "width 0 with the week spent is a pause")
 check(bare(run(["width 1 (cap: memory 9, cpu —, load —, pressure 1, quota pace 5) · weekly 50% now, 80.0h to its reset; "
-                 "pressure some avg10 34.00 avg60 20.00, swap-in 0.10 MB/min, held to 1; was 3"])),
-      ["── 1 at once (held by pressure: PSI some avg10 34.00 avg60 20.00, swap-in 0.10 MB/min, held to 1) · "
+                 "pressure some avg10 34.00 avg60 20.00, full avg10 15.00 avg60 12.00, swap cycled 0.10 MB/min, held to 1; was 3"])),
+      ["── 1 at once (held by pressure: PSI some avg10 34.00, full avg60 12.00, swap cycled 0.10 MB/min, held to 1) · "
        "0 done/h · 0 no-change/h · weekly 50% used"], "a pressure hold names its PSI")
 PWIDTH = "width 1 (cap: memory 9, cpu —, load —, pressure 1, quota pace 5) · weekly 50% now, 80.0h to its reset; 1 in flight"
-PWHY = "  why: x · pressure some avg10 5.86 avg60 3.20, swap-in 29.37 MB/min, held to 1; was 1"
+PWHY = "  why: x · pressure some avg10 5.86 avg60 3.20, full avg10 2.10 avg60 1.40, swap cycled 29.37 MB/min, held to 1; was 1"
 check(bare(run([PWIDTH, PWHY, PWHY])),
       ["── 1 at once (held by pressure) · 0 done/h · 0 no-change/h · weekly 50% used",
-       "── 1 at once (held by pressure: PSI some avg10 5.86 avg60 3.20, swap-in 29.37 MB/min, held to 1) · "
+       "── 1 at once (held by pressure: PSI some avg10 5.86, full avg60 1.40, swap cycled 29.37 MB/min, held to 1) · "
        "0 done/h · 0 no-change/h · weekly 50% used"],
       "a why line after the width line restates the pressure status once, with its PSI")
 check(bare(run(["width 1 (cap: memory 9, cpu —, load —, quota pace 1) · weekly 50% now, 80.0h to its reset, "
