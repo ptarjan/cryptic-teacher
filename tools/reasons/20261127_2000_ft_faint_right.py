@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale FT page refused no reading parses, its clue columns right of a light-printed grid judged by the page's own grey cut and read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-27T20:03:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 SHAPE = "no ACROSS and DOWN lists under the grid"
 
