@@ -49,18 +49,25 @@ const assert = (ok, msg) => { if (!ok) fails.push(msg); };
     await swipe(200, 700, 200);                  // read down it
     const scrolledPuzzle = await num("scrollY");
     assert(scrolledPuzzle > 0, "the puzzle page scrolls: " + scrolledPuzzle);
-    // ---- 3. step 9: one clue on the phone. The selected clue sits above the
-    // grid and stays at the top of the screen while the page scrolls; the plain
-    // #clue-strip it replaced is gone.
-    const pinned = await ev(`(() => {
-      const c = document.getElementById("hint-clue"), r = c.getBoundingClientRect();
+    // ---- 3. step 9: one clue on the phone. The selected clue sits flush on
+    // top of the answer boxes (the hint panel) and, once the page scrolls past
+    // it, stays at the top of the screen; the plain #clue-strip it replaced is gone.
+    const flush = await ev(`(() => {
+      const c = document.getElementById("hint-clue"), p = document.getElementById("hint-panel");
       return { strip: !!document.getElementById("clue-strip"), inCol: c.parentNode.classList.contains("left-col"),
-               sticky: getComputedStyle(c).position, top: r.top, shown: r.height > 0 };
+               next: c.nextElementSibling && c.nextElementSibling.id, sticky: getComputedStyle(c).position,
+               gap: p.getBoundingClientRect().top - c.getBoundingClientRect().bottom,
+               shown: c.getClientRects().length > 0 };
     })()`);
-    assert(!pinned.strip, "the plain clue strip is gone");
-    assert(pinned.inCol, "at phone width the clue row is moved out of the hint panel, above the grid");
-    assert(pinned.sticky === "sticky", "the clue row is sticky: " + pinned.sticky);
-    assert(!pinned.shown || Math.abs(pinned.top) <= 1, "after scrolling, the clue row is still at the top of the screen: " + pinned.top);
+    assert(!flush.strip, "the plain clue strip is gone");
+    assert(flush.inCol, "at phone width the clue row is moved out of the hint panel into the column");
+    assert(flush.next === "hint-panel", "at phone width the clue row sits right on top of the hint panel: " + flush.next);
+    assert(flush.sticky === "sticky", "the clue row is sticky: " + flush.sticky);
+    assert(!flush.shown || Math.abs(flush.gap) <= 1, "the clue row is flush on the answer boxes: gap " + flush.gap);
+    await ev("scrollTo(0, document.getElementById('hint-panel').getBoundingClientRect().top + scrollY + 60)");
+    await sleep(300);
+    const stuck = await ev(`(() => { const r = document.getElementById("hint-clue").getBoundingClientRect(); return { top: r.top, shown: r.height > 0 }; })()`);
+    assert(!stuck.shown || Math.abs(stuck.top) <= 1, "scrolled past it, the clue row is at the top of the screen: " + stuck.top);
     await tab("puzzles");
     assert(await panelTop() === 0, "the list opens at its top, not where it was left: " + await panelTop());
     const before = await num("scrollY");

@@ -1691,21 +1691,25 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 }
 
 /* Step 9: the one clue. app-boot.js moves #hint-clue out of the panel (below the
-   fold) into .left-col wherever the page scrolls (PIN_CLUE_MQ in app-core.js).
-   On a phone it sits above the grid and sticks to the top of the page while the
-   grid and panel scroll under it; --vv-top is the visible area's top edge, so it
-   follows it when the iOS keyboard pushes the visual viewport around. No
-   ancestor sets overflow, so sticky has the whole page. The 700px query is
-   CLUE_PHONE_MQ in app-core.js; the two must stay identical. */
+   fold) into .left-col, right before the hint panel, wherever the page scrolls
+   (PIN_CLUE_MQ in app-core.js). On a phone it is sticky there: in flow it sits
+   flush on top of the answer boxes, and once the page scrolls past that spot it
+   sticks to the top of the visible area while the panel scrolls under it, so
+   the clue never parts from the boxes it is the clue for. --vv-top is how far
+   the iOS keyboard has panned the visible area down (0 with no keyboard; see
+   trackVisualViewport). No ancestor sets overflow, so sticky has the whole
+   column. The 700px query is CLUE_PHONE_MQ in app-core.js; the two must stay
+   identical. */
 @media (max-width: 700px) {
   #hint-clue {
     position: sticky; top: max(env(safe-area-inset-top, 0px), var(--vv-top, 0px)); z-index: var(--z-sticky);
-    background: var(--bg); padding: 4px 0 6px; margin-bottom: 6px;
+    background: var(--bg); padding: 4px 0 6px; margin: 6px 0 0;
     border-bottom: 1px solid var(--line);
     /* A pinned bar floats over the grid, so a rounded corner (the .picking flash
        sets one) would show the grid's pixels through it. It is square. */
     border-radius: 0;
   }
+  #hint-clue + #hint-panel { margin-top: 0; }
 }
 .left-col:has(> #hint-panel.hidden) > #hint-clue { display: none; }
 /* A tablet's grid is a screen tall, so the row (.near-panel, placed by

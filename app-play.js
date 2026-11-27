@@ -54,8 +54,8 @@
   // getBoundingClientRect() speaks. offsetTop is where the visible part starts
   // inside the layout viewport (the keyboard can push it down as well as cut it
   // short). innerHeight is the fallback for browsers without visualViewport.
-  // True when #hint-clue is the sticky row above the grid (CLUE_PHONE_MQ) and
-  // showing.
+  // True when #hint-clue is the phone's sticky row on top of the hint panel
+  // (CLUE_PHONE_MQ) and showing.
   function clueIsPinned() {
     const c = $("hint-clue"), grid = $("grid-wrap");
     return !!(c && grid && window.matchMedia && matchMedia(CLUE_PHONE_MQ).matches
@@ -71,7 +71,9 @@
     const bar = document.querySelector && document.querySelector(".tabbar");
     const rect = bar && bar.getClientRects && bar.getClientRects().length && bar.getBoundingClientRect();
     if (rect && rect.height) band.bottom = Math.min(band.bottom, rect.top);
-    // The pinned clue row (step 9) covers the top of the band.
+    // The pinned clue row (step 9) covers the top of the band once it sticks, and
+    // sits right above the panel before that, so the panel's top is only in view
+    // below it either way.
     if (clueIsPinned()) band.top += $("hint-clue").getBoundingClientRect().height || 0;
     return band;
   }

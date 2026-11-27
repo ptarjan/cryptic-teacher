@@ -35,9 +35,10 @@
     });
   }
 
-  // Step 9: wherever the page scrolls the selected clue lives outside the panel: on a phone above the grid, pinned, so it is
-  // on screen whatever the keyboard has done to the page; on a tablet right above the panel, unpinned; wider, it is the
-  // panel's first child as it always was. The words are found by id (gw-N), so
+  // Step 9: wherever the page scrolls the selected clue lives outside the panel, right on top of the answer boxes it
+  // is the clue for. On a phone it is sticky there: in flow it sits flush on the typing box, and once the page scrolls
+  // past it, it sticks to the top of the visible area. On a tablet it stays put; wider, it is the panel's first
+  // child as it always was. The words are found by id (gw-N), so
   // moving the node loses nothing. Fake DOM elements have no parentNode, hence
   // the guards.
   function placeClueRow() {
@@ -48,20 +49,47 @@
     const col = grid.parentNode;
     clue.classList.toggle("near-panel", nearPanel);
     if (pinned) {
-      const before = nearPanel ? panel : grid;
-      if (col && before.parentNode === col && clue.nextSibling !== before) col.insertBefore(clue, before);
+      if (col && panel.parentNode === col && clue.nextSibling !== panel) col.insertBefore(clue, panel);
     } else if (clue.parentNode !== panel) panel.insertBefore(clue, panel.firstChild);
   }
-  // iOS pans the visual viewport inside the layout viewport when the keyboard is
-  // up; position: sticky follows the layout viewport, so the phone's pinned row
-  // is told where the visible top is (--vv-top: how far the visible area starts
-  // inside the layout viewport).
+  // iOS pans the visual viewport inside the layout viewport while the soft
+  // keyboard is up; position: sticky follows the layout viewport, so the phone's
+  // pinned row is told where the visible top is (--vv-top: how far the visible
+  // area starts inside the layout viewport).
+  //
+  // Only while the keyboard is up. That pan is the one thing --vv-top is for, and
+  // when the keys go away iOS slides offsetTop back to 0 over the dismissal
+  // animation, firing a string of scroll/resize events whose values each land a
+  // frame after Safari has already painted the page at the new position. Copying
+  // them made the row trail the page down and back: the flash and the jitter
+  // Paul saw on dismissing the keyboard. With no keyboard the row belongs at the
+  // layout top, so the value is 0 as soon as the keyboard is gone, and the
+  // animation never reaches it. (A pinch-zoom pan is the other source of a
+  // non-zero offsetTop, and the row should not chase that either.)
+  //
+  // Written once per frame from the state at that frame, not once per event: a
+  // keyboard change fires resize and scroll separately, and writing between them
+  // paints one frame from a half-updated viewport.
   function trackVisualViewport() {
     const vv = window.visualViewport;
-    if (!vv || !vv.addEventListener || !document.documentElement || !document.documentElement.style) return;
-    const write = () => document.documentElement.style.setProperty("--vv-top", (vv.offsetTop || 0) + "px");
-    vv.addEventListener("scroll", write);
-    vv.addEventListener("resize", write);
+    const root = document.documentElement;
+    if (!vv || !vv.addEventListener || !root || !root.style) return;
+    let queued = false, last = null;
+    const write = () => {
+      queued = false;
+      const top = keyboardUp() ? Math.max(0, Math.round(vv.offsetTop || 0)) : 0;
+      if (top === last) return;
+      last = top;
+      root.style.setProperty("--vv-top", top + "px");
+    };
+    const queue = () => {
+      if (queued) return;
+      if (typeof requestAnimationFrame !== "function") { write(); return; }
+      queued = true;
+      requestAnimationFrame(write);
+    };
+    vv.addEventListener("scroll", queue);
+    vv.addEventListener("resize", queue);
     write();
   }
 
