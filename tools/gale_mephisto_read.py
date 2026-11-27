@@ -708,6 +708,11 @@ def read_done(row, done=None):
         # Read with the Across heading the OCR never read set under the title, the lists left of the grid (LEFT_TITLE 1):
         # only the pages whose cut the fix changes (tools/data/mephisto_left_title.json).
         return False
+    if row and row.get("aboveWide", 0) < ABOVE_WIDE and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("failed") and row.get("file") in above_wide_names():
+        # Read with the lists set in several page columns above and beside the grid cut (ABOVE_WIDE 1): only the pages whose
+        # cut the fix changes (tools/data/mephisto_above_wide.json).
+        return False
     if row and row.get("tallHead", 0) < TALL_HEAD and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("failed") and row.get("file") in tall_head_names():
         # Read with the lists' cut ended at a tall Across/Down heading box (TALL_HEAD 1): only the pages whose cut the fix
@@ -1656,6 +1661,12 @@ ABOVE_FIX = 1
 
 
 def above_cut(words, box):
+    """above_narrow_cut's cut, else (ABOVE_WIDE) above_wide_cut's: the lists above the grid in its own column or running
+    on across several page columns."""
+    return above_narrow_cut(words, box) or (ABOVE_WIDE and above_wide_cut(words, box)) or None
+
+
+def above_narrow_cut(words, box):
     """(box, masks) of the clue lists printed above the grid at `box` in its column, or None (ABOVE_FIX): the Across
     heading in the grid's column above it, the Down heading under that and a dozen clue numbers at the heading's edge
     above the grid; the cut runs from the Mephisto title above the Across heading down to the grid's top."""
@@ -1677,6 +1688,118 @@ def above_cut(words, box):
     lines = [w[3] for w in words if left <= (w[0] + w[2]) / 2 <= right and a[1] <= w[1] < box[1]]
     bottom = min(max(lines), box[1] + lh)
     return (int(left), int(top), int(right), int(bottom)), [tuple(int(v) for v in box)]
+
+
+#: Bumped when above_wide_cut cuts the lists set in several page columns over and beside the grid at the page's foot (the
+#: Across heading above the grid, the Down heading in a later column, numbered columns on across the page): the 1970-89 pages
+#: refused "no clue list on the page" it cuts are read again once (tools/data/mephisto_above_wide.json).
+ABOVE_WIDE = 1
+ABOVE_WIDE_FILE = ROOT / "tools" / "data" / "mephisto_above_wide.json"
+_ABOVE_WIDE_NAMES = None
+
+
+def above_wide_names():
+    """The bare GALE_*.pdf names whose cut ABOVE_WIDE changes (a committed list nothing writes: found by cutting each
+    refused page's lists with the fix off and on)."""
+    global _ABOVE_WIDE_NAMES
+    if _ABOVE_WIDE_NAMES is None:
+        try:
+            _ABOVE_WIDE_NAMES = frozenset(json.loads(ABOVE_WIDE_FILE.read_text()))
+        except (OSError, ValueError):
+            _ABOVE_WIDE_NAMES = frozenset()
+    return _ABOVE_WIDE_NAMES
+
+
+def number_columns(words, lh, top, box):
+    """[(left x, [number words])] of the clue-number columns from y `top` down, left to right: three or more numbers
+    standing first on their line (no word closing within a line's height before it) within two lines of one left edge,
+    most of them rising down the column (a figure in a sentence or a grid's numbers do not)."""
+    def first(w):
+        return not any(o is not w and abs(o[1] - w[1]) < lh / 2 and 0 < w[0] - o[2] < lh for o in words)
+    cols = []
+    for w in sorted((w for w in words if NUMBER_WORD.match(w[4]) and top <= w[1] <= box[3] and first(w)
+                                and not (box[0] <= w[0] <= box[2] and box[1] <= w[1] <= box[3])), key=lambda w: w[0]):
+        if cols and w[0] - cols[-1][-1][0] < lh and w[0] - cols[-1][0][0] < 2.5 * lh:
+            cols[-1].append(w)
+        else:
+            cols.append([w])
+    out = []
+    for c in cols:
+        c.sort(key=lambda w: w[1])
+        vals = [int(re.sub(r"\D", "", w[4])) for w in c]
+        best = [[i] for i in range(len(c))]
+        for i in range(len(c)):
+            for j in range(i):
+                if vals[j] < vals[i] and len(best[j]) + 1 > len(best[i]):
+                    best[i] = best[j] + [i]
+        run = max(best, key=len)
+        if len(run) >= 3 and len(run) >= 0.45 * len(c):
+            kept = [c[i] for i in run]
+            out.append((sorted(w[0] for w in kept)[len(kept) // 2], kept))
+    return out
+
+
+def above_wide_cut(words, box):
+    """(box, masks) of the clue lists set in several page columns above and beside the grid at `box` (ABOVE_WIDE), or
+    None: the Across heading above the grid at its left edge (or left of it by up to a third of the grid's width), the
+    Down heading in a later column above the grid's top, and the numbered columns running on right of the Across
+    column at its pitch, up to the first gap in them. The cut runs from the title or the heading down to the solutions'
+    heading, a gap of three lines or the page's foot, the grid masked."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    gw = box[2] - box[0]
+    across = [w for w in words if gl.heading(w[4]) == "ACROSS" and w[4][:1].isupper() and box[0] - gw / 3 < w[0] < box[0] + 3 * lh
+              and box[1] - 60 * lh < w[1] < box[1] - 8 * lh]
+    if not across:
+        return None
+    a = max(across, key=lambda w: w[1])
+    downs = [w for w in words if gl.heading(w[4]) == "DOWN" and w[0] > a[0] + 3 * lh and a[1] + 5 * lh < w[1] < box[1] - 2 * lh]
+    if not downs:
+        return None
+    d = min(downs, key=lambda w: w[0])
+    cols = number_columns(words, lh, a[1] - 3 * lh, box)
+    first = next((i for i, c in enumerate(cols) if abs(c[0] - a[0]) < 2 * lh), None)
+    if first is None:
+        return None
+    upto = [c[0] for c in cols[first:] if c[0] <= d[0] + lh]
+    gaps = [b - x for x, b in zip(upto, upto[1:])]
+    if not gaps or len(upto) < 2:
+        return None
+    pitch = min(gaps)
+    chain = [upto[0]]
+    last = None
+    for x, nums in cols[first + 1:]:
+        if x <= d[0] + lh:
+            if 0.75 * pitch <= x - chain[-1] <= 1.3 * pitch:
+                chain.append(x)
+            continue
+        # Right of the Down heading's column the numbers run on from the Down list's last clue there (the Down numbers
+        # of the heading's own column, those under the heading), not from the top: a list of its own starts again at 1.
+        if last is None:
+            last = max([int(re.sub(r"\D", "", w[4])) for w in dict(cols)[chain[-1]] if w[1] > d[1]] or [0])
+        first_num = int(re.sub(r"\D", "", nums[0][4]))
+        if 0.75 * pitch <= x - chain[-1] <= 1.3 * pitch and first_num > last:
+            chain.append(x)
+            last = max(int(re.sub(r"\D", "", w[4])) for w in nums)
+        else:
+            break
+    if chain[-1] < d[0] - lh:
+        return None
+    left, right = a[0] - lh / 2, chain[-1] + pitch - lh
+    titles = [w for w in words if TITLE_WORD.match(w[4]) and left <= w[0] <= right and a[1] - 12 * lh < w[1] < a[1]]
+    top = (min(titles, key=lambda w: w[1])[1] - lh / 2) if titles else a[1] - lh
+    inside = sorted((w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[3] > top and not (
+        box[0] <= (w[0] + w[2]) / 2 <= box[2] and box[1] <= (w[1] + w[3]) / 2 <= box[3])), key=lambda w: w[1])
+    bottom = top
+    for w in inside:
+        rest = " ".join(o[4] for o in sorted(inside, key=lambda o: o[0])
+                        if o[0] >= w[0] - 1 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2)
+        if w[1] > d[1] and (STOP_LINE.match(rest) or STOP_WORD.match(w[4])):
+            break
+        if w[1] - bottom > 3 * lh and bottom > d[1]:
+            break
+        bottom = max(bottom, w[3])
+    return (int(left), int(top), int(right), int(bottom + lh / 2)), [tuple(int(v) for v in box)]
 
 
 def beside_cut(words, box):
@@ -2889,7 +3012,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
