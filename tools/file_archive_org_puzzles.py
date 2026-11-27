@@ -4300,11 +4300,32 @@ INDY_UNDER_PITCH = 0.3
 INDY_UNDER_RUN = 2
 
 
-def indy_starts(words, x0, x1, y0, y1):
+#: INDY_UNDER_TEXT: a clue number opens a line of clue words, a puzzle's cell digit (the Sudoku printed under the grid, 2011-01-24:
+#: 322 boxes, its digits in columns of 9 at x 273-1866, one a cell's pitch apart) stands among other digits. indy_under()
+#: counted the Sudoku's digit columns as clue columns under the grid (22 "columns" against the ACROSS list's one at x 1282), so
+#: its two last heads' pitch matched nothing and the page's ACROSS list (1-17, read in the plain window) was never joined to the
+#: column right of the grid ("no reading laid a clue on it", ~35 Independent 2010-11 pages). A start counts when its own box
+#: holds two letters or the box right of it on its row (the nearest not overlapping it) does.
+INDY_UNDER_TEXT = True
+_INDY_LETTERS = re.compile(r"[A-Za-z]{2}")
+
+
+def indy_texty(words, start):
+    """Whether number-start box `start` of `words` opens a line of words: letters in its own text, or in the nearest box right
+    of it (its x0 not inside it) whose rows share more than half of `start`'s height."""
+    if _INDY_LETTERS.search(str(start[4])):
+        return True
+    half = (start[3] - start[1]) / 2
+    right = [w for w in words if w[0] >= start[2] and min(w[3], start[3]) - max(w[1], start[1]) > half]
+    return bool(right) and bool(_INDY_LETTERS.search(str(min(right, key=lambda w: w[0])[4])))
+
+
+def indy_starts(words, x0, x1, y0, y1, texty=False):
     """The sorted x's of the clue-number starts (_INDY_NUMBER_START) of `words` in x0 <= x < x1, y0 <= y <= y1, grouped
-    within INDY_COLUMN_SNAP px: [[x]], each group a print column's."""
+    within INDY_COLUMN_SNAP px: [[x]], each group a print column's. With `texty`, only the starts that open a line of words."""
     groups = []
-    for x in sorted(w[0] for w in words if x0 <= w[0] < x1 and y0 <= w[1] <= y1 and _INDY_NUMBER_START.match(str(w[4]))):
+    for x in sorted(w[0] for w in words if x0 <= w[0] < x1 and y0 <= w[1] <= y1 and _INDY_NUMBER_START.match(str(w[4]))
+                    and (not texty or indy_texty(words, w))):
         if groups and x - groups[-1][-1] <= INDY_COLUMN_SNAP:
             groups[-1].append(x)
         else:
@@ -4340,6 +4361,29 @@ def indy_near(grid, group):
     return bool(group) and min(group) < grid[2] + 15
 
 
+def indy_under_heads(words, gx0, gx1, gy1, margin, texty=False):
+    """The x's of the print columns of clue numbers (INDY_COLUMN_MIN starts or more) in `words` under the grid x gx0-gx1, foot
+    gy1, from `margin` left of it and 1.8 grid widths deep."""
+    return [g[len(g) // 2] for g in indy_starts(words, gx0 - margin, gx1 + 5, gy1, gy1 + 1.8 * (gx1 - gx0), texty)
+            if len(g) >= INDY_COLUMN_MIN]
+
+
+def indy_under_pitch(under, head, acr, one=False):
+    """The pitch of the clue columns under a grid (`under`: indy_under_heads') and the one right of it (`head`), or None when
+    they are not evenly pitched: the last two under columns' pitch at least 150 px and the beside column's one more of it
+    (within INDY_UNDER_PITCH). INDY_UNDER_TEXT (`one`): ONE column under the grid, the ACROSS heading's x's `acr` over its numbers,
+    its continuation the column right of the grid: their pitch is the pitch."""
+    if one and len(under) == 1:
+        pitch = head - under[0]
+        return pitch if pitch >= 150 and any(abs(x - under[0]) <= INDY_COLUMN_SNAP for x in acr) else None
+    if len(under) < 2:
+        return None
+    pitch = under[-1] - under[-2]
+    if pitch < 150 or abs((head - under[-1]) - pitch) > INDY_UNDER_PITCH * pitch:
+        return None
+    return pitch
+
+
 def indy_under(img, grid, right, rapid, key, margin):
     """(third, rapid) for a Gale Independent page whose `right` (right_gutter's, indy_columns() left it) holds one print
     column of clues with the first two under the grid, or None: `third` is windows_of's third column right of the
@@ -4360,13 +4404,11 @@ def indy_under(img, grid, right, rapid, key, margin):
     words = [w for ws in plain.get("en5") or next(iter(plain.values())) for w in ws]
     if not any(clue_text.heading_of(w[4]) == "ACROSS" and gx0 - margin <= w[0] < gx1 and w[1] >= gy1 for w in words):
         return None
-    under = [g[len(g) // 2] for g in indy_starts(words, gx0 - margin, gx1 + 5, gy1, gy1 + 1.8 * (gx1 - gx0))
-             if len(g) >= INDY_COLUMN_MIN]
-    if len(under) < 2:
-        return None
-    pitch = under[-1] - under[-2]
+    under = indy_under_heads(words, gx0, gx1, gy1, margin, INDY_UNDER_TEXT)
     head = heads[0]
-    if pitch < 150 or abs((head - under[-1]) - pitch) > INDY_UNDER_PITCH * pitch:
+    acr = [w[0] for w in words if clue_text.heading_of(w[4]) == "ACROSS" and gx0 - margin <= w[0] < gx1 and w[1] >= gy1]
+    pitch = indy_under_pitch(under, head, acr, INDY_UNDER_TEXT)
+    if pitch is None:
         return None
     edge = min(x1, head + pitch - 20)
     third = (int(edge - gx1 - 15), top)
