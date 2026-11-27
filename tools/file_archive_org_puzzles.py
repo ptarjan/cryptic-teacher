@@ -4194,6 +4194,8 @@ def indy_columns(lines, grid, right):
 #: blank). The two windows' words, each read already, are joined and the layout set as two under and a third beside
 #: (windows_of's third), the third's head one pitch right of the second's (INDY_UNDER_PITCH, of that pitch).
 INDY_UNDER_PITCH = 0.3
+#: INDY_UNDER_RUN: how many line heights from the right window's foot a clue-column word ends for the column to run on past it.
+INDY_UNDER_RUN = 2
 
 
 def indy_starts(words, x0, x1, y0, y1):
@@ -4270,6 +4272,19 @@ def indy_under(img, grid, right, rapid, key, margin):
         third = ThirdFrom(third)
         third.x0 = gx1 + INDY_NEAR_X
     joined = {}
+    foot = min(img.height, int(gy1 + 1.8 * (gx1 - gx0)))
+    heights = sorted(w[3] - w[1] for ws in rapid.values() for line in ws for w in line if w[0] >= head - INDY_COLUMN_SNAP)
+    line_h = heights[len(heights) // 2] if heights else 0
+    cut = line_h and foot > bottom and any(
+        w[3] >= bottom - INDY_UNDER_RUN * line_h and head - INDY_COLUMN_SNAP <= w[0] < edge
+        for ws in rapid.values() for line in ws for w in line)
+    if cut:
+        # INDY_UNDER_RUN: the clue column's lines run to the window's foot (the 0.55 grid heights INDY_RIGHT_DROP reaches) and
+        # on below it, where the plain window under the grid ends: the right window is read down to that foot.
+        deeper = (x1, foot, *right[3:])
+        rapid = {which: rapid_lines(img, grid, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", None, margin,
+                                    None, None, None, None, deeper) for which in READERS}
+        rapid = lead_foreign(rapid, grid, deeper)
     for which, lines in rapid.items():
         mine = [ws for ws in lines if ws and ws[0][0] >= gx1 + 5]
         extra = [ws for ws in plain.get(which, ()) if ws and not any(_overlap(ws[0], o[0]) > 0.3 for o in mine)]
