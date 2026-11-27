@@ -703,6 +703,11 @@ def read_done(row, done=None):
         # Read with the wrapped lists' cut stopped at the gap before the Across heading under the grid (HEADING_GAP 1):
         # only the pages whose cut the fix changes (tools/data/mephisto_heading_gap.json).
         return False
+    if row and row.get("leftTitle", 0) < LEFT_TITLE and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("failed") and row.get("file") in left_title_names():
+        # Read with the Across heading the OCR never read set under the title, the lists left of the grid (LEFT_TITLE 1):
+        # only the pages whose cut the fix changes (tools/data/mephisto_left_title.json).
+        return False
     if row and row.get("tallHead", 0) < TALL_HEAD and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("failed") and row.get("file") in tall_head_names():
         # Read with the lists' cut ended at a tall Across/Down heading box (TALL_HEAD 1): only the pages whose cut the fix
@@ -2034,9 +2039,14 @@ def left_cut(words, box):
     heads = [w for w in words if gl.heading(w[4]) and w[2] <= box[0] + lh and box[0] - 1.35 * wide < w[0]
              and box[1] - 6 * lh <= w[1] <= box[3] + 4 * lh]
     across = [w for w in heads if gl.heading(w[4]) == "ACROSS" and abs(w[1] - box[1]) < 12 * lh]
-    if not across:
+    if not across and LEFT_TITLE:
+        a = title_head(words, box, lh, wide)
+        if a is None:
+            return None
+    elif not across:
         return None
-    a = min(across, key=lambda w: abs(w[1] - box[1]))
+    else:
+        a = min(across, key=lambda w: abs(w[1] - box[1]))
     downs = [w for w in heads if gl.heading(w[4]) == "DOWN" and abs(w[0] - a[0]) < 4 * lh and w[1] > a[1] + 6 * lh]
     if downs:
         return a, min(downs, key=lambda w: w[1])
@@ -2046,6 +2056,44 @@ def left_cut(words, box):
     if got and got[0][1] > a[1] + 6 * lh:
         return a, got[0]
     return None
+
+
+#: Bumped when left_cut sets the Across heading the OCR never read (title_head): the early-1960s pages with the lists
+#: left of the grid, the Across clues opening straight under the "MEPHISTO CROSSWORD" title (tools/data/mephisto_left_title.json
+#: lists the pages whose cut it changes), refused "no clue list on the page", are read again once.
+LEFT_TITLE = 1
+LEFT_TITLE_FILE = ROOT / "tools" / "data" / "mephisto_left_title.json"
+_LEFT_TITLE_NAMES = None
+
+
+def left_title_names():
+    """The bare GALE_*.pdf names whose cut LEFT_TITLE changes (a committed list nothing writes: found by cutting each
+    refused page's lists with the fix off and on)."""
+    global _LEFT_TITLE_NAMES
+    if _LEFT_TITLE_NAMES is None:
+        try:
+            _LEFT_TITLE_NAMES = frozenset(json.loads(LEFT_TITLE_FILE.read_text()))
+        except (OSError, ValueError):
+            _LEFT_TITLE_NAMES = frozenset()
+    return _LEFT_TITLE_NAMES
+
+
+def title_head(words, box, lh, wide):
+    """[an Across heading word] set at the first clue of the lists left of the grid at `box` when the OCR read no
+    Across heading (LEFT_TITLE): the "MEPHISTO" title stands in the column left of the grid, within the rows the
+    heading words are looked for in (a grid's width and a third out, six lines above the grid's top to four under its
+    foot), and the column's clue numbers (its most common left edge) run on under it; the heading stands at the title's
+    foot, the first number of the column under it. None when no title or no such column."""
+    titles = [w for w in words if TITLE_WORD.match(w[4]) and w[2] <= box[0] + lh and box[0] - 1.35 * wide < w[0]
+              and box[1] - 6 * lh <= w[1] <= box[3] + 4 * lh]
+    if not titles:
+        return None
+    t = min(titles, key=lambda w: abs(w[1] - box[1]))
+    nums = [w for w in words if NUMBER_WORD.match(w[4]) and t[3] <= w[1] <= t[3] + 8 * lh
+            and box[0] - 1.35 * wide < w[0] < box[0] - lh]
+    if len(nums) < 2:
+        return None
+    return (int(min(w[0] for w in nums)), int(t[3]), int(t[2]), int(t[3]), "Across")
 
 
 def notes_box(words, under, box, lh):
@@ -2841,7 +2889,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 

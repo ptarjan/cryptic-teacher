@@ -207,6 +207,16 @@ _hg = {**_side, "sideFix": gm.SIDE_FIX, "date": "1988-12-11", "headingGap": 0}
 check("a 1988 page 4+ blank with a clue never read, before HEADING_GAP, is due", False, gm.read_done(_hg))
 check("the same page at HEADING_GAP stands", True, gm.read_done({**_hg, "headingGap": gm.HEADING_GAP}))
 check("a page whose cut does not change is not due for HEADING_GAP", True, gm.read_done({**_hg, "file": "y.pdf"}))
+# LEFT_TITLE: the lists left of the grid with no Across heading read are cut from the title.
+gm._LEFT_TITLE_NAMES = frozenset({"lt.pdf"})
+_lt = {**_prior, "priorFix": gm.PRIOR_FIX, "leftTitle": 0}
+check("a page refused no clue list, before LEFT_TITLE, in its list is due", False, gm.read_done({**_lt, "file": "lt.pdf"}))
+check("the same page at LEFT_TITLE stands", True, gm.read_done({**_lt, "file": "lt.pdf", "leftTitle": gm.LEFT_TITLE}))
+check("a page the fix does not change is not due for LEFT_TITLE", True, gm.read_done({**_lt, "file": "y.pdf"}))
+_tb = (700, 100, 900, 300)
+_tw = [(500, 60, 580, 80, "MEPHISTO"), (450, 100, 470, 118, "1"), (450, 130, 470, 148, "2"), (450, 160, 470, 178, "3")]
+check("title_head sets an Across heading under the title left of the grid", True, gm.title_head(_tw, _tb, 20, 200) is not None)
+check("title_head needs the column's numbers", True, gm.title_head(_tw[:2], _tb, 20, 200) is None)
 _gbox = (100, 100, 1000, 1000)
 _gw = [(100, 1030, 160, 1050, "Across"), (110, 1060, 140, 1080, "2"), (1100, 300, 1160, 320, "Down"), (1110, 330, 1130, 350, "1"),
        (1110, 1130, 1140, 1150, "9")]
