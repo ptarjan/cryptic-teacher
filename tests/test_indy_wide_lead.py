@@ -30,7 +30,7 @@ row = {"edition": "GaleIndependent2007UKEnglish/2007-01-27", "readAt": "2026-11-
                 "puzzles": [{"number": 6328, "leaf": 0, "box": title}], "solutions": []},
        "verdicts": [{"number": 6328, "leaf": 0, "refused": "no reading parses"}]}
 narrow = dict(row, scan=dict(row["scan"], puzzles=[{"number": 6328, "leaf": 0, "box": [174, 1548, 1000, 1587]}]))
-check("a refused wide-title row is due", bool(reason.due(row)))
+check("a refused wide-title row is due (here or for the later INDY_TITLE_EDGE)", bool(reason.due(row)) or fa.fix_reason(row) == fa.INDY_TITLE_EDGE)
 check("a narrow-title row is not due", not reason.due(narrow))
 check("a row read after the fix is not due", not reason.due(dict(row, readAt="2026-11-23T00:00:00+00:00")))
 check("a 2009 row is not due", not reason.due(dict(row, edition="GaleIndependent2009UKEnglish/2009-01-24")))

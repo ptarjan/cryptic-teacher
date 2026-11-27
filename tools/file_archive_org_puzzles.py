@@ -2095,6 +2095,22 @@ def indy_wide_lead(paper, d, gbox, title, flat=False):
 INDY_INDENT_LEAD = "Independent page whose clue column stood left of its grid under its title, read from that column since"
 
 
+#: INDY_TITLE_EDGE (r313: ~35 Gale Independent pages refused "no reading parses", 2007-12-08 for one): a page whose clue column
+#: stands left of its grid under a wide title (x 170-2007, the grid x 808-1530, ACROSS at x 203, DOWN at x 530) had its lead
+#: window cut by trimmed_lead() at x 315, a blank run between the ACROSS numbers and their words: the ACROSS column's heads were
+#: lost, the text began at "DOWN" ("no ACROSS and DOWN lists under the grid"). A gutter right of the title's own left edge is
+#: inside the column the title heads, not between it and a neighbour: an Independent lead window is never trimmed past it.
+INDY_TITLE_EDGE = "Independent page whose clue column left of its grid was cut inside its first words, read from the title's edge since"
+
+
+def indy_title_kept(paper, lead, title, margin=40):
+    """`lead` (trimmed_lead()'s (x0, top)) with an Independent page's x0 held at its title's left edge less `margin` at most:
+    print under the title from its left edge on is the column the title heads."""
+    if paper.key != "galeindependent" or not lead or not title:
+        return lead
+    return (min(lead[0], max(0, title[0] - margin)), lead[1])
+
+
 def indy_indent_lead(paper, gbox, title, img):
     """Whether the Independent page (grid `gbox`, title box `title`, scan `img`) has its grid set in from its title's left edge
     (indented_column()) and the strip left of the grid under the title inked like text (RIGHT_INK of its pixels dark)."""
@@ -16020,7 +16036,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if quickie and sides:
         lead = None
     if lead:
-        lead = trimmed_lead(img, gbox, lead)
+        lead = indy_title_kept(paper, trimmed_lead(img, gbox, lead), hit["box"], m)
         if paper.key == "galeindysunday" and d.name[:4] > INDY_SUNDAY_BARRED_END:
             lead = ios_lead_left(img, hit["box"], gbox, lead)
         if kind == "lead":
