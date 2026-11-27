@@ -716,6 +716,9 @@ def read_done(row, done=None):
     if row and row.get("formFix", 0) < FORM_FIX and row.get("file") in form_fix_names():
         # Cut at the entry form's word "solution" with no clue under it (FORM_FIX 1): only the pages the fix changes.
         return False
+    if row and row.get("barWindow", 0) < BAR_WINDOW and row.get("file") in bar_window_names():
+        # Refused "grid unread" with the lattice on the block beside the grid (BAR_WINDOW 1): only the pages the fix reads.
+        return False
     if row and row.get("answersFix", 0) < ANSWERS_FIX and row.get("file") in answers_names():
         # Numbered from a title over last week's answers, one low (ANSWERS_FIX 1): only the pages the fix renumbers.
         return False
@@ -1190,6 +1193,27 @@ def _comb_refine(ink, p, x0, y0):
 #: Lattices (of find_lattices, best first) whose shifted phases are tried (GRID_FIX 4).
 SHIFT_LATTICES = 6
 
+#: Bumped when read_barred also reads the windows a grid's width (11-13 cells) either side of a lattice found, a row up or
+#: down: only the pages the fix reads (tools/data/mephisto_bar_window.json) are read again.
+BAR_WINDOW = 1
+BAR_WINDOW_FILE = ROOT / "tools" / "data" / "mephisto_bar_window.json"
+_BAR_WINDOW_NAMES = None
+BAR_WINDOW_LATTICES = 3
+BAR_WINDOW_SHIFTS = tuple((dx, dy) for dx in (12, -12, 11, -11, 13, -13) for dy in (0, -1, 1))
+
+
+def bar_window_names():
+    """The bare GALE_*.pdf names whose grid BAR_WINDOW reads (a committed list nothing writes: found by reading the pages
+    refused "grid unread" with the fix off and on)."""
+    global _BAR_WINDOW_NAMES
+    if _BAR_WINDOW_NAMES is None:
+        try:
+            _BAR_WINDOW_NAMES = frozenset(json.loads(BAR_WINDOW_FILE.read_text()))
+        except (OSError, ValueError):
+            _BAR_WINDOW_NAMES = frozenset()
+    return _BAR_WINDOW_NAMES
+
+
 BLOB_WINDOW = 31
 BLOB_SHARE = 0.01
 
@@ -1286,6 +1310,19 @@ def read_barred(gray, lattice=None, wanted=None):
     if LOPSIDED_READS:
         rows, found = LOPSIDED_READS[0]
         return rows, found, None
+    if BAR_WINDOW and not lattice:
+        # BAR_WINDOW: the lattice found sits on the block of rules beside the grid (the last week's solution grid, a diagram),
+        # a grid's width (11-13 cells) along from the barred grid at the same pitch: those windows are read too, the
+        # symmetric bars and a Mephisto's lights saying which is the grid.
+        for ys, xs in cands[:BAR_WINDOW_LATTICES]:
+            px, py = (xs[-1] - xs[0]) / CELLS, (ys[-1] - ys[0]) / CELLS
+            for dx, dy in BAR_WINDOW_SHIFTS:
+                y2, x2 = [y + dy * py for y in ys], [x + dx * px for x in xs]
+                if y2[0] < 0 or x2[0] < 0 or y2[-1] >= ink.shape[0] or x2[-1] >= ink.shape[1]:
+                    continue
+                rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
+                if rows is not None:
+                    return rows, found, None
     if first is None:
         return None, None, "no 12x12 lattice of rules on the page"
     return None, first[0], first[1]
@@ -2703,7 +2740,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
