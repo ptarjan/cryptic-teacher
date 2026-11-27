@@ -698,6 +698,16 @@ def read_done(row, done=None):
         # Read with the wrapped lists' cut stopped at the gap before the Across heading under the grid (HEADING_GAP 1):
         # only the pages whose cut the fix changes (tools/data/mephisto_heading_gap.json).
         return False
+    if row and row.get("leadFix", 0) < LEAD_FIX and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and row.get("file") in lead_fix_names():
+        # Read with the Across list's last clues under the solution's heading left out of the block, a headless Down strip
+        # at the left column's foot (LEAD_FIX 1): only the pages whose block the fix changes (tools/data/mephisto_lead_fix.json).
+        return False
+    if row and row.get("columnStop", 0) < COLUMN_STOP and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and row.get("file") in column_stop_names():
+        # Read with the lists' cut stopped at a solution heading in the right column, the left column's last clues under
+        # it lost (COLUMN_STOP 1): only the pages whose cut the fix changes (tools/data/mephisto_column_stop.json).
+        return False
     if row and row.get("answersFix", 0) < ANSWERS_FIX and row.get("file") in answers_names():
         # Numbered from a title over last week's answers, one low (ANSWERS_FIX 1): only the pages the fix renumbers.
         return False
@@ -1421,6 +1431,8 @@ def lists_cut(words, box):
                         ("solutions", "solution ", "answers")))):
             # The cut stops above the heading, whatever a taller box before it reached.
             bottom = min(bottom, w[1])
+            if COLUMN_STOP and w[0] > left + COLUMN_STOP_SHARE * (right - left):
+                return column_stop_cut(inside, w, (left, top, right, bottom), lh, gl)
             break
         if w[3] - w[1] > TALL_BOX * lh:
             continue
@@ -1431,6 +1443,51 @@ def lists_cut(words, box):
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+
+
+#: Bumped when the lists' cut goes on down the left column past a solution heading standing in the right one (the
+#: 1989-2004 pages print the Down column's foot beside "Solution to Mephisto N" while the Across list runs on under it in
+#: the left column: its last clues were never in the block). Pages read with 4+ blank lights, a clue never read, whose
+#: cut the fix changes (tools/data/mephisto_column_stop.json) are read again once.
+COLUMN_STOP = 1
+#: The stop heading stands right of this share of the cut's width (a heading in the left column ends the lists).
+COLUMN_STOP_SHARE = 0.25
+COLUMN_STOP_FILE = ROOT / "tools" / "data" / "mephisto_lead_fix.json"
+_COLUMN_STOP_NAMES = None
+
+
+def column_stop_names():
+    """The bare GALE_*.pdf names whose lists' cut COLUMN_STOP changes (a committed list nothing writes: found by cutting
+    every page left 4+ blank, a clue never read, with the fix off and on)."""
+    global _COLUMN_STOP_NAMES
+    if _COLUMN_STOP_NAMES is None:
+        try:
+            _COLUMN_STOP_NAMES = frozenset(json.loads(COLUMN_STOP_FILE.read_text()))
+        except (OSError, ValueError):
+            _COLUMN_STOP_NAMES = frozenset()
+    return _COLUMN_STOP_NAMES
+
+
+def column_stop_cut(inside, stop, cut, lh, gl):
+    """(box, masks) of lists_cut's cut when its stop heading `stop` stands in a right-hand column: the left column's clue
+    lines under the heading (a numbered line, then lines with gaps of under three lines, to the next heading or stop)
+    join the cut, the right column from the heading down masked (it holds last week's answers). The cut as it was
+    when the left column holds no numbered line under the heading."""
+    left, top, right, bottom = cut
+    x_cut = stop[0] - lh / 2
+    col = sorted((w for w in inside if w[1] >= stop[1] - 2 and (w[0] + w[2]) / 2 < x_cut), key=lambda w: w[1])
+    first = next((w for w in col if NUMBER_WORD.match(w[4]) and w[0] <= left + 0.1 * (right - left) + 2 * lh), None)
+    if first is None or first[1] - stop[1] > 3 * lh or any(gl.heading(w[4]) == "DOWN" for w in col):
+        return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+    last = stop[3]
+    for w in col:
+        if w[1] - last > 2.5 * lh:
+            break
+        if gl.heading(w[4]) or STOP_WORD.match(w[4]):
+            break
+        last = max(last, w[3])
+    end = int(last + lh / 2)
+    return (int(left), int(top), int(right), end), [(int(x_cut), int(stop[1] - lh / 2), int(right), end)]
 
 
 #: Bumped when the lists printed ABOVE the grid (the Mephisto title, then the Across and Down headings and the clues, the
@@ -2225,7 +2282,9 @@ def lists_block(img, key, words, cut, gl):
     shift = piece.height + 12 + (36 if headless else 0)
     # The Across list's last clues may stand under the solution's heading too, above the Down heading: they go
     # on under the left column's foot, where the list runs on.
-    lead = None if headless else lead_strip(words, cut, strip, gl)
+    # LEAD_FIX: a headless strip standing below the cut's foot (the cut stopped at the solution's heading, the Across list's
+    # last clues under it, the Down heading's own line garbled) has them lead in front of it too.
+    lead = lead_strip(words, cut, strip, gl, headless and LEAD_FIX) if not headless or (LEAD_FIX and strip[1] > cut[0][3]) else None
     lead_img = img.crop(lead) if lead else None
     foot = lead_img.height + 8 if lead_img else 0
     canvas = Image.new(bimg.mode, (max(bimg.width, int(edge) + piece.width + 4), bimg.height + shift + foot), "white")
@@ -2238,7 +2297,7 @@ def lists_block(img, key, words, cut, gl):
     return down_headed(stitched, gl)
 
 
-def lead_strip(words, cut, strip, gl):
+def lead_strip(words, cut, strip, gl, gapped=False):
     """(x0, y0, x1, y1) of the clue lines between the lists' cut (stopped at the solution's heading) and the Down
     heading's strip, in the left column, opening on a clue number (the Across list's last clue, 34-across of No
     2113), or None."""
@@ -2252,7 +2311,43 @@ def lead_strip(words, cut, strip, gl):
     if opening is None:
         return None
     ws = [w for ws in lines.values() for w in ws if w[1] >= opening[1] - 3]
-    return (int(min(w[0] for w in ws)) - 6, int(opening[1]) - 3, strip[2], strip[1] - 2)
+    bottom = strip[1] - 2
+    if gapped:
+        # LEAD_FIX: above a headless strip the lead stops at the first gap of LEAD_GAP line heights or more, and under its last
+        # line (the Down heading's own line, which the OCR garbled, stands under it: cut through it, its top reads as a Down
+        # heading and heads the Across list's tail).
+        mids = sorted(sum((w[1] + w[3]) / 2 for w in ws_) / len(ws_) for k, ws_ in lines.items() if k >= round(opening[1] / 8) - 1)
+        step = gl.line_height(words)
+        for a, b in zip(mids, mids[1:]):
+            if b - a >= LEAD_GAP * step:
+                bottom = min(bottom, int(a + step / 2))
+                break
+        ws = [w for w in ws if w[1] < bottom]
+        # ... and ends under its last line, not at the strip: the Down heading's top stands in the gap.
+        bottom = min(bottom, int(max(w[3] for w in ws)) + 4)
+    return (int(min(w[0] for w in ws)) - 6, int(opening[1]) - 3, strip[2], bottom)
+
+
+#: Bumped when the Across list's last clues under the solution's heading are stitched on in front of a headless Down strip
+#: too (lists_block): pages read with 4+ blank lights, a clue never read, whose block the fix changes
+#: (tools/data/mephisto_lead_fix.json) are read again once.
+LEAD_FIX = 1
+#: The gap, in line heights, that ends a lead above a headless strip.
+LEAD_GAP = 2.5
+LEAD_FIX_FILE = ROOT / "tools" / "data" / "mephisto_lead_fix.json"
+_LEAD_FIX_NAMES = None
+
+
+def lead_fix_names():
+    """The bare GALE_*.pdf names whose block LEAD_FIX changes (a committed list nothing writes: found by laying the
+    lead strip with the fix off and on over every page left 4+ blank, a clue never read)."""
+    global _LEAD_FIX_NAMES
+    if _LEAD_FIX_NAMES is None:
+        try:
+            _LEAD_FIX_NAMES = frozenset(json.loads(LEAD_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _LEAD_FIX_NAMES = frozenset()
+    return _LEAD_FIX_NAMES
 
 
 #: Pixels above a clue's number and below its last line kept in the tight crop.
@@ -2528,7 +2623,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
-                "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
+                "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
