@@ -21,9 +21,9 @@ check("a trim left of it stands", fa.indy_title_kept(paper, (0, 1591), title) ==
 check("a Times page is left alone", fa.indy_title_kept(fa.paper_of(fa.Path("GaleTimes2007UKEnglish/2007-12-08")), (315, 1591), title) == (315, 1591))
 reason = fix_reasons.registered()["20261127_2100_indy_title_edge"]
 check("reason ranked", reason.text in fa.RANKS and reason.rank == 2)
-row = {"edition": "GaleIndependent2007UKEnglish/2007-12-08", "readAt": "2026-11-17T15:36:45+00:00", "inputs": "x",
-       "scan": {"date": "2007-12-08", "item": "GaleIndependent2007UKEnglish",
-                "puzzles": [{"number": 6598, "leaf": 0, "box": title}], "solutions": []},
+row = {"edition": "GaleIndependent2003UKEnglish/2003-09-29", "readAt": "2026-11-17T15:36:45+00:00", "inputs": "x",
+       "scan": {"date": "2003-09-29", "item": "GaleIndependent2003UKEnglish",
+                "puzzles": [{"number": 6598, "leaf": 0, "box": [185, 2853, 993, 2925]}], "solutions": []},
        "verdicts": [{"number": 6598, "leaf": 0, "refused": "no reading parses"}]}
 check("a refused row is due", bool(reason.due(row)))
 check("a row read after the push is not due", not reason.due(dict(row, readAt="2026-11-28T00:00:00+00:00")))
