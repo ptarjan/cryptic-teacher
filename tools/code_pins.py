@@ -36,4 +36,8 @@ STANDS = {
     # (No 3756's "... (7)", enumeration "7"), and stale_refused lists a number whose write the gate refused
     # (refusedWrite, no "lacks"): only those verdicts are joined again; refused numbers elsewhere are not.
     "fe3f5af71784c0a8": "286e728875b34dcc",  # file_gale_listener's join_key
+    # file_gale_listener.unread also lays a blank clue on a light no reader read its number at the start of, on an exact
+    # fit (BLOCK_FIX), so listener_gaps.fill_columns reads the clue columns of a number that now joins: only the pages of
+    # tools/data/listener_block_clues.json move; refused numbers elsewhere are not rejoined.
+    "b8c93a29eadcd0b5": "286e728875b34dcc",  # file_gale_listener's join_key
 }

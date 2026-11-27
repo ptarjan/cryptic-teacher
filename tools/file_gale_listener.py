@@ -216,6 +216,13 @@ def unread(rows, fit, clues):
         if lid not in clues and printed.get(cells[0]) == n:
             clues[lid] = {"text": ""}
             notes[lid] = "no clue read: its number is printed at its start"
+        elif lid not in clues and fit.get("exact"):
+            # BLOCK_FIX: on an exact fit (every number the readers read agrees with the grid's numbering) a light
+            # whose own number no reader read at its start is as much the grid's: the list (a page whose clue
+            # lines no reader holds) names no clue for it, and listener_gaps reads the clue columns by the VLM,
+            # taking a clue only where its number, its count and the light's length agree.
+            clues[lid] = {"text": ""}
+            notes[lid] = "no clue read: the grid's numbering is exact"
     return clues, notes
 
 
