@@ -10,7 +10,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Telegraph 1969-77 page refused no reading parses with its ACROSS clue numbers cut off, its clue columns' left edge measured from the ink since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-27T18:00:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
