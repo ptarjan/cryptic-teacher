@@ -86,6 +86,9 @@ function page(root, broken) {
     ix.partial = true;
     ix.idx = { live, stat: stat.CRYPTIC_INDEX_STATIC };
   } });
+  // In a browser window.fetch is the global fetch; the harness window has none (so puzzles
+  // load by script tag), and the index loads go through window.fetch.
+  d.window.fetch = (...a) => global.fetch(...a);
   d.reg = d.registry;
   d.asked = asked;
   d.reg["btn-picker"].onclick();

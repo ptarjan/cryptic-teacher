@@ -58,7 +58,8 @@ check(L.should_wake(flat[:5] + [thin], None, quiet, now)[0] is not None, True,
 check(L.should_wake([dict(thin, clues=10), dict(thin, clues=10)], None, quiet, now)[0], None,
       "under 50 clues even merged: noise, quiet")
 
-worse = [row(i, 0.030) for i in range(1, 4)] + [row(i, 0.040) for i in range(4, 7)]
+# 33% over best; the 0.010 rise is over 2 sigma (0.0094) of the six rolling levels
+worse = [row(i, 0.030) for i in range(1, 3)] + [row(i, 0.040) for i in range(3, 7)]
 check(L.should_wake(worse, None, quiet, now)[0] is not None, True, "rolling 33% over best: wake")
 fix = (T0 + datetime.timedelta(hours=3.5)).isoformat()
 check(L.should_wake(worse, fix, dict(quiet, commit=fix), now)[0], None,
@@ -72,7 +73,7 @@ mild = [row(i, 0.040) for i in range(1, 4)] + [row(i, 0.043) for i in range(4, 7
 check(L.should_wake(mild, None, quiet, now)[0], None, "7.5% over best: quiet")
 
 # run-to-run noise: a rise over the best that the rolling levels' own spread explains stays quiet
-noisy = [row(i, c) for i, c in enumerate([0.040, 0.050, 0.036, 0.052, 0.038, 0.049], 1)]
+noisy = [row(i, c) for i, c in enumerate([0.040, 0.050, 0.036, 0.052, 0.038, 0.047], 1)]
 w = L.should_wake(noisy, None, quiet, now)
 check(w[0], None, "noisy rows: rise within 2 sigma of the rolling levels does not wake")
 check("run-to-run noise" in w[1], True, "the no-wake message names the noise gate")

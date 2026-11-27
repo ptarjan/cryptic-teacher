@@ -83,7 +83,13 @@ function loader(root, files) {
   const added = [], asked = [];
   const ctx = { Promise, Error };
   const timers = [], shown = [];
-  ctx.setTimeout = (f) => { timers.push(f); };
+  // A pending timer is a function in `timers`; clearTimeout takes it off, as a browser does,
+  // so what is left is what would still fire (a retry, or a give-up that was not cancelled).
+  ctx.setTimeout = (f) => { timers.push(f); return f; };
+  ctx.clearTimeout = (f) => { const i = timers.indexOf(f); if (i >= 0) timers.splice(i, 1); };
+  ctx.navigator = { onLine: true };
+  const listeners = {};
+  ctx.addEventListener = (type, f) => { (listeners[type] = listeners[type] || []).push(f); };
   ctx.window = ctx;
   ctx.ctIdx = ctIdx;
   ctx.fetch = (url) => {
@@ -102,7 +108,7 @@ function loader(root, files) {
     head: { appendChild: (el) => { added.push(el); } },
   };
   vm.runInNewContext(m[1], ctx);
-  return { ctx, added, asked, timers, shown, srcs: () => added.map((e) => e.src) };
+  return { ctx, added, asked, timers, shown, listeners, srcs: () => added.map((e) => e.src) };
 }
 
 (async () => {
@@ -161,6 +167,15 @@ function loader(root, files) {
   L.ctx.ctBootParsed();
   check(!L.srcs().some((u) => /app-/.test(u)) && L.timers.length === 1, "a compose that throws: retried, app.js not injected");
   check(![].concat(L.srcs(), L.asked).some((u) => /index(-core)?\.js/.test(u)), "no legacy index file is ever asked for");
+
+  // the device coming back online retries a boot that has not got through, once it has failed
+  L = loader(root, () => null);
+  await tick();
+  const before = L.asked.length;
+  check(L.listeners.online && L.listeners.online.length === 1, "the loader listens for the device coming back online");
+  L.listeners.online[0]();
+  await tick();
+  check(L.asked.length === before + 1, "coming back online asks for head-live.json again: " + before + " then " + L.asked.length);
 
   // 3
   const c = ctIdx.compose(STAT, live);

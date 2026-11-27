@@ -521,7 +521,7 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
   }
   assert(found, "some clue has a definition, an indicator, a named block and an assembly rung");
   // Which words answer this rung, asked of the app rather than worked out again
-  // here: one wrong pick opens the step, and the step's own highlights in the
+  // here: Just tell me opens the step, and the step's own highlights in the
   // clue name the whole target (a wrong Lock in marks nothing itself). A second
   // copy of guessAsk's span arithmetic in the test would only ever prove the
   // copy right.
@@ -531,11 +531,9 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     if (!b) return null;
     b.onclick();
     if (!panelHTML().includes("guess-clue ask")) return null;
-    registry["gw-0"].onclick();
+    // With nothing picked the button is Just tell me: it opens the step, and the
+    // step's own highlights name the target. (A wrong pick opens nothing now.)
     registry["guess-tell"].onclick();
-    // One word that is already the whole target is a RIGHT answer, and a right
-    // answer goes on to the next question: the target is that one word.
-    if (registry["hint-body"].innerHTML.includes("guess-verdict right")) return [0];
     // Each word's box, and whether the step has highlighted it (the pieces up to
     // the next box are that word and the gap after it).
     const lit = registry["hint-clue"].innerHTML;
