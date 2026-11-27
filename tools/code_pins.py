@@ -39,5 +39,5 @@ STANDS = {
     # file_gale_listener.unread also lays a blank clue on a light no reader read its number at the start of, on an exact
     # fit (BLOCK_FIX), so listener_gaps.fill_columns reads the clue columns of a number that now joins: only the pages of
     # tools/data/listener_block_clues.json move; refused numbers elsewhere are not rejoined.
-    "b8c93a29eadcd0b5": "286e728875b34dcc",  # file_gale_listener's join_key
+    "81c518f4d7ada2e9": "286e728875b34dcc",  # file_gale_listener's join_key
 }

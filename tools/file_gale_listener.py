@@ -200,6 +200,9 @@ def lights_fit(rows, clues):
     return "; ".join(parts) or None
 
 
+BLOCK_NOTE = "no clue read: the grid's numbering is exact"
+
+
 def unread(rows, fit, clues):
     """(clues, notes): `clues` with a blank clue ({"text": ""}, which listener_gaps
     reads again from the page's columns) laid on each light of `rows` the
@@ -217,12 +220,13 @@ def unread(rows, fit, clues):
             clues[lid] = {"text": ""}
             notes[lid] = "no clue read: its number is printed at its start"
         elif lid not in clues and fit.get("exact"):
-            # BLOCK_FIX: on an exact fit (every number the readers read agrees with the grid's numbering) a light
-            # whose own number no reader read at its start is as much the grid's: the list (a page whose clue
-            # lines no reader holds) names no clue for it, and listener_gaps reads the clue columns by the VLM,
-            # taking a clue only where its number, its count and the light's length agree.
+            # BLOCK_FIX: on an exact fit (listener_grid: no number the readers read disagrees with the grid's
+            # numbering and they agree on at least EXACT_COVER, half, of its lights) a light whose own number no
+            # reader read at its start is as much the grid's: a hypothesis that the page prints a clue there, which
+            # listener_gaps reads from the VLM's column transcription, taking it only where its number, its count
+            # and the light's length agree. A light the fill leaves blank refuses the number (run: BLOCK_NOTE).
             clues[lid] = {"text": ""}
-            notes[lid] = "no clue read: the grid's numbering is exact"
+            notes[lid] = BLOCK_NOTE
     return clues, notes
 
 
@@ -1580,6 +1584,15 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
             if gaps.pending:
                 # Asks spooled, not answered: not tried to the end, so no joinKey below (it stays due).
                 verdict["gapsPending"] = gaps.keys
+        if puzzle is not None and "lacks" not in verdict:
+            # BLOCK_FIX's blanks (unread: the grid's numbering is exact) are a hypothesis that the page prints a clue
+            # there: one the fill left blank is a clue unread, and the number is not filed.
+            hyp = {lid for lid, why in (verdict.get("mended") or {}).items() if why == BLOCK_NOTE}
+            blank = sorted((f"{e['number']}-{e['direction']}" for e in puzzle["entries"]
+                            if f"{e['number']}-{e['direction']}" in hyp and not (e["clue"].get("text") or "").strip()),
+                           key=order)
+            if blank:
+                verdict["lacks"] = f"clues unread: {len(blank)} lights the grid numbers have no clue read: " + ", ".join(blank)
         if printed and write:
             Path(reports_to).mkdir(parents=True, exist_ok=True)
             (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
