@@ -316,7 +316,7 @@
         }).join("");
       }).join("");
       const lineDisc = `<div class="ana-disc ana-line${focus}" style="width:${
-        widest * pitch + 34}px;height:${rows.length * ROW + 10}px">${tiles}</div>`;
+        widest * pitch + 44}px;height:${rows.length * ROW + 26}px">${tiles}</div>`;
       return `<div class="anagram-ring">
       <div class="ana-discs">${lineDisc}</div>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>

@@ -342,7 +342,7 @@ button:disabled:hover { border-color: var(--line); }
    See ringHTML() in app.js for why it is a circle and not a search box.
    Once a letter from the grid pins a tile, the order is real and the same
    tiles stand in a line (.ana-line) in answer order instead. */
-.anagram-ring { margin: 10px 0 2px; display: flex; flex-direction: column; align-items: center; }
+.anagram-ring { margin: 16px 0 2px; display: flex; flex-direction: column; align-items: center; }
 .anagram-ring p { margin: 2px 0 6px; text-align: center; max-width: 34em; }
 /* cursor:text is the only hint that clicking empty space here does something —
    it focuses #ana-kbd (see app.js), which is how typing gets in. */
@@ -378,7 +378,7 @@ button:disabled:hover { border-color: var(--line); }
   box-shadow: 0 0 0 2px var(--accent); }
 .ana-tile.fixed.sel { box-shadow: inset 0 0 0 1px var(--accent), 0 0 0 2px var(--accent); }
 /* Room so the focus outline round the disc clears the Shuffle button. */
-.ana-discs { margin-bottom: 10px; }
+.ana-discs { margin-bottom: 18px; }
 /* Pinned: this letter is in the grid already, so the ring is showing WHERE it
    goes rather than offering it to be moved. It has to read as settled at a
    glance, including when it is struck as well. */
@@ -967,7 +967,7 @@ button:disabled:hover { border-color: var(--line); }
      word break costs on top of the gap already counted. The floor is the iOS tap
      minimum: below it the box stops being a control you can hit, so the strip
      goes back to wrapping instead. */
-  font-size: clamp(.8rem, calc((100cqw - (var(--n, 1) - 1) * 3px - var(--w, 0) * 12px) / var(--n, 1) / 1.72), 1.05rem);
+  font-size: clamp(.62rem, calc((100cqw - (var(--n, 1) - 1) * 3px - var(--w, 0) * 12px) / var(--n, 1) / 1.72), 1.05rem);
   background: var(--bg); color: var(--fg); border: 1px solid var(--line);
   padding: 0; margin: 0; cursor: pointer; -webkit-appearance: none;
   touch-action: manipulation;
@@ -1642,7 +1642,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      column. */
   .pat-box {
     font-size: 1.35rem;
-    font-size: clamp(.85rem, calc((100cqw - (var(--n, 1) - 1) * 5px - var(--w, 0) * 15px) / var(--n, 1) / 1.72), 1.35rem);
+    font-size: clamp(.62rem, calc((100cqw - (var(--n, 1) - 1) * 5px - var(--w, 0) * 15px) / var(--n, 1) / 1.72), 1.35rem);
   }
   .pat-boxes, .pat-word { gap: 5px; }
   .pat-word.brk-space { margin-right: 13px; }
@@ -1702,6 +1702,9 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
     position: sticky; top: max(env(safe-area-inset-top, 0px), var(--vv-top, 0px)); z-index: var(--z-sticky);
     background: var(--bg); padding: 4px 0 6px; margin-bottom: 6px;
     border-bottom: 1px solid var(--line);
+    /* A pinned bar floats over the grid, so a rounded corner (the .picking flash
+       sets one) would show the grid's pixels through it. It is square. */
+    border-radius: 0;
   }
 }
 .left-col:has(> #hint-panel.hidden) > #hint-clue { display: none; }
@@ -2113,5 +2116,18 @@ html.ct-nopush #btn-notify { display: none; }
 .hint-track button.step.arm-cost { border-color: var(--bad, #b3261e); color: var(--bad, #b3261e); }
 
 /* The pattern line and the Letters toggle share a row. */
-.pattern-row { display: flex; align-items: center; gap: 8px; }
-.pattern-row .pattern { flex: 1; min-width: 0; }
+.pattern-row { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+.pattern-row .pattern { align-self: stretch; min-width: 0; }
+.pattern-row #hx-wheel { margin: -2px 0 8px; }
+/* The boxes are sized to the panel's whole width, and appearing or hiding the
+   Letters button must never resize them (it used to share their row, so a solve
+   that hid it grew every letter). A word never breaks inside itself. */
+.pat-word { flex-wrap: nowrap; }
+.pat-box { min-width: 0; flex: 0 1 auto; }
+
+/* Text that wraps on a phone: balanced so no line ends on an orphan word, chips
+   and buttons never wider than the panel, and a label never splits mid-chip. */
+#hint-body p, #hint-body li, .step-note, .guess-result, #check-result, #hint-meter { text-wrap: pretty; overflow-wrap: anywhere; }
+#hint-next button, #hint-escape button, .tell-row button { text-wrap: balance; max-width: 100%; }
+.hint-track button.step { max-width: 100%; white-space: nowrap; }
+
