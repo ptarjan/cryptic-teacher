@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,63 @@
     "text": "Salesman and cashier taking in most of party",
     "enumeration": "9"
    },
-   "solution": "TRAVELLER"
+   "solution": "TRAVELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salesman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking in",
+       "at": 21,
+       "note": "the cashier word swallows the trimmed party word, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cashier",
+       "at": 13,
+       "gives": "TELLER",
+       "note": "a bank teller is a cashier"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 31,
+         "note": "most of a word means it loses its final letter here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 39,
+         "gives": "RAVE",
+         "note": "a rave is a large party"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman and a bank cashier go off together to a party.",
+     "walkthrough": "'most of' trims RAVE to RAV, which 'taking in' places inside TELLER.",
+     "definitionFit": "A traveller, or commercial traveller, is a sales representative who journeys between customers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +104,51 @@
     "text": "Metaphor in poet's last line",
     "enumeration": "5"
    },
-   "solution": "TROPE"
+   "solution": "TROPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Metaphor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 19,
+         "note": "the final letter of the word poet's is what is wanted here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poet's",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "at": 24,
+       "gives": "ROPE",
+       "note": "a rope is a line, as on a ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic points to a metaphor in the closing line of a poem.",
+     "definitionFit": "A trope is a figure of speech, and a metaphor is the commonest example of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +162,11 @@
     "text": "American states he's depicted in the fall",
     "enumeration": "9"
    },
-   "solution": "AVALANCHE"
+   "solution": "AVALANCHE",
+   "annotationWithheld": {
+    "why": "Held as 'American states he's depicted in the fall' (9): OCR garble; no parse of these words gives AVALANCHE and no reprint was found",
+    "clue": "American states he's depicted in the fall"
+   }
   },
   {
    "number": 3,
@@ -73,7 +180,58 @@
     "text": "Swamp's eastern limits explored by youth",
     "enumeration": "10"
    },
-   "solution": "EVERGLADES"
+   "solution": "EVERGLADES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swamp",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "eastern",
+       "at": 8,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "explored by",
+         "at": 23,
+         "note": "a youth exploring the limits goes inside them, so one word is placed within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "limits",
+         "at": 16,
+         "gives": "VERGES",
+         "note": "verges are edges or limits"
+        },
+        {
+         "words": "youth",
+         "at": 35,
+         "gives": "LAD",
+         "note": "a lad is a youth"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy wanders the eastern edges of a marsh.",
+     "walkthrough": "'explored by' puts LAD inside VERGES, after E; the 's of 'Swamp's' is 'is', linking definition to wordplay.",
+     "definitionFit": "The Everglades is the great subtropical wetland of southern Florida."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +245,28 @@
     "text": "Gallery's ventilated turrets",
     "enumeration": "7"
    },
-   "solution": "LOUVRES"
+   "solution": "LOUVRES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gallery's",
+      "at": 0
+     },
+     {
+      "text": "ventilated turrets",
+      "at": 10
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The Paris museum's name with 's gives the first; louvres were also roof turrets with slatted openings to let smoke and air out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gallery's"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +280,48 @@
     "text": "Turned and went off around Austria",
     "enumeration": "7"
    },
-   "solution": "ROTATED"
+   "solution": "ROTATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turned",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 20,
+       "note": "the went-off word goes round the letter for Austria, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "went off",
+       "at": 11,
+       "gives": "ROTTED",
+       "note": "food that has gone off has rotted"
+      },
+      {
+       "words": "Austria",
+       "at": 27,
+       "gives": "A",
+       "note": "A is the international vehicle code for Austria"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something spun round and spoiled while travelling about Austria.",
+     "definitionFit": "Rotated means spun or turned about an axis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +335,47 @@
     "text": "Solid new reporter, I see",
     "enumeration": "5"
    },
-   "solution": "CUBIC"
+   "solution": "CUBIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Solid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "new reporter",
+       "at": 6,
+       "gives": "CUB",
+       "note": "a cub is a novice journalist"
+      },
+      {
+       "words": "I",
+       "at": 20,
+       "gives": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "see",
+       "at": 22,
+       "gives": "C",
+       "note": "C sounds like see, a common crossword letter for it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee journalist says he has seen something substantial.",
+     "definitionFit": "A cubic shape is a three-dimensional solid, as opposed to a flat figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Solid"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +389,27 @@
     "text": "Theatrical wing",
     "enumeration": "4"
    },
-   "solution": "CAMP"
+   "solution": "CAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Theatrical",
+      "at": 0
+     },
+     {
+      "text": "wing",
+      "at": 11
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Camp means exaggerated and showy, and a camp is a faction or wing of a party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +423,42 @@
     "text": "Staff strike likely",
     "enumeration": "5"
    },
-   "solution": "BATON"
+   "solution": "BATON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "strike",
+       "at": 6,
+       "gives": "BAT",
+       "note": "to bat is to hit or strike"
+      },
+      {
+       "words": "likely",
+       "at": 13,
+       "gives": "ON",
+       "note": "on means feasible or likely, as in 'that's not on'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Employees are probably going to walk out.",
+     "definitionFit": "A baton is a short stick or staff, such as a conductor's or relay runner's."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +472,36 @@
     "text": "Start of a sentence?",
     "enumeration": "9"
    },
-   "solution": "COMMITTAL"
+   "solution": "COMMITTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Start of a sentence?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Start of a sentence?",
+       "at": 0,
+       "note": "reads as grammar, the opening words of a sentence, but means the legal act that begins a prison term"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how a sentence begins.",
+     "walkthrough": "The sentence is a prison one, not a grammatical one.",
+     "definitionFit": "Committal is the act of consigning someone to prison, which starts their term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +515,41 @@
     "text": "Yellow eroded spout",
     "enumeration": "5"
    },
-   "solution": "ORATE"
+   "solution": "ORATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spout",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Yellow",
+       "at": 0,
+       "gives": "OR",
+       "note": "or is the heraldic word for gold or yellow"
+      },
+      {
+       "words": "eroded",
+       "at": 7,
+       "gives": "ATE",
+       "note": "ate, as in ate away, means eroded"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A yellow, worn-down spout from a teapot.",
+     "definitionFit": "To spout is to speak at length pompously, which is to declaim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spout"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +563,77 @@
     "text": "Breakdown of mutuality mainly without hint of mediation?",
     "enumeration": "9"
    },
-   "solution": "ULTIMATUM"
+   "solution": "ULTIMATUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Breakdown of mutuality mainly without hint of mediation?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Breakdown of",
+         "at": 0,
+         "note": "a breakdown shatters the letters of the following word so they can be rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mainly",
+           "at": 23,
+           "note": "mainly means most of the word, so its last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mutuality",
+           "at": 13
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "hint of",
+         "at": 38,
+         "note": "a hint is just a trace, the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mediation",
+         "at": 46
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Relations break down because nobody stepped in to mediate.",
+     "walkthrough": "'mainly' cuts MUTUALITY to MUTUALIT; 'hint of' adds M; 'Breakdown of' rearranges the lot. The whole clue describes when a final demand is issued.",
+     "definitionFit": "A final demand backed by a threat comes when goodwill has collapsed and no go-between has stepped in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +647,35 @@
     "text": "Function as a stretcher",
     "enumeration": "10"
    },
-   "solution": "EXAGGERATE"
+   "solution": "EXAGGERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Function as a stretcher",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Function as a stretcher",
+       "at": 0,
+       "note": "suggests carrying the injured, but means acting as one who stretches the truth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something serves as a stretcher for carrying a casualty.",
+     "definitionFit": "To overstate is to stretch the truth, so one who overstates is a stretcher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stretcher"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +689,39 @@
     "text": "Opponent trapped by brilliant intrigue",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opponent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "trapped by",
+       "at": 9,
+       "note": "the wanted letters are caught inside the run of the words brilliant intrigue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brilliant intrigue",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rival is caught out by a clever plot.",
+     "definitionFit": "An anti is a person who opposes something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +735,11 @@
     "text": "Note held by steady months player",
     "enumeration": "10"
    },
-   "solution": "CONTESTANT"
+   "solution": "CONTESTANT",
+   "annotationWithheld": {
+    "why": "Held as 'Note held by steady months player' (10): TE inside CONSTANT gives CONTESTANT with 'player' as definition, but 'months' has no job; the clue is OCR-garbled and no reprint was found",
+    "clue": "Note held by steady months player"
+   }
   },
   {
    "number": 14,
@@ -241,7 +753,50 @@
     "text": "Mug, say, adorned with flags",
     "enumeration": "7"
    },
-   "solution": "JACKASS"
+   "solution": "JACKASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mug",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adorned with",
+       "at": 10,
+       "note": "the flags decorate the little word by surrounding it, so one sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flags",
+       "at": 23,
+       "gives": "JACKS",
+       "note": "a jack is a ship's flag"
+      },
+      {
+       "words": "say",
+       "at": 5,
+       "gives": "AS",
+       "note": "as means for example, like say"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinking mug decorated with flags.",
+     "walkthrough": "'adorned with' puts AS inside JACKS.",
+     "definitionFit": "A mug is a gullible fool, and a jackass is a stupid person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mug"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +810,11 @@
     "text": "Plant in jar roughly The associated with Canada am Get",
     "enumeration": "9"
    },
-   "solution": "JACARANDA"
+   "solution": "JACARANDA",
+   "annotationWithheld": {
+    "why": "Held as 'Plant in jar roughly The associated with Canada am Get' (9): OCR garble; no reprint or scan gives the clue as printed",
+    "clue": "Plant in jar roughly The associated with Canada am Get"
+   }
   },
   {
    "number": 15,
@@ -275,7 +834,27 @@
      }
     ]
    },
-   "solution": "DROPOUT"
+   "solution": "DROPOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Non-participant",
+      "at": 0
+     },
+     {
+      "text": "new start to game",
+      "at": 19
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A dropout withdraws from a course or society; in rugby a drop-out is the kick that restarts play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +874,11 @@
      }
     ]
    },
-   "solution": "OFFSEASON"
+   "solution": "OFFSEASON",
+   "annotationWithheld": {
+    "why": "Held as 'It's not good for business, Rahma bad temper' (3-6): OFF (bad) + SEASON (temper) fits, but 'Rahma' is OCR garble and the clue as printed is not recoverable",
+    "clue": "It's not good for business, Rahma bad temper"
+   }
   },
   {
    "number": 17,
@@ -309,7 +892,47 @@
     "text": "Fair line adopted by building agent",
     "enumeration": "7"
    },
-   "solution": "CLEMENT"
+   "solution": "CLEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fair",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopted by",
+       "at": 10,
+       "note": "the building agent takes in the line letter as if adopting it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "building agent",
+       "at": 21,
+       "gives": "CEMENT",
+       "note": "cement is a binding agent used in building"
+      },
+      {
+       "words": "line",
+       "at": 5,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent agrees to a fair line on a building.",
+     "definitionFit": "Clement weather is mild or fair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "agent"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +946,11 @@
     "text": "Wearing a change for claimin outside",
     "enumeration": "7"
    },
-   "solution": "TEDIOUS"
+   "solution": "TEDIOUS",
+   "annotationWithheld": {
+    "why": "Held as 'Wearing a change for claimin outside' (7): OCR garble; definition 'Wearing' fits but the wordplay cannot be recovered",
+    "clue": "Wearing a change for claimin outside"
+   }
   },
   {
    "number": 19,
@@ -337,7 +964,40 @@
     "text": "If lit up drunk's contemptible",
     "enumeration": "7"
    },
-   "solution": "PITIFUL"
+   "solution": "PITIFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "contemptible",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 10,
+       "note": "a drunk staggers, so these letters lurch into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "If lit up",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who gets tipsy once their pipe is lit is a sorry sight.",
+     "definitionFit": "Pitiful can mean so poor as to deserve scorn, contemptible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1011,46 @@
     "text": "Very good lecturer on implacable Chaucerian figure",
     "enumeration": "7"
    },
-   "solution": "PILGRIM"
+   "solution": "PILGRIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chaucerian figure",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very good",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi, short for pious, means very good"
+      },
+      {
+       "words": "lecturer",
+       "at": 10,
+       "gives": "L"
+      },
+      {
+       "words": "implacable",
+       "at": 22,
+       "gives": "GRIM",
+       "note": "grim means stern and unrelenting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine teacher lectures on a stern character from Chaucer.",
+     "walkthrough": "'on' puts PIL in front of GRIM in a down clue.",
+     "definitionFit": "The Canterbury Tales are told by travellers going to the shrine of Becket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1064,11 @@
     "text": "Judge will clarify the charge",
     "enumeration": "4"
    },
-   "solution": "RATE"
+   "solution": "RATE",
+   "annotationWithheld": {
+    "why": "Held as 'Judge will clarify the charge' (4): RATE fits 'Judge' and 'charge', but 'will clarify the' has no job; likely OCR garble with no reprint found",
+    "clue": "Judge will clarify the charge"
+   }
   },
   {
    "number": 21,
@@ -379,7 +1082,11 @@
     "text": "Work bordering Welsh year-ol fabric",
     "enumeration": "5"
    },
-   "solution": "TWILL"
+   "solution": "TWILL",
+   "annotationWithheld": {
+    "why": "Held as 'Work bordering Welsh year-ol fabric' (5): TILL around W gives the answer, but 'year-ol' is OCR garble with no reprint found",
+    "clue": "Work bordering Welsh year-ol fabric"
+   }
   },
   {
    "number": 22,
@@ -393,7 +1100,11 @@
     "text": "Young American shares his money",
     "enumeration": "10"
    },
-   "solution": "ADOLESCENT"
+   "solution": "ADOLESCENT",
+   "annotationWithheld": {
+    "why": "Held as 'American shares his money' (10): A + DOLES + CENT fits, but 'his' has no job; likely OCR garble with no reprint found",
+    "clue": "Young American shares his money"
+   }
   },
   {
    "number": 23,
@@ -407,7 +1118,40 @@
     "text": "Vessel is making for African port",
     "enumeration": "5"
    },
-   "solution": "TUNIS"
+   "solution": "TUNIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African port",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Vessel",
+       "at": 0,
+       "gives": "TUN",
+       "note": "a tun is a large cask, a vessel"
+      },
+      {
+       "words": "is",
+       "at": 7,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship sets course for a harbour in Africa.",
+     "definitionFit": "The capital of Tunisia is a Mediterranean harbour city in North Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1165,48 @@
     "text": "Henry's in broadcast revue",
     "enumeration": "4"
    },
-   "solution": "SHOW"
+   "solution": "SHOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "revue",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the Henry letter goes inside the broadcast word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "broadcast",
+       "at": 11,
+       "gives": "SOW",
+       "note": "to sow seed is to broadcast it, scattering widely"
+      },
+      {
+       "words": "Henry's",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance; 's is 'is'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry appears in a revue that is being broadcast.",
+     "definitionFit": "A revue is a theatrical entertainment of sketches and songs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1220,44 @@
     "text": "Laboriously hoeing bur in border",
     "enumeration": "9"
    },
-   "solution": "NEIGHBOUR"
+   "solution": "NEIGHBOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "border",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Laboriously",
+       "at": 0,
+       "note": "working laboriously churns the letters of the following words into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hoeing",
+       "at": 12
+      },
+      {
+       "words": "bur",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener toils at hoeing a burr in a flower border.",
+     "definitionFit": "To neighbour something is to adjoin or border it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1271,35 @@
     "text": "Result of a match",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Result of a match",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Result of a match",
+       "at": 0,
+       "note": "seems to mean a sports score but means what a lit match can cause when used criminally"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking for the outcome of a game.",
+     "definitionFit": "Deliberately setting fire to property is a crime often started with a single lit stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1313,45 @@
     "text": "Suffer, sickly, deprived of sun",
     "enumeration": "5"
    },
-   "solution": "ALLOW"
+   "solution": "ALLOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suffer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "deprived of",
+       "at": 16,
+       "note": "the sickly word is robbed of the letter for sun"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sickly",
+       "at": 8,
+       "gives": "SALLOW",
+       "note": "sallow means sickly yellow in complexion"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pale and ill suffers without sunshine.",
+     "definitionFit": "Suffer in the old sense means permit, as in 'suffer the little children'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suffer"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +1365,42 @@
     "text": "Intervals according to house styles",
     "enumeration": "9"
    },
-   "solution": "SEMITONES"
+   "solution": "SEMITONES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intervals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "house",
+       "at": 23,
+       "gives": "SEMI",
+       "note": "a semi is a semi-detached house"
+      },
+      {
+       "words": "styles",
+       "at": 29,
+       "gives": "TONES",
+       "note": "tones are manners or styles of expression"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breaks in schedule according to home decor fashions.",
+     "walkthrough": "A semi is the British word for a semi-detached house, one sharing a wall with its neighbour.",
+     "definitionFit": "In music a half-step is the smallest interval of Western scales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Intervals"
+    }
+   }
   }
  ]
 }
