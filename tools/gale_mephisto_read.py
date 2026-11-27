@@ -721,6 +721,10 @@ def read_done(row, done=None):
     if row and row.get("formFix", 0) < FORM_FIX and row.get("file") in form_fix_names():
         # Cut at the entry form's word "solution" with no clue under it (FORM_FIX 1): only the pages the fix changes.
         return False
+    if row and row.get("headlessFix", 0) < HEADLESS_FIX and row.get("file") in headless_fix_names():
+        # Read with the Across heading put over the whole ragged left column's first number (HEADLESS_FIX 1): only the
+        # pages the fix changes.
+        return False
     if row and row.get("barWindow", 0) < BAR_WINDOW and row.get("file") in bar_window_names():
         # Refused "grid unread" with the lattice on the block beside the grid (BAR_WINDOW 1): only the pages the fix reads.
         return False
@@ -1449,6 +1453,11 @@ def read_lattice(gray, ink, ys, xs, wanted=None):
 #: the lists (entry_form_foot): a word "solution" in it ended the cut with no clue inside, and the page was refused "no
 #: clue list on the page". Only the pages the fix changes are read again (tools/data/mephisto_form_fix.json).
 FORM_FIX = 1
+#: Bumped when bare_stops puts the Across heading over the first number of the whole ragged left column; only the pages
+#: the fix changes are read again (tools/data/mephisto_headless_fix.json).
+HEADLESS_FIX = 1
+HEADLESS_FIX_FILE = ROOT / "tools" / "data" / "mephisto_headless_fix.json"
+_HEADLESS_FIX_NAMES = None
 FORM_FIX_FILE = ROOT / "tools" / "data" / "mephisto_form_fix.json"
 _FORM_FIX_NAMES = None
 FORM_ANCHOR = re.compile(r"^\W*(?:send|sene|p[eo]stm?a?r\w*|p[eo]strar\w*)\W*$", re.IGNORECASE)
@@ -1465,6 +1474,17 @@ def form_fix_names():
         except (OSError, ValueError):
             _FORM_FIX_NAMES = frozenset()
     return _FORM_FIX_NAMES
+
+
+def headless_fix_names():
+    """The bare GALE_*.pdf names whose block HEADLESS_FIX changes (a committed list nothing writes)."""
+    global _HEADLESS_FIX_NAMES
+    if _HEADLESS_FIX_NAMES is None:
+        try:
+            _HEADLESS_FIX_NAMES = frozenset(json.loads(HEADLESS_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _HEADLESS_FIX_NAMES = frozenset()
+    return _HEADLESS_FIX_NAMES
 
 
 def entry_form_foot(inside, grid_foot, lh):
@@ -2177,6 +2197,15 @@ def bare_stops(words):
     if not any(gl.heading(w[4]) == "ACROSS" for w in gl.headings(words)):
         left = min(w[0] for w in aligned)
         col = [w for w in aligned if w[0] - left <= BARE_STEP]
+        if HEADLESS_FIX:
+            # HEADLESS_FIX: a column's numbers are ragged by more than BARE_STEP end to end (x 9 to 27 on the 2002 pages): the
+            # column is the chain of left edges each within BARE_STEP of the one before, so its first number is not
+            # taken for a lower one and the clues above the heading dropped as the page before's.
+            col = []
+            for w in sorted(aligned, key=lambda w: w[0]):
+                if col and w[0] - col[-1][0] > BARE_STEP:
+                    break
+                col.append(w)
         first = min(col, key=lambda w: w[1])
         h = max(10, int(statistics.median(w[3] - w[1] for w in aligned)))
         head = (int(left), max(0, int(first[1]) - h - 4), int(left) + 4 * h, max(1, int(first[1]) - 4), "Across")
@@ -2812,7 +2841,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
