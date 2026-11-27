@@ -465,9 +465,13 @@ puzzle, v, _ = f.join({**cut, "alternatives": [alt]}, [{"grid": grid, "fit": exa
 check("a reading whose lights are not the grid's files its alternative's that are, and says which",
       (2, "Postcard", "Playing piece"),
       (v.get("alternative"), clue("1-down").get("text") if puzzle else None, clue("1-across").get("text") if puzzle else None))
-_, v, _ = f.join(cut, [{"grid": grid, "fit": exact}], [], read_letters)
-check("with no alternative it lacks the grid still (mirror)", (True, None),
-      ((v.get("lacks") or "").startswith("grid:"), v.get("alternative")))
+# With no alternative the exact fit takes BLOCK_FIX's blank clues on the lights the list lost (its across
+# list): a hypothesis run() refuses unless listener_gaps reads each of them off the page's columns.
+puzzle, v, _ = f.join(cut, [{"grid": grid, "fit": exact}], [], read_letters)
+check("with no alternative the lost lights are BLOCK_FIX's blanks, nothing filed on them (mirror)",
+      (None, {f"{n}-across": f.BLOCK_NOTE for n in (1, 5, 6, 7)}, ["", "", "", ""]),
+      (v.get("alternative"), {k: w for k, w in (v.get("mended") or {}).items() if w == f.BLOCK_NOTE},
+       [e["clue"].get("text") for e in puzzle["entries"] if e["direction"] == "across"] if puzzle else None))
 downs = reading(8, {k: t for k, t in TEXT.items() if k.endswith("down")})["clues"]
 puzzle, v, _ = f.join({**reading(8, {k: t for k, t in TEXT.items() if k != "2-down" and k != "4-down"}),
                        "alternatives": [{**alt, "cut": 1, "clues": {"63-down": {"text": "Green Lane"}}},
@@ -511,10 +515,14 @@ puzzle, v, _ = f.join(reading(8, TEXT), [{"grid": {**grid, "sides": one}, "fit":
                       [], read_letters)
 check("the one faint bar whose flip mends it is flipped (mirror)",
       ([[0, 1, "r"]], None, 8), (v.get("flipped"), v.get("mended"), puzzle and len(puzzle["entries"])))
-_, v, _ = f.join(reading(8, TEXT), [{"grid": {**grid, "sides": {**one, (0, 2, "r"): 1.3}}, "fit": {**exact, "rows": stray}}],
-                 [], read_letters)
-check("two flips that would each mend it leave the grid unused, no light called skipped (mirror)", (None, True),
-      (v.get("mended"), v.get("lacks", "").startswith("grid: ")))
+# Two flips that would each mend it flip neither; the stray far half is then only BLOCK_FIX's blank
+# hypothesis (no light called skipped), which run() refuses unless the page's columns print its clue.
+puzzle, v, _ = f.join(reading(8, TEXT), [{"grid": {**grid, "sides": {**one, (0, 2, "r"): 1.3}}, "fit": {**exact, "rows": stray}}],
+                      [], read_letters)
+check("two flips that would each mend it flip neither; the stray half is a BLOCK_FIX blank, no skip (mirror)",
+      (None, {"3-across": f.BLOCK_NOTE}, ""),
+      (v.get("flipped"), v.get("mended"),
+       next(e["clue"].get("text") for e in puzzle["entries"] if (e["number"], e["direction"]) == (3, "across")) if puzzle else None))
 
 # The report's copy against a solve: the misread word is a lead, never a fix.
 solved = json.loads(json.dumps(filed))
