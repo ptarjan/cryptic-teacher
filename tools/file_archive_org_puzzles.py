@@ -4066,7 +4066,7 @@ def indy_side_right(paper, d, gbox, title, kind=None):
         and gbox is not None and bool(title) and title[0] >= gbox[2] - 40 and title[2] - title[0] >= 0.6 * (gbox[2] - gbox[0])
 
 
-def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE, roomy=False):
+def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE, roomy=False, ink_cut=128):
     """(x1, bottom) of the two clue columns right of `grid`, or None when the
     clues are not there: they are only when the page ends too soon under the
     grid for clues (1.8 grids' widths, the layout every other page has) and
@@ -4086,7 +4086,7 @@ def right_columns(img, grid, span=RIGHT_SPAN, rise=RIGHT_RISE, roomy=False):
     bottom = int(gy1 + (INDY_RIGHT_DROP if roomy else RIGHT_DROP) * (gy1 - gy0))
     strip = img.crop((gx1 + 5, gy0, x1, min(img.height, bottom))).convert("L")
     hist = strip.histogram()
-    if sum(hist[:128]) < RIGHT_INK * strip.width * strip.height:
+    if sum(hist[:ink_cut]) < RIGHT_INK * strip.width * strip.height:
         return None
     return (x1, bottom) if rise == RIGHT_RISE else (x1, bottom, Rise(rise))
 
@@ -4134,7 +4134,31 @@ def loose_shaped(img, box):
     return sized_for(box, img.width, INDY_PAGE_SHARE)
 
 
-def right_or_over(img, grid, right_ok=True, rise=RIGHT_RISE, roomy=False):
+#: FT_FAINT_RIGHT: the Gale FT 2010 pages printed light (2010-05-11: the grid's blacks read 65-80 and its paper 245, the
+#: clue print at most ~150) have 1% of the strip right of the grid under right_columns()' fixed grey cut of 128, under its
+#: RIGHT_INK, though ACROSS and DOWN stand there (x 971 on): no right window was tried and the strip under the grid
+#: read an advert ("no ACROSS and DOWN lists under the grid"). The cut is the page's own, Otsu's on the grid's crop.
+FT_FAINT_RIGHT = "Gale FT page printed light, its clue columns right of the grid judged by the page's own grey cut and read since"
+
+
+def otsu_cut(img, box):
+    """Otsu's grey cut of the crop `box` of `img` (a grid: black cells on paper), 0-255."""
+    hist = img.crop(box).convert("L").histogram()
+    total, whole = sum(hist), sum(i * n for i, n in enumerate(hist))
+    best, cut, below, below_sum = -1.0, 128, 0, 0
+    for t in range(256):
+        below += hist[t]
+        below_sum += t * hist[t]
+        if below == 0 or below == total:
+            continue
+        a, b = below_sum / below, (whole - below_sum) / (total - below)
+        spread = below * (total - below) * (a - b) ** 2
+        if spread > best:
+            best, cut = spread, t + 1
+    return cut
+
+
+def right_or_over(img, grid, right_ok=True, rise=RIGHT_RISE, roomy=False, faint=False):
     """(right, over) for a grid under its title: right_columns() when the
     clues lie right of it, else overhang(), never both. A page that ends
     that soon under the grid has no room for three columns, and the
@@ -4145,6 +4169,9 @@ def right_or_over(img, grid, right_ok=True, rise=RIGHT_RISE, roomy=False):
         right = right_columns(img, grid, INDY_RIGHT_SPAN, rise, roomy=True) if right_ok else None
     else:
         right = right_columns(img, grid, rise=rise) if right_ok else None
+        if right is None and right_ok and faint:
+            cut = otsu_cut(img, grid)
+            right = right_columns(img, grid, rise=rise, ink_cut=cut) if cut > 128 else None
     return right, (None if right else overhang(img, grid))
 
 
@@ -15787,7 +15814,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     right_page = side == "below" and top is None \
         and not sides and not column and not paper.four and not third and kind not in ("plain", "lead") and not two_columns_only(paper, d)
     right, over = right_or_over(img, gbox, may_right or kind == "farright", indy_rise(paper, d, kind == "rise") if paper.key == "galeindependent" else ft_rise(paper, gbox, hit["box"]),
-                                  paper.key == "galeindependent") if right_page \
+                                  paper.key == "galeindependent", faint=paper.key == "galeft") if right_page \
         else (None, None)
     far_right = not may_right and alts is not None and kind is None and right_page and paper.key == "gale" \
         and right_or_over(img, gbox, True, ft_rise(paper, gbox, hit["box"]))[0] is not None
