@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Protest ? It's just one of those things",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Protest ?",
+      "at": 0,
+      "meaning": "to protest or raise a complaint"
+     },
+     {
+      "text": "It's just one of those things",
+      "at": 10,
+      "meaning": "simply a thing, any item at all"
+     }
+    ],
+    "explanation": {
+     "surface": "A shrug of resignation after a complaint gets nowhere.",
+     "definitionFit": "As a verb the word means to raise an objection; as a noun it means a material item, one of the things around us."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "things"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +77,50 @@
      }
     ]
    },
-   "solution": "BOATHOOK"
+   "solution": "BOATHOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the Crafty Retainer",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 5,
+       "note": "about means one word goes around the other here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Book",
+       "at": 0,
+       "gives": "BOOK",
+       "note": "taken as written"
+      },
+      {
+       "words": "Curse",
+       "at": 15,
+       "gives": "OATH",
+       "note": "an oath is a curse or swear word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book about a sly servant's curse.",
+     "walkthrough": "'about' puts OATH inside BOOK. The definition puns on 'craft' as a boat and 'retainer' as something that holds on.",
+     "definitionFit": "A pole with a hook for holding on to a boat: it retains a craft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crafty"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,10 +131,59 @@
    },
    "length": 8,
    "clue": {
-    "text": "Topsy's friend has broken lute — put a figure on it",
+    "text": "Topsy's friend has broken a lute — put a figure on it",
     "enumeration": "8"
    },
-   "solution": "EVALUATE"
+   "solution": "EVALUATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put a figure on it",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Topsy's friend",
+       "at": 0,
+       "gives": "EVA",
+       "note": "Topsy's friend in Uncle Tom's Cabin is little Eva"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 19,
+         "note": "broken means smashed apart, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 26
+        },
+        {
+         "words": "lute",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's friend smashes a musical instrument, and someone must price the damage.",
+     "walkthrough": "Topsy and Eva are children in Harriet Beecher Stowe's Uncle Tom's Cabin. 'broken' scrambles A and LUTE into LUATE.",
+     "definitionFit": "To assess the worth of something is to give it a number or price."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +197,35 @@
     "text": "No stopping for such a one",
     "enumeration": "9"
    },
-   "solution": "TOOTHLESS"
+   "solution": "TOOTHLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No stopping for such a one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "No stopping for such a one",
+       "at": 0,
+       "note": "a stopping is a dental filling, and someone with no teeth needs none"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Stopping' is an old word for a dental filling, not a halt.",
+     "definitionFit": "A person without teeth has nothing for a dentist to fill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +239,33 @@
     "text": "Quixotic giant",
     "enumeration": "8"
    },
-   "solution": "WINDMILL"
+   "solution": "WINDMILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quixotic giant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Quixotic giant",
+       "at": 0,
+       "note": "Don Quixote tilted at sails on the plain, believing them to be giants"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "In Cervantes' novel Don Quixote charges at a row of these, convinced they are giants waving their arms.",
+     "definitionFit": "The deluded knight mistook these sail-driven mills for monsters, so each is a giant only in his imagination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +285,34 @@
      }
     ]
    },
-   "solution": "WINDSCREENWIPER"
+   "solution": "WINDSCREENWIPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's swinging in the rain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It's swinging in the rain",
+       "at": 0,
+       "note": "a car's blade swings to and fro across the glass when it rains, echoing the song 'Singin' in the Rain'"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface echoes 'Singin' in the Rain'; the thing swinging is a car's blade clearing the glass.",
+     "definitionFit": "A car's rubber blade sweeps back and forth over the front glass in wet weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +332,41 @@
      }
     ]
    },
-   "solution": "DEADSET"
+   "solution": "DEADSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Firmly determined",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the late",
+       "at": 25,
+       "gives": "DEAD",
+       "note": "the late describes someone dead"
+      },
+      {
+       "words": "Egyptian god",
+       "at": 34,
+       "gives": "SET",
+       "note": "Set is the Egyptian god of storms and chaos"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Resolved to visit an ancient Egyptian deity who has died.",
+     "definitionFit": "Someone utterly resolved on a course is fixed on it, an idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +380,33 @@
     "text": "The heathen in his blindness",
     "enumeration": "8"
    },
-   "solution": "IDOLATER"
+   "solution": "IDOLATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The heathen in his blindness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The heathen in his blindness",
+       "at": 0,
+       "note": "from the hymn 'From Greenland's Icy Mountains': the heathen in his blindness bows down to wood and stone"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Bishop Heber's hymn says the heathen in his blindness bows down to wood and stone, that is, worships graven images.",
+     "definitionFit": "One who bows to images of wood and stone worships false gods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +420,31 @@
     "text": "Mrs. McGurgle invited to step ashore ?",
     "enumeration": "8"
    },
-   "solution": "LANDLADY"
+   "solution": "LANDLADY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mrs. McGurgle",
+      "at": 0,
+      "meaning": "Mrs McGurgle is the seaside boarding-house keeper in P. G. Wodehouse's stories"
+     },
+     {
+      "text": "invited to step ashore",
+      "at": 14,
+      "meaning": "read as '...!', an invitation for a woman to come ashore"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman is asked to leave the boat.",
+     "walkthrough": "Split the answer as 'land, lady' and it is a command to a woman to come ashore.",
+     "definitionFit": "The Wodehouse character runs lodgings, and the split phrase bids a woman disembark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +458,58 @@
     "text": "Tea-time delicacy, about a cent this …",
     "enumeration": "8"
    },
-   "solution": "MACAROON"
+   "solution": "MACAROON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tea-time delicacy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "about means going round, so the colour word wraps around the cent and the article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "this",
+       "at": 32,
+       "gives": "MAROON",
+       "note": "this points ahead to the answer of the next clue, the brownish crimson shade"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cent",
+         "at": 27,
+         "gives": "C"
+        },
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cake for tea priced at around a cent.",
+     "walkthrough": "The dots tie this clue to the next: 'this' stands for the 10-across answer, which goes 'about' C (cent) and A.",
+     "definitionFit": "This almond biscuit is a classic sweet treat served with afternoon tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +523,32 @@
     "text": "… brownish crimson banger",
     "enumeration": "6"
    },
-   "solution": "MAROON"
+   "solution": "MAROON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brownish crimson",
+      "at": 2,
+      "meaning": "a dark reddish-brown colour"
+     },
+     {
+      "text": "banger",
+      "at": 19,
+      "meaning": "a loud firework or distress rocket that goes off with a bang"
+     }
+    ],
+    "explanation": {
+     "surface": "A dark red firework continues the previous clue's thought.",
+     "walkthrough": "'Banger' here is not a sausage but an exploding firework, the sense used of a signal rocket.",
+     "definitionFit": "The word names a deep red-brown hue and also an explosive signal firework."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "banger"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +562,34 @@
     "text": "The pennyworth that proved Cartesian existence",
     "enumeration": "8"
    },
-   "solution": "THOUGHTS"
+   "solution": "THOUGHTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The pennyworth that proved Cartesian existence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The pennyworth that proved Cartesian existence",
+       "at": 0,
+       "note": "a penny is offered for what you are thinking, and Descartes said 'I think, therefore I am'"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Two references meet: the saying 'a penny for them' and Descartes' cogito, which proved his existence from the fact that he was thinking.",
+     "definitionFit": "Ideas in the mind are what one offers a penny for, and Descartes rested his proof of existence on having them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +603,45 @@
     "text": "Attack is alas confounded",
     "enumeration": "6"
    },
-   "solution": "ASSAIL"
+   "solution": "ASSAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confounded",
+       "at": 15,
+       "note": "confounded means thrown into confusion, so these letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is",
+       "at": 7
+      },
+      {
+       "words": "alas",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of dismay at an assault going wrong.",
+     "walkthrough": "'confounded' scrambles IS and ALAS into the answer.",
+     "definitionFit": "To assault someone is to set upon them, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "confounded"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +655,70 @@
     "text": "For the impractical the alternative is to lose nothing",
     "enumeration": "8"
    },
-   "solution": "THEORIST"
+   "solution": "THEORIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the impractical",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the",
+       "at": 20,
+       "gives": "THE"
+      },
+      {
+       "words": "alternative",
+       "at": 24,
+       "gives": "OR",
+       "note": "or is the word that introduces an alternative"
+      },
+      {
+       "words": "is",
+       "at": 36,
+       "gives": "IS"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lose",
+         "at": 42,
+         "note": "to lose means to give up something, so the word to drops a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "at": 39,
+         "gives": "TO",
+         "note": "taken as written"
+        },
+        {
+         "words": "nothing",
+         "at": 47,
+         "gives": "O",
+         "note": "nothing is zero, the letter O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that the unrealistic person's only option is to give up nothing.",
+     "walkthrough": "'lose nothing' takes O from TO, leaving T. 'For' is a link word.",
+     "definitionFit": "Someone concerned with ideas rather than practice is the stereotype of an unworldly thinker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lose"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +732,35 @@
     "text": "Bristol's fashionable line?",
     "enumeration": "9"
    },
-   "solution": "SHIPSHAPE"
+   "solution": "SHIPSHAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bristol's fashionable line?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bristol's fashionable line?",
+       "at": 0,
+       "note": "the saying '... and Bristol fashion' means neat and in good order"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The British idiom 'shipshape and Bristol fashion' comes from the port of Bristol, where ships had to be kept well stowed; 'line' looks like a fashion range.",
+     "definitionFit": "The phrase that goes with 'Bristol fashion' means tidy and orderly, as a well-kept vessel is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +774,34 @@
     "text": "Hound of heaven? Well, terrier",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hound of heaven? Well, terrier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Hound of heaven? Well, terrier",
+       "at": 0,
+       "note": "a dog whose name sounds like the heavens is in fact a breed of terrier named after a Scottish island"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The phrase 'Hound of Heaven' is a famous poem, but the setter means a dog whose name sounds like the sky: a Scottish terrier breed named after an island of the Inner Hebrides.",
+     "definitionFit": "This long-haired terrier breed takes its name from the Hebridean island, whose name sounds like the heavens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +815,49 @@
     "text": "Dance of a horse in the sand",
     "enumeration": "8"
    },
-   "solution": "SARABAND"
+   "solution": "SARABAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in means one word is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the sand",
+       "at": 20,
+       "gives": "SAND",
+       "note": "taken as written"
+      },
+      {
+       "words": "a horse",
+       "at": 9,
+       "gives": "ARAB",
+       "note": "an Arab is a breed of horse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse prancing on the beach.",
+     "walkthrough": "'in' puts ARAB inside SAND. 'of' is a link word.",
+     "definitionFit": "A stately Spanish court dance in triple time, a type of dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +871,41 @@
     "text": "It's otherwise than gay, a sword of Islam",
     "enumeration": "8"
    },
-   "solution": "YATAGHAN"
+   "solution": "YATAGHAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sword of Islam",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "otherwise",
+       "at": 5,
+       "note": "otherwise means in another way, so these letters are arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "than gay, a",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A curved blade described as anything but cheerful.",
+     "walkthrough": "'otherwise' rearranges THAN GAY A. 'It's' is a link.",
+     "definitionFit": "A Turkish curved sabre without a guard, a weapon of the Ottoman world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gay"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +919,44 @@
     "text": "Beg that the victim be heard .",
     "enumeration": "4"
    },
-   "solution": "PRAY"
+   "solution": "PRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beg",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PRAY",
+     "indicators": [
+      {
+       "text": "be heard",
+       "at": 20,
+       "note": "be heard means the word is spoken aloud and a soundalike is written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the victim",
+       "at": 9,
+       "gives": "PREY",
+       "note": "prey is the victim of a hunter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea that the person who suffered should be given a hearing.",
+     "walkthrough": "'be heard' turns PREY (the victim) into a word of the same sound.",
+     "definitionFit": "To entreat or implore is to plead, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +970,34 @@
     "text": "The man in the Roman street",
     "enumeration": "8"
    },
-   "solution": "PLEBEIAN"
+   "solution": "PLEBEIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The man in the Roman street",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The man in the Roman street",
+       "at": 0,
+       "note": "the 'man in the street' is an ordinary person, and in Rome that meant a commoner"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A twist on 'the man in the street': the common people of ancient Rome were the plebs.",
+     "definitionFit": "An ordinary citizen of ancient Rome belonged to the commoners rather than the patrician class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1011,34 @@
     "text": "Eumenides as once featured on — T.V.",
     "enumeration": "8"
    },
-   "solution": "AVENGERS"
+   "solution": "AVENGERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eumenides as once featured on — T.V.",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Eumenides as once featured on — T.V.",
+       "at": 0,
+       "note": "the Eumenides are the Furies who pursue wrongdoers, and the same name was a 1960s television spy series"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "In Greek myth the Eumenides, or Furies, punish crimes; the same word titled a British TV series with Steed and Mrs Peel.",
+     "definitionFit": "The Furies take vengeance on wrongdoers, and the word was also the name of the 1960s spy show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1052,60 @@
     "text": "Slip round the ice backwards-that's out of the ordinary",
     "enumeration": "8"
    },
-   "solution": "ESPECIAL"
+   "solution": "ESPECIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's out of the ordinary",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backwards",
+       "at": 19,
+       "note": "backwards means the whole combination is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 5,
+         "note": "round means one word goes about the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Slip",
+         "at": 0,
+         "gives": "LAPSE",
+         "note": "a lapse is a slip or small error"
+        },
+        {
+         "words": "ice",
+         "at": 15,
+         "gives": "ICE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls on the ice going backwards, which is unusual.",
+     "walkthrough": "'round' puts ICE inside LAPSE to give LAICEPSE, and 'backwards' turns that whole run around.",
+     "definitionFit": "Special or exceptional, a slightly old-fashioned synonym for something notable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 19,
@@ -356,7 +1119,45 @@
     "text": "Conundrums in games perhaps",
     "enumeration": "7"
    },
-   "solution": "ENIGMAS"
+   "solution": "ENIGMAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conundrums",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "at": 20,
+       "note": "perhaps suggests a possible other form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 11
+      },
+      {
+       "words": "games",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Puzzles that may turn up during games.",
+     "walkthrough": "'perhaps' rearranges IN and GAMES.",
+     "definitionFit": "Riddles and puzzles are mysteries to be solved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "games"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1171,60 @@
     "text": "Two bills one article of Australian wattle",
     "enumeration": "6"
    },
-   "solution": "ACACIA"
+   "solution": "ACACIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Australian wattle",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "Two",
+         "at": 0,
+         "note": "two means the following piece appears twice in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bills",
+         "at": 4,
+         "gives": "AC",
+         "note": "ac is short for account, which is a bill"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 10,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "article",
+       "at": 14,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paying a couple of invoices for an Australian plant.",
+     "walkthrough": "'Two' doubles AC. Wattle is the Australian name for these trees.",
+     "definitionFit": "The golden wattle is a species of this tree genus, and the name covers them in Australia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bills"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1238,32 @@
     "text": "One of 11 that's merry, if a bit chicken",
     "enumeration": "8"
    },
-   "solution": "WISHBONE"
+   "solution": "WISHBONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of 11 that's merry",
+      "at": 0,
+      "meaning": "with 'merry' in front, the answer to clue 11 in the singular names the forked bone of a bird"
+     },
+     {
+      "text": "a bit chicken",
+      "at": 27,
+      "meaning": "a forked bone from a chicken, pulled by two people making a wish"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheerful idea, though slightly cowardly.",
+     "walkthrough": "Merrythought is an old name for the forked bone of a bird's breast; put 'merry' before one of 11-across's answer and you have it.",
+     "definitionFit": "The forked clavicle of a fowl is a piece of the bird, also called a merrythought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chicken"
+    }
+   }
   },
   {
    "number": 22,
@@ -404,7 +1283,35 @@
      }
     ]
    },
-   "solution": "ATHOME"
+   "solution": "ATHOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The \"in\" style of entertainment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The \"in\" style of entertainment",
+       "at": 0,
+       "note": "being in means being at your own house, and a party held in someone's house is a style of entertaining"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'In' looks like fashionable, but it means not out of the house; the phrase is also a reception held at one's home.",
+     "definitionFit": "The phrase means being in one's house, and as a noun names a reception held there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 23,
@@ -418,7 +1325,33 @@
     "text": "He thanked God he was not as other men",
     "enumeration": "8"
    },
-   "solution": "PHARISEE"
+   "solution": "PHARISEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He thanked God he was not as other men",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He thanked God he was not as other men",
+       "at": 0,
+       "note": "a quotation from the parable in Luke 18 of the self-righteous man praying in the temple beside the tax collector"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "In the Gospel of Luke a self-righteous man prays 'God, I thank thee, that I am not as other men are'.",
+     "definitionFit": "The parable's proud worshipper was a member of the strict Jewish sect, and the word now means a self-righteous hypocrite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1365,45 @@
     "text": "This creature is around, unfortunately, no longer",
     "enumeration": "8"
    },
-   "solution": "DINOSAUR"
+   "solution": "DINOSAUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This creature is around, unfortunately, no longer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unfortunately",
+       "at": 25,
+       "note": "unfortunately suggests something gone wrong, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is",
+       "at": 14
+      },
+      {
+       "words": "around",
+       "at": 17
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A lament that a certain animal has died out.",
+     "walkthrough": "'unfortunately' scrambles IS and AROUND; read as a whole, the clue describes an extinct creature.",
+     "definitionFit": "These prehistoric reptiles are extinct, so they are no longer around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -446,7 +1417,47 @@
     "text": "Most ' severe he would be, if canonized",
     "enumeration": "6"
    },
-   "solution": "ERNEST"
+   "solution": "ERNEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "if canonized",
+       "at": 27,
+       "note": "canonizing a man adds the saint's abbreviation before his name, so the word for most severe loses it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Most ' severe",
+       "at": 0,
+       "gives": "STERNEST",
+       "note": "the sternest person is the most severe"
+      },
+      {
+       "gives": "ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a certain man would be the harshest of all if made a saint.",
+     "walkthrough": "St is short for Saint: prefix it to a man's first name and you get the word meaning most severe.",
+     "definitionFit": "The answer is a man's first name, so it can stand for 'he'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "canonized"
+    }
+   }
   }
  ]
 }
