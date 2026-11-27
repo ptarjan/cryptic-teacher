@@ -65,7 +65,7 @@ function harness(site) {
     addEventListener: (t, f) => { handlers[t] = f; },
     skipWaiting() {}, clients: { claim: async () => {} }, registration: {},
   };
-  const ctx = vm.createContext({ self, caches, fetch: fakeFetch, Request, Response, Headers, URL, setTimeout, console, TypeError, Promise });
+  const ctx = vm.createContext({ self, caches, fetch: fakeFetch, Request, Response, Headers, URL, setTimeout, clearTimeout, console, TypeError, Promise });
   vm.runInContext(fs.readFileSync(path.join(__dirname, "..", "sw.js"), "utf8"), ctx);
 
   // Fires a fetch event. undefined: the worker left it to the network.

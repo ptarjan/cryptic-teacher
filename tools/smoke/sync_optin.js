@@ -31,7 +31,9 @@ const { ROOT, SLICE, UNCACHED, assert, ciCache, corpus, fs, openId, path, regist
   assert(fetches.every((f) => f.includes('"/s/"') || f.includes('"/r"')
       || f.includes('"/n"') || f.includes("/v?p=") || f.includes('"/v"')
       || f.startsWith('fetch(at("puzzles/') || f.startsWith('fetch(at("./")')
-      || f.startsWith('fetch(at("sw.js")')),
+      || f.startsWith('fetch(at("sw.js")')
+      // fetchWithin's own call: it takes the URL its caller built (always at(...)).
+      || f.startsWith("fetch(url, ")),
     "nothing else leaves the page: " + fetches.join(" | "));
   // The counter is the only other thing that reaches the network, and what it
   // can carry is one name from the shared list — no grid, no code, no id. Two

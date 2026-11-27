@@ -2,7 +2,7 @@
 // Part of tools/smoke_test.js: required in order, on the harness' shared object.
 "use strict";
 const T = require("./harness");
-const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pickerRowFor, registry,
+const { isAsking, CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pickerRowFor, registry,
   shape } = T;
 // --- the type rung asks too, and its answer is a family ---
 // Every other part of a clue is something you can be asked to point at. This one
@@ -99,15 +99,22 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
   };
   const verdicts = graded();
 
-  // Wrong is never a dead end: the rung opens all the same, and is charged for.
+  // Wrong is never a dead end: it opens nothing, the same question stays up, and
+  // Just tell me then opens the rung and is charged for.
   const paid = open();
   const wrong = Object.keys(verdicts).find((k) => !verdicts[k]);
+  const beforeWrong = registry["scorebar"].innerHTML;
   registry["gc-" + choices().get(wrong)].onclick();
   html = registry["hint-body"].innerHTML;
   assert(!/guess-verdict|guess-result/.test(html), "a wrong family has no verdict at all: " + html);
   assert(!/Not [^<]*here.s what it actually is/i.test(html),
     "and no \"Not X\" line: " + html);
-  assert(html.includes(">" + right + "<"), "the rung opens anyway, naming it: " + html);
+  assert(isAsking(registry["hint-body"]) && /step-result miss">Not quite/.test(html),
+    "the same question stays up with one plain Not quite line: " + html);
+  assert(registry["scorebar"].innerHTML === beforeWrong, "and nothing is charged yet: " + registry["scorebar"].innerHTML);
+  registry["guess-tell"].onclick();
+  html = registry["hint-body"].innerHTML;
+  assert(html.includes(">" + right + "<"), "Just tell me opens the rung, naming it: " + html);
   assert(registry["scorebar"].innerHTML !== paid,
     "being told costs what it has always cost: " + registry["scorebar"].innerHTML);
 

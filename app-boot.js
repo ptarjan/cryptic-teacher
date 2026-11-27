@@ -290,7 +290,7 @@
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
       entries.forEach((e) => { if (e.offGrid) { e.typed = ""; e.revealed = false; } });
       applyPrinted();
-      hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
+      hintsShown = {}; hintsEarned = {}; rungsMissed.clear(); hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
       solvedWith = {}; timing = {};
       // The Pieces step deals the wheel once per clue "per attempt": a fresh
       // attempt deals it again.

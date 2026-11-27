@@ -90,6 +90,7 @@
     }
     hintsShown = (s && s.hintsShown) || {};
     hintsEarned = (s && s.hintsEarned) || {};
+    rungsMissed.clear();
     hintLevels = (s && s.hintLevels) || {};
     revealsUsed = (s && s.revealsUsed) || {};
     blocksAt = (s && s.blocksAt) || {};
