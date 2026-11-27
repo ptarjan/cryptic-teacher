@@ -175,4 +175,9 @@ check("own_line: a run-on text is not the line", False, lgaps.own_line("Fruit se
 check("own_line: a text opening on another number is not the line", False, lgaps.own_line("2. Square.", own_words, "1", "across"))
 check("own_line: other figures are not the line", False, lgaps.own_line("See 31 Down.", own_words, "4", "across"))
 gl.page_columns = gl_page_columns
+# ENUM_FIX: a copy of the kept enumeration at the text's end goes too (No 3756's "... (7)", enumeration "7").
+_b = fgl.build({"number": 1, "name": "x", "date": "2020-01-01", "source": {"url": "u"},
+                "clues": {"1-across": {"text": "Its leaves yield a drink! (4)", "enumeration": "4"}}}, ["....", "...."])
+_c = {f"{e['number']}-{e['direction']}": e["clue"] for e in _b["entries"]}
+check("enum copy dropped", ("Its leaves yield a drink!", "4"), (_c["1-across"]["text"], _c["1-across"].get("enumeration")))
 sys.exit(1 if fails else 0)

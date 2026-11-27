@@ -32,4 +32,8 @@ STANDS = {
     # listener_gaps.fill_columns takes a blank light's clue its own OCR line spells out in a list with no counts
     # (OWN_FIX): only the pages of tools/data/listener_own_clues.json move; refused numbers elsewhere are not rejoined.
     "78b51cb84315a6bc": "445be7454385737b",  # file_gale_listener's join_key
+    # file_gale_listener.build also drops a count's second copy from a clue text whose enumeration the vote kept
+    # (No 3756's "... (7)", enumeration "7"), and stale_refused lists a number whose write the gate refused
+    # (refusedWrite, no "lacks"): only those verdicts are joined again; refused numbers elsewhere are not.
+    "fe3f5af71784c0a8": "286e728875b34dcc",  # file_gale_listener's join_key
 }

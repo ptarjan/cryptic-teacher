@@ -870,10 +870,12 @@ def build(reading, rows):
         # A clue the vote left with its own count on its words (listener-1694 40 across, "... incessantly! (5)",
         # enumeration none): the count the light's length says goes to clue.enumeration (ENUM_FIX), as the write
         # gate (puzzle_integrity SHAPE) wants. A bracket saying anything else is the clue's own words and stays.
-        if text and not enum and enumeration.unsplit({"text": text}, {len(cells)}) \
-                and sum(enumeration.counts(enumeration.split(text)[1])) == len(cells):
-            text, enum = enumeration.split(text)
-            text = (text or "").strip()
+        # The same where the vote kept the enumeration and the text still holds a second copy of it (No 3756's
+        # "... (7)" with enumeration "7"): the copy goes, the kept enumeration stays.
+        if text and enumeration.unsplit({"text": text, "enumeration": enum} if enum else {"text": text}, {len(cells)}) \
+                and (enum or sum(enumeration.counts(enumeration.split(text)[1])) == len(cells)):
+            text, tail = enumeration.split(text)
+            text, enum = (text or "").strip(), enum or tail
         e = {"number": n, "direction": d, "position": {"x": cells[0][1], "y": cells[0][0]},
              "length": len(cells),
              "clue": {"text": text, **({"enumeration": enum} if enum else {}),
@@ -1659,7 +1661,7 @@ def asks_answered(keys):
 
 def stale_refused(store=gl.STORE, inbox=gl.SAVED, limit=REJOIN_PER_UNIT, cache=GRIDS):
     """The first `limit` numbers (ascending) the ledger holds refused (a verdict with "lacks", nothing
-    written or held) under other join code than join_key(), each with a reading and every page's grids
+    written or held, or whose write the gate refused) under other join code than join_key(), each with a reading and every page's grids
     cached: joined again they read no page. A number filed, written or held is never listed."""
     key = join_key()
     ledger = gl.read_json(store / LEDGER) or {}
@@ -1668,7 +1670,10 @@ def stale_refused(store=gl.STORE, inbox=gl.SAVED, limit=REJOIN_PER_UNIT, cache=G
     out = []
     for k in sorted(ledger, key=int):
         v = ledger[k]
-        if not isinstance(v, dict) or not v.get("lacks") or v.get("wrote") or v.get("skip") or v.get("joinKey") == key:
+        # A refused number is one the join found lacking (lacks) or the write gate refused (refusedWrite, which
+        # carries no "lacks": Nos 3104, 3697, 3708, 3928 stayed refused "ends in its enumeration" after ENUM_FIX).
+        if not isinstance(v, dict) or not (v.get("lacks") or v.get("refusedWrite")) or v.get("wrote") or v.get("skip") \
+                or v.get("joinKey") == key:
             continue
         if not asks_answered(v.get("gapsPending")):
             continue
