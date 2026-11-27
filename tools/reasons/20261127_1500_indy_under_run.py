@@ -13,7 +13,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose right clue column ran on past its window's foot, the window read down to the page's clue foot since"
-REREAD = "2026-11-19T23:59:00+00:00"
+REREAD = "2026-11-27T16:25:00+00:00"
 YEARS = re.compile(r"GaleIndependent(199\d|200\d|201\d)UKEnglish/")
 RUN = 2
 
