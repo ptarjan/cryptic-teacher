@@ -34,6 +34,7 @@ check(next({ ...base, shown: ["definition", "indicators", "type"], asks: [] }) =
 check(next({ ...base, shown: ["definition"], locked: ["indicators", "type", "blocks"] }) === null, "rungs that are all locked are not asked");
 check(next({ ...base, solved: true }) === null, "a solved clue (every leg of a linked one: groupSolved) is not quizzed");
 check(next({ ...base, guessing: {} }) === null, "no new question over one already on the table");
-check(/if \(verdict && verdict\.right\) advanceLadder\(e\)/.test(src), "finishGuess advances only on a right answer");
+check(/if \(verdict && verdict\.right\) goOn\(e, guessing_rung, guessing_choice\)/.test(src), "finishGuess advances only on a right answer, through goOn");
+check(/function goOn[\s\S]*?if \(advanceLadder\(e\)\) return;/.test(src), "goOn is the one place a right answer advances the ladder");
 check(/ring\.dealt && ring\.letters\.length/.test(src), "a fully crossed-off wheel advances too");
 process.exit(failures ? 1 : 0);
