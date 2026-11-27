@@ -14009,6 +14009,18 @@ def box_lattice(img, box):
     return trove_grid.lattice(img.crop(tuple(box)))
 
 
+#: LATTICE_UNDER: the grid a Gale Telegraph page prints under its clues, whose ink is a square showing a crossword's lattice
+#: though it falls short of grid_shaped()'s pixel floor (1969-77, r305: 524 pages "the ink under the title is 602x576, not a
+#: grid", the grid 14% of a 4218px page, 470px at SCAN_WIDTH against the floor's 500). The page's own evidence stands for it:
+#: the ink's aspect (squared) and its lattice (box_lattice), no pixel size.
+LATTICE_UNDER = "Gale Telegraph page refused 'not a grid' for a small square ink under its title, the lattice it shows taken for the grid since"
+
+
+def lattice_square(img, box):
+    """Whether `box` on page `img` is a square ink (squared) that shows a crossword's lattice (box_lattice)."""
+    return box is not None and squared(box[2] - box[0], box[3] - box[1]) and box_lattice(img, box)
+
+
 #: Papers whose page prints its puzzle's solution nowhere the scan reads: the Gale Sunday Telegraph's (1961-2000)
 #: pages hold the puzzle and "COMPETITION No. 1676 WINNERS & SOLUTION" for the week before's, as a text list
 #: ("ACROSS: 1 Depth charge, 7 Aloofness ...") beside the Quickie's, in a column no solution heading or grid
@@ -15425,7 +15437,11 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # crops; its blocks are backsolved from the clue list unless every clue lies on
     # it as read (backsolve: no scan grid stands, picks or screens).
     backsolve = False
-    if side is None or not (wide_shaped(hit["box"]) if paper.key in GRID_RIGHT else loose_shaped if paper.key == "galeindependent"
+    # A Gale Telegraph grid under its clues too small for grid_shaped but a square lattice (LATTICE_UNDER).
+    if paper.key == "galetelegraph" and paper.clues_above and gbox is not None and side == "below" \
+            and not shaped_on(img, gbox) and lattice_square(img, gbox):
+        verdict["gridBox"] = "under its clues, a small square lattice"
+    elif side is None or not (wide_shaped(hit["box"]) if paper.key in GRID_RIGHT else loose_shaped if paper.key == "galeindependent"
                             and not shaped_on(img, gbox) else shaped_on)(img, gbox):
         touched = touching_grid(img, hit["box"], gbox) \
             if not paper.clues_above and not paper.four and paper.key not in GRID_RIGHT else None
