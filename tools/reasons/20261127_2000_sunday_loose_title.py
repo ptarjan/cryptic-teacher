@@ -13,7 +13,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page with no title found, its torn crossword heading read from the cached page reads since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-27T21:53:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
