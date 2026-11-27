@@ -285,8 +285,9 @@ UNREACHABLE = 75  # EX_TEMPFAIL: the site never answered; the workflow decides i
 if __name__ == "__main__":
     try:
         sys.exit(main())
-    except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
-        # Every retry in get() failed at the network: the site is down or not answering
-        # GitHub's runners. The posts fetched before it went are already cached.
+    except (urllib.error.URLError, TimeoutError, ConnectionError, json.JSONDecodeError) as e:
+        # Every retry in get() failed: the site is down, not answering GitHub's runners,
+        # or answering only with a non-JSON body (an empty or challenge page) that
+        # outlasted the retries. The posts fetched before it went are already cached.
         print(f"fifteensquared unreachable after retries: {e}", flush=True)
         sys.exit(UNREACHABLE)
