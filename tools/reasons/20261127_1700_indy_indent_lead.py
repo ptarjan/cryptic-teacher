@@ -13,7 +13,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose clue column stood left of its grid under its title, read from that column since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the push minute (UTC)
+REREAD = "2026-11-27T16:47:00+00:00"  # placeholder: the push minute (UTC)
 MARGIN = 40
 
 

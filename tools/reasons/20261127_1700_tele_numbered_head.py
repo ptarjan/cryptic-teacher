@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Telegraph 1970-79 page whose clue lists were cut at the Quick's title (its 'No. N ACROSS' heading unfound), the columns' top set at that heading since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-27T16:47:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
