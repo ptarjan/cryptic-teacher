@@ -2641,8 +2641,8 @@ def clues_left(grid, title, margin=40):
 #: number at: 'lesmanfound under net (12)'", ~49 pages refused "no reading parses". The edge is MEASURED from the ink: when
 #: print crosses it (the dark share of its pixel columns over the columns' height, TELE_CUT_INK) the edge moves left to the
 #: white gutter, the first run of TELE_CUT_GAP px (at SCAN_WIDTH) without ink, less TELE_CUT_PAD; no gutter within
-#: TELE_CUT_REACH of the grid's width leaves it. Read-time only: no scan key moves.
-TELE_CUT_INK, TELE_CUT_GAP, TELE_CUT_PAD, TELE_CUT_REACH = 0.02, 14, 6, 0.2
+#: TELE_CUT_REACH of the grid's width leaves it (0.2 left a 1970-74 page whose ACROSS column starts 0.28 grids left of the edge, 1972-05-05: gutter at x 240, edge 439, "illed at drawing" and no numbers, "no ACROSS and DOWN lists"; TELE_REACH_WIDE: 0.5). Read-time only: no scan key moves.
+TELE_CUT_INK, TELE_CUT_GAP, TELE_CUT_PAD, TELE_CUT_REACH = 0.02, 14, 6, 0.5
 
 
 def tele_left_edge(img, x0, top, grid):
