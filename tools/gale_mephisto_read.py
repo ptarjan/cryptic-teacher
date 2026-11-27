@@ -693,6 +693,11 @@ def read_done(row, done=None):
         # Read with the Down list beside the grid (right of it, the Across list under it) left out of the lists' cut
         # (SIDE_FIX 1).
         return False
+    if row and row.get("sideTail", 0) < SIDE_TAIL and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and row.get("file") in side_tail_names():
+        # Read with the Across list's last clues above the Down heading right of the grid left out of the Down strip
+        # (SIDE_TAIL 1): only the pages whose strip the fix changes (tools/data/mephisto_side_tail.json).
+        return False
     if row and row.get("headingGap", 0) < HEADING_GAP and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and row.get("file") in heading_gap_names():
         # Read with the wrapped lists' cut stopped at the gap before the Across heading under the grid (HEADING_GAP 1):
@@ -2350,7 +2355,63 @@ def side_strip(words, box, cut, gl):
     bottom = last[1] + 4 * lh
     if stops:
         bottom = min(bottom, min(stops) - 4)
-    return (int(head[0]) - 12, int(head[1]) - 6, int(x1), int(bottom))
+    top = int(head[1]) - 6
+    tail = side_tail(words, head, x1, lh) if SIDE_TAIL else None
+    if tail is not None:
+        top = tail
+    return (int(head[0]) - 12, top, int(x1), int(bottom))
+
+
+def side_tail(words, head, x1, lh):
+    """The top y of the Across list's last clues standing above the Down heading `head` in the column right of the grid
+    (SIDE_TAIL), or None: the lines above the heading, each a clue line's top within TAIL_GAP line heights of the next,
+    from the topmost one opening on a clue number in the heading's column (the list's right column runs on up there:
+    30-33 across of No 1538 stand above its Down heading)."""
+    lines = {}
+    for w in words:
+        if head[0] - 30 <= w[0] < x1 and head[1] - TAIL_REACH * lh <= w[1] < head[1] - lh / 2 and re.search(r"\w", w[4]):
+            lines.setdefault(round((w[1] + w[3]) / 2 / (lh / 2)), []).append(w)
+    firsts = [min(ws, key=lambda w: w[0]) for _, ws in sorted(lines.items())]
+    top, below, num = None, head[1], None
+    for first in reversed(firsts):
+        if below - first[1] > TAIL_GAP * lh:
+            break
+        below = first[1]
+        if NUMBER_WORD.match(first[4]) and abs(first[0] - head[0]) <= 30:
+            # The list's numbers climb down the column: a line whose number does not (a misread one) is passed over.
+            n = int(re.sub(r"\D", "", first[4]))
+            if (num is None and n <= TAIL_MOST) or (num is not None and 0 < num - n <= TAIL_STEP):
+                top, num = first[1], n
+    # The Across list's last clues carry high numbers: low ones above a Down heading are another article's.
+    return None if top is None or num < TAIL_LEAST else int(top) - 6
+
+
+#: Bumped when the Across list's last clues standing above the Down heading right of the grid are in the Down strip too
+#: (side_tail): the pages whose strip the fix changes (tools/data/mephisto_side_tail.json) are read again once.
+SIDE_TAIL = 1
+#: How far above the Down heading, in line heights, the tail's lines are looked for, and the gap that ends them.
+TAIL_REACH = 24
+TAIL_GAP = 4
+#: The lowest clue number the tail may open on.
+TAIL_LEAST = 8
+#: The most a clue number may fall from one tail line's to the next above it (a misread number is passed over).
+TAIL_STEP = 4
+#: The highest clue number the tail may close on (the list's last).
+TAIL_MOST = 45
+SIDE_TAIL_FILE = ROOT / "tools" / "data" / "mephisto_side_tail.json"
+_SIDE_TAIL_NAMES = None
+
+
+def side_tail_names():
+    """The bare GALE_*.pdf names whose strip SIDE_TAIL changes (a committed list nothing writes: found by laying the strip
+    with the fix off and on over the pages left 4+ blank, a clue never read)."""
+    global _SIDE_TAIL_NAMES
+    if _SIDE_TAIL_NAMES is None:
+        try:
+            _SIDE_TAIL_NAMES = frozenset(json.loads(SIDE_TAIL_FILE.read_text()))
+        except (OSError, ValueError):
+            _SIDE_TAIL_NAMES = frozenset()
+    return _SIDE_TAIL_NAMES
 
 
 def side_block(img, key, words, cut, strip, gl):
@@ -2750,7 +2811,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "solutionFix": SOLUTION_FIX, "downFix": DOWN_FIX, "headRowFix": HEAD_ROW_FIX,
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
-                "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
+                "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
                 "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
     print(json.dumps(verdict))
     return "read"
