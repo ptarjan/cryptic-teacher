@@ -708,6 +708,9 @@ def read_done(row, done=None):
         # Read with the lists' cut stopped at a solution heading in the right column, the left column's last clues under
         # it lost (COLUMN_STOP 1): only the pages whose cut the fix changes (tools/data/mephisto_column_stop.json).
         return False
+    if row and row.get("formFix", 0) < FORM_FIX and row.get("file") in form_fix_names():
+        # Cut at the entry form's word "solution" with no clue under it (FORM_FIX 1): only the pages the fix changes.
+        return False
     if row and row.get("answersFix", 0) < ANSWERS_FIX and row.get("file") in answers_names():
         # Numbered from a title over last week's answers, one low (ANSWERS_FIX 1): only the pages the fix renumbers.
         return False
@@ -1384,6 +1387,48 @@ def read_lattice(gray, ink, ys, xs, wanted=None):
 
 # ------------------------------------------------------------ the clue lists
 
+#: Bumped when the cut starts under the entry form ("Send your solution, postmarked ...") standing between the grid and
+#: the lists (entry_form_foot): a word "solution" in it ended the cut with no clue inside, and the page was refused "no
+#: clue list on the page". Only the pages the fix changes are read again (tools/data/mephisto_form_fix.json).
+FORM_FIX = 1
+FORM_FIX_FILE = ROOT / "tools" / "data" / "mephisto_form_fix.json"
+_FORM_FIX_NAMES = None
+FORM_ANCHOR = re.compile(r"^\W*(?:send|sene|p[eo]stm?a?r\w*|p[eo]strar\w*)\W*$", re.IGNORECASE)
+FORM_ADDRESS = re.compile(r"(?i)street|london|e98|penn?ington|£\s?\d")
+
+
+def form_fix_names():
+    """The bare GALE_*.pdf names whose cut FORM_FIX changes (a committed list nothing writes: found by cutting the pages
+    refused "no clue list on the page" with the fix off and on)."""
+    global _FORM_FIX_NAMES
+    if _FORM_FIX_NAMES is None:
+        try:
+            _FORM_FIX_NAMES = frozenset(json.loads(FORM_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _FORM_FIX_NAMES = frozenset()
+    return _FORM_FIX_NAMES
+
+
+def entry_form_foot(inside, grid_foot, lh):
+    """The y of the entry form's foot under the grid (its "Send your solution, postmarked ..." line and the address lines
+    under it), or None. `inside` is the words in the lists' columns under the grid."""
+    anchors = [w for w in inside if FORM_ANCHOR.match(w[4]) and grid_foot < w[1] < grid_foot + 40 * lh]
+    # The first line of the form: "Send" with "your" after it on its line, or a "postmarked" read on its line.
+    for a in sorted(anchors, key=lambda w: w[1]):
+        mid = (a[1] + a[3]) / 2
+        line = [w for w in inside if abs((w[1] + w[3]) / 2 - mid) < lh / 2]
+        text = " ".join(w[4] for w in sorted(line, key=lambda w: w[0]))
+        if not re.search(r"(?i)\bsend\s+your\b|p[eo]stm?a?r|p[eo]strar", text):
+            continue
+        foot = a[3]
+        for w in inside:
+            m = (w[1] + w[3]) / 2
+            if 0 <= m - mid <= 3.2 * lh and FORM_ADDRESS.search(w[4]):
+                foot = max(foot, w[3])
+        return foot + lh / 4
+    return None
+
+
 def lists_cut(words, box):
     """(box, masks) of the clue lists under the grid at `box` (x0, y0, x1, y1) on a page's `words`: from the
     Mephisto title under the grid (else a little under the grid) down to the first stop word ("Solution to
@@ -1407,6 +1452,12 @@ def lists_cut(words, box):
     inside = [w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[1] > box[3]]
     titles = [w for w in inside if TITLE_WORD.match(w[4]) and w[1] - box[3] < 40 * lh]
     top = (min(titles, key=lambda w: w[1])[1] - lh) if titles else box[3] + lh
+    # FORM_FIX: the entry form ("Send your solution, postmarked no later than ... The first five correct solutions ... win
+    # £20") stands between the grid and the lists on 1995-2004 pages: it holds the word "solution", which ended the cut
+    # 8 lines under the grid with no clue in it. The lists begin under the form's foot.
+    foot = FORM_FIX and entry_form_foot(inside, box[3], lh)
+    if foot and foot > top:
+        top = int(foot)
     bottom = top
     downs = [w[1] for w in inside if gl.heading(w[4]) == "DOWN" and top < w[1] < top + 80 * lh]
     down_y = min(downs) if downs else None
@@ -2623,7 +2674,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
-                "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
+                "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
