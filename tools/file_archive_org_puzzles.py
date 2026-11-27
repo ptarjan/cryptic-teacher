@@ -9546,6 +9546,26 @@ def indy_count_off(n, day, held):
     return None
 
 
+#: How many days either side a filed Gale FT counts its number from (ft_count_off).
+FT_COUNT_DAYS = 60
+
+
+def ft_count_off(n, day, held):
+    """Why No `n` cannot be the FT (six issues a week) of `day`: more than STEADY_TOLERANCE off what the nearest steady
+    filed puzzle within FT_COUNT_DAYS either side counts to (10998 on 2002-11-16, 72 under the 11070 that 11069 on
+    11-15 counts to, in date order between 10996 and 11072: the page's 11070 misread); None when it keeps step or
+    has no neighbour near enough. The same count as indy_count_off, for the Gale FT."""
+    steady = Held.of(held).steady(GALE_FT.expected)
+    for near in neighbours(day, steady):
+        if not near or abs((near[0] - day).days) > FT_COUNT_DAYS:
+            continue
+        want = near[1] + (issues_between(near[0], day) if near[0] < day else -issues_between(day, near[0]))
+        if abs(n - want) > STEADY_TOLERANCE:
+            return (f"No {n} on {day} is {abs(n - want)} from the {want} the filed No {near[1]} of {near[0]} "
+                    f"counts to: a misread title")
+    return None
+
+
 def placed(n, day, held, vouched=False):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
@@ -9780,7 +9800,7 @@ def filed_number(d, found, hit):
     number, why = placed(n, day, held, vouched)
     # A filed number far off its date (10,825 on 2002-02-02 for 10,925: a misread filed) is a neighbour no title is
     # in order with: the title is placed among the filed numbers near their dates alone (ft_stray).
-    if number is None and paper is FT and "out of date order" in (why or ""):
+    if number is None and paper in (FT, GALE_FT) and "out of date order" in (why or ""):
         sound = Held({m: dd for m, dd in held.items() if abs(m - paper.expected(dd)) <= paper.slack})
         if len(sound) < len(held):
             number, why = placed(n, day, sound, vouched) if abs(n - paper.expected(day)) <= paper.slack else (None, why)
@@ -9791,7 +9811,9 @@ def filed_number(d, found, hit):
     # 1984-06-12, the page's 18166) is the only neighbour 60 titles of the spring are placed against.
     # INDY_ORDER_STEADY: the same for the Gale Independent (1999-02..03 newly fetched: 3626 filed for 1999-03-22, the
     # page's 3876, stranded 30 titles of 3845-3873).
-    if number is None and (paper is FT or paper is GALE_TELEGRAPH or paper is GALE_INDEPENDENT) \
+    # FT_GALE_STEADY: the Gale FT too (2002-08..11, 61 pages "out of date order" with 10996 on 08-22 and 10998 on 11-16,
+    # the page's 11070 read as 10998: a title in order between its neighbours, 72 under what they count to).
+    if number is None and (paper in (FT, GALE_FT) or paper is GALE_TELEGRAPH or paper is GALE_INDEPENDENT) \
             and ("out of date order" in (why or "") or "already filed for" in (why or "")) \
             and abs(n - paper.expected(day)) <= paper.slack:
         steady = Held.of(held).steady(paper.expected)
@@ -9799,6 +9821,9 @@ def filed_number(d, found, hit):
             number, why = placed(n, day, steady, vouched)
     if number is not None and paper is GALE_INDEPENDENT:
         why = indy_count_off(number, day, held)
+        number = None if why else number
+    if number is not None and paper is GALE_FT:
+        why = ft_count_off(number, day, held)
         number = None if why else number
     if number is not None and paper is GALE_SUNDAY_TIMES:
         why = sunday_count_off(number, day, held)
@@ -22074,6 +22099,8 @@ FT_NUMBER_MENDED = "FT page refused number-date-mismatch, its lost digit put bac
 REREAD_FT_NUMBER = "2026-11-14T03:00:00+00:00"
 #: The archive.org FT's cutoff for the same reason (ft_number_due): Held.steady weighs the neighbours by their offset.
 REREAD_FT_STEADY = "2026-11-19T12:52:00+00:00"
+#: The Gale FT's cutoff for "out of date order" (ft_number_due): its stray filed neighbour (10998 for 11070) is weighed.
+REREAD_GALE_FT_STEADY = "2026-11-27T18:35:00+00:00"
 
 
 def ft_number_due(row):
@@ -22091,10 +22118,12 @@ def ft_number_due(row):
                    and ("out of date order" in str(v.get("refused")) or " is already filed for " in str(v.get("refused")))
                    for v in row.get("verdicts") or ()) \
             and scan_queue.read_before(row, scan_queue.when(REREAD_FT_STEADY))
+    # The Gale FT's "out of date order" rows too (FT_GALE_STEADY): Held.steady and ft_count_off weigh its neighbours.
     return any(v.get("cause") == "number-date-mismatch"
-               and ("is not near the" in str(v.get("refused")) or "out of date order" in str(v.get("refused")))
-               for v in row.get("verdicts") or ()) \
-        and scan_queue.read_before(row, scan_queue.when(REREAD_FT_NUMBER))
+               and (("is not near the" in str(v.get("refused")) and scan_queue.read_before(row, scan_queue.when(REREAD_FT_NUMBER)))
+                    or ("out of date order" in str(v.get("refused"))
+                        and scan_queue.read_before(row, scan_queue.when(REREAD_GALE_FT_STEADY))))
+               for v in row.get("verdicts") or ())
 
 
 #: The due reason of a Gale TLS page of 1982-91 refused "number-date-mismatch" ("No 6 is not near the -379 the date
@@ -26888,6 +26917,11 @@ RENUMBERED = "renumbered to its title, answers read again"
 #: 2001-03 stood at 6,744+ of 25,500 after their files were renumbered).
 NUMBER_DATE_REFUSED = "refused number-date-mismatch before its fix"
 REREAD_RENUMBERED = "2026-10-25T04:30:00+00:00"
+#: The Gale Sunday Times' cutoff (renumbered): its filed 1977-78 puzzles stood one above their pages' titles (read_as), so
+#: every page between them "broke the weekly run" of their numbers (66 rows 1975-79); renumbered to the titles' weekly count.
+REREAD_SUNDAY_RUN = "2026-11-27T18:35:00+00:00"
+#: Refusal text of sunday_count_off's unbroken-run check.
+SUNDAY_RUN_BREAK = " breaks the weekly run No "
 #: The refusals a renumber may lift: the title's number held for another day, or its page held
 #: under another number (placed, same_scan).
 TAKEN_REFUSALS = (" is already filed for ", " is the scan page No ")
@@ -26904,7 +26938,12 @@ def renumbered(row):
     (ORDER_REFUSED), or one filed a number off its title with neither number now held
     on the day, whose title its series now holds on the edition's day or not at all, is
     the refusal, read in full. A title filed further off is a misread, not a renumber."""
-    if not row.get("verdicts") or not scan_queue.read_before(row, scan_queue.when(REREAD_RENUMBERED)):
+    if not row.get("verdicts"):
+        return None
+    if paper_of(row.get("edition", "")) is GALE_SUNDAY_TIMES \
+            and any(SUNDAY_RUN_BREAK in str(v.get("refused")) for v in row["verdicts"]):
+        return NUMBER_DATE_REFUSED if scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_RUN)) else None
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_RENUMBERED)):
         return None
     day = (row.get("scan") or {}).get("date")
     if not day:

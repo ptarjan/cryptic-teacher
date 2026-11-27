@@ -10518,6 +10518,25 @@ if _m5 == [1796, 1328, True, False]:
 else:
     print("FAIL a 2012 Independent third column beside the grid is chained up from its foot (INDY_THIRD_LATE)", _m5)
     out += "\nFAILS 1"
+# 11-27 OrderRun: one stray filed neighbour stranded a whole Gale FT season (10998 filed for 2002-11-16, the page's 11070,
+# in date order between 10996 and 11072) and Gale Sunday Times puzzles filed one above their titles broke every weekly run.
+_ftd = datetime.date
+_fth = f.Held({10992: _ftd(2002, 8, 17), 10996: _ftd(2002, 8, 22), 10998: _ftd(2002, 11, 16), 11072: _ftd(2002, 11, 19)})
+_ftm = [f.ft_count_off(10998, _ftd(2002, 11, 16), _fth) is not None, f.ft_count_off(11069, _ftd(2002, 11, 15), _fth),
+        f.placed(11069, _ftd(2002, 11, 15), _fth.steady(f.GALE_FT.expected))]
+_ftrow = {"edition": "GaleFT2002UKEnglish/2002-11-15", "inputs": "x", "readAt": "2026-11-10T00:00:00+00:00",
+          "verdicts": [{"number": 11069, "cause": "number-date-mismatch",
+                        "refused": "No 11069 on 2002-11-15 is out of date order with No 10996 on 2002-08-22 and No 10998 on 2002-11-16"}]}
+_strow2 = {"edition": "GaleSundayTimes1978UKEnglish/1978-11-05", "readAt": "2026-11-10T00:00:00+00:00",
+           "scan": {"date": "1978-11-05"}, "verdicts": [{"number": 2796, "cause": "number-date-mismatch", "refused":
+           "No 2796 on 1978-11-05 breaks the weekly run No 2792 on 1978-10-01 to No 2798 on 1978-11-12, which makes it No 2797"}]}
+_stm = [f.ft_number_due(_ftrow), f.ft_number_due({**_ftrow, "readAt": "2026-12-01T00:00:00+00:00"}),
+        f.renumbered(_strow2), f.renumbered({**_strow2, "readAt": "2026-12-01T00:00:00+00:00"})]
+if _ftm == [True, None, (11069, None)] and _stm == [True, False, f.NUMBER_DATE_REFUSED, None]:
+    print("ok   a stray filed Gale FT neighbour is set aside (steady, count) and its refusals, and the Sunday Times weekly-run refusals, are due")
+else:
+    print("FAIL a stray filed Gale FT neighbour is set aside (steady, count) and its refusals, and the Sunday Times weekly-run refusals, are due", _ftm, _stm)
+    out += "\nFAILS 1"
 print(out)
 lines = out.splitlines()
 if "FAILS 0" not in lines or any(ln.startswith("FAILS ") and ln[6:7] in "123456789" for ln in lines):
