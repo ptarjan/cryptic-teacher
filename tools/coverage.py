@@ -188,6 +188,9 @@ def _causes():
             "tools/file_trove_puzzles.py",
             f"{outcome} with no `cause`: file_trove_puzzles.stamp_cause makes it due, the next read records one",
             True, True)
+    out[("trove", "zones-arrived")] = Cause(
+        "tools/file_trove_puzzles.py", "read before its clue columns were fetched; they are cached now, so "
+        "the filer reads it again (due_reason ZONES_ARRIVED): nothing left to download", True, False)
     out[("trove", "written-not-filed")] = Cause(
         "tools/file_trove_puzzles.py", "the ledger has an id and no file holds it", True, False)
     for status in ("no-credentials", "borrow-refused", "lending-limit", "text-not-public"):
@@ -771,7 +774,11 @@ def trove():
         led.exists.add(key)
         file_trove_puzzles.stamp_cause(r, zones)
         if r.get("refused") or r.get("pending"):
-            led.claim(key, "trove", r.get("cause") or ("refused-no-cause" if r.get("refused") else "pending-no-cause"))
+            cause = r.get("cause") or ("refused-no-cause" if r.get("refused") else "pending-no-cause")
+            # Its clue columns landed after the read: a re-read is due, not a download.
+            if cause == "zones-not-fetched" and file_trove_puzzles.zones_held(art, zones):
+                cause = "zones-arrived"
+            led.claim(key, "trove", cause)
     unread = [a for a in trove_articles() if a not in read]
     for art in unread:
         led.exists.add(trove_key(art, dates))

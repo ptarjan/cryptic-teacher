@@ -73,19 +73,24 @@ assert {("trove", k) for k, *_ in trove.CAUSES} <= set(cov.CAUSES)
 (tmp / "trove" / "1" / "meta.json").write_text("{}")
 (tmp / "trove-clues" / "5").mkdir(parents=True)
 (tmp / "trove-clues" / "5" / "zone0.png").write_bytes(b"")
+(tmp / "trove-clues" / "7").mkdir(parents=True)
+(tmp / "trove-clues" / "7" / "zone0.png").write_bytes(b"")
 rows = [trove.ledger_row("1", "h", trove.wait({"grid": "image"}, "clues-unread", "clues unread: 5-across")),
         trove.ledger_row("2", "h", trove.refuse({}, "clues-dont-parse", "across clues do not parse")),
         {"article": "3", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues"},
         {"article": "4", "inputs": "h", "pending": "no grid: x"},
         {"article": "5", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues"},
-        {"article": "6", "inputs": "h", "refused": "no print date in the OCR's first line"}]
+        {"article": "6", "inputs": "h", "refused": "no print date in the OCR's first line"},
+        {"article": "7", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues",
+         "cause": "zones-not-fetched"}]
 (tmp / "trove" / "filed.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
 cov.TROVE = tmp / "trove"
 got = {b["cause"]: b["sample"] for b in cov.trove().result()["buckets"]}
 assert got == {"clues-unread": ["article-1"], "clues-dont-parse": ["article-2"], "zones-not-fetched": ["article-3"],
-               "pending-no-cause": ["article-4", "article-5"], "refused-no-cause": ["article-6"]}, got
+               "pending-no-cause": ["article-4", "article-5"], "refused-no-cause": ["article-6"],
+               "zones-arrived": ["article-7"]}, got
 due = [r["article"] for r in rows if trove.stamp_cause(r, tmp / "trove-clues")]
-assert due == ["4", "5", "6"] and all(r["inputs"] == "" for r in rows[3:]), rows
+assert due == ["4", "5", "6"] and all(r["inputs"] == "" for r in rows[3:6]), rows
 for bad in ({"pending": "no grid: x"}, {"refused": "crashed"}, {"pending": "x", "cause": "crashed"},
             {"pending": "x", "cause": "made-up"}):
     try:
