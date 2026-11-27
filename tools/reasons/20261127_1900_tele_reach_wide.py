@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Telegraph 1969-77 page refused no reading parses with its ACROSS column's left part cut off, the columns' left edge searched further left since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-27T18:36:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 SHAPES = ("no ACROSS and DOWN lists under the grid", "cannot find a clue number")
 
