@@ -698,6 +698,11 @@ def read_done(row, done=None):
         # Read with the wrapped lists' cut stopped at the gap before the Across heading under the grid (HEADING_GAP 1):
         # only the pages whose cut the fix changes (tools/data/mephisto_heading_gap.json).
         return False
+    if row and row.get("tallHead", 0) < TALL_HEAD and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("failed") and row.get("file") in tall_head_names():
+        # Read with the lists' cut ended at a tall Across/Down heading box (TALL_HEAD 1): only the pages whose cut the fix
+        # changes (tools/data/mephisto_tall_head.json).
+        return False
     if row and row.get("leadFix", 0) < LEAD_FIX and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and row.get("file") in lead_fix_names():
         # Read with the Across list's last clues under the solution's heading left out of the block, a headless Down strip
@@ -1486,6 +1491,11 @@ def lists_cut(words, box):
                 return column_stop_cut(inside, w, (left, top, right, bottom), lh, gl)
             break
         if w[3] - w[1] > TALL_BOX * lh:
+            if TALL_HEAD and gl.heading(w[4]) in ("ACROSS", "DOWN") and w[3] - w[1] <= 4 * lh \
+                    and w[1] - bottom <= GAP_BEFORE_DOWN * lh:
+                # TALL_HEAD: a heading's box (up to 4 lines) the OCR ran into the clue line under it is a heading, not a
+                # misread to skip: skipped, the next clue line stood a gap past the cut's foot and ended the lists there.
+                bottom = max(bottom, w[3])
             continue
         # HEAD_FIX: the lists reach their Down heading before a gap ends them (OCR that lost a line or two of a noisy
         # page leaves a gap of 2-3 lines in the middle of the Across clues); a wider one still ends them.
@@ -1494,6 +1504,25 @@ def lists_cut(words, box):
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+
+
+#: Bumped when a tall Across/Down heading box no longer leaves a gap that ends the lists' cut at it (lists_cut): pages read
+#: with 4+ blank lights, or refused "no reading parses", whose cut the fix changes (tools/data/mephisto_tall_head.json)
+#: are read again once.
+TALL_HEAD = 1
+TALL_HEAD_FILE = ROOT / "tools" / "data" / "mephisto_tall_head.json"
+_TALL_HEAD_NAMES = None
+
+
+def tall_head_names():
+    """The bare GALE_*.pdf names whose cut TALL_HEAD changes (a committed list nothing writes)."""
+    global _TALL_HEAD_NAMES
+    if _TALL_HEAD_NAMES is None:
+        try:
+            _TALL_HEAD_NAMES = frozenset(json.loads(TALL_HEAD_FILE.read_text()))
+        except (OSError, ValueError):
+            _TALL_HEAD_NAMES = frozenset()
+    return _TALL_HEAD_NAMES
 
 
 #: Bumped when the lists' cut goes on down the left column past a solution heading standing in the right one (the
@@ -2674,7 +2703,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX,
-                "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "riseFix": RISE_FIX, "formFix": FORM_FIX, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
