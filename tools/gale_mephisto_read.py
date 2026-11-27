@@ -1199,6 +1199,9 @@ BAR_WINDOW = 1
 BAR_WINDOW_FILE = ROOT / "tools" / "data" / "mephisto_bar_window.json"
 _BAR_WINDOW_NAMES = None
 BAR_WINDOW_LATTICES = 3
+BAR_WINDOW_LIMIT = 30
+#: Cells of the 144 with a bar on a side that a Mephisto's grid shows (1800870391 reads 62; the text lattices read 118-124).
+BAR_CELLS = (20, 80)
 BAR_WINDOW_SHIFTS = tuple((dx, dy) for dx in (12, -12, 11, -11, 13, -13) for dy in (0, -1, 1))
 
 
@@ -1323,6 +1326,14 @@ def read_barred(gray, lattice=None, wanted=None):
                 rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
                 if rows is not None:
                     return rows, found, None
+    if BAR_WINDOW and not lattice and len(cands) >= SHIFT_LATTICES:
+        # BAR_WINDOW: the first lattices all refused, the grid may be a later one (find_lattices stopped at 6 of the rule sets a
+        # text page makes): the next ones are read, a read standing only when its bars number a Mephisto's (a lattice on
+        # text reads bars on 80% of the cells, with symmetric bars and 24-46 lights too).
+        for ys, xs in find_lattices(ink, limit=BAR_WINDOW_LIMIT)[len(cands):]:
+            rows, found, why = read_lattice(gray, ink, ys, xs, wanted)
+            if rows is not None and BAR_CELLS[0] <= sum(c != "." for r in rows for c in r) <= BAR_CELLS[1]:
+                return rows, found, None
     if first is None:
         return None, None, "no 12x12 lattice of rules on the page"
     return None, first[0], first[1]
