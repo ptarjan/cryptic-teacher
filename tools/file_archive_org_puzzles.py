@@ -21187,7 +21187,9 @@ def tele_head_top(d, img, hit, found, gbox):
 #: tele_early_heading reads a narrow band (the left TELE_EARLY_WIDTH px, TELE_EARLY_REACH over the SOLUTION heading), the
 #: size the 1,500x1,290 title windows read whole, for the lone DOWN heading (and its ACROSS when read apart): a read-time
 #: change, no scan key moves.
-TELE_EARLY_YEARS = ("1975", "1989")
+TELE_EARLY_YEARS = ("1970", "1989")
+#: The cryptic's heading row of a page with no DOWN heading: the puzzle's number then ACROSS ("No.15,250ACR0SS", glued or not).
+TELE_NUMBERED_ACROSS = re.compile(r"\bN[o0]\W{0,2}\d[\d,\. ]{3,}\W*[a4]cr[o0s]{2}s", re.IGNORECASE)
 TELE_EARLY_REACH, TELE_EARLY_WIDTH = 1600, 1300
 #: The heading stands at least this far (px at SCAN_WIDTH) over the box's top and at most this share of the grid's width.
 TELE_EARLY_RISE = (100, 1.6)
@@ -21211,6 +21213,11 @@ def tele_early_heading(d, img, hit, found):
         lines = printed_lines(words)
         across = [w for ws in lines for w in ws if ACROSS_LINE.match(w[4])]
         downs = [w for ws in lines for w in ws if _TELE_DOWN.match(w[4])]
+        # A page whose cryptic heading row is "No. 15,250 ACROSS" with no DOWN heading of its own (the down column starts at its
+        # first clue under it, 1975-01-03; the lone DOWN word is the Quick's): the one row naming a puzzle number before ACROSS.
+        heads = [ws for ws in lines if TELE_NUMBERED_ACROSS.search(" ".join(w[4] for w in ws))]
+        if len(heads) == 1:
+            return tuple(box_of(heads[0]))
         if len(downs) != 1:
             continue
         dn = downs[0]
