@@ -400,6 +400,26 @@ check("a list run on past the rules keeps its clues (mirror)", ["(33) Rose of Sh
       [l[4] for l in g.rules_cut(rules + [(120, 140, 0, 900, "(38) A tree.")])])
 check("a list with no rules is left alone (mirror)", rules[:1], g.rules_cut(rules[:1]))
 
+# No 2702 (1986): "The Editor's decision is final." stands over the lists and the first clues follow it under their
+# heading: 1 to 7 are no rules' items, so "1 Gay's brilliant" is kept (RULE_FIX), the 1930s items still go.
+modern = [(0, 20, 0, 900, "Prizes: a f10 book token."),
+          (30, 50, 0, 900, "Editor's decision is final."),
+          (60, 80, 0, 900, "Exactly half the across lights are slang."),
+          (90, 110, 0, 900, "1 Gay's brilliant, Pinero distressed (2 words: 12)"),
+          (120, 140, 0, 900, "8 Take advantage of transatlantic alliance? (3)")]
+check("a clue 1 under the rules notice is kept (RULE_FIX)", ["Prizes: a f10 book token.", "1 Gay's brilliant, Pinero distressed (2 words: 12)",
+                                                              "8 Take advantage of transatlantic alliance? (3)"],
+      [l[4] for l in g.rules_cut(modern)])
+g.RULE_FIX = 0
+check("... not under RULE_FIX 0 (mirror)", ["Prizes: a f10 book token.", "8 Take advantage of transatlantic alliance? (3)"],
+      [l[4] for l in g.rules_cut(modern)])
+g.RULE_FIX = 1
+g.LEND_NUMBERS = True
+check("... nor on a Times page (LEND_NUMBERS)", ["Prizes: a f10 book token.", "8 Take advantage of transatlantic alliance? (3)"],
+      [l[4] for l in g.rules_cut(modern)])
+g.LEND_NUMBERS = False
+check("a rules item is no clue 1 (mirror)", ["(33) Rose of Sharon.", "(36) The did not answer; his stool'."], [l[4] for l in g.rules_cut(rules[:1] + [rules[1]] + [(95, 100, 0, 900, "(1) Solutions (7)")])])
+
 # No 3's page: ACROSS and DOWN low on the left under the grid, both lists
 # running on at the top of the right half. The headings give only the
 # first band; the clue numbers give all of it, so they are taken. Without

@@ -545,8 +545,41 @@ def rules_cut(lst):
             last = max([RULE_ITEMS] + [int(n.group(1)) for ln in lst[:i] if (n := al.LINE_CLUE.match(ln[4]))])
             more = next((j for j in range(i + 1, len(lst)) if (n := al.LINE_CLUE.match(lst[j][4]))
                          and int(n.group(1)) > last and not RULES.search(lst[j][4])), len(lst))
-            return lst[:i] + ([(*line[:4], kept)] if re.search(r"[A-Za-z]{2}", kept) else []) + rules_cut(lst[more:])
+            return (lst[:i] + ([(*line[:4], kept)] if re.search(r"[A-Za-z]{2}", kept) else [])
+                    + rule_clues(lst, i, more) + rules_cut(lst[more:]))
     return lst
+
+
+#: A clue's count at the end of its line: "(7)", "(2 words: 12)", "(5, 4)".
+CLUE_COUNT = re.compile(r"\(\s*\d[^()]*\)\W{0,2}$")
+
+
+def rule_clues(lst, lo, hi):
+    """The clue lines of `lst`[lo:hi], the lines a rules notice (RULES) is followed by up to the first clue
+    numbered past the rules' items: the 1980s-2000s Listener's "The Editor's decision is final." stands over
+    the lists, and its first clues, 1 to RULE_ITEMS, follow it under their heading (No 2702's "1 Gay's
+    brilliant, Pinero distressed (2 words: 12)"), no rule's item. A clue line opens on its number with no bracket
+    ("(5) Subject to" is a rule's), its count ends it (or the line under it, run on), and the numbers climb on to
+    the first clue past the items. Only for the Listener's own page (RULE_FIX): the Times' and Mephisto's
+    lists go as they did."""
+    if not RULE_FIX or LEND_NUMBERS or WORD_FIX:
+        return []
+    out, last = [], 0
+    for j in range(lo + 1, hi):
+        m = al.LINE_CLUE.match(lst[j][4])
+        if not m or lst[j][4].lstrip().startswith("(") or RULES.search(lst[j][4]) or int(m.group(1)) <= last:
+            continue
+        run = [lst[j]]
+        if not CLUE_COUNT.search(lst[j][4]):
+            nxt = lst[j + 1] if j + 1 < hi else None
+            if nxt is None or al.LINE_CLUE.match(nxt[4]) or not CLUE_COUNT.search(nxt[4]):
+                continue
+            run.append(nxt)
+        if hi < len(lst) and (n := al.LINE_CLUE.match(lst[hi][4])) and int(m.group(1)) >= int(n.group(1)):
+            continue
+        last = int(m.group(1))
+        out += run
+    return out
 
 
 #: A clue's number as the 1934-40 lists print it, run on in a paragraph:
@@ -2595,7 +2628,7 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file, before=No
     number than it now matches is dropped (disown)."""
     import scan_queue
     entry = {"file": p.name, "version": VERSION, "listFix": LIST_FIX, "joinFix": JOIN_FIX, "flipFix": FLIP_FIX, "headFix": HEAD_FIX,
-             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX, "lostFix": LOST_FIX, "fillFix": FILL_FIX, "cropFix": CROP_FIX, "enumFix": ENUM_FIX, "ownFix": OWN_FIX, "blockFix": BLOCK_FIX,
+             "gapFix": GAP_FIX, "colFix": COL_FIX, "susFix": SUS_FIX, "lostFix": LOST_FIX, "fillFix": FILL_FIX, "cropFix": CROP_FIX, "enumFix": ENUM_FIX, "ownFix": OWN_FIX, "blockFix": BLOCK_FIX, "ruleFix": RULE_FIX,
              "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     failed = False
@@ -2798,7 +2831,8 @@ def plan(inbox=SAVED, store=STORE):
                                  or (p.name in crop_fix_names() and (row or {}).get("cropFix", 0) < CROP_FIX)
                                  or (p.name in enum_fix_names() and (row or {}).get("enumFix", 0) < ENUM_FIX)
                                  or (p.name in own_fix_names() and (row or {}).get("ownFix", 0) < OWN_FIX)
-                                 or (p.name in block_fix_names() and (row or {}).get("blockFix", 0) < BLOCK_FIX))
+                                 or (p.name in block_fix_names() and (row or {}).get("blockFix", 0) < BLOCK_FIX)
+                                 or (p.name in rule_fix_names() and (row or {}).get("ruleFix", 0) < RULE_FIX))
                        and not is_times(p) else TIMES_REREAD) if (row or {}).get("version") == VERSION
                    else due_reason(row))
                   for p, row in todo.items()),
@@ -3176,6 +3210,26 @@ def block_fix_names():
     return _BLOCK_FIX_NAMES
 
 
+#: Bumped when page_columns keeps the first clues (1 to RULE_ITEMS) of a Listener list that stand after an "Editor's
+#: decision is final." notice (rule_clues): rules_cut took them for the rules' items, so a number's 1-across (and
+#: its first clues) was never read ("clues unread: ... 1-across"). Only the pages of the refused numbers that
+#: gain clues by it (tools/data/listener_rule_clues.json, found on cached OCR words) are read again.
+RULE_FIX = 1
+RULE_FIX_FILE = ROOT / "tools" / "data" / "listener_rule_clues.json"
+_RULE_FIX_NAMES = None
+
+
+def rule_fix_names():
+    """The saved pages' names RULE_FIX changes (a committed list nothing writes)."""
+    global _RULE_FIX_NAMES
+    if _RULE_FIX_NAMES is None:
+        try:
+            _RULE_FIX_NAMES = frozenset(json.loads(RULE_FIX_FILE.read_text()))
+        except (OSError, ValueError):
+            _RULE_FIX_NAMES = frozenset()
+    return _RULE_FIX_NAMES
+
+
 #: Bumped when listener_gaps.fill_columns takes a blank light's clue the page's own OCR line for its number spells
 #: out (the words the OCR misreads, or a clue that repeats another's, no longer refuse it). Only the pages of the
 #: refused numbers it gains clues for (tools/data/listener_own_clues.json, found on the cached VLM replies) are read
@@ -3214,7 +3268,8 @@ def current(p, row):
             and not (row.get("cropFix", 0) < CROP_FIX and p.name in crop_fix_names())
             and not (row.get("enumFix", 0) < ENUM_FIX and p.name in enum_fix_names())
             and not (row.get("ownFix", 0) < OWN_FIX and p.name in own_fix_names())
-            and not (row.get("blockFix", 0) < BLOCK_FIX and p.name in block_fix_names()))
+            and not (row.get("blockFix", 0) < BLOCK_FIX and p.name in block_fix_names())
+            and not (row.get("ruleFix", 0) < RULE_FIX and p.name in rule_fix_names()))
 
 
 def due_reason(row):
