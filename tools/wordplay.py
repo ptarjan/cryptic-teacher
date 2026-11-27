@@ -288,9 +288,11 @@ class _Parser:
             if not words:
                 self.fail("empty [clue words]")
             leaf = {"words": words}
-            m = re.compile(r"[A-Z]+").match(self.s, self.i)
+            # Letters may carry the answer's own spaces and apostrophes (SIT ON,
+            # DAHLIA'S): they are no letters, so the leaf gives the bare run.
+            m = _LEAF_LETTERS.match(self.s, self.i)
             if m:
-                leaf["gives"] = m.group()
+                leaf["gives"] = re.sub(r"[^A-Z]", "", m.group())
                 self.i = m.end()
             return leaf
         m = re.compile(r"[A-Za-z]+").match(self.s, self.i)
@@ -550,6 +552,7 @@ def find_at(clue, text, nth=1, taken=()):
     return pool[nth - 1] if len(pool) >= nth else None
 
 
+_LEAF_LETTERS = re.compile(r"[A-Z]+(?:[ '’]+[A-Z]+)*['’]?")
 _MARKS = str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"', "–": "-", "—": "-",
                         "‑": "-", "‐": "-", "−": "-"})
 

@@ -1066,4 +1066,10 @@ for _name, _q, _clue in [
     except w.WordplayError:
         check("quote still refused: " + _name, True)
 
+# A leaf's letters may carry the answer's own spaces and apostrophes: the leaf gives the bare run.
+_t = w.parse("[Father's]PAS + [to be a member of a committee]SIT ON")
+check("leaf letters with a space", _t["parts"][1]["gives"] == "SITON", str(_t))
+_t = w.parse("sound<say>([I'd]I'D, EYED)")
+check("leaf letters with an apostrophe", "[I'd]ID" in w.render(_t), w.render(_t))
+
 raise SystemExit(fails > 0)
