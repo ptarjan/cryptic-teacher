@@ -4497,6 +4497,20 @@ try:
 finally:
     eq.time.sleep = _sleep
 
+# The idle-core room is shared by the local pools: Listener units ahead of Trove units in the plan must not
+# take every start. With room for 2 local starts, the walk's order gives one start to each pool.
+_ents = [({"n": i}, ("l", i), "listener") for i in range(5)] + [({"n": 9}, ("s", 0), "scan")] + [({"n": i}, ("t", i), "trove") for i in range(3)]
+_ord = eq.share_local(_ents, {"listener": 0, "trove": 0})
+_first2 = [e[2] for e in _ord if e[2] in eq.LOCAL_POOLS][:2]
+check("share_local: 2 local starts go one to each pool", ["listener", "trove"], _first2)
+check("share_local: scan keeps its place", ("s", 0), _ord[5][1])
+check("share_local: each pool keeps its own order", [("t", 0), ("t", 1), ("t", 2)], [e[1] for e in _ord if e[2] == "trove"])
+_ord = eq.share_local(_ents, {"listener": 1, "trove": 0})
+check("share_local: fewest running first", "trove", _ord[0][2])
+_ord = eq.share_local(_ents, {"listener": 0, "trove": 0}, tried={("l", 0)})
+check("share_local: tried units take no turn", ("l", 1), [e[1] for e in _ord if e[2] == "listener"][0])
+check("share_local: one pool alone unchanged", _ents[:5], eq.share_local(_ents[:5], {}))
+
 print("FAILS", fails)
 
 print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")

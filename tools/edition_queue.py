@@ -3769,6 +3769,32 @@ def local_cpu(unit):
     return slot_of(unit) in LOCAL_POOLS or (unit["kind"] != "fetch" and not ocr_remote.hosts())
 
 
+def share_local(entries, running, tried=()):
+    """`entries` ((unit, key, slot) in plan order) with the LOCAL_POOLS units
+    re-dealt over the positions local units hold: round-robin by pool, the pool
+    with fewest running (plus dealt) first, ties to the earlier plan position. The
+    idle-core room is shared by those pools, so a pool whose units sit late in
+    the plan is not starved by one whose units come first. Other units keep
+    their places; each pool's own order is kept."""
+    spots = [i for i, e in enumerate(entries) if e[2] in LOCAL_POOLS]
+    lanes = {sl: [e for e in entries if e[2] == sl and e[1] not in tried] for sl in LOCAL_POOLS}
+    lanes = {sl: v for sl, v in lanes.items() if v}
+    if len(lanes) < 2:
+        return entries
+    out, at, dealt = list(entries), {sl: 0 for sl in lanes}, dict(running)
+    first = {sl: i for i, sl in enumerate(sorted(lanes, key=lambda sl: next(i for i, e in enumerate(entries) if e[2] == sl)))}
+    for pos in spots:
+        live = [sl for sl in lanes if at[sl] < len(lanes[sl])]
+        if not live:
+            out[pos] = (None, None, None)  # tried: the walk skips it
+            continue
+        sl = min(live, key=lambda x: (dealt.get(x, 0), first[x]))
+        out[pos] = lanes[sl][at[sl]]
+        at[sl] += 1
+        dealt[sl] = dealt.get(sl, 0) + 1
+    return out
+
+
 #: The desktop address the yield probe last put first, to log a switch once.
 _YIELD_VIA = [None]
 
@@ -4963,8 +4989,13 @@ class _RankPicker:
         # The walk ends past the last unit of any pool with a free slot: no later unit can start.
         reach = max((self.last_of.get(sl, -1) for sl, v in self.free.items() if v > 0), default=-1)
         may_start, free, tried = self.may_start, self.free, self.tried  # the walk's hot lines (same objects all pass)
-        for i, (u, ukey, uslot) in enumerate(itertools.chain(((v, key_of(v), slot_of(v)) for v in self.fill), zip(self.queue, self.qkeys, self.qslots))
-                                             if reach >= 0 and not self.skip_walk else (), -len(self.fill)):
+        order = (itertools.chain(((v, key_of(v), slot_of(v)) for v in self.fill), zip(self.queue, self.qkeys, self.qslots))
+                 if reach >= 0 and not self.skip_walk else ())
+        if reach >= 0 and not self.skip_walk and all(free.get(sl, 0) > 0 and self.last_of.get(sl, -1) >= 0 for sl in LOCAL_POOLS):
+            order = share_local(list(order), {sl: self.pools[sl] - free[sl] for sl in LOCAL_POOLS}, tried)
+        for i, (u, ukey, uslot) in enumerate(order, -len(self.fill)):
+            if u is None:
+                continue
             if i > reach or self.media.held():
                 break  # (the media share noted down this pass: nothing more starts until it answers)
             if not may_start() or free[uslot] <= 0 or ukey in tried:
