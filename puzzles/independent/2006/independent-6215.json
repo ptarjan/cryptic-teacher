@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,28 @@
     "text": "One thing or a couple?",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One thing",
+      "at": 0,
+      "meaning": "a single article or entry on a list"
+     },
+     {
+      "text": "a couple?",
+      "at": 13,
+      "meaning": "two people in a relationship are said to be an ..."
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both a single article on a list and, informally, a romantically linked pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +68,76 @@
     "text": "Most of Windermere, say, upset about death in Lakeland town",
     "enumeration": "6"
    },
-   "solution": "KENDAL"
+   "solution": "KENDAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lakeland town",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 31,
+       "note": "about means the turned letters go around the word for death"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 25,
+         "note": "in a down clue upset means the shortened word is turned upside down, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Most of",
+           "at": 0,
+           "note": "most of a word means all but its final letter is kept here"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Windermere, say",
+           "at": 8,
+           "gives": "LAKE",
+           "note": "Windermere is an example of a lake in the Lake District"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "death",
+       "at": 37,
+       "gives": "END",
+       "note": "end is a synonym of death"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The lake at Windermere, upset by a fatality, is linked to a town in the Lake District.",
+     "walkthrough": "Windermere is England's largest lake; 'Most of' and 'upset' (read upwards in a down clue) leave KAL, which goes 'about' the word for death.",
+     "definitionFit": "Kendal is a market town in Cumbria, on the edge of the English Lake District."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +151,60 @@
     "text": "Told stories about rise in cricket practice being attended",
     "enumeration": "8"
    },
-   "solution": "LISTENED"
+   "solution": "LISTENED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attended",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means the fibbing word goes around the turned practice word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Told stories",
+       "at": 0,
+       "gives": "LIED",
+       "note": "to tell stories is to lie, past tense lied"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rise",
+         "at": 19,
+         "note": "in a down clue rise means the word for practice is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cricket practice",
+         "at": 27,
+         "gives": "NETS",
+         "note": "cricketers practise in the nets, enclosed batting lanes"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fibbed about rising to the occasion at cricket training.",
+     "walkthrough": "'rise' reads the practice word upwards as STEN; 'about' wraps the fib around it. Nets are the netted lanes where cricketers practise batting and bowling.",
+     "definitionFit": "To have attended to someone speaking is to have paid heed to, or heard, them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +218,59 @@
     "text": "Actor's last to enter stage prompting a few words",
     "enumeration": "6"
    },
-   "solution": "PHRASE"
+   "solution": "PHRASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a few words",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to enter",
+       "at": 13,
+       "note": "to enter means that letter goes inside the word for stage"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stage",
+       "at": 22,
+       "gives": "PHASE",
+       "note": "a phase is a stage in a process"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 8,
+         "note": "the actor's last means the final letter of that word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Actor's",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's final line is prompted from the wings as he walks on stage.",
+     "walkthrough": "'last' takes R from 'Actor's', and 'to enter' puts it in PHASE.",
+     "definitionFit": "A short group of words forming a unit within a sentence is a phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prompting"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +284,64 @@
     "text": "Country mostly occupying Greek area of water",
     "enumeration": "8"
    },
-   "solution": "ATLANTIC"
+   "solution": "ATLANTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "area of water",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "occupying",
+       "at": 15,
+       "note": "occupying means the trimmed country word sits inside the Greek word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Greek",
+       "at": 25,
+       "gives": "ATTIC",
+       "note": "Attic means relating to Athens, so Greek in a narrow sense"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 8,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Country",
+         "at": 0,
+         "gives": "LAND",
+         "note": "land is another word for country"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation largely takes over a part of Greece by the sea.",
+     "walkthrough": "'Greek area' tempts you to read Attica, but Attic alone is the adjective for Athens, so 'area' belongs to the definition. 'mostly' trims the country word to LAN before 'occupying' sets it inside.",
+     "definitionFit": "The Atlantic is an ocean, a vast body of sea between the Americas and Europe and Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Greek"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +355,61 @@
     "text": "Legislative body post held up by originator",
     "enumeration": "10"
    },
-   "solution": "PARLIAMENT"
+   "solution": "PARLIAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Legislative body",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held",
+       "at": 22,
+       "note": "held by means the reversed post word is contained in the originator word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "originator",
+       "at": 33,
+       "gives": "PARENT",
+       "note": "a parent is the source or originator of something"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 27,
+         "note": "in a down clue up means the post word is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "post",
+         "at": 17,
+         "gives": "MAIL",
+         "note": "mail is another word for post"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Letters for a legislature are delayed by whoever sent them.",
+     "walkthrough": "'up' (upwards in a down clue) turns the post word into LIAM, which is 'held' by the originator. 'Held up' reads as delayed, hiding both signals.",
+     "definitionFit": "Parliament is the assembly that makes a country's laws, as at Westminster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +437,29 @@
      }
     ]
    },
-   "solution": "ONTHERIGHTTRACK"
+   "solution": "ONTHERIGHTTRACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Making progress",
+      "at": 0,
+      "meaning": "heading the right way, doing well"
+     },
+     {
+      "text": "allowing overtaking to left?",
+      "at": 17,
+      "meaning": "a train or car on the right-hand lane leaves room for others to pass on its left"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The idiom means heading correctly towards a goal, and read literally describes a vehicle keeping to the right-hand course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +479,51 @@
      }
     ]
    },
-   "solution": "OUTERHEBRIDES"
+   "solution": "OUTERHEBRIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of Scotland",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misled",
+         "at": 8,
+         "note": "misled means the letters of these words are led astray into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The roué",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "newly-weds",
+       "at": 15,
+       "gives": "BRIDES",
+       "note": "brides are women newly married"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rake leads some honeymooners astray in the Scottish islands.",
+     "walkthrough": "'misled' scrambles the roué's letters to OUTERHE. A roué is a debauched man, which makes 'misled' sit naturally in the surface.",
+     "definitionFit": "The Outer Hebrides are the island chain off Scotland's north-west coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +551,45 @@
      }
     ]
    },
-   "solution": "KISSANDMAKEUP"
+   "solution": "KISSANDMAKEUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aiming for reconciliation",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Receive lipstick",
+       "at": 0,
+       "gives": "KISS",
+       "note": "a kiss from someone wearing lipstick leaves a mark"
+      },
+      {
+       "words": "and",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "cosmetics",
+       "at": 21,
+       "gives": "MAKEUP",
+       "note": "make-up is a general word for cosmetics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peck on the cheek and some powder are offered as a peace gesture.",
+     "definitionFit": "To end a quarrel by kissing and making friends again is the idiom meaning to be reconciled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +603,57 @@
     "text": "Reduction in sentence I'd deemed 'unadventurous'",
     "enumeration": "5"
    },
-   "solution": "TIMID"
+   "solution": "TIMID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unadventurous",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Reduction in",
+         "at": 0,
+         "note": "a reduction means the word is shortened by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sentence",
+         "at": 13,
+         "gives": "TIME",
+         "note": "time is a prison sentence, as in doing time"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "I'd",
+       "at": 22,
+       "gives": "ID",
+       "note": "taken as written, without the apostrophe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge calls a cut in a prison term cautious.",
+     "walkthrough": "'Sentence' means a prison term here, not grammar; 'Reduction in' drops its last letter to give TIM.",
+     "definitionFit": "A timid person is shy and lacks daring, so is not adventurous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +673,41 @@
      }
     ]
    },
-   "solution": "TEATABLES"
+   "solution": "TEATABLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where you'd see",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "t'",
+       "at": 16,
+       "gives": "T",
+       "note": "t' is the dialect contraction of the, taken as the letter T"
+      },
+      {
+       "words": "foodstuffs",
+       "at": 18,
+       "gives": "EATABLES",
+       "note": "eatables are things to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A northern speaker asks where food would be laid out.",
+     "walkthrough": "t' is the northern English dialect form of 'the', so 't'foodstuffs' reads as T + EATABLES.",
+     "definitionFit": "Tables set for afternoon tea are where food and cakes are put out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +721,69 @@
     "text": "Be offended by accepting pater's first loan? That's really bright!",
     "enumeration": "11"
    },
-   "solution": "RESPLENDENT"
+   "solution": "RESPLENDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "really bright",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 15,
+       "note": "accepting means the word for being offended takes the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Be offended",
+       "at": 0,
+       "gives": "RESENT",
+       "note": "to resent is to be offended by"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 33,
+           "note": "pater's first means the opening letter of that word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pater's",
+           "at": 25
+          }
+         ]
+        },
+        {
+         "words": "loan",
+         "at": 39,
+         "gives": "LEND",
+         "note": "to lend is to give as a loan"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son is hurt when Dad's money goes to someone else, and says so brightly.",
+     "walkthrough": "Pater is Latin for father, a public-school word for Dad; 'first' takes its opening letter, and 'accepting' holds that with the loan word inside the offended one.",
+     "definitionFit": "Resplendent describes something dazzling and splendid in appearance, shining brilliantly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -244,7 +803,59 @@
      }
     ]
    },
-   "solution": "SASHWINDOW"
+   "solution": "SASHWINDOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "opening in wall",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Specialist troops",
+       "at": 0,
+       "gives": "SAS",
+       "note": "the SAS is the Special Air Service, the British army special forces"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 32,
+         "note": "about means the question word goes around the word for gale"
+        }
+       ],
+       "parts": [
+        {
+         "words": "question",
+         "at": 23,
+         "gives": "HOW",
+         "note": "how is a question word"
+        },
+        {
+         "words": "gale",
+         "at": 38,
+         "gives": "WIND",
+         "note": "a gale is a strong wind"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commandos ask about the storm that blew a hole in the wall.",
+     "walkthrough": "The SAS is Britain's Special Air Service regiment. 'about' wraps the question word round the gale; 'with' only joins.",
+     "definitionFit": "A sash window has sliding frames that fill an opening in a house's wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -258,7 +869,49 @@
     "text": "Woman's daughter found among reformed drinkers",
     "enumeration": "3"
    },
-   "solution": "ADA"
+   "solution": "ADA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Woman's",
+      "at": 0,
+      "note": "the 's is a link meaning is, leaving woman as the definition"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found among",
+       "at": 17,
+       "note": "found among means the abbreviation for daughter sits within the drinkers' letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reformed drinkers",
+       "at": 29,
+       "gives": "AA",
+       "note": "AA is Alcoholics Anonymous, for people giving up drink"
+      },
+      {
+       "words": "daughter",
+       "at": 8,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother's girl turns up at a meeting of recovering alcoholics.",
+     "walkthrough": "'found among' puts D inside AA. 'Reformed' looks like an anagram signal, but it describes the drinkers.",
+     "definitionFit": "Ada is a woman's first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reformed"
+    }
+   }
   },
   {
    "number": 14,
@@ -272,7 +925,39 @@
     "text": "Made certain re nudes dancing",
     "enumeration": "7"
    },
-   "solution": "ENSURED"
+   "solution": "ENSURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Made certain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dancing",
+       "at": 22,
+       "note": "dancing means the letters of these words move about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "re nudes",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A risqué show of naked dancers was guaranteed.",
+     "definitionFit": "To have ensured something is to have guaranteed it would happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +971,59 @@
     "text": "City about to block charge's form again",
     "enumeration": "8"
    },
-   "solution": "RECREATE"
+   "solution": "RECREATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "form again",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to block",
+       "at": 11,
+       "note": "to block means the city and about letters go in the middle of the charge word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "charge's",
+       "at": 20,
+       "gives": "RATE",
+       "note": "a rate is a charge, as in a rate of pay"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "City",
+         "at": 0,
+         "gives": "EC",
+         "note": "EC is the postcode area for the City of London"
+        },
+        {
+         "words": "about",
+         "at": 5,
+         "gives": "RE",
+         "note": "re means about or concerning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city blocks a fee and reshapes its form.",
+     "walkthrough": "EC is the London postcode for the City, its financial district. 'to block' sets the City and 'about' letters into the middle of the charge word.",
+     "definitionFit": "To recreate something is to make or build it anew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -300,7 +1037,58 @@
     "text": "Top player securing University Cricket Club's win",
     "enumeration": "7"
    },
-   "solution": "SUCCEED"
+   "solution": "SUCCEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "win",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "at": 11,
+       "note": "securing means the seed word holds the abbreviations inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Top player",
+       "at": 0,
+       "gives": "SEED",
+       "note": "a seed is a top-ranked player in a tournament draw"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "University",
+         "at": 20,
+         "gives": "U"
+        },
+        {
+         "words": "Cricket Club's",
+         "at": 31,
+         "gives": "CC",
+         "note": "CC is the abbreviation for cricket club"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star player signs for the university cricket team, sealing their victory.",
+     "walkthrough": "In tennis a seed is a player ranked to be kept apart in the draw; 'securing' has it hold the university and club letters.",
+     "definitionFit": "To succeed is to triumph or achieve one's aim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -314,7 +1102,69 @@
     "text": "European raised it in battlefield at no specific moment",
     "enumeration": "8"
    },
-   "solution": "SOMETIME"
+   "solution": "SOMETIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "at no specific moment",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in means the European and turned pronoun sit within the battlefield"
+      }
+     ],
+     "parts": [
+      {
+       "words": "battlefield",
+       "at": 22,
+       "gives": "SOMME",
+       "note": "the Somme was a First World War battlefield in France"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 0,
+         "gives": "E"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "raised",
+           "at": 9,
+           "note": "in a down clue raised means the pronoun is read upwards, backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 16,
+           "gives": "IT"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European soldier lifted his weapon on the battlefield at some point.",
+     "walkthrough": "The Somme in northern France was the site of a 1916 battle. 'raised' turns the pronoun to TI, and 'in' places it with the European inside.",
+     "definitionFit": "Sometime means at some unstated point in time, past or future."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -328,7 +1178,58 @@
     "text": "Uncooked, the reverse of heated? Not entirely",
     "enumeration": "3"
    },
-   "solution": "RAW"
+   "solution": "RAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncooked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "the reverse of",
+       "at": 10,
+       "note": "the reverse of means the shortened word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 33,
+         "note": "not entirely means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heated",
+         "at": 25,
+         "gives": "WARM",
+         "note": "warm is a synonym of heated"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook wonders whether uncooked is the opposite of heated.",
+     "walkthrough": "'Not entirely' cuts WARM to WAR; 'the reverse of' turns it backwards. 'The reverse of' seems to ask for an opposite such as cold.",
+     "definitionFit": "Raw food is food that has not been cooked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 18,
@@ -348,7 +1249,59 @@
      }
     ]
    },
-   "solution": "CAMOMILETEA"
+   "solution": "CAMOMILETEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Healthy drink?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 44,
+       "note": "without means outside, so the rearranged letters surround the drug letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dubious",
+         "at": 36,
+         "note": "dubious means the letters of these words are in doubt and so rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A claim to me",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "drug",
+       "at": 52,
+       "gives": "E",
+       "note": "E is the slang abbreviation for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sceptical when told a herbal infusion is good for them, as long as it has no drugs.",
+     "walkthrough": "'without' here means outside: the anagram of A CLAIM TO ME wraps E (ecstasy). It reads as 'lacking'.",
+     "definitionFit": "Camomile tea is a herbal infusion often drunk to calm or for its supposed benefits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 19,
@@ -362,7 +1315,55 @@
     "text": "Grumpy person puncturing tyre — simply upsetting",
     "enumeration": "6"
    },
-   "solution": "MISERY"
+   "solution": "MISERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grumpy person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upsetting",
+       "at": 39,
+       "note": "upsetting says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "puncturing",
+         "at": 14,
+         "note": "puncturing means the answer is found piercing into these words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tyre — simply",
+         "at": 25,
+         "gives": "YRESIM",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grouch lets down a tyre purely to cause trouble.",
+     "walkthrough": "The draft took 'puncturing' into the definition; it is the hidden-word signal, and the definition is 'Grumpy person'. 'upsetting' turns YRESIM upwards.",
+     "definitionFit": "A misery is informal British for a gloomy, complaining person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "puncturing"
+    }
+   }
   },
   {
    "number": 20,
@@ -376,7 +1377,48 @@
     "text": "The French, stifling cry of pain, looking suspicious",
     "enumeration": "6"
    },
-   "solution": "LOUCHE"
+   "solution": "LOUCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "looking suspicious",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stifling",
+       "at": 12,
+       "note": "stifling means the French article closes around the cry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The French",
+       "at": 0,
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "words": "cry of pain",
+       "at": 21,
+       "gives": "OUCH",
+       "note": "ouch is a cry of pain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman muffles a yelp while looking shifty.",
+     "walkthrough": "Le is the French masculine article; 'stifling' muffles the cry inside it, matching the surface's suppressed yelp.",
+     "definitionFit": "Louche means disreputable or shady, giving a dubious appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -396,7 +1438,51 @@
      }
     ]
    },
-   "solution": "DINNERSET"
+   "solution": "DINNERSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wherewithal for meal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 21,
+         "note": "finally means the last letter of the word served"
+        }
+       ],
+       "parts": [
+        {
+         "words": "served",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "closest friends",
+       "at": 39,
+       "gives": "INNERSET",
+       "note": "an inner set is a tight circle of intimates"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Food is finally served to the host's circle of intimates.",
+     "walkthrough": "'finally' takes D from 'served'.",
+     "definitionFit": "A dinner set is the full service of plates and dishes needed for serving dinner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1496,63 @@
     "text": "Excessive? Almost not enough when University's involved",
     "enumeration": "5"
    },
-   "solution": "UNDUE"
+   "solution": "UNDUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excessive?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved",
+       "at": 47,
+       "note": "involved means the university letter is put into the trimmed word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 11,
+         "note": "almost means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not enough",
+         "at": 18,
+         "gives": "UNDER",
+         "note": "under means below the needed amount"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "University's",
+       "at": 34,
+       "gives": "U",
+       "note": "U is the standard abbreviation for university"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is it too much, or almost too little, when a college gets involved?",
+     "walkthrough": "'Almost' cuts UNDER to UNDE; 'involved' puts U inside.",
+     "definitionFit": "Undue means more than is warranted or appropriate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1566,52 @@
     "text": "Student had upset children's author",
     "enumeration": "4"
    },
-   "solution": "DAHL"
+   "solution": "DAHL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "children's author",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 12,
+       "note": "in a down clue upset means the joined letters are read upwards, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Student",
+         "at": 0,
+         "gives": "L",
+         "note": "L is a learner, the plate on a learner driver's car"
+        },
+        {
+         "words": "had",
+         "at": 8,
+         "gives": "HAD"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil was upset by a writer of children's books.",
+     "walkthrough": "'upset' reads L + HAD upwards. Roald Dahl wrote Charlie and the Chocolate Factory.",
+     "definitionFit": "Roald Dahl was a British writer famous for books for young readers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -452,7 +1639,29 @@
      }
     ]
    },
-   "solution": "SHOOTFROMTHEHIP"
+   "solution": "SHOOTFROMTHEHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Be direct",
+      "at": 0,
+      "meaning": "speak or act bluntly and impulsively"
+     },
+     {
+      "text": "with regard to trendy project?",
+      "at": 10,
+      "meaning": "project is to fire off, as from a gun; from the hip reads as coming from what is trendy"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The idiom means to speak or act bluntly without thought; literally it is firing a gun held at hip level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
