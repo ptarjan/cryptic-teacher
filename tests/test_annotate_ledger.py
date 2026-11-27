@@ -71,6 +71,14 @@ left(1000)
 mild = [row(i, 0.040) for i in range(1, 4)] + [row(i, 0.043) for i in range(4, 7)]
 check(L.should_wake(mild, None, quiet, now)[0], None, "7.5% over best: quiet")
 
+# run-to-run noise: a rise over the best that the rolling levels' own spread explains stays quiet
+noisy = [row(i, c) for i, c in enumerate([0.040, 0.050, 0.036, 0.052, 0.038, 0.049], 1)]
+w = L.should_wake(noisy, None, quiet, now)
+check(w[0], None, "noisy rows: rise within 2 sigma of the rolling levels does not wake")
+check("run-to-run noise" in w[1], True, "the no-wake message names the noise gate")
+step = [row(i, 0.030) for i in range(1, 6)] + [row(i, 0.050) for i in range(6, 9)]
+check("noise" in (L.should_wake(step, None, quiet, now)[0] or ""), True, "clear step up wakes and states the noise band")
+
 left(10000)
 check(L.should_wake(flat, None, quiet, now)[0] is not None, True, "big payback, flat $/clue: wake")
 # no-lever: the room investigated the cause and found nothing to fix.

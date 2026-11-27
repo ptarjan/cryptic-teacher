@@ -62,6 +62,7 @@ import os
 import pathlib
 import subprocess
 import sys
+import statistics
 import time
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -103,6 +104,7 @@ ROLL = 3              # max rows merged to reach MIN_CLUES (was: always the last
 MIN_CLUES = 50        # a window thinner than this is noise: never wakes
 AFTER_COMMIT_ROWS = 2  # re-judge this many rows after an annotate-code commit (was 3)
 REGRESS = 0.10
+NOISE_SIGMAS = 2      # the best of a noisy series is biased low: a rise must also clear 2 sigma of the rolling levels
 COOLDOWN_H = 1        # was 4
 # Payback gate: wake when fixing the top cause is expected to save more than the fix costs.
 # Paul 10-23: "I think the savings is over many months" - so the horizon is the clues still
@@ -347,8 +349,8 @@ def should_wake(rows, since_commit, state, now, no_lever=None):
     rolls = [pooled(window(rows[:i + 1])) for i in range(len(rows))]
     best = min((x for x in rolls if x is not None), default=None)
     cur_wall = wall_level(last)
-    best_wall = min((x for x in (wall_level(window(rows[:i + 1])) for i in range(len(rows))) if x is not None),
-                    default=None) if cur_wall is not None else None
+    wall_rolls = [x for x in (wall_level(window(rows[:i + 1])) for i in range(len(rows))) if x is not None]
+    best_wall = min(wall_rolls, default=None) if cur_wall is not None else None
     top_cause = (rows[-1].get("top_causes") or [{}])[0]
     per_clue, mean_clues = cause_per_clue(rows, top_cause.get("key"))
     key = top_cause.get("key")
@@ -387,15 +389,37 @@ def should_wake(rows, since_commit, state, now, no_lever=None):
             return None, f"{pay} - marked no-lever ({investigated(rec)}), under {NO_LEVER_RISE}x and {NO_LEVER_DAYS} days"
         return pay, facts
     if cur_wall is not None and best_wall:
-        if cur_wall > best_wall * (1 + REGRESS):
+        noise = noise_band(wall_rolls)
+        if regressed(cur_wall, best_wall, noise):
             return (f"latest {cur_wall:.1f} s/clue is {cur_wall / best_wall - 1:+.0%} over the best level "
-                    f"{best_wall:.1f} since the last annotate-code commit; {pay}"), facts
-        return None, f"{cur_wall:.1f} s/clue within 10% of best {best_wall:.1f}; {pay} - not worth a fix"
+                    f"{best_wall:.1f} since the last annotate-code commit (run-to-run noise ±{noise:.1f}); {pay}"), facts
+        return None, (f"{cur_wall:.1f} s/clue is {cur_wall / best_wall - 1:+.0%} over best {best_wall:.1f} but "
+                      f"{held_by(cur_wall, best_wall, noise, '.1f')}; {pay} - not worth a fix")
     if best and cur > best * (1 + REGRESS):
-        return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
-                f"${best:.3f} since the last annotate-code commit; {pay}"), facts
+        noise = noise_band([x for x in rolls if x is not None])
+        if regressed(cur, best, noise):
+            return (f"latest ${cur:.3f}/clue is {cur / best - 1:+.0%} over the best level "
+                    f"${best:.3f} since the last annotate-code commit (run-to-run noise ±${noise:.3f}); {pay}"), facts
+        return None, (f"${cur:.3f}/clue is {cur / best - 1:+.0%} over best ${best:.3f} but "
+                      f"{held_by(cur, best, noise, '.3f')}; {pay} - not worth a fix")
     return None, f"${cur:.3f}/clue within 10% of best ${best:.3f}; {pay} - not worth a fix"
 
+
+def noise_band(levels):
+    """NOISE_SIGMAS x the population std dev of the rolling levels; 0 under 3 levels (REGRESS alone gates)."""
+    return NOISE_SIGMAS * statistics.pstdev(levels) if len(levels) >= 3 else 0.0
+
+
+def regressed(cur, best, noise):
+    """True when cur beats best by more than both REGRESS and the run-to-run noise."""
+    return cur > best * (1 + REGRESS) and cur - best > noise
+
+
+def held_by(cur, best, noise, fmt):
+    """Why a rise did not wake: inside the noise band, or under REGRESS."""
+    if cur > best * (1 + REGRESS):
+        return f"within the run-to-run noise ±{format(noise, fmt)}"
+    return f"under the {REGRESS:.0%} threshold"
 
 def wall_level(rows):
     """Wall seconds per clue over rows (session wall time over clues); None unless every row
