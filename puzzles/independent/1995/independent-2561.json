@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "A lot of money in a small bundle",
     "enumeration": "6"
    },
-   "solution": "PACKET"
+   "solution": "PACKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lot of money",
+      "at": 0
+     },
+     {
+      "text": "a small bundle",
+      "at": 18
+     }
+    ],
+    "explanation": {
+     "surface": "Someone stuffs a fortune into a little parcel.",
+     "definitionFit": "A packet is slang for a large sum of money, and also a small wrapped parcel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +70,52 @@
     "text": "An age for erecting a place of contest",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a place of contest",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "for erecting",
+       "at": 7,
+       "note": "in a down clue, erecting a word stands it upright, so these words are read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "An",
+         "at": 0,
+         "gives": "AN"
+        },
+        {
+         "words": "age",
+         "at": 3,
+         "gives": "ERA",
+         "note": "an era is an age"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets aside time to build a stadium.",
+     "walkthrough": "'for erecting' turns the whole run AN ERA upwards, giving ARENA.",
+     "definitionFit": "An arena is an enclosed space where contests and games are held."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +135,58 @@
      }
     ]
    },
-   "solution": "KNIFEEDGE"
+   "solution": "KNIFEEDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "point of balance",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "retains",
+       "at": 7,
+       "note": "something that retains another holds it inside, so one word goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Anchor",
+       "at": 0,
+       "gives": "KEDGE",
+       "note": "a kedge is a small anchor"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 20,
+         "note": "new signals the letters of fine are made over in a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fine",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's anchor keeps a delicate new balance point.",
+     "walkthrough": "'new' turns FINE into NIFE, and 'retains' puts it between the K and EDGE of KEDGE.",
+     "definitionFit": "A knife-edge is a sharp ridge on which something can pivot, hence a precarious balance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +200,49 @@
     "text": "Made suit, without gold, resembling formal wear?",
     "enumeration": "6"
    },
-   "solution": "TAILED"
+   "solution": "TAILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "resembling formal wear?",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 11,
+       "note": "without here means lacking, so the gold is taken away from the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Made suit",
+       "at": 0,
+       "gives": "TAILORED",
+       "note": "a made-to-measure suit is tailored"
+      },
+      {
+       "words": "gold",
+       "at": 19,
+       "gives": "OR",
+       "note": "OR is gold in heraldry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suit made without gold thread looks like evening dress.",
+     "walkthrough": "'without' removes OR from TAILORED.",
+     "definitionFit": "Formal wear for men includes tails, so something tailed resembles it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +256,58 @@
     "text": "District Attorney in jail adopting judge's rigorous formality",
     "enumeration": "8"
    },
-   "solution": "PEDANTRY"
+   "solution": "PEDANTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rigorous formality",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 18,
+         "note": "in places the attorney's letters inside the word for jail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jail",
+         "at": 21,
+         "gives": "PEN",
+         "note": "pen, short for penitentiary, is a jail"
+        },
+        {
+         "words": "District Attorney",
+         "at": 0,
+         "gives": "DA"
+        }
+       ]
+      },
+      {
+       "words": "adopting judge's",
+       "at": 26,
+       "gives": "TRY",
+       "note": "to try a case is to judge it; adopting just joins it on after the jail piece"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jailed prosecutor takes on a judge's strict procedural fussiness.",
+     "walkthrough": "'jail' as PEN is the American short form of penitentiary; 'in' puts DA inside it.",
+     "definitionFit": "Pedantry is excessive concern with formal rules and minor details."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +335,29 @@
      }
     ]
    },
-   "solution": "POINTOFNORETURN"
+   "solution": "POINTOFNORETURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reason for describing interest-free loan",
+      "at": 0
+     },
+     {
+      "text": "a Rubicon?",
+      "at": 44
+     }
+    ],
+    "explanation": {
+     "surface": "Someone explains why a lender's no-interest loan amounts to crossing the Rubicon.",
+     "walkthrough": "An interest-free loan brings no return, so 'no return' is the point of it; Caesar crossing the Rubicon was a step that could not be undone.",
+     "definitionFit": "The first reading takes 'point' as purpose, the loan having no return; the second is the idiom for a stage beyond which turning back is impossible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +371,70 @@
     "text": "To do this is accomplished with capture of the king possibly?",
     "enumeration": "8"
    },
-   "solution": "DETHRONE"
+   "solution": "DETHRONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To do this is accomplished with capture of the king possibly?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with capture of",
+       "at": 27,
+       "note": "capture means holding something inside, so the accomplished word takes the other letters in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "accomplished",
+       "at": 14,
+       "gives": "DONE",
+       "note": "accomplished means done"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "possibly",
+           "at": 52,
+           "note": "possibly signals the letters of the word the could be arranged otherwise"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 43
+          }
+         ]
+        },
+        {
+         "words": "king",
+         "at": 47,
+         "gives": "R",
+         "note": "R is the abbreviation for king (Rex)"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A chess-like question: is capturing the king how one topples a monarch?",
+     "walkthrough": "'possibly' turns THE into ETH, and 'with capture of' puts ETH and R between the D and ONE of DONE; the whole clue also describes removing a king.",
+     "definitionFit": "To depose a monarch is to remove them from the throne, which capturing the king achieves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +448,48 @@
     "text": "Nothing's limiting a group of fixers",
     "enumeration": "5"
    },
-   "solution": "NAILS"
+   "solution": "NAILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group of fixers",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "limiting",
+       "at": 10,
+       "note": "limiting means bounding on either side, so the word for nothing encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nothing's",
+       "at": 0,
+       "gives": "NILS",
+       "note": "nil means nothing, with the possessive s kept"
+      },
+      {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody restrains a gang of repairmen.",
+     "walkthrough": "'limiting' puts A inside NIL'S.",
+     "definitionFit": "Nails are fasteners, things that fix pieces together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fixers"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +503,55 @@
     "text": "Ruined, we hear, one associated with Saxon figure",
     "enumeration": "9"
    },
-   "solution": "RECTANGLE"
+   "solution": "RECTANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "figure",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "RECT",
+       "indicators": [
+        {
+         "text": "we hear",
+         "at": 8,
+         "note": "we hear signals that the word for ruined is taken by its spoken sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ruined",
+         "at": 0,
+         "gives": "WRECKED",
+         "note": "ruined means wrecked"
+        }
+       ]
+      },
+      {
+       "words": "one associated with Saxon",
+       "at": 17,
+       "gives": "ANGLE",
+       "note": "the Angles and Saxons settled England together, so an Angle is linked with a Saxon"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reports a Saxon's companion being ruined.",
+     "walkthrough": "WRECKED said aloud gives RECT, and the Anglo-Saxons were two peoples, the Angles and the Saxons.",
+     "definitionFit": "A rectangle is a geometric shape, and a figure in geometry is a shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +565,57 @@
     "text": "Criminal concerned with detectives' random visit?",
     "enumeration": "10"
    },
-   "solution": "RECIDIVIST"
+   "solution": "RECIDIVIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "concerned with",
+       "at": 9,
+       "gives": "RE",
+       "note": "re means concerning, about"
+      },
+      {
+       "words": "detectives'",
+       "at": 24,
+       "gives": "CID",
+       "note": "CID is the Criminal Investigation Department, British police detectives"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "random",
+         "at": 36,
+         "note": "random means in no set order, so the letters of visit are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "visit",
+         "at": 43
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain wonders about a surprise call from the police.",
+     "walkthrough": "'random' turns VISIT into IVIST.",
+     "definitionFit": "A recidivist is a repeat offender, a person who keeps returning to crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +629,49 @@
     "text": "Steal not a penny from the unit",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unit",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 6,
+       "note": "not here means leaving out, so the penny is removed from the word for steal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Steal",
+       "at": 0,
+       "gives": "PINCH",
+       "note": "to pinch is to steal"
+      },
+      {
+       "words": "a penny",
+       "at": 10,
+       "gives": "P",
+       "note": "P is the abbreviation for a penny"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief takes nothing as small as a penny from the regiment.",
+     "walkthrough": "'not' removes P from PINCH.",
+     "definitionFit": "An inch is an imperial unit of length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +685,30 @@
     "text": "Person hung from a window?",
     "enumeration": "8"
    },
-   "solution": "CASEMENT"
+   "solution": "CASEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person hung",
+      "at": 0
+     },
+     {
+      "text": "a window?",
+      "at": 17
+     }
+    ],
+    "explanation": {
+     "surface": "A body is dangled out of a window.",
+     "walkthrough": "Sir Roger Casement was hanged for treason in 1916.",
+     "definitionFit": "Roger Casement was an Irish nationalist executed by hanging; a casement is a window hinged at the side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hung"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +722,41 @@
     "text": "Rogue artist's state",
     "enumeration": "6"
    },
-   "solution": "RASCAL"
+   "solution": "RASCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rogue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "artist's",
+       "at": 6,
+       "gives": "RAS",
+       "note": "RA is a Royal Academician, an artist, with the possessive s"
+      },
+      {
+       "words": "state",
+       "at": 15,
+       "gives": "CAL",
+       "note": "Cal is an abbreviation for California, a US state"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy painter's homeland is named.",
+     "definitionFit": "A rogue is a mischievous or dishonest person, a scoundrel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +770,39 @@
     "text": "Hurried to escape from furious pedestrian",
     "enumeration": "4"
    },
-   "solution": "SPED"
+   "solution": "SPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hurried",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to escape from",
+       "at": 8,
+       "note": "the letters slip out of the run spanning the two words, so they are found inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "furious pedestrian",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashed off to get away from an angry walker.",
+     "definitionFit": "Sped is the past tense of speed, so it means went fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +816,59 @@
     "text": "Friend rings RAC having instinctive reaction to be helpful",
     "enumeration": "9"
    },
-   "solution": "PRACTICAL"
+   "solution": "PRACTICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "helpful",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "rings",
+       "at": 7,
+       "note": "rings means surrounds, so the friend word goes round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Friend",
+       "at": 0,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "RAC",
+         "at": 13,
+         "note": "the RAC is the Royal Automobile Club, a British motoring organisation, taken as written"
+        },
+        {
+         "words": "instinctive reaction",
+         "at": 24,
+         "gives": "TIC",
+         "note": "a tic is an involuntary twitch"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend telephones the breakdown service, reacting on impulse to be of use.",
+     "walkthrough": "'rings' puts RAC and TIC inside PAL; 'rings' reads as telephoning.",
+     "definitionFit": "Practical means useful in real situations, of real use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +882,57 @@
     "text": "Dance enthusiast and potential green?",
     "enumeration": "8"
    },
-   "solution": "FANDANGO"
+   "solution": "FANDANGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "enthusiast",
+       "at": 6,
+       "gives": "FAN",
+       "note": "a fan is an enthusiast"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "potential",
+         "at": 21,
+         "note": "potential means something that could be, so the letters of and become a possible rearrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "green",
+       "at": 31,
+       "gives": "GO",
+       "note": "a green traffic light means go"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dance fan and someone who might become an eco-activist.",
+     "walkthrough": "'potential' turns AND into DAN.",
+     "definitionFit": "A fandango is a lively Spanish dance in triple time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +946,59 @@
     "text": "A role intended, say, to be flat",
     "enumeration": "9"
    },
-   "solution": "APARTMENT"
+   "solution": "APARTMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "role",
+       "at": 2,
+       "gives": "PART",
+       "note": "a part is a role in a play"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MENT",
+       "indicators": [
+        {
+         "text": "say",
+         "at": 17,
+         "note": "say signals that the word for intended is taken by its spoken sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "intended",
+         "at": 7,
+         "gives": "MEANT",
+         "note": "intended means meant"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's part was meant to be dull.",
+     "walkthrough": "MEANT said aloud gives MENT.",
+     "definitionFit": "Apartment is the American word for a flat, a set of rooms to live in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1012,59 @@
     "text": "Pluck endlessly? Term, possibly, for what may help you do that",
     "enumeration": "8"
    },
-   "solution": "PLECTRUM"
+   "solution": "PLECTRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "what may help you do that",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 23,
+       "note": "possibly signals the letters could be rearranged into another word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 6,
+         "note": "endlessly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pluck",
+         "at": 0
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "Term",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guitarist wonders what to call the thing that helps them pluck.",
+     "walkthrough": "'endlessly' cuts PLUCK to PLUC, and 'possibly' rearranges PLUC with TERM.",
+     "definitionFit": "A plectrum is a small pick for plucking strings, the tool that helps one pluck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1078,58 @@
     "text": "Later changes in attempt to win battle",
     "enumeration": "8"
    },
-   "solution": "WATERLOO"
+   "solution": "WATERLOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in places the rearranged letters inside the word for courting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attempt to win",
+       "at": 17,
+       "gives": "WOO",
+       "note": "to woo is to try to win someone's affections"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 6,
+         "note": "changes signals the letters of later are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Later",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone later changes tactics in trying to win a fight.",
+     "walkthrough": "'changes' turns LATER into ATERL, and 'in' puts it inside WOO.",
+     "definitionFit": "Waterloo was the 1815 battle where Napoleon was defeated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1143,41 @@
     "text": "Primate gets cross giving a tip",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a tip",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Primate",
+       "at": 0,
+       "gives": "APE",
+       "note": "an ape is a primate"
+      },
+      {
+       "words": "cross",
+       "at": 13,
+       "gives": "X",
+       "note": "X is the shape of a cross"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry monkey gives someone some advice.",
+     "definitionFit": "The apex is the highest point or summit, the top end of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1191,42 @@
     "text": "Move to sell foot lever is reported",
     "enumeration": "6"
    },
-   "solution": "PEDDLE"
+   "solution": "PEDDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Move to sell",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PEDDLE",
+     "indicators": [
+      {
+       "text": "is reported",
+       "at": 24,
+       "note": "is reported signals the foot-lever word is taken by its spoken sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "foot lever",
+       "at": 13,
+       "gives": "PEDAL",
+       "note": "a pedal is a lever worked by the foot"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sales pitch for a foot lever gets reported.",
+     "definitionFit": "To peddle is to go about selling goods, hawking them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1240,61 @@
     "text": "Reportedly fed up about rubbish that's not moving",
     "enumeration": "6"
    },
-   "solution": "STATIC"
+   "solution": "STATIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not moving",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "about means around, so the sounded word encloses the rubbish"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SIC",
+       "indicators": [
+        {
+         "text": "Reportedly",
+         "at": 0,
+         "note": "reportedly signals the word for fed up is taken by its spoken sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fed up",
+         "at": 11,
+         "gives": "SICK",
+         "note": "sick, as in sick of something, means fed up"
+        }
+       ]
+      },
+      {
+       "words": "rubbish",
+       "at": 24,
+       "gives": "TAT",
+       "note": "tat is cheap rubbish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is said to be sick of junk that just sits there.",
+     "walkthrough": "SICK said aloud gives SIC, and 'about' puts TAT inside it.",
+     "definitionFit": "Static means stationary, without motion or change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1308,33 @@
     "text": "Many a one found in Burke's Peerage?",
     "enumeration": "5"
    },
-   "solution": "TITLE"
+   "solution": "TITLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Many a one found in Burke's Peerage?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Many a one found in Burke's Peerage",
+       "at": 0,
+       "note": "Burke's Peerage is the reference book of British aristocracy, which lists dukes, earls and baronets by their rank"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Burke's Peerage is the standard British directory of the nobility.",
+     "definitionFit": "A title is a name of rank, such as duke or baronet, listed in a peerage guide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1348,59 @@
     "text": "Showing hesitation grasping lecture about fundamental particle",
     "enumeration": "8"
    },
-   "solution": "ELECTRON"
+   "solution": "ELECTRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fundamental particle",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grasping",
+         "at": 19,
+         "note": "grasping means holding inside, so the hesitation sound encloses the lecture abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hesitation",
+         "at": 8,
+         "gives": "ER",
+         "note": "er is a sound made when hesitating"
+        },
+        {
+         "words": "lecture",
+         "at": 28,
+         "gives": "LECT",
+         "note": "lect. is the dictionary abbreviation for lecture"
+        }
+       ]
+      },
+      {
+       "words": "about",
+       "at": 36,
+       "gives": "ON",
+       "note": "on means about, concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous speaker stumbles while holding a lecture on basic physics.",
+     "walkthrough": "'grasping' puts LECT inside ER, giving ELECTR, then ON follows.",
+     "definitionFit": "An electron is a subatomic particle carrying negative charge, one of the basic constituents of matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1414,27 @@
     "text": "What commander would give for good discipline",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What commander would give",
+      "at": 0
+     },
+     {
+      "text": "good discipline",
+      "at": 30
+     }
+    ],
+    "explanation": {
+     "surface": "An officer's instruction keeps the troops in line.",
+     "definitionFit": "An officer issues an order, a command; order also means a state of discipline and control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1448,48 @@
     "text": "Races abandoned by a Glaswegian?",
     "enumeration": "4"
    },
-   "solution": "SCOT"
+   "solution": "SCOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Glaswegian?",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoned by",
+       "at": 6,
+       "note": "abandoned by means losing something, so the letter a is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Races",
+       "at": 0,
+       "gives": "ASCOT",
+       "note": "Ascot is an English racecourse where a famous race meeting is held"
+      },
+      {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Glasgow walks out on the horse races.",
+     "walkthrough": "'Races' looks like a verb, but it is ASCOT, a racecourse in Berkshire; 'abandoned by' drops its A.",
+     "definitionFit": "A Glaswegian comes from Glasgow, so he is an example of a person from Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Races"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1503,40 @@
     "text": "Warring faction surrounding chiefs",
     "enumeration": "10"
    },
-   "solution": "ROUNDHEADS"
+   "solution": "ROUNDHEADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Warring faction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "surrounding",
+       "at": 16,
+       "gives": "ROUND",
+       "note": "round means surrounding"
+      },
+      {
+       "words": "chiefs",
+       "at": 28,
+       "gives": "HEADS",
+       "note": "heads are chiefs, leaders"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fighting group encircles its leaders.",
+     "definitionFit": "The Roundheads were the Parliamentarian side in the English Civil War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1550,57 @@
     "text": "Dignitary giving correct lead to right person",
     "enumeration": "8"
    },
-   "solution": "ALDERMAN"
+   "solution": "ALDERMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dignitary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "correct",
+         "at": 17,
+         "note": "correct means to put right, so the letters of lead are set in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lead",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 33,
+       "gives": "R"
+      },
+      {
+       "words": "person",
+       "at": 39,
+       "gives": "MAN",
+       "note": "a man is a person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official gives proper direction to the right person.",
+     "walkthrough": "'correct' rearranges LEAD into ALDE, then R and MAN follow.",
+     "definitionFit": "An alderman is a senior councillor in local government, a civic dignitary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1614,40 @@
     "text": "Complete hospital department with passion",
     "enumeration": "6"
    },
-   "solution": "ENTIRE"
+   "solution": "ENTIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hospital department",
+       "at": 9,
+       "gives": "ENT",
+       "note": "ENT is the ear, nose and throat department of a hospital"
+      },
+      {
+       "words": "passion",
+       "at": 34,
+       "gives": "IRE",
+       "note": "ire is angry passion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whole hospital ward is filled with fury.",
+     "definitionFit": "Entire means whole, with nothing missing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
