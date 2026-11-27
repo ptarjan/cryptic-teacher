@@ -2635,6 +2635,43 @@ def clues_left(grid, title, margin=40):
     return min(grid[0] - margin, title[0] - margin)
 
 
+#: TELE_LEFT_CUT: a Gale Telegraph 1969-77 page whose clue columns over the grid start left of clues_left()'s edge (the grid's
+#: left less the margin, or the title's: 1974-09-25 grid from x 423, edge 383, the ACROSS lines' numbers and first letters from
+#: x 313) was read from a crop that cut every ACROSS line's first 6-7 letters, its number with them: "cannot find a clue
+#: number at: 'lesmanfound under net (12)'", ~49 pages refused "no reading parses". The edge is MEASURED from the ink: when
+#: print crosses it (the dark share of its pixel columns over the columns' height, TELE_CUT_INK) the edge moves left to the
+#: white gutter, the first run of TELE_CUT_GAP px (at SCAN_WIDTH) without ink, less TELE_CUT_PAD; no gutter within
+#: TELE_CUT_REACH of the grid's width leaves it. Read-time only: no scan key moves.
+TELE_CUT_INK, TELE_CUT_GAP, TELE_CUT_PAD, TELE_CUT_REACH = 0.02, 14, 6, 0.2
+
+
+def tele_left_edge(img, x0, top, grid):
+    """`x0` (clues_left()) of the clue columns over a Gale Telegraph grid, moved left to the white gutter before the leftmost
+    ink of the lines that cross it (TELE_LEFT_CUT), else `x0`: the rows from `top` to the grid's top, the pixel columns
+    walked leftward from `x0`; the first TELE_CUT_GAP px wide run holding under TELE_CUT_INK ink ends the print."""
+    from PIL import Image
+    x0, top = int(x0), max(0, int(top))
+    k = img.width / SCAN_WIDTH
+    gap, reach = max(2, int(TELE_CUT_GAP * k)), int(TELE_CUT_REACH * (grid[2] - grid[0]))
+    lo = max(0, x0 - reach - gap)
+    if x0 < 1 or grid[1] - top < 100 or x0 - lo < 2 * gap:
+        return x0
+    band = img.crop((lo, top, x0 + 2, int(grid[1]))).convert("L").point(lambda v: 255 if v < 128 else 0)
+    ink = [v / 255 for v in band.resize((band.width, 1), Image.BOX).getdata()]
+    here = x0 - lo
+    if ink[here] < TELE_CUT_INK and ink[here + 1] < TELE_CUT_INK:
+        return x0  # no print crosses the edge: not cut
+    blank = 0
+    for x in range(here, -1, -1):
+        if ink[x] >= TELE_CUT_INK:
+            blank = 0
+            continue
+        blank += 1
+        if blank >= gap:
+            return max(0, lo + x - TELE_CUT_PAD) if x > 0 else x0
+    return x0
+
+
 def gutter(lines, grid, top, lo=None, hi=None):
     """The x between two clue columns over the grid: the middle of the
     longest run of x in [lo, hi) (by default the grid's middle half) that
@@ -15613,6 +15650,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     quickie = sunday and d.name[:10] < SUNDAY_QUICKIE_END
     x0 = gbox[0] - m if over_top is not None else clues_left(gbox, hit["box"], m) if top is not None \
         else sunday_left(gbox, quickie, img.width / SCAN_WIDTH) if sunday else None
+    # TELE_LEFT_CUT: print crossing the edge clues_left() set (a 1969-77 page's ACROSS numbers left of its grid) moves it out.
+    if x0 is not None and top is not None and over_top is None and paper.key == "galetelegraph":
+        x0 = tele_left_edge(img, x0, top, gbox)
     # (A 2000 weekday page sets both clue columns right of its grid, but the Quick crossword's list runs on
     # under it and read as the cryptic Down: no right_of cut for galetelegraph until it ends at the gap.)
     sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) \
