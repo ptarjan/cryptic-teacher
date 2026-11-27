@@ -2085,6 +2085,28 @@ def indy_wide_lead(paper, d, gbox, title, flat=False):
         and indented_column(title, gbox) is not None
 
 
+#: INDY_INDENT_LEAD (r307: 40 of the 77 Gale Independent 2000-04 pages refused "no reading parses" with "no ACROSS and DOWN lists
+#: under the grid"): the Monday-Friday page whose title (x 184-982, 798 px) stands over a grid set in from it (x 584-1306) has its
+#: ACROSS list in a column left of the grid (x 187-570, from the title's foot) and the DOWN list on in that column under the grid's
+#: foot and in two more beside it. The plain window's overhang() took the print right of the grid (the football summary, x 1336-1818)
+#: for a third column under it, so the window began at the grid's left edge and the left column, every ACROSS clue and the headings,
+#: was never read. A page whose grid is set in from its title by TITLE_INDENT (indented_column()) with text inked left of the grid
+#: under the title has no third column under the grid: its plain window is read from the lead column, no overhang.
+INDY_INDENT_LEAD = "Independent page whose clue column stood left of its grid under its title, read from that column since"
+
+
+def indy_indent_lead(paper, gbox, title, img):
+    """Whether the Independent page (grid `gbox`, title box `title`, scan `img`) has its grid set in from its title's left edge
+    (indented_column()) and the strip left of the grid under the title inked like text (RIGHT_INK of its pixels dark)."""
+    if paper.key != "galeindependent" or gbox is None or not title:
+        return False
+    lead = indented_column(title, gbox)
+    if lead is None or gbox[0] - 5 - lead[0] < 2 or gbox[3] - title[3] < 2:
+        return False
+    strip = img.crop((lead[0], title[3], gbox[0] - 5, min(img.height, gbox[3]))).convert("L")
+    return sum(strip.histogram()[:128]) >= RIGHT_INK * strip.width * strip.height
+
+
 def indy_rise(paper, d, raised=False):
     """The `rise` of right_columns for a Gale Independent page of 2011-13 (INDY_RIGHT_RISE), else RIGHT_RISE; the other years'
     pages read it as the window after the layout's (`raised`: the "rise" alt, tried where the layout's read is poor)."""
@@ -15636,7 +15658,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # window's two columns cut the third off at the gutter: every down clue past the 5th stood blank (INDY_OVER_PLAIN).
     if kind == "plain" and paper.key == "galeindependent" and side == "below" and top is None and not sides \
             and not column and not third and not paper.four and not two_columns_only(paper, d) \
-            and not indy_wide_lead(paper, d, gbox, hit["box"], alt_x == "flat"):
+            and not indy_wide_lead(paper, d, gbox, hit["box"], alt_x == "flat") \
+            and not (alt_x == "flat" and indy_indent_lead(paper, gbox, hit["box"], img)):
         over = overhang(img, gbox)
     if right and paper.key == "galeft":
         right = ft_foot(img, gbox, right)
@@ -15645,7 +15668,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # The other years' wide-title pages: the plain window again without the third column's overhang (INDY_WIDE_LEAD's read).
     if alts is not None and kind is None and paper.key == "galeindependent" and side == "below" and top is None and not sides \
             and not column and not third and not paper.four and not two_columns_only(paper, d) \
-            and not year_in(INDY_WIDE_LEAD_FIRST_YEARS, d.name) and indy_wide_lead(paper, d, gbox, hit["box"], True):
+            and (not year_in(INDY_WIDE_LEAD_FIRST_YEARS, d.name) and indy_wide_lead(paper, d, gbox, hit["box"], True)
+                 or indy_indent_lead(paper, gbox, hit["box"], img)):
         alts.append(("plain", "flat"))
     # A 1939-12 to 1940 Gale Times page that ends soon under its grid: the clue lists run on in two columns right
     # of it (RIGHT_WIDE_DAYS), a window of its own, tried first once the layout's is poor.
