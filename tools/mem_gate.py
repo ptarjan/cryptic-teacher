@@ -340,21 +340,24 @@ def save_pool(path=None, drops=None, steady=None):
         return False
 
 
-def note_avail(history, now, avail, ceiling, drops=None, span=None):
+def note_avail(history, now, avail, ceiling, drops=None, span=None, full=True):
     """One probe's MemAvailable (`avail` bytes; None: nothing) at `ceiling`, added to `history` (the
-    caller's deque of (time, avail, ceiling)). Each probe now `span` (DROP_SPAN) seconds old leaves history
-    and, when every probe within `span` after it ran at its ceiling and they reach at least half the span,
-    records in `drops` (DROPS) how far MemAvailable fell under its own reading in that time (0: it never
-    did). A window the ceiling moved in says what the step did, not how the pool swings, and is left out."""
+    caller's deque of (time, avail, ceiling, full)). Each probe now `span` (DROP_SPAN) seconds old leaves
+    history and, when every probe within `span` after it ran at its ceiling and they reach at least half the
+    span, records in `drops` (DROPS) how far MemAvailable fell under its own reading in that time (0: it
+    never did). A window the ceiling moved in says what the step did, not how the pool swings, and is left
+    out; so is one begun on a pool that was not `full` (running units more than IDLE_SLACK under the
+    ceiling, as after a re-exec's plan): its fall is the pool refilling (11-26 20:29: 4-5.8 GB in 5 min
+    after a re-exec), which up_reserve charges by the empty slots instead."""
     drops = DROPS if drops is None else drops
     span = DROP_SPAN if span is None else span
     if avail is None:
         return
-    history.append((now, avail, ceiling))
+    history.append((now, avail, ceiling, bool(full)))
     while history and now - history[0][0] >= span:
-        t0, a0, c0 = history.popleft()
-        window = [(t, a, c) for t, a, c in history if t - t0 <= span]
-        if window and window[-1][0] - t0 >= span / 2 and all(c == c0 for _, _, c in window):
+        t0, a0, c0, was_full = history.popleft()
+        window = [(t, a, c) for t, a, c, _ in history if t - t0 <= span]
+        if was_full and window and window[-1][0] - t0 >= span / 2 and all(c == c0 for _, _, c in window):
             drops.append(max(0, a0 - min(a for _, a, _ in window)))
 
 
@@ -397,7 +400,9 @@ def up_reserve(running, adding, peaks=None, drops=None, steady=None):
     Rule: a pool of units at a fixed ceiling is stationary (as one unit grows another ends and a small one
     starts), so what a step up costs is not every running unit's growth to its peak but three things, each
     measured here and none assumed:
-      new     `adding` x steady_size(None): what one more slot holds averaged over a unit's life;
+      new     `adding` x steady_size(None): what one more slot holds averaged over a unit's life (the
+              controller counts as added every slot under the new ceiling with no unit in it yet, not
+              only the step's own: fill_slots);
       young   how far the `running` units ([(kind, resident bytes)]) are, together, under the sum of their
               kinds' steady sizes (a pool just started, or stepped up a probe ago, has that growth still to
               come; a grown pool has none);
@@ -424,6 +429,13 @@ def up_reserve(running, adding, peaks=None, drops=None, steady=None):
                    f"are under their steady size + {swing >> 20} MB "
                    + (f"p{int(RESERVE_Q * 100)} fall in {DROP_SPAN} s of {len(drops)} measured" if measured
                       else f"default fall ({len(drops)} of {DROP_MIN} measured)"))
+
+
+def fill_slots(cur, new, running):
+    """The units a step up from `cur` to `new` lets start: the step's own and the slots under `cur` that
+    `running` units (None or 0: unknown, the step alone) do not fill yet, whose memory MemAvailable has
+    not been charged either."""
+    return max(new - cur, new - running) if running else new - cur
 
 
 def step_up_held(cur, new, now, cool_until, vm_avail, reserve=None):
@@ -602,7 +614,9 @@ class CeilingController:
     def _run(self):
         # Every probe measures the reserve's inputs, whether or not it steps: how MemAvailable moves at a
         # standing ceiling, and what each running unit holds now.
-        note_avail(self.seen, time.monotonic(), available(), unit_ceiling())
+        at = unit_ceiling()
+        note_avail(self.seen, time.monotonic(), available(), at,
+                   full=self.running is None or self.running >= at - IDLE_SLACK)
         for p, r in (tree_rss(list(self.kinds)) if self.kinds else {}).items():
             record_steady(self.kinds.get(p, ""), r)
         swap = self._swap_rate()
@@ -637,7 +651,7 @@ class CeilingController:
         reserve = None
         if new > cur:
             sizes = tree_rss(list(self.kinds)) if self.kinds else {}  # (read again: a cache drop slept DROP_SETTLE)
-            reserve = up_reserve([(self.kinds.get(p, ""), r) for p, r in sizes.items()], new - cur)
+            reserve = up_reserve([(self.kinds.get(p, ""), r) for p, r in sizes.items()], fill_slots(cur, new, len(sizes)))
         held = step_up_held(cur, new, now, self.cool_until, avail, reserve)
         if held is None and new == cur and swap and swap > SWAP_HOLD_MB and ceiling_step(
                 cur, free, cpu, int(env("CT_CEILING_LO") or 8), int(env("CT_CEILING_HI") or CEILING_HI),

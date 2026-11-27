@@ -110,8 +110,15 @@ seen, got = collections.deque(), []
 for t, a in [(0, 7000), (120, 6000), (900, 5000), (1800, 4000)]:
     mg.note_avail(seen, t, a * M, 14, got, 600)
 check("a probe followed by under half a span of probes records nothing", [], got)
+seen, got = collections.deque(), []
+for i, a in enumerate([11000, 7000, 6500, 7200, 7000, 6900, 7100, 7000]):
+    mg.note_avail(seen, i * 120, a * M, 14, got, 600, full=i > 0)
+check("a window begun on a part-idle pool (a refill) is left out", [500 * M, 0], got)
+check("fill_slots: the step's own units, plus the slots no unit fills yet; unknown count: the step alone",
+      (2, 4, 2, 2, 2), (mg.fill_slots(14, 16, 14), mg.fill_slots(14, 16, 12), mg.fill_slots(14, 16, 15),
+                        mg.fill_slots(14, 16, 0), mg.fill_slots(14, 16, None)))
 mg.note_avail(seen, 0, None, 14, got, 600)
-check("no MemAvailable figure: nothing noted", [], got)
+check("no MemAvailable figure: nothing noted", [500 * M, 0], got)
 h = {}
 mg.record_steady("read", 0, h)
 mg.record_steady("read", 5 * M, h)
