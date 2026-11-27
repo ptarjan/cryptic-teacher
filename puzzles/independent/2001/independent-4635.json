@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,28 @@
     "text": "System of writing verses",
     "enumeration": "6"
    },
-   "solution": "METRIC"
+   "solution": "METRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "System",
+      "at": 0
+     },
+     {
+      "text": "of writing verses",
+      "at": 7
+     }
+    ],
+    "explanation": {
+     "surface": "A method for composing poetry.",
+     "definitionFit": "A metric is a system of measurement, and metric verse is poetry composed in regular metre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "System"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +69,60 @@
     "text": "Pithy phrase promoted non-dairy spread, very good for digestion",
     "enumeration": "7"
    },
-   "solution": "EPIGRAM"
+   "solution": "EPIGRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pithy phrase",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "for digestion",
+       "at": 50,
+       "note": "the spread takes the other piece into its middle as if eating it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "promoted",
+         "at": 13,
+         "note": "in a down clue, promoted means the word is moved upwards, so read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "non-dairy spread",
+         "at": 22,
+         "gives": "MARGE",
+         "note": "marge is short for margarine, a butter substitute"
+        }
+       ]
+      },
+      {
+       "words": "very good",
+       "at": 40,
+       "gives": "PI",
+       "note": "pi is slang for pious, very good"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Margarine, marketed as healthy for the stomach, gets a catchy slogan.",
+     "walkthrough": "'promoted' turns MARGE into EGRAM, and 'for digestion' has that swallow PI.",
+     "definitionFit": "An epigram is a short witty saying, a terse remark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +136,40 @@
     "text": "Big bird seen in Leatherhead",
     "enumeration": "4"
    },
-   "solution": "RHEA"
+   "solution": "RHEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Big bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 9,
+       "note": "the bird is visible inside the letters of the town name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Leatherhead",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A large bird spotted in a Surrey town.",
+     "walkthrough": "Leatherhead is a town in Surrey, England.",
+     "definitionFit": "The rhea is a large flightless South American ratite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +183,61 @@
     "text": "Party game prince left out for a duchess",
     "enumeration": "8"
    },
-   "solution": "CHARADES"
+   "solution": "CHARADES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Party game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "out for",
+       "at": 23,
+       "note": "one letter goes out and something else replaces it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prince",
+       "at": 11,
+       "gives": "CHARLES",
+       "note": "Charles was long the best-known British prince"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 31,
+         "gives": "A"
+        },
+        {
+         "words": "duchess",
+         "at": 33,
+         "gives": "D",
+         "note": "D is an abbreviation for duchess"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal skips a party to visit a duchess instead.",
+     "walkthrough": "'out for' swaps L in CHARLES for A and D.",
+     "definitionFit": "Charades is a parlour game of miming words for others to guess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +251,40 @@
     "text": "Small government department established",
     "enumeration": "6"
    },
-   "solution": "MODEST"
+   "solution": "MODEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "government department",
+       "at": 6,
+       "gives": "MOD",
+       "note": "MOD is the UK Ministry of Defence"
+      },
+      {
+       "words": "established",
+       "at": 28,
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minor ministry is set up.",
+     "definitionFit": "Modest means humble or slight in size, little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +298,48 @@
     "text": "Baleful maiden put on dress",
     "enumeration": "6"
    },
-   "solution": "MALIGN"
+   "solution": "MALIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Baleful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 15,
+       "note": "in a down clue one piece is placed on top of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "maiden",
+       "at": 8,
+       "gives": "M",
+       "note": "M is the cricket abbreviation for a maiden over"
+      },
+      {
+       "words": "dress",
+       "at": 22,
+       "gives": "ALIGN",
+       "note": "to dress ranks is to align troops in straight lines"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy girl gets dressed.",
+     "definitionFit": "Malign means evil or harmful in influence, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +353,39 @@
     "text": "Hopeless rep teased dreadfully",
     "enumeration": "9"
    },
-   "solution": "DESPERATE"
+   "solution": "DESPERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hopeless",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dreadfully",
+       "at": 20,
+       "note": "done dreadfully, the letters of these two words are mangled into new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rep teased",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman was mocked terribly and is in despair.",
+     "definitionFit": "Desperate describes a situation beyond hope, dire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +399,47 @@
     "text": "Distorted representation of railway town in South Dakota",
     "enumeration": "7"
    },
-   "solution": "SCREWED"
+   "solution": "SCREWED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distorted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 41,
+       "note": "the town sits inside the state's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "South Dakota",
+       "at": 44,
+       "gives": "SD",
+       "note": "SD is the postal abbreviation for South Dakota"
+      },
+      {
+       "words": "railway town",
+       "at": 28,
+       "gives": "CREWE",
+       "note": "Crewe in Cheshire is a famous railway junction town"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muddled picture of a rail town placed in the American Midwest.",
+     "definitionFit": "Screwed can mean twisted or warped out of shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +453,73 @@
     "text": "Women left to ring one in new health executive",
     "enumeration": "9"
    },
-   "solution": "WHITEHALL"
+   "solution": "WHITEHALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "executive",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Women",
+       "at": 0,
+       "gives": "W"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 23,
+         "note": "the numeral goes inside the rearranged word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "at": 26,
+           "note": "new signals the word health in a fresh arrangement"
+          }
+         ],
+         "parts": [
+          {
+           "words": "health",
+           "at": 30
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 19,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 6,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women are asked to phone a newly appointed health boss.",
+     "walkthrough": "'new' turns HEALTH into an arrangement that, with I put 'in', gives HITEHAL; 'to ring' joins the L on.",
+     "definitionFit": "Whitehall is the London street of ministries, used to mean the UK civil service and government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +539,34 @@
      }
     ]
    },
-   "solution": "WIZARDPRANG"
+   "solution": "WIZARDPRANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spell disaster?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Spell disaster?",
+       "at": 0,
+       "note": "read as a magician's mishap: an excellent crash in old RAF slang, or a calamity with a spell"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Wizard prang is old RAF slang for a spectacular crash, and a wizard casts spells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spell"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +580,49 @@
     "text": "Typically, elder journalist needed about an hour",
     "enumeration": "5"
    },
-   "solution": "SHRUB"
+   "solution": "SHRUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Typically, elder",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "needed about",
+       "at": 28,
+       "note": "the journalist goes around the hour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "journalist",
+       "at": 17,
+       "gives": "SUB",
+       "note": "a sub is a subeditor on a newspaper"
+      },
+      {
+       "words": "an hour",
+       "at": 41,
+       "gives": "HR",
+       "note": "HR is the abbreviation for hour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aging reporter required an hour.",
+     "walkthrough": "'elder' looks like an older person, but it is the elderberry bush; 'Typically' marks it as an example.",
+     "definitionFit": "The elder is one example of a woody bush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "elder"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +646,34 @@
      }
     ]
    },
-   "solution": "BABYONBOARD"
+   "solution": "BABYONBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most junior director seen through rear window?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Most junior director seen through rear window?",
+       "at": 0,
+       "note": "a newest boardroom member, and the infant sticker displayed in the back of a car"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A baby is the youngest, and on the board is where directors sit; the sign hangs in car rear windows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "director"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +687,61 @@
     "text": "Nothing about entering Australia, on reflection",
     "enumeration": "4"
    },
-   "solution": "ZERO"
+   "solution": "ZERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nothing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on reflection",
+       "at": 34,
+       "note": "as in a mirror, the whole is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entering",
+         "at": 14,
+         "note": "the word for about goes inside the nickname"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Australia",
+         "at": 23,
+         "gives": "OZ",
+         "note": "Oz is a nickname for Australia"
+        },
+        {
+         "words": "about",
+         "at": 8,
+         "gives": "RE",
+         "note": "re means about, concerning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing about going into Australia, when you think it over.",
+     "walkthrough": "'entering' gives ORE; 'on reflection' reverses that.",
+     "definitionFit": "Zero is nought, the figure for none."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +761,41 @@
      }
     ]
    },
-   "solution": "TANGLEDWEB"
+   "solution": "TANGLEDWEB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "result of practising deceit?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 12,
+       "note": "bawled out suggests a scolding, but out here means the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gent bawled",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man shouted down: the upshot of lying.",
+     "walkthrough": "The quotation 'Oh what a tangled web we weave, when first we practise to deceive' is from Scott's Marmion.",
+     "definitionFit": "Lies proverbially weave a complicated mesh that traps the liar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +809,43 @@
     "text": "Recall person in sapper unit?",
     "enumeration": "8"
    },
-   "solution": "REMEMBER"
+   "solution": "REMEMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recall",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sapper unit",
+       "at": 17,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, whose soldiers are called sappers"
+      },
+      {
+       "words": "person in",
+       "at": 7,
+       "gives": "MEMBER",
+       "note": "a member is a person belonging to a group"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier in the Royal Engineers is called back.",
+     "walkthrough": "Read as RE-MEMBER, one who belongs to the Royal Engineers.",
+     "definitionFit": "To recall is to bring back to mind, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Recall"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +865,40 @@
      }
     ]
    },
-   "solution": "MARCHPAST"
+   "solution": "MARCHPAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "parade",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Border",
+       "at": 0,
+       "gives": "MARCH",
+       "note": "a march is a border region, as in the Welsh Marches"
+      },
+      {
+       "words": "history",
+       "at": 7,
+       "gives": "PAST",
+       "note": "history is the past"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Borderland history shown in a procession.",
+     "definitionFit": "A march past is a ceremonial parade of troops before a dignitary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +912,58 @@
     "text": "Sound when girl appears in gold ring",
     "enumeration": "5"
    },
-   "solution": "AUDIO"
+   "solution": "AUDIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appears in",
+       "at": 16,
+       "note": "the girl's name is placed inside the gold ring"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 27,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        },
+        {
+         "words": "ring",
+         "at": 32,
+         "gives": "O",
+         "note": "O is ring-shaped"
+        }
+       ]
+      },
+      {
+       "words": "girl",
+       "at": 11,
+       "gives": "DI",
+       "note": "Di is a short girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noise as a girl shows up wearing a golden ring.",
+     "definitionFit": "Audio means relating to recorded or transmitted sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +977,41 @@
     "text": "Warm room, such as you'll find all over the country",
     "enumeration": "8"
    },
-   "solution": "AIRSPACE"
+   "solution": "AIRSPACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "such as you'll find all over the country",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Warm",
+       "at": 0,
+       "gives": "AIR",
+       "note": "to air clothes is to warm them"
+      },
+      {
+       "words": "room",
+       "at": 5,
+       "gives": "SPACE",
+       "note": "room means space"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heated spaces exist everywhere across the land.",
+     "walkthrough": "The definition describes the sky above a nation, which covers the whole territory.",
+     "definitionFit": "A nation's controlled sky extends over its entire land area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1025,55 @@
     "text": "First signs of penguins on leaving Argentine Republic for Antarctic",
     "enumeration": "5"
    },
-   "solution": "POLAR"
+   "solution": "POLAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Antarctic",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "First signs of",
+       "at": 0,
+       "note": "the opening letter of each following word is picked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "penguins",
+       "at": 15
+      },
+      {
+       "words": "on",
+       "at": 24
+      },
+      {
+       "words": "leaving",
+       "at": 27
+      },
+      {
+       "words": "Argentine",
+       "at": 35
+      },
+      {
+       "words": "Republic",
+       "at": 45
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Penguins depart Argentina to head south.",
+     "definitionFit": "Polar means near the pole, and Antarctica surrounds the South Pole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1087,27 @@
     "text": "Permit excessive liberty",
     "enumeration": "7"
    },
-   "solution": "LICENCE"
+   "solution": "LICENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Permit",
+      "at": 0
+     },
+     {
+      "text": "excessive liberty",
+      "at": 7
+     }
+    ],
+    "explanation": {
+     "surface": "Permission becomes overindulgence.",
+     "definitionFit": "A licence is official permission, and also disregard for rules, abuse of freedom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1127,41 @@
      }
     ]
    },
-   "solution": "TIMEBOMB"
+   "solution": "TIMEBOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trouble stored up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "enemy",
+       "at": 21,
+       "gives": "TIME",
+       "note": "time is often called the enemy, as in time the old enemy"
+      },
+      {
+       "words": "mine",
+       "at": 27,
+       "gives": "BOMB",
+       "note": "a mine is an explosive, a bomb"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Danger lies ahead from a hostile explosive.",
+     "definitionFit": "A figurative fuse is a problem that will erupt later."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enemy"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1175,69 @@
     "text": "In French department, cricket team ultimately appeared to get rusty",
     "enumeration": "7"
    },
-   "solution": "OXIDISE"
+   "solution": "OXIDISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "get rusty",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the opening word puts the following pieces inside the department"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French department",
+       "at": 3,
+       "gives": "OISE",
+       "note": "Oise is a department north of Paris"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cricket team",
+         "at": 22,
+         "gives": "XI",
+         "note": "a cricket side is an eleven, XI"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 35,
+           "note": "ultimately points at the final letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "appeared",
+           "at": 46
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cricketers in France seemed to be out of practice.",
+     "definitionFit": "To oxidise is to combine with oxygen, as iron does when it corrodes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rusty"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1251,71 @@
     "text": "Run round a bay, being initially unfit",
     "enumeration": "6"
    },
-   "solution": "FLABBY"
+   "solution": "FLABBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unfit",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 4,
+       "note": "the running word wraps around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Run",
+       "at": 0,
+       "gives": "FLY",
+       "note": "to fly is to run away, flee"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 23,
+           "note": "takes the first letter of each word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bay",
+           "at": 12
+          },
+          {
+           "words": "being",
+           "at": 17
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jogging around a bay when out of shape.",
+     "definitionFit": "Flabby means slack and soft in muscle, out of condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1329,34 @@
     "text": "Problem involving an inordinate number of units?",
     "enumeration": "10"
    },
-   "solution": "ALCOHOLISM"
+   "solution": "ALCOHOLISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Problem involving an inordinate number of units?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Problem involving an inordinate number of units?",
+       "at": 0,
+       "note": "looks like a maths puzzle, but the units are measures of drink"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Units measure drink consumption; drinking too many habitually is a dependency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "units"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1370,47 @@
     "text": "Flying bomb has absolute endorsement",
     "enumeration": "4"
    },
-   "solution": "VISA"
+   "solution": "VISA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "endorsement",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Flying bomb",
+       "at": 0,
+       "gives": "VI",
+       "note": "the V1 was the German flying bomb of WWII"
+      },
+      {
+       "words": "has",
+       "at": 12,
+       "gives": "S",
+       "note": "'s is a contraction of has"
+      },
+      {
+       "words": "absolute",
+       "at": 16,
+       "gives": "A",
+       "note": "A stood for absolute, as in degrees A on the old absolute temperature scale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doodlebug gets complete approval.",
+     "definitionFit": "A visa is an endorsement stamped in a passport permitting entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "absolute"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1424,54 @@
     "text": "Exotic vegetable raised in Sark once",
     "enumeration": "4"
    },
-   "solution": "OKRA"
+   "solution": "OKRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exotic vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "raised",
+       "at": 17,
+       "note": "raised says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sark once",
+         "at": 27,
+         "gives": "ARKO",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign vegetable grown on Sark in the past.",
+     "walkthrough": "Sark is one of the Channel Islands; in a down clue 'raised' reads upwards.",
+     "definitionFit": "Okra is the pods of a tropical plant, ladies' fingers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1485,58 @@
     "text": "Dope setting article on New Jersey in Georgia",
     "enumeration": "5"
    },
-   "solution": "GANJA"
+   "solution": "GANJA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dope",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 35,
+       "note": "the pieces are put inside the Georgia letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Georgia",
+       "at": 38,
+       "gives": "GA",
+       "note": "GA is the postal abbreviation for Georgia"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "article",
+         "at": 13,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        },
+        {
+         "words": "New Jersey",
+         "at": 24,
+         "gives": "NJ",
+         "note": "NJ is the postal abbreviation for New Jersey"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs travel from New Jersey to Georgia.",
+     "definitionFit": "Ganja is cannabis, and dope is slang for that drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1550,42 @@
     "text": "Boycott's given umpire a pie filling",
     "enumeration": "9"
    },
-   "solution": "BLACKBIRD"
+   "solution": "BLACKBIRD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a pie filling",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boycott's",
+       "at": 0,
+       "gives": "BLACK",
+       "note": "to black goods is to boycott them, a trade-union term"
+      },
+      {
+       "words": "umpire",
+       "at": 16,
+       "gives": "BIRD",
+       "note": "Dickie Bird was a famous English cricket umpire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Geoffrey Boycott, the Yorkshire batsman, hands the umpire a pie.",
+     "walkthrough": "The nursery rhyme has four and twenty blackbirds baked in a pie.",
+     "definitionFit": "In the rhyme Sing a Song of Sixpence, birds are baked into a pie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Boycott's"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1599,47 @@
     "text": "Well-bred people hear information first",
     "enumeration": "6"
    },
-   "solution": "GENTRY"
+   "solution": "GENTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-bred people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 34,
+       "note": "says the information piece comes before the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "information",
+       "at": 22,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "words": "hear",
+       "at": 17,
+       "gives": "TRY",
+       "note": "a judge hears a case, that is tries it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Upper-class folk listen to the facts before anything else.",
+     "definitionFit": "Gentry are the class of people of good birth just below nobility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1653,61 @@
     "text": "Shiny coat fellow in shelter returned",
     "enumeration": "6"
    },
-   "solution": "ENAMEL"
+   "solution": "ENAMEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shiny coat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returned",
+       "at": 29,
+       "note": "the combined piece is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 18,
+         "note": "the fellow goes inside the shelter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shelter",
+         "at": 21,
+         "gives": "LEE",
+         "note": "lee is shelter from wind"
+        },
+        {
+         "words": "fellow",
+         "at": 11,
+         "gives": "MAN",
+         "note": "a fellow is a man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in a refuge came back with a glossy jacket.",
+     "walkthrough": "'in' gives LEMANE, which 'returned' reverses.",
+     "definitionFit": "Enamel is a glossy paint or glaze coating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   }
  ]
 }
