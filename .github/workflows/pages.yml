@@ -397,46 +397,55 @@ jobs:
         run: bash tools/make_og.sh --all
         env:
           OG_LIMIT: "120"
-      # A cold render of the ~60k puzzle pages costs ~8.4ms a page (run 42540698988:
-      # 9954 pages a shard of 6 in 84s plus 7s startup = 93-96s, over the 90s budget;
-      # it was ~62s when the corpus was ~54k). A page-code change makes every build
-      # cold, and the corpus only grows, so the pages are rendered in 9 shards
-      # (~6.7k pages, ~63s cold; warm builds take 21-32s), one step each
+      # A cold render costs ~8.4ms a page plus ~7s startup, and the corpus only
+      # grows: 9 shards took 85-90s on a full build and 91-97s a few hours later
+      # against the 90s budget. A page-code change makes every build cold, so the
+      # pages are rendered in 12 shards (~5k pages, ~70s cold; warm builds take
+      # 21-32s), one step each
       # (`--shard i/n`: pages whose id hashes to i), and the step after them
-      # (`--assemble 9`) checks every page was rendered by exactly one shard,
+      # (`--assemble 12`) checks every page was rendered by exactly one shard,
       # then writes the hub, listings and sitemaps from what the shards left in
       # .page-shards/. Same files, byte for byte, as `python3 tools/build_seo_pages.py` makes alone.
-      - name: Generate the crawlable pages, shard 1 of 9
+      - name: Generate the crawlable pages, shard 1 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 0/9
-      - name: Generate the crawlable pages, shard 2 of 9
+        run: python3 tools/build_seo_pages.py --shard 0/12
+      - name: Generate the crawlable pages, shard 2 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 1/9
-      - name: Generate the crawlable pages, shard 3 of 9
+        run: python3 tools/build_seo_pages.py --shard 1/12
+      - name: Generate the crawlable pages, shard 3 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 2/9
-      - name: Generate the crawlable pages, shard 4 of 9
+        run: python3 tools/build_seo_pages.py --shard 2/12
+      - name: Generate the crawlable pages, shard 4 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 3/9
-      - name: Generate the crawlable pages, shard 5 of 9
+        run: python3 tools/build_seo_pages.py --shard 3/12
+      - name: Generate the crawlable pages, shard 5 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 4/9
-      - name: Generate the crawlable pages, shard 6 of 9
+        run: python3 tools/build_seo_pages.py --shard 4/12
+      - name: Generate the crawlable pages, shard 6 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 5/9
-      - name: Generate the crawlable pages, shard 7 of 9
+        run: python3 tools/build_seo_pages.py --shard 5/12
+      - name: Generate the crawlable pages, shard 7 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 6/9
-      - name: Generate the crawlable pages, shard 8 of 9
+        run: python3 tools/build_seo_pages.py --shard 6/12
+      - name: Generate the crawlable pages, shard 8 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 7/9
-      - name: Generate the crawlable pages, shard 9 of 9
+        run: python3 tools/build_seo_pages.py --shard 7/12
+      - name: Generate the crawlable pages, shard 9 of 12
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 8/9
+        run: python3 tools/build_seo_pages.py --shard 8/12
+      - name: Generate the crawlable pages, shard 10 of 12
+        if: steps.scope.outputs.fast != 'true'
+        run: python3 tools/build_seo_pages.py --shard 9/12
+      - name: Generate the crawlable pages, shard 11 of 12
+        if: steps.scope.outputs.fast != 'true'
+        run: python3 tools/build_seo_pages.py --shard 10/12
+      - name: Generate the crawlable pages, shard 12 of 12
+        if: steps.scope.outputs.fast != 'true'
+        run: python3 tools/build_seo_pages.py --shard 11/12
       - name: Assemble the crawlable pages
         id: pages
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --assemble 9
+        run: python3 tools/build_seo_pages.py --assemble 12
       # The puzzle fast path's one step in place of the shards and the
       # assemble: the same build as `python3 tools/build_seo_pages.py`, whose
       # first pass reuses the stored pages in this process and sends only the
