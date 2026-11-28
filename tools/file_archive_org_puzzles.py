@@ -16934,6 +16934,16 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             if right_column is not None:
                 side = "below"
                 verdict["gridBox"] = "right of its title, one clue column left of it"
+        # SUNDAY_BESIDE: a page whose shaped grid stands right of its title banner, its top in the banner's own band (side
+        # "right"), with the ACROSS and DOWN headings side by side under the title, left of the grid: read as the pair of
+        # columns it is (sunday_times_pair, accepted only by its own evidence: both headings level, two numbered columns).
+        # The years only order it (the own years of the 2000-06 pairs first).
+        if tried(SUNDAY_PAIR_LATE_FIRST_YEARS) and side == "right" and gbox is not None and over_top is None \
+                and right_column is None and shaped_on(img, gbox) and gbox[1] <= hit["box"][3] + TITLE_OVERLAP:
+            right_column = sunday_times_pair(img, gbox, hit["box"], f"{d.name}_{n}", paper, late=True)
+            if right_column is not None:
+                side = "below"
+                verdict["gridBox"] = "right of its title, its two clue columns left of it"
         # A 1968-76 Gale Sunday Times page whose title stands under its grid, the clue columns over it (sunday_times_over).
         # (A grid found "above" is the winners-caption page's before 1976; later it is the page's own, read as found.)
         if tried(SUNDAY_OVER_FIRST_YEARS) and over_top is None and right_column is None \
