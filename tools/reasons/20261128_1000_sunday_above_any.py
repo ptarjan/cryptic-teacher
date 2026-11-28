@@ -15,7 +15,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Telegraph page whose ACROSS list starts over the grid's title, its ACROSS heading sought over the grid whatever the year since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T10:22:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def window_head(fa, rel, number):

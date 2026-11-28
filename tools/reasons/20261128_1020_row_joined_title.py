@@ -13,7 +13,7 @@ stamped GUARDIAN_READ but not GUARDIAN_JOINED, read before the push. Scanned aga
 from fix_reasons import Reason
 
 TEXT = "archive.org Guardian page with no puzzle, its title cut in two lines on one row joined since"
-REREAD = "2026-11-19T23:59:00+00:00"  # the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T10:22:00+00:00"  # the lander stamps the push minute (UTC)
 
 
 def rescan(row):
