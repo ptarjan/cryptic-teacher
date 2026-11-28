@@ -26,6 +26,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import puzzle_schema
+
 ROOT = Path(__file__).resolve().parent.parent
 DIRECTIONS = ("across", "down")
 
@@ -125,7 +127,8 @@ def main(argv):
                 why = why + [f"blog answers with no entry: {', '.join(unplaced)}"]
                 forced = False
             elif changed:
-                (ROOT / name).write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+                # Keys in the schema's order, as every puzzle writer keeps them.
+                (ROOT / name).write_text(json.dumps(puzzle_schema.order(puzzle), indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
                 subprocess.run(["git", "add", "--", name], cwd=ROOT, check=True)
         if why and not forced:
             kept += 1
