@@ -38,7 +38,7 @@ PACE = 2.0
 #: entries cached by an older one are looked up again (stale), and an
 #: edition an older one fetched with no grid found is fetched again
 #: (gale_fetch.have_docs).
-MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 8, "FTHA": 3, "INDA": 2, "STHA": 5, "TLSH": 2}
+MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 8, "FTHA": 3, "INDA": 3, "STHA": 5, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -134,7 +134,7 @@ def crosswords(prod, titles, number=None, sunday=False):
     # two-into-one puzzles.
     # The Times' index on page 2 lists "Crossword 95 Today's Weather" (the
     # page it is on), and its news reports the championship.
-    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|jigsaw|times ?(two|2)\b|\bt2\b|mephisto|french"
+    bad = re.compile(r"concis[a-z]|solution|winners|report on|quick|jumbo|jigsaw|times ?(two|2)\b|\bt2\b|mephisto|french"
                      r"|general knowledge|champion\b|\bcontest|today's weather|miscellany"
                      + ("" if prod in ("TGRH", "TTDA") else r"|two-into-one")
                      + ("" if prod == "LSNR" else r"|listener")
@@ -161,6 +161,11 @@ def crosswords(prod, titles, number=None, sunday=False):
         # else plain "Crossword" (a news digest's line can be titled so too); "Crosswords",
         # "Picture Crossword", "Crossword Range" ads and features come last.
         cands.sort(key=lambda i: next((k for k, p in enumerate(STHA_RANKS) if p.search(titles[i])), len(STHA_RANKS)))
+    if prod == "INDA":
+        # The daily puzzle's own title ("The Independent Crossword", "The Saturday Crossword") before the
+        # features, offers and magazine puzzles the contents may list first ("Crossword Puzzlers out for
+        # a Duck: Don Manley Explains Himself" on the Saturday games page, "Crossword 152" in the magazine).
+        cands.sort(key=lambda i: not INDA_DAILY.search(titles[i]))
     if prod == "INDA":  # the Sunday's puzzle is "Beelzebub Crossword No 954", beside "The Prize Crossword"
         cands.sort(key=lambda i: not re.search(r"beelzebub", titles[i], re.IGNORECASE))
     if prod == "TGRH":
@@ -216,6 +221,20 @@ SUNDAY_NUMBERED = re.compile(r"[cg]ross-? ?w[oa]rd\W*(?:competition\W*)?no\b\.?\
 #: "Beelzebub prize crossword", 2014-16 "Beelzebub Crossword" and, alone in
 #: 2011, "The Prize Crossword"); the Beelzebub name or that exact title is no ad.
 INDA_CRYPTIC = re.compile(r"^\W*(?:beelzebub\b.*cross|the prize cross-? ?w[oa]rd\W*$)", re.IGNORECASE)
+#: The Independent's daily cryptic as Gale titles it: "The Independent Crossword" (1986-98), "The Monday
+#: Crossword" to "The Saturday (Prize) Crossword" (OCR's "Wedenesday", "Tuseday", "Thur'sday" too), "Weekend
+#: Crossword", "(Prize) Cryptic crossword #N" (OCR's "Crytic"); not a feature or offer naming it ("How to Solve
+#: the Independent Crossword", "Crossword Guide Offer", "Cryptic confessions of a crossword addict").
+INDA_DAILY = re.compile(r"^\W*(?:the\W+)?(?:independent|(?:mon|tu\w*|we\w*|th[\w']*|fri|sat\w*)day(?:\W+prize)?|weekend"
+                        r"|(?:prize\W+)?cr[a-z]*tic)\W+cross-? ?w[oa]rd\b", re.IGNORECASE)
+
+
+def inda_puzzle(title):
+    """Whether `title` is an Independent puzzle's own: the daily's (INDA_DAILY) or the Sunday's
+    (sunday_numbered)."""
+    return bool(INDA_DAILY.search(title) or sunday_numbered("INDA", title))
+
+
 #: Gale's OCR spells the dashes as hyphens, en or em dashes, spaced or not,
 #: and once a "Christmas" or a hyphen before "Crossword" (1988-91).
 SUNDAY_TWO_IN_ONE = re.compile(r"two\s*[-\u2013\u2014]\s*in(?:to)?\s*[-\u2013\u2014]\s*one[\s\-\u2013\u2014]*(?:christmas\s+)?cross",
@@ -458,7 +477,8 @@ def stale(prod, e):
     """Whether cache entry `e` is to be looked up again: its document is
     rejected, or it was cached by an older matcher, and a miss or (the
     Times) a title this one rejects or ranks below the cryptic's, or (the
-    Telegraph) a title with no puzzle number."""
+    Telegraph) a title with no puzzle number, or (the Independent) a title
+    not its puzzle's own (inda_puzzle)."""
     if str(e.get("doc", "")).upper() in REJECTED_DOCS:
         return True
     if e.get("kind") in KINDS:
@@ -471,6 +491,8 @@ def stale(prod, e):
         return not numbered(e.get("title") or "")
     if prod == "STHA":  # picked before the numbered title outranked the rest
         return not STHA_PUZZLE.search(e.get("title") or "")
+    if prod == "INDA":  # a feature listed before the puzzle, picked before the puzzle's title outranked it
+        return not inda_puzzle(e.get("title") or "")
     return prod == "TTDA" and not (crossword(prod, [e["title"]]) == 0 and TIMES_CRYPTIC.search(e["title"]))
 
 

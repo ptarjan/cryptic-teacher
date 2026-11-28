@@ -505,9 +505,10 @@ def plan(got, skip=SKIP):
     held = held_products()
     for day in [] if "INDA" in held else gale_inbox.sunday_wanted("INDA"):
         out += want("INDA", day, docs, got)
-    # Telegraph editions laid out from a competition article: looked up again.
-    for day in gale_inbox.misfiled("TGRH"):
-        out += want("TGRH", day, docs, got)
+    # Telegraph and Independent editions laid out from an article not the puzzle's: looked up again.
+    for prod in gale_inbox.PUZZLE_TITLE:
+        for day in gale_inbox.misfiled(prod):
+            out += want(prod, day, docs, got)
     if len(out) < REPLAN:
         import gale_listener
         for day, number, report in gale_listener.wanted():

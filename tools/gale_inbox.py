@@ -831,14 +831,20 @@ def sunday_wanted(prod, today=None, laid=None):
     return other_wanted(prod, today, laid, sundays=True)
 
 
+#: Per product misfiled() checks, whether a cited title is its puzzle's own: the Telegraph's
+#: carries its number ("Crossword / 21,053", not "How to Crack the Cryptic Crossword ..."), the
+#: Independent's is its puzzle's title ("The Saturday Crossword", not "Crossword Puzzlers out
+#: for a Duck"). A paper not here is left alone: a title it cannot tell says nothing.
+PUZZLE_TITLE = {"TGRH": gale_docs.numbered, "INDA": gale_docs.inda_puzzle}
+
+
 def misfiled(prod="TGRH", laid=None):
     """[date] of each laid-out edition of OTHERS[prod] whose saved page cites
-    a document with no puzzle number in its title (the Telegraph's
-    "How to Crack the Cryptic Crossword ...", not "Crossword / 21,053"):
-    gale_docs.crossword picked a competition article. Newest first; the
-    fetcher looks each up again and fetches over it. Only the Telegraph so
-    far (an edition citing a title it cannot tell is left alone)."""
-    if prod != "TGRH":
+    a document whose title is not its puzzle's (PUZZLE_TITLE): gale_docs.crossword
+    picked another article. Newest first; the fetcher looks each up again
+    (gale_docs.stale) and fetches over it when the lookup names another
+    document."""
+    if prod not in PUZZLE_TITLE:
         return []
     other = OTHERS[prod]
     laid = editions() if laid is None else laid
@@ -848,7 +854,7 @@ def misfiled(prod="TGRH", laid=None):
         if not re.fullmatch(other.item.format(r"\d+"), item):
             continue
         cited = " ".join((s.get("cited") or "") for s in row.get("sources") or ())
-        if cited.strip() and not gale_docs.numbered(cited):
+        if cited.strip() and not PUZZLE_TITLE[prod](cited):
             out.append(datetime.date.fromisoformat(day))
     return sorted(out, reverse=True)
 
