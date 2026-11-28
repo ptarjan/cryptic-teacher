@@ -175,11 +175,24 @@ def steps(pos):
     return out
 
 
-def white_cells(gray):
+def mended(walls):
+    """`walls` grown one block up, down, left and right: a gap of up to two
+    blocks in a rule (a dashed rule, a scan's broken one) is closed."""
+    out = walls.copy()
+    out[1:, :] |= walls[:-1, :]
+    out[:-1, :] |= walls[1:, :]
+    out[:, 1:] |= walls[:, :-1]
+    out[:, :-1] |= walls[:, 1:]
+    return out
+
+
+def white_cells(gray, mend=False):
     """Steps 1-3's start on a grey image: ((ink, not_paper, box, walls,
     step, patches, side, across, down), None), `across` and `down` the
     (dy, dx) of each pair of cell-sized paper patches a cell apart, or
-    (None, why) when no lattice of white cells shows."""
+    (None, why) when no lattice of white cells shows. `mend`: the walls
+    grown a block each way first (mended), so rules printed dashed or broken
+    by the scan still wall their cells apart."""
     cut = otsu(gray)
     ink = gray < cut
     # Paper is only what is clearly paper: a faint rule between two white
@@ -204,6 +217,8 @@ def white_cells(gray):
         h, w = sub.shape
     step = 2
     walls = pooled(not_paper[y0:y0 + h, x0:x0 + w], step)
+    if mend:
+        walls = mended(walls)
     sh, sw = walls.shape
     # The white cells: paper patches walled in by rules. A cell's number
     # leaves it one patch; specks and the margin outside the frame are not
@@ -236,12 +251,18 @@ def lattice(img, width=LATTICE_WIDTH):
     crossword's lattice: at least LATTICE_PAIRS pairs of cell-sized paper
     patches a cell apart, across and down, read at `width` px wide. A photo
     or an advert can be as square and as big as a grid, but its paper is no
-    lattice of like cells."""
+    lattice of like cells. A grid whose rules are dashed or broken (the
+    Sunday Times' of the 1970s) lets its white cells run together, so its
+    walls are read mended (white_cells) when they are not read whole."""
     gray = img.convert("L")
     if gray.width > width:
         gray = gray.resize((width, max(1, round(gray.height * width / gray.width))), Image.LANCZOS)
-    got, _ = white_cells(np.asarray(gray, dtype=np.uint8))
-    return bool(got) and min(len(got[7]), len(got[8])) >= LATTICE_PAIRS
+    gray = np.asarray(gray, dtype=np.uint8)
+    for mend in (False, True):
+        got, _ = white_cells(gray, mend)
+        if got and min(len(got[7]), len(got[8])) >= LATTICE_PAIRS:
+            return True
+    return False
 
 
 def read_grid(path):

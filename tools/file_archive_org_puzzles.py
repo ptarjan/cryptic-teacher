@@ -7240,8 +7240,8 @@ def _grid_first_install():
             return _PLAIN["band_words"](img, band, which, cache_path)
         return grid_first_words(img, band, which, cache_path)
 
-    def grids_on(img, step=2, shaped=grid_shaped):
-        found = _PLAIN["grids_on"](img, step, shaped)
+    def grids_on(img, step=2, shaped=grid_shaped, close=0):
+        found = _PLAIN["grids_on"](img, step, shaped, close)
         if getattr(_GRID_FIRST, "paper", None) is None:
             return found
         return [g for g in found if grid_lined(img, g)] or found
@@ -7443,13 +7443,17 @@ def even_rules(share):
     return float(np.mean(np.abs(gaps - pitch) <= 0.25 * pitch)) >= INSET_EVEN
 
 
-def grids_on(img, step=2, shaped=grid_shaped):
+def grids_on(img, step=2, shaped=grid_shaped, close=0):
     """[box] of each grid-shaped patch of ink on a page (`shaped`, at least
-    GRID_FILL of its box inked, or INSET_FILL where inset_grid), found on a 1/step subsample."""
+    GRID_FILL of its box inked, or INSET_FILL where inset_grid), found on a 1/step subsample;
+    with `close`, gaps in the subsample's ink up to that many pixels across closed first
+    (a grid whose rules are dashed or broken is no one patch of ink)."""
     import numpy as np
     cv2 = ocr_clues.capped_cv2()
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
     ink = (gray < trove_grid.otsu(gray))[::step, ::step].astype(np.uint8)
+    if close:
+        ink = cv2.morphologyEx(ink, cv2.MORPH_CLOSE, np.ones((close, close), np.uint8))
     _, _, stats, _ = cv2.connectedComponentsWithStats(ink, connectivity=4)
     out = []
     for x, y, w, h, area in stats[1:].tolist():

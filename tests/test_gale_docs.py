@@ -165,6 +165,14 @@ sun = issue([("The Sunday Times Concise Crossword No 517", 10, 1), ("The Sunday 
 check("the Sunday Times cryptic as \"The Sunday Times Word\", not the Concise", 14, gd.entry("STHA", sun, sunday=True)["page"])
 check("its real title still wins", 12, gd.entry("STHA", issue([("The Sunday Times Word", 14, 1),
                                                                ("The Sunday Times Crossword", 12, 1)]), sunday=True)["page"])
+check("unnumbered Sunday Times titles: the paper's name, OCR's Word, plain Crossword, before features", [1, 1, 1, 2, 1],
+      [gd.crossword("STHA", ["Daphne Du Maurier Crossword Competition", "Crossword", "Mephisto Crossword"]),
+       gd.crossword("STHA", ["Crossword", "The Sunday Times Crossword"]),
+       gd.crossword("STHA", ["Crossword fans, cutting-edge photographs and comedy", "The Sunday Times Cross Word"]),
+       gd.crossword("STHA", ["Cross Words", "The Sunday Times Concise Crossword No 571", "The Sunday Times Word"]),
+       gd.crossword("STHA", ["Crosswords", "Crossword"])])
+e = gd.entry("STHA", issue([("Guinness Book of Records Crossword", 44, 1), ("Crossword", 50, 1)]), sunday=True)
+check("the other candidates ride along for the fetcher", (50, [44]), (e["page"], [o["page"] for o in e["others"]]))
 check("other puzzles' solutions are not the cryptic's", [None] * 6,
       [gd.TIMES_SOLUTION.search(t) for t in ["Solution to No 3S49 Why?", "Crossword Solution for November",
                                               "Solution to Times 2 Crossword No 2680", "Solution to Jumbo Crossword 269",

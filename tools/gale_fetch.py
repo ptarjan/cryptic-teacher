@@ -418,12 +418,26 @@ def have_docs():
     those set aside (gale_inbox.SET_ASIDE). Asked of the SSD every pass of
     run(): never a listing of the media disk's Gale folders (Paul
     2026-10-14: nothing regularly scans the spinning disk; an ssh `ls` there
-    under load also killed a run)."""
+    under load also killed a run).
+
+    Not got: a document an edition's newest row says was fetched with no
+    grid found on its page (its source's "lattice" false) by an older
+    matcher than its product's now (gale_docs.MATCHER): a better finder may
+    find the grid, so it is fetched again. One the current matcher found no
+    grid for stays got, so it is not fetched over and over."""
     import gale_inbox
-    got = {d.upper() for d in load(FETCHED)}
+
+    def docs(s):
+        return {m.group(0).upper() for m in DOC.finditer(f"{s.get('docId') or ''} {s.get('file') or ''}")}
+    got, newest = {d.upper() for d in load(FETCHED)}, {}
     for row in media_manifest.rows(gale_inbox.EDITIONS):
+        newest[row.get("edition")] = row
         for s in row.get("sources") or ():
-            got |= {m.group(0).upper() for m in DOC.finditer(f"{s.get('docId') or ''} {s.get('file') or ''}")}
+            got |= docs(s)
+    for row in newest.values():
+        for s in row.get("sources") or ():
+            if s.get("lattice") is False and (s.get("matcher") or 0) < gale_docs.MATCHER.get(s.get("prod"), 1):
+                got -= docs(s)
     got |= {m.group(0).upper() for f in load(gale_inbox.SET_ASIDE) for m in DOC.finditer(f)}
     return got
 
@@ -681,6 +695,29 @@ def lattice_in(body):
     return any(p.get("lattice") for p in laid["pages"])
 
 
+def grid_page(prod, day, e, gale, get, log=print):
+    """(PDF, its entry) of the first page holding a grid, entry `e`'s own
+    indexed page having held none: the scans round it, nearest first, then
+    each other candidate article's page (e["others"], gale_docs.crosswords)
+    and the scans round that; None when none does. `get(entry)` downloads a
+    page; a scan already tried is not fetched twice."""
+    tried = {tuple(e["records"])}
+    cands = [e, *(e.get("others") or ())]
+    for k, cand in enumerate(cands):
+        own = [] if k == 0 else [{**cand, "how": f"indexed p.{cand['page']}"}]
+        for near in own + gale_docs.neighbour_entries(prod, day, cand, gale):
+            if tuple(near["records"]) in tried:
+                continue
+            tried.add(tuple(near["records"]))
+            body = get(near)
+            if lattice_in(body):
+                how = near["how"] if k == 0 else f"candidate {k + 1} of {len(cands)} ({cand['title']}): {near['how']}"
+                near = {**{f: v for f, v in near.items() if f != "others"}, "how": how}
+                log(f"{day} {near['doc']}: grid on {how}")
+                return body, near
+    return None
+
+
 def alert(text, quiet=False):
     """Wake the room (`quiet`: queued for its next turn); never raises."""
     print(f"ALERT: {text}", flush=True)
@@ -810,6 +847,15 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
             return body
         raise Stop(f"Gale still refused {PROBE_MAX * PROBE_EVERY / 3600:.0f} h after a refusal ({refusal})")
 
+    def fetch_page(prod, day, near):
+        """The PDF of entry `near` (a scan or another candidate article), paced
+        and held to the window like any download."""
+        hold()
+        pacer.wait()
+        body = pdf_of(fetch, gale_docs.download_url(prod, day, near), day, near["doc"].upper(), text_of)
+        pacer.finished()
+        return body
+
     lookup_of = lookup_of or real_lookup
     keep = keep or gale_docs.keep
     got_of = got_of or have_docs
@@ -890,19 +936,21 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                         raise
                     body = refused(first, url, day, doc)
                 if check_page and not e.get("kind") and "day" not in e and not lattice_in(body):
-                    # The indexed page holds no grid: the scans round it, nearest first.
                     gale = gale or gale_docs.Gale()
-                    for near in gale_docs.neighbour_entries(prod, day, e, gale):
-                        hold()
-                        pacer.wait()
-                        got_near = pdf_of(fetch, gale_docs.download_url(prod, day, near), day, doc, text_of)
-                        pacer.finished()
-                        if lattice_in(got_near):
-                            log(f"{day} {doc}: grid on {near['how']}")
-                            body, e = got_near, near
-                            break
+                    found = grid_page(prod, day, e, gale, lambda near: fetch_page(prod, day, near), log)
+                    if found:
+                        body, chosen = found
+                        if chosen["doc"].upper() != doc:
+                            # Another candidate's page holds it: the cache names that article now.
+                            keep(key(prod, day), {**{k: v for k, v in chosen.items() if k != "how"},
+                                                  "at": e.get("at"), "matcher": e.get("matcher")})
+                            got.add(doc)
+                            doc = chosen["doc"].upper()
+                        e = chosen
                     else:
-                        e = {**e, "how": f"no lattice on p.{e['page']} or {gale_docs.NEIGHBOURS} scans either side"}
+                        tried = 1 + len(e.get("others") or ())
+                        e = {**e, "how": f"no lattice on the pages of {tried} candidate article{'s' * (tried > 1)}"
+                                         f" or {gale_docs.NEIGHBOURS} scans either side of each"}
                         log(f"{day} {doc}: {e['how']}")
                 store(body, prod, day, doc, e)
             except Stop:

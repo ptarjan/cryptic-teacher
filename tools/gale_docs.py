@@ -33,9 +33,12 @@ from gale_http import Chrome, click_headers, verifies
 
 CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
-#: Per product, bumped when crossword() or report() would pick differently:
-#: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 7, "FTHA": 3, "INDA": 2, "STHA": 4, "TLSH": 2}
+#: Per product, bumped when crossword() or report() would pick differently,
+#: or the fetcher would judge a page's grid differently (gale_inbox.has_lattice):
+#: entries cached by an older one are looked up again (stale), and an
+#: edition an older one fetched with no grid found is fetched again
+#: (gale_fetch.have_docs).
+MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 7, "FTHA": 3, "INDA": 2, "STHA": 5, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -112,11 +115,20 @@ def articles(toc):
 
 
 def crossword(prod, titles, number=None, sunday=False):
-    """The index into `titles` of the day's crossword, or None: a title
-    naming a crossword, not the Concise or a solution or winners' list;
-    the one naming `number` first. `sunday`: the Sunday Telegraph's or
-    Independent on Sunday's issue, where only a numbered puzzle counts
-    (SUNDAY_NUMBERED), not the book ads, features and winners notices."""
+    """The index into `titles` of the day's crossword, or None: the first
+    of crosswords()."""
+    cands = crosswords(prod, titles, number, sunday)
+    return cands[0] if cands else None
+
+
+def crosswords(prod, titles, number=None, sunday=False):
+    """The indexes into `titles` that may be the day's crossword, likeliest
+    first: titles naming a crossword, not the Concise or a solution or
+    winners' list; the one naming `number` first. `sunday`: the Sunday
+    Telegraph's or Independent on Sunday's issue, where only a numbered
+    puzzle counts (SUNDAY_NUMBERED), not the book ads, features and winners
+    notices. The fetcher tries the rest in turn when the first's page holds
+    no grid."""
     # The 2000s also print the Saturday Jumbo and Times Two's quick crossword;
     # the Sunday papers their Mephisto, French, general knowledge and
     # two-into-one puzzles.
@@ -132,7 +144,8 @@ def crossword(prod, titles, number=None, sunday=False):
     # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
     kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}|{SUNDAY_PUZZLE.pattern}", re.IGNORECASE) if prod == "TGRH" else \
         TIMES_KIND if prod == "TTDA" else KIND
-    cands = [i for i, t in enumerate(titles) if kind.search(t) and not bad.search(t)]
+    cands = [i for i, t in enumerate(titles) if (kind.search(t) or prod == "STHA" and STHA_WORD.search(t))
+             and not bad.search(t)]
     if sunday and prod in SUNDAY_PAPER:
         cands = [i for i in cands if sunday_numbered(prod, titles[i])]
     if prod == "TLSH":
@@ -142,9 +155,11 @@ def crossword(prod, titles, number=None, sunday=False):
     if prod == "TTDA":
         cands.sort(key=lambda i: not TIMES_CRYPTIC.search(titles[i]))
     if prod == "STHA":
-        # The cryptic is titled with its number ("The Sunday Times Crossword No. 1,882");
-        # "Crosswords", "Picture Crossword", "Crossword Range" ads and features are not it.
-        cands.sort(key=lambda i: not STHA_PUZZLE.search(titles[i]))
+        # The cryptic is titled with its number ("The Sunday Times Crossword No. 1,882"), else
+        # the paper's name ("The Sunday Times Cross Word", OCR's "The Sunday Times Word"),
+        # else plain "Crossword" (a news digest's line can be titled so too); "Crosswords",
+        # "Picture Crossword", "Crossword Range" ads and features come last.
+        cands.sort(key=lambda i: next((k for k, p in enumerate(STHA_RANKS) if p.search(titles[i])), len(STHA_RANKS)))
     if prod == "INDA":  # the Sunday's puzzle is "Beelzebub Crossword No 954", beside "The Prize Crossword"
         cands.sort(key=lambda i: not re.search(r"beelzebub", titles[i], re.IGNORECASE))
     if prod == "TGRH":
@@ -160,7 +175,7 @@ def crossword(prod, titles, number=None, sunday=False):
         cands.sort(key=lambda i: not FT_DAILY.search(titles[i]))
     if number is not None:
         cands.sort(key=lambda i: not named(number).search(titles[i]))
-    return cands[0] if cands else None
+    return cands
 
 
 #: The Telegraph's daily puzzle as Gale titles it: "Crossword / 21,053" or
@@ -248,6 +263,15 @@ TIMES_SOLUTION = re.compile(r"^\W*solution\W+(?:of|to)\W+(?:yesterday'?s\W+)?(?:
 #: Sunday Times Word" (1998-02-08, its No 3742 and the solution to 3741).
 STHA_PUZZLE = re.compile(r"^\W*(?:the\W+)?sunday\W+times\W+[cg]ross-? ?w[oa]rd\W*(?:no\b\.?\W*)?\d", re.IGNORECASE)
 STHA_WORD = re.compile(r"^\W*the\W+sunday\W+times\W+word\W*$", re.IGNORECASE)
+#: The Sunday Times' crossword titles, likeliest the cryptic first: its
+#: numbered title; the paper's name over an unnumbered "Crossword" or "Cross
+#: Word"; OCR's "The Sunday Times Word"; a plain "Crossword" (the puzzle in
+#: some years, a news digest's line in others). crosswords() ranks the rest
+#: after these.
+STHA_RANKS = (STHA_PUZZLE,
+              re.compile(r"^\W*(?:the\W+)?sunday\W+times\W+[cg]ross-? ?w[oa]rd\W*$", re.IGNORECASE),
+              STHA_WORD,
+              re.compile(r"^\W*[cg]ross-? ?w[oa]rd\W*$", re.IGNORECASE))
 #: A title that may name the Times' crossword (TTDA's KIND).
 TIMES_KIND = re.compile(f"{CROSSWORD_OCR}|[cg]ross-? ?number", re.IGNORECASE)
 
@@ -460,8 +484,14 @@ def entry(prod, dvi, number=None, find=None, sunday=False):
     arts = [a for a in articles(dvi["originalDocument"].get("articleTableOfContents"))
             if str(a["docId"]).upper() not in REJECTED_DOCS]
     titles = [a["docTitle"] for a in arts]
-    k = find(titles) if find else crossword(prod, titles, number, sunday)
     pages = {int(p["pageNumber"]): p["mediaRecordId"] for p in dvi.get("pageDocuments") or ()}
+    if not find:
+        # The likeliest crossword, the other candidates after it ("others"),
+        # for the fetcher to try when its page holds no grid.
+        found = [e for e in (entry_of(arts[i], pages) for i in crosswords(prod, titles, number, sunday)) if e]
+        if found:
+            return {**found[0], **({"others": found[1:]} if found[1:] else {})}
+    k = find(titles) if find else None
     if k is None and prod == "TTDA" and not find:
         # No article reads as the crossword: its page, from the contents line.
         for a in arts:
@@ -474,9 +504,6 @@ def entry(prod, dvi, number=None, find=None, sunday=False):
         k = next((i for i, t in enumerate(titles) if TIMES_SOLUTION.search(t)), None)
         e = entry_of(arts[k], pages) if k is not None else None
         return {**e, "how": "solution's page"} if e else None
-    if k is None and prod == "STHA" and not find:
-        # Its cryptic's title with "Cross" lost to OCR (1998-02-08: No 3742).
-        k = next((i for i, t in enumerate(titles) if STHA_WORD.search(t)), None)
     if k is None:
         return None
     return entry_of(arts[k], pages)

@@ -618,4 +618,46 @@ hold = req.parent / "holds.txt"
 assert gf.held_products(hold) == set()
 hold.write_text("INDA  # reader not ready\n# FTHA\n")
 assert gf.held_products(hold) == {"INDA"}, gf.held_products(hold)
+
+# 12. A page with no grid: the scans round it, then the other candidate
+#     articles' pages and theirs, each fetched once, the first with a grid kept.
+class Pages:
+    def issues(self, prod, day):
+        return [{"date": f"1{day:%Y%m%d}"}]
+
+    def issue(self, prod, i):
+        return {"pageDocuments": [{"pageNumber": str(p), "mediaRecordId": f"R{p}"} for p in range(1, 80)]}
+
+
+got_pages = []
+real_lattice = gf.lattice_in
+gf.lattice_in = lambda body: body == "R64"
+sun = D(1969, 7, 6)
+first = {"doc": "FP1", "title": "Daphne Du Maurier Crossword Competition", "page": 55, "records": ["R55"],
+         "others": [{"doc": "FP2", "title": "Crossword", "page": 64, "records": ["R64"]}]}
+body, near = gf.grid_page("STHA", sun, first, Pages(), lambda e: got_pages.append(e["records"][0]) or e["records"][0],
+                          log=lambda *a: None)
+assert got_pages == ["R54", "R56", "R53", "R57", "R52", "R58", "R64"], got_pages
+assert (body, near["doc"], near["page"], "others" in near) == ("R64", "FP2", 64, False), near
+assert near["how"].startswith("candidate 2 of 2 (Crossword)"), near["how"]
+got_pages.clear()
+assert gf.grid_page("STHA", sun, {**first, "others": [{**first["others"][0], "records": ["R56"], "page": 56}]},
+                    Pages(), lambda e: got_pages.append(e["records"][0]) or "none", log=lambda *a: None) is None
+assert got_pages.count("R56") == 1, got_pages
+gf.lattice_in = real_lattice
+
+# 13. have_docs: a document fetched with no grid found by an older matcher is
+#     not got (it is fetched again); by the current matcher, or with a grid, it is.
+saved = gf.media_manifest.rows, gf.FETCHED, gale_inbox.SET_ASIDE
+gf.FETCHED, gale_inbox.SET_ASIDE = tmp / "none.json", tmp / "none-aside.json"
+cur = gf.gale_docs.MATCHER["STHA"]
+gf.media_manifest.rows = lambda name: [
+    {"edition": "S/1975-03-16", "sources": [{"docId": "FP10", "grid": True}]},
+    {"edition": "S/1975-03-16", "sources": [{"docId": "FP10", "lattice": False}]},
+    {"edition": "S/1969-07-06", "sources": [{"docId": "FP20", "lattice": False, "prod": "STHA", "matcher": cur}]},
+    {"edition": "S/1980-11-30", "sources": [{"docId": "FP30", "lattice": True, "prod": "STHA", "matcher": cur - 1}]},
+    {"edition": "S/1983-12-04", "sources": [{"docId": "FP40", "lattice": False, "prod": "STHA", "matcher": cur - 1}]},
+    {"edition": "S/1983-12-04", "sources": [{"docId": "FP41", "lattice": True, "prod": "STHA", "matcher": cur}]}]
+assert gf.have_docs() == {"FP20", "FP30", "FP40", "FP41"}, gf.have_docs()
+gf.media_manifest.rows, gf.FETCHED, gale_inbox.SET_ASIDE = saved
 print("test_gale_fetch: ok")

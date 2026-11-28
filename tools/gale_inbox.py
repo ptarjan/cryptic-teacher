@@ -303,6 +303,10 @@ def square(box):
 #: The white margin a page is set in, so a title at the crop's edge has a
 #: band over it like any page's.
 MARGIN = 120
+#: The widest gap (px of grids_on's half-size subsample of a SCAN_WIDTH page)
+#: closed in a grid's ink when page_grids looks for one with dashed or broken
+#: rules: a Sunday Times 1975 grid's dashes part by ~2-3 px there.
+MEND_GAP = 3
 
 
 def page_grids(img):
@@ -312,9 +316,12 @@ def page_grids(img):
     candidate is, the widest that is: a compact-era (2004-) Times page
     prints its grid ~37% of the page wide, too wide for grid_shaped() at
     SCAN_WIDTH, so the square patches were all there was, and a photo
-    beside the grid is wider (Times 24,662, 24,743, 24,744)."""
+    beside the grid is wider (Times 24,662, 24,743, 24,744). When none is a
+    lattice, the widest lattice among the boxes found with the ink's small
+    gaps closed (a grid with dashed rules), else every box found."""
     at = fa.SCAN_WIDTH / img.width
-    shaped = [[v / at for v in b] for b in fa.grids_on(img.resize((fa.SCAN_WIDTH, round(img.height * at))))]
+    small = img.resize((fa.SCAN_WIDTH, round(img.height * at)))
+    shaped = [[v / at for v in b] for b in fa.grids_on(small)]
     squares = None  # the full-size search, the costliest step: made only when asked of
 
     def all_squares():
@@ -323,20 +330,29 @@ def page_grids(img):
             squares = fa.grids_on(img, shaped=square)
         return squares
     grids = shaped or all_squares()
-    if not grids:
-        return grids
 
     def width(b):
         return b[2] - b[0]
 
     def is_lattice(b):
         return trove_grid.lattice(img.crop((max(0, b[0] - 6), max(0, b[1] - 6), b[2] + 6, b[3] + 6)))
-    widest = max(grids, key=width)
-    if is_lattice(widest):
-        return grids
-    rest = sorted((b for b in shaped + [list(b) for b in all_squares()] if list(b) != list(widest)), key=width,
-                  reverse=True)
-    return next(([b] for b in rest if is_lattice(b)), grids)
+
+    def mended():
+        """The grid-shaped boxes once gaps in the ink are closed (MEND_GAP), widest
+        first: a grid whose rules are dashed or broken (the Sunday Times' of the
+        1970s) is no one patch of ink, so neither search above sees it whole."""
+        boxes = fa.grids_on(small, close=MEND_GAP)
+        return sorted(([v / at for v in b] for b in boxes), key=width, reverse=True)
+    if grids:
+        widest = max(grids, key=width)
+        if is_lattice(widest):
+            return grids
+        rest = sorted((b for b in shaped + [list(b) for b in all_squares()] if list(b) != list(widest)), key=width,
+                      reverse=True)
+        found = next(([b] for b in rest if is_lattice(b)), None)
+        if found:
+            return found
+    return next(([b] for b in mended() if is_lattice(b)), grids)
 
 
 def scaled(img):
@@ -488,7 +504,8 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE, prod="TTDA"):
         leaves.append({"leaf": leaf, "width": p["width"], "height": p["height"], "file": name})
     m = {"file": name, "date": day.isoformat(), "how": FETCHED_HOW, "docId": doc,
          "cited": (entry.get("title") or "").strip().rstrip(". ") or None, "page": entry.get("page"), "grid": grid,
-         "lattice": any(p.get("lattice") for p in laid["pages"]), "how_page": entry.get("how")}
+         "lattice": any(p.get("lattice") for p in laid["pages"]), "how_page": entry.get("how"),
+         "prod": prod, "matcher": gale_docs.MATCHER[prod]}
     (tmp / "pages.json").write_text(json.dumps({
         "item": item.format(day.year), "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
         "crossword_pages": leaves, "url": url}, indent=1))
