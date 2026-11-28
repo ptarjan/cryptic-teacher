@@ -16380,7 +16380,7 @@ SUNDAY_OVER_LAP = 0.03
 SUNDAY_STACKED_X, SUNDAY_STACKED_DROP = 80, 0.5
 
 
-def sunday_times_over(img, title, key, paper, between=None):
+def sunday_times_over(img, title, key, paper, between=None, gap=None, span=False):
     """(grid box, top) of a Gale Sunday Times page whose grid stands over its title, the clue columns over the grid
     from `top` (the ACROSS heading's line), or None: no shaped ink over the title in reach, or no ACROSS heading
     at its left with a DOWN heading right of it over the grid. `between` = the grid `title` stands over with the
@@ -16389,7 +16389,10 @@ def sunday_times_over(img, title, key, paper, between=None):
     found = []
     for g in [] if between else grids_on(img, shaped=lambda b: shaped_on(img, b)):
         gw = g[2] - g[0]
-        if -SUNDAY_OVER_LAP * gw <= title[1] - g[3] <= SUNDAY_OVER_GAP * gw and g[0] - 0.1 * gw <= mid <= g[2] + 0.1 * gw:
+        # `gap`, `span` (SUNDAY_NEAR): the grid may lie further over the title, its span meeting the title's (a title line wider
+        # than the grid, or beside it) instead of holding the title's middle.
+        if -SUNDAY_OVER_LAP * gw <= title[1] - g[3] <= (gap or SUNDAY_OVER_GAP) * gw \
+                and (g[0] - 0.1 * gw <= mid <= g[2] + 0.1 * gw or span and title_cover(title, g) >= SUNDAY_NEAR_SHARE * gw):
             found.append(g)
     if not found and not between:
         return None
@@ -16413,6 +16416,48 @@ def sunday_times_over(img, title, key, paper, between=None):
                    and head[1] + SUNDAY_STACKED_DROP * gw < w[1] < gy0 - 5 for w in words):
             return None
     return gbox, top
+
+
+#: SUNDAY_NEAR: a Gale Sunday Times page the other layouts left refused "the ink under the title is WxH, not a grid" (r318: 52
+#: rows 1962-2003, the ink under the title a rule, a speck or a block of print) whose title box stands against a grid of the
+#: page by the page's own measure: the title's span covers SUNDAY_NEAR_SHARE of the grid's width (a title line wider than its
+#: grid, one beside it, or one over only its corner) and the grid's top frame lies in the title's own box (the title box
+#: runs on over the frame, 1962-03-25: the title to y 4178, the frame from 4160; locate_grid takes TITLE_OVERLAP of it,
+#: its crop starting at the title's foot), or the grid lies over the title (a caption line, SUNDAY_CAPTION_GAP, or further, with
+#: the clue columns over it found, SUNDAY_NEAR_GAP). Tried only where the page would be refused, after every other layout.
+SUNDAY_NEAR_SHARE, SUNDAY_NEAR_GAP = 0.25, 1.6
+
+
+def title_cover(title, grid):
+    """How many pixels of `grid`'s width `title`'s span covers."""
+    return min(title[2], grid[2]) - max(title[0], grid[0])
+
+
+def sunday_near_grid(img, title, key, paper):
+    """(grid box, columns' top or None, caption grid or None, label) of the grid a Gale Sunday Times `title` box stands against
+    (SUNDAY_NEAR), or None. In turn: a shaped grid whose top frame lies in the title's own box (to TITLE_OVERLAP under its
+    foot); a grid over the title with the clue columns over it (sunday_times_over, the wider reach); a grid at least
+    SUNDAY_BETWEEN_GAP of its width under the title with the clue columns between (sunday_times_over's `between`, the ACROSS
+    and DOWN headings found over it); a caption line under its grid (sunday_caption_grid's gap, the span covering
+    SUNDAY_NEAR_SHARE of the grid)."""
+    y0, y1 = title[1], title[3]
+    grids = [g for g in grids_on(img, shaped=lambda b: shaped_on(img, b))
+             if title_cover(title, g) >= SUNDAY_NEAR_SHARE * (g[2] - g[0])]
+    tops = [g for g in grids if y0 <= g[1] <= y1 + TITLE_OVERLAP]
+    if tops:
+        return max(tops, key=lambda g: title_cover(title, g)), None, None, "touching its title"
+    over = sunday_times_over(img, title, key, paper, gap=SUNDAY_NEAR_GAP, span=True)
+    if over is not None:
+        return over[0], over[1], None, "over its title"
+    for g in sorted((g for g in grids if g[1] - y1 >= SUNDAY_BETWEEN_GAP * (g[2] - g[0])), key=lambda g: g[1])[:2]:
+        between = sunday_times_over(img, title, key, paper, between=g)
+        if between is not None:
+            return between[0], between[1], None, "under its clue columns"
+    caps = [g for g in grids if -SUNDAY_OVER_LAP * (g[2] - g[0]) <= y0 - g[3] <= SUNDAY_CAPTION_GAP * (g[2] - g[0])]
+    if caps:
+        g = max(caps, key=lambda g: g[3])
+        return g, None, g, "over its caption"
+    return None
 
 
 #: The reason of a Gale Sunday Times 1968-76 page refused "not a grid" (the ink under its title a rule): its grid over
@@ -16954,7 +16999,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             gbox, side = band, "below"
             verdict["gridBox"] = label
         elif touched is None:
-            return refuse(verdict, "not-a-grid", f"the ink under the title is {gw}x{gh}, not a grid"), None
+            # SUNDAY_NEAR: only a page refused here, so no page that reads is moved.
+            near = sunday_near_grid(img, hit["box"], f"{d.name}_{n}", paper) if paper.key == "galesundaytimes" else None
+            if near is None:
+                return refuse(verdict, "not-a-grid", f"the ink under the title is {gw}x{gh}, not a grid"), None
+            gbox, side, over_top, caption = near[0], "below", near[1], near[2]
+            verdict["gridBox"] = near[3]
         else:
             gbox, side, backsolve = touched, "below", True
             verdict["gridBox"] = "touching its title"
