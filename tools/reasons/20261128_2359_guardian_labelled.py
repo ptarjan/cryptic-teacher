@@ -18,7 +18,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Guardian page whose last down clue stands under the solution grid's label in a fourth column, read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T11:56:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def labelled(fa, rel, v):

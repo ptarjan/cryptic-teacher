@@ -16,7 +16,7 @@ Due: a Gale FT row refused not-a-grid under the title, read before the cutoff.""
 from fix_reasons import Reason
 
 TEXT = "Gale FT page whose title box stood clear of every grid (the solution heading's) laid on its own grid's top and read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T11:56:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
