@@ -1546,7 +1546,7 @@
     if (!ann) return null;
     const at = step || 0;
     if (at && rung !== "blocks") return null;
-    if (rung === "type") return familyAsk(ann);
+    if (rung === "type") return typeOnScreen(e) ? null : familyAsk(ann);
     const tokens = tokensOfClue(e);
     const target = rungTokens(e, rung, at);
     if (!target.length) return null;

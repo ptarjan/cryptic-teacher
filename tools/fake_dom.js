@@ -568,6 +568,12 @@ function bootApp(opts) {
     const inFlight = { then: () => inFlight, catch: () => inFlight, finally: () => inFlight };
     global.fetch = () => inFlight;
   }
+  // In a browser window.fetch IS the global fetch. The harness window has none
+  // unless asked, so puzzles load by script tag (loadPuzzle and fastOpen check
+  // window.fetch first). options.windowFetch gives it one that calls whatever
+  // global.fetch is when the app asks, for a test of the fetch paths the app
+  // takes from its first line (fastOpen, loadShards for a link it must look up).
+  if (options.windowFetch) global.window.fetch = (...a) => global.fetch(...a);
 
   // load index + tutorial + app
   // sync/events.js goes in the way the page loads it, as a plain script: app.js

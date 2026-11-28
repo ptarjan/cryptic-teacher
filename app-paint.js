@@ -195,7 +195,8 @@
           : !isShown(e, r) && rungAvailable(e, steps, r)) return { rung: r, step: helpOn.step };
     }
     if (piecesOpen) return { rung: "blocks", step: leadPiece(e) };
-    const s = steps.find((x) => !isShown(e, x.key) && rungAvailable(e, steps, x.key));
+    const s = steps.find((x) => !isShown(e, x.key) && !(x.key === "type" && typeOnScreen(e))
+      && rungAvailable(e, steps, x.key));
     return s ? { rung: s.key, step: s.key === "blocks" ? Math.max(0, leadPiece(e)) : 0 } : null;
   }
   // The step chosen on the track that is still to open and still the help
@@ -769,7 +770,10 @@
       const trackNames = STEP_NAMES;
       const target = helpTarget(e);
       const hue = { indicators: "ind", definition: "def", type: "typ", blocks: "blk", walkthrough: "sol" };
-      const lead = open.length ? open[0].s.key : null;
+      // The step in front, as helpTarget picks it: a Clue type step Pieces has
+      // answered (typeOnScreen) is a free tab, never the lead.
+      const leadStep = open.find(({ s }) => !(s.key === "type" && typeOnScreen(e)));
+      const lead = leadStep ? leadStep.s.key : null;
       // The Letters tab sits after Clue type, ahead of Pieces and Solution
       // (or last, on a clue with neither). Selected while the wheel is the
       // front panel. Not a step: it opens nothing and costs nothing, so it is

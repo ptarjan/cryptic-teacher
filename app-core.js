@@ -1004,7 +1004,7 @@
   function loadShards(keys, cb) {
     cb = cb || function () {};
     if (listFull()) return cb(true);
-    if (!INDEX.idx || !window.ctIdx || typeof fetch !== "function") { idxWaiters.push(cb); return undefined; }
+    if (!INDEX.idx || !window.ctIdx || !window.fetch) { idxWaiters.push(cb); return undefined; }
     const manifest = idxManifest();
     const want = (keys || Object.keys(manifest)).filter((k) => k in manifest && !idxHave.has(k));
     if (!want.length) return cb(true);

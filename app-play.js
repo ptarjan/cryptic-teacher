@@ -1426,6 +1426,14 @@
     return spotting.length > 0 && spotting.every((s) => isShown(e, s.key));
   }
 
+  // The Clue type step's answer printed by another step: the Pieces step names
+  // the mechanism ("Mechanism: anagram") and its formula applies it, so once
+  // Pieces is up the kind of clue is on the screen. Asking it then is a quiz on
+  // a printed answer, putting it in front as the next step is a detour, and
+  // charging for it sells what was given. One predicate, read by guessAsk,
+  // rungCosts and helpTarget, so the three cannot disagree.
+  const typeOnScreen = (e) => isShown(e, "blocks");
+
   function showHint(e, rung) {
     if (isShown(e, rung)) return;
     // The pieces count starts at 0 as the rung opens, so the save records it.
@@ -1506,7 +1514,7 @@
   // answer go through this one rule and the one confirmBlock helper below.
   function rungCosts(e, rung, tell, at) {
     if (!e || groupSolved(e)) return false;
-    if (!isShown(e, rung)) return rung === "blocks" ? !blocksFree(e, at || 0) : true;
+    if (!isShown(e, rung)) return rung === "blocks" ? !blocksFree(e, at || 0) : !(rung === "type" && typeOnScreen(e));
     return !!tell && earnedRungs(e).indexOf(rung) >= 0;
   }
   const blocksCost = (e, tell) => rungCosts(e, "blocks", tell);

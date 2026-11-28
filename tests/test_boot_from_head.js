@@ -214,18 +214,21 @@ function loader(root, files) {
   // 4 and 5: the page, booted with the head only
   function page(query) {
     const asked = [];
-    global.fetch = (url) => {
+    global.fetch = (url, opts) => {
       const m = /puzzles\/idx\/([^?]+)$/.exec(String(url));
       if (!m) {
         if (/\.js\.gz/.test(String(url))) return Promise.resolve({ ok: false, status: 404 });
         return new Promise(() => {});
       }
-      asked.push(m[1]);
+      // `asked` is the list's loads. The update check (run at boot on a
+      // complete document) also reads head-live.json, uncached, to compare it
+      // with the booted head: answered, but not a load of the list (6 tests it).
+      if (!(opts && opts.cache === "no-store")) asked.push(m[1]);
       const file = path.join(root, m[1]);
       return Promise.resolve(served(fs.readFileSync(file, "utf8")));
     };
     let real = null;
-    const d = boot({ query, storage: { "ct:nux": "9" }, index: (ix) => {
+    const d = boot({ query, windowFetch: true, storage: { "ct:nux": "9" }, index: (ix) => {
       // A real annotated puzzle (its file exists, so the page can open it) and
       // two synthetic genius rows are "recent"; the rest are in the shards.
       real = ix.puzzles.find((p) => p.annotated && !/^(genius|metro|penguin|cryptic|secret)$/.test(p.series)) ||
