@@ -16,7 +16,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale FT page with its second clue column running past the column edge, the gutter searched for further out"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T08:27:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def bled(words, box):
