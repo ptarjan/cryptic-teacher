@@ -16,7 +16,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Independent on Sunday page with no title found, titled since from the heading both page readers give"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T07:02:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
