@@ -96,16 +96,22 @@ for (const e of blocky) {
     check(!t.asking() && t.blocksOpen() && t.hints() === before + 1,
       `firstTapArms (${id}): the second tap reveals the blocks and charges one: ${before} -> ${t.hints()}`);
   } else {
-    // A piece whose letters are all printed in the clue (anagram fodder) opens on
-    // one tap, unarmed and free (blocksFree); only a rung that arms is a purchase.
-    if (!t.armedBtn() && t.hints() === before) continue;
+    // No question to pose. A piece whose letters are all printed in the clue (anagram fodder)
+    // opens on the rung's tap, unarmed and free (blocksFree). Any other piece makes the rung the
+    // help target: the card's "Show me" carries the price and is the tap that arms.
+    if (t.blocksOpen() && t.hints() === before) continue;
+    if (!/id="guess-tell"/.test(t.tell())) continue;
     if (outright++) continue;
+    check(!t.armedBtn() && !t.blocksOpen() && t.hints() === before,
+      `firstTapArms (${id}): tapping the rung charges nothing and arms nothing`);
+    t.reg["guess-tell"].onclick();
     check(t.armedBtn() && !t.blocksOpen() && t.hints() === before,
-      `firstTapArms (${id}): the rung's "Show me" arms and charges nothing`);
+      `firstTapArms (${id}): the card's "Show me" arms and charges nothing`);
     flushTimers(4000);
-    check(!t.armedBtn() && t.blocksBtn(), `timeoutDisarms (${id}): "Show me" reads as itself again`);
-    t.blocksBtn().onclick();
-    t.armedBtn().onclick();
+    check(!t.armedBtn() && />Show me \u00b7 1 hint</.test(t.tell()),
+      `timeoutDisarms (${id}): "Show me" reads as itself again`);
+    t.reg["guess-tell"].onclick();
+    t.reg["guess-tell"].onclick();
     check(t.blocksOpen() && t.hints() === before + 1,
       `firstTapArms (${id}): the second tap reveals the blocks and charges one`);
   }

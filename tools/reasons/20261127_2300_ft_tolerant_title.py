@@ -24,4 +24,10 @@ def rescan(row):
     return row.get("scanKey") in fa.current_keys(fa.FT) and fa.scan_queue.read_before(row, fa.scan_queue.when(REREAD))
 
 
-REASON = Reason(TEXT, rank=1, unfiled_first=True, newest_landed=True, blanket=True, kept=True, due=rescan, rescan=rescan)
+def due(row):
+    import file_archive_org_puzzles as fa
+    # An older, specific reason (FT_RIGHT reads the same band) keeps the row and its rank.
+    return rescan(row) and fa.specific_fix_reason(row) is None
+
+
+REASON = Reason(TEXT, rank=1, unfiled_first=True, newest_landed=True, blanket=True, kept=True, due=due, rescan=rescan)
