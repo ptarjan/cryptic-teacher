@@ -740,6 +740,10 @@ def read_done(row, done=None):
         # Read with the Across heading put over the whole ragged left column's first number (HEADLESS_FIX 1): only the
         # pages the fix changes.
         return False
+    if row and row.get("numberedCut", 0) < NUMBERED_CUT and row.get("file") in numbered_cut_names():
+        # Cut at the page's numbered columns, the old cut holding no clue-numbered line (NUMBERED_CUT 1): only the pages
+        # the fix changes (tools/data/mephisto_numbered_cut.json).
+        return False
     if row and row.get("barWindow", 0) < BAR_WINDOW and row.get("file") in bar_window_names():
         # Refused "grid unread" with the lattice on the block beside the grid (BAR_WINDOW 1): only the pages the fix reads.
         return False
@@ -1592,6 +1596,104 @@ def lists_cut(words, box):
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+
+
+#: Bumped when the cut that settled on a block with no clue-numbered lines (the entry form or a notes box: the Mephisto
+#: title's neighbours) falls back to the page's own numbered columns (numbered_cut): the pages refused "no reading
+#: parses" whose cut the fix changes (tools/data/mephisto_numbered_cut.json) are read again once.
+NUMBERED_CUT = 1
+NUMBERED_CUT_FILE = ROOT / "tools" / "data" / "mephisto_numbered_cut.json"
+_NUMBERED_CUT_NAMES = None
+#: A column of numbers counts as a clue list at this many numbers running up (the old cut stands at NUMBERED_RUN).
+NUMBERED_RUN = 5
+
+
+def numbered_cut_names():
+    """The bare GALE_*.pdf names whose cut NUMBERED_CUT changes (a committed list nothing writes: found by cutting the
+    pages refused "no reading parses" with the fix off and on)."""
+    global _NUMBERED_CUT_NAMES
+    if _NUMBERED_CUT_NAMES is None:
+        try:
+            _NUMBERED_CUT_NAMES = frozenset(json.loads(NUMBERED_CUT_FILE.read_text()))
+        except (OSError, ValueError):
+            _NUMBERED_CUT_NAMES = frozenset()
+    return _NUMBERED_CUT_NAMES
+
+
+def number_runs(words, lh, area=None):
+    """[[word, ...]] the columns of clue numbers on a page's `words` (inside `area` (x0, y0, x1, y1) when given): the
+    numbers one line height of x apart make a column, and in it the numbers running up (each one to four above the last,
+    a line or five under it) make a run; a stray number between is left out."""
+    nums = []
+    for w in words:
+        if NUMBER_WORD.match(w[4]) and (area is None or area[0] <= w[0] < area[2] and area[1] <= w[1] < area[3]):
+            nums.append(w)
+    cols = []
+    for w in sorted(nums, key=lambda w: w[0]):
+        if cols and w[0] - cols[-1][-1][0] <= lh:
+            cols[-1].append(w)
+        else:
+            cols.append([w])
+    runs = []
+    for col in cols:
+        col = sorted(col, key=lambda w: w[1])
+        while len(col) >= 2:
+            val = [int(re.sub(r"\D", "", w[4]) or 0) for w in col]
+            # The longest chain of numbers running up, a stray number in the column (a misread, a figure in a clue) left out.
+            size, back = [], []
+            for i in range(len(col)):
+                prev = [j for j in range(i) if 0 < val[i] - val[j] <= 4 and col[i][1] - col[j][3] <= 5 * lh]
+                j = max(prev, key=lambda j: size[j], default=None)
+                size.append(1 + (size[j] if j is not None else 0))
+                back.append(j)
+            i = max(range(len(col)), key=lambda i: size[i])
+            chain = []
+            while i is not None:
+                chain.append(i)
+                i = back[i]
+            if len(chain) < 2:
+                break
+            runs.append([col[i] for i in reversed(chain)])
+            col = [w for k, w in enumerate(col) if k not in chain]
+    return runs
+
+
+def numbered_cut(words, box, cut):
+    """(box, masks) of the page's numbered columns near the grid at `box`, when the lists' `cut` holds no run of
+    NUMBERED_RUN clue numbers (it settled on the entry form or a notes box); else None. The columns that run up nearest
+    the grid (within 60 lines of it) are boxed together with the headings on their lines, the grid masked."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    inside = number_runs(words, lh, cut[0])
+    if any(len(r) >= NUMBERED_RUN for r in inside):
+        return None
+    runs = [r for r in number_runs(words, lh) if len(r) >= NUMBERED_RUN
+            and r[0][1] < box[3] + 60 * lh and r[-1][3] > box[1] - 60 * lh
+            and r[0][0] > box[0] - 4 * (box[2] - box[0]) and r[0][0] < box[2] + 4 * (box[2] - box[0])]
+    if not runs:
+        return None
+    left = min(r[0][0] for r in runs) - lh / 2
+    top = min(r[0][1] for r in runs) - 2 * lh
+    bottom = max(r[-1][3] for r in runs) + 2 * lh
+    right = max(max(w[2] for w in r) for r in runs) + 6 * lh
+    # The lists' headings standing within the page's numbered columns' span (or a column's width right of it) widen it to
+    # the grid's far edge and take in the lines under the lowest of them, to a gap of three lines or a stop word (a list
+    # set as running text under its heading has its numbers mid-line, no column of them to run up).
+    heads = [w for w in words if gl.heading(w[4]) in ("ACROSS", "DOWN") and left - lh <= w[0] <= max(right, box[2] + lh)
+             and top - 10 * lh <= w[1] <= bottom + 10 * lh]
+    if heads:
+        right = max(right, box[2] + lh)
+        top = min([top] + [w[1] - lh for w in heads])
+        last = max(w[3] for w in heads)
+        for w in sorted((w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[1] >= max(w[1] for w in heads) - lh / 2),
+                        key=lambda w: w[1]):
+            if STOP_WORD.match(w[4]) or TITLE_WORD.match(w[4]) or w[1] - last > 3 * lh:
+                break
+            last = max(last, w[3])
+        bottom = max(bottom, last + lh / 2)
+    box_ = (int(left), int(max(0, top)), int(right), int(bottom))
+    mask = [tuple(int(v) for v in box)] if box[0] < box_[2] and box[2] > box_[0] and box[1] < box_[3] and box[3] > box_[1] else []
+    return box_, mask
 
 
 #: Bumped when a tall Across/Down heading box no longer leaves a gap that ends the lists' cut at it (lists_cut): pages read
@@ -3032,6 +3134,8 @@ def page_read(path, store=STORE, asker=None):
     lefted = None if cut or wrapped else left_cut(words, found["box"])
     plain = not (cut or wrapped or lefted)
     cut = cut or wrapped or under_cut(words, found["box"])
+    if NUMBERED_CUT and plain:
+        cut = numbered_cut(words, found["box"], cut) or cut
     sided = SIDE_FIX and plain and side_strip(words, found["box"], cut, gl)
     if sided:
         block = side_block(img, key, words, cut, sided, gl) or lists_block(img, key, words, cut, gl)
@@ -3123,7 +3227,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT}, store)
     print(json.dumps(verdict))
     return "read"
 
