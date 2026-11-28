@@ -5930,6 +5930,8 @@ def scan_anywhere(d):
     found = tele_sol_titled(d, found)
     # No title read on a Gale Sunday Times page: the heading its reader tore, off the cached page reads (SUNDAY_LOOKED).
     found = sunday_titled(d, found)
+    # No title read on a Gale Sunday Telegraph page: its title line or bare COMPETITION No N heading off the cached page reads (SUNTEL_TITLE).
+    found = suntel_titled(d, found)
     # No title read on an archive.org Guardian weekday page: its title read through the glued words, or its "Set by" line.
     found = guardian_titled(d, found)
     # No title read on an archive.org FT 1985-94 page: the band right of each grid it holds (FT_RIGHT).
@@ -6447,6 +6449,95 @@ def sunday_titled(d, found):
     n, leaf, box, how = got
     return {**stamped, "puzzles": [{"number": n, "leaf": leaf, "box": box, "titleReadBy": [how]}],
             "solutions": [s for s in found.get("solutions") or () if s["number"] != n]}
+
+
+#: The key of a Gale Sunday Telegraph scan (scan_anywhere's) suntel_titled looked the cached whole-page reads of over, titled
+#: by them or not (SUNTEL_TITLE): the scan is current for it once it holds this.
+SUNTEL_TITLE_LOOKED = "sunTelTitle"
+
+
+def suntel_run_fits(n, day, held):
+    """Whether number `n` fits the filed Sunday Telegraph run for a page of `day`: `held` ({number: date} of filed puzzles)
+    has a neighbour either side (neither of `day` itself), `n` lies above the one before by 1 to the weeks since it (the
+    weekly run skips a number now and then, never runs faster than a week) and below the one after by 1 to the weeks
+    until it; where the run between them is unbroken (as many numbers as weeks) `n` is the one number it leaves. A page
+    with no neighbour either side fits nothing."""
+    before, after = neighbours(day, held)
+    if not (before and after):
+        return False
+    wb, wa = (day - before[0]).days // 7, (after[0] - day).days // 7
+    if not (0 < n - before[1] <= wb and 0 < after[1] - n <= wa):
+        return False
+    if after[1] - before[1] == wb + wa:
+        return n == before[1] + wb
+    return True
+
+
+def suntel_title_votes(reads, want, slack, day, held):
+    """({number: {reader index}}, {number: (box, solution number or None)}) of the titles a Gale Sunday Telegraph page's
+    cached whole-page `reads` give that fit the filed run: a title line sunday_tel_headings reads within `slack` of `want`,
+    or a bare "COMPETITION No N" solution heading (SUNDAY_TEL_BARE: the solution of the puzzle a week back, one under this
+    page's) with N + 1 within `slack` of want, titling N + 1."""
+    votes, found = {}, {}
+    for ri, words in enumerate(reads):
+        lines = printed_lines(words)
+        cands = [(p[0], tuple(p[1]), None) for p in sunday_tel_headings(lines)[0] if abs(p[0] - want) <= slack]
+        for line in lines:
+            for ws in (line[k:] for k in range(len(line))):
+                m = SUNDAY_TEL_BARE.match(" ".join(str(w[4]) for w in ws))
+                if m:
+                    n = number_digits(m.group(1))
+                    if abs(n + 1 - want) <= slack:
+                        cands.append((n + 1, tuple(box_of(ws)), n))
+                    break
+        for n, box, sol in cands:
+            if suntel_run_fits(n, day, held):
+                votes.setdefault(n, set()).add(ri)
+                found.setdefault(n, (box, sol))
+    return votes, found
+
+
+def suntel_title_of(rel):
+    """The number suntel_titled would title the Gale Sunday Telegraph edition `rel` ("<item>/<date>") with off its cached
+    whole-page reads, or None."""
+    d = CACHE / rel
+    got = suntel_titled(d, {"puzzles": [], "solutions": []})
+    return (got.get("puzzles") or [{}])[0].get("number")
+
+
+def suntel_titled(d, found):
+    """Scan `found` of edition directory `d` with its puzzle titled from the whole-page reads its scan left in the crop cache
+    (never made here) where it is a Gale Sunday Telegraph page scan() found no title on (SUNTEL_TITLE): the title line the
+    scan's crops missed but the whole-page reads give (sunday_tel_headings), or the bare "COMPETITION No N" solution heading
+    of the puzzle a week back, which titles the page N + 1. A number stands only when it fits the filed run around the date
+    (suntel_run_fits: neighbours either side, the weeks between them) and is the only number that does. Stamped
+    SUNTEL_TITLE_LOOKED. Outside scan(), whose key a change here would move."""
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or paper_of(d) is not GALE_SUNDAY_TELEGRAPH:
+        return found
+    stamped = {**found, SUNTEL_TITLE_LOOKED: True}
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+        day = datetime.date.fromisoformat(d.name[:10])
+        want = GALE_SUNDAY_TELEGRAPH.expected(day)
+    except (OSError, ValueError, KeyError, TypeError):
+        return stamped
+    held = held_dates(GALE_SUNDAY_TELEGRAPH.series)
+    for leaf in leaves:
+        reads = sunday_page_reads(d, leaf)
+        if reads is None:
+            continue
+        votes, boxes = suntel_title_votes(reads, want, GALE_SUNDAY_TELEGRAPH.slack, day, held)
+        if len(votes) != 1:
+            continue
+        n = next(iter(votes))
+        box, sol = boxes[n]
+        out = {**stamped, "puzzles": [{"number": n, "leaf": leaf, "box": box, "titleReadBy": ["suntelWhole"]}]}
+        if sol is not None:
+            out["solutions"] = [s for s in found.get("solutions") or () if s["number"] != n] + [
+                {"number": sol, "leaf": leaf, "box": box}]
+        return out
+    return stamped
 
 
 def sunday_stale(row):
