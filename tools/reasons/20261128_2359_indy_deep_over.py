@@ -13,7 +13,7 @@ read before the cutoff."""
 from fix_reasons import Reason
 
 TEXT = "Independent page whose Down list's third column stood lower under the grid than the band looked at, read from a window with it since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T15:30:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
