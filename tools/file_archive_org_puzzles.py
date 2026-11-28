@@ -6706,6 +6706,39 @@ def sunday_read_title(d, found, held=None):
     return None
 
 
+def sunday_near_titled(found):
+    """Whether Gale Sunday Times scan `found` holds a title scan() read (not a solution heading's) within the paper's slack of
+    its date's number. A title further off is none (a clue's number after "Crossword", "2" of a split "No. 2 516": the page
+    heading reader titles the page instead, and the near-date check still judges the number); pages the old test titled
+    stay as they were, since their titles are near."""
+    try:
+        want = GALE_SUNDAY_TIMES.expected(datetime.date.fromisoformat(str(found.get("date"))))
+    except ValueError:
+        return any(not p.get("fromSolutions") for p in found.get("puzzles") or ())
+    return any(not p.get("fromSolutions") and abs(p["number"] - want) <= GALE_SUNDAY_TIMES.slack
+               for p in found.get("puzzles") or ())
+
+
+def sunday_far_stale(row):
+    """Whether Gale Sunday Times ledger `row` holds a scan under a current key whose every title is off its date's number by
+    more than the slack (sunday_near_titled), not looked over by sunday_titled (no SUNDAY_LOOKED), every verdict a refusal
+    "is not near the": a row the old test left untitled-by-the-reader. Its cached page reads decide whether to scan it again."""
+    scan = (row or {}).get("scan") or {}
+    verdicts = row.get("verdicts") or ()
+    return bool(scan.get("puzzles")) and not scan.get("failed") and not scan.get(SUNDAY_LOOKED) and "inputs" in row \
+        and str(scan.get("item", "")).startswith("GaleSundayTimes") and row.get("scanKey") in current_keys(GALE_SUNDAY_TIMES) \
+        and not sunday_near_titled(scan) and bool(verdicts) \
+        and all(v.get("cause") == "number-date-mismatch" and " is not near the " in str(v.get("refused")) for v in verdicts)
+
+
+def sunday_far_title_of(rel, scan):
+    """The number sunday_titled would give the Gale Sunday Times edition `rel` off its cached whole-page reads (scan(d) found
+    `scan`), or None."""
+    d = CACHE / rel
+    got = sunday_read_title(d, {**scan, "puzzles": [], "solutions": scan.get("solutions") or []})
+    return got[0] if got else None
+
+
 def sunday_titled(d, found):
     """Scan `found` of edition directory `d` with its puzzle titled from the whole-page reads its scan left in the crop
     cache (never made here) where it is a Gale Sunday Times page scan() found no title on: the heading the strict parser
@@ -6714,8 +6747,7 @@ def sunday_titled(d, found):
     (sunday_across_labels), the one number every page reader (PAGE_READERS) gives within the paper's slack of the date's;
     its box that block's. Two numbers, or a reader that gives none, titles nothing. Stamped SUNDAY_LOOKED. Outside
     scan(), whose key a change here would move: it titles only pages scan() titled none on."""
-    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
-            or paper_of(d) is not GALE_SUNDAY_TIMES:
+    if found.get("failed") or sunday_near_titled(found) or paper_of(d) is not GALE_SUNDAY_TIMES:
         return found
     stamped = {**found, SUNDAY_LOOKED: True}
     got = sunday_read_title(d, found)
