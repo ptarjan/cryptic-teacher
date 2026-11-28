@@ -93,11 +93,11 @@ check("no title and no headings: the page densest with clue counts is fetched to
 sparse = list(blank); sparse[11] = page("news " * 60 + "1 Garbled clue (5)\n" * (fa.DENSE_ENUMS - 1))
 check("a page with fewer counts than DENSE_ENUMS is not",
       [h["leaf"] for h in fa.crossword_hits(sparse, prior)] == [21, 27])
-grid = list(blank); grid[14] = page("noise\nAcross\n1 Garbled clue (5)\n2 Another\n"); grid[11] = page("1 Result (5)\n" * 30)
+grid = list(blank); grid[14] = page("news " * 60 + "\nAcross\n1 Garbled clue (5)\n2 Another\n"); grid[11] = page("1 Result (5)\n" * 30)
 hits = fa.crossword_hits(grid, prior)
 check("no title: a page with an Across heading line is fetched beside the densest, marked across",
       [(h["leaf"], h.get("dense"), h.get("across")) for h in hits] == [(11, True, None), (14, None, True), (21, None), (27, None)])
-prose = list(blank); prose[14] = page("the ball went across the pitch " * 5)
+prose = list(blank); prose[14] = page("news " * 60 + "the ball went across the pitch " * 5)
 check("across in prose is no heading", [h["leaf"] for h in fa.crossword_hits(prose, prior)] == [21, 27])
 named = fa.with_named(fa.crossword_hits(blank, prior), [14, 21], 28)
 check("a named leaf joins the hits, and marks one already there",
