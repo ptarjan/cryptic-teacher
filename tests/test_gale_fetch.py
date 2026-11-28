@@ -652,12 +652,12 @@ saved = gf.media_manifest.rows, gf.FETCHED, gale_inbox.SET_ASIDE
 gf.FETCHED, gale_inbox.SET_ASIDE = tmp / "none.json", tmp / "none-aside.json"
 cur = gf.gale_docs.MATCHER["STHA"]
 gf.media_manifest.rows = lambda name: [
-    {"edition": "S/1975-03-16", "sources": [{"docId": "FP10", "grid": True}]},
-    {"edition": "S/1975-03-16", "sources": [{"docId": "FP10", "lattice": False}]},
-    {"edition": "S/1969-07-06", "sources": [{"docId": "FP20", "lattice": False, "prod": "STHA", "matcher": cur}]},
-    {"edition": "S/1980-11-30", "sources": [{"docId": "FP30", "lattice": True, "prod": "STHA", "matcher": cur - 1}]},
-    {"edition": "S/1983-12-04", "sources": [{"docId": "FP40", "lattice": False, "prod": "STHA", "matcher": cur - 1}]},
-    {"edition": "S/1983-12-04", "sources": [{"docId": "FP41", "lattice": True, "prod": "STHA", "matcher": cur}]}]
-assert gf.have_docs() == {"FP20", "FP30", "FP40", "FP41"}, gf.have_docs()
+    {"edition": "S/1975-03-16", "sources": [{"docId": "FP0000000010", "grid": True}]},
+    {"edition": "S/1975-03-16", "sources": [{"docId": "FP0000000010", "lattice": False}]},
+    {"edition": "S/1969-07-06", "sources": [{"docId": "FP0000000020", "lattice": False, "prod": "STHA", "matcher": cur}]},
+    {"edition": "S/1980-11-30", "sources": [{"docId": "FP0000000030", "lattice": True, "prod": "STHA", "matcher": cur - 1}]},
+    {"edition": "S/1983-12-04", "sources": [{"docId": "FP0000000040", "lattice": False, "prod": "STHA", "matcher": cur - 1}]},
+    {"edition": "S/1983-12-04", "sources": [{"docId": "FP0000000041", "lattice": True, "prod": "STHA", "matcher": cur}]}]
+assert gf.have_docs() == {"FP0000000020", "FP0000000030", "FP0000000040", "FP0000000041"}, gf.have_docs()
 gf.media_manifest.rows, gf.FETCHED, gale_inbox.SET_ASIDE = saved
 print("test_gale_fetch: ok")

@@ -18909,7 +18909,7 @@ def prize_rescan(paper, key, rel):
                         _TELEGRAPH_SATURDAY_FIX["gale"][2], _TELEPRIZE_FIX["gale"][2], _GUARDIAN_DATED_FIX["gale"][2],
                         _WINNERS_NUMBER_FIX["gale"][2], _WINNERS_1996_FIX["gale"][2],
                         _SUNDAY_WEEKLY_FIX["gale"][2], _FT_SMALL_FIX["gale"][2], _SUNTEL_BARE_FIX["gale"][2],
-                        _PLANES_FIX["gale"][2])
+                        _PLANES_FIX["gale"][2], _GRIDS_CLOSE_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -18933,6 +18933,32 @@ _PLANES_FIX = {
     'times1930': ('37f7fd9f5f36cc33', '79aa0a46face8c50', 'bb9dbe1c2759b972'),
 }
 for _paper, _pins in _PLANES_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+
+
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before grids_on took `close` (gaps in the subsample's ink
+#: closed first, for gale_inbox.page_grids' search for a grid with dashed rules): an edit to code every paper's scan
+#: reaches that moves no reading (scan() never passes `close`, and at its default of 0 the ink is not touched), so the
+#: scans under the old keys stand.
+_GRIDS_CLOSE_FIX = {
+    'ft': ('73c422e5600c9eee', 'e4a34cac7055cd2b', 'df67939f6884393e'),
+    'gale': ('c0098ef32bc0d4a0', 'fccefc41ba5cf3da', '92504a6a29cb4b22'),
+    'galeft': ('b538dad976d0eac1', '94f9054e398e8647', '2dbb43c8f1ed4ba3'),
+    'galeindependent': ('46bdaa3f3a4e46d4', '7585bca71b5e90c3', 'd5c9f97161b1a2af'),
+    'galeindysunday': ('8bd1cca43e057a11', 'f99b98625a81ebc0', '2417c42f6b7a041e'),
+    'galesundaytelegraph': ('7a39b6e21784cf95', 'd4dfaac232fdbbc5', '4abcae112f175a91'),
+    'galesundaytimes': ('4035e268529f0779', '28795b0dd992e039', '812de5680af0a96b'),
+    'galetelegraph': ('aa677fe2457d03e7', '784bed85072d8938', '4842345cd0fd62fd'),
+    'galetls': ('bbba3b074ae626a5', 'e7040f13d1da4602', 'bb167460aac3d22e'),
+    'guardian': ('5dd9634f43edc638', 'cd6ad881f154337b', '0de51baf6f52c63a'),
+    'telegraph': ('7baef7b87cdb410a', 'a217ec15543d9f98', '1058c758013b5a0b'),
+    'times': ('6b8649d886124c64', 'e41a997fc5567463', '95ac24e2f39bcb76'),
+    'times1930': ('bb9dbe1c2759b972', '0849136c3a5976cb', '37ab4f2fa24eee2f'),
+}
+for _paper, _pins in _GRIDS_CLOSE_FIX.items():
     for _keys in CORPUS_KEYS.values():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]

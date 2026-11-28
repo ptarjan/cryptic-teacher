@@ -171,7 +171,7 @@ check("unnumbered Sunday Times titles: the paper's name, OCR's Word, plain Cross
        gd.crossword("STHA", ["Crossword fans, cutting-edge photographs and comedy", "The Sunday Times Cross Word"]),
        gd.crossword("STHA", ["Cross Words", "The Sunday Times Concise Crossword No 571", "The Sunday Times Word"]),
        gd.crossword("STHA", ["Crosswords", "Crossword"])])
-e = gd.entry("STHA", issue([("Guinness Book of Records Crossword", 44, 1), ("Crossword", 50, 1)]), sunday=True)
+e = gd.entry("STHA", issue([("Guinness Book of Records Crossword", 44, 1), ("Crossword", 50, 1)], pages=64), sunday=True)
 check("the other candidates ride along for the fetcher", (50, [44]), (e["page"], [o["page"] for o in e["others"]]))
 check("other puzzles' solutions are not the cryptic's", [None] * 6,
       [gd.TIMES_SOLUTION.search(t) for t in ["Solution to No 3S49 Why?", "Crossword Solution for November",

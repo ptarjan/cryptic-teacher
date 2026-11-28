@@ -77,6 +77,10 @@ const check = (ok, msg) => {
   if (!ok) failures++;
 };
 const tick = async () => { for (let i = 0; i < 20; i++) await new Promise((r) => setImmediate(r)); };
+// A fetch answer for `text`, as a browser's Response gives it: readable as
+// text and as JSON alike, so whichever the app asks for is there (the update
+// check reads head-live.json as text, the index loader as JSON).
+const served = (text) => ({ ok: true, status: 200, text: () => Promise.resolve(text), json: () => Promise.resolve(JSON.parse(text)) });
 
 // index.html's boot loader, run against a stub page. `files` maps a URL to
 // its text (a missing one answers 404).
@@ -101,7 +105,7 @@ function loader(root, files) {
     const text = files(String(url));
     return Promise.resolve(text === null || text === undefined
       ? { ok: false, status: 404 }
-      : { ok: true, status: 200, text: () => Promise.resolve(text), json: () => Promise.resolve(JSON.parse(text)) });
+      : served(text));
   };
   // A document as honest as the loader needs: getElementById finds only what
   // was put on the page (null otherwise, as a browser answers), so the error
@@ -218,7 +222,7 @@ function loader(root, files) {
       }
       asked.push(m[1]);
       const file = path.join(root, m[1]);
-      return Promise.resolve({ ok: true, status: 200, json: () => Promise.resolve(JSON.parse(fs.readFileSync(file, "utf8"))) });
+      return Promise.resolve(served(fs.readFileSync(file, "utf8")));
     };
     let real = null;
     const d = boot({ query, storage: { "ct:nux": "9" }, index: (ix) => {
@@ -286,7 +290,7 @@ function loader(root, files) {
       const u = String(url);
       if (opts && opts.cache === "no-store") {
         const text = /head-live\.json$/.test(u) ? server : "<!doctype html><p>home</p>";
-        return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(text) });
+        return Promise.resolve(served(text));
       }
       if (/\.js\.gz/.test(u)) return Promise.resolve({ ok: false, status: 404 });
       return new Promise(() => {});
