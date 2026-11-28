@@ -5854,6 +5854,8 @@ def scan_anywhere(d):
     found = guardian_titled(d, found)
     # No title read on an archive.org FT 1985-94 page: the band right of each grid it holds (FT_RIGHT).
     found = ft_right_titled(d, found)
+    # Still none: the same bands' reads through ft_tolerant_lines (a misread number line, FT_TOLERANT).
+    found = ft_tolerant_titled(d, found)
     # Read whole and no title found (grid_first_scan reads such a page whole): a GF_TITLE rescan is done.
     if not found.get("failed") and not any(not p.get("fromSolutions") for p in found["puzzles"]):
         found = {**found, WHOLE_UNTITLED: True}
@@ -6429,6 +6431,96 @@ def ft_right_titled(d, found):
                     return {**stamped, "puzzles": [{"number": n, "leaf": leaf, "box": box, "titleReadBy": votes[n],
                                                     **({"setterRead": setter} if setter else {})}],
                             "solutions": [s for s in found.get("solutions") or () if s["number"] != n]}
+    return stamped
+
+
+#: The key of a scan (scan_anywhere's) of an archive.org FT 1985-94 edition no title was read on whose grids' title bands were
+#: read again with ft_tolerant_lines (ft_tolerant_titled), titled by them or not: its FT_TOLERANT rescan is done.
+FT_TOLERANT_READ = "ftTolerantRead"
+#: The figures each character of a title's number may stand for (a misread digit: "No.S.539" is 8,539 under the date's 8,541).
+FT_FIGURES = {"S": "58", "s": "58", "§": "58", "B": "8", "O": "0", "o": "0", "I": "1", "l": "1", "G": "6", "Z": "2"}
+#: The title's number as a misread line holds it: after "No", up to two characters, a separator that is not a comma
+#: ("8;334", "S.539"), one extra digit ("6,3322").
+_FT_MISREAD_NO = re.compile(r"(?i)\bn[o0]\W{0,3}\s*-?([\dSBOIlG§Z]{1,2})[,.?^;:'\s]?([\dSBOIlG§Z]{3})\d?(?![\dSBOIlG§Z])")
+
+
+def ft_tolerant_lines(lines, want):
+    """`lines` of a title band with each line holding an FT title or its number mended where the OCR misread it, to the
+    form ft_headings reads (one word of the line's box): "PUZZEE"/"PUZALE" and "PUZZLE :No." as "PUZZLE No.", "NG"/"Na" as
+    "No", "CROSSW" as "CROSSWORD" (a lone mark or digit after the title word dropped), "F.T: :" as "F.T.", the number's
+    separator ("8;334"), letter ("S.539": the figure nearest `want`) or extra digit ("6,3322") mended, and a line "7,836 Set
+    by X" given its "No." Other lines stand as read."""
+    def figures(chars):
+        best = None
+        for combo in itertools.product(*(FT_FIGURES.get(c, c) for c in chars)):
+            n = int("".join(combo))
+            if best is None or abs(n - want) < abs(best - want):
+                best = n
+        return best
+
+    def number(m):
+        chars = m.group(1) + m.group(2)
+        # A letter that stands for no figure (the pattern is case-blind): the line as read.
+        if any(not (c.isdigit() or c in FT_FIGURES) for c in chars):
+            return m.group(0)
+        return f"No. {figures(chars):,}"
+
+    out = []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        new = re.sub(r"(?i)\bF\.?\s?T\W{0,3}(?=\s*cross)", "F.T. ", text)
+        new = re.sub(r"(?i)\bcrossw\b", "CROSSWORD", new)
+        new = re.sub(r"(?i)^(\W*(?:[a-z.]+\s+){0,2}cross\s?word)\W*\w?\W*$", r"\1", new)
+        new = re.sub(r"(?i)\bp[uv][a-z0-9]{2,4}(?=\W{0,3}\s*n[o0ag]\b)", "PUZZLE", new)
+        new = re.sub(r"(?i)(puzzle)\W{1,3}(?=n[o0ag]\b)", r"\1 ", new)
+        new = re.sub(r"(?i)(?<![a-z])n[ag](?=\W{0,3}\s*[\d'])", "No", new)
+        new = _FT_MISREAD_NO.sub(number, new)
+        new = re.sub(r"(?i)^(\W*)(\d)[,.;:']?(\d{3})\s+(?=s[eo]t\s+b[yv]\b)", lambda m: f"{m.group(1)}No. {m.group(2)},{m.group(3)} ", new)
+        if new != text:
+            ws = [(*box_of(ws), new)]
+        out.append(ws)
+    return out
+
+
+def ft_tolerant_titled(d, found):
+    """Scan `found` of edition directory `d` with its puzzle titled by the title bands over and beside each grid
+    (title_bands, the cached reads ocr_titles made) read through ft_tolerant_lines, where it is an archive.org FT 1985-94
+    edition with no title read and no failure, stamped FT_TOLERANT_READ. As ocr_titles, the title stands when at least half
+    of READERS read the same number in one band and it is within the date's slack. Outside scan(), whose key a change here
+    would move. r313 (11-27): 7 of 106 FT editions scanned to no puzzle held a title whose number line was misread."""
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or paper_of(d) is not FT or not FT_RIGHT_EDITION.match(f"{d.parent.name}/{d.name}"):
+        return found
+    try:
+        day = datetime.date.fromisoformat(found["date"])
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())
+                         if (d / f"leaf_{p['leaf']:04d}.jpg").exists()})
+    except (OSError, ValueError, KeyError, TypeError):
+        return found
+    stamped = {**found, FT_TOLERANT_READ: True}
+    want = FT.expected(day)
+    for leaf in leaves:
+        img = page(d, leaf)
+        key = f"{d.name}_{leaf}"
+        for g in grids_on(img, shaped=lambda b: shaped_on(img, b)):
+            for band in title_bands(img, g, False, FT.title_heights):
+                reads = {}
+                for which in READERS:
+                    path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
+                    titles = FT.headings(ft_tolerant_lines(printed_lines(band_words(img, band, which, path)), want))[0]
+                    titles = [t for t in titles if abs(t[0] - want) <= FT.slack]
+                    if titles:
+                        reads[which] = titles[0]
+                votes = {}
+                for which, (n, _, _) in reads.items():
+                    votes.setdefault(n, []).append(which)
+                if votes:
+                    n = min(votes, key=lambda n: (-len(votes[n]), abs(n - want)))
+                    if len(votes[n]) >= len(READERS) / 2:
+                        _, box, setter = reads[votes[n][0]]
+                        return {**stamped, "puzzles": [{"number": n, "leaf": leaf, "box": box, "titleReadBy": votes[n],
+                                                        **({"setterRead": setter} if setter else {})}],
+                                "solutions": [s for s in found.get("solutions") or () if s["number"] != n]}
     return stamped
 
 
@@ -18551,7 +18643,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not tele_grid_due(r) and not tel_title_far_due(r) and not block_forties_due(r) and not telegraph_dated_rescan(r) and not guardian_set_rescan(r) and not ft_right_rescan(r) and not suntel_bare_due(r) and not telegraph_host(r) \
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not tele_grid_due(r) and not tel_title_far_due(r) and not block_forties_due(r) and not telegraph_dated_rescan(r) and not guardian_set_rescan(r) and not ft_right_rescan(r) and not fix_reasons.rescans(r) and not suntel_bare_due(r) and not telegraph_host(r) \
                     and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ft_title_host(r) and not ft_noisy_host(r) and not ios_title_rescan(r) and not tele_sol_stale(r) and not sunday_stale(r):
                 moved[k] = new
         if moved:
@@ -30067,7 +30159,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not tel_title_far_due(row) and not block_forties_due(row) and not telegraph_dated_rescan(row) and not guardian_set_rescan(row) and not ft_right_rescan(row) and not suntel_bare_due(row) and not telegraph_host(row) \
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not tel_title_far_due(row) and not block_forties_due(row) and not telegraph_dated_rescan(row) and not guardian_set_rescan(row) and not ft_right_rescan(row) and not fix_reasons.rescans(row) and not suntel_bare_due(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ft_title_host(row) and not ft_noisy_host(row) and not ios_title_rescan(row) \
         and not indy_titled_due(row) and not tele_sol_stale(row) and not sunday_stale(row)
 

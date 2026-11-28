@@ -45,6 +45,7 @@ class Reason(NamedTuple):
     solution_fix: bool = False
     kept: bool = False
     due: Optional[Callable] = None
+    rescan: Optional[Callable] = None  # True: the row's stored scan is stale, scanned again (scan_current is False)
 
 
 @functools.lru_cache(maxsize=None)
@@ -77,3 +78,8 @@ def due(row):
         if r.due is not None and r.due(row):
             return r.text
     return None
+
+
+def rescans(row):
+    """Whether a registered reason's `rescan(row)` holds: the row's scan is read again (file_archive_org_puzzles.scan_current)."""
+    return any(r.rescan is not None and r.rescan(row) for r in registered().values())
