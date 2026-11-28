@@ -4048,6 +4048,29 @@ def suntel_foot(img, grid, right):
 FT_THIRD_OPENING = re.compile(r"\W{0,2}\d{1,2}(?:\s|[A-Z\"'])")
 
 
+#: FT_THIRD_RISING: stray print over a Gale FT third column's first clue (a masthead's "Emdex Trd.", 2004-11-24: y 4276 over
+#: "18 It could require serum" at 4425) made its first line open on no clue number, and the whole column (18-27 down) was
+#: dropped. A column whose lines open on at least FT_THIRD_RISING clue numbers rising line by line is a clue column
+#: whatever stands over it (columns() drops the stray lines before the first numbered one).
+FT_THIRD_RISING = 3
+
+
+def ft_third_numbered(words):
+    """Whether the lines of `words` (a window's (x0, y0, x1, y1, text) boxes) open on at least FT_THIRD_RISING clue numbers
+    that rise from line to line."""
+    nums, rows = [], []
+    for w in sorted(words, key=lambda w: (w[1], w[0])):
+        if rows and abs(w[1] - rows[-1][0][1]) < 0.6 * max(8, w[3] - w[1]):
+            rows[-1].append(w)
+        else:
+            rows.append([w])
+    for row in rows:
+        m = re.match(r"\W{0,2}(\d{1,2})(?:\s|[A-Z\"'])", min(row, key=lambda w: w[0])[4])
+        if m:
+            nums.append(int(m.group(1)))
+    return len(nums) >= FT_THIRD_RISING and all(a < b for a, b in zip(nums, nums[1:]))
+
+
 def ft_third_column(img, grid, right, rapid, key):
     """(right, rapid) of a Gale FT page with its third clue column (FT_THIRD_WIDTH) read and laid in `rapid` as words
     ({reader: [[word]]}), `right` (x1, gutter, bottom, *rest) carrying its far edge (Third); both as they were when
@@ -4071,7 +4094,7 @@ def ft_third_column(img, grid, right, rapid, key):
         read[which] = words
     def opens(words):
         first = next((w for w in sorted(words, key=lambda w: (w[1], w[0])) if len(w[4]) >= 3 or re.search(r"\d", w[4])), None)
-        return first is not None and FT_THIRD_OPENING.match(first[4])
+        return first is not None and (FT_THIRD_OPENING.match(first[4]) or ft_third_numbered(words))
     if not any(opens(words) for words in read.values()):
         return right, rapid
     return (*right, Third(edge)), {which: ws + [[w] for w in read[which]] for which, ws in rapid.items()}
