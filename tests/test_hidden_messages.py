@@ -186,7 +186,7 @@ check("alteration message with the wrong letters", True,
 check("alteration message needs unordered", True,
       hm.message_problems(puzzle(moved, [{**amsg[0], "text": "SES", "order": "clues"}])))
 check("alteration kind passes the schema", False,
-      [m for m in puzzle_schema.validate(puzzle(moved, [{**amsg[0], "text": "SES"}])) if "messages" in str(m)])
+      [m for m in puzzle_schema.validate(puzzle_schema.order(puzzle(moved, [{**amsg[0], "text": "SES"}]))) if "messages" in str(m)])
 
 if fails:
     raise SystemExit(fails)
