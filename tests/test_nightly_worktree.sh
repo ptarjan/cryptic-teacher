@@ -36,7 +36,7 @@ cat > "$tmp/main/tools/faketask.sh" <<'JOB'
 echo "RAN IN $(cd "$(dirname "$0")/.." && pwd)"
 JOB
 chmod +x "$tmp/main/tools/faketask.sh"
-printf ".*.tree.lock\n" > "$tmp/main/.gitignore"
+printf ".*.tree.lock\n__pycache__/\n" > "$tmp/main/.gitignore"
 git -C "$tmp/main" add -A
 git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm init
 git -C "$tmp/main" remote add origin "$tmp/origin.git"

@@ -25,6 +25,7 @@ mkdir -p tools puzzles/cryptic/2026
 cp "$ROOT/tools/publish_fetched.sh" "$ROOT/tools/push_puzzle_commit.sh" "$ROOT/tools/yield_cpu.sh" "$ROOT/tools/same_history.sh" "$ROOT/tools/clobber_guard.py" "$ROOT/tools/drop_clues_only_twin.py" "$ROOT/tools/puzzle_schema.py" tools/
 mkdir -p tools/data && cp "$ROOT/tools/data/puzzle.schema.json" tools/data/
 echo '{"id":"cryptic-1"}' > puzzles/cryptic/2026/cryptic-1.json
+printf "__pycache__/\n" > .gitignore
 git add -A && git commit -qm base && git push -q origin master
 cd .. && git clone -q origin.git burn && git clone -q origin.git upstream
 (cd burn && ident) && (cd upstream && ident)

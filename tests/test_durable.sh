@@ -65,6 +65,7 @@ for i in 1 2 3; do
   sleep "${FAKE_SLEEP:-30}"
 done
 EOF
+printf "__pycache__/\n" > "$M/.gitignore"
 git -C "$M" add -A && git -C "$M" commit -qm init && git -C "$M" push -q origin master 2>/dev/null
 
 on_origin() { git --git-dir="$tmp/origin.git" show "master:$1" 2>/dev/null; }
