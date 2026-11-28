@@ -128,7 +128,15 @@ class Wiring(unittest.TestCase):
         self.assertNotIn("needs.scope", self.text)
         for name in ("generated", "test", "cache", "tests-passed"):
             self.job(name)
-        self.assertRegex(self.job("test"), r"shard: \[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\]")
+        # The matrix literal is the one place the shard count lives (each job
+        # reads it back as strategy.job-total): a static list 0..n-1, every
+        # shard started at once.
+        test = self.job("test")
+        m = re.search(r"^\s+shard: \[([\d, ]+)\]$", test, re.M)
+        self.assertTrue(m, "the test job's matrix is a literal list of shard numbers")
+        shards = [int(x) for x in m.group(1).split(",")]
+        self.assertEqual(shards, list(range(len(shards))))
+        self.assertIn(f"max-parallel: {len(shards)}\n", test)
 
     def test_verdict_job_needs_everything_and_is_red_unless_all_succeeded(self):
         body = self.job("tests-passed")

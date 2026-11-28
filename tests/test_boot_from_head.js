@@ -103,12 +103,25 @@ function loader(root, files) {
       ? { ok: false, status: 404 }
       : { ok: true, status: 200, text: () => Promise.resolve(text), json: () => Promise.resolve(JSON.parse(text)) });
   };
+  // A document as honest as the loader needs: getElementById finds only what
+  // was put on the page (null otherwise, as a browser answers), so the error
+  // box is made once, reused by each later message, and taken off again.
+  const onPage = {};
+  const body = {
+    firstChild: null,
+    insertBefore: (el) => { shown.push(el); el.parentNode = body; if (el.id) onPage[el.id] = el; },
+    removeChild: (el) => { if (onPage[el.id] === el) delete onPage[el.id]; el.parentNode = null; },
+  };
   ctx.document = {
-    getElementById: () => ({ getAttribute: attr, parentNode: { removeChild() {} } }),
+    getElementById: (id) => onPage[id] || null,
     querySelectorAll: () => ["app-core.js?v=1", "app-boot.js?v=1"].map((h) => ({ getAttribute: () => h })),
-    createElement: () => ({ appendChild() {}, style: {}, setAttribute() {} }),
+    createElement: () => {
+      const el = { children: [], style: {}, setAttribute() {}, getAttribute: attr };
+      el.appendChild = (c) => { el.children.push(c); return c; };
+      return el;
+    },
     createTextNode: (t) => ({ t }),
-    body: { firstChild: null, insertBefore: (el) => { shown.push(el); } },
+    body,
     head: { appendChild: (el) => { added.push(el); } },
   };
   vm.runInNewContext(m[1], ctx);

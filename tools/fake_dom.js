@@ -51,7 +51,9 @@ function bootApp(opts) {
       this.children = [];
       this._innerHTML = "";
       this.writes = 0;
-      this.textContent = "";
+      // Straight to the field: a node minted for an id already in the body's
+      // markup must not blank that markup's text just by being made.
+      this._text = "";
       this.value = "";
       this.style = { setProperty(k, v) { this[k] = String(v); } };
       this.listeners = {};
@@ -109,6 +111,19 @@ function bootApp(opts) {
       }
     }
     get innerHTML() { return this._innerHTML; }
+    // The same holds for text written into a node of the hint body (the
+    // "Not quite" line is reworded in place as picks change): the body's one
+    // string takes it, escaped as a browser would serialise it.
+    set textContent(v) {
+      this._text = String(v);
+      const body = registry["hint-body"];
+      if (!this._id || !body || body === this) return;
+      const id = this._id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const text = this._text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      body._innerHTML = body._innerHTML.replace(
+        new RegExp('(<(\\w+)[^>]*\\sid="' + id + '"[^>]*>)[^<]*(</\\2>)'), (m, a, tag, b) => a + text + b);
+    }
+    get textContent() { return this._text; }
     appendChild(el) {
       this.children.push(el);
       if (el.tagName === "SCRIPT" && el.onload) {

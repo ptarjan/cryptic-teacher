@@ -6,7 +6,8 @@
 
    Also the wrong-pick behaviour: a wrong lock-in keeps the picked words
    selected, so one word can be changed and tried again, and the "Not quite"
-   line goes as soon as a pick changes. */
+   line stays over the question, naming only what the help button offers as
+   the picks change. */
 "use strict";
 const { boot } = require("../tools/fake_dom.js");
 
@@ -57,9 +58,11 @@ for (let guard = 0; guard < 8 && asking() && !/Which words give/.test(prompt());
       check(asking() && /Which words define/.test(prompt()), "a wrong Definition pick keeps the same question up");
       check(lit(wrong), "a wrong Definition pick keeps the picked words selected");
       check(/Not quite/.test(body()), "the wrong pick says Not quite");
+      check(/step-miss[^>]*>Not quite[^<]*change your picks/.test(body()), "with the picks kept, Not quite says to change them");
       tap(wrong);
+      check(/step-miss[^>]*>Not quite[^<]*try again, or tap/.test(body()), "with the pick taken off, Not quite stays and says to tap Just tell me");
       tap(def);
-      check(reg["step-miss"].hidden === true, "changing a pick drops the Not quite line");
+      check(/step-miss[^>]*>Not quite[^<]*change your picks/.test(body()), "with a new pick, Not quite again says to change the picks");
       check(/\bon\b/.test(reg["gw-" + def].className) && !/\bon\b/.test(reg["gw-" + wrong].className), "the changed pick is the one now selected");
       lock();
     } else {
