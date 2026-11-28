@@ -183,28 +183,20 @@ jobs:
     strategy:
       # Every shard runs to the end. A red shard must not hide a second one.
       fail-fast: false
-      # The repository's runners (about twenty at once on the free plan) are
-      # shared with the site build, and GitHub hands them out first come,
-      # first served, with no priority. With master always having a suite
-      # running and one pending, eleven shards of up to 45 minutes plus the
-      # nightly smoke's six slices held nearly every runner, and each job on
-      # the way to a deploy (validate, build, the annotate shards) waited
-      # minutes for one. Six at a time leaves the deploy path its runners; a
-      # suite takes longer, and a pending one folds in more commits.
-      max-parallel: 6
+      # Every shard starts at once: a suite in two waves takes twice as long,
+      # and a run on master is only worth anything if it finishes before the
+      # next push supersedes it. The wall clock is what is optimised here, not
+      # spare runners; the shard splitter balances the shards by measured cost
+      # so that they finish together.
+      max-parallel: 10
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. A shard is a few minutes
-    # of checkout, build and scripts when the smoke test's results are cached,
-    # and longer after a code change re-runs it over the whole corpus. That
-    # change also invalidates the row cache (a row is keyed on the code that made
-    # it), so every shard re-makes the index (4-8 min) and the pages (4 min)
-    # before its scripts, until a pages.yml run saves the caches again: in run
-    # 43359257648 that took shards 5 and 2 to 29-30 minutes, and the 30-minute
-    # cap cancelled four of them with their scripts passing. Forty-five leaves
-    # the margin; a shard near it means ci_shards.js's COST or SLICES needs
-    # re-measuring.
+    # holding a red check over every commit behind it. A shard is setup, the
+    # index, the page build when it holds a page reader, and its scripts:
+    # about a quarter of an hour. The cap leaves room for a cold cache, which
+    # re-makes the index and every page; a shard near it means the splitter's
+    # COST or SLICES needs re-measuring.
     timeout-minutes: 45
     defaults:
       run:
@@ -408,7 +400,11 @@ jobs:
             [ "$item" = "$t" ] || slice=${item#* }
             case "$t" in *.sh) run=bash ;; *.py) run=python3 ;; *) run=node ;; esac
             echo "::group::$run $item"
-            CI_SLICE="$slice" "$run" "$t" || fails+=("$item")
+            # Python unbuffered, so each line's timestamp in the log is when it
+            # was printed and a slow section of a script can be found.
+            opt=()
+            if [ "$run" = python3 ]; then opt=(-u); fi
+            CI_SLICE="$slice" "$run" "${opt[@]}" "$t" || fails+=("$item")
             echo "::endgroup::"
             # A script that writes to a tracked file or the real puzzles/ index
             # and restores it with a trap still fails this the moment it is

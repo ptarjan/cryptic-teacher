@@ -1,16 +1,22 @@
-/* The per-puzzle result cache that lets every push check the whole corpus.
+/* The per-puzzle result cache that decides which puzzles a push's smoke
+   sweep checks.
 
    A result is cached per (check, puzzle). It stands while two hashes are
    unchanged: the puzzle file's git blob, and the check's CODE KEY, a hash of
    the git blobs of every file the check declares it depends on (CHECKS). A
    check that cannot name its dependencies declares `deps: null`, meaning every
    tracked file outside puzzles/. So a push that only adds or edits puzzles
-   re-runs the check on just those puzzles, and a push that changes a check's
-   code re-runs that check on all of them.
+   owes the check just those puzzles, and a push that changes a check's code
+   owes it all of them, which runs then take MAX_UNCACHED a slice at a time.
 
    The cache is one JSON file, carried between runs by actions/cache in
    tests.yml (restored from the newest entry, saved under the commit):
-     { "<check>": { code, pass: { "<puzzle path>": "<blob>" }, shapes } }
+     { "<check>": { code, pass: { "<puzzle path>": "<blob>" }, shapes,
+                    run, seen: { "<puzzle path>": ["<blob tag>", <run>] } } }
+   `pass` holds results for the current code key only. `seen` outlives a code
+   change: for each puzzle, a tag of the content last checked and the number
+   (`run`, one more each merge) of the run that checked it. It decides which
+   uncached puzzles a capped run takes first (see byOwed).
    Only passing results go in it: a slice of the check writes its results file
    (resultsFor) only when it passed, and `merge` folds those into the restored
    cache, dropping every entry whose code key or blob is no longer current.
@@ -152,16 +158,32 @@ function readCache(file) {
   }
 }
 
-/* The ids in slice i/n whose cached result for `check` is missing or stale. */
+// A short tag of a puzzle's key (its blob and its sidecar's): enough to tell
+// that the content changed since it was last checked, at a tenth of the size.
+const tag = (blob) => crypto.createHash("sha1").update(blob).digest("hex").slice(0, 10);
+
+/* The order a capped run takes uncached puzzles in. First every puzzle whose
+   content no run has checked (new, or edited since its last check, whatever
+   code checked it), so an edit is checked by the next push. Then the rest by
+   how long ago a run last checked them, oldest first, so successive runs walk
+   the whole slice instead of re-checking the same head of it after every
+   code change. Ties keep tree order. */
+function byOwed(entry, list) {
+  const seen = (entry && entry.seen) || {};
+  const rank = ([p, blob]) => {
+    const s = seen[p];
+    return s && s[0] === tag(blob) ? s[1] : -1;
+  };
+  return list.map((pb, n) => [rank(pb), n, pb]).sort((a, b) => a[0] - b[0] || a[1] - b[1]).map((r) => r[2]);
+}
+
+/* The ids in slice i/n whose cached result for `check` is missing or stale,
+   in the order byOwed gives. */
 function uncached(cache, check, i, n) {
   const entry = cache[check];
   const pass = entry && entry.code === codeKey(check) ? entry.pass : {};
-  const out = [];
-  for (const [p, blob] of puzzles()) {
-    const id = idOf(p);
-    if (inSlice(id, i, n) && pass[p] !== blob) out.push(id);
-  }
-  return out;
+  const owed = [...puzzles()].filter(([p, blob]) => inSlice(idOf(p), i, n) && pass[p] !== blob);
+  return byOwed(entry, owed).map(([p]) => idOf(p));
 }
 
 /* The results file a passing slice writes: the puzzles it checked, by id. */
@@ -174,15 +196,19 @@ function resultsFor(check, ids, shapes, deferred) {
   return { check, code: codeKey(check), pass, shapes, deferred: later };
 }
 
-/* How many uncached puzzles one slice checks per run. A code change that
-   invalidates every result leaves ~1450 uncached puzzles in each of the 40
-   slices; checking them all at once outran the shard (its processes died with
-   no message after the load, run 39108321662), and a run that never passes
-   never saves a result, so the cache could not refill. A slice checks this
-   many, the rest are `deferred` (named in its results file, so merge does not
-   take them for a slice that never ran) and the following runs take the next
-   ones. CT_MAX_UNCACHED overrides it. */
-const MAX_UNCACHED = 300;
+/* How many uncached puzzles one slice checks per run: the push suite's
+   budget for corpus coverage. The code key covers most of tools/, so nearly
+   every code push leaves the whole corpus (~96k puzzles) uncached, and no
+   per-run budget a push can afford refills it: the cache does not converge on
+   master, and the cap, not the corpus, sets what a run costs. A slice spends
+   ~3.7 minutes booting and loading and ~2.3 s per puzzle it sweeps; with the
+   sample every slice carries (tools/smoke/corpus.js) and this many more, a
+   slice fits tests.yml's run target beside the page build. The run checks
+   SLICES x this many, new and edited puzzles first, then the longest
+   unchecked (byOwed); the rest are `deferred` (named in each results file, so
+   merge does not take them for a slice that never ran). The cache-free sweep
+   of the whole corpus is nightly-smoke.yml's. CT_MAX_UNCACHED overrides it. */
+const MAX_UNCACHED = 25;
 function capUncached(ids) {
   const max = +process.env.CT_MAX_UNCACHED || MAX_UNCACHED;
   return { now: ids.slice(0, max), deferred: ids.slice(max) };
@@ -200,12 +226,16 @@ function merge(cacheFile, resultsDir, outFile, shapesDir) {
   for (const check of Object.keys(CHECKS)) {
     const code = codeKey(check);
     const old = cache[check] && cache[check].code === code ? cache[check] : { pass: {}, shapes: {} };
-    const entry = { code, pass: {}, shapes: { ...old.shapes } };
+    // `seen` and `run` carry across a code change; `pass` and `shapes` do not.
+    const run = ((cache[check] && cache[check].run) || 0) + 1;
+    const seen = {};
+    for (const [p, s] of Object.entries((cache[check] && cache[check].seen) || {})) if (all.has(p)) seen[p] = s;
+    const entry = { code, pass: {}, shapes: { ...old.shapes }, run, seen };
     let fresh = 0;
     for (const [p, blob] of Object.entries(old.pass)) if (all.get(p) === blob) entry.pass[p] = blob;
     for (const r of results.filter((r) => r.check === check && r.code === code)) {
       for (const [p, blob] of Object.entries(r.pass)) {
-        if (all.get(p) === blob) { fresh += entry.pass[p] ? 0 : 1; entry.pass[p] = blob; }
+        if (all.get(p) === blob) { fresh += entry.pass[p] ? 0 : 1; entry.pass[p] = blob; seen[p] = [tag(blob), run]; }
       }
       for (const [k, v] of Object.entries(r.shapes || {})) entry.shapes[k] = entry.shapes[k] || v;
     }
@@ -237,7 +267,7 @@ function merge(cacheFile, resultsDir, outFile, shapesDir) {
 }
 
 module.exports = { CHECKS, SMOKE_DEPS, INERT, codeKey, puzzles, inSlice, readCache, uncached, resultsFor, idOf,
-  capUncached, merge };
+  capUncached, merge, byOwed, tag, MAX_UNCACHED };
 
 if (require.main === module && process.argv[2] === "--drop-cached") {
   const cache = readCache(process.argv[3]);

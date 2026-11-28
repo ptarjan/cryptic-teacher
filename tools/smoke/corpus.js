@@ -47,16 +47,14 @@ const SLICE = (() => {
 })();
 const ciCache = require("../ci_cache.js");
 const inSlice = (key) => ciCache.inSlice(key, SLICE.i, SLICE.n);
-// tests.yml sweeps the whole corpus on every push, but through a result cache
-// (tools/ci_cache.js): CT_CACHE names the restored cache, and this slice sweeps
-// the sample above PLUS every puzzle of its slice with no passing result for
-// this code. A passing run writes what it checked to $CT_RESULTS_OUT (end of
-// this file) for the cache. The cache-free full sweep is the nightly's
+// tests.yml sweeps the corpus through a result cache (tools/ci_cache.js):
+// CT_CACHE names the restored cache, and this slice sweeps the sample above
+// PLUS the puzzles of its slice with no passing result for this code, up to
+// ci_cache.js's MAX_UNCACHED a run: new and edited puzzles first, then the
+// longest unchecked. The rest are DEFERRED, named in the results file. A
+// passing run writes what it checked to $CT_RESULTS_OUT (end of this file)
+// for the cache. The cache-free sweep of every puzzle is the nightly's
 // (nightly-smoke.yml, CT_FULL=1).
-// At most ci_cache.js's MAX_UNCACHED of them per run: after a change to the
-// code every puzzle is uncached, and a slice that took all ~1450 of them died
-// with no message. The rest are DEFERRED, named in the results file, and the
-// next runs take them.
 const UNCACHED = process.env.CT_CACHE
   ? ciCache.capUncached(ciCache.uncached(ciCache.readCache(process.env.CT_CACHE), "tools/smoke_test.js", SLICE.i, SLICE.n))
   : { now: [], deferred: [] };

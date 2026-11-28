@@ -17,11 +17,20 @@ const check = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", m
 
 const ids = Array.from({ length: 1000 }, (_, n) => `x-${n}`);
 const cap = cc.capUncached(ids);
-check(cap.now.length === 300 && cap.deferred.length === 700 && cap.now[0] === "x-0" && cap.deferred[0] === "x-300",
-  "a slice takes the first 300 uncached puzzles and defers the rest");
+const max = cc.MAX_UNCACHED;
+check(cap.now.length === max && cap.deferred.length === 1000 - max && cap.now[0] === "x-0" && cap.deferred[0] === `x-${max}`,
+  `a slice takes the first ${max} uncached puzzles and defers the rest`);
 process.env.CT_MAX_UNCACHED = "5";
 check(cc.capUncached(ids).now.length === 5, "CT_MAX_UNCACHED overrides the cap");
 delete process.env.CT_MAX_UNCACHED;
+
+// The order a capped slice takes them in: content no run has checked first
+// (never seen, or edited since), then the longest unchecked, so successive
+// runs walk the slice rather than re-check its head after every code change.
+const seenEntry = { seen: { a: [cc.tag("a1"), 5], b: [cc.tag("b1"), 2], c: [cc.tag("c0"), 1] } };
+const order = cc.byOwed(seenEntry, [["a", "a1"], ["b", "b1"], ["c", "c1"], ["d", "d1"]]).map(([p]) => p);
+check(order.join() === "c,d,b,a",
+  `edited and never-checked puzzles come first, then the oldest checked: ${order.join()}`);
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ci-partial-"));
 const file = "tools/smoke_test.js";
@@ -43,6 +52,24 @@ const partial = run("partial", [cc.resultsFor(file, done, { rare: false }, rest)
 check(partial.bad === 0, "merge accepts a cache with deferred puzzles");
 const noDefer = run("none", [cc.resultsFor(file, done, { rare: false }, [])]);
 check(noDefer.bad === 1, "merge still fails puzzles that no slice checked or deferred");
+{
+  const out = JSON.parse(fs.readFileSync(path.join(tmp, "partial", "out.json"), "utf8"))[file];
+  check(out.run === 1 && done.every((id) => out.seen[all.find(([p]) => cc.idOf(p) === id)[0]][1] === 1)
+    && Object.keys(out.seen).length === done.length,
+    "merge records which run checked each puzzle it passed, and only those");
+}
+// A code change drops `pass` but keeps `seen` and counts the run on.
+{
+  const dir = path.join(tmp, "carry");
+  fs.mkdirSync(dir, { recursive: true });
+  const [p0, blob0] = all[0];
+  fs.writeFileSync(path.join(dir, "old.json"), JSON.stringify({ [file]: {
+    code: "older code", pass: { [p0]: blob0 }, shapes: {}, run: 7, seen: { [p0]: [cc.tag(blob0), 7], "puzzles/gone.json": ["x", 1] } } }));
+  cc.merge(path.join(dir, "old.json"), path.join(dir, "none"), path.join(dir, "out.json"));
+  const out = JSON.parse(fs.readFileSync(path.join(dir, "out.json"), "utf8"))[file];
+  check(out.run === 8 && !out.pass[p0] && out.seen[p0][1] === 7 && !out.seen["puzzles/gone.json"],
+    "a code change keeps when each puzzle was last checked, and forgets deleted puzzles");
+}
 const nothing = run("empty", []);
 check(nothing.bad === 1, "merge still fails when no slice reported at all");
 
