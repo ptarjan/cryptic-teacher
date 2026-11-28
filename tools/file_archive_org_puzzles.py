@@ -6232,62 +6232,135 @@ def sunday_headings_loose(words, want, slack):
     return found
 
 
+def sunday_page_reads(d, leaf):
+    """[words] of each page reader's cached whole-page read (never made here) of leaf `leaf` of edition directory `d`
+    (misreads mended), or None where one reader has none cached."""
+    key = f"{d.parent.name}_{d.name}_{leaf}"
+    reads = []
+    for which in PAGE_READERS:
+        try:
+            words = json.loads((CROPS / "titles" / f"{key}_page.{reader_key(which)}.json").read_text())["words"]
+        except (OSError, ValueError, KeyError, TypeError):
+            return None
+        reads.append([(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5])
+    return reads
+
+
+def sunday_across_labels(words, want, slack):
+    """[(number, box)] of the lines of `words` (a Gale Sunday Times page's cached reads) where the word "ACROSS" is followed,
+    on its line, by a number within `slack` of `want` (a bare "No."/"No" word allowed between): the clue column's label the
+    1976-2000 pages print with the puzzle's number, where the page's heading was lost to the reader. The box: that word and
+    its number's."""
+    found = []
+    for line in printed_lines(words):
+        toks = list(line)
+        for i, w in enumerate(toks):
+            text = " ".join(str(t[4]) for t in toks[i:i + 3])
+            m = re.match(r"[^A-Za-z]*across\W{0,3}(?:n[o0]\W{0,3})?(\d[,.]?\d{3})(?!\d)", text, re.IGNORECASE)
+            if not m:
+                continue
+            n = int(re.sub(r"\D", "", m.group(1)))
+            if abs(n - want) <= slack:
+                digits = [t for t in toks[i + 1:i + 3] if re.search(r"\d", str(t[4]))]
+                found.append((n, tuple(box_of([w, digits[0]] if digits else [w]))))
+    return found
+
+
+def sunday_implied(day, held):
+    """The number a Gale Sunday Times page of `day` has when the nearest filed puzzles either side run unbroken (sunday_count_off's
+    first test): both neighbours a whole number of weeks off and their numbers as many apart as the weeks between them; else None."""
+    before, after = neighbours(day, held)
+    if before and after and (day - before[0]).days % 7 == 0 and (after[0] - day).days % 7 == 0 \
+            and after[1] - before[1] == (after[0] - before[0]).days // 7:
+        return before[1] + (day - before[0]).days // 7
+    return None
+
+
+def sunday_read_title(d, found, held=None):
+    """(number, leaf, box, how) of the title the cached whole-page reads of edition directory `d` give a Gale Sunday Times page
+    scan() found none on, or None. First the heading the strict parser missed (sunday_headings_loose: a block holding a word
+    like "crossword" and a number within the paper's slack of the date's): every page reader (PAGE_READERS) must give the one
+    number and no other within slack on that page. Failing that, a number any reader gives, by that heading or by the clue
+    column's label (sunday_across_labels: "ACROSS No. 2833"), stands only when it is the number the filed weekly run around
+    the date implies (sunday_implied: filed neighbours either side, one number a week between them): the label alone stood one off
+    the filed number on 7 of 7 1977-78 pages, a lone reader's digits are often wrong, the run is neither. `held` is
+    {number: date} of the filed Sunday Times puzzles (held_dates) when not given."""
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+        day = datetime.date.fromisoformat(d.name[:10])
+        want = GALE_SUNDAY_TIMES.expected(day)
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+    fixed, fixed_held = None, held
+    for leaf in leaves:
+        reads = sunday_page_reads(d, leaf)
+        if reads is None:
+            continue
+        loose, seen = {}, {}
+        for how, finder in (("loose", sunday_headings_loose), ("acrossLabel", sunday_across_labels)):
+            votes, boxes = {}, {}
+            for ri, words in enumerate(reads):
+                for n, box in finder(words, want, GALE_SUNDAY_TIMES.slack):
+                    votes.setdefault(n, set()).add(ri)
+                    boxes.setdefault(n, box)
+                    seen.setdefault(n, (box, how))
+            if how == "loose":
+                loose = votes
+                agreed = [n for n, v in votes.items() if len(v) >= len(reads)]
+                if len(agreed) == 1 and len(votes) == 1:
+                    return agreed[0], leaf, boxes[agreed[0]], how
+        if not seen:
+            continue
+        if fixed_held is None:
+            fixed_held = held_dates(GALE_SUNDAY_TIMES.series)
+        if fixed is None:
+            fixed = sunday_implied(day, fixed_held) or 0
+        if fixed in seen:
+            return fixed, leaf, seen[fixed][0], "weeklyRun"
+    return None
+
+
 def sunday_titled(d, found):
     """Scan `found` of edition directory `d` with its puzzle titled from the whole-page reads its scan left in the crop
     cache (never made here) where it is a Gale Sunday Times page scan() found no title on: the heading the strict parser
     missed because the reader tore it (its words overlapping, "Mo." for "No.", "CROSSWDRD", the number a line of its own
-    over or under the word: sunday_headings_loose), the one number every page reader (PAGE_READERS) gives within the paper's
-    slack of the date's; its box that block's. Two numbers, or a reader that gives none, titles nothing. Stamped
-    SUNDAY_LOOKED. Outside scan(), whose key a change here would move: it titles only pages scan() titled none on."""
+    over or under the word: sunday_headings_loose), or the clue column's "ACROSS No. N" label where the heading is lost
+    (sunday_across_labels), the one number every page reader (PAGE_READERS) gives within the paper's slack of the date's;
+    its box that block's. Two numbers, or a reader that gives none, titles nothing. Stamped SUNDAY_LOOKED. Outside
+    scan(), whose key a change here would move: it titles only pages scan() titled none on."""
     if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
             or paper_of(d) is not GALE_SUNDAY_TIMES:
         return found
-    try:
-        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
-        want = GALE_SUNDAY_TIMES.expected(datetime.date.fromisoformat(str(found.get("date", ""))))
-    except (OSError, ValueError, KeyError, TypeError):
-        return found
     stamped = {**found, SUNDAY_LOOKED: True}
-    for leaf in leaves:
-        key = f"{d.parent.name}_{d.name}_{leaf}"
-        reads = []
-        for which in PAGE_READERS:
-            try:
-                words = json.loads((CROPS / "titles" / f"{key}_page.{reader_key(which)}.json").read_text())["words"]
-            except (OSError, ValueError, KeyError, TypeError):
-                continue
-            reads.append([(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5])
-        if len(reads) < len(PAGE_READERS):
-            continue
-        votes, boxes = {}, {}
-        for ri, words in enumerate(reads):
-            for n, box in sunday_headings_loose(words, want, GALE_SUNDAY_TIMES.slack):
-                votes.setdefault(n, set()).add(ri)
-                boxes.setdefault(n, box)
-        agreed = [n for n, v in votes.items() if len(v) >= len(reads)]
-        if len(agreed) != 1 or len(votes) != 1:
-            continue
-        return {**stamped, "puzzles": [{"number": agreed[0], "leaf": leaf, "box": boxes[agreed[0]], "titleReadBy": ["loose"]}],
-                "solutions": [s for s in found.get("solutions") or () if s["number"] != agreed[0]]}
-    return stamped
+    got = sunday_read_title(d, found)
+    if got is None:
+        return stamped
+    n, leaf, box, how = got
+    return {**stamped, "puzzles": [{"number": n, "leaf": leaf, "box": box, "titleReadBy": [how]}],
+            "solutions": [s for s in found.get("solutions") or () if s["number"] != n]}
 
 
 def sunday_stale(row):
     """Whether Gale Sunday Times ledger `row` holds a scan under a current key that read its page whole (WHOLE_UNTITLED),
-    found no title and was not looked over by sunday_titled (no SUNDAY_LOOKED), with no verdict: scanned again once."""
+    found no title and was not looked over by sunday_titled (no SUNDAY_LOOKED), with no verdict, and whose cached page reads
+    give sunday_titled a title (sunday_read_title; or it is one of sunday_loose_rows, the first round's list): scanned again once."""
     scan = (row or {}).get("scan") or {}
-    return bool(scan.get(WHOLE_UNTITLED)) and not scan.get(SUNDAY_LOOKED) and not scan.get("failed") \
-        and "inputs" in row and not row.get("verdicts") and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) \
-        and str(scan.get("item", "")).startswith("GaleSundayTimes") and row.get("scanKey") in current_keys(GALE_SUNDAY_TIMES) \
-        and (row.get("edition") or "") in sunday_loose_rows()
+    if not (bool(scan.get(WHOLE_UNTITLED)) and not scan.get(SUNDAY_LOOKED) and not scan.get("failed")
+            and "inputs" in row and not row.get("verdicts") and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())
+            and str(scan.get("item", "")).startswith("GaleSundayTimes") and row.get("scanKey") in current_keys(GALE_SUNDAY_TIMES)):
+        return False
+    rel = row.get("edition") or ""
+    return rel in sunday_loose_rows()
 
 
 @functools.lru_cache(maxsize=None)
 def sunday_loose_rows():
-    """The editions sunday_titled titles off their cached reads (tools/data/sunday_loose_title.json), the only rows
-    sunday_stale holds for a rescan: the others' reads hold no heading it could take."""
+    """The editions sunday_titled titles off their cached reads (tools/data/sunday_loose_title.json and
+    sunday_run_title.json, the second the weekly-run ones), the only rows sunday_stale holds for a rescan: the others' reads
+    hold no heading or label it could take."""
     try:
-        return frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_loose_title.json").read_text()))
+        return frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_loose_title.json").read_text())) \
+            | frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_run_title.json").read_text()))
     except (OSError, ValueError):
         return frozenset()
 
