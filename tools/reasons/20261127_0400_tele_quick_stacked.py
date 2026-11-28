@@ -12,7 +12,7 @@ its grid "under its clues, a small square lattice", 4+ lights "no reading laid a
 from fix_reasons import Reason
 
 TEXT = "Gale Telegraph page read on the Quick crossword's grid (its caption stacked over two lines), the cryptic's clue block heading read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T04:57:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
