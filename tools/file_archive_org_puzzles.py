@@ -6920,11 +6920,72 @@ def indy_titled(d, found):
                         votes.setdefault(n, set()).add(path.name.split(".")[1])
                         boxes.setdefault(n, (min(w[0] for w in line), min(w[1] for w in line),
                                              max(w[2] for w in line), max(w[3] for w in line)))
+        if not votes:  # the heading on two lines: "THE INDEPENDENT Crossword" over "No. 2297 ... by Aelred" (INDY_TWO_LINE)
+            for path in sorted((CROPS / "titles").glob(f"{key}_*.json")):
+                try:
+                    words = json.loads(path.read_text())["words"]
+                except (OSError, ValueError, KeyError, TypeError):
+                    continue
+                words = [(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5]
+                for n, box in indy_two_line(printed_lines(words), want):
+                    votes.setdefault(n, set()).add(path.name.split(".")[1])
+                    boxes.setdefault(n, box)
+            votes = {n: v for n, v in votes.items() if len(v) >= 2}
         if votes:
             n = min(votes, key=lambda n: (-len(votes[n]), abs(n - want)))
             return {**found, "puzzles": [{"number": n, "leaf": leaf, "box": boxes[n], "titleReadBy": sorted(votes[n])}],
-                    INDY_TITLE_READ: True}
-    return {**found, INDY_LOOKED: True}
+                    INDY_TITLE_READ: True, INDY_TWO_LINE_LOOKED: True}
+    return {**found, INDY_LOOKED: True, INDY_TWO_LINE_LOOKED: True}
+
+
+#: The key of a Gale Independent scan indy_titled read after INDY_TWO_LINE's rule (titled or not): its rescan is done.
+INDY_TWO_LINE_LOOKED = "indyTwoLine"
+
+
+#: The Independent's 1993-94 heading, split over lines: "THE INDEPENDENT Crossword" in big capitals, and apart from it (under it,
+#: or on the ACROSS/DOWN heading row of the Saturday prize crossword, under the entry coupon) its number, then the setter:
+#: "No. 2297 ... by Aelred" (read "o.2297", "[o. 2297", "0. 2297"). No line carries both, so independent_headings found none, the
+#: readers also running the neighbouring column's words onto the banner's line (r314 11-27: 186 of 188 pages 1993-12..1994-12, a
+#: crossword on each). INDY_TWO_LINE_TITLE opens the banner, INDY_TWO_LINE_NUMBER the number line.
+INDY_TWO_LINE_TITLE = re.compile(r"INDEPENDENT\W{0,3}CR[O0]SSW[O0]R", re.IGNORECASE)
+INDY_TWO_LINE_NUMBER = re.compile(r"^\W{0,3}(?:[Nn]|\[|\()?[oO0]?[.,:;]?\s*(\d{4})(?!\d)(.*)$")
+INDY_TWO_LINE_STRICT = re.compile(r"^\W{0,3}[Nn][oO0][.,:;]?\s*(\d{4})(?!\d)(.*)$")
+#: The setter's "by": a word of its own or glued to a capitalised name ("byPhi", the run-together reader).
+INDY_BY = re.compile(r"\W*[bB][yY](?:\b|(?=[A-Z]))")
+#: How far under its banner's top, in banner heights, the number line may stand (the Saturday coupon between them: 5 heights).
+INDY_TWO_LINE_REACH = 10
+
+
+def indy_two_line(lines, want):
+    """[(number, box)] of the split Independent headings in `lines`: a line opening "No. NNNN" (any misread of "No", or none),
+    NNNN within the paper's slack of `want`, with "by <setter>" after it on the line or beside it on the same row, under a
+    line holding INDEPENDENT CROSSWORD (INDY_TWO_LINE_TITLE: its top above the number line's, within INDY_TWO_LINE_REACH of its
+    heights, the number's left edge not right of the banner's right)."""
+    def text(ws):
+        return " ".join(str(w[4]) for w in ws)
+
+    def box(ws):
+        return (min(w[0] for w in ws), min(w[1] for w in ws), max(w[2] for w in ws), max(w[3] for w in ws))
+    banners = [box(ws) for ws in lines if INDY_TWO_LINE_TITLE.search(text(ws))]
+    found = []
+    for ws in lines:
+        for k in range(len(ws)):
+            # Opening the line the number may be misread to "o.2297"; run on after a clue's words it needs its "No".
+            m = (INDY_TWO_LINE_NUMBER if k == 0 else INDY_TWO_LINE_STRICT).match(" ".join(str(w[4]) for w in ws[k:k + 3]))
+            if not m or abs(int(m[1]) - want) > GALE_INDEPENDENT.slack:
+                continue
+            nx0, ny0, nx1, ny1 = box(ws[k:k + 2])
+            by = re.match(INDY_BY, text(ws[k:]).split(m[1], 1)[1].lstrip(" .,:;")) or any(
+                re.match(INDY_BY, text(o)) and o[0][0] >= nx1 - 5 and abs(box(o)[1] - ny0) <= ny1 - ny0
+                for o in lines if o is not ws)
+            if not by:
+                continue
+            for bx0, by0, bx1, by1 in banners:
+                if by0 < ny0 and ny0 - by0 <= INDY_TWO_LINE_REACH * (by1 - by0) and nx0 <= bx1:
+                    found.append((int(m[1]), (bx0, by0, max(bx1, nx1), ny1)))
+                    break
+            break
+    return found
 
 
 #: Thread-local state of grid_first_scan: the paper being scanned, the windows
