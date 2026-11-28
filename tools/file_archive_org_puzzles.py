@@ -4471,6 +4471,59 @@ def lead_foreign(rapid, grid, right):
     return {k: [ws for ws in lines if ws and ws[0][0] >= cut] for k, lines in rapid.items()}
 
 
+#: INDY_BAND_CUT: a Gale Independent window right of its grid whose clue print stands in ONE narrow column (every list, ACROSS
+#: and DOWN, 1998-09-28 No 3727: x 980-1330 under a title at 970) with a column of other print (a results table, an article:
+#: x 1756 on) far right of it inside the same window, a blank band between them, many line heights wide: right_foreign()
+#: looks for other print only within a fifth of a grid's width of the window's edge, the table's numbered lines
+#: ("2 M Schumacher") ran into the DOWN list, its parse failed and 1-7 down, 26 and 27 across were laid by no reading
+#: ("no reading laid a clue on it", ~11 pages 1996-99). The window is cut at the middle of a blank x-run (over every
+#: reading's boxes) at least INDY_BAND_HEIGHTS median box heights wide and INDY_BAND_INNER times wider than any blank run left
+#: of it, with INDY_COLUMN_MIN clue-number starts left of it and INDY_BAND_RIGHT boxes right of it, fewer than INDY_COLUMN_MIN
+#: of which open as a numbered clue (crop_window.CLUE_OPENING: a third clue column, not other print).
+INDY_BAND_HEIGHTS, INDY_BAND_INNER, INDY_BAND_RIGHT = 5.0, 2.0, 2
+
+
+def indy_band_edge(words):
+    """The x of the middle of the blank band (see INDY_BAND_CUT) of `words` (every reading's boxes), or None."""
+    import statistics
+    ws = [w for w in words if w[2] > w[0]]
+    if len(ws) < 5 * INDY_COLUMN_MIN:
+        return None
+    height = statistics.median(w[3] - w[1] for w in ws)
+    lo, hi = int(min(w[0] for w in ws)), int(max(w[2] for w in ws))
+    covered = [False] * (hi - lo + 1)
+    for w in ws:
+        for x in range(int(w[0]) - lo, int(w[2]) - lo):
+            covered[x] = True
+    inner, x = 0, 0
+    while x < len(covered):
+        if covered[x]:
+            x += 1
+            continue
+        end = x
+        while end < len(covered) and not covered[end]:
+            end += 1
+        a, b = x + lo, end + lo
+        x = end
+        if a <= lo or b > hi:
+            continue
+        if b - a >= INDY_BAND_HEIGHTS * height and b - a >= INDY_BAND_INNER * max(inner, 1) \
+                and sum(1 for w in ws if w[2] <= a and _INDY_NUMBER_START.match(str(w[4]))) >= INDY_COLUMN_MIN \
+                and sum(1 for w in ws if w[0] >= b) >= INDY_BAND_RIGHT \
+                and sum(1 for w in ws if w[0] >= b and crop_window.CLUE_OPENING.match(str(w[4]))) < INDY_COLUMN_MIN:
+            return (a + b) // 2
+        inner = max(inner, b - a)
+    return None
+
+
+def indy_band_cut(rapid, right):
+    """(right, rapid) with the window cut at indy_band_edge() of its boxes (every reader's), as they were when there is none."""
+    cut = indy_band_edge([w for lines in rapid.values() for ws in lines for w in ws])
+    if cut is None or cut >= right[0]:
+        return right, rapid
+    return (cut, *right[1:]), {k: [ws for ws in lines if ws and ws[0][0] < cut] for k, lines in rapid.items()}
+
+
 #: INDY_UNDER_SPLIT: the Gale Independent 2011-12's page with three clue columns under its grid (numbers at x 170, 420, 671 on
 #: 2012-02-13, pitch 250) and other print right of them (weather, x 981): over_gutters() split the span to the print's far
 #: edge in thirds (585, 957, 1399), so the first window held columns one and two row by row (column one's lines reach x 415,
@@ -16281,6 +16334,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         right, rapid = right_foreign(rapid, gbox, right)
         if paper.key == "galeindependent":
             rapid = lead_foreign(rapid, gbox, right)
+            right, rapid = indy_band_cut(rapid, right)
         # A window whose edge runs through its own clue column (no other print past it: the
         # cut boxes are clue lines) is widened to that column's far edge and read again
         # (crop_window.cut_edge: the mid-2014 Times' down column, its line ends cut off).
@@ -16295,6 +16349,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             right, rapid = right_foreign(rapid, gbox, right)
             if paper.key == "galeindependent":
                 rapid = lead_foreign(rapid, gbox, right)
+                right, rapid = indy_band_cut(rapid, right)
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
