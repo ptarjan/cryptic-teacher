@@ -21894,6 +21894,25 @@ def telegraph_over_title(d, img, hit, found, years=None):
     return None
 
 
+#: A Quick caption printed over two lines ("QUICK" above "CROSSWORD", the 1970s' layout): the two words, the second a line
+#: under the first within QUICK_STACK_DROP px and QUICK_STACK_SHIFT px of its left, read as one caption.
+QUICK_WORD = re.compile(r"^\W*q\w{0,2}c?k\W*$", re.IGNORECASE)
+CROSSWORD_WORD = re.compile(r"^\W*c\w{0,2}[o0]ss\w{0,4}\W*$", re.IGNORECASE)
+QUICK_STACK_DROP, QUICK_STACK_SHIFT = 60, 150
+
+
+def quick_captions(lines):
+    """[box] of each Quick crossword caption in printed `lines`: a line whose text matches QUICK_CAPTION, or a lone QUICK
+    word with a lone CROSSWORD word just under it (QUICK_STACK_DROP, QUICK_STACK_SHIFT). Read-time (tele_quick_title)."""
+    boxes = [box_of(ws) for ws in lines if QUICK_CAPTION.search(" ".join(w[4] for w in ws))]
+    words = [w for ws in lines for w in ws]
+    for q in (w for w in words if QUICK_WORD.match(w[4])):
+        for c in (w for w in words if CROSSWORD_WORD.match(w[4])):
+            if -10 <= c[1] - q[3] <= QUICK_STACK_DROP and abs(c[0] - q[0]) <= QUICK_STACK_SHIFT:
+                boxes.append((min(q[0], c[0]), q[1], max(q[2], c[2]), c[3]))
+    return boxes
+
+
 #: The reason of a Gale Telegraph 1980-99 page refused "the ink under the title is ~480x500, not a grid" (census r302: 122 rows,
 #: 1982-85 mostly, read 11-18..21): its scan, made before gale_telegraph_headings stopped taking the Quick crossword's ACROSS
 #: (under its QUICK CROSSWORD caption, under the SOLUTION heading) for the cryptic's title (TELEQUICK), stands under a pinned
@@ -21902,7 +21921,7 @@ def telegraph_over_title(d, img, hit, found, years=None):
 #: ACROSS/DOWN row), so tele_quick_title reads the stretch over the page's one SOLUTION heading to its caption by both page
 #: readers (cached once) and, the title box standing under a QUICK_CAPTION, takes clue_block_heading's box of the cryptic's
 #: clue block (as the scan does) when BOTH readers find it within TELE_QUICK_AGREE px. A read-time change: no scan key moves.
-TELE_QUICK_FIRST_YEARS = ("1980", "1999")
+TELE_QUICK_FIRST_YEARS = ("1970", "1999")
 TELE_QUICK_REACH, TELE_QUICK_BELOW, TELE_QUICK_AGREE = 1800, 400, 60
 
 
@@ -21920,7 +21939,7 @@ def tele_quick_title(d, img, hit, found):
         path = CROPS / "titles" / f"{d.parent.name}_{d.name}_quick_{'_'.join(map(str, band))}.{reader_key(which)}.json"
         words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
         lines = printed_lines(words)
-        quick = [box_of(ws) for ws in lines if QUICK_CAPTION.search(" ".join(w[4] for w in ws))]
+        quick = quick_captions(lines)
         if not quick or not under_quick(hit["box"], quick):
             return None
         block = clue_block_heading(lines, quick)
