@@ -1853,7 +1853,9 @@ def main():
     os.makedirs(args.out, exist_ok=True)
     jobs = max(1, args.jobs)
     fx = Fetcher(args.out, max(args.delay, 1.0), jobs)
-    done = load_done(args.out)
+    # --leaf names its edition, so the done list (which prices every done
+    # edition's staleness, minutes over the corpus) is not read.
+    done = set() if args.leaf else load_done(args.out)
     run = Run(args.out)
 
     if args.item:
