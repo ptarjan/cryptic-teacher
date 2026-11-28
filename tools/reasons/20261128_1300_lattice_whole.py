@@ -12,7 +12,7 @@ Due: a Gale Telegraph row holding an unwritten verdict whose grid was that small
 from fix_reasons import Reason
 
 TEXT = "Gale Telegraph page whose grid under its clues the crop cut short, the whole grid ink read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T12:25:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
