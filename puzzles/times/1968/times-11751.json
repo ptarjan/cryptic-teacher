@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "They're grand in Michigan, though liable to be shot",
     "enumeration": "6"
    },
-   "solution": "RAPIDS"
+   "solution": "RAPIDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're grand in Michigan",
+      "at": 0,
+      "meaning": "Grand ... is a city in Michigan, so the things that are 'grand' there are white-water stretches"
+     },
+     {
+      "text": "liable to be shot",
+      "at": 34,
+      "meaning": "canoeists 'shoot' stretches of fast white water, riding straight through them"
+     }
+    ],
+    "explanation": {
+     "surface": "A tourist's remark about Michigan's grand sights, with a hint of danger.",
+     "definitionFit": "Grand Rapids names the Michigan city, and fast stretches of river are what boaters shoot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,31 @@
     "text": "Getting things taped or tied up again?",
     "enumeration": "9"
    },
-   "solution": "RECORDING"
+   "solution": "RECORDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Getting things taped",
+      "at": 0,
+      "meaning": "capturing sound or images on tape"
+     },
+     {
+      "text": "tied up again",
+      "at": 24,
+      "meaning": "bound once more with string or rope, re-corded"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about sorting things out, or about retying a parcel.",
+     "walkthrough": "Split RE-CORDING, the answer means putting cord round something once more.",
+     "definitionFit": "Capturing sound on magnetic tape, or binding with cord a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +109,30 @@
     "text": "Graphically demonstrated what the conspirators did",
     "enumeration": "7"
    },
-   "solution": "PLOTTED"
+   "solution": "PLOTTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Graphically demonstrated",
+      "at": 0,
+      "meaning": "shown by points marked on a graph"
+     },
+     {
+      "text": "what the conspirators did",
+      "at": 25,
+      "meaning": "conspirators scheme in secret"
+     }
+    ],
+    "explanation": {
+     "surface": "A description of conspirators planning in secret.",
+     "definitionFit": "Points are marked on a graph; conspirators devise a secret scheme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Graphically"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,10 +143,47 @@
    },
    "length": 9,
    "clue": {
-    "text": "Faced with fist that is Hable to estrange one",
+    "text": "Faced with fist that is liable to estrange one",
     "enumeration": "9"
    },
-   "solution": "DISAFFECT"
+   "solution": "DISAFFECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "estrange one",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "liable to",
+       "at": 24,
+       "note": "the letters of faced and fist are liable to be thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Faced",
+       "at": 0
+      },
+      {
+       "words": "fist",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being threatened with a fist is likely to alienate someone.",
+     "walkthrough": "'liable to' rearranges FACED + FIST into DISAFFECT.",
+     "definitionFit": "To disaffect someone is to alienate them, turning their loyalty away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +197,49 @@
     "text": "Raised question of fish in bed",
     "enumeration": "8"
    },
-   "solution": "BROACHED"
+   "solution": "BROACHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Raised question of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the fish sits inside the word for bed, so 'in' signals a container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "at": 27,
+       "gives": "BED",
+       "note": "taken as written"
+      },
+      {
+       "words": "fish",
+       "at": 19,
+       "gives": "ROACH",
+       "note": "a roach is a freshwater fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what a fish is doing in the bed.",
+     "walkthrough": "'in' puts ROACH inside BED, splitting it B...ED.",
+     "definitionFit": "To broach a subject is to raise it for discussion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +275,36 @@
    "group": [
     "5-down",
     "9-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The hobbyist is invited to visit a musical riding display",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The hobbyist is invited to visit a musical riding display",
+       "at": 0,
+       "note": "the hobbyist rides a hobby-horse in a nursery rhyme to see a fine lady on a white horse, who has music wherever she goes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation for an enthusiast to attend an equestrian show with music.",
+     "walkthrough": "A hobbyist rides a hobby-horse, a toy horse; the nursery rhyme sends its child rider to see a lady with bells on her toes making music wherever she goes. Banbury is an English market town.",
+     "definitionFit": "The nursery rhyme invites a child on a toy horse to go and see a musical lady on horseback."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hobbyist"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +318,41 @@
     "text": "Bill, free, appears pungent",
     "enumeration": "5"
    },
-   "solution": "ACRID"
+   "solution": "ACRID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pungent",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bill",
+       "at": 0,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      },
+      {
+       "words": "free",
+       "at": 6,
+       "gives": "RID",
+       "note": "to rid is to free"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bill that comes free of charge turns out to stink.",
+     "definitionFit": "Acrid means sharp and bitter in smell or taste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +366,45 @@
     "text": "Little Henry and Jean in sound health thanks to this",
     "enumeration": "7"
    },
-   "solution": "HYGIENE"
+   "solution": "HYGIENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "health thanks to this",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HYGIENE",
+     "indicators": [
+      {
+       "text": "in sound",
+       "at": 22,
+       "note": "sound says the words are heard, not spelt, so the names give the answer said out loud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Little Henry and Jean",
+       "at": 0,
+       "gives": "HYJEAN",
+       "note": "Hy is a pet form of a name like Henry, joined to Jean"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two children kept healthy by good habits.",
+     "walkthrough": "Hy (a short name) plus Jean, said together, sound like the answer; 'sound health' reads naturally as good health.",
+     "definitionFit": "Hygiene is the cleanliness practice that keeps people healthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +418,44 @@
     "text": "Worked at last back in the island",
     "enumeration": "5"
    },
-   "solution": "DELOS"
+   "solution": "DELOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the island",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 15,
+       "note": "back means the word is read from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Worked at last",
+       "at": 0,
+       "gives": "SOLED",
+       "note": "a cobbler works on a last, a foot-shaped block, to sole shoes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who finally got to work in an island.",
+     "walkthrough": "A last is a cobbler's foot-shaped block, not 'finally'; 'back' turns SOLED into DELOS.",
+     "definitionFit": "Delos is a small Greek island in the Cyclades, mythical birthplace of Apollo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 9,
@@ -201,7 +492,31 @@
     "text": "This is it so is botheration !",
     "enumeration": "9"
    },
-   "solution": "CROSSWORD"
+   "solution": "CROSSWORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This is it",
+      "at": 0,
+      "meaning": "the thing the solver is working on at this moment is a puzzle of this kind"
+     },
+     {
+      "text": "botheration",
+      "at": 17,
+      "meaning": "an exclamation of annoyance, an angry or bad-tempered word"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumble that this puzzle is nothing but a nuisance.",
+     "walkthrough": "Split as two words, the answer is an angry word, which is what 'botheration!' is.",
+     "definitionFit": "The solver is doing a puzzle of this very kind; a cross word is an irritable exclamation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +530,41 @@
     "text": "About eight pints? Fit for a king!",
     "enumeration": "5"
    },
-   "solution": "REGAL"
+   "solution": "REGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fit for a king",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "About",
+       "at": 0,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "eight pints",
+       "at": 6,
+       "gives": "GAL",
+       "note": "a gallon is eight pints, abbreviated gal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query about drinking eight pints, deemed worthy of royalty.",
+     "definitionFit": "Regal means royal, befitting a monarch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pints"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +578,53 @@
     "text": "This biscuit Samuel Whiskers finds a bit of a fiasco",
     "enumeration": "7"
    },
-   "solution": "RATAFIA"
+   "solution": "RATAFIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This biscuit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Samuel Whiskers",
+       "at": 13,
+       "gives": "RAT",
+       "note": "Samuel Whiskers is the rat in a Beatrix Potter children's story"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "bit of",
+         "at": 37,
+         "note": "only a bit of the words 'a fiasco' is wanted, the run of letters at their start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a fiasco",
+         "at": 44,
+         "gives": "AFIA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storybook rat finds a biscuit something of a disaster.",
+     "walkthrough": "Samuel Whiskers is a rat in Beatrix Potter's tales; 'bit of' takes AFIA from the start of 'a fiasco'.",
+     "definitionFit": "Ratafia is a small almond-flavoured biscuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fiasco"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +638,49 @@
     "text": "The head-dress he leaves at his residence",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "his residence",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 18,
+       "note": "the word he leaves, so its letters are taken out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "head-dress",
+       "at": 4,
+       "gives": "HEADDRESS",
+       "note": "taken as written, a hat or ornamental covering for the head"
+      },
+      {
+       "words": "he",
+       "at": 15,
+       "gives": "HE",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man goes out, leaving his headgear at home.",
+     "walkthrough": "'leaves' removes HE from HEADDRESS, leaving ADDRESS; the surface makes 'leaves' sound like going out.",
+     "definitionFit": "An address is the place where someone lives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +694,51 @@
     "text": "Clothe one nude, perhaps",
     "enumeration": "5"
    },
-   "solution": "INDUE"
+   "solution": "INDUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clothe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 7,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 17,
+         "note": "perhaps says the letters of nude may be some other arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nude",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to dress someone who is naked.",
+     "walkthrough": "'perhaps' rearranges NUDE to NDUE, after I for one.",
+     "definitionFit": "Indue, a variant of endue, means to put on or invest with clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +752,31 @@
     "text": "Their juxtaposition was the end of Charles, silly fellow !",
     "enumeration": "9"
    },
-   "solution": "BLOCKHEAD"
+   "solution": "BLOCKHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Their juxtaposition was the end of Charles",
+      "at": 0,
+      "meaning": "King Charles I was beheaded in 1649: his neck was laid on the chopping block, block and head side by side"
+     },
+     {
+      "text": "silly fellow",
+      "at": 44,
+      "meaning": "a dolt or dunce"
+     }
+    ],
+    "explanation": {
+     "surface": "A history quip about King Charles's execution, then an insult.",
+     "walkthrough": "King Charles I was executed by beheading, with his head on the block; the two words placed together give the answer.",
+     "definitionFit": "A dimwit is called a wooden-headed dunce of this kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +790,45 @@
     "text": "\"Tiny Tom, get up \" says the bird",
     "enumeration": "9"
    },
-   "solution": "KITTIWAKE"
+   "solution": "KITTIWAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the bird",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KITTIWAKE",
+     "indicators": [
+      {
+       "text": "says",
+       "at": 20,
+       "note": "says signals the words are spoken, so their sound gives the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tiny Tom, get up",
+       "at": 1,
+       "gives": "KITTYWAKE",
+       "note": "a small tom cat is a kitty, and get up is wake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a small cat named Tom to rise.",
+     "walkthrough": "KITTY (a young cat, and a tom is a male cat) + WAKE, spoken, sound like the seabird.",
+     "definitionFit": "The kittiwake is a seagull named for its call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +842,36 @@
     "text": "Preliminary to ill-treatment",
     "enumeration": "9"
    },
-   "solution": "DIAGNOSIS"
+   "solution": "DIAGNOSIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Preliminary to ill-treatment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Preliminary to ill-treatment",
+       "at": 0,
+       "note": "ill-treatment reads as abuse, but means the doctor's treatment of an illness, which comes after identifying it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning sign before somebody is abused.",
+     "walkthrough": "Ill-treatment means abuse, but here it is treatment for an illness, preceded by working out what is wrong.",
+     "definitionFit": "A doctor identifies the illness before prescribing a cure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ill-treatment"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +891,34 @@
      }
     ]
    },
-   "solution": "GREATTREK"
+   "solution": "GREATTREK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Journey over the Vaal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Journey over the Vaal",
+       "at": 0,
+       "note": "the 1830s migration of Boer settlers in South Africa crossed the Vaal River northwards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trek across a South African river.",
+     "walkthrough": "The Vaal is a river in South Africa that the Boer Voortrekkers crossed in their mass migration from the Cape.",
+     "definitionFit": "The historic Boer migration inland from the Cape colony is known by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +932,42 @@
     "text": "Rival bird departed",
     "enumeration": "7"
    },
-   "solution": "EMULATE"
+   "solution": "EMULATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rival",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bird",
+       "at": 6,
+       "gives": "EMU",
+       "note": "the emu is a large flightless bird"
+      },
+      {
+       "words": "departed",
+       "at": 11,
+       "gives": "LATE",
+       "note": "late means dead, departed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A competing bird that has died.",
+     "walkthrough": "'Rival' is a verb here, to match or equal.",
+     "definitionFit": "To emulate someone is to try to equal or surpass them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rival"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +981,33 @@
     "text": "It's connected to the knee-bone",
     "enumeration": "5"
    },
-   "solution": "TIBIA"
+   "solution": "TIBIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's connected to the knee-bone",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It's connected to the knee-bone",
+       "at": 0,
+       "note": "echoes the song 'Dem Bones', which links each bone to the next: the shin bone is connected to the knee bone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A line from the anatomy song about bones joined together.",
+     "definitionFit": "The shinbone of the lower leg meets the knee joint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1021,42 @@
     "text": "Reacts unfavourably when nationalized transport goes slow",
     "enumeration": "7"
    },
-   "solution": "BRIDLES"
+   "solution": "BRIDLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reacts unfavourably",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nationalized transport",
+       "at": 25,
+       "gives": "BR",
+       "note": "BR is British Rail, the former state-owned railway"
+      },
+      {
+       "words": "goes slow",
+       "at": 48,
+       "gives": "IDLES",
+       "note": "idles means runs slowly or ticks over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaint when the state-run railway slows down.",
+     "walkthrough": "BR is British Rail, the UK's nationalized railway of the time.",
+     "definitionFit": "Someone who bridles shows offence or resentment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1070,29 @@
     "text": "Biting ? So the District Attorney often is!",
     "enumeration": "7"
    },
-   "solution": "CAUSTIC"
+   "solution": "CAUSTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Biting",
+      "at": 0,
+      "meaning": "sharply sarcastic or corrosive"
+     },
+     {
+      "text": "So the District Attorney often is",
+      "at": 9,
+      "meaning": "a prosecutor in court is often scathing and cutting in tone"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that prosecutors tend to have a sharp tongue.",
+     "definitionFit": "A scathing, sarcastic tongue is a corrosive one, typical of a hostile prosecutor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1106,48 @@
     "text": "Sebastian the sailor in bed",
     "enumeration": "5"
    },
-   "solution": "CABOT"
+   "solution": "CABOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sebastian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "the sailor lies inside the bed, so 'in' signals a container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "at": 24,
+       "gives": "COT",
+       "note": "a cot is a small bed"
+      },
+      {
+       "words": "sailor",
+       "at": 14,
+       "gives": "AB",
+       "note": "AB is an able seaman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman named Sebastian lies in his bunk.",
+     "walkthrough": "'in' puts AB inside COT; Sebastian Cabot was a 16th-century navigator.",
+     "definitionFit": "Sebastian Cabot was the Venetian-born explorer who sailed for England and Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -400,10 +1158,35 @@
    },
    "length": 5,
    "clue": {
-    "text": "… and one cheer more — a wild one I!\"",
+    "text": "… and one cheer more — a wild one!\"",
     "enumeration": "5"
    },
-   "solution": "TIGER"
+   "solution": "TIGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "and one cheer more",
+      "at": 2,
+      "meaning": "after three cheers, an extra yell or growl was called by this name"
+     },
+     {
+      "text": "a wild one",
+      "at": 23,
+      "meaning": "a wild big cat of Asia"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheerleader calls for one more rousing cheer.",
+     "walkthrough": "'Three cheers and a tiger' was the old call for an extra shout after cheering.",
+     "definitionFit": "An extra shout after cheers was so named, and the striped big cat is wild."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1200,49 @@
     "text": "View of an onion that's out of proportion",
     "enumeration": "7"
    },
-   "solution": "OPINION"
+   "solution": "OPINION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "View",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 24,
+       "note": "the onion bulges out around the ratio, making it lopsided, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "onion",
+       "at": 11,
+       "gives": "ONION",
+       "note": "taken as written"
+      },
+      {
+       "words": "proportion",
+       "at": 31,
+       "gives": "PI",
+       "note": "pi is the ratio, or proportion, of a circle's circumference to its diameter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distorted onion offered as somebody's point of view.",
+     "walkthrough": "Pi is a proportion (a ratio); 'out of' has ONION swell around PI, giving O-PI-NION.",
+     "definitionFit": "An opinion is a person's view on something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "proportion"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1256,44 @@
     "text": "Pot-or shot, do we hear ?",
     "enumeration": "5"
    },
-   "solution": "BHANG"
+   "solution": "BHANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BHANG",
+     "indicators": [
+      {
+       "text": "do we hear",
+       "at": 13,
+       "note": "asks whether the word is heard, so the answer sounds like another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shot",
+       "at": 7,
+       "gives": "BANG",
+       "note": "a shot makes a bang"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is that pot smoking, or a gunshot we hear?",
+     "definitionFit": "Bhang is an Indian preparation of cannabis, which is slang pot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pot"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1307,45 @@
     "text": "They get in the way of the class to be reorganized",
     "enumeration": "9"
    },
-   "solution": "OBSTACLES"
+   "solution": "OBSTACLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They get in the way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "reorganized",
+       "at": 39,
+       "note": "reorganized says the letters of class and to be are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "class",
+       "at": 27
+      },
+      {
+       "words": "to be",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher's note about troublemakers in a class being regrouped.",
+     "walkthrough": "'reorganized' rearranges CLASS TOBE into OBSTACLES.",
+     "definitionFit": "Obstacles are hindrances that block progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1359,56 @@
     "text": "An expert on paper, but with the gold it's different",
     "enumeration": "8"
    },
-   "solution": "THEORIST"
+   "solution": "THEORIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An expert on paper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the",
+       "at": 29
+      },
+      {
+       "words": "gold",
+       "at": 33,
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "different",
+         "at": 43,
+         "note": "different says the letters of the, or and it's are made into something else"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it's",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clever in theory, but add gold and things change.",
+     "walkthrough": "'different' rearranges THE + OR + ITS into THEORIST; OR is heraldry's word for gold.",
+     "definitionFit": "A theorist knows a subject in the abstract, not in practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1422,32 @@
     "text": "Against courtly language",
     "enumeration": "6"
    },
-   "solution": "VERSUS"
+   "solution": "VERSUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Against",
+      "at": 0,
+      "meaning": "opposed to, as in a contest between two sides"
+     },
+     {
+      "text": "courtly language",
+      "at": 8,
+      "meaning": "the Latin word used in court in naming legal cases, Smith v Jones"
+     }
+    ],
+    "explanation": {
+     "surface": "Objecting to the flowery speech of royal courts.",
+     "walkthrough": "'courtly' means of the law courts here, not royal ones: case names put this Latin word between the parties.",
+     "definitionFit": "The Latin word for 'against' is used in law-court case titles between opposing parties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "courtly"
+    }
+   }
   }
  ]
 }
