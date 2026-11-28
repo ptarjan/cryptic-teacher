@@ -733,6 +733,11 @@ def read_done(row, done=None):
         # Read with the lists' cut stopped at a solution heading in the right column, the left column's last clues under
         # it lost (COLUMN_STOP 1): only the pages whose cut the fix changes (tools/data/mephisto_column_stop.json).
         return False
+    if row and row.get("noList", 0) < NO_LIST and row.get("version") == VERSION and not row.get("whole") \
+            and str(row.get("refused") or "").startswith("no clue list") and row.get("file") in no_list_names():
+        # Refused "no clue list" by an older cut: the present cut's block holds an Across/Down heading or a numbered column
+        # (the refusal's own test, gale_listener.read_page), so the page reads again once (NO_LIST 1, tools/data/mephisto_no_list.json).
+        return False
     if row and row.get("formFix", 0) < FORM_FIX and row.get("file") in form_fix_names():
         # Cut at the entry form's word "solution" with no clue under it (FORM_FIX 1): only the pages the fix changes.
         return False
@@ -2414,6 +2419,27 @@ def left_title_names():
     return _LEFT_TITLE_NAMES
 
 
+#: Bumped when the pages refused "no clue list on the page" by an older cut are read again once: a refusal is the lists'
+#: block holding no Across/Down heading and no numbered column (gale_listener.read_page), and the cuts since (left_cut,
+#: numbered_cut, side_strip, wide_below_cut ...) now lay a block that holds them. Rule: a refused page is due when the
+#: block the present code cuts passes that test (tools/data/mephisto_no_list.json: found by cutting each refused page's
+#: block with the present code and applying the test; nothing writes it).
+NO_LIST = 1
+NO_LIST_FILE = ROOT / "tools" / "data" / "mephisto_no_list.json"
+_NO_LIST_NAMES = None
+
+
+def no_list_names():
+    """The bare GALE_*.pdf names whose present block passes the no-clue-list test (a committed list nothing writes)."""
+    global _NO_LIST_NAMES
+    if _NO_LIST_NAMES is None:
+        try:
+            _NO_LIST_NAMES = frozenset(json.loads(NO_LIST_FILE.read_text()))
+        except (OSError, ValueError):
+            _NO_LIST_NAMES = frozenset()
+    return _NO_LIST_NAMES
+
+
 def title_head(words, box, lh, wide):
     """[an Across heading word] set at the first clue of the lists left of the grid at `box` when the OCR read no
     Across heading (LEFT_TITLE): the "MEPHISTO" title stands in the column left of the grid, within the rows the
@@ -3227,7 +3253,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST}, store)
     print(json.dumps(verdict))
     return "read"
 

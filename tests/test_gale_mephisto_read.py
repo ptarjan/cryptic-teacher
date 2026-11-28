@@ -356,6 +356,12 @@ _dn2 = [(1100, 1600 + 27 * 8 + 27 * i, 1130, 1623 + 27 * 8 + 27 * i, str(n)) for
 check("the empty line above a Down number is set as the Down heading", 1, len(gm.missing_down(_ax2 + _dn2, _bx, _lh, 1900)))
 check("no heading is set in a list of Across clues alone", [], gm.missing_down(_ax + _ax2, _bx, _lh, 1900))
 check("a later no-clue-list refusal is not due", True, gm.read_done({**bare, "date": "1998-01-04"}))
+# NO_LIST: a page refused no clue list by an older cut, whose present block holds headings, is read again once.
+gm._NO_LIST_NAMES = frozenset({"nl.pdf"})
+_nl = {**bare, "date": "1998-01-04", "file": "nl.pdf"}
+check("a no-clue-list refusal in the NO_LIST list, before NO_LIST, is due", False, gm.read_done(_nl))
+check("the same page at NO_LIST stands", True, gm.read_done({**_nl, "noList": gm.NO_LIST}))
+check("a page the list does not name is not due for NO_LIST", True, gm.read_done({**_nl, "file": "y.pdf"}))
 check("another refusal is not re-read", True, gm.read_done({**refused, "refused": "no Mephisto clue lists found on the page"}))
 # the comb search finds a grid drawn with dotted thin rules and thick bars
 dotted = np.zeros((1300, 1300), bool)
