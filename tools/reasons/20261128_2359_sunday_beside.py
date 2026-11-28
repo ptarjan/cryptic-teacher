@@ -10,7 +10,7 @@ Due: a Gale Sunday Times row refused no-reading-parses, read before the cutoff."
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page refused no reading parses, its grid right of the title with the ACROSS and DOWN columns side by side under it read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T14:30:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
