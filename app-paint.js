@@ -196,7 +196,7 @@
     }
     if (piecesOpen) return { rung: "blocks", step: leadPiece(e) };
     const s = steps.find((x) => !isShown(e, x.key) && rungAvailable(e, steps, x.key));
-    return s ? { rung: s.key, step: 0 } : null;
+    return s ? { rung: s.key, step: s.key === "blocks" ? Math.max(0, leadPiece(e)) : 0 } : null;
   }
   // The step chosen on the track that is still to open and still the help
   // button's target (helpTarget), or null: what draws its own card in front.

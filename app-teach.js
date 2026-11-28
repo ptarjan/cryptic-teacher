@@ -2052,8 +2052,8 @@
     }
     const steps = ladderFor(e);
     const s = steps.find((x) => !isShown(e, x.key) && GUESSABLE[x.key]
-      && rungAvailable(e, steps, x.key) && guessAsk(e, x.key, 0));
-    return s ? { rung: s.key, step: 0 } : null;
+      && rungAvailable(e, steps, x.key) && guessAsk(e, x.key, x.key === "blocks" ? Math.max(0, leadPiece(e)) : 0));
+    return s ? { rung: s.key, step: s.key === "blocks" ? Math.max(0, leadPiece(e)) : 0 } : null;
   }
   function advanceLadder(e) {
     const n = nextQuestion(e);
