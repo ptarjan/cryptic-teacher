@@ -10787,6 +10787,37 @@ def indy_sunday_run_number(n, day, held):
     return fixed
 
 
+#: Sunday Times numbers read off the Gale pages (tools/data/sunday_times_anchors.json), and the weekly count they are offset from.
+SUNDAY_COUNT_DAY, SUNDAY_COUNT_NUMBER = datetime.date(1976, 1, 4), 2653
+
+
+@functools.lru_cache(maxsize=None)
+def sunday_anchor_offsets():
+    """[(date, offset)] of the dated Sunday Times anchors, oldest first: the offset is the number less the weekly count
+    (SUNDAY_COUNT_NUMBER one a week from SUNDAY_COUNT_DAY)."""
+    rows = json.loads((Path(__file__).resolve().parent / "data" / "sunday_times_anchors.json").read_text())
+    days = {datetime.date.fromisoformat(d): n for d, n in rows.items() if not d.startswith("_")}
+    return sorted((day, n - SUNDAY_COUNT_NUMBER - (day - SUNDAY_COUNT_DAY).days // 7) for day, n in days.items())
+
+
+def sunday_offset_off(n, day):
+    """Why No `n` cannot be the Sunday Times of `day`, or None: its offset from the weekly count (a week a number) falls only,
+    one for each week with no puzzle, so it lies between the offsets of the dated anchors either side (sunday_anchor_offsets);
+    a number outside is a misread (the page's "Crossword No N-1" over last week's answers, read for the title: 1971-01-10
+    filed 2393 for 2394, 1970-12-20 2391 for 2392, 1984-08-19 3040 for 3041). Dates outside the anchors are none of its."""
+    anchors = sunday_anchor_offsets()
+    before = [a for a in anchors if a[0] <= day]
+    after = [a for a in anchors if a[0] >= day]
+    if not before or not after:
+        return None
+    offset = n - SUNDAY_COUNT_NUMBER - (day - SUNDAY_COUNT_DAY).days // 7
+    lo, hi = sorted((before[-1][1], after[0][1]))
+    if lo <= offset <= hi:
+        return None
+    return (f"No {n} on {day} is {offset:+d} from the weekly count, outside the {lo:+d}..{hi:+d} the anchors "
+            f"{before[-1][0]} and {after[0][0]} allow: a misread title, the offset only falls")
+
+
 def sunday_count_off(n, day, held):
     """Why No `n` of a Gale Sunday Times page of `day` cannot be filed, or None: the Sunday Times numbers one a
     week, so the filed puzzles either side of `day` (the nearest held, never a global chain: printed numbers
@@ -11151,6 +11182,10 @@ def filed_number(d, found, hit):
         # 1976 pages names the solution heading's number (1976-08-01: title 2683, "Solution" 2682, cited 2682).
         number = number if vouched else gale_cited_number(d, day, paper) or number
         why = sunday_count_off(number, day, held)
+        # SUNDAY_OFFSET_BOUNDS: Gale's own citation of this very number outranks the anchors' bounds (1972-73 pages cite the
+        # numbers they are filed under, a run the anchors' offsets do not hold); any other number must keep inside them.
+        if not why and number != gale_cited_number(d, day, paper):
+            why = sunday_offset_off(number, day)
         number = None if why else number
     if number is not None:
         why = same_scan(number, page_url(d, found, hit["leaf"]), day, filing_series(paper))
