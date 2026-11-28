@@ -911,6 +911,7 @@
           if (!a) return;
           const j = guessing.picked.indexOf(i);
           if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
+          dropMiss();
           // Repainted in place, exactly as a drag across the same words already
           // is. A tap changes which words are lit and whether the help button
           // reads Lock in or "Just tell me", and nothing else on the page says either — so rebuilding

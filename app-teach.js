@@ -1616,7 +1616,7 @@
   // A guess in progress, and the verdict on the one just made. Neither is
   // persisted: what survives a reload is hintsEarned, because that is the part
   // that changed the score. A half-made guess is not progress.
-  let guessing = null;   // { key, rung, step, picked: [] }
+  let guessing = null;   // { key, rung, step, picked: [], chose? (the family chip a wrong try left chosen) }
   // "<clue>|<rung>" for every step a wrong answer was given on: it cannot be earned afterwards.
   const rungsMissed = new Set();
   let lastGuess = null;  // { key, rung, tokens, known, mk: <verdict> }
@@ -1775,6 +1775,7 @@
       if (ask.known.indexOf(n) < 0 && drag.base.indexOf(n) < 0) run.push(n);
     }
     guessing.picked = drag.base.concat(run);
+    dropMiss();
     paintPicked(ask);
   }
 
@@ -1870,6 +1871,7 @@
     return `<p class="guess-choices">${
       ask.choices.map((c, i) =>
         `<button type="button" id="gc-${i}" class="gc${
+          guessing && guessing.chose === c ? " on" : ""}${
           nuxPointing() && c === ask.answer ? " walk-point" : ""}">${esc(c)}</button>`).join("")}</p>`;
   }
 
@@ -1986,8 +1988,16 @@
   // question up and says so (Paul 11-27: the next step's button under the
   // previous step's text); the line goes once another step comes to the front.
   function carriedResultHTML(g, name) {
-    if (!g.mk.right) return `<p class="step-result miss">Not quite \u2014 try again, or tap \u201cJust tell me\u201d.</p>`;
+    if (!g.mk.right) return `<p id="step-miss" class="step-result miss">Not quite \u2014 try again, or tap \u201cJust tell me\u201d.</p>`;
     return `<p class="step-result right">\u2713 ${esc(name)}: right</p>`;
+  }
+  // A changed pick starts a new try: the "Not quite" over the question goes.
+  function dropMiss() {
+    if (!lastGuess || lastGuess.mk.right || !guessing || lastGuess.rung !== guessing.rung
+      || (lastGuess.step || 0) !== (guessing.step || 0)) return;
+    lastGuess = null;
+    const el = $("step-miss");
+    if (el) el.hidden = true;
   }
   // Whether the result in hand belongs to the question now in front.
   function carriedFor(e, g, at) {
@@ -2085,8 +2095,9 @@
     const from = flipCapture();
     // A right answer opens the step as worked out and goes on to the next one.
     // A wrong one opens nothing and goes nowhere: the same question stays on the
-    // table, with its picks cleared and one plain "Not quite" line over it
-    // (carriedResultHTML), so the tab in front, its content and every button
+    // table, with the picks (or the family chip) just locked in still chosen, so
+    // one word can be changed and tried again, and one plain "Not quite" line
+    // over it (carriedResultHTML) that goes as soon as a pick changes, so the tab in front, its content and every button
     // all still belong to THIS step. "Just tell me" is the way to see it. The
     // step stays unearned: rungsMissed outlives the retry (even one reached again from the tabs), because a step that is
     // guessed again until it is right was not worked out. "Show me" (no
@@ -2104,7 +2115,8 @@
     if (verdict && !right) {
       if (won >= 0) earnedRungs(e).splice(won, 1);
       rungsMissed.add(guessing.key + "|" + rung);
-      guessing = { key: guessing.key, rung, step: guessing.step, picked: [] };
+      guessing = { key: guessing.key, rung, step: guessing.step, picked: guessing.picked.slice(),
+                   chose: verdict.choice };
       focusHint("guess");
       refreshAll();
       return;

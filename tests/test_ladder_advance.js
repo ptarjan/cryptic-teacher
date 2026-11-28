@@ -42,8 +42,8 @@ check(/ring\.dealt && ring\.letters\.length/.test(src), "a fully crossed-off whe
 // must belong to one step. A wrong answer opens nothing and keeps the question.
 const fg = src.slice(src.indexOf("  function finishGuess"), src.indexOf("  function earnedRungs"));
 const missPath = fg.slice(fg.indexOf("if (verdict && !right) {"), fg.indexOf("if (right && !rungsMissed"));
-check(/guessing = \{ key: guessing\.key, rung, step: guessing\.step, picked: \[\] \}/.test(missPath) && /return;/.test(missPath),
-  "a wrong answer keeps the same question on the table with the picks cleared");
+check(/guessing = \{ key: guessing\.key, rung, step: guessing\.step, picked: guessing\.picked\.slice\(\)/.test(missPath) && /return;/.test(missPath),
+  "a wrong answer keeps the same question on the table with the picks kept");
 check(!/showHint|settlePiece|goOn/.test(missPath), "a wrong answer opens no step and goes on to nothing");
 check(/rungsMissed\.add/.test(missPath) && /!rungsMissed\.has/.test(fg), "a step that was missed can never be marked worked out");
 check(/Not quite[^`]*try again/.test(src), "the wrong-answer line tells the solver to try again");
