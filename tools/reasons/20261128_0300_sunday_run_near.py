@@ -16,7 +16,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page with no title found, titled since from a heading or label giving the number the filed weekly run implies"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T03:52:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
