@@ -6329,6 +6329,26 @@ def sunday_across_labels(words, want, slack):
     return found
 
 
+def sunday_no_labels(words, want, slack):
+    """[(number, box)] of the places in `words` (a Gale Sunday Times page's cached reads) where a number within `slack` of
+    `want` follows a word "No"/"No."/"ACROSS"/"Crossword"/"WORD" in a block of near lines (sunday_heading_blocks, so a number a
+    line under its word counts): the heading the strict parser missed ("THE SUNDAY TIMES Crossword No 3840", "No.2601" over
+    "ACROSS") or a label ("ACROSS 2231"). Not where the block holds a word like "solution" (last week's). The box: the
+    number's word(s) and the label word before it."""
+    found = []
+    for group in sunday_heading_blocks(words):
+        toks = [w for line in sorted(group, key=lambda ln: (box_of(ln)[1], box_of(ln)[0])) for w in line]
+        text = " ".join(str(w[4]) for w in toks)
+        if re.search(r"solut|sol\w*\s+t[o0]", re.sub(r"[^a-z ]", "", text.lower())):
+            continue
+        for m in re.finditer(r"(?:across|crossword|word|\bno)\W{0,3}(?:no\W{0,3})?(\d[,.]?\d{3})(?![\d,])", text, re.IGNORECASE):
+            n = int(re.sub(r"\D", "", m.group(1)))
+            digits = [w for w in toks if re.search(r"\d", str(w[4])) and re.sub(r"\D", "", str(w[4])) in str(n)]
+            if abs(n - want) <= slack and digits:
+                found.append((n, tuple(box_of(digits[:1]))))
+    return found
+
+
 def sunday_implied(day, held):
     """The number a Gale Sunday Times page of `day` has when the nearest filed puzzles either side run unbroken (sunday_count_off's
     first test): both neighbours a whole number of weeks off and their numbers as many apart as the weeks between them; else None."""
@@ -6372,12 +6392,21 @@ def sunday_read_title(d, found, held=None):
                 agreed = [n for n, v in votes.items() if len(v) >= len(reads)]
                 if len(agreed) == 1 and len(votes) == 1:
                     return agreed[0], leaf, boxes[agreed[0]], how
-        if not seen:
-            continue
         if fixed_held is None:
             fixed_held = held_dates(GALE_SUNDAY_TIMES.series)
         if fixed is None:
             fixed = sunday_implied(day, fixed_held) or 0
+        if fixed:
+            # the paper's own numbering is off the date's (expected) by more than its slack on many pages: ask each finder
+            # for the implied number itself, exactly, and let "No N" after a heading or label word stand too: any reader's.
+            for finder in (sunday_headings_loose, sunday_across_labels, sunday_no_labels):
+                for words in reads:
+                    for n, box in finder(words, fixed, 0):
+                        seen.setdefault(n, (box, "implied"))
+            if fixed in seen:
+                return fixed, leaf, seen[fixed][0], "weeklyRun"
+        if not seen:
+            continue
         if fixed in seen:
             return fixed, leaf, seen[fixed][0], "weeklyRun"
     return None
@@ -6423,7 +6452,8 @@ def sunday_loose_rows():
     hold no heading or label it could take."""
     try:
         return frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_loose_title.json").read_text())) \
-            | frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_run_title.json").read_text()))
+            | frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_run_title.json").read_text())) \
+            | frozenset(json.loads((Path(__file__).resolve().parent / "data" / "sunday_implied_title.json").read_text()))
     except (OSError, ValueError):
         return frozenset()
 
