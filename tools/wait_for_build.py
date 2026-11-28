@@ -14,7 +14,9 @@ ready=false when the build job ended without getting there or a shard
 failed, and exits 0 either way: the failure is the run's red, and the
 deploy job only decides whether to ship. The deploy job starts when validate
 has passed, long before the shards and the build are done, so this is where
-it waits for them.
+it waits for them. A push run whose build a newer run replaced is cancelled
+from here (tools/drop_superseded.py), so its shards still queued for runners
+never take one.
 """
 import json
 import os
@@ -78,12 +80,17 @@ def main(argv):
     repo, run_id = argv[0], argv[1]
     attempt = argv[2] if len(argv) > 2 else "1"
     mode = argv[3] if len(argv) > 3 else "files"
+    import drop_superseded  # it imports run_jobs from here
     while True:
         try:
-            got = verdict_of(run_jobs(repo, run_id, attempt), mode)
+            jobs = run_jobs(repo, run_id, attempt)
+            got = verdict_of(jobs, mode)
         except (subprocess.CalledProcessError, ValueError) as err:  # a blip of the API
             print(f"jobs API: {err!r}; trying again")
             got = None
+        if got is False and drop_superseded.applies() and drop_superseded.dropped(jobs):
+            # A newer run replaced the build: its queued shards and requeue go too.
+            drop_superseded.cancel(repo, run_id)
         if got is not None:
             break
         time.sleep(POLL_SECONDS)

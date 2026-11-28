@@ -729,7 +729,7 @@ jobs:
     environment: github-pages
     permissions:
       contents: read
-      actions: read  # the wait below reads the build job's steps
+      actions: write  # the wait below reads the build job's steps, and cancels a superseded run
       pages: write
       id-token: write
     steps:
@@ -990,8 +990,26 @@ jobs:
       # redo through (a rule edit or the nightly lexicon rebuild flags puzzles
       # that were committed clean) and writes what it flagged for the requeue
       # job. Any other error fails the shard first, and then nothing is pushed.
+      #
+      # Beside the check, tools/drop_superseded.py watches the run's build: on
+      # a push, a build that a newer run's replaced in the "pages" group never
+      # runs, so this run can never deploy and its shards check a commit that
+      # will not go live (the newer run checks its own). It then cancels the
+      # run, and the shards and requeue stop holding runners. The deploy's
+      # wait does the same while it runs; this covers a shard that got its
+      # runner after the build was dropped, or while the deploy itself was
+      # still waiting in its group.
       - name: Check a twelfth of the annotations
-        run: python3 tools/validate_annotations.py --shard ${{ matrix.shard }}/12 --drift-out "$RUNNER_TEMP/drift.${{ matrix.shard }}.json"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          python3 tools/drop_superseded.py "$REPO" "$RUN_ID" "$ATTEMPT" --watch &
+          watcher=$!
+          trap 'kill "$watcher" 2>/dev/null || true' EXIT
+          python3 tools/validate_annotations.py --shard ${{ matrix.shard }}/12 --drift-out "$RUNNER_TEMP/drift.${{ matrix.shard }}.json"
       - name: Keep what the shard flagged
         uses: actions/upload-artifact@v6
         with:
