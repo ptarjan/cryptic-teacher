@@ -14,7 +14,7 @@ function next(w) {
   const f = new Function("w", `
     let guessing = w.guessing || null;
     const groupSolved = () => !!w.solved, annOf = () => ({}), isShown = (e, k) => w.shown.includes(k),
-      piecesLeft = () => w.left || 0, nextPiece = () => w.piece || 0, ladderSteps = () => w.steps.map((key) => ({ key })), ladderFor = ladderSteps,
+      piecesLeft = () => w.left || 0, nextPiece = () => w.piece || 0, leadPiece = () => w.piece || 0, ladderSteps = () => w.steps.map((key) => ({ key })), ladderFor = ladderSteps,
       clueText = () => "", GUESSABLE = { type: 1, definition: 1, indicators: 1, blocks: 1 },
       rungAvailable = (e, s, k) => !w.locked.includes(k), guessAsk = (e, r) => (w.asks.includes(r) ? {} : null),
       entryKey = () => "k";
@@ -34,7 +34,8 @@ check(next({ ...base, shown: ["definition", "indicators", "type"], asks: [] }) =
 check(next({ ...base, shown: ["definition"], locked: ["indicators", "type", "blocks"] }) === null, "rungs that are all locked are not asked");
 check(next({ ...base, solved: true }) === null, "a solved clue (every leg of a linked one: groupSolved) is not quizzed");
 check(next({ ...base, guessing: {} }) === null, "no new question over one already on the table");
-check(/if \(right\) goOn\(e, guessing_rung, guessing_choice\)/.test(src), "finishGuess advances only on a right answer, through goOn");
+check(/if \(right\) goOn\(e, guessing_rung, guessing_choice\);\s*else if \(!verdict\) advanceLadder\(e\)/.test(src),
+  "finishGuess: right and told advance to a free question (goOn / advanceLadder), wrong stays put");
 check(/function goOn[\s\S]*?if \(advanceLadder\(e\)\) return;/.test(src), "goOn is the one place a right answer advances the ladder");
 check(/ring\.dealt && ring\.letters\.length/.test(src), "a fully crossed-off wheel advances too");
 // Paul 11-27: after a wrong answer the tab in front, its content and every button

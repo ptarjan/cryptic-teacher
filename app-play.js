@@ -1333,6 +1333,14 @@
   const piecesLeft = (e) => blockPieces(e).filter((_, i) => !pieceOut(e, i)).length;
   // The piece the "next" button is for: the first one not out yet.
   const nextPiece = (e) => blockPieces(e).findIndex((_, i) => !pieceOut(e, i));
+  // The piece the question is for: the first one not out yet that can be asked
+  // about (a wordless piece, or one with nothing to point at, cannot lead), else
+  // the first one not out.
+  const leadPiece = (e) => {
+    const pieces = blockPieces(e);
+    const ask = pieces.findIndex((_, i) => !pieceOut(e, i) && guessAsk(e, "blocks", i));
+    return ask >= 0 ? ask : nextPiece(e);
+  };
   // Forwards only, and it is the reveal that moves it — both routes in, being
   // told and pointing at the right words, land here.
   //
@@ -1362,7 +1370,7 @@
   // Settles piece `at`. In turn it moves the count; out of turn the count must
   // not jump over the pieces before it, so the piece is marked taken instead.
   function settlePiece(e, at) {
-    if (at > nextPiece(e)) {
+    if (at > leadPiece(e)) {
       const key = entryKey(e);
       piecesPicked[key] = (piecesPicked[key] || 0) | (1 << at);
       saveState();

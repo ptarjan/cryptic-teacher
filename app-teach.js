@@ -2047,7 +2047,7 @@
     const ann = annOf(e);
     if (!ann) return null;
     if (isShown(e, "blocks") && piecesLeft(e)) {
-      const at = nextPiece(e);
+      const at = leadPiece(e);
       return guessAsk(e, "blocks", at) ? { rung: "blocks", step: at } : null;
     }
     const steps = ladderFor(e);
@@ -2121,6 +2121,7 @@
     guessing = null;
     // A right answer finishes the rung well, and every step goes on the same way.
     if (right) goOn(e, guessing_rung, guessing_choice);
+    else if (!verdict) advanceLadder(e);
     refreshAll();
     flipPlay(from);
   }

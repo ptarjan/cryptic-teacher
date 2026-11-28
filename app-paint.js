@@ -103,7 +103,7 @@
         if (!on) return;
         // Which piece this button is for. Only the blocks rung has more than
         // one; everything else asks its single question at step 0.
-        const at = b.step || 0;
+        const at = b.step == null && b.rung === "blocks" ? Math.max(0, leadPiece(on)) : (b.step || 0);
         // Going to a step that is not open yet leaves the open tab the solver
         // had picked: otherwise the pick (keyed on what is pending, which a
         // re-asked question or a chosen step does not change) keeps its note in
@@ -194,7 +194,7 @@
       if (r === "blocks" ? (!isShown(e, r) ? rungAvailable(e, steps, r) : piecesOpen && !pieceOut(e, helpOn.step))
           : !isShown(e, r) && rungAvailable(e, steps, r)) return { rung: r, step: helpOn.step };
     }
-    if (piecesOpen) return { rung: "blocks", step: nextPiece(e) };
+    if (piecesOpen) return { rung: "blocks", step: leadPiece(e) };
     const s = steps.find((x) => !isShown(e, x.key) && rungAvailable(e, steps, x.key));
     return s ? { rung: s.key, step: 0 } : null;
   }
@@ -308,6 +308,7 @@
     }
     if (rungCosts(on, t.rung, false, t.step) && !confirmBlock(on, helpArm(t), ev)) return;
     openStep(on, t.rung, t.step);
+    advanceLadder(on);
     refreshAll();
   }
   function fillHTML(e) {
