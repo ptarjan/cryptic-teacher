@@ -13,7 +13,7 @@ not yet stamped INDY_TWO_LINE_LOOKED, read before the push. Its scan is stale: s
 from fix_reasons import Reason
 
 TEXT = "Gale Independent page whose two-line heading (THE INDEPENDENT Crossword over No. NNNN by Setter) went untitled, read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T02:46:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def rescan(row):
