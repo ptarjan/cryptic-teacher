@@ -46,65 +46,93 @@ const COST = {
   // ones). Measured on three four-slice shards: 498, 475 and 646 s. A slice
   // whose every puzzle is cached is dropped before it runs (tools/ci_cache.js).
   "tools/smoke_test.js": 500,
-  "tests/test_edition_queue.py": 451,
+  "tests/test_edition_queue.py": 526,
+  "tests/test_formula_math.js": 226,
   "tests/test_file_archive_org_puzzles.py": 205,
-  "tests/test_scan_queue.py": 130,
-  "tests/test_formula_math.js": 128,
-  "tests/test_solve_queue_clues.sh": 114,
-  "tests/test_paper_mode.js": 65,
-  "tests/test_reconstruct_grid.py": 63,
-  "tests/test_row_cache.py": 61,
+  "tests/test_scan_queue.py": 123,
+  "tests/test_solve_queue_clues.sh": 103,
+  "tests/test_paper_mode.js": 63,
+  "tests/test_reconstruct_grid.py": 58,
   "tests/test_prereset_pool.sh": 57,
-  "tests/test_file_trove_puzzles.sh": 49,
-  "tests/test_repair_fetched.py": 47,
-  "tests/test_acquire_book.py": 42,
-  "tests/test_letter_facts.sh": 39,
+  "tests/test_acquire_book.py": 49,
+  "tests/test_file_trove_puzzles.sh": 47,
+  "tests/test_failed_inputs.sh": 38,
   "tests/test_corpus_queue.py": 35,
-  "tests/test_failed_inputs.sh": 33,
-  "tests/test_no_media_scans.py": 33,
-  "tests/test_vlm_reader.py": 32,
-  "tests/test_og_tags.js": 29,
-  "tests/test_blog_clues_only.py": 28,
-  "tests/test_clues_only.py": 26,
-  "tests/test_source_answer_wrong.py": 25,
+  "tests/test_row_cache.py": 33,
+  "tests/test_indy_titled.py": 32,
+  "tests/test_og_tags.js": 31,
+  "tests/test_no_media_scans.py": 29,
+  "tests/test_gale_inbox.py": 28,
+  "tests/test_letter_facts.sh": 27,
+  "tests/test_blog_clues_only.py": 25,
   "tests/test_durable.sh": 24,
-  "tests/test_validate_scope.py": 19,
-  "tests/test_empty_keys.py": 19,
-  "tests/test_shim_format.py": 19,
-  "tests/test_blog_facts.sh": 18,
-  "tests/test_puzzle_invariants.py": 18,
+  "tests/test_validate_scope.py": 22,
+  "tests/test_page_cache.py": 20,
+  "tests/test_clues_only.py": 19,
+  "tests/test_source_answer_wrong.py": 19,
+  "tests/test_puzzle_invariants.py": 17,
+  "tests/test_shim_format.py": 17,
   "tests/test_unit_queue.sh": 17,
-  "tests/test_page_cache.py": 17,
   "tests/test_alert_claimed.sh": 16,
-  "tests/test_free_elimination_blocks.js": 13,
+  "tests/test_free_elimination_blocks.js": 14,
+  "tests/test_blog_facts.sh": 12,
+  "tests/test_empty_keys.py": 12,
   "tests/test_ocr_remote.py": 12,
-  "tests/test_puzzle_rows.sh": 11,
-  "tests/test_gale_inbox.py": 10,
+  "tests/test_puzzle_format.py": 12,
+  "tests/test_repair_fetched.py": 12,
+  "tests/test_block_confirm.js": 11,
   "tests/test_puzzle_worker.sh": 10,
-  "tests/test_ocr_vote_checks.py": 10,
-  "tests/test_under_crossing.py": 10,
-  "tests/test_push_conflict.sh": 9,
-  "tests/test_json_merge.sh": 9,
-  "tests/test_share_url.js": 8,
-  "tests/test_sw_shell_recovery.js": 8,
+  "tests/test_progress.py": 9,
+  "tests/test_share_url.js": 9,
   "tests/test_desktop_hosts.py": 8,
-  "tests/test_push_puzzle_commit.sh": 7,
+  "tests/test_listener_grid.py": 8,
+  "tests/test_push_conflict.sh": 8,
+  "tests/test_puzzle_integrity.py": 8,
+  "tests/test_puzzle_rows.sh": 8,
+  "tests/test_shape_queue.py": 8,
+  "tests/test_sw_shell_recovery.js": 8,
+  "tests/test_times_grids.py": 8,
+  "tests/test_unclued_squares.js": 8,
+  "tests/test_under_crossing.py": 8,
   "tests/test_bg_job.sh": 7,
-  "tests/test_puzzle_integrity.py": 7,
-  "tests/test_idx_decoder.js": 6,
-  "tests/test_jigsaw.js": 6,
-  "tests/test_times_grids.py": 6,
-  "tests/test_coverage.py": 6,
-  "tests/test_times_dates.py": 6,
-  "tests/test_gale_fetch.py": 5,
+  "tests/test_gale_mephisto_read.py": 7,
+  "tests/test_json_merge.sh": 7,
+  "tests/test_ocr_vote_checks.py": 7,
+  "tests/test_og_card_key.py": 7,
+  "tests/test_push_puzzle_commit.sh": 7,
+  "tests/test_reprints.js": 7,
+  "tests/test_times_dates.py": 7,
+  "tests/test_ft_puzzles.py": 6,
+  "tests/test_gale_fetch.py": 6,
+  "tests/test_genius_puzzles.py": 6,
+  "tests/test_index_idx.py": 6,
+  "tests/test_ocr_text_central.py": 6,
+  "tests/test_own_rows.sh": 6,
+  "tests/test_parse_timesforthetimes.sh": 6,
+  "tests/test_prereset_watch.sh": 6,
+  "tests/test_quotes.js": 6,
+  "tests/test_save_grid.js": 6,
+  "tests/test_scan_reread.py": 6,
+  "tests/test_straight_ladder.js": 6,
+  "tests/test_vlm_reader.py": 6,
+  "tests/test_coverage.py": 5,
+  "tests/test_drop_restores_hint.py": 5,
   "tests/test_file_gale_listener.py": 5,
-  "tests/test_anagram_line.js": 5,
-  "tests/test_ft_puzzles.py": 5,
+  "tests/test_first_screen_arm_b.js": 5,
+  "tests/test_formula_hint.js": 5,
+  "tests/test_jigsaw.js": 5,
+  "tests/test_reindex_changed.py": 5,
+  "tests/test_validate_shard.py": 5,
+  "tests/test_boot_from_head.js": 0,
+  "tests/test_gale_docs.py": 0,
 };
 const DEFAULT_COST = 1;
 // Every serial script is followed by the dirty-tree check (`git status` over
-// the ~54k-file tree), ~2 s each, which over ~400 scripts is minutes a run.
-const ITEM_OVERHEAD = 2;
+// the ~54k-file tree). With the untracked cache tests.yml turns on, a status
+// lstat()s the tracked files and the directories and reads no directory that
+// did not change: ~0.3 s. Without it, a shard holding the built pages read
+// all ~72k puzzles/<id>/ directories on every check, 1-1.7 s each.
+const ITEM_OVERHEAD = 0.5;
 
 // How many slices each splittable script runs as (see the header).
 const SLICES = { "tools/smoke_test.js": 12 };
@@ -132,8 +160,9 @@ const PAGES = new Set(["tools/smoke_test.js", "tests/test_og_tags.js"]);
 // that holds a reader. Warm (the deploy's page store and social cards, which
 // a page's key includes, both restored) that is the two restores, the unpack
 // and ~1 minute of fingerprinting and re-rendering what moved; cold it was
-// 223-351 s. Re-measure from the "Build the pages" step with the other costs.
-const PAGE_BUILD = 150;
+// 223-351 s. Measured as the gap between a page shard's start-to-scripts time
+// and a pageless shard's (both from the run's job step timings), warm: 137 s.
+const PAGE_BUILD = 140;
 
 const fileOf = (item) => item.split(" ")[0];
 
@@ -147,11 +176,15 @@ function items(files) {
 const needsPages = (list) => list.some((item) => PAGES.has(fileOf(item)));
 
 /* Longest-processing-time-first: hand each item, heaviest first, to whichever
-   shard would finish soonest with it. A shard's finish is what it measures on
+   shard keeps the slowest shard soonest, and among those to the one that would
+   finish soonest with it. A shard's finish is what it measures on
    the runner: its PARALLEL items run at once beside its serial scripts, so it
    is the longer of the two, plus the page build it pays once when it holds a
-   page reader. Ties break on the name so the answer does not depend on the
-   order the caller happened to list the files in.
+   page reader. A light page reader (test_og_tags.js) therefore joins a shard
+   that builds the pages for its smoke slices, where it costs its own seconds,
+   instead of a pageless shard that would pay the whole build for it. Ties
+   break on the name so the answer does not depend on the order the caller
+   happened to list the files in.
 
    The PARALLEL page readers go first, whatever their cost, into empty shards,
    PARALLEL_PER_SHARD to a shard: a slice beside a shard's other work costs no
@@ -184,9 +217,19 @@ function shards(files, count) {
       const fits = (bin) => used(bin) + need <= CORES && (!par || nPar(bin) < PARALLEL_PER_SHARD);
       const roomy = need > 0 && bins.some(fits);
       const ok = (bin) => !roomy || fits(bin);
+      // The run's wall clock is the slowest shard, so a shard is judged first
+      // by the slowest shard it leaves; among those that leave it the same, a
+      // page reader goes where the pages are already built rather than make a
+      // second shard build them, and then the soonest finish wins.
+      const span = Math.max(...bins.map((b) => finish(b.serial, b.par, b.pages)));
+      const rank = (bin) => {
+        const end = after(bin, item);
+        return [Math.max(span, end), PAGES.has(fileOf(item)) && !bin.pages ? 1 : 0, end];
+      };
+      const better = (a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2];
       let best = bins.findIndex(ok);
       for (let i = best + 1; i < count; i++) {
-        if (ok(bins[i]) && after(bins[i], item) < after(bins[best], item)) best = i;
+        if (ok(bins[i]) && better(rank(bins[i]), rank(bins[best])) < 0) best = i;
       }
       const bin = bins[best];
       if (par) bin.par = Math.max(bin.par, cost(item));

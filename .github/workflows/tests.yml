@@ -192,11 +192,11 @@ jobs:
       matrix:
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. A shard is setup, the
-    # index, the page build when it holds a page reader, and its scripts:
-    # about a quarter of an hour. The cap leaves room for a cold cache, which
-    # re-makes the index and every page; a shard near it means the splitter's
-    # COST or SLICES needs re-measuring.
+    # holding a red check over every commit behind it. A shard is setup and
+    # the index (~2 minutes), the page build when it holds a page reader
+    # (~2.3 minutes), and its scripts: about 12-13 minutes. The cap leaves
+    # room for a cold cache, which re-makes the index and every page; a shard
+    # near it means the splitter's COST or SLICES needs re-measuring.
     timeout-minutes: 45
     defaults:
       run:
@@ -369,6 +369,15 @@ jobs:
           SHARD: ${{ matrix.shard }}
         run: |
           mapfile -t mine < "$RUNNER_TEMP/mine"
+          # The dirty-tree check after every script is a `git status`, which
+          # reads every directory for untracked files. A shard holding the
+          # built pages has ~72k puzzles/<id>/ directories of ignored pages,
+          # and the check cost it 1-1.7 s a script (minutes a shard). The
+          # untracked cache remembers each directory's listing against its
+          # mtime and re-reads only the ones that changed, so the check still
+          # sees every new file, in ~0.3 s.
+          git config core.untrackedCache true
+          git update-index --untracked-cache
           before=$(git status --porcelain)
           fails=()
           # ci_shards.js's PARALLEL items start at once, in the background,
