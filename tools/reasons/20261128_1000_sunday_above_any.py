@@ -7,8 +7,8 @@ heading found in the strip left of the grid over its cut starts the column there
 found the shape in; its evidence is the page's own heading, so the year gate is gone: it runs on every Sunday Telegraph page whose
 sides_columns were found (before 1999). A page with no ACROSS heading in the strip reads as before.
 Due: a Gale Sunday Telegraph row (before SUNDAY_SIDES_END) read before REREAD, a verdict not refused or complete with an ACROSS light
-"no reading laid", whose cached first window (Times reader) opens on a clue numbered above the lowest such light (the list's head is
-above the window), and no older reason due. Read-time only, no scan key moves."""
+"no reading laid" including 1-across, whose cached first window (Times reader) opens on a clue numbered 2 up to the light count (the
+list's head is above the window), and no older reason due. Read-time only, no scan key moves."""
 import json
 import re
 
@@ -47,7 +47,8 @@ def due(row):
         lost = [int(k.split("-")[0]) for k, why in blank.items()
                 if k.endswith("-across") and "no reading laid a clue" in str(why)]
         head = window_head(fa, rel, v["number"]) if lost else None
-        if head is not None and head >= 2 and min(lost) < head:
+        # the list's head (1-across) is unread and the window opens on a clue number a light of the page can bear
+        if head is not None and 2 <= head <= int(v.get("lights") or 0) and 1 in lost:
             return True
     return False
 
