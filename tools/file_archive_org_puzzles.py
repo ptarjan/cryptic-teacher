@@ -16724,9 +16724,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # under it and read as the cryptic Down: no right_of cut for galetelegraph until it ends at the gap.)
     sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) \
         if top is not None or sunday else None
-    # A 1980-89 Sunday Telegraph page whose ACROSS list starts far over the grid's title (sunday_above).
-    above_top = sunday_above(img, gbox, sides[0], key) if sunday and sides and sides[0] > 0 \
-        and SUNDAY_ABOVE_YEARS[0] <= d.name[:4] <= SUNDAY_ABOVE_YEARS[1] else None
+    # A Sunday Telegraph page whose ACROSS list starts far over the grid's title (sunday_above): the heading found over
+    # the grid decides, whatever the page's year (SUNDAY_ABOVE_ANY: 1990-94 pages read the same).
+    above_top = sunday_above(img, gbox, sides[0], key) if sunday and sides and sides[0] > 0 else None
     if above_top is not None:
         sides = AboveSides(sides)
         sides.top = above_top
