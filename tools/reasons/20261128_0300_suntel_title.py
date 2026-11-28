@@ -14,7 +14,7 @@ stamped SUNTEL_TITLE_LOOKED, read before the push, whose cached reads give sunte
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Telegraph page with no title found, its title line or bare COMPETITION No N solution heading read from the cached page reads since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T04:35:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def rescan(row):
