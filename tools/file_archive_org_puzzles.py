@@ -10947,6 +10947,31 @@ def small_headed(paper, day, hit):
         and abs(hit["number"] - times1930_expected_number(day)) <= SMALL_SLACK
 
 
+#: The puzzle number in Gale's citation of a page, "Sunday Times Crossword No 2620", "Crossword 2365".
+GALE_CITED_NUMBER = re.compile(r"cr[o0]ss-?\s?w[o0]rd\W*(?:puzzle\W*)?(?:n[o0]\.?\W*)?(\d{1,2},?\d{3})(?![\d,])", re.IGNORECASE)
+
+
+def gale_cited_number(d, day, paper):
+    """The number Gale's citation of the page edition directory `d` was fetched for prints (its sources-*.json
+    "cited": Gale's own title of that one page), within the paper's slack of `day`'s; else None. A Sunday Times
+    page of 1969-76 prints last week's answers under "THE SUNDAY TIMES CROSSWORD No N-1", a title in form, and
+    the reads took it for the page's own (1975-05-11, cited No 2620, filed 2619); its filed neighbours, misread
+    alike, kept step with it, so no weekly-run test saw it. The citation names the page, not a line on it."""
+    nums = set()
+    for p in sorted(d.glob("sources-*.json")):
+        try:
+            rows = json.loads(p.read_text())
+        except (OSError, ValueError):
+            continue
+        for row in rows if isinstance(rows, list) else ():
+            text = (row.get("cited") or "") if isinstance(row, dict) else ""
+            if "concise" in text.lower() or "mephisto" in text.lower():
+                continue
+            nums |= {int(m.group(1).replace(",", "")) for m in GALE_CITED_NUMBER.finditer(text)}
+    nums = {n for n in nums if abs(n - paper.expected(day)) <= paper.slack}
+    return nums.pop() if len(nums) == 1 else None
+
+
 def filed_number(d, found, hit):
     """(number, day, None) that a title files as, or (None, day, why) it is
     refused."""
@@ -11018,6 +11043,9 @@ def filed_number(d, found, hit):
         why = ft_count_off(number, day, held)
         number = None if why else number
     if number is not None and paper is GALE_SUNDAY_TIMES:
+        # The page's own title and solution heading agreeing (vouched) outweigh the citation, which on some
+        # 1976 pages names the solution heading's number (1976-08-01: title 2683, "Solution" 2682, cited 2682).
+        number = number if vouched else gale_cited_number(d, day, paper) or number
         why = sunday_count_off(number, day, held)
         number = None if why else number
     if number is not None:
