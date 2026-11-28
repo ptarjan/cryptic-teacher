@@ -523,6 +523,7 @@ import media_manifest
 import mem_gate
 import ocr_remote
 import plan_fork
+import refetch_purge
 import scan_queue
 import vlm_reader
 
@@ -3922,6 +3923,16 @@ class _Poller:
             if notes is not None:
                 notes.append(f"refetch check failed: {e!r}")
             return
+        if found:
+            # Their derived OCR reads are of the old pages: move them aside so the rescan redoes them.
+            try:
+                moved = refetch_purge.purge(found, root=self.cache)
+            except (OSError, ValueError) as e:
+                moved = None
+                if notes is not None:
+                    notes.append(f"refetch cache purge failed: {e!r}")
+            if moved and notes is not None:
+                notes.append(f"refetched editions' stale OCR cache files moved aside: {moved}")
         if found and notes is not None:
             notes.append(f"refetched editions noticed: {len(found)} ({', '.join(found[:3])}"
                          + f"{', ...' if len(found) > 3 else ''}) in {time.monotonic() - began:.1f}s")
