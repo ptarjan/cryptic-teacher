@@ -99,9 +99,9 @@ same("every tool's channel is a declared RETRIEVAL_CHANNEL", len(bad), 0)
 same("every enum value says what it means", len(undocumented), 0)
 
 print("every Gale paper has a provenance row for its link.gale.com permalink")
-gale = [x for k, x in f.FILERS.items() if k.startswith("gale") and x.series != "times"]
+gale = [x for k, x in f.FILERS.items() if k.startswith("gale") and f.filing_series(x) != "times"]
 gale += [x for v in f.ALSO.values() for x in v if x.key.startswith("gale")]
-gone = sorted({x.series for x in gale if ("%s" % x.series, "link.gale.com") not in p.ACQUISITION_BY_SOURCE})
+gone = sorted({f.filing_series(x) for x in gale if (f.filing_series(x), "link.gale.com") not in p.ACQUISITION_BY_SOURCE})
 same("some Gale papers were checked", len(gale) >= 4, True)
 same("no Gale paper lacks a link.gale.com row", len(gone), 0)
 

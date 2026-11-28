@@ -46,6 +46,8 @@ SOURCES = {
                     "the Independent feed's c_861007.xml (launch day, 1986-10-07)"),
     "indysunday": (["python3", "tools/fetch_independent.py", "900128"],
                    "the Independent feed's c_900128.xml (launch day, 1990-01-28)"),
+    "beelzebub": (None, "Gale's Independent on Sunday pages (tools/file_archive_org_puzzles.py) from No 1 "
+                        "on 1990-01-28; the feed and the blog file the Prize Crossword, not the Beelzebub"),
     "cyclops": (["python3", "tools/fetch_privateeye.py", "{n}"],
                 "private-eye.co.uk/pictures/crossword/download/{n}.puz"),
     "ftcryptic": (None, "fifteensquared.net's FT posts start in 2009, the FT PDFs "

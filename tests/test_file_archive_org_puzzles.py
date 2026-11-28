@@ -6075,7 +6075,7 @@ check("the Independent on Sunday's number by date: No 1 on 28 January 1990, No 9
 check("the Sunday series' provenance rows and their solution and solved pins chain to the keys before",
       (True, True, True, True),
       (("sundaytel", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
-       ("indysunday", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
+       ("beelzebub", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
        f._SOLUTION_PINS["dcddf269a45bb142"] == "432a5818529a9b11",
        f._SOLVED_PINS["4237a057c8a24f5e"] == "050e93ff674ff62c"))
 
