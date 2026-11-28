@@ -811,6 +811,9 @@ def read_done(row, done=None):
     if row and row.get("bracketFix", 0) < BRACKET_FIX and row.get("file") in bracket_names():
         # Refused for want of a number the filed series' bracket gives (BRACKET_FIX 1): only the pages it numbers.
         return False
+    if row and row.get("wideRefit", 0) < WIDE_REFIT and row.get("file") in wide_refit_names():
+        # Refused "grid unread" with the lattice a cell or two off along the page (WIDE_REFIT 1): only the pages the fix reads.
+        return False
     if row and row.get("answersFix", 0) < ANSWERS_FIX and row.get("file") in answers_names():
         # Numbered from a title over last week's answers, one low (ANSWERS_FIX 1): only the pages the fix renumbers.
         return False
@@ -1298,6 +1301,12 @@ BAR_WINDOW_LATTICES = 3
 BAR_WINDOW_LIMIT = 30
 #: Cells of the 144 with a bar on a side that a Mephisto's grid shows (1800870391 reads 62; the text lattices read 118-124).
 BAR_CELLS = (20, 80)
+#: Bumped when read_barred also fits each lattice found to the ink's line profiles over the page's width: only the pages the
+#: fix reads (tools/data/mephisto_wide_refit.json) are read again. WIDE_KEEP: the combs kept per lattice.
+WIDE_REFIT = 1
+WIDE_REFIT_FILE = ROOT / "tools" / "data" / "mephisto_wide_refit.json"
+_WIDE_REFIT_NAMES = None
+WIDE_KEEP = 3
 BAR_WINDOW_SHIFTS = tuple((dx, dy) for dx in (12, -12, 11, -11, 13, -13) for dy in (0, -1, 1))
 
 
@@ -1311,6 +1320,18 @@ def bar_window_names():
         except (OSError, ValueError):
             _BAR_WINDOW_NAMES = frozenset()
     return _BAR_WINDOW_NAMES
+
+
+def wide_refit_names():
+    """The bare GALE_*.pdf names whose grid WIDE_REFIT reads (a committed list nothing writes: found by reading the pages
+    refused "grid unread" with the fix off and on)."""
+    global _WIDE_REFIT_NAMES
+    if _WIDE_REFIT_NAMES is None:
+        try:
+            _WIDE_REFIT_NAMES = frozenset(json.loads(WIDE_REFIT_FILE.read_text()))
+        except (OSError, ValueError):
+            _WIDE_REFIT_NAMES = frozenset()
+    return _WIDE_REFIT_NAMES
 
 
 BLOB_WINDOW = 31
@@ -1430,6 +1451,16 @@ def read_barred(gray, lattice=None, wanted=None):
             rows, found, why = read_lattice(gray, ink, ys, xs, wanted)
             if rows is not None and BAR_CELLS[0] <= sum(c != "." for r in rows for c in r) <= BAR_CELLS[1]:
                 return rows, found, None
+    if WIDE_REFIT and not lattice:
+        # WIDE_REFIT: the grid's lattice is among those found but a cell or two off along the page and a per cent off in
+        # pitch (1980-84: 74 px found, the grid's own 72.5 px two cells along), which the whole-cell shifts at the pitch
+        # found never meet and the refit's 1.5 pitches never reach: each lattice is fitted to the ink's line profiles
+        # over the page's width. As after BAR_WINDOW, a read stands only with a Mephisto's number of barred cells.
+        for ys, xs in cands[:SHIFT_LATTICES]:
+            for y2, x2 in refit_lattices(ink, ys, xs, keep=WIDE_KEEP, span=ink.shape[1] / ((xs[-1] - xs[0]) / CELLS)):
+                rows, found, why = read_lattice(gray, ink, y2, x2, wanted)
+                if rows is not None and BAR_CELLS[0] <= sum(c != "." for r in rows for c in r) <= BAR_CELLS[1]:
+                    return rows, found, None
     if first is None:
         return None, None, "no 12x12 lattice of rules on the page"
     return None, first[0], first[1]
@@ -1473,17 +1504,18 @@ def _comb_axis(prof, a0, pitch, span=1.5, pitches=(0.9, 1.1), keep=2):
 REFIT_SHIFTS = ((-0.5, 0), (0.5, 0), (-0.5, -0.5), (-0.5, 0.5), (0.5, -0.5), (0.5, 0.5), (0, 0.5), (0, -0.5))
 
 
-def refit_lattices(ink, ys, xs, keep=2):
+def refit_lattices(ink, ys, xs, keep=2, span=1.5):
     """[(ys, xs)] of the lattice (ys, xs) fitted again to the ink's line profiles (the columns' ink in the grid's band
-    sets x0 and the pitch across, then the rows' ink in that width the same down), then the half-cell shifts."""
+    sets x0 and the pitch across, then the rows' ink in that width the same down), then the half-cell shifts. The
+    start is looked for within `span` pitches of the lattice's."""
     h, w = ink.shape
     px, py = (xs[-1] - xs[0]) / CELLS, (ys[-1] - ys[0]) / CELLS
     out = []
     band = ink[int(max(0, ys[0])):int(min(h, ys[-1]))]
-    for _, x0, p in _comb_axis(band.mean(0), xs[0], px, keep=keep):
+    for _, x0, p in _comb_axis(band.mean(0), xs[0], px, span=span, keep=keep):
         xx = [x0 + i * p for i in range(CELLS + 1)]
         rp = ink[:, int(max(0, xx[0])):int(min(w, xx[-1]))].mean(1)
-        for _, y0, q in _comb_axis(rp, ys[0], py, keep=1):
+        for _, y0, q in _comb_axis(rp, ys[0], py, span=span, keep=1):
             out.append(([y0 + i * q for i in range(CELLS + 1)], xx))
     for yy, xx in list(out):
         qx, qy = (xx[-1] - xx[0]) / CELLS, (yy[-1] - yy[0]) / CELLS
@@ -3439,7 +3471,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "bracketFix": BRACKET_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR, "noParse": NO_PARSE, "vlmGrid": VLM_GRID}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "wideRefit": WIDE_REFIT, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "bracketFix": BRACKET_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR, "noParse": NO_PARSE, "vlmGrid": VLM_GRID}, store)
     print(json.dumps(verdict))
     return "read"
 
