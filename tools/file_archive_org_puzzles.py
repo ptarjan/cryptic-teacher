@@ -9587,14 +9587,15 @@ def indy_sunday_headings(lines, titles=()):
         have_boxes = {p[1] for p in puzzles}
         puzzles += [(entry, tuple(w[:4]), None) for ws in lines for w in ws if len(ws) > 1 and tuple(w[:4]) not in have_boxes
                     and box_of(ws) not in have_boxes and IOS_BEELZEBUB_LINE.match(w[4])]
-    # 2011-15: the Concise's own numbered title is no Beelzebub's, and the Beelzebub title set under "Solution for last
-    # issue" heads last week's solution grid (No.1150 on 2012-03-18, the 2012-03-11 puzzle), not this week's puzzle.
+    # 2011-16: the Concise's own numbered title is no Beelzebub's. "Solution for last issue" heads the Concise's solution
+    # only: a numbered title under it is that solution's, but a Beelzebub title (IOS_BEELZEBUB_LINE) is a fresh puzzle.
     boxes = {box_of(ws): " ".join(w[4] for w in ws) for ws in lines}
     notes = [b for b, t in boxes.items() if IOS_LAST_ISSUE.search(t)]
     for n, box, setter in list(puzzles):
         if re.match(r"^\W*(?:the\s*)?(?:concise|quick)", boxes.get(box, ""), re.IGNORECASE):
             puzzles.remove((n, box, setter))
-        elif any(0 <= box[1] - b[3] <= 400 and abs(box[0] - b[0]) < 700 for b in notes):
+        elif not IOS_BEELZEBUB_LINE.match(boxes.get(box, "")) \
+                and any(0 <= box[1] - b[3] <= 400 and abs(box[0] - b[0]) < 700 for b in notes):
             puzzles.remove((n, box, setter))
             solutions.append((n, box))
     have = {n for n, _ in solutions}
@@ -19656,6 +19657,19 @@ _GRIDS_CLOSE_FIX = {
     'times1930': ('bb9dbe1c2759b972', '0849136c3a5976cb', '37ab4f2fa24eee2f'),
 }
 for _paper, _pins in _GRIDS_CLOSE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+
+
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before indy_sunday_headings kept a Beelzebub title set under
+#: "Solution for last issue" as a puzzle (the note heads the Concise's solution only): only the Gale Independent on
+#: Sunday's pages read otherwise, so its old scans stand but for the 2011-16 pages it refused (IOS_BEELZEBUB_HEADING).
+_IOS_BEELZEBUB_HEADING_FIX = {
+    "galeindysunday": ("2417c42f6b7a041e", "a29a076758190cca", "a4136c7ca07d9760"),
+}
+for _paper, _pins in _IOS_BEELZEBUB_HEADING_FIX.items():
     for _keys in CORPUS_KEYS.values():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]

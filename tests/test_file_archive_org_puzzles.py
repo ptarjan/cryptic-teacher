@@ -3596,6 +3596,8 @@ def _final(paper):
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
     special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
     the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._IOS_BEELZEBUB_HEADING_FIX:
+        return f._IOS_BEELZEBUB_HEADING_FIX[paper][2]
     if paper in f._GRIDS_CLOSE_FIX:
         return f._GRIDS_CLOSE_FIX[paper][2]
     if paper in f._PLANES_FIX:
