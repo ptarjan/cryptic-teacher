@@ -4383,6 +4383,25 @@ def indy_two_columns(lines, grid, right, heads):
 INDY_THREE_FULL = 6
 
 
+#: INDY_STRAY_STARTS (r318: Gale Independent "no reading parses" pages, 2003-09-06 first: ACROSS at x 986 holding 42
+#: number starts, DOWN at x 1341 holding 31, the old gutter at 1703): a column's lines hold a few numbers mid-line
+#: ("11 1 Empress", a split count) that fall near one x by chance (4 starts at x 1076, 3 at 1428), and indy_two_columns()
+#: wanted EXACTLY two groups of INDY_COLUMN_MIN starts left of the gutter, so it read the strays for columns, cut nothing,
+#: and the window held both print columns glued row by row ("no ACROSS and DOWN lists under the grid"). A group of starts
+#: thinner than INDY_COLUMN_THIN of the second biggest (the smaller of two real columns) is no print column.
+INDY_STRAY_STARTS = True
+
+
+def indy_print_groups(groups):
+    """The `groups` (indy_starts()) that are print columns: INDY_COLUMN_MIN starts or more, and with more than two such,
+    INDY_COLUMN_THIN of the second biggest's starts at least (INDY_STRAY_STARTS)."""
+    kept = [g for g in groups if len(g) >= INDY_COLUMN_MIN]
+    if INDY_STRAY_STARTS and len(kept) > 2:
+        second = sorted(len(g) for g in kept)[-2]
+        kept = [g for g in kept if len(g) >= INDY_COLUMN_THIN * second]
+    return kept
+
+
 def indy_columns(lines, grid, right):
     """`right` (right_gutter's) with the third window of the Independent's three print columns (Third), the gutters
     set between the columns the clue numbers' left edges mark (the first at least a third of the pitch left of the
@@ -4407,7 +4426,8 @@ def indy_columns(lines, grid, right):
     if three:
         pitch = (heads[1] - heads[0], heads[2] - heads[1])
         three = pitch_even(heads) and heads[2] - split <= INDY_THREE_NEAR * pitch[1]
-    two = None if three else indy_two_columns(lines, grid, right, [g[len(g) // 2] for g in groups if len(g) >= INDY_COLUMN_MIN])
+    two = None if three else indy_two_columns(
+        lines, grid, right, [g[len(g) // 2] for g in indy_print_groups(groups)])
     if two:
         return two
     if len(heads) != 3 or not heads[0] < split < heads[2]:
