@@ -6286,7 +6286,99 @@ def tele_sol_titled(d, found):
         top = min(across, key=lambda b: b[1])
         return {**stamped, "puzzles": [{"number": agreed[0], "leaf": leaf, "box": top, "titleReadBy": ["solution"]}],
                 "solutions": [s for s in found.get("solutions") or () if s["number"] != agreed[0]]}
+    return tele_head_titled(d, {**stamped, TELE_HEAD_LOOKED: True}, leaves)
+
+
+#: The key of a Gale Telegraph scan tele_head_titled looked the cached whole-page reads of over (after tele_sol_titled's).
+TELE_HEAD_LOOKED = "teleHeadLooked"
+#: A heading number as one page reader read it, the "No" before it misread ("Ne.19,152") or lost.
+TELE_HEAD_NUMBER = r"([\dTIl]\d?[,.\-\s]?\d{3})(?![\d,])"
+TELE_HEAD_SOLUTION = re.compile(r"^\W*s\w?[l1]ut[il1]on\s*n\w{0,2}\W{0,3}\s*" + TELE_HEAD_NUMBER, re.IGNORECASE)
+#: A line that is a number alone ("19,153", "No.19,153") or a themed title's end ("ALL SAINTS DAY CROSSWORD-No.17,668").
+TELE_HEAD_TITLE = re.compile(r"^\W*(?:n\w{0,2}\W{0,3}\s*)?" + TELE_HEAD_NUMBER + r"\W*$|cr[o0]ssw[o0]rd\W{0,4}(?:n\w{0,2}\W{0,3}\s*)?"
+                             + TELE_HEAD_NUMBER + r"\W*$", re.IGNORECASE)
+
+
+def tele_head_titled(d, stamped, leaves):
+    """`stamped` (a Gale Telegraph scan tele_sol_titled titled none of) with its puzzle titled by the same cached whole-page
+    reads read more loosely: a page of at least TELE_SOL_CLUES clue counts whose readers (one or more, not all) give ONE number
+    in all, from the day before's solution heading (TELE_HEAD_SOLUTION, "No" misread; the puzzle is one more) or a line that is
+    a number alone or ends a title ("... CROSSWORD-No.17,668": TELE_HEAD_TITLE), the number within the paper's slack of the one
+    the date implies (telegraph_expected_number) and read twice (two readers, or two such lines of one); its box the topmost
+    ACROSS word alone in its line that is not under a Quick crossword's caption (quick_captions). Else the scan stands."""
+    try:
+        day = datetime.date.fromisoformat(d.name)
+    except ValueError:
+        return stamped
+    want = telegraph_expected_number(day)
+    for leaf in leaves:
+        key = f"{d.parent.name}_{d.name}_{leaf}"
+        reads = []
+        for which in PAGE_READERS:
+            for tail in ("", ".gf"):
+                try:
+                    words = json.loads((CROPS / "titles" / f"{key}_page.{reader_key(which)}{tail}.json").read_text())["words"]
+                except (OSError, ValueError, KeyError, TypeError):
+                    continue
+                reads.append([(*w[:4], mend_misreads(w[4])) for w in words if len(w) == 5])
+                break
+        votes, across, counts, blocks = {}, [], [], []
+        for ri, words in enumerate(reads):
+            lines = printed_lines(words)
+            counts.append(sum(1 for w in words if CLUE_COUNT_WORD.search(w[4])))
+            quick = quick_captions(lines)
+            block = clue_block_heading(lines, quick) if quick else None
+            if block is not None:
+                blocks.append(block)
+            for ws in lines:
+                if len(ws) == 1 and ACROSS_LINE.match(ws[0][4]) and not under_quick(tuple(ws[0][:4]), quick) \
+                        and not any(c[1] < ws[0][1] for c in quick):
+                    across.append(tuple(ws[0][:4]))
+                heads = [(m.group(1) or m.group(2), 0) for m in [TELE_HEAD_TITLE.search(" ".join(w[4] for w in ws))] if m]
+                for k in range(len(ws)):
+                    if not re.match(r"^\W*s\w?[l1]ut", ws[k][4], re.IGNORECASE):
+                        continue
+                    m = TELE_HEAD_SOLUTION.match(" ".join(w[4] for w in ws[k:]))
+                    if m:
+                        heads.append((m.group(1), 1))
+                        break
+                for digits, plus in heads:
+                    figures = clue_text.number_figures(digits)
+                    if figures.isdigit() and abs(int(figures) + plus - want) <= GALE_TELEGRAPH.slack:
+                        votes.setdefault(int(figures) + plus, []).append(ri)
+        if len(votes) != 1 or not (across or blocks) or not counts or max(counts) < TELE_SOL_CLUES:
+            continue
+        number, seen = next(iter(votes.items()))
+        if len(seen) < 2:
+            continue
+        # (no cryptic ACROSS read: the clue block's heading over the Quick's caption, which both readers find or neither)
+        top = min(across, key=lambda b: b[1]) if across else blocks[0]
+        if not across and (len(blocks) < len(reads) or any(abs(b[1] - blocks[0][1]) > TELE_QUICK_AGREE
+                                                          or abs(b[0] - blocks[0][0]) > TELE_QUICK_AGREE for b in blocks)):
+            continue
+        return {**stamped, "puzzles": [{"number": number, "leaf": leaf, "box": top, "titleReadBy": ["solution"]}],
+                "solutions": [s for s in stamped.get("solutions") or () if s["number"] != number]}
     return stamped
+
+
+_TELE_HEAD_WOULD = {}
+
+
+def tele_head_would_title(row):
+    """Whether tele_head_titled would title Gale Telegraph ledger `row`'s page (its scan untitled, read whole), off the cached
+    page reads: only such rows are scanned again for it. Memoized by edition and its scan's puzzles."""
+    rel = (row or {}).get("edition") or ""
+    scan = (row or {}).get("scan") or {}
+    if rel in _TELE_HEAD_WOULD:
+        return _TELE_HEAD_WOULD[rel]
+    d = CACHE / rel
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+    except (OSError, ValueError, KeyError, TypeError):
+        return False
+    found = tele_head_titled(d, {k: v for k, v in scan.items() if k != "puzzles"}, leaves)
+    _TELE_HEAD_WOULD[rel] = bool(found.get("puzzles"))
+    return _TELE_HEAD_WOULD[rel]
 
 
 def tele_sol_stale(row):
@@ -6296,6 +6388,17 @@ def tele_sol_stale(row):
     return bool(scan.get(WHOLE_UNTITLED)) and not scan.get(TELE_SOL_LOOKED) and not scan.get("failed") \
         and "inputs" in row and not row.get("verdicts") and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) \
         and str(scan.get("item", "")).startswith("GaleTelegraph") and row.get("scanKey") in current_keys(GALE_TELEGRAPH)
+
+
+def tele_head_stale(row):
+    """Whether Gale Telegraph ledger `row` is tele_sol_stale's shape, looked over by tele_sol_titled but not by tele_head_titled
+    (no TELE_HEAD_LOOKED), and tele_head_titled would title it off the cached page reads: scanned again once."""
+    scan = (row or {}).get("scan") or {}
+    return bool(scan.get(WHOLE_UNTITLED)) and bool(scan.get(TELE_SOL_LOOKED)) and not scan.get(TELE_HEAD_LOOKED) \
+        and not scan.get("failed") and "inputs" in row and not row.get("verdicts") \
+        and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ()) \
+        and str(scan.get("item", "")).startswith("GaleTelegraph") and row.get("scanKey") in current_keys(GALE_TELEGRAPH) \
+        and tele_head_would_title(row)
 
 
 #: The key of a Gale Sunday Times scan (scan_anywhere's) sunday_titled looked the cached whole-page reads of over, titled
@@ -19322,7 +19425,7 @@ def rekey_scans(ledger):
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
                     and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r) and not sunday_number_rescan(r) and not winners_number_rescan(r) and not telequick_rescan(r) and not tele_grid_due(r) and not tel_title_far_due(r) and not block_forties_due(r) and not telegraph_dated_rescan(r) and not guardian_set_rescan(r) and not ft_right_rescan(r) and not fix_reasons.rescans(r) and not suntel_bare_due(r) and not telegraph_host(r) \
-                    and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ft_title_host(r) and not ft_noisy_host(r) and not ios_title_rescan(r) and not tele_sol_stale(r) and not sunday_stale(r):
+                    and not indy_host(r) and not ft_host(r) and not ft_small_host(r) and not ft_title_host(r) and not ft_noisy_host(r) and not ios_title_rescan(r) and not tele_sol_stale(r) and not tele_head_stale(r) and not sunday_stale(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -30858,7 +30961,7 @@ def scan_current(row, fh, rel=None):
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not tel_title_far_due(row) and not block_forties_due(row) and not telegraph_dated_rescan(row) and not guardian_set_rescan(row) and not ft_right_rescan(row) and not fix_reasons.rescans(row) and not suntel_bare_due(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ft_title_host(row) and not ft_noisy_host(row) and not ios_title_rescan(row) \
-        and not indy_titled_due(row) and not tele_sol_stale(row) and not sunday_stale(row) and not ios_stale(row)
+        and not indy_titled_due(row) and not tele_sol_stale(row) and not tele_head_stale(row) and not sunday_stale(row) and not ios_stale(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
