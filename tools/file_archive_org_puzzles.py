@@ -4480,7 +4480,16 @@ def lead_foreign(rapid, grid, right):
 #: reading's boxes) at least INDY_BAND_HEIGHTS median box heights wide and INDY_BAND_INNER times wider than any blank run left
 #: of it, with INDY_COLUMN_MIN clue-number starts left of it and INDY_BAND_RIGHT boxes right of it, fewer than INDY_COLUMN_MIN
 #: of which open as a numbered clue (crop_window.CLUE_OPENING: a third clue column, not other print).
-INDY_BAND_HEIGHTS, INDY_BAND_INNER, INDY_BAND_RIGHT = 5.0, 2.0, 2
+INDY_BAND_HEIGHTS, INDY_BAND_INNER, INDY_BAND_RIGHT = 2.5, 2.0, 2
+#: INDY_BAND_PROSE (r314: ~35 Gale Independent 2010-12 pages, 1, 5, 9-17 across and 22 or 24 down "no reading laid a clue on it"):
+#: the clue column (x 1875-2475 on 2010-07-12 No 7406) stands left of two article columns in the same window (x 2606-4070), the
+#: blank band between them only ~3 line heights wide (131 px at 43), so the article's lines ran row by row into the clue
+#: column's ("1 I invested in shares, reached 25 he'd get a proper job. losing 1000"), the ACROSS list's head was lost and the
+#: DOWN list stopped "cannot find a clue number at: 'legal at all, since if he wasn't legally'" (2010-09-13). A band of
+#: 2.5+ line heights suffices when the print right of it is prose: under INDY_COLUMN_MIN tokens ending in a count ("(4,5)")
+#: there (a clue column's lines each end in one: 8-28 on the filed 2004-05 pages' second columns, 0-1 on all 106 measured
+#: prose ones). The 5.0 of the 1990s page, which carried a results table, is just the first such band.
+_INDY_COUNT_END = re.compile(r"\(\d{1,2}(?:[,\-.]\d{1,2})*[).]?$|^\d{1,2}(?:[,\-]\d{1,2})*\)$")
 
 
 def indy_band_edge(words):
@@ -4510,7 +4519,8 @@ def indy_band_edge(words):
         if b - a >= INDY_BAND_HEIGHTS * height and b - a >= INDY_BAND_INNER * max(inner, 1) \
                 and sum(1 for w in ws if w[2] <= a and _INDY_NUMBER_START.match(str(w[4]))) >= INDY_COLUMN_MIN \
                 and sum(1 for w in ws if w[0] >= b) >= INDY_BAND_RIGHT \
-                and sum(1 for w in ws if w[0] >= b and crop_window.CLUE_OPENING.match(str(w[4]))) < INDY_COLUMN_MIN:
+                and sum(1 for w in ws if w[0] >= b and crop_window.CLUE_OPENING.match(str(w[4]))) < INDY_COLUMN_MIN \
+                and sum(1 for w in ws if w[0] >= b and _INDY_COUNT_END.search(str(w[4]))) < INDY_COLUMN_MIN:
             return (a + b) // 2
         inner = max(inner, b - a)
     return None
