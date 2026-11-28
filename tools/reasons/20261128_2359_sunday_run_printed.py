@@ -6,7 +6,7 @@ Due: a Gale Sunday Times row refused (a verdict with a refusal) whose run-implie
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page refused whose filed weekly run implies a number its page reads print, filed since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T15:55:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
