@@ -322,6 +322,10 @@ jobs:
           bash tools/cache_tar.sh unpack .shim-cache.tar
           df -h / | tail -n 1
       - name: Build the index the tests read
+        # Prints each map's phases and how many rows the cache held, so a slow
+        # index says whether the restored rows were the wrong code or too few.
+        env:
+          CT_ROW_TIMES: "1"
         run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
@@ -333,8 +337,18 @@ jobs:
       # Only a shard holding a script in ci_shards.js's PAGES builds the pages,
       # ~2 minutes cold. The page store (build_seo_pages's fingerprint of the
       # code and data a page reads) makes a warm build re-render only the pages
-      # whose inputs moved. The social cards are deliberately not drawn:
-      # a page points at its own card only if the file is on disk.
+      # whose inputs moved. A page's key includes whether its social card is on
+      # disk (the page points at the card only then), and the deploy's pages
+      # are stored with their cards: without the cards restored beside them,
+      # every key missed ("reused 0 of 72123", 220-350 s a shard). So the
+      # deploy's card cache is restored too, never drawn here.
+      - name: Restore the social cards
+        if: ${{ (steps.pick.outputs.pages == 'true') }}
+        uses: actions/cache/restore@v5
+        with:
+          path: og
+          key: og-cards-${{ github.sha }}
+          restore-keys: og-cards-
       - name: Restore the puzzle pages
         if: ${{ (steps.pick.outputs.pages == 'true') }}
         uses: actions/cache/restore@v5

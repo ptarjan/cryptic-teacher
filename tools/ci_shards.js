@@ -24,69 +24,82 @@
 
    A script in PARALLEL is single-threaded and touches nothing but its own
    output, so a shard runs all of its PARALLEL items at once beside the rest
-   (the runner has CORES cores); LPT charges such an item COST/CORES, and
-   hands a shard no more than CORES of them, counting a SLOTS script as its
-   share, while another shard has room.
+   (the runner has CORES cores); LPT counts such an item as running beside the
+   shard's serial scripts, and hands a shard no more than PARALLEL_PER_SHARD of
+   them (and no more than CORES slots, counting a SLOTS script as its share).
    `--parallel` prints the PARALLEL items of a shard's list, `--serial` the rest.
 
    Usage: printf '%s\n' tests/test_a.sh ... | node tools/ci_shards.js <i> <n>
           printf '%s\n' <shard's items> | node tools/ci_shards.js --needs-pages */
 "use strict";
 
-// Runner seconds, measured on CI from the step logs (the span of each
-// script's log group, the mean of two full runs). Every script that took five
-// seconds or more is here; DEFAULT_COST covers the rest and any test written
-// since. Re-measure when a shard's wall clock drifts from its siblings'.
+// Runner seconds, measured on CI from the step logs: the span of each script's
+// log group. `python3 tools/ci_costs.py <log of gh run view <id> --log>` prints
+// these entries from a run, so a re-measure is one command and a paste. Every
+// script that took five seconds or more is here; DEFAULT_COST covers the rest
+// and any test written since. Re-measure when a shard's wall clock drifts from
+// its siblings'.
 const COST = {
-  // One slice: ~3.7 minutes booting and loading, then ~2.3 s for each puzzle
-  // it sweeps, the sample every slice carries (~51) plus ci_cache.js's
-  // MAX_UNCACHED owed ones. A slice whose every puzzle is cached is dropped
-  // before it runs (tools/ci_cache.js).
-  "tools/smoke_test.js": 400,
-  "tests/test_edition_queue.py": 775, "tests/test_file_archive_org_puzzles.py": 317,
-  "tests/test_formula_math.js": 239, "tests/test_scan_queue.py": 165,
-  "tests/test_reconstruct_grid.py": 128, "tests/test_puzzle_invariants.py": 117,
-  "tests/test_row_cache.py": 111, "tests/test_solve_queue_clues.sh": 109,
-  "tests/test_file_trove_puzzles.sh": 96, "tests/test_no_media_scans.py": 88,
-  "tests/test_acquire_book.py": 73, "tests/test_prereset_pool.sh": 73,
-  "tests/test_repair_fetched.py": 68, "tests/test_paper_mode.js": 67,
-  "tests/test_vlm_reader.py": 62, "tests/test_failed_inputs.sh": 61,
-  "tests/test_empty_keys.py": 45, "tests/test_source_answer_wrong.py": 45,
-  "tests/test_letter_facts.sh": 44, "tests/test_indy_titled.py": 42,
-  "tests/test_clues_only.py": 41, "tests/test_free_elimination_blocks.js": 40,
-  "tests/test_corpus_queue.py": 36, "tests/test_blog_clues_only.py": 34,
-  "tests/test_under_crossing.py": 34, "tests/test_validate_scope.py": 34,
-  "tests/test_gale_inbox.py": 33, "tests/test_shim_format.py": 33, "tests/test_durable.sh": 32,
-  "tests/test_blog_facts.sh": 31, "tests/test_og_tags.js": 31, "tests/test_unit_queue.sh": 30,
-  "tests/test_block_confirm.js": 28, "tests/test_ocr_vote_checks.py": 27,
-  "tests/test_page_cache.py": 27, "tests/test_puzzle_rows.sh": 26,
-  "tests/test_push_conflict.sh": 25, "tests/test_coverage.py": 22, "tests/test_share_url.js": 21,
-  "tests/test_ocr_remote.py": 19, "tests/test_quotes.js": 19, "tests/test_alert_claimed.sh": 17,
-  "tests/test_times_dates.py": 17, "tests/test_gale_fetch.py": 15,
-  "tests/test_push_puzzle_commit.sh": 14, "tests/test_reprints.js": 14,
-  "tests/test_times_grids.py": 14, "tests/test_json_merge.sh": 12, "tests/test_ft_puzzles.py": 11,
-  "tests/test_puzzle_integrity.py": 11, "tests/test_puzzle_tag_badges.js": 11,
-  "tests/test_puzzle_worker.sh": 11, "tests/test_unclued_squares.js": 11,
-  "tests/test_validate_speed.py": 11, "tests/test_ctc_hintcheck.py": 10,
-  "tests/test_file_gale_listener.py": 10, "tests/test_idx_decoder.js": 10,
-  "tests/test_index_idx.py": 10, "tests/test_progress.py": 10, "tests/test_scan_reread.py": 10,
-  "tests/test_shape_queue.py": 10, "tests/test_annotate_disclosure.py": 9,
-  "tests/test_drop_restores_hint.py": 9, "tests/test_jigsaw.js": 9, "tests/test_own_rows.sh": 9,
-  "tests/test_prereset_watch.sh": 9, "tests/test_save_grid.js": 9,
-  "tests/test_desktop_hosts.py": 8, "tests/test_free_wheel.js": 8,
-  "tests/test_listener_grid.py": 8, "tests/test_ocr_text_central.py": 8,
-  "tests/test_og_card_key.py": 8, "tests/test_parse_timesforthetimes.sh": 8,
-  "tests/test_solve_clock.js": 8, "tests/test_straight_ladder.js": 8,
-  "tests/test_anagram_line.js": 7, "tests/test_bg_job.sh": 7,
-  "tests/test_first_screen_arm_b.js": 7, "tests/test_genius_puzzles.py": 7,
-  "tests/test_overtype.js": 7, "tests/test_provenance.py": 7, "tests/test_push_silent_fail.sh": 7,
-  "tests/test_refresh_window.py": 7, "tests/test_app_tab_pages.js": 6,
-  "tests/test_formula_hint.js": 6, "tests/test_gale_mephisto_read.py": 6,
-  "tests/test_progressive_list.js": 6, "tests/test_push_batch.sh": 6,
-  "tests/test_puzzle_format.py": 6, "tests/test_reindex_changed.py": 6,
-  "tests/test_solve_misses.py": 6, "tests/test_validate_shard.py": 6, "tests/test_ask_yield.py": 5,
-  "tests/test_gale_listener.py": 5, "tests/test_nightly_worktree.sh": 5,
-  "tests/test_privateeye_scans.py": 5,
+  // One smoke slice's wall seconds with its shard's other slices beside it
+  // (~3.7 minutes booting and loading, then ~2.3 s for each puzzle it sweeps:
+  // the sample every slice carries, ~51, plus ci_cache.js's MAX_UNCACHED owed
+  // ones). Measured on three four-slice shards: 498, 475 and 646 s. A slice
+  // whose every puzzle is cached is dropped before it runs (tools/ci_cache.js).
+  "tools/smoke_test.js": 500,
+  "tests/test_edition_queue.py": 451,
+  "tests/test_file_archive_org_puzzles.py": 205,
+  "tests/test_scan_queue.py": 130,
+  "tests/test_formula_math.js": 128,
+  "tests/test_solve_queue_clues.sh": 114,
+  "tests/test_paper_mode.js": 65,
+  "tests/test_reconstruct_grid.py": 63,
+  "tests/test_row_cache.py": 61,
+  "tests/test_prereset_pool.sh": 57,
+  "tests/test_file_trove_puzzles.sh": 49,
+  "tests/test_repair_fetched.py": 47,
+  "tests/test_acquire_book.py": 42,
+  "tests/test_letter_facts.sh": 39,
+  "tests/test_corpus_queue.py": 35,
+  "tests/test_failed_inputs.sh": 33,
+  "tests/test_no_media_scans.py": 33,
+  "tests/test_vlm_reader.py": 32,
+  "tests/test_og_tags.js": 29,
+  "tests/test_blog_clues_only.py": 28,
+  "tests/test_clues_only.py": 26,
+  "tests/test_source_answer_wrong.py": 25,
+  "tests/test_durable.sh": 24,
+  "tests/test_validate_scope.py": 19,
+  "tests/test_empty_keys.py": 19,
+  "tests/test_shim_format.py": 19,
+  "tests/test_blog_facts.sh": 18,
+  "tests/test_puzzle_invariants.py": 18,
+  "tests/test_unit_queue.sh": 17,
+  "tests/test_page_cache.py": 17,
+  "tests/test_alert_claimed.sh": 16,
+  "tests/test_free_elimination_blocks.js": 13,
+  "tests/test_ocr_remote.py": 12,
+  "tests/test_puzzle_rows.sh": 11,
+  "tests/test_gale_inbox.py": 10,
+  "tests/test_puzzle_worker.sh": 10,
+  "tests/test_ocr_vote_checks.py": 10,
+  "tests/test_under_crossing.py": 10,
+  "tests/test_push_conflict.sh": 9,
+  "tests/test_json_merge.sh": 9,
+  "tests/test_share_url.js": 8,
+  "tests/test_sw_shell_recovery.js": 8,
+  "tests/test_desktop_hosts.py": 8,
+  "tests/test_push_puzzle_commit.sh": 7,
+  "tests/test_bg_job.sh": 7,
+  "tests/test_puzzle_integrity.py": 7,
+  "tests/test_idx_decoder.js": 6,
+  "tests/test_jigsaw.js": 6,
+  "tests/test_times_grids.py": 6,
+  "tests/test_coverage.py": 6,
+  "tests/test_times_dates.py": 6,
+  "tests/test_gale_fetch.py": 5,
+  "tests/test_file_gale_listener.py": 5,
+  "tests/test_anagram_line.js": 5,
+  "tests/test_ft_puzzles.py": 5,
 };
 const DEFAULT_COST = 1;
 // Every serial script is followed by the dirty-tree check (`git status` over
@@ -96,9 +109,14 @@ const ITEM_OVERHEAD = 2;
 // How many slices each splittable script runs as (see the header).
 const SLICES = { "tools/smoke_test.js": 12 };
 
-// See the header: all run concurrently within a shard, each charged COST/CORES.
+// See the header: all run concurrently within a shard.
 const PARALLEL = new Set(["tools/smoke_test.js"]);
 const CORES = 4;
+// Most PARALLEL items one shard runs at once. They are CPU-bound and ~2 GB each
+// and run beside the shard's serial scripts, so two leave cores free for those;
+// four filled the runner. Fewer to a shard is more shards paying PAGE_BUILD, and
+// the wall clock is a slice plus that, not the sum of the slices.
+const PARALLEL_PER_SHARD = 2;
 // Serial scripts that hold as much memory as a PARALLEL item while the shard's
 // PARALLEL items run beside them: each takes that many of the shard's CORES
 // slots. The archive.org filer loads the scan readers (numpy, OpenCV) and its
@@ -111,10 +129,11 @@ const used = (bin) => bin.files.reduce((n, f) => n + slots(f), 0);
 // The scripts that read what tools/build_seo_pages.py writes.
 const PAGES = new Set(["tools/smoke_test.js", "tests/test_og_tags.js"]);
 // Runner seconds to restore, unpack and build them, charged once to a shard
-// that holds a reader. The restored page store is usually a commit behind
-// (pages.yml saves it after its own build), and its code key then re-renders
-// every page.
-const PAGE_BUILD = 310;
+// that holds a reader. Warm (the deploy's page store and social cards, which
+// a page's key includes, both restored) that is the two restores, the unpack
+// and ~1 minute of fingerprinting and re-rendering what moved; cold it was
+// 223-351 s. Re-measure from the "Build the pages" step with the other costs.
+const PAGE_BUILD = 150;
 
 const fileOf = (item) => item.split(" ")[0];
 
@@ -128,57 +147,57 @@ function items(files) {
 const needsPages = (list) => list.some((item) => PAGES.has(fileOf(item)));
 
 /* Longest-processing-time-first: hand each item, heaviest first, to whichever
-   shard would finish soonest with it, counting the page build a shard pays
-   the first time it is handed a page reader. Ties break on the name so the
-   answer does not depend on the order the caller happened to list the files
-   in.
+   shard would finish soonest with it. A shard's finish is what it measures on
+   the runner: its PARALLEL items run at once beside its serial scripts, so it
+   is the longer of the two, plus the page build it pays once when it holds a
+   page reader. Ties break on the name so the answer does not depend on the
+   order the caller happened to list the files in.
 
-   The PARALLEL page readers go first, whatever their cost. Placed among the
-   rest by cost, each one lands beside a heavy serial script already placed
-   and opens one more shard's page build: the slices end up one or two to a
-   shard, every one of those shards pays the build, and the busiest is the
-   build plus a full slice plus that script. Placed first, into empty shards,
-   they fill one shard's CORES slots before opening the next (the build is
-   charged once a shard), and the serial scripts then balance around them. */
+   The PARALLEL page readers go first, whatever their cost, into empty shards,
+   PARALLEL_PER_SHARD to a shard: a slice beside a shard's other work costs no
+   more wall than the slice alone, so the finish never tells shards apart and
+   the cap is what spreads them. The serial scripts then balance around them,
+   the busy shards taking what fits inside their slice's seconds for nothing. */
 function shards(files, count) {
-  const bins = Array.from({ length: count }, () => ({ load: 0, pages: false, files: [] }));
-  const cost = (item) => {
-    const f = fileOf(item);
-    const c = f in COST ? COST[f] : DEFAULT_COST;
-    return PARALLEL.has(f) ? c / CORES : c + ITEM_OVERHEAD;
+  const bins = Array.from({ length: count }, () => ({ serial: 0, par: 0, pages: false, files: [] }));
+  const cost = (item) => (fileOf(item) in COST ? COST[fileOf(item)] : DEFAULT_COST);
+  const finish = (serial, par, pages) => (pages ? PAGE_BUILD : 0) + Math.max(serial, par);
+  const after = (bin, item) => {
+    const c = cost(item);
+    const pages = bin.pages || PAGES.has(fileOf(item));
+    return PARALLEL.has(fileOf(item))
+      ? finish(bin.serial, Math.max(bin.par, c), pages)
+      : finish(bin.serial + c + ITEM_OVERHEAD, bin.par, pages);
   };
-  const extra = (bin, item) => (PAGES.has(fileOf(item)) && !bin.pages ? PAGE_BUILD : 0);
   const first = (item) => (PARALLEL.has(fileOf(item)) && PAGES.has(fileOf(item)) ? 0 : 1);
   items(files)
     .sort((a, b) => first(a) - first(b) || cost(b) - cost(a) || (a < b ? -1 : a > b ? 1 : 0))
     .forEach((item) => {
-      const after = (bin) => bin.load + cost(item) + extra(bin, item);
-      // A shard runs its PARALLEL items all at once, and each holds about a
-      // core and ~1 GB. A shard with no slot left takes no more of them (nor a
-      // SLOTS script) while another has room. LPT alone charges a PARALLEL item
-      // COST/CORES, so a shard light on serial work was handed five smoke
-      // slices, or four beside the archive.org test, and either is more than
-      // the runner holds: "the runner has received a shutdown signal" in the
-      // middle of the sweep, every run, whichever shard got the extra one.
+      // Each PARALLEL item holds about a core and 2 GB, and a SLOTS script
+      // holds its share: a shard with no slot left takes no more of either
+      // while another has room. "The runner has received a shutdown signal" in
+      // the middle of the sweep was five slices, or four beside the archive.org
+      // test.
       const need = slots(item);
-      const fits = (bin) => used(bin) + need <= CORES;
+      const par = PARALLEL.has(fileOf(item));
+      const nPar = (bin) => bin.files.filter((f) => PARALLEL.has(fileOf(f))).length;
+      const fits = (bin) => used(bin) + need <= CORES && (!par || nPar(bin) < PARALLEL_PER_SHARD);
       const roomy = need > 0 && bins.some(fits);
-      // A PARALLEL page reader fills a shard that already builds the pages
-      // before it opens another (see the header): LPT alone would open a new
-      // one, since an empty shard plus the build still looks lighter than a
-      // shard already charged for it.
-      const pack = first(item) === 0 && bins.some((bin) => bin.pages && fits(bin));
-      const ok = (bin) => (!roomy || fits(bin)) && (!pack || bin.pages);
+      const ok = (bin) => !roomy || fits(bin);
       let best = bins.findIndex(ok);
-      for (let i = best + 1; i < count; i++) if (ok(bins[i]) && after(bins[i]) < after(bins[best])) best = i;
-      bins[best].load = after(bins[best]);
-      bins[best].pages = bins[best].pages || PAGES.has(fileOf(item));
-      bins[best].files.push(item);
+      for (let i = best + 1; i < count; i++) {
+        if (ok(bins[i]) && after(bins[i], item) < after(bins[best], item)) best = i;
+      }
+      const bin = bins[best];
+      if (par) bin.par = Math.max(bin.par, cost(item));
+      else bin.serial += cost(item) + ITEM_OVERHEAD;
+      bin.pages = bin.pages || PAGES.has(fileOf(item));
+      bin.files.push(item);
     });
   return bins.map((b) => b.files);
 }
 
-module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, ITEM_OVERHEAD, SLICES, PAGES, PAGE_BUILD, PARALLEL, CORES, SLOTS, slots };
+module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, ITEM_OVERHEAD, SLICES, PAGES, PAGE_BUILD, PARALLEL, PARALLEL_PER_SHARD, CORES, SLOTS, slots };
 
 const stdinList = () => require("fs").readFileSync(0, "utf8").split("\n").filter(Boolean);
 if (require.main === module && process.argv[2] === "--needs-pages") {
