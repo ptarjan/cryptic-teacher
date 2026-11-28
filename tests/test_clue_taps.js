@@ -6,8 +6,8 @@
 
    1. arrives: picking a clue asks its first free question at once, so the
       clue's words are tappable with no button tapped, and nothing is charged.
-   2. once: "Show me" is not undone by the next render;
-      only coming back to the clue asks again.
+   2. once: coming back to the clue asks again; "Show me" is not undone by
+      the next render.
    3. typing: the answer can still be typed while the question is up, and a clue
       solved that way keeps its "no hints" star; a solved clue is not quizzed.
    4. wheel: tapRingTile/ringBackspace, lifted out of the app source. */
@@ -51,19 +51,13 @@ if (e && other) {
   check(t.reg["hint-track"].children.every((b) => !/\bopen\b/.test(b.className || "")), `arrives (${entryId(e)}): the track shows no step open`);
 
   // --- 2: once per arrival ---
-  // There is no "Skip for now": the Letters wheel is what steps a question aside.
-  t.reg["hx-wheel"].onclick();
-  check(!t.asking(), "once: the Letters wheel puts the question away");
-  t.key(e.solution[0]);
-  check(!t.asking(), "once: a later render on the same clue does not ask again");
-  t.key("Backspace");
   t.pick(other);
   t.pick(e);
   check(t.asking(), "once: coming back to the clue asks again");
   t.reg["guess-tell"].onclick();
   check(!t.asking() && t.hints() === 1, `once: Show me opens the rung (1 hint) and asks nothing next: ${t.hints()}`);
   t.key(e.solution[0]);
-  check(!t.asking(), "once: still nothing asked after Show me");
+  check(!t.asking(), "once: a later render on the same clue does not ask again");
 
   // --- 3: typing alongside ---
   const u = open();

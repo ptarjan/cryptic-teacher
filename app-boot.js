@@ -292,8 +292,8 @@
       applyPrinted();
       hintsShown = {}; hintsEarned = {}; rungsMissed.clear(); hintLevels = {}; revealsUsed = {}; blocksAt = {}; piecesPicked = {};
       solvedWith = {}; timing = {};
-      // The Pieces step deals the wheel once per clue "per attempt": a fresh
-      // attempt deals it again.
+      // The wheel is dealt once per clue per attempt: a fresh attempt starts
+      // every clue's letters over and deals them again.
       wheelDealt.clear(); wheelOn = null;
       Object.keys(rings).forEach((k) => delete rings[k]); ring = null;
       if (paper.on && paperable()) setOnPaper(P.id, true);
@@ -347,9 +347,6 @@
     // activeElement would sit there until some unrelated render happened to
     // clear it.
     $("ana-kbd").addEventListener("blur", () => { if (ring) renderHintPanel(); });
-    // The Letters toggle beside the answer boxes opens/closes the one wheel.
-    $("hx-wheel").onclick = wheelToggleTap;
-    $("hx-wheel").addEventListener("mousedown", keepKbd);
 
     // THE ONE PLACE THAT SUMMONS A KEYBOARD: the letter strip, the row of boxes
     // for the answer. Tapping the squares you are about to fill in is the only

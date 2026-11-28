@@ -45,6 +45,16 @@
       // The step's full question, for a screen reader: the chip itself is
       // one short noun.
       if (b.label) btn.setAttribute("aria-label", b.label);
+      // The Letters tab: brings the wheel to the front (lettersTap). Like a
+      // note tab it must not take focus, so the keyboard stays up.
+      if (b.wheel) {
+        btn.onmousedown = (ev) => ev.preventDefault();
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-selected", b.sel ? "true" : "false");
+        btn.onclick = lettersTap;
+        el.appendChild(btn);
+        return;
+      }
       // A step that is already open: tapping it goes to its note, and costs
       // nothing because there is nothing left to take.
       if (b.note) {
@@ -493,28 +503,22 @@
       bindReport();
     }
   }
-  // The Letters toggle beside the answer boxes (#hx-wheel, a static element
-  // bound once in boot): on every unsolved clue whatever its type, so it gives
-  // nothing away, and never a hint.
-  function drawWheelToggle(show, on) {
-    const hw = $("hx-wheel");
-    if (!hw) return;
-    hw.classList.toggle("hidden", !show);
-    hw.setAttribute("aria-pressed", show && on ? "true" : "false");
-  }
-  function wheelToggleTap() {
+  // The Letters tab on the step track (lettersTab says when a clue has it).
+  // Free, never a hint. The wheel's letters are picked off the clue's own
+  // words, so the question on the table, or the step chosen on the track,
+  // steps aside for it, and a note tab picked earlier lets go: one front panel
+  // at a time.
+  function lettersTap() {
     const e = currentEntry();
-    if (!e || isEntrySolved(e)) return;
-    const key = entryKey(e);
-    wheelOn = wheelOn === key ? null : key;
-    // The wheel's letters are picked off the clue's own words, so the question
-    // on the table, or the step chosen on the track, steps aside for it: one
-    // front panel at a time.
-    if (wheelOn) { guessing = null; helpOn = null; }
+    if (!e || !lettersTab(e, annOf(e))) return;
+    wheelOn = entryKey(e);
+    guessing = null;
+    helpOn = null;
+    tabPick.delete(tabKeyOf(e));
     // Focus first so the ring's focus outline is on the first draw and
     // the solver can type straight away, as a tap on the disc does.
     const ak = $("ana-kbd");
-    if (wheelOn && ak) focusHidden(ak);
+    if (ak) focusHidden(ak);
     renderHintPanel();
   }
 
@@ -526,7 +530,6 @@
       // A square only an unclued light covers has no clue to hint at, but it
       // still has the escape hatch.
       const light = currentLight();
-      drawWheelToggle(false);
       if (!light) { panel.classList.add("hidden"); return; }
       panel.classList.remove("hidden");
       guessing = null;
@@ -576,7 +579,6 @@
     // say whether they are right: no meter, no ladder, no reveal, no vote.
     if (paperHides()) {
       guessing = null;
-      drawWheelToggle(false);
       arrivedAt = key;
       setHTML($("hint-clue"), clueLine + pickableClueHTML(holder, null, [], null));
       ["hint-meter", "hint-body", "hint-escape", "hint-vote"].forEach((id) => setHTML($(id), ""));
@@ -642,8 +644,8 @@
       // question (a step, a formula chip, the next question once the dealt
       // wheel is finished) or a step chosen on the track while the wheel is
       // open puts the wheel away, since that step's card carries the help
-      // button and the wheel would hide it; the Letters toggle opening the
-      // wheel puts both away (wheelToggleTap).
+      // button and the wheel would hide it; the Letters tab bringing the
+      // wheel to the front puts both away (lettersTap).
       if (!solved && isShown(e, "blocks") && !piecesLeft(e) && !wheelDealt.has(key) && dealWheel(e, ann)) {
         guessing = null;
         helpOn = null;
@@ -657,7 +659,7 @@
       // is the front panel until a step's tab is picked; with nothing pending
       // the front panel is the picked step's note, else the last one opened.
       chosen = !finished && !ask ? chosenStep(e) : null;
-      pendingFront = !finished && !!(ask || wheelOn === key || chosen) && !pickedStep(e);
+      pendingFront = !finished && !!(ask || (wheelOn === key && lettersTab(e, ann)) || chosen) && !pickedStep(e);
       tapping = !!(ask && !ask.choices && guessing && holder === e && pendingFront);
       // The blocks rung as much of it as has been handed over. A solved clue
       // gets the lot: its score is settled, and the rest of the ladder is free
@@ -749,7 +751,17 @@
       const target = helpTarget(e);
       const hue = { indicators: "ind", definition: "def", type: "typ", blocks: "blk", walkthrough: "sol" };
       const lead = open.length ? open[0].s.key : null;
+      // The Letters tab sits after Clue type, ahead of Pieces and Solution
+      // (or last, on a clue with neither). Selected while the wheel is the
+      // front panel. Not a step: it opens nothing and costs nothing, so it is
+      // never "avail", "open" or "locked".
+      const lettersSel = pendingFront && !ask && !chosen && wheelOn === key;
+      let letters = lettersTab(e, ann) ? { wheel: true, tab: true, sel: lettersSel,
+        label: "Letters: shuffle the clue's letters on a wheel, free",
+        cls: "step letters ltr" + (lettersSel ? " sel" : ""),
+        title: "Free: shuffle the letters on a wheel", text: "Letters" } : null;
       steps.forEach((s) => {
+        if (letters && (s.key === "blocks" || s.key === "walkthrough")) { trackSpec.push(letters); letters = null; }
         const name = trackNames[s.key] || s.label;
         const tint = hue[s.key] ? " " + hue[s.key] : "";
         if (isShown(e, s.key)) {
@@ -780,6 +792,7 @@
         trackSpec.push({ label: s.label, cls: "step locked" + tint, disabled: true, text: "– " + name,
           title: "Open the hints above first — this one would give them away" });
       });
+      if (letters) trackSpec.push(letters);
       // Offered once the building blocks are up, not only once the whole ladder
       // is: the blocks spell the answer out piece by piece, so a solver who has
       // just assembled it is being made to copy their own work into the grid
@@ -787,9 +800,10 @@
       // because it is the way out of the clue rather than a step in it.
       if (!guessing && canCheck() && !solved && (!togo.length || isShown(e, "blocks"))) offerFill = true;
     }
-    // The wheel sits where the question would, under whatever the ladder has
-    // shown: while it is open there is no question (see arriveAt above).
-    const wheelOpen = wheelOn === key && !solved;
+    // The wheel is the Letters tab's panel and sits where the question would,
+    // under whatever the ladder has shown: while it is open there is no
+    // question (see arriveAt above).
+    const wheelOpen = wheelOn === key && lettersTab(e, ann);
     if (wheelOpen) pendingHTML += wheelHTML(e, ann);
     else if (chosen && !ask) {
       // A step chosen on the track that has no question to ask: its panel is
@@ -801,7 +815,6 @@
     // in a card of its own under the notes (the only place it is drawn).
     const tellT = ann && !finished && !ask && !chosen ? helpTarget(e) : null;
     if (tellT) bodyHTML += nextCardHTML(e, tellT, false);
-    drawWheelToggle(!solved, wheelOpen);
     // Written last, because whether its words are targets is decided by whether a
     // question ended up being asked. A linked clue is the exception and keeps the
     // second copy: the words being asked about are this entry's own clue, and the
@@ -809,10 +822,11 @@
     //
     // Chip-wrapped either way — see pickableClueHTML — so tapping starting or
     // ending never changes this element's own box, only the colour of the
-    // border round each word.
+    // border round each word. The words feed the wheel only while its tab is
+    // the one in front: behind a note they would add letters out of sight.
     clueLine += tapping
       ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
-      : pickableClueHTML(holder, null, [], null, wheelOpen && holder === e ? (ring.words || {}) : null);
+      : pickableClueHTML(holder, null, [], null, wheelOpen && pendingFront && holder === e ? (ring.words || {}) : null);
     // The marks fade in, which is an arrival: it must play when a mark arrives
     // and at no other time. Picking words rewrites the clue too — the picked
     // word's class is in the markup — so every <mark> comes back as a new element

@@ -31,6 +31,8 @@
   --typ-fg: #7a4a00;
   --sol-bg: #e4dcf8;      /* Solution step: violet, 8.2:1 */
   --sol-fg: #44278f;
+  --ltr-bg: #d3efea;      /* Letters tab: teal, 7.7:1 */
+  --ltr-fg: #0a5049;
   /* Row badges get their own palette, deliberately not the hint-rung one above.
      See the .badge block for what each colour is allowed to mean. */
   --badge-cov-bg: #d5e9f5;   /* we have written hints for this puzzle */
@@ -107,6 +109,8 @@
     --typ-fg: #f0d29a;
     --sol-bg: #33285c;
     --sol-fg: #d3c8f8;
+    --ltr-bg: #1c4440;
+    --ltr-fg: #a8e2d8;
     --badge-cov-bg: #1e3f52;
     --badge-cov-fg: #a4d6ef;
     --badge-none-bg: #2c3138;
@@ -997,12 +1001,15 @@ button:disabled:hover { border-color: var(--line); }
 .hint-step p, .hint-step ul { margin: 4px 0; }
 /* One colour pair per hint step, keyed by step: the note (by id, so no markup
    carries a class) and the step chooser chip (by class) both read --step-bg /
-   --step-fg from here. Pieces wears the accent its picked words wear. */
+   --step-fg from here. Pieces wears the accent its picked words wear. The
+   Letters tab (the anagram wheel, a free tool rather than a note) has its own
+   pair too. */
 #hint-note-indicators, .hint-track button.step.ind { --step-bg: var(--ind-bg); --step-fg: var(--ind-fg); }
 #hint-note-definition, .hint-track button.step.def { --step-bg: var(--def-bg); --step-fg: var(--def-fg); }
 #hint-note-type, .hint-track button.step.typ { --step-bg: var(--typ-bg); --step-fg: var(--typ-fg); }
 #hint-note-blocks, .hint-track button.step.blk { --step-bg: var(--accent-soft); --step-fg: var(--accent); }
 #hint-note-walkthrough, .hint-track button.step.sol { --step-bg: var(--sol-bg); --step-fg: var(--sol-fg); }
+.hint-track button.step.ltr { --step-bg: var(--ltr-bg); --step-fg: var(--ltr-fg); }
 .hint-step { --step-bg: var(--accent-soft); --step-fg: var(--accent); --tab: var(--step-fg);
   border-left: 4px solid var(--tab); padding-left: 8px; }
 .hint-step[id^="hint-note-"] .step-label {
@@ -2119,14 +2126,8 @@ html.ct-nopush #btn-notify { display: none; }
   background: var(--line); color: var(--muted); opacity: .6; cursor: not-allowed; }
 .hint-track button.step.arm-cost { border-color: var(--bad, #b3261e); color: var(--bad, #b3261e); }
 
-/* The answer boxes and the Letters toggle share a row: the boxes take the
-   left column, the button a right-hand slot centred on them. The slot is always
-   reserved (a hidden button keeps its space but is invisible, so it is neither
-   focusable nor clickable), so the boxes are the same size whether or not the
-   button is shown. A word never breaks inside itself. */
-.pattern-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 8px; }
-.pattern-row .pattern { min-width: 0; }
-.pattern-row #hx-wheel.hidden { display: inline-block !important; visibility: hidden; }
+/* The answer boxes take the panel's whole width, each box shrinking to fit,
+   and a word never breaks inside itself. */
 .pat-word { flex-wrap: nowrap; }
 .pat-box { min-width: 0; flex: 0 1 auto; }
 

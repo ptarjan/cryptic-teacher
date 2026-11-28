@@ -97,19 +97,22 @@ const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].
 // A right answer now goes straight on to the ladder's next question (Paul
 // 10-30: "When you finish a hint ring it should go to the next"). The checks that
 // read the finished rung's own state put that question away first. There is no
-// "Skip for now", and a step chip is no way to do it: one with a question of its
-// own just swaps questions, and one without opens (or arms) a rung. The Letters
-// wheel is the help bar's button that steps a question aside and spends nothing
-// (hx-wheel in app-paint.js), so that is what a solver would press.
+// "Skip for now", and a step chip that is not open yet is no way to do it: one
+// with a question of its own just swaps questions, and one without opens (or
+// arms) a rung. The step track is a row of tabs, though, and picking the tab of
+// the step just answered brings its note (with the verdict) to the front, the
+// question behind it, and spends nothing: that is what a solver would press.
+const STEP_TABS = { indicators: "Indicator", definition: "Definition", type: "Clue type",
+  blocks: "Pieces", walkthrough: "Solution" };
 const dismissNext = () => {
-  const asking = () => registry["hint-body"].innerHTML.includes('class="hint-step guess"');
-  const w = registry["hx-wheel"];
-  // The Letters toggle is a static button beside the answer boxes now (hidden
-  // while no clue is open). Opening the wheel puts the question away; the
-  // wheel itself is then closed again, so the clue is left with neither.
-  if (!asking() || !w || !w.onclick || w.classList.contains("hidden")) return;
-  w.onclick();
-  if (registry["hint-clue"].innerHTML.includes("data-aw")) w.onclick();
+  const body = registry["hint-body"].innerHTML;
+  if (!/<div class="hint-pending" role="tabpanel">/.test(body) || !body.includes('class="hint-step guess"')) return;
+  const open = registry["hint-track"].children.filter((b) => b.onclick && /\bopen\b/.test(b.className || "")
+    && b.getAttribute("aria-selected") !== "true");
+  const judged = /id="hint-note-(\w+)"[^>]*>\s*<div class="guess-result/.exec(body);
+  const name = judged && STEP_TABS[judged[1]];
+  const tab = open.find((b) => name && (b.textContent || "").replace(/^\u2605 /, "") === name) || open[open.length - 1];
+  if (tab) tab.onclick();
 };
 // What the page reported since a mark, in order. Sliced rather than read whole:
 // the harness opens a great many puzzles over a run, and the rule under test is

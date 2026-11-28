@@ -12,21 +12,25 @@
   // dictionary behind it and there will not be one: a box that hands back the
   // word answers the clue, and answering the clue is what the last rung is for.
   //
-  // One wheel (redesign step 7). It is offered on EVERY unsolved clue by the
-  // Letters toggle beside the answer boxes, so its presence gives nothing away,
-  // and it is free. It works one way wherever it came from: the clue's words
-  // add or remove their letters, typing adds letters, a tap selects a letter
-  // and a second tap or Backspace crosses it off, and a letter already in the
-  // grid sits fixed. The only thing the Pieces step adds is the opening deal:
-  // once every piece is out and they show the WHOLE answer is an anagram, the
-  // wheel opens by itself holding the fodder (Paul 10-30: never for a part).
+  // One wheel, behind the Letters tab on the step track. The tab appears once
+  // the clue is known to be an anagram, whole or in part: its type includes
+  // the anagram family and the Clue type step is open (picked right, or told),
+  // or the Pieces step is. Opening it is free and is never a hint. It works one
+  // way wherever it came from: the clue's words add or remove their letters,
+  // typing adds letters, a tap selects a letter and a second tap or Backspace
+  // crosses it off, and a letter already in the grid sits fixed. The wheel is
+  // dealt the fodder once per clue, and only when the WHOLE answer is an
+  // anagram (Paul 10-30: never for a part): a right Anagram pick in Clue type
+  // brings the tab to the front with the fodder dealt, and if that never
+  // happened, every piece out on the Pieces step does.
   let ring = null;     // { key, letters, order, struck, sel, words, forbidden, dealt }: the current clue's wheel
   // Every clue's wheel, by entryKey, so going to another clue and back finds the
   // letters as they were left (selected, crossed off, shuffled). In memory only.
   const rings = {};
   let wheelOn = null;  // the entryKey whose wheel is open, or null
-  // Clues whose wheel the Pieces step has already opened and dealt, so closing
-  // it stays closed. In memory only: the save format does not change.
+  // Clues whose wheel has already been dealt (by the Clue type pick or the
+  // Pieces step), so a tab picked over it stays in front. In memory only: the
+  // save format does not change.
   const wheelDealt = new Set();
 
   // Deal an order that is neither the fodder as written nor the answer as
@@ -158,6 +162,17 @@
     ring = rings[key] = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {}, dealt: true };
     wheelOn = key;
     return true;
+  }
+
+  // Whether this clue has the Letters tab (see the top of this file): unsolved,
+  // its type in the anagram family, and that known from the Clue type or
+  // Pieces step being open. The family is the type's own structure, the same
+  // one the Clue type step grades by.
+  function lettersTab(e, ann) {
+    if (!ann || isEntrySolved(e)) return false;
+    const anagram = familyOf(["anagram"]).name;
+    if (!familiesOf(ann.type).some((f) => f.name === anagram)) return false;
+    return isShown(e, "type") || isShown(e, "blocks");
   }
 
   // The wheel for this clue, empty if it has never been opened here. Nothing
@@ -2048,8 +2063,8 @@
   }
 
   // Where a right answer leads, one rule for every step. Naming the clue an
-  // anagram (the whole answer, so the wheel has fodder to deal) opens the free
-  // letters wheel. Otherwise the next free question; and where the next step
+  // anagram (the whole answer, so the wheel has fodder to deal) brings the
+  // Letters tab to the front with the fodder dealt. Otherwise the next free question; and where the next step
   // has none, that step's own tab comes to the front with its (paid, never
   // auto-opened) button, so the panel never stays on the step just finished.
   function goOn(e, rung, choice) {
