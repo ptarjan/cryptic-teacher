@@ -100,6 +100,11 @@ except one with no daily title on its fetched pages and no text-shown crossword 
 it on most (prior_unfetched): only the prior_leaves it lacks are fetched.
 Siblings of the edition's own leaf count vote apart too (common_leaves): an
 item mixing 52- and 56-leaf issues splits the count.
+A leaf the detector misses is fetched by name: --item I --edition SLUG --leaf N
+(repeatable) fetches those leaves of that one edition though it is done, and
+pages.json keeps them as "named", so a later run, whatever its detector, holds
+them still. Without a title, a page with an Across heading line is fetched too
+(CLUE_HEAD), beside the page densest with counts.
 Bumping DETECTOR_VERSION re-runs detection from the cached djvu.xml and
 fetches only the page images it newly finds; no text is downloaded again.
 
@@ -253,6 +258,9 @@ NUMBERED = re.compile(r"(?i)cross\s?word\W{0,3}(?:puzzle\W{0,3})?(?:no\.?\s*)?\d
 #: book adverts ("CROSSWORD ENTHUSIASTS") and the 1993-98 Times Two
 #: ("TIMES TWO CROSSWORD 747 In association with BRITISH MIDLAND").
 NOT_DAILY = re.compile(r"(?i)concise|jumbo|listener|quick|enthusiast|title|book|\btwo\b|asso[cd]|\bbrit")
+#: A line holding only "Across": the heading of a clue list. The OCR can lose a
+#: grid page's title and most of its counts but keep this line.
+CLUE_HEAD = re.compile(r"(?mi)^[^\w\n]*across[^\w\n]*$")
 ENUM = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-.]\s*\d{1,2}){0,4}\s*\)")
 HEADING = re.compile(
     r"(?i)(?:listener|jumbo|times|two|cryptic|prize|quick|concise|polymath|mephisto|"
@@ -1084,7 +1092,7 @@ def sister(hit):
 
 
 #: The marks of a crossword_hits page fetched with no crossword in its text.
-GUESSED = ("prior", "dense", "ocr_empty", "unit_trust", "currency")
+GUESSED = ("prior", "dense", "across", "ocr_empty", "unit_trust", "currency", "named")
 ITEM_DATED = re.compile(r"(.+?)_(\d{4}-\d{2}-\d{2})_[^/]*")
 
 
@@ -1304,6 +1312,12 @@ def crossword_hits(pages, prior=(), currency=()):
             hits.append({"leaf": leaf, "enums": enums, "dense": True,
                          "width": pages[leaf][0], "height": pages[leaf][1]})
         have |= {h["leaf"] for h in hits}
+        # A clue list the counts do not make dense (a grid page's OCR noise)
+        # still has its own Across heading: every page so headed is a candidate,
+        # not only the one page densest with counts (a results table can be it).
+        hits += [{"leaf": leaf, "across": True, "width": w, "height": h}
+                 for leaf, (w, h, text) in enumerate(pages) if leaf not in have and CLUE_HEAD.search(text)]
+        have |= {h["leaf"] for h in hits}
         hits += [{"leaf": leaf, "unit_trust": True, "width": w, "height": h}
                  for leaf, (w, h, text) in enumerate(pages) if leaf not in have and UNIT_TRUST.search(text)]
         if currency:
@@ -1314,7 +1328,34 @@ def crossword_hits(pages, prior=(), currency=()):
     return hits
 
 
-def fetch_edition(fx, item, meta, name):
+def named_leaves(d, asked=()):
+    """The leaves of the edition in `d` fetched because someone named them
+    (--leaf), kept in pages.json as "named" so a later run, whatever its
+    detector, fetches them again: `asked` and those it already holds."""
+    try:
+        with open(os.path.join(d, "pages.json")) as f:
+            held = json.load(f).get("crossword_pages") or ()
+    except (OSError, ValueError):
+        held = ()
+    return sorted({int(n) for n in asked} | {h["leaf"] for h in held if h.get("named")})
+
+
+def with_named(hits, named, count):
+    """`hits` with each `named` leaf of the edition's `count` leaves in them,
+    marked named; a leaf outside the scan is an error, not skipped."""
+    for n in named:
+        if not 0 <= n < count:
+            raise ValueError(f"leaf {n} is not in the edition's {count} leaves")
+    for h in hits:
+        if h["leaf"] in named:
+            h["named"] = True
+    held = {h["leaf"] for h in hits}
+    hits += [{"leaf": n, "named": True} for n in named if n not in held]
+    hits.sort(key=lambda h: h["leaf"])
+    return hits
+
+
+def fetch_edition(fx, item, meta, name, asked=()):
     q = urllib.parse.quote
     d = os.path.join(fx.out, item, slug_of(item, name))
     # /download/ redirects to a mirror that can answer 500 for hours; the item's
@@ -1337,9 +1378,11 @@ def fetch_edition(fx, item, meta, name):
             log(f"  {name}: hOCR page offsets do not fit the text; using the djvu.xml")
         else:
             cached = {"texts": texts, "words": {}}
+    named = named_leaves(d, asked)
     if cached is not None:
         texts, words = cached["texts"], cached["words"]
         hits = crossword_hits([(0, 0, t) for t in texts], prior_leaves(d, len(texts)), currency_picks(d, texts) if item in FT_CURRENCY_ITEMS else ())
+        hits = with_named(hits, named, len(texts))
         need = {h["leaf"] for h in hits} - {int(k) for k in words}
         try:
             if need or not os.path.exists(xml_path):
@@ -1371,6 +1414,10 @@ def fetch_edition(fx, item, meta, name):
             write_atomic(xml_path, gzip.compress(aligned, 6))
         pages = page_texts(aligned)
         hits = crossword_hits(pages, prior_leaves(d, len(pages)), currency_picks(d, [t for _, _, t in pages]) if item in FT_CURRENCY_ITEMS else ())
+        hits = with_named(hits, named, len(pages))
+        for h in hits:
+            if not h.get("width"):
+                h["width"], h["height"] = pages[h["leaf"]][:2]
     jp2 = {f for f in files if f.endswith("_jp2.zip")}
     zipname = name + "_jp2.zip"
     if hits and zipname not in jp2:
@@ -1586,7 +1633,7 @@ class Run:
         self.stop = False
         self.exit_code = 4
 
-    def edition(self, fx, item, meta, name):
+    def edition(self, fx, item, meta, name, asked=()):
         """Fetch one edition and log it; True when it was done, None when
         another process is fetching it (its lock beside done.tsv)."""
         import scan_queue  # here: the desktop imports this module for pdf_pages alone
@@ -1594,21 +1641,21 @@ class Run:
             if not mine:
                 log(f"  {name}: another fetch has it; skipped")
                 return None
-            return self._edition(fx, item, meta, name)
+            return self._edition(fx, item, meta, name, asked)
 
-    def _edition(self, fx, item, meta, name):
+    def _edition(self, fx, item, meta, name, asked=()):
         t = time.monotonic()
         fx.deadline = t + ITEM_SECONDS
         try:
             try:
-                hits = fetch_edition(fx, item, meta, name)
+                hits = fetch_edition(fx, item, meta, name, asked)
             except urllib.error.HTTPError as e:
                 # The cached metadata names the server the item lived on; a 404
                 # after the item moved is cured by the live metadata.
                 if e.code != 404 or not fx.refresh_metadata(item, meta):
                     raise
                 log(f"  {name}: {item} moved servers; metadata refreshed, trying again")
-                hits = fetch_edition(fx, item, meta, name)
+                hits = fetch_edition(fx, item, meta, name, asked)
         except (urllib.error.HTTPError, urllib.error.URLError, RuntimeError, OSError,
                 ET.ParseError, EOFError, ValueError, KeyError) as e:
             with self.lock:
@@ -1621,7 +1668,8 @@ class Run:
                     log(f"stopping: {self.in_a_row} editions in a row failed; archive.org looks down")
             return False
         kinds = {"pdf": "(PDF page with a grid)", "ocr_empty": "(blank OCR)", "prior": "(prior leaf)",
-                 "dense": "(densest with counts)", "unit_trust": "(unit trust page)",
+                 "dense": "(densest with counts)", "across": "(Across heading)",
+                 "named": "(leaf asked for)", "unit_trust": "(unit trust page)",
                  "currency": "(currencies page)"}
         heads = "; ".join(h for hit in hits for h in (hit.get("headings")
                           or [next((v for k, v in kinds.items() if hit.get(k)), "(no heading)")])[:2])
@@ -1791,11 +1839,16 @@ def main():
     ap.add_argument("--group", action="append", choices=[g[0] for g in GROUPS])
     ap.add_argument("--item", action="append")
     ap.add_argument("--edition", help="only editions whose name contains this")
+    ap.add_argument("--leaf", type=int, action="append",
+                    help="fetch this scan leaf too, of the one edition --edition names in --item, "
+                         "even when it is done; kept in pages.json as named (repeatable)")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--min-free-gb", type=float, default=30)
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--seconds", type=float)
     args = ap.parse_args()
+    if args.leaf and not (args.item and args.edition and len(args.item) == 1):
+        ap.error("--leaf needs one --item and the --edition to fetch it of")
     stop_at = time.monotonic() + args.seconds if args.seconds else float("inf")
     os.makedirs(args.out, exist_ok=True)
     jobs = max(1, args.jobs)
@@ -1844,9 +1897,17 @@ def main():
                 append(args.out, "failures.tsv", [time.strftime("%F %T"), item, "", f"metadata: {e}"])
                 continue
             names = editions_of(meta)
-            if args.edition:
-                names = [x for x in names if args.edition in x]
-            todo = [x for x in names if (item, x) not in done]
+            if args.leaf:
+                # A named leaf is asked for by hand: the edition is fetched
+                # again though done, by its exact slug (not a substring).
+                names = [x for x in names if args.edition in (x, slug_of(item, x))]
+                if len(names) != 1:
+                    ap.error(f"--edition {args.edition!r} names {len(names)} editions of {item}; --leaf needs exactly one")
+                todo = names
+            else:
+                if args.edition:
+                    names = [x for x in names if args.edition in x]
+                todo = [x for x in names if (item, x) not in done]
             if args.list:
                 print(f"{group}\t{item}\t{len(names)} editions\t{len(todo)} to do")
                 continue
@@ -1869,7 +1930,7 @@ def main():
                     run.exit_code = 3
                     break
                 submitted += 1
-                pending.add(pool.submit(run.edition, fx, item, meta, name))
+                pending.add(pool.submit(run.edition, fx, item, meta, name, args.leaf or ()))
             if run.stop or (args.limit is not None and submitted >= args.limit):
                 break
     if run.stop:

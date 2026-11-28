@@ -93,6 +93,24 @@ check("no title and no headings: the page densest with clue counts is fetched to
 sparse = list(blank); sparse[11] = page("news " * 60 + "1 Garbled clue (5)\n" * (fa.DENSE_ENUMS - 1))
 check("a page with fewer counts than DENSE_ENUMS is not",
       [h["leaf"] for h in fa.crossword_hits(sparse, prior)] == [21, 27])
+grid = list(blank); grid[14] = page("noise\nAcross\n1 Garbled clue (5)\n2 Another\n"); grid[11] = page("1 Result (5)\n" * 30)
+hits = fa.crossword_hits(grid, prior)
+check("no title: a page with an Across heading line is fetched beside the densest, marked across",
+      [(h["leaf"], h.get("dense"), h.get("across")) for h in hits] == [(11, True, None), (14, None, True), (21, None), (27, None)])
+prose = list(blank); prose[14] = page("the ball went across the pitch " * 5)
+check("across in prose is no heading", [h["leaf"] for h in fa.crossword_hits(prose, prior)] == [21, 27])
+named = fa.with_named(fa.crossword_hits(blank, prior), [14, 21], 28)
+check("a named leaf joins the hits, and marks one already there",
+      [(h["leaf"], h.get("named"), h.get("prior")) for h in named] == [(14, True, None), (21, True, True), (27, None, True)])
+try:
+    fa.with_named([], [28], 28)
+    check("a named leaf outside the scan is an error", False)
+except ValueError:
+    check("a named leaf outside the scan is an error", True)
+nd = tempfile.mkdtemp()
+with open(f"{nd}/pages.json", "w") as f:
+    json.dump({"leaves": 28, "crossword_pages": [{"leaf": 9, "named": True}, {"leaf": 3}]}, f)
+check("named leaves persist from pages.json beside those asked", fa.named_leaves(nd, [14]) == [9, 14])
 ut = list(blank); ut[17] = page("FT UNIT TRUST INFORMATION SERVICE\n" + "Authorised Unit Trusts 12.3 45.6 " * 10)
 check("no title: the unit trust page is fetched too, marked unit_trust",
       [(h["leaf"], h.get("unit_trust")) for h in fa.crossword_hits(ut, prior)] == [(17, True), (21, None), (27, None)])
