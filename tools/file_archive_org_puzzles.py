@@ -11445,7 +11445,8 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
 #: 4x170 / 116x22 / 330x28, not a grid", the title read a fortnight's puzzle number back, the grid ~1500 px over it). A title
 #: stands against its grid: on 14 filed 1985-94 pages the box's foot is 14-33 px over the grid's top, the box's middle on the
 #: grid's middle (the box 960 wide, the grid 720); a title that has the grid beside it (the FT_SIDE_RIGHT pages) touches it too.
-#: The title is clear when no grid-shaped ink on the leaf (a solution's too) meets the box grown by its own height. Its own
+#: The title is clear when no grid-shaped ink on the leaf (a solution's too) meets the box grown by its own height and locate_grid
+#: finds no shaped grid for it (the refusal's own test: a page that reads is kept as it is). Its own
 #: grid is then the non-solution grid nearest the box, and the box is laid on that grid's top, centred on it. Read-time only:
 #: the scan's boxes are unchanged, and a puzzle whose title touches a grid is returned as it was.
 
@@ -11462,6 +11463,9 @@ def ft_own_title(d, hit):
     near = (box[0] - h, box[1] - h, box[2] + h, box[3] + h)
     if any(g[0] < near[2] and g[2] > near[0] and g[1] < near[3] and g[3] > near[1] for g in grids):
         return hit
+    found, side = located_grid(d, hit["leaf"], img, box)
+    if found is not None and side is not None and shaped_on(img, found):
+        return hit  # the grid under (or beside) the box is a grid: the page reads as it did
     solution = solution_shaped(img)
     own = [g for g in grids if not solution(g)]
     if not own:
