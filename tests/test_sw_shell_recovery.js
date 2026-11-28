@@ -26,7 +26,7 @@ const fails = [];
 const assert = (ok, msg) => { if (!ok) fails.push(msg); };
 
 function harness(site) {
-  let online = true;
+  let online = true, hung = false;
   const stores = new Map();
   const keyOf = (r) => (typeof r === "string" ? r : r.url);
   const bare = (u) => u.split("?")[0];
@@ -61,6 +61,7 @@ function harness(site) {
   };
   // The server, like GitHub Pages, ignores the query string.
   async function fakeFetch(r) {
+    if (hung) return new Promise(() => {});   // wifi up, no internet: never answers
     if (!online) throw new TypeError("Load failed");
     const p = new URL(keyOf(r)).pathname;
     if (!(p in site)) return new Response("nope", { status: 404 });
@@ -80,7 +81,7 @@ function harness(site) {
   function request(url, mode) {
     let out;
     const req = { url, method: "GET", mode: mode || "no-cors", cache: "default", headers: new Headers() };
-    handlers.fetch({ request: req, respondWith: (p) => { out = p; } });
+    handlers.fetch({ request: req, respondWith: (p) => { out = p; }, waitUntil: () => {} });
     return out;
   }
   async function message(data) {
@@ -88,7 +89,7 @@ function harness(site) {
     handlers.message({ data, ports: [], waitUntil: (x) => { p = x; } });
     await p;
   }
-  return { request, message, caches, setOnline: (v) => { online = v; } };
+  return { request, message, caches, setOnline: (v) => { online = v; }, setHung: (v) => { hung = v; } };
 }
 
 const page = (v) => `<!doctype html><link rel="stylesheet" href="style.css?v=${v}"><script src="app.js?v=${v}"></script>`;
@@ -162,6 +163,46 @@ const page = (v) => `<!doctype html><link rel="stylesheet" href="style.css?v=${v
     h.setOnline(false);
     const res = await h.request(SCOPE + "puzzles/times-1.js.gz");
     assert(res && (await res.text()) === "held", "a puzzle saved under its stamp is served for the bare address, no network wait");
+  }
+
+  // ---- 6. a launch on wifi with no internet paints from the held copy at once
+  {
+    const h = harness(site);
+    const shell = await h.caches.open("ct-shell-1");
+    await shell.put(new Request(SCOPE), new Response(page("bbbb"), { headers: { "content-type": "text/html" } }));
+    await shell.put(new Request(SCOPE + "puzzles/idx/head-live.json"), new Response("{\"held\":1}", { headers: { "content-type": "application/json" } }));
+    h.setHung(true);
+    const never = new Promise((ok) => setTimeout(() => ok("waited"), 1000));
+    for (const [what, p] of [["the home page", h.request(SCOPE + "?p=times-1", "navigate")],
+                              ["head-live.json", h.request(SCOPE + "puzzles/idx/head-live.json")]]) {
+      const got = await Promise.race([p, never]);
+      assert(got !== "waited" && got.ok, what + " answers from the held copy while the network never does");
+    }
+  }
+
+  // ---- 7. online, a held page is refreshed behind the answer for the next launch
+  {
+    const h = harness({ ...site, "/": [page("cccc"), "text/html"] });
+    const shell = await h.caches.open("ct-shell-1");
+    await shell.put(new Request(SCOPE), new Response(page("bbbb"), { headers: { "content-type": "text/html" } }));
+    const first = await h.request(SCOPE, "navigate");
+    assert(/bbbb/.test(await first.text()), "the held page answers first");
+    await new Promise((ok) => setTimeout(ok, 20));
+    const next = await shell.match(new Request(SCOPE));
+    assert(next && /cccc/.test(await next.text()), "and the network's copy replaced it behind the page");
+  }
+
+  // ---- 8. a puzzle with a save (finished too: the stats read it) survives the cap
+  {
+    const h = harness({ "/puzzles/new.js.gz": ["n", "application/gzip"] });
+    const pz = await h.caches.open("ct-puzzles-1");
+    for (let i = 0; i < 250; i++) await pz.put(new Request(SCOPE + "puzzles/old" + i + ".js.gz?v=aa"), new Response("o"));
+    await h.message({ type: "save", urls: [], drop: [], keep: [SCOPE + "puzzles/old0.js.gz"] });
+    // Opened with no save message at all: the worker still honours the last keep.
+    await h.request(SCOPE + "puzzles/new.js.gz");
+    await new Promise((ok) => setTimeout(ok, 20));
+    assert(await pz.match(new Request(SCOPE + "puzzles/old0.js.gz?v=aa")), "the oldest file, kept by the page, is not retired by the cap");
+    assert(!(await pz.match(new Request(SCOPE + "puzzles/old1.js.gz?v=aa"))), "the next-oldest, unkept, is");
   }
 
   if (fails.length) { console.log("FAIL\n  " + fails.join("\n  ")); process.exit(1); }

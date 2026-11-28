@@ -652,7 +652,8 @@
   }
 
   // Files of the puzzles this solver has completed. A finished puzzle is not
-  // worth a place on the device, so it is neither saved nor counted.
+  // one to play, so it is not counted as "ready offline", but its file stays on
+  // the device: the stats read every puzzle with a save (whenStartedLoaded).
   function solvedFiles() {
     const out = new Set(), prog = savedProgress();
     Object.keys(prog).forEach((id) => {
@@ -714,37 +715,43 @@
     const more = !quiet;
     const rows = offlineBatch(more);
     if (offlineBusy) return;
-    // Recycling. Dropped: a saved puzzle that is now solved, and one the last
-    // batch held that this pick no longer includes. Kept: every unfinished
-    // puzzle with letters on it, and anything merely opened (the worker's cap
-    // retires those, oldest first). Letters live in localStorage and the sync
+    // Recycling. Dropped: one the last batch held that this pick no longer
+    // includes. Kept: every puzzle with letters on it, finished or not (the
+    // stats need its answers offline), and anything merely opened (the
+    // worker's cap retires those, oldest first). A finished puzzle's file the
+    // device lost (an older version dropped them) is fetched again. Letters live in localStorage and the sync
     // Worker, never in this cache, so a drop cannot lose progress; and while a
     // sync push is failing, nothing is dropped at all.
     const prog = savedProgress();
     const want = new Set(rows.map((p) => p.file));
-    const started = new Set(), solved = new Set();
+    const started = new Set(), solved = new Set(), ownOf = {};
     Object.keys(prog).forEach((id) => {
       const p = BY_ID[id], own = p && BY_ID[p.reprintOf || p.id];
       if (!own || !own.file) return;
+      ownOf[own.file] = own;
       (pickerStatus(p).done ? solved : started).add(own.file);
     });
     const prev = store.get(OFFLINE_BATCH_KEY, []) || [];
     // Save now adds to what the last batch held rather than replacing it.
     if (more) prev.forEach((f) => want.add(f));
-    // Candidates: the last batch, every completed puzzle, and (on the quiet,
+    // Candidates: the last batch and (on the quiet,
     // automatic save) anything else held that is not in this pick, such as
     // puzzles merely opened once. The open puzzle stays.
     const cur = P && BY_ID[P.reprintOf || P.id];
     const stale = more || !offlineFiles ? [] : [...offlineFiles].filter((f) => !(cur && cur.file === f));
     // A partial list does not know every started puzzle, so it drops nothing.
-    let dropFiles = syncFails || !listFull() ? [] : [...new Set([...prev, ...solved, ...stale])].filter((f) => !solved.has(f) ? !want.has(f) && !started.has(f) : true);
+    let dropFiles = syncFails || !listFull() ? [] : [...new Set([...prev, ...stale])].filter((f) => !want.has(f) && !started.has(f) && !solved.has(f));
     if (offlineFiles) for (let i = dropFiles.length - 1; i >= 0; i--) if (!offlineFiles.has(dropFiles[i])) dropFiles.splice(i, 1);
     // Both stored forms of a file: the .gz and the plain script.
     const drop = [];
     dropFiles.forEach((f) => { drop.push(at("puzzles/" + f + ".gz"), at("puzzles/" + f)); });
     // The worker's cap must not retire a puzzle with letters on it.
-    const keep = [...started].map((f) => at("puzzles/" + f + ".gz"));
-    if (!rows.length && !drop.length) {
+    const keep = [...started, ...solved].map((f) => at("puzzles/" + f + ".gz"));
+    // Finished puzzles not held: the stats cannot count them offline.
+    const owed = !offlineFiles ? [] : [...solved].filter((f) => !offlineFiles.has(f))
+      .map((f) => ownOf[f]);
+    const files = rows.concat(owed);
+    if (!files.length && !drop.length) {
       const n = offlineCount();
       offlineNote(more && n >= OFFLINE_CAP ? `${n} puzzles ready offline, the most this device keeps`
         : more ? `Nothing new to save${n ? " — " + readyText(n) : ""}` : readyText(n));
@@ -753,7 +760,7 @@
     if (!navigator.serviceWorker) { offlineNote("Offline saving isn’t available in this browser."); return; }
     offlineBusy = true;
     offlineBtn(true);
-    offlineNote(rows.length ? `Saving 0 of ${rows.length}…` : "Tidying saved puzzles…");
+    offlineNote(files.length ? `Saving 0 of ${files.length}…` : "Tidying saved puzzles…");
     // The count is read back from the cache before the line is written, so it
     // says what the device now holds.
     const end = (msg) => {
@@ -777,7 +784,7 @@
           : more ? (m.done ? `Saved ${m.done} puzzle${m.done > 1 ? "s" : ""} — ${n} ready offline`
             : `Nothing new to save${n ? " — " + readyText(n) : ""}`) : readyText(n)));
       };
-      reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl), drop, keep }, [ch.port2]);
+      reg.active.postMessage({ type: "save", urls: files.map(puzzleUrl), drop, keep }, [ch.port2]);
     }).catch(() => end(() => "Couldn’t save just now. Try again."));
   }
 
@@ -841,14 +848,18 @@
       lastCheck = Date.now();
       checking = true;
       if (navigator.serviceWorker) navigator.serviceWorker.getRegistration().then((r) => r && r.update()).catch(() => {});
+      // The page and its puzzle list are both answered from the worker's held
+      // copy, so both are compared with the server's.
+      const live = fetch(at("puzzles/idx/head-live.json"), { cache: "no-store" })
+        .then((r) => (r.ok ? r.text() : ""), () => "");
       fetch(at("./"), { cache: "no-store", credentials: "same-origin" })
         .then((r) => (r.ok ? r.text() : ""))
-        .then((html) => {
+        .then((html) => live.then((text) => {
           const now = mine();
-          if (!html || !now.size) return;
-          for (const s of theirs(html)) if (!now.has(s)) { found = true; break; }
+          if (text && window.ctLiveText && text !== window.ctLiveText) found = true;
+          if (html && now.size) for (const s of theirs(html)) if (!now.has(s)) { found = true; break; }
           apply(false);
-        })
+        }))
         .catch(() => {})
         .then(() => { checking = false; });
     }

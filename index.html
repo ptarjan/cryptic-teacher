@@ -524,8 +524,12 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
     var opts = { cache: "no-cache" };
     if (t.signal) opts.signal = t.signal;
     fetch("puzzles/idx/head-live.json", opts)
-      .then(function (r) { t.done(); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(function (live) {
+      .then(function (r) { t.done(); if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+      .then(function (text) {
+        // The text is kept: the worker may have answered from its held copy,
+        // and the page's update check compares it with the server's.
+        window.ctLiveText = text;
+        var live = JSON.parse(text);
         var t2 = within(GIVE_UP_MS);
         add("puzzles/idx/" + live.static, function () {
           t2.done();

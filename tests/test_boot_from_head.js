@@ -97,7 +97,7 @@ function loader(root, files) {
     const text = files(String(url));
     return Promise.resolve(text === null || text === undefined
       ? { ok: false, status: 404 }
-      : { ok: true, status: 200, json: () => Promise.resolve(JSON.parse(text)) });
+      : { ok: true, status: 200, text: () => Promise.resolve(text), json: () => Promise.resolve(JSON.parse(text)) });
   };
   ctx.document = {
     getElementById: () => ({ getAttribute: attr }),
@@ -129,6 +129,7 @@ function loader(root, files) {
   await tick();
   check(L.srcs().length === 1 && L.srcs()[0] === "puzzles/idx/" + live.static,
     "the loader asks head-live.json, then the head-static file it names: " + L.srcs().join(", "));
+  check(L.ctx.ctLiveText === liveText, "the head-live text the page booted on is kept, for the update check to compare");
   L.ctx.CRYPTIC_INDEX_STATIC = STAT;
   L.added[0].onload();
   check(!!L.ctx.CRYPTIC_INDEX && L.ctx.CRYPTIC_INDEX.partial === true && !!L.ctx.CRYPTIC_INDEX.idx,

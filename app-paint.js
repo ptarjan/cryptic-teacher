@@ -1383,9 +1383,18 @@
   // puzzle's answers, and a sync pull can bring saves for files never fetched.
   // With `fresh`, the newest annotated puzzle not started too, so the practice
   // link has unsolved clues to pick from when everything started is finished.
+  let statsMissing = 0;
   function whenStartedLoaded(then, fresh) {
     const saves = savedProgress();
-    const ids = Object.keys(saves).filter((id) => BY_ID[id]);
+    // Offline, a file the device does not hold is not asked for: on a wifi
+    // with no internet each ask would hold the stats for the full wait. They
+    // are counted so the panel can say what it left out.
+    statsMissing = 0;
+    const ids = Object.keys(saves).filter((id) => {
+      if (!BY_ID[id]) return false;
+      if (offlineHas(BY_ID[id]) === false && !window.CRYPTIC_PUZZLES[id]) { statsMissing++; return false; }
+      return true;
+    });
     const unstarted = fresh && INDEX.puzzles.find((p) => p.annotated && p.hasSolutions && !saves[p.id]);
     if (unstarted) ids.push(unstarted.id);
     let left = ids.length + 1;
@@ -1395,7 +1404,10 @@
   }
   function renderStats() {
     const st = solverStats(Date.now());
-    setHTML($("stats-body"), STATS_SECTIONS.map((f) => f(st)).join(""));
+    const gap = statsMissing
+      ? `<p class="muted small-note">${statsMissing} puzzle${statsMissing > 1 ? "s" : ""} you started ${statsMissing > 1 ? "aren’t" : "isn’t"} saved on this device, so ${statsMissing > 1 ? "they’re" : "it’s"} left out until you’re back online.</p>`
+      : "";
+    setHTML($("stats-body"), gap + STATS_SECTIONS.map((f) => f(st)).join(""));
   }
   // Both toggles return whether the panel ended up open, so a click that
   // opened it can be counted and one that closed it is not.

@@ -8,11 +8,13 @@
      URL changes whenever its bytes do, so a cached copy can never be stale.
    - An UNSTAMPED puzzle file (the page opening the one it is on) is served
      from the puzzle cache at once if any stamp of it is held.
-   - The home page (HTML), and anything unstamped (puzzles/index.json, the
-     manifest), is NETWORK-FIRST with the cache as the fallback, so an online
-     visit always gets the newest deploy and an offline one gets the last copy.
-     If the network has not answered in 4 seconds and a copy is held, the copy
-     is used (a plane's wifi that is up but dead).
+   - The home page (HTML), and anything unstamped (head-live.json, the
+     manifest), is STALE-WHILE-REVALIDATE: the held copy answers at once and
+     the network refreshes it behind the page, so a launch never waits on a
+     network that is slow, dead or a wifi with no internet. Nothing is lost by
+     it being a visit behind: the page compares its own stamps and its index
+     with the server's (autoUpdateInit) and offers or does the reload when
+     they have moved. With no copy held yet, the network answers.
    - Puzzle files live in their own cache, capped at MAX_PUZZLES, oldest out
      first. Every puzzle the solver opens lands there, and the page sends a
      batch of URLs in a "save" message by itself: once idle after an online
@@ -20,7 +22,7 @@
      worker skips waiting and claims the page, so the first load is covered.
      One puzzle file holds the grid, the annotations and the hints.
    - puzzles/idx/ (the progressive puzzle list) is kept in the shell cache:
-     head-live.json network-first, the content-named head-static, shards and
+     head-live.json stale-while-revalidate, the content-named head-static, shards and
      bundle cache-first. When a new head-live arrives, idx files it no longer
      names are deleted. Offline, the boot reads all of it from there.
    - sw.js itself is never cached here, so a new worker is always picked up.
@@ -36,7 +38,7 @@ const SHELL = "ct-shell-1";
 const PUZZLES = "ct-puzzles-1";
 const MAX_PUZZLES = 250;        // above the page's batch of 100
 const MAX_FILE_BYTES = 300 * 1024;   // a single puzzle file bigger than this is skipped
-const NETWORK_WAIT_MS = 4000;
+const KEEP_KEY = new URL("offline-keep.json", new URL("./", self.location)).href;   // in SHELL
 const FETCH_GIVE_UP_MS = 8000;   // no answer at all: the network is dead
 
 // A fetch that cannot hang. A captive or dead wifi accepts the connection and
@@ -89,8 +91,19 @@ const isHome = (url) => {
   return at === SCOPE || at === SCOPE + "index.html";
 };
 
-// `keep`: paths of puzzles with letters on them, never retired by the cap.
+// `keep`: paths of puzzles with saves on them (started or finished: the stats
+// read every one), never retired by the cap. The page sends it with each save
+// and the worker holds the last one, so a trim made while a puzzle is merely
+// being opened honours it too.
+async function heldKeep() {
+  try {
+    const shell = await caches.open(SHELL);
+    const r = await shell.match(KEEP_KEY);
+    return r ? await r.json() : [];
+  } catch (e) { return []; }
+}
 async function trimPuzzles(cache, keep) {
+  if (!keep) keep = await heldKeep();
   const keys = await cache.keys();            // oldest first
   const safe = new Set((keep || []).map((u) => new URL(u, SCOPE).pathname));
   let over = keys.length - MAX_PUZZLES;
@@ -132,20 +145,25 @@ function offlineHome(url) {
   return m && m[1] !== "series" ? SCOPE + "?p=" + encodeURIComponent(m[1]) : SCOPE;
 }
 
-// `key` is what the copy is filed under: the home page is one entry however
-// many ?p=<id> addresses it was opened as.
-async function networkFirst(req, name, key, onFresh) {
+// The held copy at once, refreshed behind it; the network answers only when
+// none is held. `key` is what the copy is filed under: the home page is one
+// entry however many ?p=<id> addresses it was opened as. `onFresh` runs on each
+// refreshed copy and is waited for with the refresh.
+async function staleWhileRevalidate(event, req, name, key, onFresh) {
   const cache = await caches.open(name);
   const held = await cache.match(key);
-  const net = fetchTimed(req).then((res) => {
-    if (res.ok && !res.redirected) { cache.put(key, res.clone()); if (onFresh) onFresh(res.clone()); }
+  const refresh = fetchTimed(req).then(async (res) => {
+    if (res.ok && !res.redirected) {
+      await cache.put(key, res.clone());
+      if (onFresh) await onFresh(res.clone());
+    }
     return res;
   });
-  if (!held) return net;
-  return Promise.race([
-    net.catch(() => held),
-    new Promise((ok) => setTimeout(() => ok(held), NETWORK_WAIT_MS)),
-  ]);
+  if (!held) return refresh;
+  // Nobody reads the refresh's outcome: a dead network just leaves the copy.
+  const quiet = refresh.catch(() => null);
+  if (event.waitUntil) event.waitUntil(quiet);
+  return held;
 }
 
 // A held puzzle file (any stamp of it) at once; the network answers only when
@@ -173,7 +191,7 @@ self.addEventListener("fetch", (event) => {
 
   if (req.mode === "navigate") {
     if (isHome(url)) {
-      event.respondWith(networkFirst(req, SHELL, new Request(SCOPE)).catch(() =>
+      event.respondWith(staleWhileRevalidate(event, req, SHELL, new Request(SCOPE)).catch(() =>
         caches.match(new Request(SCOPE)).then((r) => r || Response.error())));
     } else {
       // Another page (archive, /learn/, a /puzzles/<id>/ bar): live when
@@ -185,10 +203,10 @@ self.addEventListener("fetch", (event) => {
   }
   if (isIdxFile(url)) {
     // Beside the shell, never in the evictable puzzle cache. head-live is
-    // network-first (the cache is the offline copy); the rest is content-named.
+    // stale-while-revalidate (the cache is the offline copy); the rest is content-named.
     if (isIdxLive(url)) {
       const key = new Request(url.origin + url.pathname);
-      event.respondWith(networkFirst(req, SHELL, key, (res) => event.waitUntil(sweepIdx(res))).catch(() =>
+      event.respondWith(staleWhileRevalidate(event, req, SHELL, key, sweepIdx).catch(() =>
         caches.match(key).then((r) => r || Response.error())));
     } else {
       event.respondWith(cacheFirst(req, SHELL));
@@ -209,7 +227,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(cacheFirst(req, name));
   } else {
     const key = new Request(url.origin + url.pathname);
-    event.respondWith(networkFirst(req, name, key).catch(() =>
+    event.respondWith(staleWhileRevalidate(event, req, name, key).catch(() =>
       caches.match(key).then((r) => r || Response.error())));
   }
 });
@@ -279,6 +297,9 @@ async function savePuzzles(urls, port, drop, keep) {
     } catch (e) { failed++; }
     if (port) port.postMessage({ done, failed, total: urls.length });
   }
+  try {
+    await (await caches.open(SHELL)).put(KEEP_KEY, new Response(JSON.stringify(keep), { headers: { "content-type": "application/json" } }));
+  } catch (e) { /* the page sends it again with the next save */ }
   await trimPuzzles(cache, keep);
   if (port) port.postMessage({ done, failed, total: urls.length, finished: true });
 }
