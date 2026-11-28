@@ -4009,6 +4009,11 @@ FT_DROP = 0.55
 #: column (FT_EDGE_BLANK px wide, none inked FT_EDGE_CLEAR of its height) within FT_EDGE_REACH grid widths; a gutter
 #: already at the edge stays where it is.
 FT_EDGE_REACH, FT_EDGE_BLANK, FT_EDGE_INK = 0.12, 6, 0.004
+#: FT_EDGE_FAR: a column edge (the second column's far edge, 2004-10-13 No 11659: x 1682 of a second column inked to 1773, the grid
+#: 716 wide: 91 px, 0.13 grids, past FT_EDGE_REACH) that finds no ink-free pixel columns within FT_EDGE_REACH cut the column's lines
+#: through their last words and opened the third column over their tails (FT_THIRD_OPENING lost, "19 Sailor's songs" blank with
+#: 22-27 down). The search goes on to FT_EDGE_FAR of the grid's width when the near one finds none.
+FT_EDGE_FAR = 0.22
 
 
 def ft_clear_edge(img, grid, x, top, bottom):
@@ -4016,13 +4021,15 @@ def ft_clear_edge(img, grid, x, top, bottom):
     of the page between `top` and `bottom` are free of ink (so x lies in a gutter), as the columns' edge."""
     import numpy as np
     x, top, bottom = int(x), max(0, int(top)), min(img.height, int(bottom))
-    far = min(img.width, x + int(FT_EDGE_REACH * (grid[2] - grid[0])) + FT_EDGE_BLANK)
-    if far - x <= FT_EDGE_BLANK or bottom <= top:
-        return x
-    ink = (np.asarray(img.crop((x, top, far, bottom)).convert("L")) < 128).mean(axis=0) > FT_EDGE_INK
-    for i in range(0, len(ink) - FT_EDGE_BLANK + 1):
-        if not ink[i:i + FT_EDGE_BLANK].any():
-            return x + i + FT_EDGE_BLANK // 2
+    ink = None
+    for reach in (FT_EDGE_REACH, FT_EDGE_FAR):
+        far = min(img.width, x + int(reach * (grid[2] - grid[0])) + FT_EDGE_BLANK)
+        if far - x <= FT_EDGE_BLANK or bottom <= top:
+            return x
+        ink = (np.asarray(img.crop((x, top, far, bottom)).convert("L")) < 128).mean(axis=0) > FT_EDGE_INK
+        for i in range(0, len(ink) - FT_EDGE_BLANK + 1):
+            if not ink[i:i + FT_EDGE_BLANK].any():
+                return x + i + FT_EDGE_BLANK // 2
     return x
 
 
