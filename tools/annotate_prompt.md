@@ -142,7 +142,9 @@ in a double definition each definition's note says what that sense means.
 - **Cryptic definition**: `def` the whole clue, `wp` `cd([the clue's words])`: ONE leaf
   holding the clue words once (never `cd([a], [b])`), with a note, no letters. The note
   describes the reading and never names the answer (no "= ANSWER"). Two
-  readings in two stretches is a double definition instead.
+  readings in two stretches is a double definition instead. The check reads letters, so a
+  note that spells the answer as words ("on us" for ONUS, "bar Dick" for BARDIC) fails
+  as much as one that names it: say "the two words said together", never the words.
   Before typing `cd`, run the answer's letters through the clue's: a run that spans the
   words (even across a word join, "whitE PICtures" = EPIC) is a hidden word, `hid`, whose
   definition is the clue's other end; the check refuses a `cd` whose clue holds its answer.
