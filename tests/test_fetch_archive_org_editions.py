@@ -96,7 +96,7 @@ check("a page with fewer counts than DENSE_ENUMS is not",
 grid = list(blank); grid[14] = page("news " * 60 + "\nAcross\n1 Garbled clue (5)\n2 Another\n"); grid[11] = page("1 Result (5)\n" * 30)
 hits = fa.crossword_hits(grid, prior)
 check("no title: a page with an Across heading line is fetched beside the densest, marked across",
-      [(h["leaf"], h.get("dense"), h.get("across")) for h in hits] == [(11, True, None), (14, None, True), (21, None), (27, None)])
+      [(h["leaf"], h.get("dense"), h.get("across")) for h in hits] == [(11, True, None), (14, None, True), (21, None, None), (27, None, None)])
 prose = list(blank); prose[14] = page("news " * 60 + "the ball went across the pitch " * 5)
 check("across in prose is no heading", [h["leaf"] for h in fa.crossword_hits(prose, prior)] == [21, 27])
 named = fa.with_named(fa.crossword_hits(blank, prior), [14, 21], 28)
@@ -391,7 +391,7 @@ check("plan: a stale listing first, then the groups an edition each in turn, not
                                     f"NewsUK1980UKEnglish/{names[2]}", "listener_2"]
       and units[-1]["reason"] == "metadata not cached")
 fetched = []
-fa.fetch_edition = lambda fx, item, meta, name: fetched.append(name) or [{"leaf": 1, "headings": ["CROSSWORD NO 1"]}]
+fa.fetch_edition = lambda fx, item, meta, name, asked=(): fetched.append(name) or [{"leaf": 1, "headings": ["CROSSWORD NO 1"]}]
 with contextlib.redirect_stdout(io.StringIO()):
     got = fa.fetch_unit(out, units[1], min_free_gb=0)
 check("fetch_unit fetches its one edition and marks it done",

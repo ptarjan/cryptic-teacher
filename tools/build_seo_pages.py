@@ -879,8 +879,12 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # is the condition rather than "is it annotated", because the page must not
     # advertise an image that isn't there — and asset() would fail on it anyway,
     # having nothing to hash.
-    if (ROOT / f"og/{puz['id']}.png").exists():
-        card, alt = f"og/{puz['id']}.png", card_alt(puz["id"])
+    # And a card needs its alt: a PNG left on disk by an earlier build, for a
+    # puzzle none of whose clues can carry a card now (card_alt is None), is
+    # stale, so the page takes the site card rather than an image without alt.
+    alt = card_alt(puz["id"]) if (ROOT / f"og/{puz['id']}.png").exists() else None
+    if alt:
+        card = f"og/{puz['id']}.png"
     else:
         card, alt = "og.png", site_card_alt()
 
