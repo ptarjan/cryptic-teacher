@@ -35,7 +35,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 7, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
+MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 7, "FTHA": 3, "INDA": 2, "STHA": 4, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -141,6 +141,10 @@ def crossword(prod, titles, number=None, sunday=False):
         cands.sort(key=lambda i: -max(map(int, re.findall(r"\d+", titles[i].replace(",", ""))), default=0))
     if prod == "TTDA":
         cands.sort(key=lambda i: not TIMES_CRYPTIC.search(titles[i]))
+    if prod == "STHA":
+        # The cryptic is titled with its number ("The Sunday Times Crossword No. 1,882");
+        # "Crosswords", "Picture Crossword", "Crossword Range" ads and features are not it.
+        cands.sort(key=lambda i: not STHA_PUZZLE.search(titles[i]))
     if prod == "INDA":  # the Sunday's puzzle is "Beelzebub Crossword No 954", beside "The Prize Crossword"
         cands.sort(key=lambda i: not re.search(r"beelzebub", titles[i], re.IGNORECASE))
     if prod == "TGRH":
@@ -242,6 +246,7 @@ TIMES_SOLUTION = re.compile(r"^\W*solution\W+(?:of|to)\W+(?:yesterday'?s\W+)?(?:
                             + CROSSWORD_OCR + r")\W*(?:puzzle\W*)?(?:no\b\.?\W*)?\d{2}[,.]?\d{3}\W*$", re.IGNORECASE)
 #: The Sunday Times cryptic's title as OCR left it with "Cross" lost: "The
 #: Sunday Times Word" (1998-02-08, its No 3742 and the solution to 3741).
+STHA_PUZZLE = re.compile(r"^\W*(?:the\W+)?sunday\W+times\W+[cg]ross-? ?w[oa]rd\W*(?:no\b\.?\W*)?\d", re.IGNORECASE)
 STHA_WORD = re.compile(r"^\W*the\W+sunday\W+times\W+word\W*$", re.IGNORECASE)
 #: A title that may name the Times' crossword (TTDA's KIND).
 TIMES_KIND = re.compile(f"{CROSSWORD_OCR}|[cg]ross-? ?number", re.IGNORECASE)
@@ -428,6 +433,8 @@ def stale(prod, e):
         return True
     if prod == "TGRH":  # a competition article the older matcher picked
         return not numbered(e.get("title") or "")
+    if prod == "STHA":  # picked before the numbered title outranked the rest
+        return not STHA_PUZZLE.search(e.get("title") or "")
     return prod == "TTDA" and not (crossword(prod, [e["title"]]) == 0 and TIMES_CRYPTIC.search(e["title"]))
 
 
