@@ -10653,6 +10653,25 @@ def held_between(held, window):
     return tuple(pairs[bisect.bisect_left(pairs, (window[0],)):bisect.bisect_right(pairs, (window[1], math.inf))])
 
 
+def indy_sunday_run_number(n, day, held):
+    """The number a Gale Independent on Sunday page of `day`, whose title read `n`, really is, or None. The paper
+    numbers one a week, so filed neighbours either side a whole number of weeks off that run unbroken (one number a
+    week between them) fix the number outright (the daily `implied` counts six issues a week and never fired for it).
+    Only a title one off the run that is a neighbour's own number (the page's solution heading of the issue before,
+    or the next issue's title, read for its puzzle's: 2008-06-22 "958" between 956 on 06-15 and 958 on 06-29, the
+    page's 957) is mended, and only to a number no puzzle holds: a title two or more off is another puzzle's copy
+    (the blog-filed 2012-15 runs, a week from the Gale dates) and stays refused as filed for another day."""
+    before, after = neighbours(day, held)
+    if not (before and after and (day - before[0]).days % 7 == 0 and (after[0] - day).days % 7 == 0):
+        return None
+    if after[1] - before[1] != (after[0] - before[0]).days // 7:
+        return None
+    fixed = before[1] + (day - before[0]).days // 7
+    if abs(fixed - n) != 1 or n not in (before[1], after[1]) or fixed in held:
+        return None
+    return fixed
+
+
 def sunday_count_off(n, day, held):
     """Why No `n` of a Gale Sunday Times page of `day` cannot be filed, or None: the Sunday Times numbers one a
     week, so the filed puzzles either side of `day` (the nearest held, never a global chain: printed numbers
@@ -10956,6 +10975,9 @@ def filed_number(d, found, hit):
     # reading one less: two prints agreeing, which a count of issues may not overrule.
     vouched = n == hit["number"] and any(s["number"] == n - 1 for s in found["solutions"]
                                          if s.get("leaf", hit["leaf"]) == hit["leaf"])
+    if paper is GALE_INDY_SUNDAY and n in held and held[n] != day:
+        n = indy_sunday_run_number(n, day, held) or n
+        vouched = vouched and n == hit["number"]
     number, why = placed(n, day, held, vouched)
     # A filed number far off its date (10,825 on 2002-02-02 for 10,925: a misread filed) is a neighbour no title is
     # in order with: the title is placed among the filed numbers near their dates alone (ft_stray).
