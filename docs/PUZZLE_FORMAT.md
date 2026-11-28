@@ -403,7 +403,10 @@ tree.
   "across", "order": "clues", "placement": "belowGrid"}`. `order` is `clues`
   (across by number, then down) or `unordered`; `direction` is absent when both
   directions spell it; `printed: true` reads a misprint's wrong letters;
-  `placement` is absent when the preamble only asks that it be read. The
+  `placement` is absent when the preamble only asks that it be read. A message
+  of `kind` `alteration` (always `unordered`) reads the letters a preamble moves
+  between entries: the one letter each `alteration` drops or gains against its
+  solution; no clue carries a `hiddenLetter`. The
   validator checks every letter against its clue and, once every clue a message
   reads is annotated, that they spell `text`. A preamble that names such a
   device on an annotated puzzle with no `messages` is counted by the ratchet

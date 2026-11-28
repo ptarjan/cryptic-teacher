@@ -31,6 +31,12 @@ TOOLS = Path(__file__).resolve().parent
 #: $defs/hiddenLetterKind in tools/data/puzzle.schema.json copies this list.
 KINDS = ["extra", "omitted", "misprint", "clue"]
 
+#: A message kind that is no clue's `hiddenLetter`: the letters a preamble moves
+#: between entries (each across drops one on entry, each down gains one). They
+#: are read off each entry's `alteration` against its solution, so no clue
+#: carries anything. messages.kind in tools/data/puzzle.schema.json names it.
+ALTERATION = "alteration"
+
 LEXICON = TOOLS / "data" / "lexicon.tsv"
 
 
@@ -97,6 +103,24 @@ def clue_order(entries):
     return sorted(entries, key=lambda e: (e["direction"] != "across", e["number"]))
 
 
+def alteration_letter(entry):
+    """The one letter an entry's `alteration` drops (from is longer than the
+    solution) or gains (the solution is longer), or None."""
+    alt = entry.get("alteration")
+    if not isinstance(alt, dict) or not alt.get("from"):
+        return None
+    a, b = letters(alt["from"]), letters(entry.get("solution"))
+    long, short = (a, b) if len(a) > len(b) else (b, a)
+    if len(long) != len(short) + 1:
+        return None
+    rest = list(long)
+    for c in short:
+        if c not in rest:
+            return None
+        rest.remove(c)
+    return rest[0]
+
+
 def message_letters(puzzle, msg):
     """(the letters `msg` reads in order, whether every clue it reads is annotated)."""
     import groups
@@ -106,6 +130,9 @@ def message_letters(puzzle, msg):
         if entry_id(e) in continuations or e["clue"].get("missing"):
             continue
         if msg.get("direction") and e["direction"] != msg["direction"]:
+            continue
+        if msg.get("kind") == ALTERATION:
+            got.append(alteration_letter(e))
             continue
         ann = e.get("annotation")
         if not ann:
@@ -187,6 +214,10 @@ def message_problems(puzzle):
     """Each `messages` item must be spelt by its clues' hidden letters."""
     out = []
     for msg in puzzle.get("messages") or []:
+        if msg.get("kind") == ALTERATION and msg.get("order") != "unordered":
+            out.append(f"message {msg['text']!r}: alteration letters have no printed "
+                       f"order: give `order` unordered")
+            continue
         if msg.get("printed") and msg.get("kind") != "misprint":
             out.append(f"message {msg['text']!r}: `printed` reads misprints, and it "
                        f"reads {msg.get('kind')} letters")
@@ -200,8 +231,10 @@ def message_problems(puzzle):
         if not same:
             where = f"{msg.get('direction')} " if msg.get("direction") else ""
             out.append(f"message {msg['text']!r}: the {where}clues' {msg.get('kind')} "
-                       f"letters read {got or 'nothing'}, not {want}. Each clue that "
-                       f"gives a letter needs `hiddenLetter`, in clue order")
+                       f"letters read {got or 'nothing'}, not {want}. "
+                       + ("Each entry's `alteration` must drop or gain one letter"
+                          if msg.get("kind") == ALTERATION else
+                          "Each clue that gives a letter needs `hiddenLetter`, in clue order"))
     for e in puzzle["entries"]:
         hl = (e.get("annotation") or {}).get("hiddenLetter")
         if hl and not any(m.get("kind") == hl.get("kind") for m in puzzle.get("messages") or []) \

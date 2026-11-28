@@ -167,6 +167,27 @@ status, text, new = hm.convert(puzzle(four))
 check("converter reads the across omissions", True, status == "converted" and text == "OPEN" or [])
 if new:
     check("converted puzzle is clean", False, problems(new))
+# Letters moved by alterations (genius-221): an across drops one, a down gains
+# one; no clue carries a hiddenLetter, and a message of kind `alteration` reads them.
+def altered(n, direction, sol, frm):
+    e = entry(n, direction, "Clue word", sol, {"op": "charade", "parts": [{"words": "Clue", "gives": frm}]})
+    del e["annotation"]
+    e["alteration"] = {"from": frm, "steps": [{"op": "deletion" if direction == "across" else "insertion"}]}
+    return e
+
+moved = [altered(1, "across", "HOT", "HOST"), altered(3, "across", "SIT", "SITE"),
+         altered(2, "down", "TOMES", "TOME")]
+amsg = [{"text": "SEE", "kind": "alteration", "order": "unordered"}]
+check("alteration letter dropped or gained", True, [hm.alteration_letter(e) for e in moved] == ["S", "E", "S"])
+check("alteration message spelt by moved letters", False,
+      hm.message_problems(puzzle(moved, [{**amsg[0], "text": "SES"}])))
+check("alteration message with the wrong letters", True,
+      hm.message_problems(puzzle(moved, [{**amsg[0], "text": "SEA"}])))
+check("alteration message needs unordered", True,
+      hm.message_problems(puzzle(moved, [{**amsg[0], "text": "SES", "order": "clues"}])))
+check("alteration kind passes the schema", False,
+      [m for m in puzzle_schema.validate(puzzle(moved, [{**amsg[0], "text": "SES"}])) if "messages" in str(m)])
+
 if fails:
     raise SystemExit(fails)
 print("all hidden-message checks passed")

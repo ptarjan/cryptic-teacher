@@ -369,7 +369,7 @@ def cmd_record(args):
               "network's, not the item's — it retries next run")
         sys.exit(3)   # a caller that alerts on a real failure tests for this
     data = load()
-    reason = (args.reason or "")[:300]
+    reason = args.reason or ""   # whole: a judgement is read later, never cut
     puzzle = input_hash(args.id, committed(args.id))
     old = data[args.kind].get(args.id)
     # Bought again on the same puzzle (released by a code change alone):

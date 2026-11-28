@@ -103,8 +103,11 @@
       "pattern": "^[A-Z][A-Z ,.'!?:;-]*$"
      },
      "kind": {
-      "description": "The `hiddenLetter.kind` this phrase reads.",
-      "$ref": "#/$defs/hiddenLetterKind"
+      "description": "The `hiddenLetter.kind` this phrase reads, or `alteration`: the letters the preamble moves between entries, each read off an entry's `alteration` as the one letter it drops or gains against the solution (no clue carries a `hiddenLetter`; `order` is `unordered`).",
+      "anyOf": [
+       {"$ref": "#/$defs/hiddenLetterKind"},
+       {"const": "alteration"}
+      ]
      },
      "direction": {
       "description": "Only this direction's clues spell it; absent when both do.",
