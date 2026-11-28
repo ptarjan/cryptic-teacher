@@ -14,6 +14,7 @@ word would split the leaf), so the tree stays a valid located tree. wordplay.tra
 change only when the tree then gives the answer.
 """
 import re
+from collections import Counter
 
 
 def _bare_words(part):
@@ -81,3 +82,41 @@ def _only_words(parts, i, how, want):
             ws = ws[1:] if how == "first" else ws[:-1] if how == "last" else []
         left.append("".join(ws))
     return _letters("".join(left)) == want
+
+
+def _short_by(parts, want):
+    """The answer's letters the fodder lacks, sorted, when it has none to spare; else None."""
+    have = Counter(_letters("".join(p["words"] for p in parts)))
+    need = Counter(want)
+    if have - need or not need - have:
+        return None
+    return "".join(sorted((need - have).elements()))
+
+
+def add_missing_fodder_word(tree, answer, uncovered):
+    """Number of anagram fodders changed (0 or 1) in `tree`, in place.
+
+    The opposite slip to drop_surplus_fodder_word: `ana<recklessly>([A tit flies])` for FATALITIES
+    leaves out the 'a' of 'with a lethal outcome'. The evaluator says "it lacks A" and the
+    first check names 'a' among the clue words nothing covers. When a bare fodder has no letter
+    to spare, lacks exactly the letters of one uncovered clue word (`uncovered` is [(word, at)]),
+    and no other uncovered word spells them, that word is the missing piece of the fodder and is
+    added to it in clue order. Two words spelling the same letters, two anagrams that could take
+    it, or a fodder lacking something no one word supplies stay refused."""
+    want = _letters(answer)
+    fits = []
+    stack = [tree]
+    while stack:
+        node = stack.pop()
+        stack.extend(node.get("parts") or [])
+        parts = node.get("parts") or []
+        if node.get("op") == "anagram" and parts and all(_bare_words(p) for p in parts):
+            short = _short_by(parts, want)
+            if short:
+                fits.append((node, [(w, at) for w, at in uncovered if _letters(w) == short]))
+    if len(fits) != 1 or len(fits[0][1]) != 1:
+        return 0
+    node, ((word, at),) = fits[0]
+    node["parts"].append({"words": word, "at": at, "note": f"'{word}' supplies a letter of the fodder"})
+    node["parts"].sort(key=lambda p: p["at"])
+    return 1

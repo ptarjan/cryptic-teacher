@@ -1794,6 +1794,24 @@ def _hidden_looked_up_hint(node, want):
             f"first(), last() or del() over {render(lf)}, or write the printed words in the hid() leaf")
 
 
+#: A figure a scan prints for the letter it looks like.
+_DIGIT_LOOKALIKES = {"1": "IL", "0": "O", "5": "S", "8": "B", "2": "Z"}
+
+
+def _digit_slip_hint(node, short):
+    """The OCR fix for an anagram fodder holding a figure (it gives no letters) when the letters the
+    anagram lacks are what that figure looks like: 'A1' for 'AI'. None when no figure matches."""
+    for leaf in fodder_pool(node).get("parts") or [fodder_pool(node)]:
+        for word in str(leaf.get("words") or "").split():
+            for i, ch in enumerate(word):
+                if short and ch in _DIGIT_LOOKALIKES and short in _DIGIT_LOOKALIKES[ch]:
+                    return (f"{word!r} holds the figure {ch}, which gives no letters, and {short} is what it "
+                            f"looks like: if the clue prints {short} there (an OCR slip), give the entry "
+                            f"printedClue with {word[:i] + short + word[i + 1:]!r} for {word!r}, and write "
+                            f"the fodder with the letter")
+    return None
+
+
 def diagnose(node, want):
     """The deepest node that fails to give its share of `want`, in words."""
     op = node.get("op")
@@ -1850,6 +1868,10 @@ def diagnose(node, want):
         bag = min(bags, key=len)
         extra = "".join(sorted((_count(bag) - _count(want)).elements()))
         short = "".join(sorted((_count(want) - _count(bag)).elements()))
+        slip = _digit_slip_hint(node, short)
+        if slip:
+            return (f"{render(node)} has the letters {bag}; the answer needs an anagram of {want} here "
+                    f"(it lacks {short}): {slip}")
         return (f"{render(node)} has the letters {bag}; the answer needs an anagram of {want} "
                 f"here" + (f" (the fodder has {extra} to spare" if extra else " (") +
                 (f"{'; ' if extra else ''}it lacks {short})" if short else ")") +
@@ -2351,6 +2373,18 @@ def _with_fodder_trimmed(tree, answer):
     return repaired
 
 
+def _with_fodder_filled(tree, clue, answer, taken):
+    """`tree` with the one uncovered clue word that spells an anagram's missing letters added to its
+    fodder (tools/wordplay_fodder_mend.py) when that makes it give `answer`, else None."""
+    import wordplay_fodder_mend
+    repaired = copy.deepcopy(tree)
+    if not wordplay_fodder_mend.add_missing_fodder_word(repaired, answer, uncovered_words(tree, clue, taken)):
+        return None
+    if not gives(repaired, answer):
+        return None
+    return repaired
+
+
 def _with_rule_mends(tree, clue, answer):
     """`tree` mended by the doesNotGive rule (repairs.RULES, the one registry the old puzzles' sweep
     reads too): arguments of a container the wrong way round, a charade out of order, each only when
@@ -2415,6 +2449,7 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
     except WordplayError as err:
         tree = (_with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
                 or _with_after_swapped(tree, answer) or _with_fodder_trimmed(tree, answer)
+                or _with_fodder_filled(tree, clue, answer, taken)
                 or _with_rule_mends(tree, clue, answer))
         if tree is None:
             left = unaccounted_words(locate_copy(clue_out, clue, taken), clue, taken)
@@ -2530,6 +2565,11 @@ def locate_copy(clue_out, clue, taken):
 def unaccounted_words(tree, clue, taken=()):
     """The clue's words that no leaf, indicator or taken span (the definition) covers,
     in clue order: a wordplay that misses the answer has often left a piece out."""
+    return [w for w, _ in uncovered_words(tree, clue, taken)]
+
+
+def uncovered_words(tree, clue, taken=()):
+    """[(word, offset)] for unaccounted_words, in clue order."""
     covered = list(taken)
     for span, key in _spans(tree):
         if "at" in span:
@@ -2537,7 +2577,7 @@ def unaccounted_words(tree, clue, taken=()):
     out = []
     for m in re.finditer(r"[\w'’]+", clue):
         if not any(a < m.end() and m.start() < b for a, b in covered):
-            out.append(m.group(0))
+            out.append((m.group(0), m.start()))
     return out
 
 

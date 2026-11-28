@@ -42,8 +42,17 @@ check("[motorway]M is mended to the table's MI when only that gives the answer (
 out = tr("ins<taking in>([grant]DONATION, [motorway]M)", "Government grant taking in motorway", "DONATIONS")
 check("an abbreviation swap that does not give the answer stays refused", out.startswith("REFUSED"))
 
+out = tr("ana<recklessly>([A tit flies])", "A tit flies recklessly, with a lethal outcome", "FATALITIES")
+check("the one clue word that spells the letters a fodder lacks joins it (FATALITIES)",
+      not out.startswith("REFUSED") and "[a]" in out)
+out = tr("ana<recklessly>([A tit flies])", "A tit flies recklessly, with a lethal outcome, a pity", "FATALITIES")
+check("two clue words spelling the missing letters stay refused (ambiguous)", out.startswith("REFUSED"))
+out = tr("ana<in brief>([Crisp, hot, A1])", "Crisp, hot, A1 in brief", "APHORISTIC")
+check("a figure in a fodder lacking its lookalike letter is named as an OCR slip",
+      out.startswith("REFUSED") and "holds the figure 1" in out)
+
 # a refusal whose clue is not on this host is counted, not dropped
-item = {"pid": "no-such-puzzle-0", "eid": "1-across", "ans": "ABC", "wp": "[x]AB", "sess": "s", "retries": 0,
+item ={"pid": "no-such-puzzle-0", "eid": "1-across", "ans": "ABC", "wp": "[x]AB", "sess": "s", "retries": 0,
         "cleared": True}
 rows = R.replay([item], index={})
 check("replay keeps a refusal whose clue it cannot find", len(rows) == 1 and rows[0]["now"] == "unreplayed")
