@@ -789,6 +789,70 @@ def mend_misprinted_clues(path, pending, data=DATA):
     return changed
 
 
+def _short_misread_evidence(shown, printed, why):
+    """The evidence for an "OCR misread: <word>" note too short to argue the case, built from the
+    one place the corrected clue differs from the clue as shown; None unless that is a single run
+    of words and the model's own word is among the words that changed (so the note pointed at
+    the same spot the code found)."""
+    import difflib
+    old, new = shown.split(), printed.split()
+    ops = [o for o in difflib.SequenceMatcher(None, old, new, autojunk=False).get_opcodes()
+           if o[0] != "equal"]
+    if len(ops) != 1:
+        return None
+    tag, i1, i2, j1, j2 = ops[0]
+    gone, came = " ".join(old[i1:i2]), " ".join(new[j1:j2])
+    key = lambda t: re.sub(r"\W", "", t).casefold()
+    said = {key(t) for t in why[len("OCR misread: "):].split()} - {""}
+    changed = {key(t) for t in old[i1:i2] + new[j1:j2]} - {""}
+    if not said & changed:
+        return None
+    if tag == "replace":
+        what = f"the feed reads {gone!r} where the corrected clue has {came!r}"
+    elif tag == "insert":
+        what = f"the feed lacks {came!r}, which the corrected clue has"
+    else:
+        what = f"the feed has a stray {gone!r}, which the corrected clue drops"
+    return f"OCR misread: {what}"
+
+
+def mend_short_misread_evidence(path, pending, data=DATA):
+    """Replace each `printedClue` evidence that is just "OCR misread: <word>" and under the filing
+    floor (validate_annotations.clue_row_problems) with the facts code checked: what the feed
+    reads and what the corrected clue has there. The word was right; the note was terse, and
+    the refusal cost a model turn. Returns the entry ids changed."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        puzzle = read_puzzle_file(path)
+    except (ValueError, OSError, KeyError):
+        return []
+    if not isinstance(ann, dict):
+        return []
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    clue_rows = sharded_table.load("source_clue_wrong", data)
+    short = lambda s, p, w: any("characters" in x
+                                for x in validate_annotations.clue_row_problems(s, p, w))
+    changed = []
+    for eid, a in ann.items():
+        v = a.get("printedClue") if isinstance(a, dict) else None
+        if not (isinstance(v, list) and len(v) == 2 and all(isinstance(x, str) for x in v)
+                and eid in by_id and v[1].startswith("OCR misread: ")):
+            continue
+        held = clue_rows.get(f"{puzzle['id']}/{eid}")
+        shown = held[0] if held else (by_id[eid]["clue"].get("text") or "")
+        if validate_annotations.is_blank_clue(shown) or shown.strip() == v[0].strip():
+            continue
+        if not short(shown, v[0], v[1]):
+            continue
+        why = _short_misread_evidence(shown, v[0], v[1])
+        if why and not short(shown, v[0], why):
+            a["printedClue"] = [v[0], why]
+            changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def file_rows(path, pending, data=DATA):
     """Move each entry's `printedClue`, `setterError` and `answerTypo` in `pending` into
     their tables (FILED); returns (["<field> <entry id>" filed], what is wrong
@@ -1612,6 +1676,10 @@ def main(argv):
         if misprint:
             print(f"quotes of a clue word the OCR misspelt (the quote a word, the clue's not), "
                   f"given a printedClue in {pending.name}: {', '.join(misprint)}\n")
+        short = mend_short_misread_evidence(path, pending)
+        if short:
+            print(f"printedClue evidence that was only the corrected word, rewritten in "
+                  f"{pending.name} from the words that differ: {', '.join(short)}\n")
         noop = drop_noop_printed_clue(path, pending)
         if noop:
             print(f"printedClue that corrects nothing (it is the clue as shown), dropped "
