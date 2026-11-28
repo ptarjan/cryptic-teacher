@@ -746,6 +746,11 @@ def read_done(row, done=None):
         # Read with the Across list's last clues above the Down heading right of the grid left out of the Down strip
         # (SIDE_TAIL 1): only the pages whose strip the fix changes (tools/data/mephisto_side_tail.json).
         return False
+    if row and row.get("vlmGrid", 0) < VLM_GRID and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("refused") and not row.get("failed") and row.get("file") in vlm_grid_names():
+        # Read before a page's grid was set again by the VLM reply's counts (VLM_GRID 1): only the pages whose
+        # grid the fix changes (tools/data/mephisto_vlm_grid.json).
+        return False
     if row and row.get("headingGap", 0) < HEADING_GAP and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and row.get("file") in heading_gap_names():
         # Read with the wrapped lists' cut stopped at the gap before the Across heading under the grid (HEADING_GAP 1):
@@ -3214,7 +3219,53 @@ def read_page(path, store=STORE, asker=None):
         gl.WORD_FIX = was
 
 
-def page_read(path, store=STORE, asker=None):
+#: VLM_GRID 1: a page left 4+ blank whose VLM reply's counts disagree with the grid's light lengths on most of the
+#: blank lights has its bars set again by the reply's counts (mirror_fit, as listed() does from the OCR lists); the new
+#: grid is taken only when it leaves fewer lights blank. Only the pages in tools/data/mephisto_vlm_grid.json are read
+#: again for it (a committed list nothing writes: found by reading every 4+ blank page with the fix off and on).
+VLM_GRID = 1
+VLM_GRID_FILE = ROOT / "tools" / "data" / "mephisto_vlm_grid.json"
+_VLM_GRID_NAMES = None
+#: Set by a hand run to try the fix on every page (building the list).
+VLM_GRID_ALL = False
+VLM_GRID_SHARE = 0.5
+
+
+def vlm_grid_names():
+    """The bare GALE_*.pdf names whose grid VLM_GRID changes."""
+    global _VLM_GRID_NAMES
+    if _VLM_GRID_NAMES is None:
+        try:
+            _VLM_GRID_NAMES = frozenset(json.loads(VLM_GRID_FILE.read_text()))
+        except (OSError, ValueError):
+            _VLM_GRID_NAMES = frozenset()
+    return _VLM_GRID_NAMES
+
+
+def vlm_wanted(reply, laid, blank, lengths):
+    """(wanted, mismatched, total) of a VLM reply: wanted_of's [(numbers, direction, length)] of the reply's clues (the
+    list's order sets the direction: it turns Down where the numbers fall back) and of the page's own laid clues,
+    and how many of the `blank` lights have a clue under their number in the reply, none of whose count is the light's."""
+    import file_archive_org_puzzles as fa_
+    clues = fa_.vlm_clues(reply or "")
+    out, last, way = [], 0, "across"
+    seen = {}
+    for m, _, count in clues:
+        if int(m) < last - 3:
+            way = "down"
+        last = int(m)
+        n = fa_.ftp.count(count)
+        if n:
+            out.append((frozenset({int(m)}), way, n))
+            seen.setdefault(str(m), []).append(n)
+    bad = sum(1 for lid in blank if lengths.get(lid) and seen.get(lid.split("-")[0])
+              and lengths[lid] not in seen[lid.split("-")[0]])
+    have = {(next(iter(a)), b) for a, b, _ in out}
+    own = [w for w in wanted_of(laid) if (next(iter(w[0])), w[1]) not in have]
+    return out + own, bad, len(blank)
+
+
+def page_read(path, store=STORE, asker=None, _grid=None):
     """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (gale_jumbo_read.vlm_mended)."""
     import numpy as np
     import gale_listener as gl
@@ -3252,7 +3303,7 @@ def page_read(path, store=STORE, asker=None):
         return verdict, None
     verdict.update(number=n, numberFrom=how, date=day.isoformat())
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
-    rows, found, why = read_barred(gray)
+    rows, found, why = _grid + (None,) if _grid else read_barred(gray)
     fitted = False
     if rows is None and found:
         # The bars alone do not read: the clue lists' counts, read without the grid, set them (mirror_fit).
@@ -3311,7 +3362,25 @@ def page_read(path, store=STORE, asker=None):
     for lid, (text, _, _) in laid.items():
         if lid not in tails and not (text or "").strip():
             blank.setdefault(lid, gj.UNLAID)
+    heard = []
+    if VLM_GRID and not _grid and (VLM_GRID_ALL or path.name in vlm_grid_names()) and asker is None and len(blank) >= 4:
+        import file_archive_org_puzzles as fa_
+
+        def asker(im, box):
+            heard.append(fa_.vlm.read(fa_.vlm.crop(im, box)))
+            return heard[-1]
+        if not fa_.vlm.wanted():
+            asker = None
     laid, blank, asked = gj.vlm_mended(blocks, laid, blank, lengths, gl, asker, voted, lefts_of=column_lefts, cap=VLM_ALL, strip_ocr=True)
+    if heard and len(blank) >= 4:
+        want, bad, total = vlm_wanted("\n".join(heard), laid, blank, lengths)
+        if bad >= VLM_GRID_SHARE * total:
+            again, found2, _ = read_barred(gray, wanted=want)
+            if again is not None and again != g:
+                v2, p2 = page_read(path, store, None, _grid=(again, found2))
+                if p2 is not None and len(v2.get("blank") or ()) < len(blank):
+                    v2["vlmGrid"] = len(blank)
+                    return v2, p2
     if asked:
         verdict["vlmColumns"] = asked
     if blank:
@@ -3370,7 +3439,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "bracketFix": BRACKET_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR, "noParse": NO_PARSE}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "bracketFix": BRACKET_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR, "noParse": NO_PARSE, "vlmGrid": VLM_GRID}, store)
     print(json.dumps(verdict))
     return "read"
 
