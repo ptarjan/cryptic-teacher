@@ -12,7 +12,7 @@ FT_TOLERANT_READ. Its scan is stale: scanned again once, then read."""
 from fix_reasons import Reason
 
 TEXT = "archive.org FT page with no puzzle found, its title band's misread number line mended since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T01:40:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def rescan(row):
