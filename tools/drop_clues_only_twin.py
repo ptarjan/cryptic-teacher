@@ -73,7 +73,10 @@ def merge(puzzle, twin):
     carries a clue, a length and a `blogAnswer` (cluesOnlyLight); the clue and
     length the puzzle has, so the blog's answer is what moves, onto the one
     entry whose clue reads the same (letters and digits only) and whose length
-    the answer fits. A light that names no such entry, or two, is `unplaced`."""
+    the answer fits. The twin's direction only breaks a tie between two such
+    entries: a clues-only reading can list a down clue among the acrosses, while
+    a clue's words and its answer's length are the puzzle's own. A light that
+    names no such entry, or two in its own direction, is `unplaced`."""
     changed, unplaced = False, []
     entries = puzzle.get("entries") or []
     for direction in DIRECTIONS:
@@ -83,7 +86,9 @@ def merge(puzzle, twin):
                 continue
             key = squash((light.get("clue") or {}).get("text"))
             at = [e for e in entries if squash((e.get("clue") or {}).get("text")) == key
-                  and e.get("direction") == direction and e.get("length") == len(answer)]
+                  and e.get("length") == len(answer)]
+            if len(at) > 1:
+                at = [e for e in at if e.get("direction") == direction]
             if len(at) != 1:
                 unplaced.append(f"{direction} {answer}")
             elif at[0].get("blogAnswer") is None:

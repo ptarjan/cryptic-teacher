@@ -90,9 +90,8 @@ NS = "{http://crossword.info/xml/rectangular-puzzle}"
 # is exactly one number the day can hold. Keyed by the fetcher's date key, with
 # what the title prints and the two puzzles that bracket it.
 #
-# One-offs only. A wrong number that repeats to a rule belongs in a rule, not in
-# 31 copies of one line — see SATURDAY_LAG below. This dict is checked first, so
-# a date listed here overrides that rule.
+# One-offs only. A day whose number is printed right but belongs to another
+# date is not a misprint and does not go here — see SATURDAY_PRIZE_KEYS below.
 NUMBER_FIXES = {
     "190306": 10107,   # prints "10,007"; 10,106 Tue 5 Mar, 10,108 Thu 7 Mar
     "190426": 10151,   # prints "10,051"; 10,150 Thu 25 Apr, 10,152 Sat 27 Apr
@@ -108,11 +107,6 @@ NUMBER_FIXES = {
     "150612": 8942,
     "150625": 8953,    # prints "8,954"; 8,952 Wed 24 Jun, 8,954 Fri 26 Jun
     "150806": 8988,    # prints "8,968"; 8,987 Wed 5 Aug, 8,989 Fri 7 Aug
-    # Inside SATURDAY_LAG, but Christmas Day fell on the Friday and the paper
-    # did not print, so that week ran five publishing days and the rule's six
-    # would land on 9,111 — the Monday's number. Prints "9,105"; 9,109 Thu 24
-    # Dec, nothing Fri 25 Dec, 9,111 Mon 28 Dec.
-    "151226": 9110,
     "160601": 9245,    # prints "6,245"; 9,244 Tue 31 May, 9,246 Thu 2 Jun
     # Indy on Sunday. Prints "1,588", the number Sun 2 Aug 2020 genuinely holds
     # (Hoskins) — this day is a different puzzle (Peter), one week after 1,557
@@ -130,24 +124,25 @@ NUMBER_FIXES = {
 # is keyed by date, so parsing one files a real puzzle a second time under a
 # number or series it does not own.
 REPEATS = {
-    "150822": "a resend of daily 8,997 (Sun 2015-08-16)",
+    "150822": "daily 8,997 again, already served by the shifted Sunday key 150816",
     "241117": "a repeat of daily 11,812 (Mon 2024-08-19), not a Sunday puzzle",
 }
 
 
-# Every Saturday from 2015-08-22 to 2016-03-26 printed the PREVIOUS Saturday's
-# number: 31 Saturdays, one repeating fault, so a dated range rather than 31
-# NUMBER_FIXES entries saying the same thing. A full Mon–Sat week is six
-# publishing days, so the printed number sits six below the slot the sequence
-# leaves free — Sat 2015-08-29 prints "9,003" between 9,008 Fri 28 Aug and 9,010
-# Mon 31 Aug, and only 9,009 fits. Verified against the Friday before and the
-# Monday after for every Saturday in the range and the two either side of each
-# end; the Saturdays outside it need no correction. A week short a publishing
-# day breaks the arithmetic, not the rule, and goes in NUMBER_FIXES above.
+# The first and last Saturday date keys that carry the PREVIOUS Saturday's
+# puzzle. The Saturday daily was a prize puzzle then, and like the Sunday one
+# (SUNDAY_PRIZE_LAST_KEY) the feed carried each only after entries closed, a
+# week after it ran: key 150829 serves 9,003 by Tyrus, which fifteensquared
+# writes up as the Saturday Prize Puzzle of 22 August 2015. The number each key
+# prints is the puzzle's own and is kept; only the date moves back a week. So a
+# week short a publishing day needs no exception: key 151226 prints 9,105, the
+# puzzle of Sat 19 Dec, and key 160102 prints 9,110, that of Sat 26 Dec.
 #
-# The range opens on 2015-08-22, whose key serves a resend of 8,997 and is
-# refused by REPEATS above.
-SATURDAY_LAG = ("150822", "160326")
+# The first key, 150822, carries 8,997 of Sat 15 Aug, which the shifted Sunday
+# key 150816 already serves (REPEATS). The last, 160326, carries 9,182 of Sat 19
+# Mar; key 160402 is back to its own day (9,194), so 9,188, printed Sat 26 Mar
+# 2016, is on no key of this feed.
+SATURDAY_PRIZE_KEYS = ("150822", "160326")
 
 
 # A window in 2015 where the feed ran a day out of step. Inside it the SUNDAY
@@ -215,12 +210,13 @@ def series_for(ymd):
 
 def true_number(ymd, printed):
     """The number a date actually holds, given the one its title prints."""
-    if ymd in NUMBER_FIXES:
-        return NUMBER_FIXES[ymd]
-    saturday = datetime.strptime(ymd, "%y%m%d").weekday() == 5
-    if saturday and SATURDAY_LAG[0] <= ymd <= SATURDAY_LAG[1]:
-        return printed + 6
-    return printed
+    return NUMBER_FIXES.get(ymd, printed)
+
+
+def saturday_prize_key(ymd):
+    """Whether this date key serves the previous Saturday's prize puzzle."""
+    return (datetime.strptime(ymd, "%y%m%d").weekday() == 5
+            and SATURDAY_PRIZE_KEYS[0] <= ymd <= SATURDAY_PRIZE_KEYS[1])
 
 
 def http_get(url):
@@ -441,6 +437,9 @@ def parse(xml_bytes, ymd):
         # was printed the day before. 8,972 is Fri 2015-07-17 on the blog and in
         # the Gale scan, but the Saturday key served it.
         day -= timedelta(days=1)
+    if series == "independent" and saturday_prize_key(ymd):
+        # A prize puzzle served a week after it ran (see SATURDAY_PRIZE_KEYS).
+        day -= timedelta(days=7)
     if series == "indysunday":
         # The Sunday on or before the key (inside SHIFTED the weekly is on the
         # Monday key), and the week before that for a printed prize puzzle.

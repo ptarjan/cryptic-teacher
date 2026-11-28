@@ -127,5 +127,20 @@ check("a number-less day listed in NUMBER_FIXES takes its number from there",
 check("a date key that serves another day's puzzle is refused",
       named(doc("11,812 by Tees", "<b>Across</b>"), "241117").split(":")[0], "ValueError")
 
+# The Saturday prize puzzle was carried a week after it ran (SATURDAY_PRIZE_KEYS):
+# the number a key prints is the puzzle's own, and only the date goes back.
+for why, ymd, title, want_id, want_date in [
+    ("a Saturday prize key keeps the number it prints", "150829", "9003 by Tyrus",
+     "independent-9003", "2015-08-22"),
+    ("a short Christmas week still keeps the printed number", "151226", "9105 by Anax",
+     "independent-9105", "2015-12-19"),
+    ("the last lagged key is dated a week back", "160326", "9182 by Donk",
+     "independent-9182", "2016-03-19"),
+    ("the first Saturday after the window is its own day", "160402", "9194 by Scorpion",
+     "independent-9194", "2016-04-02"),
+]:
+    p = fi.parse(doc(title, "<b>Across</b>"), ymd)
+    check(why, (p["id"], p["date"]), (want_id, want_date))
+
 print("FAILED: %d" % fails if fails else "all ok")
 sys.exit(1 if fails else 0)
