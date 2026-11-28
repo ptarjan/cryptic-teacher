@@ -6,9 +6,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose clue column left of its grid was cut inside its first words, read from the title's edge since"
-REREAD = "2026-11-27T22:23:00+00:00"  # placeholder: the push minute (UTC)
-_ASKING = []
-
+REREAD = "2026-11-27T22:23:00+00:00"  
 
 def due(row):
     import file_archive_org_puzzles as fa
@@ -21,13 +19,7 @@ def due(row):
         box = boxes.get(v.get("number"))
         if v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None and box \
                 and box[0] < 400 and fa.filed_state(series, v["number"]) is None:
-            if _ASKING:
-                return False
-            _ASKING.append(1)
-            try:
-                return fa.fix_reason(row) is None
-            finally:
-                _ASKING.pop()
+            return fa.specific_fix_reason(row) is None
     return False
 
 

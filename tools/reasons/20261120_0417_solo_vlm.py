@@ -13,8 +13,6 @@ REREAD = "2026-11-20T05:14:00+00:00"
 YEARS = {"gale": ("1930", "1949"), "galesundaytelegraph": ("1975", "1999"), "galeindependent": ("2000", "2015")}
 WHY = "no other reading has"
 MOST = 6
-#: Set while due() asks fix_reason about the row, so the registry's call back here answers False.
-_ASKING = []
 
 
 def solo_word(why):
@@ -44,13 +42,7 @@ def due(row):
         if not (fa.filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             # Another fix due for the row reads it again as well, with this code: it goes first, and this one
             # is the reason only for the rows nothing else names (it would steal their tests and rank).
-            if _ASKING:
-                return False
-            _ASKING.append(1)
-            try:
-                return fa.fix_reason(row) is None
-            finally:
-                _ASKING.pop()
+            return fa.specific_fix_reason(row) is None
     return False
 
 
