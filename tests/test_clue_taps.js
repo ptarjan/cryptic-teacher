@@ -55,9 +55,10 @@ if (e && other) {
   t.pick(e);
   check(t.asking(), "once: coming back to the clue asks again");
   t.reg["guess-tell"].onclick();
-  check(!t.asking() && t.hints() === 1, `once: Show me opens the rung (1 hint) and asks nothing next: ${t.hints()}`);
+  check(t.hints() === 1, `once: Show me opens the rung (1 hint): ${t.hints()}`);
+  const up = t.asking();
   t.key(e.solution[0]);
-  check(!t.asking(), "once: a later render on the same clue does not ask again");
+  check(t.asking() === up, "once: a later render on the same clue keeps what is on the table");
 
   // --- 3: typing alongside ---
   const u = open();
@@ -74,9 +75,7 @@ if (e && other) {
 const arrive = (/function arriveAt[\s\S]*?\n  \}/.exec(src) || [""])[0];
 check(/advanceLadder\(e\)/.test(arrive) && /nextQuestion\(e\)/.test(arrive),
   "arriving asks through nextQuestion/advanceLadder, the same free-question-only chain as a right answer");
-check(/n\.rung === "blocks" && isShown\(e, "blocks"\)/.test(arrive),
-  "arriving never asks the next piece of an open blocks rung (it would name the piece's letters)");
-check(/line\.id === "welcome" \|\| line\.id === "ladder"/.test(arrive),
+check(/tourHoldsQuestions\(\)/.test(arrive) && /line\.id === "welcome" \|\| line\.id === "ladder"/.test(src),
   "arriving asks nothing while the tour is teaching the row of hint buttons");
 
 // --- 4: the letter wheel ---

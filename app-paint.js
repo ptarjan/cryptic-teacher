@@ -439,26 +439,38 @@
   // no button in between. The same nextQuestion the right-answer chain uses, so
   // the same limits hold: only a question (asking is free and charges nothing,
   // so the "no hints" score cannot move), never a rung that costs, never the
-  // walkthrough, never on a solved clue. Once per arrival, keyed by the clue: a
-  // wrong answer, choosing another step or "Show me" leaves the clue where the
-  // solver put it, and only coming back to it asks again.
-  //
-  // Two things it leaves alone. The rest of a building-blocks rung already
-  // open: each piece's question names what the piece gives, so asking it on
-  // arrival hands over letters the solver did not reach for, and going on to
-  // the next piece stays their call. And a first visit while the tour is still
-  // on its welcome or its "these buttons are hints" line: that line is teaching
-  // the row, and a question over it would answer a lesson that was not given.
+  // walkthrough, never on a solved clue. It may step over a step that has no
+  // question to a later one that has; after that, standingQuestion keeps the
+  // step in front asked on every render.
   let arrivedAt = null;
   function arriveAt(e) {
     const key = e ? entryKey(e) : null;
     if (key === arrivedAt) return;
     arrivedAt = key;
-    if (!e || guessing) return;
+    if (!e || guessing || tourHoldsQuestions()) return;
+    advanceLadder(e);
+  }
+  // The tour's welcome and "these buttons are hints" lines are teaching the row,
+  // and a question over them would answer a lesson that was not given.
+  function tourHoldsQuestions() {
     const line = typeof nux === "number" ? NUX_LINES[nux] : null;
-    if (line && (line.id === "welcome" || line.id === "ladder")) return;
-    const n = nextQuestion(e);
-    if (n && !(n.rung === "blocks" && isShown(e, "blocks"))) advanceLadder(e);
+    return !!line && (line.id === "welcome" || line.id === "ladder");
+  }
+  // Paul 11-27 (genius-273 13A THEOREM, "Why can't I guess the pieces"): the
+  // step in front is never drawn as a paid "Show me" card while it has a free
+  // question. One rule at the one place that card is drawn, rather than a re-ask
+  // on every path that can leave nothing on the table (a told step, a free step
+  // opened from the track, the wheel put away, a reload, coming back to the
+  // clue): with no question up, the help target is asked if it can be. A step
+  // the solver chose on the track, or a formula chip with nothing to ask, has
+  // no question, so it stays their card. A wrong answer keeps its question on
+  // the table, so a miss moves nothing either.
+  function standingQuestion(e) {
+    if (!e || guessing || groupSolved(e) || tourHoldsQuestions()) return null;
+    if (wheelOn === entryKey(e)) return null;
+    const t = helpTarget(e);
+    if (!t || t.asked || !GUESSABLE[t.rung]) return null;
+    return guessAsk(e, t.rung, t.step) ? { rung: t.rung, step: t.step } : null;
   }
 
   // The help bar, under the panel: Reveal letter and "More". Drawn by
@@ -656,6 +668,11 @@
       // buttons, and that is only knowable from the question being asked now.
       ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && (!ask || staleAsk(e))) { guessing = null; ask = null; }
+      const due = !finished && standingQuestion(e);
+      if (due) {
+        guessing = { key, rung: due.rung, step: due.step, picked: [] };
+        ask = guessAsk(e, due.rung, due.step);
+      }
       // One panel at a time, like tabs. A question or the wheel on the table
       // is the front panel until a step's tab is picked; with nothing pending
       // the front panel is the picked step's note, else the last one opened.

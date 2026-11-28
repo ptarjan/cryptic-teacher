@@ -32,4 +32,13 @@ for (const [name, text] of [["nextQuestion", src.slice(src.indexOf("  function n
   ["settlePiece", src.slice(src.indexOf("  function settlePiece"), src.indexOf("  // Tiers, not a chain"))]]) {
   check(/leadPiece\(e\)/.test(text) && !/nextPiece\(e\)/.test(text), name + " uses leadPiece");
 }
+// Paul 11-27 "Why can't I guess the pieces": the panel never draws the step in
+// front as a paid card while it has a free question (standingQuestion, asked
+// in renderHintPanel right where the card would be drawn).
+const sq = src.slice(src.indexOf("  function standingQuestion"), src.indexOf("  // The help bar, under the panel"));
+check(/helpTarget\(e\)/.test(sq) && /guessAsk\(e, t\.rung, t\.step\)/.test(sq) && /GUESSABLE\[t\.rung\]/.test(sq),
+  "standingQuestion asks the help target whenever it has a free question");
+const rp = src.slice(src.indexOf("  function renderHintPanel"), src.indexOf("const tellT ="));
+check(/standingQuestion\(e\)/.test(rp) && rp.indexOf("standingQuestion(e)") < rp.indexOf("chosen = !finished"),
+  "renderHintPanel puts the due question up before deciding on a Show me card");
 process.exit(failures ? 1 : 0);
