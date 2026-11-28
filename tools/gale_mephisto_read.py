@@ -758,6 +758,10 @@ def read_done(row, done=None):
     if row and row.get("runFirstFix", 0) < RUN_FIRST_FIX and row.get("file") in run_first_names():
         # Numbered from a lone printed offset a measured run contradicts (RUN_FIRST_FIX 1): only the pages it renumbers.
         return False
+    if row and row.get("swapDir", 0) < SWAP_DIR and row.get("file") in swap_dir_names():
+        # Read with a clue under the wrong list's heading left off the light of its number in the other direction
+        # (SWAP_DIR 1): only the pages the fix changes (tools/data/mephisto_swap_dir.json).
+        return False
     if row and row.get("riseFix", 0) < RISE_FIX and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("refused") and not row.get("failed") and "1960" <= (row.get("date") or "9") < "1980" \
             and len(row.get("blank") or ()) >= 2 and "no clue read for it" in (row.get("why") or {}).values():
@@ -3079,6 +3083,43 @@ def tight_mended(block, laid, blank, lengths, gl, asker=None):
     return laid, left, asked
 
 
+#: Bumped when a clue read under one list whose number is no light of that direction is laid on the other direction's
+#: light of that number (swapped_lights): the wrapped and side-by-side lists carry clues of both directions in a column
+#: the OCR read under the other heading. Only the pages the fix changes (tools/data/mephisto_swap_dir.json) are read again.
+SWAP_DIR = 1
+SWAP_DIR_FILE = ROOT / "tools" / "data" / "mephisto_swap_dir.json"
+_SWAP_DIR_NAMES = None
+
+
+def swap_dir_names():
+    """The bare GALE_*.pdf names whose laid clues SWAP_DIR changes (a committed list nothing writes: found by laying
+    every open page's clues with the fix off and on)."""
+    global _SWAP_DIR_NAMES
+    if _SWAP_DIR_NAMES is None:
+        try:
+            _SWAP_DIR_NAMES = frozenset(json.loads(SWAP_DIR_FILE.read_text()))
+        except (OSError, ValueError):
+            _SWAP_DIR_NAMES = frozenset()
+    return _SWAP_DIR_NAMES
+
+
+def swapped_lights(laid, lengths):
+    """`laid` with each clue whose light (number, direction) is not the grid's, while the grid has the other direction's
+    light of that number with no clue laid, moved to that light when its printed count is that light's length (a linked
+    clue stays). The rule holds for any page: a number read under the wrong list heading cannot be a light of it."""
+    import file_trove_puzzles as ftp
+    out = dict(laid)
+    for lid, (text, enum, group) in laid.items():
+        if lid in lengths or not text or not enum or group:
+            continue
+        n, d = lid.split("-")
+        other = f"{n}-{'down' if d == 'across' else 'across'}"
+        if other in lengths and other not in laid and ftp.count(enum) == lengths[other]:
+            out[other] = (text, enum, group)
+            del out[lid]
+    return out
+
+
 def listed(img, key, words, found, gl):
     """wanted_of the clue lists under the grid at `found`, read without the grid's lengths ([] when none read)."""
     block = lists_block(img, key, words, beside_cut(words, found["box"]) or (ABOVE_FIX and above_cut(words, found["box"])) or under_cut(words, found["box"]), gl)
@@ -3188,6 +3229,8 @@ def page_read(path, store=STORE, asker=None):
     if laid is None:
         return verdict, None
     voted = dict(laid)
+    if SWAP_DIR:
+        laid = swapped_lights(dict(laid), lengths)
     laid, blank = aj.lay_on(dict(laid), g)
     blank = {**(read.get("blank") or {}), **blank}
     tails = {t for _, _, group in laid.values() for t in (group or [])[1:]}
@@ -3253,7 +3296,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR}, store)
     print(json.dumps(verdict))
     return "read"
 
