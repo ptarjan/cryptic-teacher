@@ -20034,7 +20034,11 @@ _SOLUTION_PINS = {"8e4b770296908774": "432a5818529a9b11",  # zeros_read moved in
                   # FT_NOISY_TITLE: ft_headings reads a noisy title line: a scan's title only, no solution grid's reading moves.
                   "50b7d6756dd66ef7": "432a5818529a9b11",
                   # the same fix, its numbers under 10,000 and no number twice: still a scan's title only.
-                  "28c6d2df423c8474": "432a5818529a9b11"}
+                  "28c6d2df423c8474": "432a5818529a9b11",
+                  # IOS_BEELZEBUB_HEADING: indy_sunday_headings keeps a Beelzebub title set under "Solution for last issue" as a
+                  # puzzle heading: a scan's title only, no solution grid's reading moves (the scan keys are pinned by
+                  # _IOS_BEELZEBUB_HEADING_FIX, the unfiled rows it may mend are due once by that reason).
+                  "c4fe093f152e3690": "432a5818529a9b11"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
