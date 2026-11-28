@@ -13,6 +13,10 @@
 //   3. A "precache" from an older page does not delete the stamps the held
 //      (newer) home page names, and fetches them if missing.
 //   4. Online, a stamped file still comes from the network and is cached.
+//   9. One update, one reload: the copies the page's update check fetched are
+//      adopted before it reloads, so the reloaded page boots on them, and a
+//      launch refresh still on the way with the older answer does not
+//      overwrite them (else the reloaded page sees "newer" again: the pill).
 //
 //     node tests/test_sw_shell_recovery.js
 "use strict";
@@ -26,7 +30,7 @@ const fails = [];
 const assert = (ok, msg) => { if (!ok) fails.push(msg); };
 
 function harness(site) {
-  let online = true, hung = false;
+  let online = true, hung = false, gate = null;
   const stores = new Map();
   const keyOf = (r) => (typeof r === "string" ? r : r.url);
   const bare = (u) => u.split("?")[0];
@@ -63,10 +67,12 @@ function harness(site) {
   async function fakeFetch(r) {
     if (hung) return new Promise(() => {});   // wifi up, no internet: never answers
     if (!online) throw new TypeError("Load failed");
+    // The server answers as it stands when asked; a gate holds the answer back.
     const p = new URL(keyOf(r)).pathname;
-    if (!(p in site)) return new Response("nope", { status: 404 });
-    const [body, type] = site[p];
-    return new Response(body, { status: 200, headers: { "content-type": type } });
+    const res = !(p in site) ? new Response("nope", { status: 404 })
+      : new Response(site[p][0], { status: 200, headers: { "content-type": site[p][1] } });
+    if (gate) await gate;
+    return res;
   }
   const handlers = {};
   const self = {
@@ -78,18 +84,19 @@ function harness(site) {
   vm.runInContext(fs.readFileSync(path.join(__dirname, "..", "sw.js"), "utf8"), ctx);
 
   // Fires a fetch event. undefined: the worker left it to the network.
-  function request(url, mode) {
+  function request(url, mode, cache) {
     let out;
-    const req = { url, method: "GET", mode: mode || "no-cors", cache: "default", headers: new Headers() };
+    const req = { url, method: "GET", mode: mode || "no-cors", cache: cache || "default", headers: new Headers() };
     handlers.fetch({ request: req, respondWith: (p) => { out = p; }, waitUntil: () => {} });
     return out;
   }
-  async function message(data) {
+  async function message(data, port) {
     let p;
-    handlers.message({ data, ports: [], waitUntil: (x) => { p = x; } });
+    handlers.message({ data, ports: port ? [port] : [], waitUntil: (x) => { p = x; } });
     await p;
   }
-  return { request, message, caches, setOnline: (v) => { online = v; }, setHung: (v) => { hung = v; } };
+  return { request, message, caches, setOnline: (v) => { online = v; }, setHung: (v) => { hung = v; },
+           setGate: (v) => { gate = v; } };
 }
 
 const page = (v) => `<!doctype html><link rel="stylesheet" href="style.css?v=${v}"><script src="app.js?v=${v}"></script>`;
@@ -203,6 +210,54 @@ const page = (v) => `<!doctype html><link rel="stylesheet" href="style.css?v=${v
     await new Promise((ok) => setTimeout(ok, 20));
     assert(await pz.match(new Request(SCOPE + "puzzles/old0.js.gz?v=aa")), "the oldest file, kept by the page, is not retired by the cap");
     assert(!(await pz.match(new Request(SCOPE + "puzzles/old1.js.gz?v=aa"))), "the next-oldest, unkept, is");
+  }
+
+  // ---- 9. detect a newer head, reload: the booted head is the live one, so no pill
+  {
+    const LIVE = "puzzles/idx/head-live.json";
+    const server = { "/": [page("bbbb"), "text/html"], ["/" + LIVE]: ['{"v":1}', "application/json"] };
+    const h = harness(server);
+    const shell = await h.caches.open("ct-shell-1");
+    await shell.put(new Request(SCOPE), new Response(page("bbbb"), { headers: { "content-type": "text/html" } }));
+    await shell.put(new Request(SCOPE + LIVE), new Response('{"v":1}', { headers: { "content-type": "application/json" } }));
+    // The launch: answered from the held copies; their refreshes have asked
+    // the server and are slow to come back.
+    let land;
+    h.setGate(new Promise((ok) => { land = ok; }));
+    const booted = await (await h.request(SCOPE + LIVE)).text();
+    const home = await h.request(SCOPE + "?p=times-1", "navigate");
+    assert(booted === '{"v":1}' && /bbbb/.test(await home.text()), "the launch boots on the held copies");
+    // A deploy lands. The page's update check asks past the worker and sees it.
+    server["/"] = [page("cccc"), "text/html"];
+    server["/" + LIVE] = ['{"v":2}', "application/json"];
+    assert(h.request(SCOPE + LIVE, "cors", "no-store") === undefined, "the update check's no-store ask goes past the worker");
+    const seen = server["/" + LIVE][0];
+    assert(seen !== booted, "the check sees a head newer than the one booted on");
+    // It hands the worker what it saw, and reloads only once that is written.
+    let written = false;
+    await h.message({ type: "adopt", entries: [{ url: SCOPE, body: server["/"][0] }, { url: SCOPE + LIVE, body: seen }] },
+      { postMessage: () => { written = true; } });
+    assert(written, "the worker says the adopted copies are written");
+    // The launch's refreshes land now, with the server's answer from before the deploy.
+    land();
+    await new Promise((ok) => setTimeout(ok, 20));
+    h.setGate(null);
+    // The reload.
+    const rebooted = await (await h.request(SCOPE + LIVE)).text();
+    const rehome = await (await h.request(SCOPE + "?p=times-1", "navigate")).text();
+    assert(rebooted === seen, "the reloaded page boots on the head the check saw, not the late older refresh: " + rebooted);
+    assert(/cccc/.test(rehome), "and on the home page the check saw");
+    // Its own update check compares that with the server: equal, so no pill.
+    assert(rebooted === server["/" + LIVE][0], "the check after the reload finds nothing newer, so no pill");
+    // Only the check's two files can be adopted.
+    await h.message({ type: "adopt", entries: [{ url: SCOPE + "app.js", body: "other" }] });
+    assert(!(await shell.match(new Request(SCOPE + "app.js"))), "adopt takes only the home page and head-live.json");
+    // A refresh begun after the adoption is newer, and lands.
+    server["/" + LIVE] = ['{"v":3}', "application/json"];
+    await h.request(SCOPE + LIVE);
+    await new Promise((ok) => setTimeout(ok, 20));
+    const later = await shell.match(new Request(SCOPE + LIVE));
+    assert(later && (await later.text()) === '{"v":3}', "a refresh begun after the adoption still replaces it");
   }
 
   if (fails.length) { console.log("FAIL\n  " + fails.join("\n  ")); process.exit(1); }

@@ -550,52 +550,5 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
      the boot rather than blocking the first paint. -->
 <script src="qr.js"></script>
 <script>window.ctBootParsed();</script>
-<script>
-// Reload once when the page in the cache is older than the page on the server.
-//
-// The asset stamps make style.css and app.js impossible to get stale — the URL
-// changes when the file does. index.html is the one file with a fixed URL, and
-// GitHub Pages serves it with max-age=600 and no ETag, which nothing here can
-// override. A browser tab revalidates that on reload; an iOS home-screen app
-// does not, so it can go on booting a months-old index.html that points at the
-// asset versions of the day it was installed, and every fix after that is
-// invisible ("I'm still seeing weird spacing on the yes", Paul, 2026-09-06,
-// three commits after it was fixed).
-//
-// So the page checks its own stamps against the live ones and reloads if they
-// have moved. Once only, and guarded by a sessionStorage flag: a reload that
-// re-reads the same cached copy would otherwise loop forever, which is a worse
-// failure than the staleness. Best-effort throughout — offline, blocked, or
-// unparseable all mean carry on with what we have.
-//
-// Each URL is compared as its last path segment plus stamp ("favicon.svg?v=0c1a"):
-// app.js rewrites the <head> icon links to absolute URLs before this runs, and
-// comparing whole hrefs saw "https://…/favicon.svg?v=x" against the served
-// "favicon.svg?v=x" as a change, so EVERY cold open reloaded the page and parsed
-// the 2 MB index twice before the grid drew (10-24, "puzzle is slow to load").
-(function () {
-  var FLAG = "ct:reloaded-for-stamps";
-  if (!window.fetch || !window.sessionStorage) return;
-  try { if (sessionStorage.getItem(FLAG)) { sessionStorage.removeItem(FLAG); return; } } catch (e) { return; }
-  function uniq(u, i, a) { return !i || u !== a[i - 1]; }
-  function key(u) { return u.replace(/^[^?]*\//, ""); }
-  var mine = [].slice.call(document.querySelectorAll("script[src], link[href]"))
-    .map(function (n) { return n.getAttribute("src") || n.getAttribute("href"); })
-    .filter(function (u) { return u && /\?v=[a-f0-9]+$/.test(u); }).map(key).sort().filter(uniq).join("|");
-  if (!mine) return;
-  fetch(location.pathname + "?_=" + Date.now(), { cache: "no-store" })
-    .then(function (r) { return r.ok ? r.text() : null; })
-    .then(function (html) {
-      if (!html) return;
-      var live = (html.match(/(?:src|href)="([^"]*\?v=[a-f0-9]+)"/g) || [])
-        .map(function (m) { return key(m.replace(/^(?:src|href)="/, "").replace(/"$/, "")); })
-        .sort().filter(uniq).join("|");
-      if (!live || live === mine) return;
-      try { sessionStorage.setItem(FLAG, "1"); } catch (e) { return; }
-      location.reload();
-    })
-    .catch(function () {});
-})();
-</script>
 </body>
 </html>

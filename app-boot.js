@@ -796,12 +796,22 @@
      solver mid-word should not see the grid vanish: if there was any input in
      the last 20s the reload waits for the app to be hidden and shown again, and
      a small "Updated — tap to reload" pill is shown meanwhile. The reload first
-     pushes any pending sync and waits a moment for it. */
+     pushes any pending sync and waits a moment for it.
+     This check is the one place that decides a newer version exists, and one
+     update gives one reload or one pill. The worker answers launches from its
+     held copies, so the check hands it the exact home page and head-live.json
+     it compared ("adopt" in sw.js) and the reload waits for that: the reloaded
+     page boots on what the check saw and finds nothing newer. A page that does
+     find something newer within UPDATE_LOOP_MS of its own update reload shows
+     the pill instead of reloading again. */
   const UPDATE_GAP_MS = 5 * 60 * 1000, UPDATE_BUSY_MS = 20 * 1000, UPDATE_LOOP_MS = 2 * 60 * 1000;
+  // A worker from before "adopt" never answers it; the reload goes ahead
+  // after this long rather than waiting for ever.
+  const UPDATE_ADOPT_MS = 3000;
   const UPDATE_RELOAD_KEY = "ct:updReload";
   function autoUpdateInit() {
     if (typeof fetch !== "function" || location.protocol === "file:") return;
-    let lastCheck = 0, lastInput = 0, found = false, checking = false;
+    let lastCheck = 0, lastInput = 0, found = false, checking = false, adopted = Promise.resolve();
     ["keydown", "input", "pointerdown"].forEach((t) =>
       document.addEventListener(t, () => { lastInput = Date.now(); }, true));
     const stamps = (pairs) => {
@@ -818,9 +828,22 @@
       .map((el) => el.getAttribute("src") || el.getAttribute("href")));
     const theirs = (html) => stamps((html.match(/(?:src|href)="[^"]*\?v=[0-9a-f]+"/g) || [])
       .map((m) => m.slice(m.indexOf('"') + 1, -1)));
+    // The server's copies the check found newer, handed to the worker at once
+    // (so a relaunch instead of a reload also boots on them); a reload waits
+    // for the worker to say they are written.
+    function adopt(entries) {
+      const sw = navigator.serviceWorker && navigator.serviceWorker.controller;
+      if (!sw || !entries.length || typeof MessageChannel !== "function") return Promise.resolve();
+      return new Promise((done) => {
+        const ch = new MessageChannel();
+        ch.port1.onmessage = () => { ch.port1.close(); done(); };
+        setTimeout(done, UPDATE_ADOPT_MS);
+        sw.postMessage({ type: "adopt", entries }, [ch.port2]);
+      });
+    }
     function reloadNow() {
       store.session.set(UPDATE_RELOAD_KEY, Date.now());
-      pageLeaving().then(() => location.reload());
+      adopted.then(() => pageLeaving()).then(() => location.reload());
     }
     function pill() {
       if ($("update-pill")) return;
@@ -847,14 +870,23 @@
       if (navigator.serviceWorker) navigator.serviceWorker.getRegistration().then((r) => r && r.update()).catch(() => {});
       // The page and its puzzle list are both answered from the worker's held
       // copy, so both are compared with the server's.
-      const live = fetch(at("puzzles/idx/head-live.json"), { cache: "no-store" })
-        .then((r) => (r.ok ? r.text() : ""), () => "");
-      fetch(at("./"), { cache: "no-store", credentials: "same-origin" })
-        .then((r) => (r.ok ? r.text() : ""))
+      const liveUrl = at("puzzles/idx/head-live.json"), homeAt = at("./");
+      const live = fetch(liveUrl, { cache: "no-store" })
+        .then((r) => (r.ok && !r.redirected ? r.text() : ""), () => "");
+      fetch(homeAt, { cache: "no-store", credentials: "same-origin" })
+        .then((r) => (r.ok && !r.redirected ? r.text() : ""))
         .then((html) => live.then((text) => {
           const now = mine();
-          if (text && window.ctLiveText && text !== window.ctLiveText) found = true;
-          if (html && now.size) for (const s of theirs(html)) if (!now.has(s)) { found = true; break; }
+          let newer = false;
+          if (text && window.ctLiveText && text !== window.ctLiveText) newer = true;
+          if (html && now.size) for (const s of theirs(html)) if (!now.has(s)) { newer = true; break; }
+          if (newer && !found) {
+            found = true;
+            const entries = [];
+            if (html) entries.push({ url: homeAt, body: html });
+            if (text) entries.push({ url: liveUrl, body: text });
+            adopted = adopt(entries);
+          }
           apply(false);
         }))
         .catch(() => {})

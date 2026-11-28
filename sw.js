@@ -14,7 +14,12 @@
      network that is slow, dead or a wifi with no internet. Nothing is lost by
      it being a visit behind: the page compares its own stamps and its index
      with the server's (autoUpdateInit) and offers or does the reload when
-     they have moved. With no copy held yet, the network answers.
+     they have moved. Before that reload it hands the worker the exact copies
+     it compared ("adopt"), so the reloaded page boots on them and finds
+     nothing newer. Of two writes of one held copy, the one begun later wins:
+     a refresh already under way when a copy is adopted does not overwrite it
+     with what the server said a moment earlier. With no copy held yet, the
+     network answers.
    - Puzzle files live in their own cache, capped at MAX_PUZZLES, oldest out
      first. Every puzzle the solver opens lands there, and the page sends a
      batch of URLs in a "save" message by itself: once idle after an online
@@ -145,17 +150,32 @@ function offlineHome(url) {
   return m && m[1] !== "series" ? SCOPE + "?p=" + encodeURIComponent(m[1]) : SCOPE;
 }
 
+// Each write of a held copy (a refresh, an adoption) takes a number when it
+// begins; a write lands only if no write begun later has landed on that key.
+// So the newest answer the device has seen is the one kept, whichever
+// finished last. Kept in memory: a write in flight holds the worker awake.
+let writeSeq = 0;
+const landed = new Map();
+async function putNewest(cache, key, res, begun) {
+  if ((landed.get(key.url) || 0) > begun) return false;
+  landed.set(key.url, begun);
+  await cache.put(key, res);
+  return true;
+}
+
 // The held copy at once, refreshed behind it; the network answers only when
 // none is held. `key` is what the copy is filed under: the home page is one
 // entry however many ?p=<id> addresses it was opened as. `onFresh` runs on each
-// refreshed copy and is waited for with the refresh.
+// refreshed copy and is waited for with the refresh. The refresh asks the
+// server itself (cache "no-cache"), never the browser's HTTP cache, which can
+// hold a copy older than the one adopted from the page's update check.
 async function staleWhileRevalidate(event, req, name, key, onFresh) {
   const cache = await caches.open(name);
   const held = await cache.match(key);
-  const refresh = fetchTimed(req).then(async (res) => {
+  const begun = ++writeSeq;
+  const refresh = fetchTimed(new Request(req.url, { cache: "no-cache", credentials: "same-origin" })).then(async (res) => {
     if (res.ok && !res.redirected) {
-      await cache.put(key, res.clone());
-      if (onFresh) await onFresh(res.clone());
+      if (await putNewest(cache, key, res.clone(), begun) && onFresh) await onFresh(res.clone());
     }
     return res;
   });
@@ -185,8 +205,9 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET" || req.headers.has("range")) return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin || url.pathname.endsWith("/sw.js")) return;
-  // The page's update check asks for the home HTML with cache "no-store": it
-  // wants the server's copy now, not the held one, so the worker stays out.
+  // The page's update check asks for the home HTML and head-live.json with
+  // cache "no-store": it wants the server's copy now, not the held one, so the
+  // worker stays out (and the page adopts what it got; see "adopt").
   if (req.cache === "no-store") return;
 
   if (req.mode === "navigate") {
@@ -234,12 +255,35 @@ self.addEventListener("fetch", (event) => {
 
 // The page's messages. "precache": the assets it was loaded with. "save": a
 // batch of puzzle files, answered on the port with {done, total, failed}.
+// "adopt": the home page and head-live.json the update check fetched, held as
+// the copies the next load boots on; answered on the port once written.
 self.addEventListener("message", (event) => {
   const d = event.data || {};
   const port = event.ports && event.ports[0];
   if (d.type === "precache") event.waitUntil(precache(d.urls || []));
   if (d.type === "save") event.waitUntil(savePuzzles(d.urls || [], port, d.drop || [], d.keep || []));
+  if (d.type === "adopt") event.waitUntil(adopt(d.entries || [], port));
 });
+
+// The update check found a newer version and is about to reload (or offer
+// to): the copies it compared become the held ones, so the reload boots on
+// exactly what the check saw. Only the two files the check fetches are taken.
+async function adopt(entries, port) {
+  const begun = ++writeSeq;
+  const cache = await caches.open(SHELL);
+  for (const e of entries) {
+    try {
+      const url = new URL(e.url, SCOPE);
+      if (url.origin !== self.location.origin || typeof e.body !== "string") continue;
+      const live = isIdxLive(url);
+      if (!live && !isHome(url)) continue;
+      const key = new Request(live ? url.origin + url.pathname : SCOPE);
+      const res = new Response(e.body, { headers: { "content-type": live ? "application/json" : "text/html" } });
+      if (await putNewest(cache, key, res.clone(), begun) && live) await sweepIdx(res);
+    } catch (err) { /* unreadable: the next refresh brings it */ }
+  }
+  if (port) port.postMessage({ adopted: true });
+}
 
 async function precache(urls) {
   const cache = await caches.open(SHELL);

@@ -23,7 +23,11 @@
       puzzles/idx; a legacy series-date alias (metro-20260105) fetches only
       that series' shards and resolves; a bare number and an unknown id fetch
       every shard (the bare number resolves, the unknown id boots on the
-      newest puzzle). */
+      newest puzzle).
+   6. updateAdopt: the update check that finds a head newer than the booted
+      one hands that exact head to the worker and reloads only once the worker
+      has written it; the reloaded page, booted on it, finds nothing newer, so
+      one update is one reload and never a reload and then the pill. */
 "use strict";
 const fs = require("fs");
 const os = require("os");
@@ -257,6 +261,65 @@ function loader(root, files) {
   await tick();
   check(shardsOf(d).length === total && d.window.CRYPTIC_INDEX.partial === false,
     "an unknown id loads every shard, then boots on the newest puzzle");
+  d.stop();
+
+  // 6: the update check. A head newer than the booted one is handed to the
+  // worker ("adopt") and the page reloads only once the worker says it is
+  // written; the reloaded page, booted on that head, finds nothing newer.
+  function updated(server, bootedOn) {
+    const posted = [];
+    let reloads = 0;
+    global.fetch = (url, opts) => {
+      const u = String(url);
+      if (opts && opts.cache === "no-store") {
+        const text = /head-live\.json$/.test(u) ? server : "<!doctype html><p>home</p>";
+        return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(text) });
+      }
+      if (/\.js\.gz/.test(u)) return Promise.resolve({ ok: false, status: 404 });
+      return new Promise(() => {});
+    };
+    let real = null;
+    const d = boot({ query: "?p=" + realId, storage: { "ct:nux": "9" }, index: (ix) => {
+      real = ix.puzzles.find((p) => p.id === realId);
+      ix.puzzles = [real].concat(catalogue().puzzles.slice(0, 2));
+      ix.reprints = [];
+      ix.partial = true;
+      ix.idx = { live, stat: STAT };
+    } });
+    // The boot loader's kept text, the worker and reload, all read only once
+    // the check's fetches have answered.
+    d.window.ctLiveText = bootedOn;
+    global.location.reload = () => { reloads++; };
+    global.navigator.serviceWorker = {
+      controller: { postMessage: (msg, ports) => { posted.push({ msg, port: ports && ports[0] }); } },
+      getRegistration: () => Promise.resolve(null),
+    };
+    d.posted = posted;
+    d.reloads = () => reloads;
+    return d;
+  }
+  const settle = async (until) => {
+    for (let i = 0; i < 50 && !(until && until()); i++) await new Promise((r) => setImmediate(r));
+  };
+  const newer = liveText.replace(/\}\s*$/, ',"_deploy":2}');
+  d = updated(newer, liveText);
+  await settle(() => d.posted.length);
+  const sent = d.posted[0] && d.posted[0].msg;
+  const head = sent && (sent.entries || []).find((e) => /puzzles\/idx\/head-live\.json$/.test(e.url));
+  check(!!sent && sent.type === "adopt" && head && head.body === newer,
+    "a newer head is handed to the worker, exactly as the check fetched it");
+  await settle();
+  check(d.reloads() === 0, "the page does not reload before the worker has written it");
+  d.posted[0].port.postMessage({ adopted: true });
+  await settle(() => d.reloads());
+  check(d.reloads() === 1, "once written, the page reloads once: " + d.reloads());
+  d.stop();
+
+  d = updated(newer, newer);
+  await settle();
+  await settle();
+  check(d.posted.length === 0 && d.reloads() === 0,
+    "the reloaded page, booted on that head, finds nothing newer: no reload, no pill");
   d.stop();
 
   console.log(failures ? failures + " FAILED" : "all passed");
