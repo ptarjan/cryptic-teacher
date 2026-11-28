@@ -2119,13 +2119,14 @@ html.ct-nopush #btn-notify { display: none; }
   background: var(--line); color: var(--muted); opacity: .6; cursor: not-allowed; }
 .hint-track button.step.arm-cost { border-color: var(--bad, #b3261e); color: var(--bad, #b3261e); }
 
-/* The pattern line and the Letters toggle share a row. */
-.pattern-row { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
-.pattern-row .pattern { align-self: stretch; min-width: 0; }
-.pattern-row #hx-wheel { margin: -2px 0 8px; }
-/* The boxes are sized to the panel's whole width, and appearing or hiding the
-   Letters button must never resize them (it used to share their row, so a solve
-   that hid it grew every letter). A word never breaks inside itself. */
+/* The answer boxes and the Letters toggle share a row: the boxes take the
+   left column, the button a right-hand slot centred on them. The slot is always
+   reserved (a hidden button keeps its space but is invisible, so it is neither
+   focusable nor clickable), so the boxes are the same size whether or not the
+   button is shown. A word never breaks inside itself. */
+.pattern-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 8px; }
+.pattern-row .pattern { min-width: 0; }
+.pattern-row #hx-wheel.hidden { display: inline-block !important; visibility: hidden; }
 .pat-word { flex-wrap: nowrap; }
 .pat-box { min-width: 0; flex: 0 1 auto; }
 
