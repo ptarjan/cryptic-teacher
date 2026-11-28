@@ -6717,6 +6717,39 @@ def suntel_titled(d, found):
     return stamped
 
 
+#: A Gale Sunday Telegraph puzzle titled from the bare "COMPETITION No N" heading (suntel_titled, titleReadBy "suntelWhole") carries
+#: that heading's box, which is the SOLUTION heading of the puzzle a week back: the box of the printed title is not known (its
+#: crop read none). The grid search under it (locate_grid) found the solution's own print or a clue column ("the ink under the
+#: title is 324x336 / 12x32 / 2120x134, not a grid", 35 rows 1990-93, r317). The cryptic's grid is the largest grid-shaped patch
+#: of ink on the leaf that is no solution grid (the Quickie's, printed smaller, stands beside it: filed 1991-93 pages 754 px
+#: against 568 at 3550 px wide). Its title box is the heading's own size laid on the grid's foot (the printed title stands under
+#: the grid: on 40 filed 1990-93 pages its top is within 40 px of the grid's foot, 28 px under to 40 px over), or on its top
+#: where the heading stands over the grid's middle (the title over the grid). Read-time only: the scan's boxes are unchanged.
+SUNTEL_OWN_TITLE = "suntelWhole"
+
+
+def suntel_own_title(d, hit, found):
+    """`hit` (a puzzle of Gale Sunday Telegraph edition directory `d`) with its box moved off the solution heading it was
+    titled by (suntel_titled: the same box as one of `found`'s solutions) onto its own grid's foot or top (SUNTEL_OWN_TITLE), or
+    `hit` itself where it is not so titled or the leaf holds no grid that is no solution's."""
+    if not hit or SUNTEL_OWN_TITLE not in (hit.get("titleReadBy") or ()) or not hit.get("box") \
+            or paper_of(d) is not GALE_SUNDAY_TELEGRAPH:
+        return hit
+    box = tuple(hit["box"])
+    if not any(tuple(s.get("box") or ()) == box and s.get("leaf") == hit.get("leaf") for s in (found or {}).get("solutions") or ()):
+        return hit
+    img = page(d, hit["leaf"])
+    solution = solution_shaped(img)
+    grids = [g for g in grids_on(img, shaped=lambda b: shaped_on(img, b)) if not solution(g)]
+    if not grids:
+        return hit
+    g = max(grids, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
+    w, h = box[2] - box[0], box[3] - box[1]
+    if (box[1] + box[3]) / 2 >= (g[1] + g[3]) / 2:
+        return dict(hit, box=(g[0], g[3], g[0] + w, g[3] + h))
+    return dict(hit, box=(g[0], g[1] - h, g[0] + w, g[1]))
+
+
 #: The key of a Gale Independent on Sunday scan (scan_anywhere's) ios_titled looked the cached whole-page reads of over,
 #: titled by them or not: the scan is current for it (ios_stale) once it holds this.
 IOS_LOOKED = "iosLooked"
@@ -11318,6 +11351,8 @@ def _read_puzzle(d, found, hit, solutions, ocr_first=True):
         _stage_line(d, hit, t0, "held title " + ("taken" if got is not None else "none"))
         return got or ({"number": hit["number"], "leaf": hit["leaf"], "heldTitle": True,
                         "skip": "a held title read answers-only: no linked solution grid gave its answers"}, None)
+    # A Gale Sunday Telegraph puzzle titled from the solution heading: its own grid's foot is the title's place (SUNTEL_OWN_TITLE).
+    hit = suntel_own_title(d, hit, found)
     if not ocr_first:
         return read_page_why("direct:no-ocr-first", d, found, hit, solutions, None)
     _STAGE_CPU.clear()
