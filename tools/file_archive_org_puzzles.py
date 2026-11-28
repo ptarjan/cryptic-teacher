@@ -5966,6 +5966,8 @@ def scan_anywhere(d):
     found = ios_titled(d, found)
     # No title read on an archive.org Guardian weekday page: its title read through the glued words, or its "Set by" line.
     found = guardian_titled(d, found)
+    # Still none: the page prints the clues of held Guardian puzzles (the Guardian Weekly's reprint of them): REPRINT_OF.
+    found = weekly_reprint(d, found)
     # No title read on an archive.org FT 1985-94 page: the band right of each grid it holds (FT_RIGHT).
     found = ft_right_titled(d, found)
     # Still none: the same bands' reads through ft_tolerant_lines (a misread number line, FT_TOLERANT).
@@ -6821,6 +6823,62 @@ def guardian_titled(d, found):
                                         **({"setterRead": setter} if setter else {})}],
                 "solutions": [s for s in found.get("solutions") or () if s["number"] != fits[0]]}
     return stamped
+
+
+#: The key of a scan (scan_anywhere's) of an archive.org Guardian edition no title was read on whose crossword leaves were
+#: matched against the cryptics already held (weekly_reprint), a match found or not: its WEEKLY_REPRINT rescan is done.
+WEEKLY_LOOKED = "weeklyLooked"
+#: The key of such a scan whose page's clues are a held puzzle's or two: [held ids], the puzzle(s) the page reprints.
+REPRINT_OF = "reprintOf"
+#: A held clue is on the page when this share of its word pairs (at least WEEKLY_PAIRS of them) read in the page's text;
+#: a page reprints a puzzle when WEEKLY_CLUES of its clues are, and this share of its clues of that length.
+WEEKLY_COVER, WEEKLY_PAIRS, WEEKLY_CLUES, WEEKLY_SHARE = 0.7, 4, 8, 0.35
+#: How far (days) either side of the edition a held puzzle's date may lie for it to be the one reprinted: the Guardian
+#: Weekly reprints a fortnight to two months back.
+WEEKLY_REACH = (-120, 7)
+
+
+def _pairs(text):
+    words = re.findall(r"[a-z]+", re.sub(r"-\s+", "", text.lower()))
+    return list(zip(words, words[1:]))
+
+
+def weekly_reprint(d, found):
+    """Scan `found` of edition directory `d` stamped WEEKLY_LOOKED, and REPRINT_OF [held ids] where it is an archive.org
+    Guardian edition read with no puzzle and no failure whose crossword leaves print the clues of held Guardian puzzles
+    dated near it (WEEKLY_REACH): the Guardian Weekly (its "Supplement" editions, 1995-98) reprints the dailies' cryptics
+    with the clues in the same words, no number and no solution of its own. The rule is the page's clue text, not a
+    heading: a held puzzle with WEEKLY_CLUES clues (WEEKLY_PAIRS or more word pairs each) reading on the page at
+    WEEKLY_COVER of their pairs, and WEEKLY_SHARE of its clues of that length, is on the page (a Quickie, or a puzzle
+    not held, matches none). Nothing is filed: the puzzle is held, the page is its reprint, and a copy is never written.
+    Outside scan(), whose key a change here would move."""
+    if found.get("failed") or found.get("puzzles") or paper_of(d) is not GUARDIAN \
+            or not str(found.get("item", "")).startswith("TheGuardian"):
+        return found
+    stamped = {**found, WEEKLY_LOOKED: True}
+    try:
+        day = datetime.date.fromisoformat(found["date"])
+        leaves = {p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())}
+        text = leaf_lines(d / "djvu.xml.gz", leaves)
+    except (OSError, ValueError, KeyError, TypeError):
+        return stamped
+    if not text:
+        return stamped
+    page = set()
+    for lines in text.values():
+        page.update(_pairs(" ".join(" ".join(w[4] for w in ws) for ws in lines)))
+    lo, hi = (day + datetime.timedelta(days=n) for n in WEEKLY_REACH)
+    on = []
+    for n, when in held_dates(GUARDIAN.series).items():
+        if not lo <= when <= hi:
+            continue
+        old = held_file(GUARDIAN.series, n)
+        long = [_pairs(((e.get("clue") or {}).get("text") or "")) for e in (old or {}).get("entries") or ()]
+        long = [ps for ps in long if len(ps) >= WEEKLY_PAIRS]
+        seen = sum(1 for ps in long if sum(p in page for p in ps) >= WEEKLY_COVER * len(ps))
+        if long and seen >= WEEKLY_CLUES and seen >= WEEKLY_SHARE * len(long):
+            on.append((old or {}).get("id") or f"cryptic-{n}")
+    return {**stamped, **({REPRINT_OF: sorted(on)} if on else {})}
 
 
 #: The key of a scan (scan_anywhere's) of an archive.org FT 1985-94 edition no title was read on whose grids' right-hand
