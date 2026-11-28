@@ -82,6 +82,8 @@ CLASSES = [
     ("crashed", "read; the reader raised on this title", "the traceback in the ledger's refused", True, "tools/file_archive_org_puzzles.py"),
     ("quick-set", "read; the clue list is the Quickie set of a Two-in-One page, not the cryptic",
      "none: the page's cryptic is not on it", False, "tools/file_archive_org_puzzles.py"),
+    ("prize-heading", "read; the title heads the Independent on Sunday's Prize Crossword, not the Beelzebub the Gale pages file",
+     "none: the Prize files as indysunday from the blog and the publisher's feed", False, "tools/file_archive_org_puzzles.py"),
     ("refused-no-cause", "read before refusals filed a cause; the next read stamps one",
      "the standing full pass re-reads it (bump REREAD_BEFORE in tools/ocr_full_pass.sh)", True, "tools/ocr_full_pass.sh"),
     ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True, "tools/file_archive_org_puzzles.py"),

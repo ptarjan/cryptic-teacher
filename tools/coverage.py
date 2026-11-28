@@ -474,10 +474,10 @@ def gale_pages(filer):
         paper = next((p for p in papers if p.item.match(item)), None)
         if paper is None:
             continue
-        seen.add((paper.series, day[:10]))
+        seen.add((filer.filing_series(paper), day[:10]))
         puzzles = (row.get("scan") or {}).get("puzzles") or []
-        yield (paper.series, day[:10],
-               archive_coverage.verdict_class(row, archive_coverage.corpus(paper.series)[1]),
+        yield (filer.filing_series(paper), day[:10],
+               archive_coverage.verdict_class(row, archive_coverage.corpus(filer.filing_series(paper))[1]),
                puzzles[0].get("number") if puzzles else None)
     for doc in gale_fetch.load(gale_fetch.FETCHED).values():
         series = gale_series(doc.get("prod", "TTDA"), doc["date"])

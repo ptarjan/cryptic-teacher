@@ -3928,6 +3928,13 @@ check("a row due INDY_PAIRED keeps it past the blanket scan-stale reason (blanke
       [bool(f.indy_paired_due(_ip)) == (f.blanket_or_fix(_ip, "scan stale, answers missing") == f.INDY_PAIRED),
        f.blanket_or_fix({**_ip, "readAt": "2026-11-16T00:00:00+00:00"}, "scan stale, answers missing") != f.INDY_PAIRED,
        f.blanket_or_fix({**_ip, "edition": "GaleIndependent2015UKEnglish/2015-01-30"}, "x") != f.INDY_PAIRED])
+check("the Gale Independent on Sunday pages file as beelzebub (FILED_AS), every other paper as its own series, and a page "
+      "headed by the Prize Crossword is refused with its own cause",
+      ["beelzebub", True, True, "prize-heading"],
+      [f.filing_series(f.GALE_INDY_SUNDAY), all(f.filing_series(p) == p.series for p in f.FILERS.values()
+                                                 if p is not f.GALE_INDY_SUNDAY),
+       f.paper_of("GaleIndependentSunday2012UKEnglish/2012-03-18") is f.GALE_INDY_SUNDAY,
+       f.refuse({}, "prize-heading", "x")["cause"]])
 _ie = {"edition": "GaleIndependentSunday1997UKEnglish/1997-03-23", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
        "verdicts": [{"number": 372, "imageUnread": "the white cells span 11 rows and 12 columns", "pending": "no grid"}]}
 check("an Independent on Sunday page whose barred grid's lattice was counted 11x12 is due IOS_EVEN, not one read since, filed, "
@@ -3939,7 +3946,7 @@ check("an Independent on Sunday page whose barred grid's lattice was counted 11x
        bool(f.ios_even_due({**_ie, "edition": "GaleIndependent2005UKEnglish/2005-01-30"})) or f.IOS_EVEN not in f.RANKS,
        f.blanket_or_fix(_ie, "scan stale, answers missing") == f.IOS_EVEN])
 _ia = {"edition": "GaleIndependentSunday2006UKEnglish/2006-09-03", "readAt": "2026-11-16T22:14:29+00:00", "inputs": "x",
-       "verdicts": [{"number": 864, "id": "indysunday-864",
+       "verdicts": [{"number": 864, "id": "beelzebub-864",
                      "blank": {f"{n}-across": "no reading laid a clue on it" for n in (1, 6, 11, 12, 13)}}]}
 check("an Independent on Sunday 2001-09 page with 4+ across lights blank is due IOS_ACROSS, not one with 3, a down blank, "
       "a 1997 page, one read since or filed; it keeps the reason past the blanket",
@@ -3960,7 +3967,7 @@ check("an Independent on Sunday 2001-09 page read after IOS_ACROSS with 4+ acros
        bool(f.ios_lead_due({**_il, "readAt": "2026-11-19T00:00:00+00:00"})),
        f.blanket_or_fix(_il, "scan stale, answers missing") == f.IOS_LEAD])
 _if = {"edition": "GaleIndependentSunday2002UKEnglish/2002-06-30", "readAt": "2026-11-14T18:09:33+00:00", "inputs": "x",
-       "verdicts": [{"number": 647, "id": "indysunday-647", "blank": {"29-across": "no reading laid a clue on it"}}]}
+       "verdicts": [{"number": 647, "id": "beelzebub-647", "blank": {"29-across": "no reading laid a clue on it"}}]}
 check("an Independent on Sunday 2001-04 page left with a light blank 'no reading laid a clue' is due IOS_FOOT, not one read "
       "since, a 1997 page, a page with no such blank or another paper's; it keeps the reason past the blanket",
       [True, False, False, False, False, True],

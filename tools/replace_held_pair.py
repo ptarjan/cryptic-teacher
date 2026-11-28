@@ -96,7 +96,7 @@ def paper_of_series(fa, series):
     """The Paper whose filer files `series`, or None."""
     for filer in fa.FILERS.values():
         for p in fa.run_papers(filer):
-            if p.series == series:
+            if fa.filing_series(p) == series:
                 return p
     return None
 

@@ -205,6 +205,12 @@
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic, with its own
       weekly numbering: the daily's setters and its adventurous style, themes and
       hidden grid messages included, and about as hard.`],
+    beelzebub: ["beelzebub", `The Independent on Sunday's Beelzebub: a barred
+      12x12 puzzle where thick bars end the answers instead of black squares,
+      with its own run of numbers beside the paper's Prize cryptic. Read from
+      the printed pages.`],
+    iosconcise: ["ios concise", `The Independent on Sunday's Concise: a straight
+      puzzle of plain definitions, not a cryptic. Read from the printed pages.`],
     book: ["book", `Puzzles from printed crossword books, most of them now
       out of print. Each is named by its book and its number in that book,
       and dated by the year the book came out. Books print their solutions

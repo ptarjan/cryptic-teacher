@@ -765,7 +765,7 @@ OTHERS = {
 
 #: The Sunday papers inside two of those archives, each an issue series of
 #: its own (Gale mcode 8RWB in TGRH, 6NAH in INDA), laid out under items of
-#: their own for the filer's sundaytel / indysunday papers. The issue number
+#: their own for the filer's sundaytel / beelzebub papers. The issue number
 #: is the puzzle number, but it drifts from the week count (Sunday Telegraph
 #: No 1 is 1961-02-05, No 214 1965-03-07, No 2060 2000-12-03; "Beelzebub
 #: Prize Crossword No 954" is 2008-06-01), so rows go by date. Sunday papers
@@ -773,7 +773,7 @@ OTHERS = {
 SUNDAYS = {
     "TGRH": Other("sundaytel", range(1961, 2001), ((6,), "1961-02-05"), "Sunday Telegraph",
                   "GaleSundayTelegraph{}UKEnglish"),
-    "INDA": Other("indysunday", range(1990, 2017), ((6,), "1990-01-28"), "Independent on Sunday",
+    "INDA": Other("beelzebub", range(1990, 2017), ((6,), "1990-01-28"), "Independent on Sunday",
                   "GaleIndependentSunday{}UKEnglish"),
 }
 

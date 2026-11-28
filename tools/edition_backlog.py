@@ -116,7 +116,7 @@ def archive_counts(cache=downloads.ARCHIVE_ORG):
         c = out.setdefault(key, [0, 0])
         c[0] += 1
         c[1] += unread
-        rows.append((fa.FILERS[key].series, ed, not unread))
+        rows.append((fa.filing_series(fa.FILERS[key]), ed, not unread))
     return out, by_day(rows), read_not_filed(rows)
 
 
@@ -269,7 +269,7 @@ def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.SAVED, store=gale_lis
         except FileNotFoundError:
             continue
         read = reads.get(f"{item}/{ed}")
-        k = (fa.FILERS[key].series, edition_day(ed))
+        k = (fa.filing_series(fa.FILERS[key]), edition_day(ed))
         was = days.get(k)
         days[k] = (landed, read) if was is None else (
             min(was[0], landed), min((d for d in (was[1], read) if d), default=None))

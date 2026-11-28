@@ -217,6 +217,25 @@ SERIES = {
         "bylined": True,
         "badge": "indy sunday",
     },
+    # The Independent on Sunday's barred 12x12 puzzle (1990-2016), read off the
+    # Gale pages (tools/file_archive_org_puzzles.py). Its numbers are the Prize
+    # Crossword's (indysunday) a week or two later, so it is a series of its own:
+    # in one, prev/next and the dates would walk between two puzzles a number.
+    "beelzebub": {
+        "kind": "Beelzebub",
+        "publisher": "Independent",
+        "bylined": True,
+        "badge": "beelzebub",
+    },
+    # The Independent on Sunday's Concise, a straight (not cryptic) puzzle the
+    # Gale reader filed as the cryptic before its heading was read. Kept under
+    # its own numbering, opened only by a direct link: it is not a cryptic.
+    "iosconcise": {
+        "kind": "Concise",
+        "publisher": "Independent",
+        "badge": "ios concise",
+        "unlisted": True,
+    },
     # The Times publishes no grid and no answer key online, so these are
     # filed by tools/file_times_puzzles.py from the times-for-the-times blog:
     # the clue list and answers are the blog's, the grid is rebuilt from them.
@@ -995,7 +1014,8 @@ NAME_LEADS = {
     "nationmag": "The Nation crossword No {n}",
     "authored": "Cryptic Teacher No {n}",
     "canberra": "Canberra Times cryptic crossword",
-    "indysunday": "Independent on Sunday cryptic crossword", "times": "Times cryptic crossword",
+    "indysunday": "Independent on Sunday cryptic crossword", "beelzebub": "Independent on Sunday Beelzebub crossword",
+    "iosconcise": "Independent on Sunday concise crossword", "times": "Times cryptic crossword",
     "timesquick": "Times quick cryptic crossword", "timesjumbo": "Times jumbo cryptic crossword",
     "sundaytimes": "Sunday Times cryptic crossword", "timesclub": "Times club monthly special crossword",
     "tls": "Times Literary Supplement cryptic crossword", "mephisto": "Sunday Times mephisto crossword",

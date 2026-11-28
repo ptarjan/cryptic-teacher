@@ -2554,7 +2554,7 @@ def faint_edge_due(row):
         return False
     if day.weekday() == 5 or not WEEKDAY_RIGHT_DAYS[0] <= day <= WEEKDAY_RIGHT_DAYS[1]:
         return False
-    series = paper_of(Path(rel)).series
+    series = filing_series(paper_of(Path(rel)))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and (v.get("imageUnread") or v.get("refused") == "no reading parses")
@@ -2583,7 +2583,7 @@ def head_grid_due(row):
         return False
     if day.weekday() == 5 or not HEAD_GRID_DAYS[0] <= day <= HEAD_GRID_DAYS[1]:
         return False
-    series = paper_of(Path(rel)).series
+    series = filing_series(paper_of(Path(rel)))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None and v.get("refused") == "no reading parses"
                for v in row.get("verdicts") or ())
@@ -9831,12 +9831,23 @@ FILERS = {**PAPERS, GALE.key: GALE, GALE_INDEPENDENT.key: GALE_INDEPENDENT,
 #: The papers of the same series in other items whose editions a run of
 #: FILERS[key] reads too.
 ALSO = {TIMES.key: (TIMES_1930,), TELEGRAPH.key: (GALE_TELEGRAPH,), FT.key: (GALE_FT,)}
+#: {paper key: the series its puzzles file as} where that is not the series its Paper names. The Gale Independent
+#: on Sunday pages hold the barred Beelzebub (12x12, its own numbering, which the Prize Crossword shares a week or
+#: two apart): its puzzles file as `beelzebub`, the Prize as `indysunday` from the blog and the publisher's feed.
+#: A Paper's own definition is part of its scan key, so the series is read here, outside what scan() reaches.
+FILED_AS = {"galeindysunday": "beelzebub"}
+
+
+def filing_series(paper):
+    """The series `paper`'s puzzles file as: held, looked up and written under (FILED_AS, else its own)."""
+    return FILED_AS.get(paper.key, paper.series)
+
 #: Every Gale paper but the Times files its puzzles under the document's
 #: link.gale.com permalink, so each needs provenance's row for that host: one
 #: added without it would file puzzles the validator flags, so it fails here.
-_NO_GALE_ROW = sorted({q.series for q in (*FILERS.values(), *(x for v in ALSO.values() for x in v))
-                       if q.key.startswith("gale") and q.series != "times"
-                       and (q.series, "link.gale.com") not in provenance.ACQUISITION_BY_SOURCE})
+_NO_GALE_ROW = sorted({filing_series(q) for q in (*FILERS.values(), *(x for v in ALSO.values() for x in v))
+                       if q.key.startswith("gale") and filing_series(q) != "times"
+                       and (filing_series(q), "link.gale.com") not in provenance.ACQUISITION_BY_SOURCE})
 if _NO_GALE_ROW:
     raise RuntimeError(f"Gale papers with no (series, 'link.gale.com') row in provenance.ACQUISITION_BY_SOURCE: {_NO_GALE_ROW}")
 #: Each run's ledger in the cache, filed.jsonl unless named here.
@@ -10951,7 +10962,7 @@ def filed_number(d, found, hit):
     day = issue_day(edition, n, [h["number"] for h in found["puzzles"]], found.get("item"))
     if paper in (TIMES, GALE) and day.weekday() == 6:
         return None, day, f"{day} is a Sunday and the Times prints no daily cryptic on it: a Sunday paper's puzzle"
-    held = held_dates(paper.series)
+    held = held_dates(filing_series(paper))
     if paper is FT:
         moved, why = ft_dated(n, day, held, sure)
         if why:
@@ -11010,13 +11021,13 @@ def filed_number(d, found, hit):
         why = sunday_count_off(number, day, held)
         number = None if why else number
     if number is not None:
-        why = same_scan(number, page_url(d, found, hit["leaf"]), day, paper.series)
+        why = same_scan(number, page_url(d, found, hit["leaf"]), day, filing_series(paper))
     return number, day, why
 
 
 #: Why a title was refused: the verdict's `cause`, which tools/coverage.py
 #: buckets by. `refused` keeps the detail for a person.
-REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed", "quick-set")
+REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed", "quick-set", "prize-heading")
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
@@ -12980,7 +12991,7 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         return got
     number = got[0]["number"]
     copies = (solutions.get(number) or {}).get(SOLUTION_COPIES)
-    if not copies or paper_of(d).series != SERIES:
+    if not copies or filing_series(paper_of(d)) != SERIES:
         return got
     held = held_file(SERIES, number) or {}
     had = {entry_id(e) for e in held.get("entries") or () if e.get("solution")}
@@ -13039,9 +13050,9 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     if d is None or hit is None or not solutions or d.name in _KEEP_VLM["names"]:
         return None
     paper = paper_of(d)
-    if paper.series in HOSTLESS_ASKS:
+    if filing_series(paper) in HOSTLESS_ASKS:
         return _list_answers_only(d, found, hit, solutions)
-    if paper.key not in CELLS_CLASSIFIED and paper.series != SERIES:
+    if paper.key not in CELLS_CLASSIFIED and filing_series(paper) != SERIES:
         return None
     number, _, why = filed_number(d, found, hit)
     sol = solutions.get(number) if number is not None and not why else None
@@ -13051,7 +13062,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # their Gale headings linked, went to a full read that files the grid's answers unchecked.
     if not sol or paper.key not in CELLS_CLASSIFIED and paper_of(sol["dir"]).key not in PRINT_CLASSIFIED:
         return None
-    old = held_file(paper.series, number)
+    old = held_file(filing_series(paper), number)
     es = (old or {}).get("entries") or ()
     if not es or (old.get("source") or {}).get("acquiredBy") != TOOL \
             or (old["source"].get("url") != page_url(d, found, hit["leaf"])) or all(e.get("solution") for e in es):
@@ -13083,7 +13094,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     if not info.get("refused") and info.get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS:
         printed = printed_grid(solution_crop(sol, number), grid)
         if printed is not None:
-            moved = swapped_heading(sol, number, solutions, printed, grid, paper.series, enums)
+            moved = swapped_heading(sol, number, solutions, printed, grid, filing_series(paper), enums)
             if moved:
                 sol, answers, info = moved
             else:
@@ -13095,7 +13106,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
                 return verdict, None
     # Another puzzle's grid (wrong_grid) files none of its answers, nor does a full read of it.
     t0 = _stage("printed_grid", t0)
-    other = wrong_grid(es, answers, paper.series, number, printed=sure_page(sol["dir"], info))
+    other = wrong_grid(es, answers, filing_series(paper), number, printed=sure_page(sol["dir"], info))
     t0 = _stage("wrong_grid", t0)
     if other:
         verdict = {"number": number, "leaf": hit["leaf"], "answersOnly": True, "vlmAsks": 0,
@@ -14401,11 +14412,11 @@ def full_read_answers(paper, number, puzzle, sol, grid, answers, info):
     this tool's on the same grid; else the reading's own (no held answer) do."""
     if paper.key not in CELLS_CLASSIFIED or not answers or "refused" in info:
         return answers, info
-    old = held_file(paper.series, number) or {}
+    old = held_file(filing_series(paper), number) or {}
     held = bool((old.get("source") or {}).get("acquiredBy") == TOOL and old.get("entries")
                 and trove_solution_ocr.puzzle_grid(old) == trove_solution_ocr.puzzle_grid(puzzle))
     es = old["entries"] if held else puzzle["entries"]
-    if held and wrong_grid(es, answers, paper.series, number, printed=sure_page(sol["dir"], info)):
+    if held and wrong_grid(es, answers, filing_series(paper), number, printed=sure_page(sol["dir"], info)):
         return answers, info
     enums = {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in es}
     enums.update({(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration")
@@ -14798,7 +14809,7 @@ def held_copy(d, verdict, puzzle):
     try:
         from fetch_puzzle import clue_index, clue_keys, unsolved_book
         import clue_index as ci
-        if verdict["number"] in held_dates(paper_of(d).series):
+        if verdict["number"] in held_dates(filing_series(paper_of(d))):
             return None
         entries = len(puzzle.get("entries") or ())
         keys = clue_keys(puzzle)
@@ -14859,7 +14870,7 @@ def held_settled(d, verdict):
     verdict["heldSkip"] and "vlmAsks" 0 when it spares the asks."""
     if d is None or d.name in _KEEP_VLM["names"] or verdict.get("number") is None:
         return False
-    series = paper_of(d).series
+    series = filing_series(paper_of(d))
     n = verdict["number"]
     if n not in held_dates(series):
         return False
@@ -15456,7 +15467,7 @@ HOSTLESS_ASKS = ("sundaytel",)
 def hostless_sunday_tel(paper, solutions, number):
     """Whether `paper`'s puzzle `number` has no linked solution and its paper's solutions are never linked
     (HOSTLESS_ASKS): the VLM is not asked for its clue columns."""
-    return paper.series in HOSTLESS_ASKS and not (solutions or {}).get(number)
+    return filing_series(paper) in HOSTLESS_ASKS and not (solutions or {}).get(number)
 
 
 #: The text list's marks in a VLM column reply: its two headings, and what ends a list (another paper's list
@@ -15562,7 +15573,7 @@ def _list_answers_only(d, found, hit, solutions):
     if not sol or d.name in _KEEP_VLM["names"] or not vlm.wanted():
         return None
     paper = paper_of(d)
-    old = held_file(paper.series, number)
+    old = held_file(filing_series(paper), number)
     es = (old or {}).get("entries") or ()
     if not es or (old.get("source") or {}).get("acquiredBy") != TOOL \
             or (old["source"].get("url") != page_url(d, found, hit["leaf"])) or all(e.get("solution") for e in es):
@@ -17363,7 +17374,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             pass  # gone mid-run: read as without it; run() files it to be read again
     # The Canberra Times reprint of the same puzzle is another copy of the
     # print, its readings voters like the scan's own.
-    reprints = reprint_readings(n, paper.series)
+    reprints = reprint_readings(n, filing_series(paper))
     # Worn type reads an e as c, o or x the same way in every reader ("cra",
     # "somo"): each scan reading has the one lexicon word it wore from put
     # back (ocr_clues.worn), so the readers agree on it.
@@ -17430,6 +17441,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             verdict["heading"] = heading
         if heading == "concise":
             return refuse(verdict, "quick-set", "the page's heading is the Concise Crossword's, not the cryptic's"), None
+        # The Gale pages file the Beelzebub (FILED_AS); the Prize Crossword files as indysunday from the blog and feed.
+        if heading == "prize":
+            return refuse(verdict, "prize-heading", "the page's heading is the Prize Crossword's, not the Beelzebub's"), None
     if (sunday and quick_set(parsed)) or concise_gale(paper, parsed):
         return refuse(verdict, "quick-set", "the clue list is the straightforward (Quickie) set, not the cryptic"), None
     verdict["readings"] = list(order)
@@ -17548,7 +17562,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         import puzzle_integrity
         try:
             t_laid, t_blank, t_alike = tail(laid, blank)
-            trial = build(n, day, grid, how, t_laid, edition_of(d, found), leaf, series=paper.series,
+            trial = build(n, day, grid, how, t_laid, edition_of(d, found), leaf, series=filing_series(paper),
                           name=paper.name.format(n), url=page_url(d, found, leaf), printed=t_alike)
             puzzle_integrity.refuse_bad_write(trial)
         except puzzle_integrity.RefusedWrite as e:
@@ -17642,13 +17656,13 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
         verdict["blank"] = blank
-    puzzle = build(n, day, grid, how, laid, edition_of(d, found), leaf, series=paper.series,
+    puzzle = build(n, day, grid, how, laid, edition_of(d, found), leaf, series=filing_series(paper),
                    name=paper.name.format(n), url=page_url(d, found, leaf), printed=alike)
-    setter = byline(img, hit, paper.series, day)
+    setter = byline(img, hit, filing_series(paper), day)
     if setter:
         puzzle["setter"] = setter
     sol = solutions.get(n)
-    if sol and paper.series in HOSTLESS_ASKS and vlm.wanted():
+    if sol and filing_series(paper) in HOSTLESS_ASKS and vlm.wanted():
         # SUNTEL_LIST: this paper's "solution" is a text list under the winners heading, not a grid: solved()
         # took the ink under the heading (the rule above the list, 1300x8) for a grid and refused (r124: 48 of 52
         # 1995-99 pages). The list is read as _list_answers_only reads it, off the puzzle just read.
@@ -20410,10 +20424,10 @@ def sister_solutions(cache, paper):
     to a Times puzzle archive.org holds prints in the next issue, which may be
     a Gale page alone, and the reverse. A run's own headings come first;
     each links as linked_solutions() reads it."""
-    out, held = {}, held_dates(paper.series)
+    out, held = {}, held_dates(filing_series(paper))
     for p in FILERS.values():
         path = ledger_of(cache, p)
-        if p is paper or p.series != paper.series or not path.exists():
+        if p is paper or filing_series(p) != filing_series(paper) or not path.exists():
             continue
         st = path.stat()
         stamp = (st.st_mtime_ns, st.st_size)
@@ -21001,7 +21015,7 @@ def pale_rules_due(row):
     if paper_of(rel).key != "gale" or not PALE_YEARS[0] <= year <= PALE_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_PALE_RULES)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and pale_grid.pale_whys(str(v.get("imageUnread") or ""))
                and filed_state(series, v.get("number")) is None
@@ -21903,7 +21917,7 @@ def ios_wrap_due(row):
             continue
         if any(not str(s).startswith("no ACROSS and DOWN lists") for s in (v.get("unparsed") or {}).values()):
             continue
-        if not filed_state(GALE_INDY_SUNDAY.series, v.get("number")):
+        if not filed_state(filing_series(GALE_INDY_SUNDAY), v.get("number")):
             return True
     return False
 
@@ -22066,7 +22080,7 @@ def indy_barred_due(row):
     if paper_of(rel).key != "galeindysunday" or Path(rel).name[:4] > INDY_SUNDAY_BARRED_END \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_BARRED)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(not v.get("skip") and v.get("number") is not None and filed_state(series, v.get("number")) is None
                and (v.get("refused") is None or str(v.get("imageUnread") or "").startswith("the white cells span 12 rows and 12 columns")
                     or v.get("cause") == "no-reading-parses")
@@ -22090,7 +22104,7 @@ def indy_barred_late_due(row):
     if paper_of(rel).key != "galeindysunday" or Path(rel).name[:4] <= INDY_SUNDAY_BARRED_END \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_BARRED_LATE)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and str(v.get("imageUnread") or "").startswith("the white cells span 12 rows and 12 columns")
@@ -22113,7 +22127,7 @@ def indy_links_due(row):
     if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_LINKS)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and any(_SLASHED_HEAD.search(str(s)) for s in (v.get("unparsed") or {}).values())
@@ -22140,7 +22154,7 @@ def indy_columns_due(row):
     if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_COLUMNS)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     written = "2010" <= Path(row["edition"]).name[:4] <= "2015"
     return any(not v.get("skip") and v.get("number") is not None and (written or not v.get("wrote")) and not v.get("refused")
                and filed_state(series, v.get("number")) is None
@@ -22168,7 +22182,7 @@ def indy_thin_due(row):
     if paper_of(Path(rel)).key != GALE_INDEPENDENT.key \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_THIN)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and filed_state(series, v.get("number")) is None
                and any(str(s).startswith("no ACROSS and DOWN lists") for s in (v.get("unparsed") or {}).values())
@@ -22197,7 +22211,7 @@ def indy_foot_tail_due(row):
     if paper_of(Path(rel)).key != GALE_INDEPENDENT.key \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_FOOT_TAIL)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and filed_state(series, v.get("number")) is None
                and any(str(s).startswith("no ACROSS and DOWN lists") for s in (v.get("unparsed") or {}).values())
@@ -22227,7 +22241,7 @@ def indy_reparse_due(row):
         if v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None \
                 and vals and all(s.startswith("no ACROSS and DOWN lists")
                                  or (sunday and "clues do not parse: cannot find a clue number" in s) for s in vals) \
-                and filed_state(paper.series, v.get("number")) is None:
+                and filed_state(filing_series(paper), v.get("number")) is None:
             return True
     return False
 
@@ -22250,7 +22264,7 @@ def ft_lead_whole_due(row):
     if paper_of(Path(rel)).key != GALE_FT.key or not re.match(r"GaleFT199\d", rel) \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_FT_LEAD_WHOLE)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     titles = {p.get("number"): p.get("box") for p in (row.get("scan") or {}).get("puzzles") or ()}
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and filed_state(series, v.get("number")) is None
@@ -22276,7 +22290,7 @@ def ft_side_right_due(row):
     if paper_of(Path(rel)).key != GALE_FT.key or not re.match(r"GaleFT20\d\d", rel) \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_FT_SIDE_RIGHT)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and not v.get("unparsed") and not v.get("dropped") and filed_state(series, v.get("number")) is None
                for v in row.get("verdicts") or ())
@@ -22377,7 +22391,7 @@ def suntel_right_due(row):
     if paper_of(Path(rel)).key != GALE_SUNDAY_TELEGRAPH.key or not re.match(r"GaleSundayTelegraph(199[5-9]|2000)", rel) \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_SUNTEL_RIGHT)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(v.get("refused") == "no reading parses" and not v.get("skip") and v.get("number") is not None
                and not v.get("unparsed") and not v.get("dropped") and filed_state(series, v.get("number")) is None
                for v in row.get("verdicts") or ())
@@ -23058,7 +23072,7 @@ def indy_above_due(row):
     if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_ABOVE)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and str(v.get("imageUnread") or "").startswith(_INDY_UNREAD)
@@ -23081,7 +23095,7 @@ def indy_wide_due(row):
     if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_WIDE)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and _INDY_SPAN.match(str(v.get("imageUnread") or "")) is not None
@@ -23106,7 +23120,7 @@ def indy_frame_due(row):
     if not ("Gale" in ed or ed.startswith("FinancialTimes19")) \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_FRAME)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and "lattice at" in str(v.get("imageUnread") or "")
@@ -23128,7 +23142,7 @@ def whole_ink_due(row):
     if "Gale" not in ((row or {}).get("edition") or "") \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_WHOLE_INK)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and str(v.get("imageUnread") or "").startswith("the largest ink patch is")
@@ -23150,7 +23164,7 @@ def indy_dropped_due(row):
     if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_DROPPED)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and filed_state(series, v.get("number")) is None
                and v.get("cause") == "no-reading-parses" and v.get("dropped") and not v.get("unparsed")
@@ -23182,7 +23196,7 @@ def indy_redated_due(row):
         day = datetime.date.fromisoformat(scan.get("date") or "")
     except ValueError:
         return False
-    held = held_dates(paper_of(row["edition"]).series)
+    held = held_dates(filing_series(paper_of(row["edition"])))
     verdicts = row.get("verdicts") or ()
     if any(v.get("cause") == "number-date-mismatch" and held.get(v.get("number")) == day for v in verdicts):
         return True
@@ -23206,7 +23220,7 @@ def indy_paired_due(row):
     rel = (row or {}).get("edition") or ""
     if paper_of(rel).key != "galeindysunday" or not scan_queue.read_before(row, scan_queue.when(REREAD_INDY_PAIRED)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and str(v.get("imageUnread") or "").startswith("the white cells span 12 rows and 12 columns")
                and filed_state(series, v.get("number")) is None
@@ -23228,7 +23242,7 @@ def ios_even_due(row):
     rel = (row or {}).get("edition") or ""
     if paper_of(rel).key != "galeindysunday" or not scan_queue.read_before(row, scan_queue.when(REREAD_IOS_EVEN)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     return any(not v.get("skip") and v.get("number") is not None and not v.get("wrote")
                and re.match(r"the white cells span (?:8|9|1[0-3]) rows and (?:4|8|9|1[0-3]) columns", str(v.get("imageUnread") or ""))
                and re.search(r"\b12\b", str(v.get("imageUnread") or ""))
@@ -23252,7 +23266,7 @@ def ios_across_due(row):
     if paper_of(rel).key != "galeindysunday" or Path(rel).name[:4] <= INDY_SUNDAY_BARRED_END \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_IOS_ACROSS)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     for v in row.get("verdicts") or ():
         blank = v.get("blank") or {}
         across = [k for k, why in blank.items() if str(k).endswith("-across") and "no reading laid a clue" in str(why)]
@@ -23278,7 +23292,7 @@ def ios_lead_due(row):
     if paper_of(rel).key != "galeindysunday" or Path(rel).name[:4] <= INDY_SUNDAY_BARRED_END \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_IOS_LEAD)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     for v in row.get("verdicts") or ():
         blank = v.get("blank") or {}
         across = [k for k, why in blank.items() if str(k).endswith("-across") and "no reading laid a clue" in str(why)]
@@ -23306,7 +23320,7 @@ def down_half_due(row):
             or "Financial" in rel or "Sunday" in rel \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_DOWN_HALF)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     for v in row.get("verdicts") or ():
         blank = v.get("blank") or {}
         unlaid = [k for k, why in blank.items() if "no reading laid a clue" in str(why)]
@@ -23333,7 +23347,7 @@ def barred_number_due(row):
             or "Financial" in rel or "Sunday" in rel \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_BARRED_NUMBER)):
         return False
-    series = paper_of(rel).series
+    series = filing_series(paper_of(rel))
     for v in row.get("verdicts") or ():
         blank = v.get("blank") or {}
         if v.get("skip") or v.get("number") is None or v.get("wrote") or not any("no reading laid a clue" in str(w) for w in blank.values()) \
@@ -23359,7 +23373,7 @@ def indy_right_due(row):
     if paper_of((row or {}).get("edition") or "").key != "galeindependent" \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_INDEPENDENT_RIGHT)):
         return False
-    series = paper_of(row["edition"]).series
+    series = filing_series(paper_of(row["edition"]))
     for v in row.get("verdicts") or ():
         if v.get("skip") or v.get("number") is None or not v.get("refused") or filed_state(series, v.get("number")) is not None:
             continue
@@ -23557,7 +23571,7 @@ def held_strips(row, cache=None):
         if not v.get("solutionFrom") or v.get("wrongGrid") or v.get("number") != hits[0]["number"]:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, hits[0]["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), hits[0]["number"])].read_text())
         except (KeyError, OSError, ValueError):
             continue
         blank = sum(1 for e in held.get("entries") or () if not e.get("solution"))
@@ -23590,7 +23604,7 @@ def held_asked(row, cache=None):
         if info.get("lateStrips") or info.get("vlmLights"):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, hits[0]["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), hits[0]["number"])].read_text())
         except (KeyError, OSError, ValueError):
             continue
         blank = sum(1 for e in held.get("entries") or () if not e.get("solution"))
@@ -23627,13 +23641,13 @@ def held_titles(row, cache=None, before=REREAD_HELD_TITLE):
         day = datetime.date.fromisoformat(scan["date"])
     except ValueError:
         return []
-    nums = Held.of(held_dates(paper.series)).on_day.get(day, ())
-    if len(nums) != 1 or filed_state(paper.series, nums[0]) != (False, True) \
+    nums = Held.of(held_dates(filing_series(paper))).on_day.get(day, ())
+    if len(nums) != 1 or filed_state(filing_series(paper), nums[0]) != (False, True) \
             or any(v.get("read_as", v.get("number")) != nums[0] for v in verdicts):
         return []
     d = Path(cache or CACHE) / row["edition"]
     try:
-        old = json.loads(_HELD_PATH[(paper.series, nums[0])].read_text())
+        old = json.loads(_HELD_PATH[(filing_series(paper), nums[0])].read_text())
         pages = json.loads((d / "pages.json").read_text())
     except (KeyError, OSError, ValueError):
         return []
@@ -25492,7 +25506,7 @@ def band_due(row):
             or not scan_queue.read_before(row, scan_queue.when(REREAD_BAND_GRID)):
         return False
     titles = {p.get("number"): p for p in scan.get("puzzles") or ()}
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     width = None
     for v in row.get("verdicts", ()):
         if filed_state(series, v.get("number")) is not None:
@@ -25539,7 +25553,7 @@ def band_late_due(row):
             or not BAND_LATE_FIRST_YEARS[0] <= day[:4] <= BAND_LATE_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_BAND_LATE)):
         return False
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     return any(v.get("cause") == "not-a-grid" and str(v.get("refused") or "").startswith("the ink under the title is ")
                and filed_state(series, v.get("number")) is None for v in row.get("verdicts", ()))
 
@@ -25564,7 +25578,7 @@ def small_page_due(row):
             or not scan_queue.read_before(row, scan_queue.when(REREAD_SMALL_PAGE)):
         return False
     titles = {p.get("number"): p for p in scan.get("puzzles") or ()}
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     for v in row.get("verdicts", ()):
         m = _INK_UNDER.fullmatch(str(v.get("refused") or ""))
         title = (titles.get(v.get("read_as")) or titles.get(v.get("number")) or {}).get("box")
@@ -25606,7 +25620,7 @@ def closed_grid_due(row):
             or not SMALL_PAGE_FIRST_YEARS[0] <= day[:4] <= SMALL_PAGE_FIRST_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_CLOSED_GRID)):
         return False
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     return any(v.get("cause") == "not-a-grid" and _INK_UNDER.fullmatch(str(v.get("refused") or ""))
                and filed_state(series, v.get("number")) is None for v in row.get("verdicts", ()))
 
@@ -26229,7 +26243,7 @@ def left_split_due(row):
             or not LEFT_SPLIT_YEARS[0] <= day[:4] <= LEFT_SPLIT_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_LEFT_SPLIT)):
         return False
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     for v in row.get("verdicts", ()):
         stops = [str(s) for s in (v.get("unparsed") or {}).values()]
         if v.get("cause") == "no-reading-parses" and filed_state(series, v.get("number")) is None \
@@ -26262,7 +26276,7 @@ def left_late_due(row):
             or not LEFT_LATE_YEARS[0] <= day[:4] <= LEFT_LATE_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(LEAD_TWO_LANDED)):
         return False
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     for v in row.get("verdicts", ()):
         stops = [str(s) for s in (v.get("unparsed") or {}).values()]
         if v.get("cause") == "no-reading-parses" and filed_state(series, v.get("number")) is None \
@@ -26296,7 +26310,7 @@ def right_ads_due(row):
             or not RIGHT_ADS_YEARS[0] <= day[:4] <= RIGHT_ADS_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(RIGHT_GATE_LANDED)):
         return False
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     for v in row.get("verdicts", ()):
         stops = [str(s) for s in (v.get("unparsed") or {}).values()]
         if v.get("cause") == "no-reading-parses" and filed_state(series, v.get("number")) is None \
@@ -26330,7 +26344,7 @@ def fifties_left_due(row):
             or not FIFTIES_LEFT_YEARS[0] <= day[:4] <= FIFTIES_LEFT_YEARS[1] \
             or not scan_queue.read_before(row, scan_queue.when(REREAD_FIFTIES_LEFT)):
         return False
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     for v in row.get("verdicts", ()):
         stops = [str(s) for s in (v.get("unparsed") or {}).values()]
         if v.get("cause") == "no-reading-parses" and filed_state(series, v.get("number")) is None \
@@ -26361,7 +26375,7 @@ def scaled_grid_due(row, years=SCALED_GRID_YEARS, cutoff=REREAD_SCALED_GRID):
             or not years[0] <= day[:4] <= years[1] \
             or not scan_queue.read_before(row, scan_queue.when(cutoff)):
         return False
-    series = paper_of(row.get("edition", "")).series
+    series = filing_series(paper_of(row.get("edition", "")))
     for v in row.get("verdicts", ()):
         unread = str(v.get("imageUnread") or "")
         if str(v.get("pending") or "").startswith(("no grid", "rebuilt grid disagrees")) \
@@ -26571,7 +26585,7 @@ def unenumerated_held(row):
     for v in row.get("verdicts", ()):
         if not v.get("solutionFrom") or v.get("answersOnly") or v.get("refused") or not v.get("id"):
             continue
-        p = _HELD_PATH.get((paper.series, v.get("number")))
+        p = _HELD_PATH.get((filing_series(paper), v.get("number")))
         if p is None:
             continue
         try:
@@ -26614,7 +26628,7 @@ def short_unfitted(row):
                 or not isinstance(s, dict) or s.get("refused")):
             continue
         if 0 < s.get("lights", 0) - s.get("accepted", 0) <= trove_solution_ocr.STRIP_MAX \
-                and filed_state(paper.series, v.get("number")) == (False, True):
+                and filed_state(filing_series(paper), v.get("number")) == (False, True):
             return True
     return False
 
@@ -26653,13 +26667,13 @@ def unmerged(row, v):
         return False
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_UNMERGED)) \
-            or not held_unanswered(paper.series, v.get("number")):
+            or not held_unanswered(filing_series(paper), v.get("number")):
         return False
     try:
         url = page_url(CACHE / row["edition"], row["scan"], v["leaf"])
     except (KeyError, OSError, ValueError):
         return True  # no pages.json to tell (a test's row): answers_only judges
-    return held_unanswered(paper.series, v.get("number"), url)
+    return held_unanswered(filing_series(paper), v.get("number"), url)
 
 
 def unmerged_whole(row):
@@ -26730,9 +26744,9 @@ def floor_short(row, paper):
         return False
     for v in row.get("verdicts", ()):
         if not v.get("id") or v.get("refused") or not v.get("solutionFrom") \
-                or filed_state(paper.series, v.get("number")) != (False, True):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True):
             continue
-        if strip_blank(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+        if strip_blank(filing_series(paper), v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
             return True
     return False
 
@@ -27039,13 +27053,13 @@ def unasked_short(row, paper):
         s = v.get("solution")
         if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
                 or s.get("refused") or s.get("lateStrips") or v.get("wrongGrid") or v.get("heldTitle")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
-        if not 1 <= held_blanks(paper.series, v["number"], sol_dir) <= LATE_MAX:
+        if not 1 <= held_blanks(filing_series(paper), v["number"], sol_dir) <= LATE_MAX:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
             kept = (json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
@@ -27185,10 +27199,10 @@ def full_short(row, paper):
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or v.get("answersOnly") or v.get("answersTried") or v.get("heldTitle")
                 or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
             es = held.get("entries") or ()
@@ -27196,7 +27210,7 @@ def full_short(row, paper):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if held_blanks(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]) >= 1:
+        if held_blanks(filing_series(paper), v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]) >= 1:
             return True
     return False
 
@@ -27209,20 +27223,20 @@ def misread_short(row, paper):
         s = v.get("solution")
         if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
                 or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         gone = held_drops(v)
         if not gone:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             continue
         if not gone & {entry_id(e) for e in held.get("entries") or () if not e.get("solution")}:
             continue
-        if 1 <= held_blanks(paper.series, v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]) <= LATE_MAX:
+        if 1 <= held_blanks(filing_series(paper), v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]) <= LATE_MAX:
             return True
     return False
 
@@ -27275,21 +27289,21 @@ def agreed_short(row, paper):
         s = v.get("solution")
         if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
                 or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         want = set(s.get("misread") or ()) & set(s.get("lateStrips") or ())
         if not want:
             continue
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
             read = json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
         except (KeyError, OSError, ValueError):
             continue
         want &= {entry_id(e) for e in held.get("entries") or () if not e.get("solution")}
-        if not want or not 1 <= held_blanks(paper.series, v["number"], sol_dir) <= LATE_MAX:
+        if not want or not 1 <= held_blanks(filing_series(paper), v["number"], sol_dir) <= LATE_MAX:
             continue
         replies = ask_replies().get(row["edition"]) or {}
         for lid in want:
@@ -27307,19 +27321,19 @@ def named_short(row, paper):
         s = v.get("solution")
         if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
                 or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         want = set(s.get("vlmLights") or ()) & set(s.get("misread") or ())
         if not want:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             continue
         want &= {entry_id(e) for e in held.get("entries") or () if not e.get("solution")}
-        if want and held_blanks(paper.series, v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]) >= 1:
+        if want and held_blanks(filing_series(paper), v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]) >= 1:
             return True
     return False
 
@@ -27471,18 +27485,18 @@ def crossed_short(row, paper):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom") or v.get("heldTitle")
                 or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
-        if not 1 <= held_blanks(paper.series, v["number"], sol_dir) <= LATE_MAX:
+        if not 1 <= held_blanks(filing_series(paper), v["number"], sol_dir) <= LATE_MAX:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             continue
-        if crossed_near(paper.series, v["number"], sol_dir):
+        if crossed_near(filing_series(paper), v["number"], sol_dir):
             return True
     return False
 
@@ -27725,19 +27739,19 @@ def near_short(row, paper, swap=False, defined=False, named=False, argmax=False,
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         # A verdict whose read cut late strips only: their classifier probabilities are kept (crop_strips' batch),
         # so cutting them again costs no classifier run.
         if late and not s.get("lateStrips"):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if strip_near(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], swap=swap,
+        if strip_near(filing_series(paper), v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], swap=swap,
                       defined=defined, named=named, argmax=argmax, paired=paired, spelt=spelt, filed=filed, late=late,
                       rivaled=rivaled, far=far, tied=tied, lengthy=lengthy, shifted=shifted):
             return True
@@ -27752,10 +27766,10 @@ def linked_short(row, paper):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
         except (KeyError, OSError, ValueError):
             continue
         if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
@@ -27834,15 +27848,15 @@ def wordplay_short(row, paper, defined=False):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if held_wordplay(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], defined=defined):
+        if held_wordplay(filing_series(paper), v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], defined=defined):
             return True
     return False
 
@@ -27854,7 +27868,7 @@ def other_copy_short(row, sol_from):
     if not sol_from or not scan_queue.read_before(row, scan_queue.when(REREAD_OTHER_COPY)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES or paper.key not in CELLS_CLASSIFIED:
+    if filing_series(paper) != SERIES or paper.key not in CELLS_CLASSIFIED:
         return False
     for v in row.get("verdicts", ()):
         s, src = v.get("solution"), v.get("solutionFrom")
@@ -27866,15 +27880,15 @@ def other_copy_short(row, sol_from):
         if day is None or not any(o.rsplit(" leaf ", 1)[0] != sol_dir and _date_in(o.rsplit(" leaf ", 1)[0]) == day
                                   for o in sol_from.get(v.get("number"), ())):
             continue
-        if filed_state(paper.series, v.get("number")) != (False, True):
+        if filed_state(filing_series(paper), v.get("number")) != (False, True):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if held_blanks(paper.series, v.get("number"), sol_dir) >= 1:
+        if held_blanks(filing_series(paper), v.get("number"), sol_dir) >= 1:
             return True
     return False
 #: {(held path, reading path): ((held stamp, reading stamp), held_blanks' answer)}
@@ -27922,10 +27936,10 @@ def many_short(row, paper, few=False, wide=False):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
@@ -27933,9 +27947,9 @@ def many_short(row, paper, few=False, wide=False):
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
         if few or wide:
             lo, hi = (1, CANDIDATE_SLACK) if few else (CANDIDATE_SLACK + 1, LATE_MAX)
-            if lo <= held_blanks(paper.series, v.get("number"), sol_dir) <= hi:
+            if lo <= held_blanks(filing_series(paper), v.get("number"), sol_dir) <= hi:
                 return True
-        elif many_blank(paper.series, v.get("number"), sol_dir):
+        elif many_blank(filing_series(paper), v.get("number"), sol_dir):
             return True
     return False
 
@@ -27979,15 +27993,15 @@ def late_short(row, paper, most=None):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if strip_missing(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], most):
+        if strip_missing(filing_series(paper), v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], most):
             return True
     return False
 
@@ -28055,7 +28069,7 @@ def short_again(row):
         # A Times page of another item (TIMES_1930's archive.org pages) whose linked grid a classified print holds
         # (held_blanks: its cells classified): answers_only reads it so since 10-26, but its full reads before that
         # stood short with nothing due (10-27: 30 puzzles of 1930, 1-5 short, 59 blank lights never asked).
-        return FULL_SHORT if paper.series == SERIES and full_short(row, paper) else None
+        return FULL_SHORT if filing_series(paper) == SERIES and full_short(row, paper) else None
     why = _short_again(row, paper)
     if (why is None and scan_queue.read_before(row, scan_queue.when(REREAD_WIDE_STRIPS))
             and not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)) and late_short(row, paper, LATE_MAX)):
@@ -28157,10 +28171,10 @@ def answerable_gaps(row, paper, sure=True):
                 or sure and s.get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS):
             continue
         gap = s.get("lights", 0) - s.get("accepted", 0)
-        if gap <= 0 or filed_state(paper.series, v.get("number")) != (False, True):
+        if gap <= 0 or filed_state(filing_series(paper), v.get("number")) != (False, True):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
@@ -28221,7 +28235,7 @@ def touching_refused(row):
             or not scan_queue.read_before(row, scan_queue.when(REREAD_TOUCHING_GRID)):
         return False
     return any(v.get("cause") == "not-a-grid" and str(v.get("refused") or "").startswith("the ink under the title is ")
-               and filed_state(paper.series, v.get("number")) is None for v in row.get("verdicts", ()))
+               and filed_state(filing_series(paper), v.get("number")) is None for v in row.get("verdicts", ()))
 
 
 def near_refused(row):
@@ -28237,7 +28251,7 @@ def near_refused(row):
             continue
         if NEAR_BLOCKS <= s.get("blocks", 0) < SOLUTION_BLOCKS and s.get("lights") \
                 and s.get("accepted", 0) >= NEAR_SHARE * s["lights"]:
-            filed = filed_state(paper_of(row.get("edition", "")).series, v.get("number"))
+            filed = filed_state(filing_series(paper_of(row.get("edition", ""))), v.get("number"))
             if filed is not None and not filed[0]:
                 return True
     return False
@@ -28294,7 +28308,7 @@ def renumbered(row):
             or ORDER_REFUSED in str(v.get("refusedWrite") or "")
         if title is None or not taken and (v.get("refused") or number is None or abs(title - number) != 1):
             continue
-        held = held_dates(paper.series) if held is None else held
+        held = held_dates(filing_series(paper)) if held is None else held
         if not taken and v.get("id") and held.get(title) == day:
             return RENUMBERED
         if held.get(title, day) == day and (taken or held.get(number) != day):
@@ -28315,7 +28329,7 @@ def refused_grid(row, since=REREAD_REFUSED_GRID, refusals=GRID_REFUSALS):
         if not v.get("solutionFrom") or not v.get("id") or not isinstance(s, dict) \
                 or not str(s.get("refused") or "").startswith(refusals):
             continue
-        filed = filed_state(paper.series, v.get("number"))
+        filed = filed_state(filing_series(paper), v.get("number"))
         if filed is not None and not filed[0]:
             return True
     return False
@@ -28451,9 +28465,9 @@ def stray_grid(row):
                 or not isinstance(v.get("number"), int):
             continue
         if not scan_queue.read_before(row, scan_queue.when(REREAD_STRAY_GRID)) \
-                and not neighbour_written(paper.series, v["number"], row):
+                and not neighbour_written(filing_series(paper), v["number"], row):
             continue
-        if stray_refused(paper.series, v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+        if stray_refused(filing_series(paper), v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
             return True
     return False
 
@@ -28485,9 +28499,9 @@ def unsure_uncrossed(row):
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or "classified" in s or not s.get("uncrossed")
                 or s.get("accepted", 0) >= s.get("lights", 0)
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        held = held_file(paper.series, v["number"]) or {}
+        held = held_file(filing_series(paper), v["number"]) or {}
         es = held.get("entries") or ()
         if (held.get("source") or {}).get("acquiredBy") != TOOL:
             continue
@@ -28537,9 +28551,9 @@ def ranked_short(row):
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or "classified" in s
                 or s.get("accepted", 0) >= s.get("lights", 0) or v["number"] not in RANKED_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28575,9 +28589,9 @@ def blurred_short(row):
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or "classified" in s
                 or s.get("accepted", 0) >= s.get("lights", 0) or v["number"] not in BLURRED_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28615,9 +28629,9 @@ def lettered_short(row):
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or "classified" in s
                 or s.get("accepted", 0) >= s.get("lights", 0) or v["number"] not in LETTERED_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28642,15 +28656,15 @@ def one_word_short(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_ONE_WORD)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or v["number"] not in ONE_WORD_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28676,15 +28690,15 @@ def twice_short(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_TWICE_READ)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or v["number"] not in TWICE_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28709,15 +28723,15 @@ def forced_short(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_FORCED_WORD)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or v["number"] not in FORCED_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28853,16 +28867,16 @@ def vouched_short(row):
     if not more:
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused")
                 or not (first and v["number"] in VOUCHED_PUZZLES or v["number"] in VOUCHED_MORE)
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28895,15 +28909,15 @@ def clue_repeat_short(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_REPEATED)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or v["number"] not in CLUE_REPEAT_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -28972,21 +28986,21 @@ def one_blank_short(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_ONE_BLANK)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or not isinstance(v.get("number"), int) or not isinstance(s, dict) or s.get("refused")
-                or v.get("wrongGrid") or filed_state(paper.series, v["number"]) != (False, True)):
+                or v.get("wrongGrid") or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if held_one_blank(paper.series, v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+        if held_one_blank(filing_series(paper), v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
             return True
     return False
 
@@ -29055,21 +29069,21 @@ def printed_fit_short(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_PRINTED_FIT)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
                 or not isinstance(v.get("number"), int) or not isinstance(s, dict) or s.get("refused")
-                or v.get("wrongGrid") or filed_state(paper.series, v["number"]) != (False, True)):
+                or v.get("wrongGrid") or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if held_printed_fit(paper.series, v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+        if held_printed_fit(filing_series(paper), v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
             return True
     return False
 
@@ -29097,7 +29111,7 @@ def final_unasked(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_FINAL_STRIPS)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+    if filing_series(paper) != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
         return False
     logged = None
     for v in row.get("verdicts", ()):
@@ -29105,14 +29119,14 @@ def final_unasked(row):
         if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
                 or s.get("refused") or s.get("lateStrips") or v.get("wrongGrid") or v.get("heldTitle")
                 or not isinstance(s.get("clueSolved"), dict) or not s["clueSolved"]
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
-        blank = held_blanks(paper.series, v["number"], sol_dir)
+        blank = held_blanks(filing_series(paper), v["number"], sol_dir)
         if not 1 <= blank <= LATE_MAX or blank + len(s["clueSolved"]) <= LATE_MAX:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
             kept = (json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
@@ -29175,20 +29189,20 @@ def blind_unasked(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_BLIND_STRIPS)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+    if filing_series(paper) != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
         return False
     logged = None
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
                 or s.get("refused") or v.get("wrongGrid") or v.get("heldTitle")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
-        if not LATE_MAX < held_blanks(paper.series, v["number"], sol_dir) <= BLIND_MAX:
+        if not LATE_MAX < held_blanks(filing_series(paper), v["number"], sol_dir) <= BLIND_MAX:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
             kept = (json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
@@ -29226,7 +29240,7 @@ def printed_short(row):
         return False
     from fetch_puzzle import duplicated_clues
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+    if filing_series(paper) != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
@@ -29234,10 +29248,10 @@ def printed_short(row):
                 or v.get("wrongGrid") or not isinstance(s, dict) or s.get("refused") or "classified" in s
                 or s.get("accepted", 0) >= s.get("lights", 0)
                 or not TIMES_1930.item.match(v["solutionFrom"].rsplit(" leaf ", 1)[0].split("/")[0])
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
             es = held.get("entries") or ()
@@ -29269,20 +29283,20 @@ def prepped_unasked(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_PREPPED_STRIPS)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+    if filing_series(paper) != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
         return False
     logged = None
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
                 or s.get("refused") or s.get("preppedStrips") or v.get("wrongGrid") or v.get("heldTitle")
-                or filed_state(paper.series, v.get("number")) != (False, True)):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True)):
             continue
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
-        if not 1 <= held_blanks(paper.series, v["number"], sol_dir) <= LATE_MAX:
+        if not 1 <= held_blanks(filing_series(paper), v["number"], sol_dir) <= LATE_MAX:
             continue
         try:
-            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            held = json.loads(_HELD_PATH[(filing_series(paper), v["number"])].read_text())
             if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
                 continue
             kept = (json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
@@ -29318,15 +29332,15 @@ def classed_short(row):
     if not scan_queue.read_before(row, scan_queue.when(REREAD_CLASSED_CLASH)):
         return False
     paper = paper_of(row.get("edition", ""))
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return False
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
                 or not isinstance(s, dict) or s.get("refused") or v["number"] not in CLASSED_PUZZLES
-                or filed_state(paper.series, v["number"]) != (False, True)):
+                or filed_state(filing_series(paper), v["number"]) != (False, True)):
             continue
-        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+        if ((held_file(filing_series(paper), v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
             return True
     return False
 
@@ -29411,8 +29425,8 @@ def suspect_held(row):
         if not v.get("id") or v.get("refused") or not isinstance(s, dict) or s.get("refused") \
                 or not s.get("accepted"):
             continue
-        if filed_state(paper.series, v.get("number")) == (False, True) \
-                and suspect_held_file(paper.series, v.get("number")):
+        if filed_state(filing_series(paper), v.get("number")) == (False, True) \
+                and suspect_held_file(filing_series(paper), v.get("number")):
             return True
     return False
 
@@ -29475,12 +29489,12 @@ def unfiled_held(row):
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if not v.get("id") or v.get("refused") or not isinstance(s, dict) or s.get("refused") \
-                or not s.get("accepted") or filed_state(paper.series, v.get("number")) != (False, True):
+                or not s.get("accepted") or filed_state(filing_series(paper), v.get("number")) != (False, True):
             continue
         refused = str(v.get("refusedWrite") or "")
         if "SHAPE" in refused and any(g in refused for g in GATE_REFUSALS):
             return True
-        if v.get("unfiled") and not v.get("answersOnly") and unfiled_gain(paper.series, v.get("number"), v["id"]):
+        if v.get("unfiled") and not v.get("answersOnly") and unfiled_gain(filing_series(paper), v.get("number"), v["id"]):
             return True
     return False
 
@@ -29550,9 +29564,9 @@ def held_clash(row):
         return False
     for v in row.get("verdicts", ()):
         if not v.get("id") or v.get("refused") or not v.get("solutionFrom") \
-                or filed_state(paper.series, v.get("number")) != (False, True):
+                or filed_state(filing_series(paper), v.get("number")) != (False, True):
             continue
-        if held_clash_file(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0],
+        if held_clash_file(filing_series(paper), v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0],
                            paper.key == GALE.key):
             return True
     return False
@@ -30358,7 +30372,7 @@ def likely(paper, known, reads, rels, scans, solutions, held, order, st=None, fh
     st = st or PaperPlan(None)
     out, wanting, causes = {}, set(), {}
     for rel, row in known.items():
-        causes[rel], want = _row_likely(st, paper.series, rel, row, solutions)
+        causes[rel], want = _row_likely(st, filing_series(paper), rel, row, solutions)
         wanting.update(want)
     for d in reads:
         by = causes.get(rels[d])
@@ -30481,7 +30495,7 @@ def unread_titles(row):
     pz = (row.get("scan") or {}).get("puzzles") or ()
     if not pz or row.get("verdicts") or row.get("solOnly") or not row.get("edition"):
         return False
-    series = paper_of(Path(row["edition"])).series
+    series = filing_series(paper_of(Path(row["edition"])))
     _held_list(series)
     return all(filed_state(series, p.get("number")) is None for p in pz)
 
@@ -31283,9 +31297,9 @@ def _plan_stamp(paper, cache, ledger, reread, asked, dirs):
     if not media_manifest.on_media(cache):
         return None
     sisters = tuple(_stat_stamp(ledger_of(cache, p)) for p in FILERS.values()
-                    if p is not paper and p.series == paper.series)
-    held = _held_listing(paper.series)[0]
-    folders = tuple(sorted((_HELD_LISTED.get(paper.series) or (0, {}))[1].items()))
+                    if p is not paper and filing_series(p) == filing_series(paper))
+    held = _held_listing(filing_series(paper))[0]
+    folders = tuple(sorted((_HELD_LISTED.get(filing_series(paper)) or (0, {}))[1].items()))
     manifests = tuple(_stat_stamp(media_manifest.path(n)) for n in (media_manifest.ARCHIVE_EDITIONS,
                                                                     media_manifest.GALE_EDITIONS))
     return (_stat_stamp(ledger), sisters, manifests, held, folders, current_keys(paper), solution_key(),
@@ -31378,10 +31392,10 @@ def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources,
                                                          for n in nums) else
                fix_reason(row) or STALE_SCAN[1])
     else:
-        sol_seen = seen_solutions(scan, row, solutions, paper.series)
+        sol_seen = seen_solutions(scan, row, solutions, filing_series(paper))
         ik =(row["filesHash"], tuple(nums))
         if ik not in st.inputs:
-            st.inputs[ik] = inputs_of(row["filesHash"], scan, paper.series)
+            st.inputs[ik] = inputs_of(row["filesHash"], scan, filing_series(paper))
         why = due_reason(row, st.inputs[ik], sol_seen, seen_by, reread, sources)
     st.reasons[rel] = (row, key, why)
     return why
@@ -31395,7 +31409,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
     ledger = ledger_of(cache, paper, ledger)
     known = _planned_known(ledger)
     every = _PLANNED_DIRS[(str(cache), paper.key)] = edition_dirs(cache, paper)
-    held_files(paper.series)  # cached here, so each unit forked after this reads only what changed
+    held_files(filing_series(paper))  # cached here, so each unit forked after this reads only what changed
     dirs = every if dirs is None else [d for d in every if d in set(dirs)]
     # Keyed by the dir's text: edition_dirs' Paths are new objects when it lists again, and a
     # Path key's every lookup by an equal one is a Path __eq__ (~1.5 s a plan of the papers).
@@ -31411,7 +31425,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
     stale = [d for d in dirs if not scan_current(known.get(rels[d]), fhs[d], rels[d])]
     stale_set = set(stale)
     scans = {rels[d]: scan_of(known.get(rels[d]), paper, fhs.get(d)) or {"puzzles": [], "solutions": []} for d in every}
-    held = held_dates(paper.series)
+    held = held_dates(filing_series(paper))
     solutions, sources = solution_sources(every, scans, rels, held, sister_solutions(cache, paper))
     asked = set(asked)
     unanswered = {(v["number"], datetime.date.fromisoformat(row["scan"]["date"]).weekday() == 5)
@@ -31452,7 +31466,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         # linked now, is likely()'s "scan stale, answers linked" (answers_only: CPU, no VLM ask), not a
         # VLM-only reread of a puzzle already held. Paul 10-23: 1,136 Gale Times editions (~1,080
         # puzzles, 1940s-2010s) were skipped as "already held (VLM-only reason)" here before likely() ran.
-        if label and LIKELY[0] in _row_likely(st, paper.series, rel, known.get(rel) or {}, solutions)[0]:
+        if label and LIKELY[0] in _row_likely(st, filing_series(paper), rel, known.get(rel) or {}, solutions)[0]:
             label = None
         if label:
             del reads[d]
@@ -31739,7 +31753,7 @@ def host_rescans(paper, dirs, rels, stale_set, solutions, held, known):
     if paper is not GALE:
         return {}
     want, on = {}, set(map(edition_date, dirs))
-    for n, day in answerless_puzzles(paper.series, held, solutions).items():
+    for n, day in answerless_puzzles(filing_series(paper), held, solutions).items():
         for host in host_days(day, on):
             want.setdefault(host, []).append(n)
     out = {}
@@ -31756,10 +31770,10 @@ def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs
     host_day names, scanned alone (no week after, not the puzzle's own edition). One not stale is left out
     (its scan by this code links what it links), as is one whose archive.org text prints headings that link
     none of its puzzles (_text_linked); one with no text or whose text is not read yet is kept."""
-    if paper.series != SERIES:
+    if filing_series(paper) != SERIES:
         return {}
     want, on = {}, set(map(edition_date, dirs))
-    for n, day in answerless_puzzles(paper.series, held, solutions).items():
+    for n, day in answerless_puzzles(filing_series(paper), held, solutions).items():
         for host in host_days(day, on):
             want.setdefault(host, []).append(n)
     if not want:
@@ -31835,7 +31849,7 @@ def unit_skip(paper, d, scan, row, reason, held):
             if "Sunday" not in why and reason in STALE_SCAN:
                 return None  # the scan code moved: its numbers may read otherwise
             labels.add("sunday" if "Sunday" in why else "number-date check")
-        elif number in held and held[number] == day and filed_state(paper.series, number) == (True, True):
+        elif number in held and held[number] == day and filed_state(filing_series(paper), number) == (True, True):
             labels.add("already held whole")
         elif vlm_only and number in held:
             labels.add("already held (VLM-only reason)")
@@ -31893,7 +31907,7 @@ def solutions_only(d, titles=()):
     found = {"date": pages["date"], "item": pages["item"], "puzzles": [], "solutions": []}
     # A Monday's "Solution to Crossword 22,845" (2004-12-20: no "Prize" word, so neither PRIZE_SOLUTION
     # nor a SOLUTION_LAGS number) is the Saturday prize's, PRIZE_LAG before the date's title.
-    prize = {t - PRIZE_LAG for t in voted} if prize_monday(day) and paper.series == SERIES else set()
+    prize = {t - PRIZE_LAG for t in voted} if prize_monday(day) and filing_series(paper) == SERIES else set()
     # "Solution to yesterday's" over "Crossword 22,204" (day_headings): any number a heading may print.
     lagged = {t - lag for t in voted for lag in SOLUTION_LAGS + HOLIDAY_LAGS}
     # A heading set in a narrow column beside another (column_headings): the numbers solution_headings expects.
@@ -31912,7 +31926,7 @@ def solutions_only(d, titles=()):
             read = cached_page_words(key)
 
             def judge(lines, pool=None):
-                if paper.series == SERIES:
+                if filing_series(paper) == SERIES:
                     for n, b in day_headings(lines, lines if pool is None else pool, lagged):
                         sols.setdefault(n, b)
                 lines = host_heading_lines(lines, pool)
@@ -31920,7 +31934,7 @@ def solutions_only(d, titles=()):
                           if HEADING_START.match(ln[k][4]) or solution_like(ln[k][4])]
                 for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1] + prize_headings(lines, prize))}.items():
                     sols.setdefault(n, b)
-                if paper.series == SERIES:
+                if filing_series(paper) == SERIES:
                     for n, b in column_headings(lines, lines if pool is None else pool, lags, deferred, champs) \
                             + named_day_headings(lines, lagged):
                         columns.setdefault(n, b)
@@ -32523,7 +32537,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             saved = time.monotonic()
     if unscanned:
         flush()
-    solutions, sources = solution_sources(dirs, scans, rels, held_dates(paper.series),
+    solutions, sources = solution_sources(dirs, scans, rels, held_dates(filing_series(paper)),
                                           sister_solutions(cache, paper or TIMES))
     due = {}
     keep_vlm, held_ask = set(), set()
@@ -32532,8 +32546,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         if editions and rel not in editions or d in held_back or fresh is not None and rel not in fresh:
             continue
         fh = known[rel]["filesHash"]
-        h = inputs_of(fh, scans[rel], paper.series)
-        sol_seen = seen_solutions(scans[rel], known[rel], solutions, paper.series)
+        h = inputs_of(fh, scans[rel], filing_series(paper))
+        sol_seen = seen_solutions(scans[rel], known[rel], solutions, filing_series(paper))
         why =due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
         titled = held_titled(known[rel], cache) if why == HELD_TITLE else \
             held_titled(known[rel], cache, REREAD_HELD_STRIPS) if why == HELD_STRIPS else \
@@ -32544,20 +32558,20 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             # Read under its held puzzle's title (held_titles), answers-only; the row keeps that scan, so
             # its titles and solutionsSeen stand as read.
             scans[rel] = titled
-            h = inputs_of(fh, titled, paper.series)
-            sol_seen = seen_solutions(titled, known[rel], solutions, paper.series)
+            h = inputs_of(fh, titled, filing_series(paper))
+            sol_seen = seen_solutions(titled, known[rel], solutions, filing_series(paper))
         if why or editions and (unit is None or unit.get("force")):
             if keeps_vlm(why, known[rel], unit):
                 keep_vlm.add(d.name)
-            due[d] =(h, sol_seen, fh, reprint_key([p["number"] for p in scans[rel]["puzzles"]], paper.series))
+            due[d] =(h, sol_seen, fh, reprint_key([p["number"] for p in scans[rel]["puzzles"]], filing_series(paper)))
         elif unit is not None:
             progress(f"not due {rel}: its scan stands as read, or it was read since it was queued")
     # Read only when something is due: a unit that finds nothing due ends here.
-    held = held_numbers(paper.series) if due else set()
+    held = held_numbers(filing_series(paper)) if due else set()
     _KEEP_VLM["names"] = keep_vlm
     _HELD_ASK["names"] = held_ask
     if due:
-        held_dates(paper.series)  # read once here: the forked workers start with it
+        held_dates(filing_series(paper))  # read once here: the forked workers start with it
     keys = sorted(due, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(due)
     queue = scan_queue.order(keys, {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
@@ -32574,7 +32588,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         set_solutions(solutions, puzzles)
         head, tar = ocr_remote.edition_request(d, found, solutions)
         return head, tar, {
-            "rel": rels[d], "ledger": str(ledger), "ledgerSize": ledger_size, "series": paper.series,
+            "rel": rels[d], "ledger": str(ledger), "ledgerSize": ledger_size, "series": filing_series(paper),
             "puzzles": puzzles and str(puzzles), "source": str(source), "crops": str(CROPS), "found": found,
             "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(paper_of(d)), "solutionKey": solution_key(),
             "vlmVersion": vlm.version(), "solOnly": known[rels[d]].get("solOnly"),
@@ -32606,7 +32620,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         rel = rels[d]
         h, sol_seen, fh, read_with = due[d]
 
-        commit = edition_commit.writer(source, paper.series, puzzles)
+        commit = edition_commit.writer(source, filing_series(paper), puzzles)
         try:
             if decided and decided[0] is not None:
                 # Decided on the desktop: only its writes are made here.
@@ -32614,11 +32628,11 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             else:
                 verdicts = []
                 for verdict, puzzle in results:
-                    decide(verdict, puzzle, paper.series, puzzles, held, commit if write else None)
+                    decide(verdict, puzzle, filing_series(paper), puzzles, held, commit if write else None)
                     verdicts.append(verdict)
             # Keyed by the inputs after this read's writes: a stray clue it
             # mended no longer makes the edition due.
-            h = inputs_of(fh, found, paper.series, read_with)
+            h = inputs_of(fh, found, filing_series(paper), read_with)
             known[rel] = edition_commit.row(rel, h, found, fh, scan_key(paper_of(d)), sol_seen, verdicts, vlm_ok and seen_by,
                                             solution_key(), known[rel].get("solOnly"))
             changed.add(rel)

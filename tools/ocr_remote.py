@@ -1354,7 +1354,7 @@ def edition_request(d, found, solutions):
     rel = f"{d.parent.name}/{d.name}"
     files = {f"ed/{rel}/{name}": d / name for name in ("pages.json", "djvu.xml.gz") if (d / name).exists()}
     sols, reprints, asked = {}, {}, set()
-    series = fa.paper_of(d).series
+    series = fa.filing_series(fa.paper_of(d))
     for hit in found["puzzles"]:
         files[f"ed/{rel}/leaf_{hit['leaf']:04d}.jpg"] = d / f"leaf_{hit['leaf']:04d}.jpg"
         n, _, why = fa.filed_number(d, found, hit)
