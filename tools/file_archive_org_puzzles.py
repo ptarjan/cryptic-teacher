@@ -6698,6 +6698,18 @@ def sunday_read_title(d, found, held=None):
         reads = sunday_page_reads(d, leaf)
         if reads is None:
             continue
+        # SUNDAY_RUN_PRINTED: the number the unbroken weekly run implies, when a reader prints it, goes before the
+        # loose finder's other candidate (1983-07-17: both readers' loose "2984", the run's 2986 printed too).
+        if fixed_held is None:
+            fixed_held = held_dates(GALE_SUNDAY_TIMES.series)
+        if fixed is None:
+            fixed = sunday_implied(day, fixed_held) or 0
+        if fixed:
+            for finder in (sunday_headings_loose, sunday_across_labels, sunday_no_labels):
+                for words in reads:
+                    for n, box in finder(words, fixed, 0):
+                        if n == fixed:
+                            return fixed, leaf, box, "weeklyRun"
         loose, seen = {}, {}
         for how, finder in (("loose", sunday_headings_loose), ("acrossLabel", sunday_across_labels)):
             votes, boxes = {}, {}
