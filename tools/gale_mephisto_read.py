@@ -713,6 +713,11 @@ def read_done(row, done=None):
         # Read with the lists set in several page columns above and beside the grid cut (ABOVE_WIDE 1): only the pages whose
         # cut the fix changes (tools/data/mephisto_above_wide.json).
         return False
+    if row and row.get("wideBelow", 0) < WIDE_BELOW and row.get("version") == VERSION and not row.get("whole") \
+            and not row.get("failed") and row.get("file") in wide_below_names():
+        # Read with the lists standing wider than the grid under it cut out to their clue numbers (WIDE_BELOW 1): only the
+        # pages whose cut the fix changes (tools/data/mephisto_wide_below.json).
+        return False
     if row and row.get("tallHead", 0) < TALL_HEAD and row.get("version") == VERSION and not row.get("whole") \
             and not row.get("failed") and row.get("file") in tall_head_names():
         # Read with the lists' cut ended at a tall Across/Down heading box (TALL_HEAD 1): only the pages whose cut the fix
@@ -1821,6 +1826,12 @@ def beside_cut(words, box):
     d = min(downs, key=lambda w: w[0])
     left, right = a[0] - lh / 2, d[0] + (d[0] - a[0]) - lh / 2
     top = a[1] - lh / 2
+    return beside_foot(words, lh, left, top, right, d[1])
+
+
+def beside_foot(words, lh, left, top, right, down_y):
+    """(box, masks) of the lists between `left` and `right` from `top` down to the first stop word or gap of three lines
+    (beside_cut's foot): the gap before the Down heading at `down_y` is GAP_BEFORE_DOWN lines."""
     inside = [w for w in words if left <= (w[0] + w[2]) / 2 <= right and w[3] > top]
     bottom = top
     for w in sorted(inside, key=lambda w: w[1]):
@@ -1831,10 +1842,35 @@ def beside_cut(words, box):
             if STOP_WRAPPED.match(w[4]) else ""
         if w[1] > top + 6 * lh and (STOP_LINE.match(rest) or (under and STOP_LINE.match(w[4] + " " + under))):
             break
-        if w[1] - bottom > (3 if bottom >= d[1] else GAP_BEFORE_DOWN) * lh and bottom > top + 6 * lh:
+        if w[1] - bottom > (3 if bottom >= down_y else GAP_BEFORE_DOWN) * lh and bottom > top + 6 * lh:
             break
         bottom = max(bottom, w[3])
     return (int(left), int(top), int(right), int(bottom + lh / 2)), []
+
+
+def left_pair_cut(words, box):
+    """(box, masks) of the Across and Down lists set side by side in two columns LEFT of the grid at `box` (WIDE_BELOW; the
+    1983 pages: the grid at the page's right, the two headings on one line a column's width apart, the lists' foot the grid's
+    or under it), or None: beside_cut's cut mirrored. The Down heading stands right of the Across one and level with it,
+    the Across heading within two grid widths of the grid; the lists end at the grid's left edge."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    wide = box[2] - box[0]
+    heads = [w for w in words if gl.heading(w[4]) and box[1] - 6 * lh <= w[1] <= box[3] - 6 * lh and w[2] <= box[0] + lh
+             and box[0] - w[0] < 2 * wide]
+    for a in sorted((w for w in heads if gl.heading(w[4]) == "ACROSS"), key=lambda w: (abs(w[1] - box[1]), w[0])):
+        downs = [w for w in heads if gl.heading(w[4]) == "DOWN" and w[0] > a[0] + 3 * lh and abs(w[1] - a[1]) < 8 * lh]
+        if not downs:
+            continue
+        d = min(downs, key=lambda w: w[0])
+        left, right = a[0] - lh / 2, min(d[0] + (d[0] - a[0]) - lh / 2, box[0] - lh / 2)
+        if right - left < 2 * (d[0] - a[0]) * 0.6:
+            continue
+        top = a[1] - lh / 2
+        cut = beside_foot(words, lh, left, top, right, d[1])
+        if cut[0][3] - cut[0][1] >= 15 * lh:
+            return cut
+    return None
 
 
 #: The line opening the entry rules under the early-1960s lists ("Solutions, addressed to Mephisto Crossword No 76").
@@ -2148,6 +2184,81 @@ STOP_NOTES = re.compile(r"^\W*(?:notes|solutions?)\b", re.IGNORECASE)
 #: grid's top (the title between), and sets a Down heading the OCR garbled where the column's numbers fall (missing_down):
 #: the 1960s pages refused "no reading parses" or "no clue list on the page" are read again once.
 LEFT_GAP = 1
+
+
+#: Bumped when the lists under the grid are cut out to the clue numbers left of it (wide_below_cut): the pages whose lists
+#: stand wider than the grid, the Across heading and the clue numbers left of the grid's edge, cut off at it and refused
+#: "no clue list on the page", are read again once (tools/data/mephisto_wide_below.json lists the pages whose cut it changes).
+WIDE_BELOW = 1
+WIDE_BELOW_FILE = ROOT / "tools" / "data" / "mephisto_wide_below.json"
+_WIDE_BELOW_NAMES = None
+
+
+def wide_below_names():
+    """The bare GALE_*.pdf names whose cut WIDE_BELOW changes (a committed list nothing writes: found by cutting each
+    refused page's lists with the fix off and on)."""
+    global _WIDE_BELOW_NAMES
+    if _WIDE_BELOW_NAMES is None:
+        try:
+            _WIDE_BELOW_NAMES = frozenset(json.loads(WIDE_BELOW_FILE.read_text()))
+        except (OSError, ValueError):
+            _WIDE_BELOW_NAMES = frozenset()
+    return _WIDE_BELOW_NAMES
+
+
+def wide_below_cut(words, box, cut):
+    """(box, masks) of the clue lists under the grid at `box` when they stand wider than the grid (WIDE_BELOW), else None.
+    `cut` is the lists_cut taken: it holds no Across heading, while one stands under the grid left of its edge with the
+    clue numbers rising in a column at or left of it (the lists' own margin lies outside the grid's, the cut clipped the
+    heading and the numbers). The lists are cut again from that heading's left edge to the right end of the lines
+    standing beside it (words no more than two and a half lines apart), their foot where lists_cut puts it."""
+    import gale_listener as gl
+    lh = gl.line_height(words)
+    (x0, y0, x1, y1), _ = cut
+    heads = [w for w in words if gl.heading(w[4]) == "ACROSS" and box[3] < w[1] < box[3] + 40 * lh
+             and box[0] - 8 * lh <= w[0] < x0 + lh / 2 and w[2] <= x1]
+    for a in sorted(heads, key=lambda w: w[1]):
+        nums = [w for w in words if NUMBER_WORD.match(w[4]) and a[3] <= w[1] <= a[3] + 14 * lh and a[0] - 6 * lh <= w[0] <= a[0] + lh
+                and not any(o is not w and abs(o[1] - w[1]) < lh / 2 and 0 < w[0] - o[2] < lh for o in words)]
+        vals = [int(re.sub(r"\D", "", w[4])) for w in sorted(nums, key=lambda w: w[1])]
+        if len(vals) < 4 or sum(1 for p, q in zip(vals, vals[1:]) if p <= q) < 0.7 * (len(vals) - 1):
+            continue
+        left = min(a[0], min(w[0] for w in nums)) - lh / 2
+        line = sorted((w for w in words if a[1] <= w[1] <= y1 and w[0] >= left), key=lambda w: w[0])
+        right = x1
+        reach = {}
+        for w in line:
+            row = round((w[1] + w[3]) / 2 / lh)
+            if row not in reach:
+                if w[0] > left + 6 * lh:
+                    reach[row] = None      # the line opens past the lists' margin: another column's, or an advertisement
+                    continue
+                reach[row] = w[2]
+            elif reach[row] is not None and w[0] - reach[row] <= 2.5 * lh:
+                reach[row] = max(reach[row], w[2])
+        if any(reach.values()):
+            right = max(right, max(v for v in reach.values() if v))
+        again = lists_cut(words, (int(left + lh), box[1], int(right - lh), box[3]))
+        if again[0][1] > a[1]:
+            again = ((again[0][0], int(a[1] - lh), again[0][2], again[0][3]), again[1])
+        # The Down heading must stand in it too, under the Across one, or the lists are not these.
+        if any(gl.heading(w[4]) == "DOWN" and again[0][0] <= (w[0] + w[2]) / 2 <= again[0][2] and a[1] + 6 * lh < w[1] <= again[0][3]
+               for w in words):
+            return again
+    return None
+
+
+def under_cut(words, box):
+    """lists_cut, else (WIDE_BELOW) wide_below_cut's where the lists stand wider than the grid."""
+    cut = lists_cut(words, box)
+    if not WIDE_BELOW:
+        return cut
+    import gale_listener as gl
+    (x0, y0, x1, y1), _ = cut
+    if any(gl.heading(w[4]) == "ACROSS" and x0 <= (w[0] + w[2]) / 2 <= x1 and y0 - gl.line_height(words) <= w[1] <= y1
+           for w in words):
+        return cut
+    return wide_below_cut(words, box, cut) or left_pair_cut(words, box) or cut
 
 
 def left_cut(words, box):
@@ -2842,7 +2953,7 @@ def tight_mended(block, laid, blank, lengths, gl, asker=None):
 
 def listed(img, key, words, found, gl):
     """wanted_of the clue lists under the grid at `found`, read without the grid's lengths ([] when none read)."""
-    block = lists_block(img, key, words, beside_cut(words, found["box"]) or (ABOVE_FIX and above_cut(words, found["box"])) or lists_cut(words, found["box"]), gl)
+    block = lists_block(img, key, words, beside_cut(words, found["box"]) or (ABOVE_FIX and above_cut(words, found["box"])) or under_cut(words, found["box"]), gl)
     if not block:
         return []
     _, laid = gl.times_read([block], None)
@@ -2920,7 +3031,7 @@ def page_read(path, store=STORE, asker=None):
     wrapped = None if cut or day.isoformat() >= "1989" else wrapped_cut(words, found["box"])
     lefted = None if cut or wrapped else left_cut(words, found["box"])
     plain = not (cut or wrapped or lefted)
-    cut = cut or wrapped or lists_cut(words, found["box"])
+    cut = cut or wrapped or under_cut(words, found["box"])
     sided = SIDE_FIX and plain and side_strip(words, found["box"], cut, gl)
     if sided:
         block = side_block(img, key, words, cut, sided, gl) or lists_block(img, key, words, cut, gl)
@@ -3012,7 +3123,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX}, store)
     print(json.dumps(verdict))
     return "read"
 
