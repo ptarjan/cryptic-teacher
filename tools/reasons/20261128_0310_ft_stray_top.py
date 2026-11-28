@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale FT page refused no reading parses, stray print over its ACROSS heading no longer ending its clue column"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T04:14:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 SHAPE = "no ACROSS and DOWN lists under the grid"
 
