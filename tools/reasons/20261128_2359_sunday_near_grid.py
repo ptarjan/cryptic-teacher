@@ -14,7 +14,7 @@ Due: a Gale Sunday Times row refused not-a-grid under the title, read before the
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page refused 'not a grid' whose title box stood against a grid of the page, the grid read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T13:40:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
