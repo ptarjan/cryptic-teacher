@@ -11,7 +11,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale FT page with a down clue blank, its third clue column kept past stray print over its first clue"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T06:41:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
