@@ -643,6 +643,27 @@ def lookup_report(prod, day, gale, number):
     return {"why": f"no report on No {number} in the {REPORT_WEEKS} weeks after"}
 
 
+#: Gale's contents index and viewer number an issue's pages a page or two
+#: off its scans (the crossword indexed on p.48 is scan 46): the scans this
+#: far either side of the indexed page are tried for the grid.
+NEIGHBOURS = 3
+
+
+def neighbour_entries(prod, day, e, gale):
+    """Entries for the single scans round entry `e`'s page, nearest first
+    (the one before the indexed page first: scans run behind the index)."""
+    iss = gale.issues(prod, day)
+    if not iss:
+        return []
+    pages = {int(p["pageNumber"]): p["mediaRecordId"] for p in gale.issue(prod, iss[0]).get("pageDocuments") or ()}
+    out = []
+    for k in range(1, NEIGHBOURS + 1):
+        for page in (e["page"] - k, e["page"] + k):
+            if page in pages and pages[page] not in e["records"]:
+                out.append({**e, "page": page, "records": [pages[page]], "how": f"scan {page}: indexed p.{e['page']}"})
+    return out
+
+
 def download_url(prod, day, e):
     """Gale's Download (PDF) for entry `e` of `day`, as a GET."""
     _, paper, archive = PRODUCTS[prod]

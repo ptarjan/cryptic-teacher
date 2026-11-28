@@ -422,6 +422,14 @@ def shrink_oversized(cache=CACHE, cap=None, out=sys.stdout):
 FETCHED_HOW = "fetched"
 
 
+def has_lattice(img):
+    """Whether `img` holds a crossword's lattice of white cells: a grid-shaped
+    patch of ink that is no lattice (a photo, an advert's box, a table) does
+    not count, as "found" in scaled() does."""
+    return any(trove_grid.lattice(img.crop((max(0, b[0] - 6), max(0, b[1] - 6), b[2] + 6, b[3] + 6)))
+               for b in page_grids(img))
+
+
 def layout_pages(data):
     """({"pages": [{"width", "height", "found": a grid was found, "bytes":
     its JPEG's length}]}, the JPEGs end to end) of a Gale page PDF `data`:
@@ -436,10 +444,12 @@ def layout_pages(data):
     pages, jpegs = [], []
     for img, _ in read:
         page, found = scaled(img)
+        lattice = has_lattice(img)
         buf = io.BytesIO()
         page.save(buf, "JPEG", quality=92)
         jpegs.append(buf.getvalue())
-        pages.append({"width": page.width, "height": page.height, "found": bool(found), "bytes": len(jpegs[-1])})
+        pages.append({"width": page.width, "height": page.height, "found": bool(found), "lattice": lattice,
+                      "bytes": len(jpegs[-1])})
     return {"pages": pages}, b"".join(jpegs)
 
 
@@ -477,7 +487,8 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE, prod="TTDA"):
         at += p["bytes"]
         leaves.append({"leaf": leaf, "width": p["width"], "height": p["height"], "file": name})
     m = {"file": name, "date": day.isoformat(), "how": FETCHED_HOW, "docId": doc,
-         "cited": (entry.get("title") or "").strip().rstrip(". ") or None, "page": entry.get("page"), "grid": grid}
+         "cited": (entry.get("title") or "").strip().rstrip(". ") or None, "page": entry.get("page"), "grid": grid,
+         "lattice": any(p.get("lattice") for p in laid["pages"]), "how_page": entry.get("how")}
     (tmp / "pages.json").write_text(json.dumps({
         "item": item.format(day.year), "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
         "crossword_pages": leaves, "url": url}, indent=1))

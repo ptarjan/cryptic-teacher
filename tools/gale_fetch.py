@@ -672,6 +672,15 @@ def file_page(body, prod, day, doc, e):
     gale_inbox.lay_out_fetched(day, doc, body, e, prod=prod)
 
 
+def lattice_in(body):
+    """Whether a page PDF holds a crossword's lattice (gale_inbox.layout_pages's "lattice")."""
+    import gale_inbox
+    import ocr_remote
+    got = ocr_remote.call("gale_layout", data=body)
+    laid = got[0] if got is not None else gale_inbox.layout_pages(body)[0]
+    return any(p.get("lattice") for p in laid["pages"])
+
+
 def alert(text, quiet=False):
     """Wake the room (`quiet`: queued for its next turn); never raises."""
     print(f"ALERT: {text}", flush=True)
@@ -689,7 +698,8 @@ def alert(text, quiet=False):
 
 
 def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None, got_of=None, log=print,
-        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, keep=None, limits=LIMITS, tell=None, reload=None, broken=BROKEN):
+        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, keep=None, limits=LIMITS, tell=None, reload=None, broken=BROKEN,
+        check_page=None):
     """Fetch until `limit` downloads, no row left, or a stop. The hooks
     (`fetch(url) -> body`, `store(body, prod, day, doc, entry)`, `plan_of(got)`,
     `got_of()`, `lookup_of(prod, day)`, `fetched`, `limits`, `tell(text)`) stand
@@ -697,6 +707,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     (downloads, why it ended); raises Stop to stop, and Reload between two
     downloads when `reload()` says so."""
     pacer = pacer or Pacer()
+    check_page = (store is None and fetch is None) if check_page is None else check_page  # real runs only
     sessions = {}  # one per product: a session on one archive 500s on another's
 
     def real_fetch(url):
@@ -878,6 +889,21 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                     if not first.refused:
                         raise
                     body = refused(first, url, day, doc)
+                if check_page and not e.get("kind") and "day" not in e and not lattice_in(body):
+                    # The indexed page holds no grid: the scans round it, nearest first.
+                    gale = gale or gale_docs.Gale()
+                    for near in gale_docs.neighbour_entries(prod, day, e, gale):
+                        hold()
+                        pacer.wait()
+                        got_near = pdf_of(fetch, gale_docs.download_url(prod, day, near), day, doc, text_of)
+                        pacer.finished()
+                        if lattice_in(got_near):
+                            log(f"{day} {doc}: grid on {near['how']}")
+                            body, e = got_near, near
+                            break
+                    else:
+                        e = {**e, "how": f"no lattice on p.{e['page']} or {gale_docs.NEIGHBOURS} scans either side"}
+                        log(f"{day} {doc}: {e['how']}")
                 store(body, prod, day, doc, e)
             except Stop:
                 raise
