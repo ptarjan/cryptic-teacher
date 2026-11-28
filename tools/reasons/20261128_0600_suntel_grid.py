@@ -15,7 +15,7 @@ Due: a Gale Sunday Telegraph row with such a puzzle, refused not-a-grid under th
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Telegraph page titled from its solution heading, its own grid sought rather than the ink under that heading, read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T10:45:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
