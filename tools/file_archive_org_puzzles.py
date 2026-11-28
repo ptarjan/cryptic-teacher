@@ -5962,6 +5962,8 @@ def scan_anywhere(d):
     found = sunday_titled(d, found)
     # No title read on a Gale Sunday Telegraph page: its title line or bare COMPETITION No N heading off the cached page reads (SUNTEL_TITLE).
     found = suntel_titled(d, found)
+    # No title read on a Gale Independent on Sunday page: its heading off the cached page reads (IOS_LOOKED).
+    found = ios_titled(d, found)
     # No title read on an archive.org Guardian weekday page: its title read through the glued words, or its "Set by" line.
     found = guardian_titled(d, found)
     # No title read on an archive.org FT 1985-94 page: the band right of each grid it holds (FT_RIGHT).
@@ -6568,6 +6570,143 @@ def suntel_titled(d, found):
                 {"number": sol, "leaf": leaf, "box": box}]
         return out
     return stamped
+
+
+#: The key of a Gale Independent on Sunday scan (scan_anywhere's) ios_titled looked the cached whole-page reads of over,
+#: titled by them or not: the scan is current for it (ios_stale) once it holds this.
+IOS_LOOKED = "iosLooked"
+#: The Independent on Sunday's Beelzebub heading wherever its line starts, as the readers give it ("BEELZEBUBPRIZECrosswordNo28",
+#: "BEEIZEBUBPRIZECrosswordNO217", "BEELZEBUB PRIZE Crossword No 8"): the page's other columns' words (a page number, a bridge
+#: column's last words) stand before it on the same row, which is why no line opens on it.
+IOS_HEAD_BEELZEBUB = re.compile(r"b[eil1]{2,3}[zl]\w{0,3}b\w{0,3}\W{0,2}(?:prize\W{0,2})?cr[o0]ss\s?w[o0]rd\W{0,3}"
+                                r"(?:n[o0]\W{0,3})?\s*([\dIlOT|]{1,4})(?![\dIlOT|,])", re.IGNORECASE)
+#: The 2005-12 on heading "THE PRIZE Crossword" (by Quixote), its number "No 1024, 27 September 2009" a line of its own
+#: right of it on the row or under it, a "by <setter>" line between; or "THE PRIZE CROSSWORD by Quixote No 826, 4 December 2005".
+IOS_HEAD_PRIZE = re.compile(r"^\W*(?:t?he\s*)?prize\s*cr[o0]ss\s?w[o0]rd\W{0,3}(?:by\s*[A-Za-z]+\W{0,3})?"
+                            r"(?:(?:n[o0]\W{0,3})?\s*(\d{3,4})(?!\d))?", re.IGNORECASE)
+IOS_HEAD_NUMBER = re.compile(r"^\W*n[o0]\W{0,3}\s*(\d{3,4})(?!\d)\s*,?\s*(?:\d{1,2}\s*([A-Za-z]{3,9}))?", re.IGNORECASE)
+
+
+def ios_headings_loose(words, day, want, slack):
+    """[(number, box)] of the Independent on Sunday headings in `words` (a page reader's cached whole-page read) that
+    indy_sunday_headings left unread, each within `slack` of `want`: the Beelzebub heading starting mid-line
+    (IOS_HEAD_BEELZEBUB), and "The Prize Crossword" with its "No N, <date>" on its row right of it or just under it
+    (IOS_HEAD_PRIZE, IOS_HEAD_NUMBER) or after its "by <setter>". A number line giving a month other than `day`'s is
+    another day's. The box: the heading's words, with its number line's."""
+    found = []
+    lines = printed_lines(words)
+    for ws in lines:
+        for i in range(len(ws)):
+            m = IOS_HEAD_BEELZEBUB.match(" ".join(str(w[4]) for w in ws[i:]))
+            if m:
+                n = number_digits(clue_text.digits_read(m.group(1)))
+                if 0 < n and abs(n - want) <= slack:
+                    found.append((n, box_of(ws[i:])))
+                break
+    for ws in lines:
+        for i in range(len(ws)):
+            text = " ".join(str(w[4]) for w in ws[i:])
+            m = IOS_HEAD_PRIZE.match(text)
+            if not m:
+                continue
+            box = box_of(ws[i:])
+            n = int(m.group(1)) if m.group(1) else None
+            if n is None:
+                h = max(box[3] - box[1], 1)
+                for v in lines:
+                    vb = box_of(v)
+                    nm = IOS_HEAD_NUMBER.match(" ".join(str(w[4]) for w in v))
+                    if v is ws or not nm:
+                        continue
+                    beside = abs((vb[1] + vb[3]) / 2 - (box[1] + box[3]) / 2) <= h and 0 <= vb[0] - box[2] <= JOIN_REACH * h
+                    below = box[3] - h / 4 <= vb[1] <= box[3] + 3 * h and vb[0] < box[2] and vb[2] > box[0]
+                    if beside or below:
+                        if nm.group(2) and nm.group(2).lower()[:3] != _INDY_MONTHS[day.month - 1][:3]:
+                            continue
+                        n, box = int(nm.group(1)), box_of(list(ws[i:]) + list(v))
+                        break
+            if n is not None and abs(n - want) <= slack:
+                found.append((n, box))
+            break
+    return found
+
+
+def ios_read_title(d, found):
+    """(number, leaf, box, how) of the title the cached whole-page reads of edition directory `d` give a Gale Independent on
+    Sunday page scan() found none on, or None: the numbers each page reader (PAGE_READERS) gives within the paper's slack of
+    the date's, by indy_sunday_headings or ios_headings_loose. A number both readers give titles the page (the nearest to the
+    date's if two); a lone reader's stands only where the page's entry instruction ("Mark entries Beelzebub 697") or a
+    "Winners of N" notice scan() found (1 to IOS_WINNERS_LAG weeks behind it) backs it."""
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+        day = datetime.date.fromisoformat(d.name[:10])
+        want = GALE_INDY_SUNDAY.expected(day)
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+    slack = GALE_INDY_SUNDAY.slack
+    solved = [s["number"] for s in found.get("solutions") or ()]
+    for leaf in leaves:
+        reads = sunday_page_reads(d, leaf)
+        if reads is None:
+            continue
+        votes, boxes, entries = {}, {}, set()
+        for ri, words in enumerate(reads):
+            lines = printed_lines(words)
+            for ws in lines:
+                text = " ".join(str(w[4]) for w in ws)
+                m = IOS_ENTRIES.search(text) or IOS_ENTRIES_SEND.search(text)
+                if m:
+                    entries.add(int(m.group(1)))
+            for n, box, _ in indy_sunday_headings(lines)[0]:
+                if abs(n - want) <= slack:
+                    votes.setdefault(n, set()).add(ri)
+                    boxes.setdefault(n, tuple(box))
+            for n, box in ios_headings_loose(words, day, want, slack):
+                votes.setdefault(n, set()).add(ri)
+                boxes.setdefault(n, tuple(box))
+        agreed = [n for n, v in votes.items() if len(v) >= len(reads)]
+        backed = [n for n in votes if n in entries or any(0 < n - s <= IOS_WINNERS_LAG for s in solved)]
+        for n in sorted(agreed or backed, key=lambda n: abs(n - want)):
+            return n, leaf, boxes[n], "ios" if agreed else "iosBacked"
+    return None
+
+
+def ios_titled(d, found):
+    """Scan `found` of edition directory `d` with its puzzle titled from the whole-page reads its scan left in the crop cache
+    (never made here) where it is a Gale Independent on Sunday page scan() found no title on (ios_read_title). Stamped
+    IOS_LOOKED. Outside scan(), whose key a change here would move: it titles only pages scan() titled none on."""
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or paper_of(d) is not GALE_INDY_SUNDAY:
+        return found
+    stamped = {**found, IOS_LOOKED: True}
+    got = ios_read_title(d, found)
+    if got is None:
+        return stamped
+    n, leaf, box, how = got
+    return {**stamped, "puzzles": [{"number": n, "leaf": leaf, "box": box, "titleReadBy": [how]}],
+            "solutions": [s for s in found.get("solutions") or () if s["number"] != n]}
+
+
+def ios_stale(row):
+    """Whether Gale Independent on Sunday ledger `row` holds a scan under a current key that read its page whole
+    (WHOLE_UNTITLED), found no title and was not looked over by ios_titled (no IOS_LOOKED), with no verdict, and is one of
+    ios_loose_rows (the editions ios_titled titles off their cached reads): scanned again once."""
+    scan = (row or {}).get("scan") or {}
+    if not (bool(scan.get(WHOLE_UNTITLED)) and not scan.get(IOS_LOOKED) and not scan.get("failed")
+            and "inputs" in row and not row.get("verdicts") and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())
+            and str(scan.get("item", "")).startswith("GaleIndependentSunday") and row.get("scanKey") in current_keys(GALE_INDY_SUNDAY)):
+        return False
+    return (row.get("edition") or "") in ios_loose_rows()
+
+
+@functools.lru_cache(maxsize=None)
+def ios_loose_rows():
+    """The editions ios_titled titles off their cached reads (tools/data/ios_title.json), the only rows ios_stale holds
+    for a rescan."""
+    try:
+        return frozenset(json.loads((Path(__file__).resolve().parent / "data" / "ios_title.json").read_text()))
+    except (OSError, ValueError):
+        return frozenset()
 
 
 def sunday_stale(row):
@@ -30577,7 +30716,7 @@ def scan_current(row, fh, rel=None):
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row) and not sunday_number_rescan(row) and not winners_number_rescan(row) and not sunday_weekly_rescan(row) and not telequick_rescan(row) and not tele_grid_due(row) and not tel_title_far_due(row) and not block_forties_due(row) and not telegraph_dated_rescan(row) and not guardian_set_rescan(row) and not ft_right_rescan(row) and not fix_reasons.rescans(row) and not suntel_bare_due(row) and not telegraph_host(row) \
         and not indy_host(row) and not ft_host(row) and not ft_small_host(row) and not ft_title_host(row) and not ft_noisy_host(row) and not ios_title_rescan(row) \
-        and not indy_titled_due(row) and not tele_sol_stale(row) and not sunday_stale(row)
+        and not indy_titled_due(row) and not tele_sol_stale(row) and not sunday_stale(row) and not ios_stale(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
