@@ -11,7 +11,7 @@ Due: such a row read before the push whose cached reads give sunday_far_title_of
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times title off its date (a clue's number, a split heading) read again from the cached page-heading reads"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T14:05:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def rescan(row):
