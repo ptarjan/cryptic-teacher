@@ -10,7 +10,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Independent on Sunday Beelzebub title under the Concise's \"Solution for last issue\" note is a puzzle heading"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T12:51:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
