@@ -166,6 +166,15 @@ SATURDAY_LAG = ("150822", "160326")
 SHIFTED = ("150713", "150816")
 
 
+# The last date key whose Independent on Sunday puzzle was printed. While the
+# paper was printed its cryptic was a prize puzzle, and the feed carried each one
+# only after entries closed, on the Sunday after it ran: 1,361, printed in the
+# final edition of 2016-03-20, is on key 160327, the day fifteensquared wrote
+# it up, a week after it ran. From 1,363 (key 160403) the puzzle is online only
+# and the key is its day.
+SUNDAY_PRIZE_LAST_KEY = "160327"
+
+
 # Enumerations the paper printed wrong, and still serves wrong. A cryptic's
 # enumeration is a promise about the answer's shape, and one that contradicts
 # the light it sits on teaches a learner to count wrong — so these are corrected
@@ -432,6 +441,12 @@ def parse(xml_bytes, ymd):
         # was printed the day before. 8,972 is Fri 2015-07-17 on the blog and in
         # the Gale scan, but the Saturday key served it.
         day -= timedelta(days=1)
+    if series == "indysunday":
+        # The Sunday on or before the key (inside SHIFTED the weekly is on the
+        # Monday key), and the week before that for a printed prize puzzle.
+        day -= timedelta(days=(day.weekday() + 1) % 7)
+        if ymd <= SUNDAY_PRIZE_LAST_KEY:
+            day -= timedelta(days=7)
     paper = ("Independent on Sunday" if series == "indysunday" else "Independent")
     return {
         "id": pid,

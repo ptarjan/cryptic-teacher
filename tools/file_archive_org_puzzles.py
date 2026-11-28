@@ -9102,7 +9102,11 @@ IOS_BEELZEBUB_LINE = re.compile(r"^\W*(?:the\s*)?beelzeb\w*\s*(?:(?:prize\s*)?cr
 #: The Independent on Sunday's 2011-15 note over last issue's solution grid ("Solution for last issue").
 IOS_LAST_ISSUE = re.compile(r"solution\s*for\s*last\s*issue", re.IGNORECASE)
 #: Dated Independent on Sunday numbers: its first issue (28 January 1990) as No 1, "Beelzebub Prize Crossword
-#: No 954" (1 June 2008), and our first and latest indysunday files.
+#: No 954" (1 June 2008), Beelzebub No 1099 (13 March 2011, the Sunday before the Gale page printing No 1100), and
+#: the Prize Crossword No 1913 (25 October 2026, online). From 2008 the paper ran two numbered puzzles, the
+#: Beelzebub and the Prize Crossword, their equal numbers a week or two apart (Prize 1071 on 22 August 2010,
+#: Beelzebub 1071 on 29 August; Prize 1099 on 6 March 2011): the anchors up to 2011 date the Beelzebub, the
+#: one the Gale pages mostly hold, and the slack covers the gap.
 INDY_SUNDAY_ANCHORS = ((datetime.date(1990, 1, 28), 1), (datetime.date(2008, 6, 1), 954),
                        (datetime.date(2011, 3, 13), 1099), (datetime.date(2026, 10, 25), 1913))
 

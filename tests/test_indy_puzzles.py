@@ -64,9 +64,11 @@ byline = [I.setter_of(t) for t in (
     "Independent 7321, Sat 3 April – Merlin", "Independent 6540\\Virgilius",
     "Independent on Sunday 1,521/21 April", "Independent 9077")]
 
-rows = [{"number": 1218, "date": "2013-06-30"},   # a Sunday: itself
-        {"number": 1219, "date": "2013-07-09"},   # blogged late: the Sunday before
-        {"number": 1220, "date": "2013-07-03"}]   # a date that falls back is dropped
+rows = [{"number": 1218, "date": "2013-06-30"},   # a prize post: the Sunday before
+        {"number": 1219, "date": "2013-07-09"},   # blogged midweek: its Sunday, then the one before
+        {"number": 1220, "date": "2013-07-03"},   # a date that falls back is dropped
+        {"number": 1244, "date": "2014-01-05"},   # a holiday's late write-up: its own print Sunday
+        {"number": 1363, "date": "2016-04-03"}]   # online only, no prize: the post's Sunday
 dates = {n: d and d.isoformat() for n, d in sorted(I.sunday_dates(rows).items())}
 
 # A file holding untidied clues is tidied on the next run,
@@ -105,7 +107,7 @@ check("a byline anywhere, a filed setter's name, a lone name in brackets",
       "['Glowworm', 'Quixote', 'Anax', 'Hypnos', 'Glow-worm', 'Phi', 'Merlin', 'Virgilius', None, None]",
       str(byline))
 check("Sunday dates rise with the numbers",
-      "{1218: '2013-06-30', 1219: '2013-07-07', 1220: None}", str(dates))
+      "{1218: '2013-06-23', 1219: '2013-06-30', 1220: None, 1244: '2013-12-22', 1363: '2016-04-03'}", str(dates))
 check("a held file of this tool's is tidied; the feed's is not",
       "['Spoil steep-sided passage']", str(written))
 

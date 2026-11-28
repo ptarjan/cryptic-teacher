@@ -232,21 +232,33 @@ def printed_days(rows):
             if len(days) == 1 and None not in days and next(iter(days)).weekday() != ftp.SUNDAY}
 
 
-#: Before this post date the blog's Sunday is the week after the puzzle ran (Gale's print
-#: dates: 1,099 on 2011-03-06, blogged 03-13; 1,144 on 2012-01-22, blogged 01-29). From No
-#: 1,146 (blogged 2012-02-12) the blog's Sunday stands; Gale's own dates slip there.
-IOS_POST_LAG_BEFORE = "2012-02-12"
+#: The Independent on Sunday cryptic was a prize puzzle for as long as the paper was
+#: printed, and fifteensquared held each write-up until entries closed, so a post
+#: before this date went up the Sunday after the puzzle ran: the paper's own mastheads
+#: ("The Prize Crossword No 1153, 25 March 2012", blogged 04-01) and the blog's own
+#: words ("his last IoS was No. 1102 on 27th March 2011", blogged 04-03) agree. The
+#: last printed puzzle, 1,361 in the final edition of 2016-03-20, was blogged 03-27.
+#: From 1,363 the puzzle is online only, with no prize, and is blogged the morning it
+#: appears, so the post's Sunday is the puzzle's.
+IOS_PRIZE_POSTS_BEFORE = "2016-03-28"
+
+#: Printed puzzles whose write-up waited longer than a week, because a holiday closing
+#: date was extended: {number: print Sunday}. 1,244 ran on 2013-12-22 and was blogged
+#: 2014-01-05 ("it was done two weeks ago").
+IOS_LATE_WRITE_UPS = {1244: datetime.date(2013, 12, 22)}
 
 
 def sunday_dates(rows):
-    """{number: Sunday}: the Sunday on or before the post, kept only where
-    the dates rise strictly with the numbers."""
+    """{number: Sunday}: the Sunday the puzzle ran, from its post's Sunday (a week
+    earlier for a prize post, see IOS_PRIZE_POSTS_BEFORE), kept only where the
+    dates rise strictly with the numbers."""
     guess = {}
     for r in rows:
         day = datetime.date.fromisoformat(r["date"])
         day -= datetime.timedelta(days=(day.weekday() - ftp.SUNDAY) % 7)
-        if r["date"] < IOS_POST_LAG_BEFORE:
+        if r["date"] < IOS_PRIZE_POSTS_BEFORE:
             day -= datetime.timedelta(days=7)
+        day = IOS_LATE_WRITE_UPS.get(r["number"], day)
         guess[r["number"]] = min(day, guess.get(r["number"], day))
     out, last = {}, None
     for n in sorted(guess):
