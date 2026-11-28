@@ -3288,10 +3288,27 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                 # and no clue was read.
                 if LONE_NUMBER.fullmatch(line[4]) and any(clue_text.heading_of(o[4]) for o in col if o[0] > line[0]):
                     continue
+            # FT_STRAY_TOP: stray print over the ACROSS heading, past the gap from it ("8.6 Connaught f 297", a number-led
+            # scrap of the page's text over the FT's columns, y 4295 against ACROSS at 4458: GaleFT 2003-06-11): it opened
+            # the column as a clue and the gap to the heading ended the column there, so the whole ACROSS list was lost.
+            if not kept and last is None and not clue_text.heading_of(line[4]) and ft_stray_top(col, line, gap):
+                continue
             kept.append(line)
             last = line[1]
         out.append(kept)
     return tail_spliced(out, left) if getattr(left, "full", None) else out
+
+
+def ft_stray_top(col, line, gap):
+    """Whether `line` of the column `col` (columns()' merged rows, top down) lies over the column's ACROSS heading with
+    more than `gap` of white space before that heading (the line just above it, whatever it is, ends over the gap): a
+    clue never stands over its own list's heading, so such a line is other print."""
+    heads = [o for o in col if o[0] > line[0] and clue_text.heading_of(o[4]) == "ACROSS"]
+    if not heads:
+        return False
+    head = heads[0]
+    above = [o for o in col if o[0] < head[0]]
+    return bool(above) and head[0] - above[-1][1] > gap and line in above
 
 
 def sunday_notice_line(text):
