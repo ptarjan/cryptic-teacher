@@ -16360,7 +16360,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     for late in (False, True):
         def tried(years, also=False, late=late):
             return paper.key == "galesundaytimes" and side == "below" and top is None and column is None \
-                and not (late and backsolve) and (also or year_in(years, d.name)) != late
+                and (also or year_in(years, d.name)) != late
         # A one column left of its grid, ACROSS over DOWN (sunday_times_column; 1960-67).
         if tried(SUNDAY_LEFT_FIRST_YEARS):
             column = sunday_times_column(img, gbox, key, paper)
