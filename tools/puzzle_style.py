@@ -25,6 +25,8 @@ annotated puzzle before TEXT_BEFORE.
 """
 import re
 
+import series
+
 STRAIGHT = "straight"
 PLAIN_TYPES = {"cryptic_definition", "double_definition"}
 MIN_CLUES = 8
@@ -57,6 +59,10 @@ def style(puzzle):
     # arithmetic) has no wordplay at all: the hint ladder is the definition, and
     # the hint queue takes it last, as it does every straight puzzle.
     if puzzle.get("numeric") is True:
+        return STRAIGHT
+    # A series that is not cryptic by its kind (series.is_cryptic) is straight
+    # whatever its clues look like.
+    if not series.is_cryptic(puzzle.get("series")):
         return STRAIGHT
     texts = clue_texts(puzzle)
     if len(texts) < MIN_CLUES:
@@ -94,8 +100,8 @@ if __name__ == "__main__":
         return p["id"], p.get("series"), p.get("date") or "", style(p)
 
     hits = [r for r in parallel.pmap(row, puzzle_files()) if r[3]]
-    for (series, decade), n in sorted(Counter((s, (d[:3] + "0s") if d else "undated")
+    for (name, decade), n in sorted(Counter((s, (d[:3] + "0s") if d else "undated")
                                              for _, s, d, _ in hits).items()):
-        print(f"{series:12} {decade:8} {n}")
+        print(f"{name:12} {decade:8} {n}")
     if "-v" in sys.argv:
         print(" ".join(sorted(i for i, *_ in hits)))

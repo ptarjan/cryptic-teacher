@@ -606,6 +606,16 @@ def unlisted(series):
     return bool(meta(series).get("unlisted"))
 
 
+#: Series kinds whose puzzles are straight (definition-only) crosswords.
+NON_CRYPTIC_KINDS = {"Concise"}
+
+
+def is_cryptic(series):
+    """Whether this series' puzzles are cryptics, by its `kind`: a Concise has
+    definitions and no wordplay, so there is nothing to annotate or rate."""
+    return meta(series).get("kind") not in NON_CRYPTIC_KINDS
+
+
 def first_number(series):
     """The number the series' first puzzle printed under: `firstIssue`, else
     1. None where the series has no first issue of its own: a number that is a

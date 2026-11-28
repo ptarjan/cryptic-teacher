@@ -2675,7 +2675,7 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
     annotate_blocked, solve_blocked, only = set(annotate_blocked), set(solve_blocked), set(only)
     todo = [p for p in rows
             if not p["annotated"] and p["id"] not in annotate_blocked
-            and not p.get("awaitsPreamble")
+            and not p.get("awaitsPreamble") and series.is_cryptic(p["series"])
             and (p.get("hasSolutions") or (cold_solvable(p) and p["id"] not in solve_blocked))
             and (not only or p["series"] in only)]
     return round_robin(todo) + reannotate_tier(rows, annotate_blocked, only, {p["id"] for p in todo})
@@ -2691,7 +2691,7 @@ def reannotate_tier(rows, annotate_blocked=(), only=(), taken=()):
     ids = shape_queue.puzzle_ids()
     return round_robin([p for p in rows if p["id"] in ids and p["annotated"] and p["id"] not in taken
                         and p["id"] not in annotate_blocked and not p.get("style")
-                        and not p.get("awaitsPreamble")
+                        and not p.get("awaitsPreamble") and series.is_cryptic(p["series"])
                         and (not only or p["series"] in only)])
 
 
