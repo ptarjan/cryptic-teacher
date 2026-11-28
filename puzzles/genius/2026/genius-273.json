@@ -33,7 +33,8 @@
   "check": "grid and clues read from the Guardian's printable PDF, its numbering matching the clue list; each light's entry one fifteensquared prints for it, the only choice of them whose crossings all agree; an entry not its answer carries the answer as its alteration's `from`"
  },
  "annotatedBy": [
-  "claude-opus-5-5"
+  "claude-opus-5-5",
+  "claude-sonnet-5-5"
  ],
  "entries": [
   {
@@ -319,32 +320,37 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TAMARIND",
-     "indicators": [
-      {
-       "text": "used in",
-       "note": "only the stretch of letters used where the two words meet is kept, the outer letters dropped"
-      }
-     ],
      "parts": [
       {
-       "words": "Kolkata",
-       "note": "the Indian city, formerly Calcutta, taken as written"
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "used in",
+         "at": 9,
+         "note": "used in says the answer sits inside Kolkata marinade, read straight off where the two words meet"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Kolkata marinade",
+         "at": 17,
+         "gives": "TAMARINAD"
+        }
+       ]
       },
       {
-       "words": "marinade",
-       "note": "taken as written"
+       "gives": "A",
+       "note": "the spare letter the wordplay generates, left out of the answer"
       }
      ]
     },
     "explanation": {
      "surface": "A seed pod goes into an Indian city's marinade.",
-     "walkthrough": "The letters spanning the two words read TAMARINAD, with a spare A: the letter 25 across omits, and 6 + 25 makes 31. Tamarind is a common sour ingredient in Indian cooking.",
+     "walkthrough": "TAMARINAD is hidden where Kolkata runs into marinade, with one spare A; leave that A out and TAMARIND is left. Tamarind is a common sour ingredient in Indian cooking.",
      "definitionFit": "Tamarind is the pod of a tropical tree whose pulp-covered seeds flavour curries and chutneys."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false
     }
    }
