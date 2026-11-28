@@ -1775,7 +1775,6 @@
       if (ask.known.indexOf(n) < 0 && drag.base.indexOf(n) < 0) run.push(n);
     }
     guessing.picked = drag.base.concat(run);
-    dropMiss();
     paintPicked(ask);
   }
 
@@ -1988,16 +1987,25 @@
   // question up and says so (Paul 11-27: the next step's button under the
   // previous step's text); the line goes once another step comes to the front.
   function carriedResultHTML(g, name) {
-    if (!g.mk.right) return `<p id="step-miss" class="step-result miss">Not quite \u2014 try again, or tap \u201cJust tell me\u201d.</p>`;
+    if (!g.mk.right) return `<p id="step-miss" class="step-result miss">${missText()}</p>`;
     return `<p class="step-result right">\u2713 ${esc(name)}: right</p>`;
   }
-  // A changed pick starts a new try: the "Not quite" over the question goes.
-  function dropMiss() {
-    if (!lastGuess || lastGuess.mk.right || !guessing || lastGuess.rung !== guessing.rung
-      || (lastGuess.step || 0) !== (guessing.step || 0)) return;
-    lastGuess = null;
+  // The miss line names only what the help button offers right now: while
+  // words are picked it reads Lock in, so the line says to change them; with
+  // none picked it reads "Just tell me". Same state as tellHTML (lockReady).
+  function missText() {
+    return lockReady(currentAsk())
+      ? "Not quite \u2014 change your picks, or take them off to tap \u201cJust tell me\u201d."
+      : "Not quite \u2014 try again, or tap \u201cJust tell me\u201d.";
+  }
+  // Picks changed: the line stays over the question and is reworded to match.
+  function refreshMiss() {
     const el = $("step-miss");
-    if (el) el.hidden = true;
+    if (!el) return;
+    el.textContent = missText();
+    // setHTML's remembered markup takes the change too (see repaintTell).
+    const body = $("hint-body");
+    if (body._shown) body._shown = body._shown.replace(/(<p id="step-miss"[^>]*>)[^<]*/, (m, a) => a + missText());
   }
   // Whether the result in hand belongs to the question now in front.
   function carriedFor(e, g, at) {

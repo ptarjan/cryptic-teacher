@@ -102,8 +102,10 @@ Terms used below:
   another step is the skip. A right Lock in (`finishGuess`) opens the step as
   worked out with the green verdict; a wrong one opens nothing and keeps the same question on the table
   (`guessing` is rebuilt with empty picks; the step goes into `rungsMissed`, so it
-  can never be earned afterwards), with a `.step-result.miss` "Not quite — try
-  again, or tap “Just tell me”." from `carriedResultHTML`, shown only while that
+  can never be earned afterwards), with a `.step-result.miss` "Not quite — …" line
+  from `carriedResultHTML` (`missText`: while picks are kept it says to change
+  them or take them off to tap “Just tell me”; with none picked, "try again, or
+  tap “Just tell me”"; `repaintTell` rewrites it as picks change), shown only while that
   question is in front (`carriedFor`). A right one is kept in `lastGuess` (a
   tell clears it) and the next step's panel, a question or a no-question card
   (`nextCardHTML`), opens with "✓ <Step>: right", because a right answer moves

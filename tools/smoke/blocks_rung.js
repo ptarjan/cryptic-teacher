@@ -197,9 +197,13 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   // the picks off makes it Just tell me again.
   assert(/id="guess-tell"[^>]*aria-label="Lock in /.test(registry["hint-body"].innerHTML),
     "the wrong words stay picked and the button still offers to lock them in");
+  assert(/step-miss[^>]*>Not quite[^<]*change your picks/.test(registry["hint-body"].innerHTML),
+    "while picks are kept the miss line tells them to change the picks: " + registry["hint-body"].innerHTML);
   for (let i = 0; i < words; i++) registry["gw-" + i].onclick();
   assert(/id="guess-tell"[^>]*aria-label="Just tell me: /.test(registry["hint-body"].innerHTML),
     "with the picks taken off the button is Just tell me: " + registry["hint-body"].innerHTML);
+  assert(/step-miss[^>]*>Not quite[^<]*try again, or tap/.test(registry["hint-body"].innerHTML),
+    "and the miss line then says to tap Just tell me: " + registry["hint-body"].innerHTML);
   registry["guess-tell"].onclick();
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "Just tell me then opens the step it asked about");
   assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),

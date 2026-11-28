@@ -19,8 +19,8 @@ the site offers.
   the step as worked out, with the green verdict, and moves on to the next
   question, which opens with a "✓ Definition: right" line so the result is never
   lost behind the tab. A wrong Lock in opens nothing: the same
-  question stays up with the picks cleared and a plain "Not quite — try again,
-  or tap “Just tell me”." line, so the tab in front, its content and its
+  question stays up with the picks kept and a plain "Not quite" line that names
+  only what the button offers (change the picks, or take them off to tap “Just tell me”), so the tab in front, its content and its
   button all belong to the one step; "Just tell me" is the paid way to see it.
   No miss marks, no red, no "Not X" line for a wrong clue family. A step that
   was missed once is never marked worked out, however it is answered after. A wrong piece followed by a

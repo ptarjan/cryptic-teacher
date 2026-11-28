@@ -269,6 +269,7 @@
     const body = $("hint-body");
     if (body._shown) body._shown = body._shown.replace(TELL_SLOT_RE, (m, a, b) => a + html + b);
     $("guess-tell").onclick = showMeTap;
+    refreshMiss();
   }
   // Opens one step, or the next piece of Pieces, as handed over rather than
   // worked out. Shared by "Show me" and by a step button whose step is free.
@@ -911,7 +912,6 @@
           if (!a) return;
           const j = guessing.picked.indexOf(i);
           if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
-          dropMiss();
           // Repainted in place, exactly as a drag across the same words already
           // is. A tap changes which words are lit and whether the help button
           // reads Lock in or "Just tell me", and nothing else on the page says either — so rebuilding
