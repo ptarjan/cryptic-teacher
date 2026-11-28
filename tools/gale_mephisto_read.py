@@ -738,6 +738,9 @@ def read_done(row, done=None):
         # Refused "no clue list" by an older cut: the present cut's block holds an Across/Down heading or a numbered column
         # (the refusal's own test, gale_listener.read_page), so the page reads again once (NO_LIST 1, tools/data/mephisto_no_list.json).
         return False
+    if row and row.get("noParse", 0) < NO_PARSE and row.get("refused") == "no reading parses" and row.get("file") in no_parse_names():
+        # Refused "no reading parses" by an older cut that the present cut's block reads past (NO_PARSE 1, tools/data/mephisto_no_parse.json).
+        return False
     if row and row.get("formFix", 0) < FORM_FIX and row.get("file") in form_fix_names():
         # Cut at the entry form's word "solution" with no clue under it (FORM_FIX 1): only the pages the fix changes.
         return False
@@ -2444,6 +2447,26 @@ def no_list_names():
     return _NO_LIST_NAMES
 
 
+#: Bumped when the pages refused "no reading parses" by an older cut are read again once: the cuts since (wrapped_cut, left_cut,
+#: numbered_cut, side_strip, wide_below_cut ...) lay a block whose readers parse, so the page no longer refuses. Rule: a page
+#: refused "no reading parses" is due when the present code's read of it does not refuse so (tools/data/mephisto_no_parse.json:
+#: found by reading each refused page with the present code; nothing writes it, filed pages are never in it).
+NO_PARSE = 1
+NO_PARSE_FILE = ROOT / "tools" / "data" / "mephisto_no_parse.json"
+_NO_PARSE_NAMES = None
+
+
+def no_parse_names():
+    """The bare GALE_*.pdf names refused "no reading parses" that the present code reads past (a committed list)."""
+    global _NO_PARSE_NAMES
+    if _NO_PARSE_NAMES is None:
+        try:
+            _NO_PARSE_NAMES = frozenset(json.loads(NO_PARSE_FILE.read_text()))
+        except (OSError, ValueError):
+            _NO_PARSE_NAMES = frozenset()
+    return _NO_PARSE_NAMES
+
+
 def title_head(words, box, lh, wide):
     """[an Across heading word] set at the first clue of the lists left of the grid at `box` when the OCR read no
     Across heading (LEFT_TITLE): the "MEPHISTO" title stands in the column left of the grid, within the rows the
@@ -3296,7 +3319,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR, "noParse": NO_PARSE}, store)
     print(json.dumps(verdict))
     return "read"
 
