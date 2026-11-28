@@ -15422,6 +15422,27 @@ def lattice_square(img, box):
     return box is not None and squared(box[2] - box[0], box[3] - box[1]) and box_lattice(img, box)
 
 
+#: LATTICE_WHOLE: the grid grid_under_clues took under a Gale Telegraph title is cut by its crop (the crop opens at the
+#: title's foot and runs CLUES_ABOVE_SPAN wide from the title's left), where the title stands beside the grid's upper part
+#: and the grid is wider than the span: r318, 1971-77 pages read "the white cells span 12 rows and 13 columns" or blank
+#: clues (a 602x576 ink of a 714x720 grid). The whole grid is a shaped ink on the page sharing the cut ink's left and foot
+#: (LATTICE_WHOLE_EDGE of its width, the page's own measure) and holding it; the smallest such ink stands for the box.
+LATTICE_WHOLE = "Gale Telegraph page whose grid under its clues the crop cut short, the whole grid ink read since"
+LATTICE_WHOLE_EDGE = 0.02
+
+
+def lattice_whole(img, box):
+    """The shaped ink on page `img` that holds `box`, a cut ink (not itself grid-shaped) of a grid, with the same left and foot
+    (within LATTICE_WHOLE_EDGE of its width), and is larger; the smallest such. None when there is none."""
+    if box is None:
+        return None
+    slack = LATTICE_WHOLE_EDGE * (box[2] - box[0])
+    holds = [g for g in grids_on(img, shaped=lambda b: shaped_on(img, b))
+             if abs(g[0] - box[0]) <= slack and abs(g[3] - box[3]) <= slack
+             and g[1] <= box[1] and g[2] >= box[2] and (g[2] - g[0]) * (g[3] - g[1]) > (box[2] - box[0]) * (box[3] - box[1])]
+    return min(holds, key=lambda g: (g[2] - g[0]) * (g[3] - g[1])) if holds else None
+
+
 #: Papers whose page prints its puzzle's solution nowhere the scan reads: the Gale Sunday Telegraph's (1961-2000)
 #: pages hold the puzzle and "COMPETITION No. 1676 WINNERS & SOLUTION" for the week before's, as a text list
 #: ("ACROSS: 1 Depth charge, 7 Aloofness ...") beside the Quickie's, in a column no solution heading or grid
@@ -16839,7 +16860,13 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # it as read (backsolve: no scan grid stands, picks or screens).
     backsolve = False
     # A Gale Telegraph grid under its clues too small for grid_shaped but a square lattice (LATTICE_UNDER).
-    if paper.key == "galetelegraph" and paper.clues_above and gbox is not None and side == "below" \
+    whole = lattice_whole(img, gbox) if paper.key == "galetelegraph" and paper.clues_above and side == "below" \
+        and gbox is not None and not shaped_on(img, gbox) else None
+    if whole is not None:
+        gbox = whole
+        gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
+        verdict["gridBox"] = "under its clues, the whole grid ink"
+    elif paper.key == "galetelegraph" and paper.clues_above and gbox is not None and side == "below" \
             and not shaped_on(img, gbox) and lattice_square(img, gbox):
         verdict["gridBox"] = "under its clues, a small square lattice"
     elif side is None or not (wide_shaped(hit["box"]) if paper.key in GRID_RIGHT else loose_shaped if paper.key == "galeindependent"
