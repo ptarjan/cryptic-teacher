@@ -12,7 +12,7 @@ values, read before the cutoff."""
 from fix_reasons import Reason
 
 TEXT = "Independent page whose two clue columns stood in one window under stray number starts, its columns split since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T16:40:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
