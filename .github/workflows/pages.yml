@@ -397,55 +397,97 @@ jobs:
         run: bash tools/make_og.sh --all
         env:
           OG_LIMIT: "120"
-      # A cold render costs ~8.4ms a page plus ~7s startup, and the corpus only
-      # grows: 9 shards took 85-90s on a full build and 91-97s a few hours later
-      # against the 90s budget. A page-code change makes every build cold, so the
-      # pages are rendered in 12 shards (~5k pages, ~70s cold; warm builds take
-      # 21-32s), one step each
-      # (`--shard i/n`: pages whose id hashes to i), and the step after them
-      # (`--assemble 12`) checks every page was rendered by exactly one shard,
-      # then writes the hub, listings and sitemaps from what the shards left in
-      # .page-shards/. Same files, byte for byte, as `python3 tools/build_seo_pages.py` makes alone.
-      - name: Generate the crawlable pages, shard 1 of 12
+      # A cold render costs about 12ms a page counting each shard's startup,
+      # and the corpus only grows, so the shard count is derived, not kept: Plan
+      # the shards (tools/plan_shards.py) counts the pages and writes
+      # N = ceil(pages / PAGES_PER_SHARD) to its outputs, and the 24 shard
+      # steps below each run only when their number is under N (`--shard i/N`:
+      # pages whose id hashes to i). More than 24 fails Plan the shards by
+      # name, never quietly. A page-code change makes every build cold. The step
+      # after them (`--assemble N`) checks every page was rendered by exactly
+      # one shard, then writes the hub, listings and sitemaps from what the
+      # shards left in .page-shards/. Same files, byte for byte, as the
+      # unsharded build makes alone.
+      - name: Plan the shards
+        id: plan
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 0/12
-      - name: Generate the crawlable pages, shard 2 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 1/12
-      - name: Generate the crawlable pages, shard 3 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 2/12
-      - name: Generate the crawlable pages, shard 4 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 3/12
-      - name: Generate the crawlable pages, shard 5 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 4/12
-      - name: Generate the crawlable pages, shard 6 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 5/12
-      - name: Generate the crawlable pages, shard 7 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 6/12
-      - name: Generate the crawlable pages, shard 8 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 7/12
-      - name: Generate the crawlable pages, shard 9 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 8/12
-      - name: Generate the crawlable pages, shard 10 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 9/12
-      - name: Generate the crawlable pages, shard 11 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 10/12
-      - name: Generate the crawlable pages, shard 12 of 12
-        if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --shard 11/12
+        run: python3 tools/plan_shards.py
+      - name: Generate the crawlable pages, shard 1
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 0
+        run: python3 tools/build_seo_pages.py --shard 0/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 2
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 1
+        run: python3 tools/build_seo_pages.py --shard 1/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 3
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 2
+        run: python3 tools/build_seo_pages.py --shard 2/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 4
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 3
+        run: python3 tools/build_seo_pages.py --shard 3/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 5
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 4
+        run: python3 tools/build_seo_pages.py --shard 4/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 6
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 5
+        run: python3 tools/build_seo_pages.py --shard 5/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 7
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 6
+        run: python3 tools/build_seo_pages.py --shard 6/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 8
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 7
+        run: python3 tools/build_seo_pages.py --shard 7/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 9
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 8
+        run: python3 tools/build_seo_pages.py --shard 8/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 10
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 9
+        run: python3 tools/build_seo_pages.py --shard 9/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 11
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 10
+        run: python3 tools/build_seo_pages.py --shard 10/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 12
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 11
+        run: python3 tools/build_seo_pages.py --shard 11/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 13
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 12
+        run: python3 tools/build_seo_pages.py --shard 12/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 14
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 13
+        run: python3 tools/build_seo_pages.py --shard 13/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 15
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 14
+        run: python3 tools/build_seo_pages.py --shard 14/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 16
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 15
+        run: python3 tools/build_seo_pages.py --shard 15/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 17
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 16
+        run: python3 tools/build_seo_pages.py --shard 16/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 18
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 17
+        run: python3 tools/build_seo_pages.py --shard 17/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 19
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 18
+        run: python3 tools/build_seo_pages.py --shard 18/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 20
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 19
+        run: python3 tools/build_seo_pages.py --shard 19/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 21
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 20
+        run: python3 tools/build_seo_pages.py --shard 20/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 22
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 21
+        run: python3 tools/build_seo_pages.py --shard 21/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 23
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 22
+        run: python3 tools/build_seo_pages.py --shard 22/${{ steps.plan.outputs.shards }}
+      - name: Generate the crawlable pages, shard 24
+        if: steps.scope.outputs.fast != 'true' && fromJSON(steps.plan.outputs.shards) > 23
+        run: python3 tools/build_seo_pages.py --shard 23/${{ steps.plan.outputs.shards }}
       - name: Assemble the crawlable pages
         id: pages
         if: steps.scope.outputs.fast != 'true'
-        run: python3 tools/build_seo_pages.py --assemble 12
+        run: python3 tools/build_seo_pages.py --assemble ${{ steps.plan.outputs.shards }}
       # The puzzle fast path's one step in place of the shards and the
       # assemble: the same build as `python3 tools/build_seo_pages.py`, whose
       # first pass reuses the stored pages in this process and sends only the

@@ -45,6 +45,12 @@ def budgets(table=TABLE):
     return {k: v for k, v in json.loads(Path(table).read_text(encoding="utf-8")).items() if not k.startswith("_")}
 
 
+def budget_key(key):
+    """The table's key for a step: the shard steps ("Generate the crawlable pages,
+    shard 7") share one row, "shard N", whatever number the corpus has reached."""
+    return re.sub(r"(, shard) \d+$", r"\1 N", key)
+
+
 def _t(s):
     return datetime.fromisoformat(s.replace("Z", "+00:00"))
 
@@ -66,7 +72,7 @@ def check_run(repo, run_id, attempt="1"):
                 continue
             key = f"{re.sub(r' [(][0-9]+[)]$', '', job['name'])}/{step['name']}"   # a matrix job is "annotate (3)"
             took = round((_t(step["completed_at"]) - _t(step["started_at"])).total_seconds())
-            row = table.get(key)
+            row = table.get(budget_key(key))
             if row is None:
                 bad.append(f"{key} took {took}s and has no budget: add its row to tools/data/deploy_budgets.json")
                 rows.append((key, took, None))
@@ -199,7 +205,7 @@ def lint(workflow=WORKFLOW, table=TABLE):
         if key in names:
             errors.append(f"{key}: two steps share the name, so they share one budget")
         names[key] = text
-        row = table.get(key)
+        row = table.get(budget_key(key))
         if row is None:
             errors.append(f"{key}: no row in tools/data/deploy_budgets.json")
             continue
@@ -227,8 +233,9 @@ def lint(workflow=WORKFLOW, table=TABLE):
             if c not in earlier:
                 errors.append(f"{key} names cache step {c!r}, which is not an actions/cache step "
                               f"earlier in job {job}")
+    used = {budget_key(k) for k in names}
     for key in table:
-        if key not in names:
+        if key not in used:
             errors.append(f"{key}: a budget row for a step pages.yml does not have")
     for e in errors:
         print(f"FAIL {e}")
