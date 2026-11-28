@@ -4881,6 +4881,31 @@ def overhang(img, grid):
     return x0 + ends[-1] + OVER_WINDOW if ends else None
 
 
+#: INDY_DEEP_OVER: how far under the grid (a share of its width) the band for a third clue column is looked at when the
+#: band beside the grid's foot is blank (a solution box or white space stands there, the column starting under it).
+OVER_DEEP = 1.0
+
+
+def overhang_deep(img, grid):
+    """overhang()'s answer for a third clue column starting lower than OVER_DEPTH under the grid: the band beside the
+    foot is not inked like text (overhang() None) but the band under it, to OVER_DEEP of the grid's width, is. The x where
+    the column ends, or None."""
+    gx0, _, gx1, gy1 = grid
+    gw = gx1 - gx0
+    x0, far = int(gx1 + OVER_BAND[0] * gw), min(img.width, int(gx1 + OVER_REACH * gw))
+    top, foot = int(gy1 + OVER_DEPTH[1] * gw), int(gy1 + OVER_DEEP * gw)
+    if foot > img.height or int(gx1 + OVER_BAND[1] * gw) > img.width:
+        return None
+    band = img.crop((x0, top, int(gx1 + OVER_BAND[1] * gw), foot)).convert("L")
+    if sum(band.histogram()[:128]) < OVER_INK * band.width * band.height:
+        return None
+    from PIL import Image
+    strip = img.crop((x0, top, far, foot)).convert("L").point(lambda v: 255 if v < 128 else 0)
+    ink = [v / 255 for v in strip.resize((strip.width, 1), Image.BOX).getdata()]
+    ends = [x for x in range(len(ink)) if sum(ink[x:x + OVER_WINDOW]) >= OVER_WINDOW * OVER_COLUMN_INK]
+    return x0 + ends[-1] + OVER_WINDOW if ends else None
+
+
 def over_gutters(lines, grid, x1):
     """(first, second, x1): the two x's between the three clue columns under
     `grid` that end at `x1` (overhang()), each where the fewest words
@@ -17201,6 +17226,15 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             and not indy_wide_lead(paper, d, gbox, hit["box"], alt_x == "flat") \
             and not (alt_x == "flat" and indy_indent_lead(paper, gbox, hit["box"], img)):
         over = overhang(img, gbox)
+    # INDY_DEEP_OVER: the third column under a grid whose foot has a blank band beside it, the window after the layout's
+    # (kept only if _read_best scores it better), so a page that files is untouched.
+    if paper.key == "galeindependent" and side == "below" and top is None and not sides and not column and not third \
+            and not paper.four and not two_columns_only(paper, d) and not right and not over \
+            and kind in (None, "deepover") and right_page:
+        if kind == "deepover":
+            over = overhang_deep(img, gbox)
+        elif alts is not None and overhang_deep(img, gbox):
+            alts.append(("deepover", None))
     if right and paper.key == "galeft":
         right = ft_foot(img, gbox, right)
     if (right or over) and alts is not None:
