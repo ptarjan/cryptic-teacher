@@ -18034,6 +18034,38 @@ def fourth_pair(found, lines=None):
     return n1 >= PAIR_LOW and 0 < n2 - n1 <= PAIR_SPREAD and abs(x1 - x2) <= 12 and 0 < y2 - y1 <= PAIR_DROP
 
 
+#: GUARDIAN_LABELLED (tools/reasons/20261128_2359_guardian_labelled.py): a fourth column opening on the solution grid's
+#: label ("CROSSWORD SOLUTION 21,171") and holding the down list's last clue under it, one clue of text (1998-01-15's
+#: "22 One's within one's right to retain possession of one's bed (3-2)", 1997-11-25, 1997-12-09, 1998-05-19 the same):
+#: FOURTH_LINES and PAIR_LINES wanted two or three, so the clue stood "no reading laid a clue on it". LABELLED_GAP: how
+#: far (px) under the label's foot the clue's number may stand; LABELLED_WORD: the label's word as RapidOCR and
+#: archive.org misread it (SOUmON, solution).
+LABELLED_GAP = 120
+LABELLED_WORD = re.compile(r"(?i)\bso[lu][a-z]{3,6}\b")
+
+
+def label_over(lines, x, y):
+    """True when a solution grid's label line (a label word, no leading number, not "Solution tomorrow") stands at x (within
+    FOURTH_LEAD) and no more than LABELLED_GAP over y, the top of a clue line."""
+    for ws in lines:
+        ws = sorted(ws)
+        text = " ".join(str(w[4]) for w in ws)
+        if ws and abs(ws[0][0] - x) <= FOURTH_LEAD and LABELLED_WORD.search(text) and not re.match(r"\W*\d", text) \
+                and 0 < y - ws[0][3] <= LABELLED_GAP and "tomorrow" not in text.lower():
+            return True
+    return False
+
+
+def fourth_labelled(found, lines, edge=None):
+    """True when `found` (guardian_fourth's lines opening on a number at the third column's edge) is one clue line of
+    a clue number PAIR_LOW or more standing under a solution grid's label at the same edge (label_over): the one clue
+    under the solution grid in a fourth column."""
+    nums = {(a[1] // 20, int(a[4]), a[0], a[1]) for a in found}
+    if len({n[0] for n in nums}) != 1 or min(n[1] for n in nums) < PAIR_LOW:
+        return False
+    return label_over(lines, min(n[2] for n in nums), min(n[3] for n in nums))
+
+
 def guardian_fourth(lines, grid, third):
     """`third` (width, top) of a Guardian page, or (width, top, split, width, top) when the djvu words hold a fourth
     clue column beside the one it reads (GUARDIAN_FOURTH: its window ended 26 px into the fourth column's numbers
@@ -18048,7 +18080,8 @@ def guardian_fourth(lines, grid, third):
             if re.fullmatch(r"\d{1,2}", a[4]) and edge - FOURTH_LEAD <= a[0] < edge and b[0] >= edge - 10 \
                     and top <= a[1] <= grid[3] + 1.8 * (grid[2] - grid[0]) and re.search(r"[A-Za-z]{2}", b[4]):
                 found.append(a)
-    if len({a[1] // 20 for a in found}) < FOURTH_LINES and not fourth_pair(found, lines):
+    if len({a[1] // 20 for a in found}) < FOURTH_LINES and not fourth_pair(found, lines) \
+            and not fourth_labelled(found, lines, edge):
         return third
     split = min(a[0] for a in found) - 12
     return (width, top, split, width, min(a[1] for a in found) - 12)
