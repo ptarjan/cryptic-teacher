@@ -105,7 +105,7 @@ from fetch_puzzle import (  # one reader, one exemption
 )
 from find_answer_leaks import _run, light_solutions, named, pieces_of, says  # one matcher, shared with the finder
 from groups import entry_id
-from hidden_messages import block_letters, check_preamble, letter_problems, message_problems
+from hidden_messages import block_letters, check_preamble, leak_problems, letter_problems, message_problems
 from puzzle_paths import (  # one glob, one id resolver
     puzzle_files,
     resolve_puzzle,
@@ -672,6 +672,7 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
 
 
     errors.extend(message_problems(puzzle))
+    errors.extend(leak_problems(puzzle))
     warnings.extend(check_preamble(puzzle))
     # A puzzle whose clues are all withheld has no hint, and is still the run's
     # to answer for: the check says it is too much to ship round.

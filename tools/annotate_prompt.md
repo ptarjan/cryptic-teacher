@@ -189,6 +189,7 @@ clue itself, with `"at"`). Beside the entry ids, give the phrase: `"messages":
 [{"text": "SUM TO FINAL", "kind": "omitted", "direction": "across", "order": "clues",
 "placement": "belowGrid"}]` (`direction` only when one direction spells it, `placement`
 only when the preamble says where).
+A clue's notes and explanation explain that clue: say a letter is omitted or spare, and which, but never print the message, name the theme, or say which other clue pairs with it (no "(7 + 24 = 31)"): the solver finds those.
 
 ## Taste
 

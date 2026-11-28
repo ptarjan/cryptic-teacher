@@ -117,6 +117,72 @@ def message_letters(puzzle, msg):
     return "".join(x or "" for x in got), complete
 
 
+def annotation_texts(ann):
+    """Every prose field of an annotation: each `note` at any depth and each
+    `explanation` value, as (where, text)."""
+    out = []
+
+    def walk(node, where):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k in ("note", "notes") and isinstance(v, str):
+                    out.append((f"{where}.{k}", v))
+                else:
+                    walk(v, f"{where}.{k}")
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                walk(v, f"{where}[{i}]")
+
+    walk({k: v for k, v in ann.items() if k != "explanation"}, "annotation")
+    for k, v in (ann.get("explanation") or {}).items():
+        if isinstance(v, str):
+            out.append((f"explanation.{k}", v))
+    return out
+
+
+#: The "(7 + 24 = 31)" arithmetic that pairs one clue's letter with another's.
+PAIR_SUM = re.compile(r"\d+\s*\+\s*\d+\s*=\s*\d+")
+MIN_MESSAGE_LETTERS = 5
+
+
+def names_message(text, message):
+    """Does `text` spell `message` (letters only, spaces ignored) starting and
+    ending on word edges? 'Nobel laureate sharing' holds NOBELLAUREATES inside
+    its words and does not name it."""
+    starts, ends, flat = set(), set(), ""
+    for word in re.findall(r"[A-Za-z]+", str(text or "").upper()):
+        starts.add(len(flat))
+        flat += word
+        ends.add(len(flat))
+    i = flat.find(message)
+    while i >= 0:
+        if i in starts and i + len(message) in ends:
+            return True
+        i = flat.find(message, i + 1)
+    return False
+
+
+def leak_problems(puzzle):
+    """An annotation explains its own clue. It may say a letter is omitted or
+    spare, and which; it must not print the puzzle's message, or the pairing
+    sum between clues, which the solver has to discover."""
+    out = []
+    msgs = [letters(m.get("text")) for m in puzzle.get("messages") or []]
+    msgs = [m for m in msgs if len(m) >= MIN_MESSAGE_LETTERS]
+    for e in puzzle["entries"]:
+        ann = e.get("annotation") or {}
+        for where, text in annotation_texts(ann):
+            for m in msgs:
+                if names_message(text, m):
+                    out.append(f"{entry_id(e)}: {where} gives away the puzzle's message "
+                               f"{m}. Say only that the letter is omitted or spare, and "
+                               f"which; never name the message, theme or clue pairing")
+            if ann.get("hiddenLetter") and PAIR_SUM.search(text):
+                out.append(f"{entry_id(e)}: {where} gives the pairing sum between clues, "
+                           f"which the solver must discover. Drop it")
+    return out
+
+
 def message_problems(puzzle):
     """Each `messages` item must be spelt by its clues' hidden letters."""
     out = []
