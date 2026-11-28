@@ -3803,7 +3803,21 @@ def opening_gutter(lines, grid, split):
     gw = gx1 - gx0
     bottom = gy1 + 1.8 * gw
     start = column_start(lines, gx0 + OPEN_SPAN[0] * gw, gx0 + OPEN_SPAN[1] * gw, gy1, bottom, gx1)
-    if start is None or split <= start + OPEN_MISS:
+    if start is None:
+        return number_gutter(lines, grid, split)  # OPEN_NUMBERS
+    if split <= start + OPEN_MISS:
+        return None
+    return gutter(lines, (gx0, bottom, gx1, bottom), gy1, start - OPEN_REACH, start)
+
+
+def number_gutter(lines, grid, split):
+    """OPEN_NUMBERS: the gutter sought in the OPEN_REACH px left of the second column's numbers, when those are boxes of
+    their own (column_start(bare=True)) and `split` runs between them and their words (number_cut); else None."""
+    gx0, _, gx1, gy1 = grid
+    gw = gx1 - gx0
+    bottom = gy1 + 1.8 * gw
+    start = column_start(lines, gx0 + OPEN_SPAN[0] * gw, gx0 + OPEN_SPAN[1] * gw, gy1, bottom, gx1, bare=True)
+    if start is None or not number_cut(lines, start, gy1, bottom, split):
         return None
     return gutter(lines, (gx0, bottom, gx1, bottom), gy1, start - OPEN_REACH, start)
 
@@ -3823,13 +3837,83 @@ CLUE_OPENING = re.compile(r"\W{0,3}\d{1,2}\W{0,2}\s*[A-Z\"'‘“]")
 OPEN_ROWS, OPEN_ALIGN, OPEN_ROW, OPEN_SPAN, OPEN_MISS, OPEN_REACH = 2, 15, 12, (0.2, 0.8), 60, 60
 
 
-def column_start(lines, lo, hi, top, bottom, far):
+#: OPEN_NUMBERS (r317: ~100 Gale Independent 1996-2005 rows, a DOWN light or two "no reading laid a clue on it", 2004-12-21 No 5672's
+#: 5 down): the print sets its clue numbers as boxes of their own (x 1787-1802, the words from 1830) in a column that opens inside
+#: the first column's window; under_gutter() put its gutter in the numbers' own gap (1825, 38 px right of the opening, under
+#: OPEN_MISS), so the second column's numbers read into the first column's lines and its clues had none ("speaking at speed (9) 24",
+#: "1" "2" "3"... left over). column_start(bare=True) counts a number box whose row neighbour right of it opens with a capital.
+_BARE_NUMBER = re.compile(r"\W{0,3}\d{1,2}\W{0,2}$")
+_WORD_OPENS = re.compile(r"[A-Z\"'\u2018\u201c]")
+
+
+def row_next(lines, w):
+    """The box of `lines` nearest right of box `w` on its row (sharing over half its height), or None."""
+    half = (w[3] - w[1]) / 2
+    right = [o for ws in lines for o in ws if o[0] >= w[2] and min(o[3], w[3]) - max(o[1], w[1]) > half]
+    return min(right, key=lambda o: o[0]) if right else None
+
+
+def number_cut(lines, start, top, bottom, split):
+    """Whether `split` runs between the number boxes opening the column at `start` and their words: on OPEN_ROWS or more rows
+    the bare number there ends left of `split` and its row's next box begins right of it."""
+    cut = 0
+    for ws in lines:
+        for w in ws:
+            if top <= w[1] < bottom and abs(w[0] - start) <= OPEN_ALIGN and _BARE_NUMBER.match(str(w[4])):
+                nxt = row_next(lines, w)
+                if nxt is not None and w[2] < split <= nxt[0] and _WORD_OPENS.match(str(nxt[4])):
+                    cut += 1
+    return cut >= OPEN_ROWS
+
+
+@functools.lru_cache(maxsize=4096)
+def indy_number_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}") holds, in a window opening 40 px
+    (the margin) left of a grid whose right edge another window's left edge gives (5 or 15 px beyond it), a second
+    column whose numbers are boxes of their own with under_gutter()'s gutter between them and their words (OPEN_NUMBERS)."""
+    for which in ("en5", "ch"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            wins = [(held["box"], held["words"]), *((o["box"], o.get("words") or ()) for o in held.get("more") or ())]
+            wins = [([float(v) for v in box], [(int(w[0]), int(w[1]), int(w[2]), int(w[3]), str(w[4])) for w in ws])
+                    for box, ws in wins]
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+        for box, words in wins:
+            gx0, gy1 = box[0] + 40, box[1]
+            for other, _ in wins:
+                for edge in (5, 15):
+                    gx1 = other[0] - edge
+                    if gx1 - gx0 < 300:
+                        continue
+                    grid = (gx0, gy1 - 1, gx1, gy1)
+                    bottom = gy1 + 1.8 * (gx1 - gx0)
+                    if column_start([words], gx0 + OPEN_SPAN[0] * (gx1 - gx0), gx0 + OPEN_SPAN[1] * (gx1 - gx0), gy1, bottom, gx1) \
+                            is not None:
+                        continue
+                    gw = gx1 - gx0
+                    split = gutter([words], (gx0, bottom, gx1, bottom), gy1, gx0 + gw / 2 - 10 - UNDER_SPAN * gw,
+                                   gx0 + gw / 2 - 10 + UNDER_SPAN * gw)
+                    if number_gutter([words], grid, split) is not None:
+                        return True
+    return False
+
+
+def column_start(lines, lo, hi, top, bottom, far, bare=False):
     """The x where the second clue column's lines open (`lines`, every reading's words, from `top` to
     `bottom`): the middle opening of the one run of clue openings, in [lo, hi), on OPEN_ROWS or more rows
     within OPEN_ALIGN px of each other; None when there is none, or another column's opening stands
-    right of it, short of `far` (the grid's right edge)."""
+    right of it, short of `far` (the grid's right edge). With `bare` (OPEN_NUMBERS) a number box of its own
+    opens a line when the box right of it on its row starts with a capital."""
+    def opens(w):
+        if CLUE_OPENING.match(str(w[4])):
+            return True
+        if not bare or not _BARE_NUMBER.match(str(w[4])):
+            return False
+        nxt = row_next(lines, w)
+        return nxt is not None and bool(_WORD_OPENS.match(str(nxt[4])))
     starts = [(w[0], (w[1] + w[3]) / 2) for ws in lines for w in ws
-              if top <= w[1] < bottom and lo <= w[0] < hi and CLUE_OPENING.match(str(w[4]))]
+              if top <= w[1] < bottom and lo <= w[0] < hi and opens(w)]
     found = []
     for x, _ in starts:
         near = sorted((s for s in starts if abs(s[0] - x) <= OPEN_ALIGN), key=lambda s: s[1])
@@ -3845,7 +3929,7 @@ def column_start(lines, lo, hi, top, bottom, far):
     best = max(found)[1]
     if any(abs(x - best) > 3 * OPEN_ALIGN for _, x in found):
         return None
-    if any(best + 3 * OPEN_ALIGN < w[0] < far and top <= w[1] < bottom and CLUE_OPENING.match(str(w[4]))
+    if any(best + 3 * OPEN_ALIGN < w[0] < far and top <= w[1] < bottom and opens(w)
            for ws in lines for w in ws):
         return None
     return best
