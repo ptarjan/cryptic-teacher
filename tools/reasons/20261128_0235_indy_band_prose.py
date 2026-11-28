@@ -13,7 +13,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose clue column stood beside article columns in its window, cut at the blank band between them since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T03:08:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def changed(key):
