@@ -11440,6 +11440,40 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     return verdict, puzzle
 
 
+#: A Gale FT puzzle whose title box stands clear of every grid on its leaf: the box is not the cryptic's own title but
+#: the solution heading's, set at the page's foot under the clue columns (r317: 29 rows 1987-94 refused "the ink under the title is
+#: 4x170 / 116x22 / 330x28, not a grid", the title read a fortnight's puzzle number back, the grid ~1500 px over it). A title
+#: stands against its grid: on 14 filed 1985-94 pages the box's foot is 14-33 px over the grid's top, the box's middle on the
+#: grid's middle (the box 960 wide, the grid 720); a title that has the grid beside it (the FT_SIDE_RIGHT pages) touches it too.
+#: The title is clear when no grid-shaped ink on the leaf (a solution's too) meets the box grown by its own height. Its own
+#: grid is then the non-solution grid nearest the box, and the box is laid on that grid's top, centred on it. Read-time only:
+#: the scan's boxes are unchanged, and a puzzle whose title touches a grid is returned as it was.
+
+
+def ft_own_title(d, hit):
+    """`hit` (a puzzle of Gale FT edition directory `d`) with its box laid on the top of the nearest non-solution grid on its leaf
+    when no grid meets it, or `hit` itself."""
+    if not hit or not hit.get("box") or paper_of(d) is not GALE_FT:
+        return hit
+    box = tuple(hit["box"])
+    w, h = box[2] - box[0], box[3] - box[1]
+    img = page(d, hit["leaf"])
+    grids = grids_on(img, shaped=lambda b: shaped_on(img, b))
+    near = (box[0] - h, box[1] - h, box[2] + h, box[3] + h)
+    if any(g[0] < near[2] and g[2] > near[0] and g[1] < near[3] and g[3] > near[1] for g in grids):
+        return hit
+    solution = solution_shaped(img)
+    own = [g for g in grids if not solution(g)]
+    if not own:
+        return hit
+
+    def apart(g):
+        return max(g[0] - box[2], box[0] - g[2], g[1] - box[3], box[1] - g[3], 0)
+    g = min(own, key=lambda g: (apart(g), -(g[2] - g[0]) * (g[3] - g[1])))
+    x0 = (g[0] + g[2] - w) // 2
+    return dict(hit, box=(x0, g[1] - h, x0 + w, g[1]))
+
+
 def _read_puzzle(d, found, hit, solutions, ocr_first=True):
     """(verdict, puzzle or None) for one title on one page. The scan's own
     readers read it first; the desktop's VLM (one at a time, ~8 asks a
@@ -11459,6 +11493,8 @@ def _read_puzzle(d, found, hit, solutions, ocr_first=True):
                         "skip": "a held title read answers-only: no linked solution grid gave its answers"}, None)
     # A Gale Sunday Telegraph puzzle titled from the solution heading: its own grid's foot is the title's place (SUNTEL_OWN_TITLE).
     hit = suntel_own_title(d, hit, found)
+    # A Gale FT puzzle whose box stands clear of every grid (the solution heading's) seeks its own grid's top.
+    hit = ft_own_title(d, hit)
     if not ocr_first:
         return read_page_why("direct:no-ocr-first", d, found, hit, solutions, None)
     _STAGE_CPU.clear()
