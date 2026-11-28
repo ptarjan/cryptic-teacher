@@ -6369,6 +6369,39 @@ def sunday_page_reads(d, leaf):
     return reads
 
 
+#: A Gale Independent on Sunday page's own heading kinds, as its lines print them: "The Concise Crossword No 1073",
+#: "The Prize Crossword No 1084" (IOS_HEAD_PRIZE) and the barred "Beelzebub Crossword No 1084" (IOS_HEAD_BEELZEBUB).
+IOS_CONCISE_HEADING = re.compile(r"^\W*(?:the\s*)?(?:concise|quick)\s*cr[o0]ss", re.IGNORECASE)
+
+
+def ios_heading_kind(d, hit):
+    """"concise", "prize" or "beelzebub": the kind of the heading `hit` (a scan() title: its leaf and box) of Gale
+    Independent on Sunday edition directory `d` is printed under, as every page reader's cached whole-page read
+    (never made here) gives its line; None where a reader has none cached, none reads a known heading there, or the
+    readers that do disagree. A page prints up to three puzzles (the Prize cryptic, the barred Beelzebub, the
+    Concise) and each is its own puzzle whatever number it takes: the heading, not the shared title match, says
+    which this is."""
+    reads = sunday_page_reads(d, hit.get("leaf"))
+    box = hit.get("box")
+    if not reads or not box or len(box) != 4:
+        return None
+    kinds = set()
+    for words in reads:
+        found = None
+        for ws in printed_lines(words):
+            lb = box_of(ws)
+            if lb[2] < box[0] - 10 or lb[0] > box[2] + 10 or lb[3] < box[1] - 10 or lb[1] > box[3] + 10:
+                continue
+            text = " ".join(str(w[4]) for w in ws)
+            found = ("concise" if IOS_CONCISE_HEADING.match(text) else
+                     "beelzebub" if IOS_BEELZEBUB_LINE.match(text) or IOS_HEAD_BEELZEBUB.search(text) else
+                     "prize" if IOS_HEAD_PRIZE.match(text) else None)
+            if found:
+                break
+        kinds.add(found)
+    return next(iter(kinds)) if len(kinds) == 1 else None
+
+
 def sunday_across_labels(words, want, slack):
     """[(number, box)] of the lines of `words` (a Gale Sunday Times page's cached reads) where the word "ACROSS" is followed,
     on its line, by a number within `slack` of `want` (a bare "No."/"No" word allowed between): the clue column's label the
@@ -17046,6 +17079,13 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         return refuse(verdict, "no-reading-parses", "no reading parses"), None
     ok, done, count, _, order, parsed, laid, why = max(tried, key=lambda t: t[:4])
     # A Two-in-One page's Quickie set is never the puzzle's clues (Sunday Telegraph 1976-77 filed with them).
+    # A page's Concise is printed under its own heading: never filed as the cryptic, whatever its clues' length.
+    if paper.key == GALE_INDY_SUNDAY.key:
+        heading = ios_heading_kind(d, hit)
+        if heading:
+            verdict["heading"] = heading
+        if heading == "concise":
+            return refuse(verdict, "quick-set", "the page's heading is the Concise Crossword's, not the cryptic's"), None
     if (sunday and quick_set(parsed)) or concise_gale(paper, parsed):
         return refuse(verdict, "quick-set", "the clue list is the straightforward (Quickie) set, not the cryptic"), None
     verdict["readings"] = list(order)
