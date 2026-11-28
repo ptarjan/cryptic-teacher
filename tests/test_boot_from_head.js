@@ -104,7 +104,7 @@ function loader(root, files) {
       : { ok: true, status: 200, text: () => Promise.resolve(text), json: () => Promise.resolve(JSON.parse(text)) });
   };
   ctx.document = {
-    getElementById: () => ({ getAttribute: attr }),
+    getElementById: () => ({ getAttribute: attr, parentNode: { removeChild() {} } }),
     querySelectorAll: () => ["app-core.js?v=1", "app-boot.js?v=1"].map((h) => ({ getAttribute: () => h })),
     createElement: () => ({ appendChild() {}, style: {}, setAttribute() {} }),
     createTextNode: (t) => ({ t }),
