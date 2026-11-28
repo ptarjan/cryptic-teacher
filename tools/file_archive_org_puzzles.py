@@ -4445,6 +4445,7 @@ INDY_UNDER_RUN = 2
 #: column right of the grid ("no reading laid a clue on it", ~35 Independent 2010-11 pages). A start counts when its own box
 #: holds two letters or the box right of it on its row (the nearest not overlapping it) does.
 INDY_UNDER_TEXT = True
+INDY_UNDER_ANY_READER = True
 _INDY_LETTERS = re.compile(r"[A-Za-z]{2}")
 
 
@@ -4546,6 +4547,19 @@ def indy_under(img, grid, right, rapid, key, margin):
     head = heads[0]
     acr = [w[0] for w in words if clue_text.heading_of(w[4]) == "ACROSS" and gx0 - margin <= w[0] < gx1 and w[1] >= gy1]
     pitch = indy_under_pitch(under, head, acr, INDY_UNDER_TEXT)
+    if pitch is None and INDY_UNDER_ANY_READER:
+        # INDY_UNDER_ANY_READER: the first reader's column under the grid lost its clue numbers (1997-09-22 No 3410: en5 read
+        # 3 of the first column's 5 starts, under INDY_COLUMN_MIN, so one column stood under the grid, its pitch to the one
+        # right matching no ACROSS heading, and the list's ACROSS 1-25 never joined the column right of the grid). Each other
+        # reader's columns are tried in turn: the columns evenly pitched to the one beside the grid are the print's.
+        for which, lines in plain.items():
+            if lines is (plain.get("en5") or next(iter(plain.values()))):
+                continue
+            other = [w for ws in lines for w in ws]
+            under_o = indy_under_heads(other, gx0, gx1, gy1, margin, INDY_UNDER_TEXT)
+            pitch = indy_under_pitch(under_o, head, acr, INDY_UNDER_TEXT) if len(under_o) >= 2 else None
+            if pitch is not None:
+                break
     if pitch is None:
         return None
     edge = min(x1, head + pitch - 20)
