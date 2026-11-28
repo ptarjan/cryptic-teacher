@@ -303,6 +303,50 @@ ANCHOR_BRIDGES = (
 )
 
 
+#: Bumped when the filed series' brackets number pages (BRACKET_FIX 1): tools/data/mephisto_bracket.json names the
+#: refused pages that now read, read again once.
+BRACKET_FIX = 1
+BRACKET_FILE = ROOT / "tools" / "data" / "mephisto_bracket.json"
+#: [date, offset] of the pages the Gale list titled or whose own text/citation printed a number (the filed series), one
+#: per date, with the offset (number less week(date)) only ever falling, a skipped week at a time: the longest run of
+#: them that never rises (a misread such as 1968-03-03's 409 for 470 is out), the OFFSET_RUNS ends added, a page a run
+#: contradicts or a renumbering (ANSWERS_FIX, RUN_FIRST_FIX) still due left out. Built from the ledger once, committed.
+ANCHORS_FILE = ROOT / "tools" / "data" / "mephisto_anchors.json"
+_BRACKET = {}
+
+
+def bracket_names():
+    """The bare GALE_*.pdf names whose number BRACKET_FIX gives (a committed list nothing writes)."""
+    if "names" not in _BRACKET:
+        try:
+            _BRACKET["names"] = frozenset(json.loads(BRACKET_FILE.read_text()))
+        except (OSError, ValueError):
+            _BRACKET["names"] = frozenset()
+    return _BRACKET["names"]
+
+
+def bracket_number(day, anchors=None):
+    """The number of the Sunday `day` when the filed series brackets it: the nearest anchor before it and the nearest
+    after it hold ONE offset, and the offset only ever falls (a skipped week at a time), so none fell between them and
+    the page is week(day) + that offset, whatever it prints. Not given when an offset run holds `day` at another
+    offset (the run's pages, not the bracket, say where it fell) or when the two anchors differ."""
+    if anchors is None:
+        if "anchors" not in _BRACKET:
+            try:
+                _BRACKET["anchors"] = [(a, o) for a, o in json.loads(ANCHORS_FILE.read_text())]
+            except (OSError, ValueError):
+                _BRACKET["anchors"] = []
+        anchors = _BRACKET["anchors"]
+    iso = day.isoformat()
+    before = [a for a in anchors if a[0] < iso][-1:]
+    after = [a for a in anchors if a[0] > iso][:1]
+    if not before or not after or before[0][1] != after[0][1]:
+        return None
+    if run_offset(day) not in (None, before[0][1]):
+        return None
+    return week(day) + before[0][1]
+
+
 def run_offset(day):
     """The offset (number less the week count) of OFFSET_RUNS, RUN_BRIDGES or ANCHOR_BRIDGES holding `day`, else None."""
     iso = day.isoformat()
@@ -474,7 +518,10 @@ def number_of(cited, text, doc=None, near=()):
             return n, "offset run"
         if got and got[1]:
             return week(day) + got[0], "page printed"
-        return (n, "offset run") if n else (None, None)
+        if n:
+            return n, "offset run"
+        n = bracket_number(day)
+        return (n, "filed bracket") if n else (None, None)
     if checked(cited[0], day):
         return cited[0], "citation"
     for m in TITLE_NUMBER.finditer(text or ""):
@@ -489,7 +536,8 @@ def number_of(cited, text, doc=None, near=()):
     # week (every read page of 2001-2004 that gave a number, but a few misreads two off, has the count's).
     if COUNTED[0] <= day <= COUNTED[1]:
         return estimate(day), "weekly count"
-    return None, None
+    n = bracket_number(day)
+    return (n, "filed bracket") if n else (None, None)
 
 
 def page_files(saved=SAVED):
@@ -754,6 +802,9 @@ def read_done(row, done=None):
         return False
     if row and row.get("barWindow", 0) < BAR_WINDOW and row.get("file") in bar_window_names():
         # Refused "grid unread" with the lattice on the block beside the grid (BAR_WINDOW 1): only the pages the fix reads.
+        return False
+    if row and row.get("bracketFix", 0) < BRACKET_FIX and row.get("file") in bracket_names():
+        # Refused for want of a number the filed series' bracket gives (BRACKET_FIX 1): only the pages it numbers.
         return False
     if row and row.get("answersFix", 0) < ANSWERS_FIX and row.get("file") in answers_names():
         # Numbered from a title over last week's answers, one low (ANSWERS_FIX 1): only the pages the fix renumbers.
@@ -3319,7 +3370,7 @@ def read_unit(rel, saved=SAVED, store=STORE):
                 "latticeFix": LATTICE_FIX, "vlmAllFix": VLM_ALL_FIX, "enumFix": ENUM_FIX, "downGap": DOWN_GAP,
                 "vlmMissFix": VLM_MISS_FIX, "stripFix": STRIP_FIX, "hangFix": HANG_FIX, "leftGap": LEFT_GAP, "priorFix": PRIOR_FIX,
                 "strayFix": STRAY_FIX, "gapFix": GAP_FIX, "aboveFix": ABOVE_FIX, "sideFix": SIDE_FIX, "sideTail": SIDE_TAIL,
-                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR, "noParse": NO_PARSE}, store)
+                "tallHead": TALL_HEAD, "leadFix": LEAD_FIX, "columnStop": COLUMN_STOP, "headingGap": HEADING_GAP, "leftTitle": LEFT_TITLE, "aboveWide": ABOVE_WIDE, "wideBelow": WIDE_BELOW, "riseFix": RISE_FIX, "formFix": FORM_FIX, "barWindow": BAR_WINDOW, "answersFix": ANSWERS_FIX, "runFirstFix": RUN_FIRST_FIX, "bracketFix": BRACKET_FIX, "headlessFix": HEADLESS_FIX, "numberedCut": NUMBERED_CUT, "noList": NO_LIST, "swapDir": SWAP_DIR, "noParse": NO_PARSE}, store)
     print(json.dumps(verdict))
     return "read"
 

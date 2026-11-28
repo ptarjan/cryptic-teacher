@@ -8,6 +8,7 @@
 # A fake HOME and temp folders: no OCR, no ~/.cache, no tools/data, nothing waited on.
 import _path  # puts tools/ on sys.path
 import atexit
+import json
 import os
 import shutil
 import sys
@@ -414,6 +415,23 @@ check("a stray 2 inside the Across list opens no Down list", None, gm.headless_t
 check("1, 2, 3 under the Across list still open it", 1340 - 6, gm.headless_tail(
     [w for w in _sy if w[4] not in ("2", "31", "32")] + [(100, 1340 + 40 * i, 140, 1370 + 40 * i, str(i + 1)) for i in range(3)],
     ((90, 900, 1000, 1500), []), 500, gl)[1])
+
+# BRACKET_FIX: the nearest filed anchors either side at ONE offset number the Sunday between them (the offset only falls).
+_an = [("1982-10-03", -182), ("1982-11-07", -182), ("1982-11-14", -183), ("1983-01-30", -183)]
+check("two anchors at one offset number the Sunday between", gm.week(D(1982, 10, 24)) - 182, gm.bracket_number(D(1982, 10, 24), _an))
+check("two anchors at different offsets number nothing between", None, gm.bracket_number(D(1982, 11, 10), _an))
+check("no anchor after it numbers nothing", None, gm.bracket_number(D(1983, 3, 6), _an))
+check("a bracket at another offset than the run holding the day numbers nothing", None,
+      gm.bracket_number(D(1980, 6, 1), [("1980-05-25", -181), ("1980-06-08", -181)]))
+_anch = [tuple(a) for a in json.loads(gm.ANCHORS_FILE.read_text())]
+check("anchors never rise", [], [(a, b) for a, b in zip(_anch, _anch[1:]) if b[1] > a[1]])
+check("every bracket name is refused-unnumbered material the bracket numbers", True,
+      all(gm.bracket_names()) and len(gm.bracket_names()) == len(json.loads(gm.BRACKET_FILE.read_text())))
+check("a bracket page read before BRACKET_FIX is due", False,
+      gm.read_done({"file": sorted(gm.bracket_names())[0], "refused": gm.UNNUMBERED, "version": gm.VERSION, "numberFix": gm.NUMBER_FIX}))
+check("a bracket page read at BRACKET_FIX is not due again", True,
+      gm.read_done({"file": sorted(gm.bracket_names())[0], "refused": gm.UNNUMBERED, "version": gm.VERSION, "numberFix": gm.NUMBER_FIX,
+                    "bracketFix": gm.BRACKET_FIX, "date": "1976-02-22"}))
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
