@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Sunday Times page refused no reading parses, its grid touching its title, the clue column left of it read since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T06:19:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
