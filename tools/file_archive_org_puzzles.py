@@ -4064,11 +4064,18 @@ def ft_third_numbered(words):
             rows[-1].append(w)
         else:
             rows.append([w])
+    texts = []
     for row in rows:
-        m = re.match(r"\W{0,2}(\d{1,2})(?:\s|[A-Z\"'])", min(row, key=lambda w: w[0])[4])
+        line = " ".join(w[4] for w in sorted(row, key=lambda w: w[0]))
+        m = re.match(r"\W{0,2}(\d{1,2})(?:\s|[A-Z\"'])", line)
         if m:
             nums.append(int(m.group(1)))
-    return len(nums) >= FT_THIRD_RISING and all(a < b for a, b in zip(nums, nums[1:]))
+            texts.append(line)
+        elif texts:
+            texts[-1] += " " + line
+    # FT_THIRD_COUNTED: a clue ends in its letter count "(8)"; a bridge column's numbered hands ("1 S NB 2NT NB") do not.
+    counted = sum(bool(re.search(r"\(\s*\d[\d,\-\s]*\)?\W*$", t)) for t in texts)
+    return len(nums) >= FT_THIRD_RISING and all(a < b for a, b in zip(nums, nums[1:])) and counted >= len(texts) / 2
 
 
 def ft_third_column(img, grid, right, rapid, key):
