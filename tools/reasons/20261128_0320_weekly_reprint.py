@@ -13,7 +13,7 @@ stamped weeklyLooked, read before the push. Scanned again once (a text-only look
 from fix_reasons import Reason
 
 TEXT = "archive.org Guardian page with no puzzle, its clues matched to the held cryptics a Guardian Weekly reprints since"
-REREAD = "2026-11-19T23:59:00+00:00"  # the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T08:05:00+00:00"  # the lander stamps the push minute (UTC)
 
 
 def rescan(row):
