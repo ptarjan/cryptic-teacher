@@ -10,7 +10,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Gale Independent on Sunday title one off its weekly run, refused as filed for another day, numbered by the run since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T11:28:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 
 
 def due(row):
