@@ -38,7 +38,7 @@ PACE = 2.0
 #: entries cached by an older one are looked up again (stale), and an
 #: edition an older one fetched with no grid found is fetched again
 #: (gale_fetch.have_docs).
-MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 7, "FTHA": 3, "INDA": 2, "STHA": 5, "TLSH": 2}
+MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 8, "FTHA": 3, "INDA": 2, "STHA": 5, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -142,7 +142,8 @@ def crosswords(prod, titles, number=None, sunday=False):
                      + (r"|^\W*[cg]ross-? ?w[oa]rd \d{1,3}\W*$" if prod == "TTDA" else ""), re.IGNORECASE)
     # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too; the
     # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
-    kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}|{SUNDAY_PUZZLE.pattern}", re.IGNORECASE) if prod == "TGRH" else \
+    kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}|{SUNDAY_PUZZLE.pattern}|{TELEGRAPH_CW}|{PRIZE_COMPETITION.pattern}",
+                      re.IGNORECASE) if prod == "TGRH" else \
         TIMES_KIND if prod == "TTDA" else KIND
     cands = [i for i, t in enumerate(titles) if (kind.search(t) or prod == "STHA" and STHA_WORD.search(t))
              and not bad.search(t)]
@@ -166,6 +167,10 @@ def crosswords(prod, titles, number=None, sunday=False):
         cands.sort(key=lambda i: not (TELEGRAPH_DAILY.search(titles[i]) or TELEGRAPH_PLAIN.search(titles[i])))
         # "Crossword No 12,345" (any digits) is the puzzle itself: before the rest
         cands.sort(key=lambda i: not re.search(r"^\W*[cg]ross-? ?w[oa]rd\W*no\.?\W*\d", titles[i], re.IGNORECASE))
+        # The 1970s-80s puzzle is indexed under its clue heading ("No. 18,147 across") or, on a
+        # Saturday, "Prize Competition-No. 17,831": the puzzle itself, before any feature that
+        # names crosswords ("Big Book of Crosswords", "Crossword nostalgia") or a plain "Crossword".
+        cands.sort(key=lambda i: not (ACROSS.search(titles[i]) or PRIZE_COMPETITION.search(titles[i])))
     if prod == "TGRH":  # the Sunday Telegraph: "Prize Puzzle No. 1976" (1990s), "Two-in-One Crossword" before
         cands.sort(key=lambda i: not SUNDAY_PUZZLE.search(titles[i]))
     if prod == "FTHA":
@@ -178,11 +183,18 @@ def crosswords(prod, titles, number=None, sunday=False):
     return cands
 
 
-#: The Telegraph's daily puzzle as Gale titles it: "Crossword / 21,053" or
-#: "Prize Crossword", ranked above articles about the paper's competition
+#: "Crossword" as Gale's OCR spells it in a Telegraph title (1987's "Prize Crosswod").
+TELEGRAPH_CW = r"[cg]ross?-? ?w[oa]r?d"
+#: The Saturday puzzle of the 1970s-80s, indexed "Prize Competition-No. 17,831" or
+#: "Summer Special Prize Competition-No. 16,938", without the word crossword.
+PRIZE_COMPETITION = re.compile(r"prize\s+competition\W*no\.?\W*\d", re.IGNORECASE)
+
+
+#: The Telegraph's daily puzzle as Gale titles it: "Crossword / 21,053",
+#: "Crossword 19,222" or "Prize Crossword", ranked above articles about the paper's competition
 #: ("How to Crack the Cryptic Crossword and Win £5,000", "Crossword
 #: Competition / 14", "... Answers").
-TELEGRAPH_DAILY = re.compile(r"^\W*(?:[cg]ross-? ?w[oa]rd\W*(?:/|no\.?)\W*\d[\d,]{2,}|prize\s+[cg]ross-? ?w[oa]rd)",
+TELEGRAPH_DAILY = re.compile(rf"^\W*(?:[cg]ross-? ?w[oa]rd\W*(?:/|no\.?)?\W*\d[\d,]{{2,}}|prize\s+{TELEGRAPH_CW})",
                              re.IGNORECASE)
 
 
@@ -232,7 +244,7 @@ def numbered(title):
     competition article ("... Win £5,000", "Crossword Competition / 14"), or
     its plain "Crossword", "Today's Crossword Puzzle" (TELEGRAPH_PLAIN)."""
     return bool(TELEGRAPH_PLAIN.search(title) or re.search(r"(?<![£\d,.])\d{1,2},?\d{3}(?![\d,])", title)
-                or re.search(r"prize\s+[cg]ross-? ?w[oa]rd", title, re.IGNORECASE)
+                or re.search(rf"prize\s+{TELEGRAPH_CW}", title, re.IGNORECASE) or PRIZE_COMPETITION.search(title)
                 or re.search(r"[cg]ross-? ?w[oa]rd\W*no\.?\W*\d", title, re.IGNORECASE) or SUNDAY_PUZZLE.search(title))  # the Sunday's "Crossword No. 214"
 
 

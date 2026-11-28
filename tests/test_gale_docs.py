@@ -107,6 +107,12 @@ check("the Telegraph's clue heading names its cryptic, not the Quick's", [1, 0, 
       [gd.crossword("TGRH", ["Quick Crossword across", "No. 12,212 across"]),
        gd.crossword("TGRH", ["Crossword / 21,502", "Quick crossword"]),
        gd.crossword("TTDA", ["No. 12,212 across"])])
+check("the Telegraph's puzzle outranks features naming crosswords", [1, 1, 1, 1, 0],
+      [gd.crossword("TGRH", ["Big Book of Crosswords", "Crossword 19,222"]),
+       gd.crossword("TGRH", ["Crossword nostalgia", "No. 18,000 across"]),
+       gd.crossword("TGRH", ["Crossworditis?", "Prize Competition—No. 17,831"]),
+       gd.crossword("TGRH", ["Crossword compiling competition", "Prize Crosswod"]),
+       gd.crossword("TGRH", ["Summer Special Prize Competition—No. 16,938", "Quick Crossword"])])
 check("the Sunday Times' cryptic, not its Mephisto or French one", [1, 1],
       [gd.crossword("STHA", ["Mephisto Crossword", "Crossword"]),
        gd.crossword("STHA", ['"Sunday Times" French Cross-Word No. 15', '"Sunday Times" Cross-Word Puzzle No. 792'])])
