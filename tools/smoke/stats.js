@@ -90,7 +90,9 @@ const { ROOT, assert, entryId, fs, groupsOf, isAsking, nuxLine, path } = T;
     + (second ? second.textContent : "nothing lit"));
   assert(!press.registry["spotlight"].classList.contains("hidden"),
     "and the scrim comes back around it");
-  assert(/That step is open/.test(nuxLine(press.registry)),
+  // A free question standing after the rung (standingQuestion) says so instead.
+  assert((press.registry["hint-body"].innerHTML.includes('class="hint-step guess"')
+      ? /Answer this question yourself/ : /That step is open/).test(nuxLine(press.registry)),
     "the line changes its words once they have taken one: " + nuxLine(press.registry));
   // ...and having taught the site, the site shuts up. The ladder line is spent
   // by the last rung rather than the first, and the two after it are spent one

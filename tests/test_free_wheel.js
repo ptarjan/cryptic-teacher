@@ -37,7 +37,11 @@ const track = () => reg["hint-track"].children;
 const letters = () => track().find((b) => /\bletters\b/.test(b.className || ""));
 const tiles = () => [...reg["hint-body"].innerHTML.matchAll(/class="ana-tile[^"]*"[\s\S]*?>([A-Z])<\/button>/g)].map((m) => m[1]);
 const score = () => reg["scorebar"].innerHTML;
-const others = () => track().filter((b) => b !== letters()).map((b) => b.className + ":" + b.textContent).join("|");
+// Which step is in front (sel, with cur the help target) is the front panel's,
+// and the Letters tab takes the front: what must stay put is each step's own
+// state (avail, open, locked).
+const others = () => track().filter((b) => b !== letters())
+  .map((b) => (b.className || "").replace(/\s*\b(cur|sel)\b/g, "") + ":" + b.textContent).join("|");
 const pick = (e) => reg["clue-" + entryId(e)].listeners.click[0]();
 
 // Open the Clue type step by asking for it and being told.

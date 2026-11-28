@@ -46,7 +46,10 @@ while (leadRung() && clicks < 12) {
     // down and the line is already the type-it one.
     const dropsType = (ann.type || []).includes("double_definition") && (ann.definitions || []).length >= 2
       && want === "Where is the definition?";
-    assert(dropsType ? /Type it/.test(nuxLine(registry)) : /That step is open/.test(nuxLine(registry)),
+    // A free question standing after the rung (standingQuestion) says so instead.
+    const standing = registry["hint-body"].innerHTML.includes('class="hint-step guess"');
+    assert(standing ? /Answer this question yourself/.test(nuxLine(registry))
+      : dropsType ? /Type it/.test(nuxLine(registry)) : /That step is open/.test(nuxLine(registry)),
       "one rung in, the line is " + (dropsType ? "the type-it one" : "still walking them down the ladder") + ": " + nuxLine(registry));
   }
   // Wherever the family rung lands, it gives the FAMILY only — never the

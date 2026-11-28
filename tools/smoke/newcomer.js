@@ -107,18 +107,24 @@ function pressShowMe() {
 }
 // Answer the question on the table with "Show me", then every blank chip of an
 // open Pieces step in turn. onAsk sees each question before it is answered.
-function settleOpen(onAsk) {
+// `pieces` is whether the chips are this tap's to settle. The ladder keeps the
+// next free question up after a told step (standingQuestion), and when that is
+// the Pieces question its formula chips are on screen too; a climb that took
+// the rung BEFORE Pieces must stop at its own answer, or it buys the building
+// blocks (and the anagram ring they deal) without ever tapping them.
+function settleOpen(onAsk, pieces = true) {
   for (let g = 0; g < 40; g++) {
     const asking = isAsking(registry["hint-body"]);
-    if (!(blankChips() || (g === 0 && asking))) break;
+    if (!((pieces && blankChips()) || (g === 0 && asking))) break;
     if (asking && onAsk) onAsk();
     if (!pressShowMe()) break;
   }
 }
 function takeRung(btn) {
+  const blocks = /building blocks/i.test(btn.textContent || "");
   btn.onclick();
   confirmArmed();
-  settleOpen();
+  settleOpen(null, blocks);
 }
 // A step that costs a hint takes a second tap: the first only arms the button
 // and relabels it. This makes the second tap, on whichever button is armed
@@ -193,8 +199,11 @@ const btnNames = () => registry["hint-rungs"].children.map((b) => b.textContent)
 // The ladder line is the one exception to "a line is spent by the first thing
 // that answers it". It is about a ROW of buttons, and one press has taught what
 // one button does, so it rewords itself and the light moves down the ladder.
+// While the next free question stands (standingQuestion keeps one up after a
+// step), the line is the one that says the question costs nothing; otherwise
+// it is the reworded ladder line.
 assert(!/one step at a time/.test(nuxLine(registry))
-       && /That step is open/.test(nuxLine(registry)),
+       && (isAsking(registry["hint-body"]) ? /Answer this question yourself/ : /That step is open/).test(nuxLine(registry)),
   "one rung rewords the ladder line rather than spending it: " + nuxLine(registry));
 assert(storage["ct:nux"] === "1",
   "and the cursor stays on it for the rest of the walk: " + storage["ct:nux"]);

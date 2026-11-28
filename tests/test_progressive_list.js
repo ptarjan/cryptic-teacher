@@ -70,6 +70,12 @@ function page(root, broken) {
   global.fetch = (url) => {
     const m = /puzzles\/idx\/([^?]+)$/.exec(String(url));
     if (!m) return new Promise(() => {});   // everything else never answers, as in the harness
+    // The update check compares head-live.json with the server's on every boot;
+    // it is not the list loading, so it is answered but not counted.
+    if (m[1] === "head-live.json") {
+      const body = fs.readFileSync(path.join(root, m[1]), "utf8");
+      return Promise.resolve({ ok: true, status: 200, redirected: false, text: () => Promise.resolve(body) });
+    }
     asked.push(m[1]);
     if (broken && m[1].includes(broken)) return Promise.resolve({ ok: false, status: 404 });
     const file = path.join(root, m[1]);
@@ -112,7 +118,7 @@ const check = (ok, msg) => {
 
   // 1 + 2
   let d = page(root);
-  check(d.asked.length === 0, "booting with the head asks puzzles/idx for nothing");
+  check(d.asked.length === 0, "booting with the head asks puzzles/idx for no list shard");
   check(!/data-number="281"/.test(d.rows()), "genius 281 is not in the recent rows");
   d.search("281 genius");
   await tick();

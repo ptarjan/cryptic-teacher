@@ -497,7 +497,11 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       li.children[0].onclick();
       registry["clue-" + entryId(e)].listeners.click[0]();
       const html = registry["hint-body"].innerHTML;
-      assert(!/class="gives"/.test(html),
+      // The question standing on the first piece names its own letters in its
+      // prompt ("Which words give X?"): that is the ask, not a piece handed
+      // over. Nothing else on the panel may carry a piece.
+      const rest = html.replace(/(class="hint-step guess"><span class="step-label">[^<]*<\/span>\s*)<p>[\s\S]*?<\/p>/, "$1");
+      assert(!/class="gives"/.test(rest),
         "a rung shown with no blocksAt count reveals no pieces on reload, not every piece: "
           + html.slice(0, 300));
     }

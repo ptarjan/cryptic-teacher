@@ -73,7 +73,8 @@ if (e && other) {
   check(!u.asking(), "typing: nor when you come back to it");
 }
 const arrive = (/function arriveAt[\s\S]*?\n  \}/.exec(src) || [""])[0];
-check(/advanceLadder\(e\)/.test(arrive) && /nextQuestion\(e\)/.test(arrive),
+const advance = (/function advanceLadder[\s\S]*?\n  \}/.exec(src) || [""])[0];
+check(/advanceLadder\(e\)/.test(arrive) && /nextQuestion\(e\)/.test(advance),
   "arriving asks through nextQuestion/advanceLadder, the same free-question-only chain as a right answer");
 check(/tourHoldsQuestions\(\)/.test(arrive) && /line\.id === "welcome" \|\| line\.id === "ladder"/.test(src),
   "arriving asks nothing while the tour is teaching the row of hint buttons");
