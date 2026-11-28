@@ -4397,6 +4397,10 @@ check("a verdict-less Guardian weekday edition with no puzzle is due GUARDIAN_SE
        f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "failed": "x"}}),
        f.guardian_set_rescan({**_gd, "scan": {**_gd["scan"], "item": "GaleTelegraph1985UKEnglish"}}),
        f.RANKS[f.GUARDIAN_SET]])
+check("a Guardian title the OCR cut in two lines on one row is joined and found; a line far right or lower is not joined",
+      [[((1562, 2944, 2175, 2979), "20576", None)], []],
+      [f.guardian_loose_titles([_gl("Guardian Crossi", 1562, 2944), [(1700, 2946, 2175, 2979, "word No 20,576")]]),
+       f.guardian_loose_titles([_gl("Guardian Crossi", 1562, 2944), [(3200, 2946, 3300, 2979, "word No 20,576")]])])
 # ft_right_rescan (r253): an archive.org FT 1985-94 edition read with no puzzle and no verdict is due FT_RIGHT once (the band
 # right of its grid is read for the title, ft_right_titled); stamped, titled, with a verdict, failed, of 1995 or of Gale not.
 _fr = {"edition": "FinancialTimes1994UKEnglish/1994-08-15_15", "scanKey": f.scan_key(f.FT), "filesHash": "h",

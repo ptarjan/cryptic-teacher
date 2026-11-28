@@ -6780,10 +6780,12 @@ def sunday_loose_rows():
 #: The key of a scan (scan_anywhere's) of an archive.org Guardian weekday edition no title was read on whose pages were
 #: looked over loosely (guardian_titled), titled by that or not: its GUARDIAN_SET rescan is done.
 GUARDIAN_READ = "guardianRead"
+#: The same scan stamped once its title lines cut from one printed row were joined (row_joined_lines): its GUARDIAN_JOINED rescan is done.
+GUARDIAN_JOINED = "guardianJoined"
 #: A Guardian title as the OCR glues and splits it, read off the line with its spaces taken out: "Guardian CrosswordTVio
 #: 21,133" (a word glued on, 1997-11-28), "Guardian C rosswor d No 21,341" (the word split, 1998-07-31): the word's letters,
 #: up to six more, then the number's digits through the junk between them ("No 20 f 515").
-GUARDIAN_SPELT = re.compile(r"cr\w{0,2}ss?w\w{0,2}rd([A-Za-z]{0,6})\W{0,3}(\d(?:[\d\W]|[A-Za-z]{1,2}(?=\d))*)", re.IGNORECASE)
+GUARDIAN_SPELT = re.compile(r"cr\w{0,2}ss?\w{0,2}w\w{0,2}rd([A-Za-z]{0,6})\W{0,3}(\d(?:[\d\W]|[A-Za-z]{1,2}(?=\d))*)", re.IGNORECASE)
 #: The lines a spelt title is not: the Quick's, a solution's label, an entry note, a double or bank holiday heading.
 GUARDIAN_NOT_TITLE = re.compile(r"quick|s\w{0,2}ut|entr|send|double|bank|book|page", re.IGNORECASE)
 #: The line that heads a Guardian puzzle's clues when its title was lost: "Set by Araucaria", "Across" a line under it.
@@ -6795,12 +6797,43 @@ GUARDIAN_ACROSS_REACH = (20, 120)
 GUARDIAN_LOST_TITLE = (600, 45, 10)
 
 
+#: How far (pixels) apart in height two OCR lines may start, and how far a line may stand right of the one before it (end to
+#: start), for them to be one printed line the reader cut in two ("Guardian Crossi" | "word No 20,576").
+ROW_JOIN_RISE, ROW_JOIN_GAP = 14, 90
+
+
+def row_joined_lines(lines):
+    """`lines` (lists of words) with each run of lines cut from one printed row (starting within ROW_JOIN_RISE of one
+    another's height, each starting no more than ROW_JOIN_GAP right of where the one before ended) added as one line, left
+    to right, after them."""
+    boxes = [(box_of(ws), ws) for ws in lines if ws]
+    out = list(lines)
+    used = set()
+    for i, (a, ws) in enumerate(boxes):
+        if i in used:
+            continue
+        run, end, used_now = list(ws), a[2], [i]
+        while True:
+            nxt = [(b[0], j) for j, (b, _) in enumerate(boxes) if j not in used and j not in used_now
+                   and abs(b[1] - a[1]) <= ROW_JOIN_RISE and 0 <= b[0] - end <= ROW_JOIN_GAP]
+            if not nxt:
+                break
+            _, j = min(nxt)
+            run += boxes[j][1]
+            end = boxes[j][0][2]
+            used_now.append(j)
+        if len(used_now) > 1:
+            used.update(used_now[1:])
+            out.append(run)
+    return out
+
+
 def guardian_loose_titles(lines):
     """[(box, digits, setter)] of the Guardian titles of a leaf's `lines` read loosely: a short line holding "crossword"
     (GUARDIAN_SPELT, its spaces taken out) with the number's digits (4-6 of them), none of GUARDIAN_NOT_TITLE; else the
     "Set by" line (GUARDIAN_SET_LINE) with an "Across" line under it and a box over it (digits "")."""
     found = []
-    for ws in lines:
+    for ws in row_joined_lines(lines):
         text = " ".join(w[4] for w in ws)
         squeezed = re.sub(r"\s+", "", text)
         m = GUARDIAN_SPELT.search(squeezed)
@@ -6841,7 +6874,7 @@ def guardian_titled(d, found):
                          if (d / f"leaf_{p['leaf']:04d}.jpg").exists()})
     except (OSError, ValueError, KeyError, TypeError):
         return found
-    stamped = {**found, GUARDIAN_READ: True}
+    stamped = {**found, GUARDIAN_READ: True, GUARDIAN_JOINED: True}
     if day.weekday() == 6 or not leaves:
         return stamped
     text = leaf_lines(d / "djvu.xml.gz", set(leaves))
