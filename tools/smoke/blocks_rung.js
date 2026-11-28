@@ -193,6 +193,13 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
     "and the step is not opened by a wrong answer: " + html);
   assert(/\b0<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),
     "a wrong Lock in costs nothing: Just tell me is what pays: " + registry["scorebar"].innerHTML);
+  // The words just tried stay picked, so the button still reads Lock in: taking
+  // the picks off makes it Just tell me again.
+  assert(/id="guess-tell"[^>]*aria-label="Lock in /.test(registry["hint-body"].innerHTML),
+    "the wrong words stay picked and the button still offers to lock them in");
+  for (let i = 0; i < words; i++) registry["gw-" + i].onclick();
+  assert(/id="guess-tell"[^>]*aria-label="Just tell me: /.test(registry["hint-body"].innerHTML),
+    "with the picks taken off the button is Just tell me: " + registry["hint-body"].innerHTML);
   registry["guess-tell"].onclick();
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "Just tell me then opens the step it asked about");
   assert(/\b1<\/strong> hints?\b/.test(registry["scorebar"].innerHTML),

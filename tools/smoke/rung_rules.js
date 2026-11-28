@@ -221,12 +221,18 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
     assert(!/guess-verdict/.test(wrong) && isAsking(registry["hint-body"]),
       "dropping a word that carries the meaning keeps the same question up, with no red verdict on "
         + clueText(found.e) + ": " + wrong);
-    assert(/<p class="step-result miss">Not quite/.test(wrong),
+    assert(/<p id="step-miss" class="step-result miss">Not quite/.test(wrong),
       "and one plain \"Not quite\" line says so: " + wrong);
     assert(!/<div id="hint-note-definition"/.test(wrong),
       "the step it asked about is not opened by a wrong answer: " + wrong);
-    assert(/id="guess-tell"[^>]*aria-label="Just tell me: /.test(wrong),
-      "its button is Just tell me for this very step: " + wrong);
+    // The words just tried stay picked (the button still reads Lock in); taking
+    // the picks off turns it back into this step's own "Just tell me".
+    assert(/id="guess-tell"[^>]*aria-label="Lock in /.test(wrong),
+      "the words just tried stay picked, so the button still offers to lock them in: " + wrong);
+    for (const i of marks.slice(1)) registry["gw-" + i].onclick();
+    assert(/id="guess-tell"[^>]*aria-label="Just tell me: /.test(registry["hint-body"].innerHTML),
+      "with the picks taken off, its button is Just tell me for this very step: "
+        + registry["hint-body"].innerHTML);
     // And it can be answered again, right this time.
     const again = verdict(marks.slice(0, -1));
     assert(/guess-verdict right/.test(again),
@@ -453,6 +459,8 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, confirmArmed, def
         // A wrong piece opens nothing and costs nothing: the same piece is asked again.
         const missed = { still: asking(), score: registry["scorebar"].innerHTML };
         if (!missed.still || missed.score !== cold) continue;
+        // The wrong pick stays picked after a wrong lock-in: take it off first.
+        registry["gw-" + wrongPick].onclick();
         first.forEach((i) => registry["gw-" + i].onclick());
         registry["guess-tell"].onclick();
         walked = { id, e, missed, after: registry["scorebar"].innerHTML, cold,

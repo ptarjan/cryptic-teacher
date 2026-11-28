@@ -32,6 +32,9 @@ const { ROOT, SLICE, UNCACHED, assert, ciCache, corpus, fs, openId, path, regist
       || f.includes('"/n"') || f.includes("/v?p=") || f.includes('"/v"')
       || f.startsWith('fetch(at("puzzles/') || f.startsWith('fetch(at("./")')
       || f.startsWith('fetch(at("sw.js")')
+      // The update check compares the site's own live puzzle list and home page
+      // with the held copies: both URLs are built with at(), same origin.
+      || f.startsWith("fetch(liveUrl, ") || f.startsWith("fetch(homeAt, ")
       // fetchWithin's own call: it takes the URL its caller built (always at(...)).
       || f.startsWith("fetch(url, ")),
     "nothing else leaves the page: " + fetches.join(" | "));

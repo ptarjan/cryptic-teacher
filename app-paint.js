@@ -147,10 +147,10 @@
   // for the question on the table it reads Lock in “<the picked words>” and
   // is free: picks never confirm themselves ("Pick, then confirm"), so this
   // tap is the answer. A right one opens the step as worked out; a wrong one
-  // opens it all the same, simply shown, the way "Just tell me" shows it, and
-  // that is what it costs: 1 hint. No red, no "wrong", nothing cleared (Paul
-  // 11-20: "I picked the one that just showed the right thing"). With nothing
-  // picked it reads "Just tell me" and its price: the one way to pay for the
+  // opens nothing and costs nothing: the same question stays up, the words just
+  // tried still picked, with one plain "Not quite" line. No red, no "wrong".
+  // Taking the picks off turns the button into "Just tell me", the one way to
+  // pay. With nothing picked it reads "Just tell me" and its price: the one way to pay for the
   // explanation, which reveals the CURRENT step on two taps with the armed
   // text on itself. A family question's chips are their own answer, so it
   // only ever has "Just tell me".
