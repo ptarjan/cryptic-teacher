@@ -12,7 +12,7 @@ import re
 from fix_reasons import Reason
 
 TEXT = "Independent page whose ACROSS columns under the grid were never joined to the column right of it, joined since"
-REREAD = "2026-11-19T23:59:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
+REREAD = "2026-11-28T13:15:00+00:00"  # placeholder: the lander stamps the push minute (UTC)
 NAMES = frozenset("""
 1998-12-21 1998-11-09 1998-10-05 1998-08-03 1998-06-15 1998-03-02 1998-01-19 1998-01-12 1997-10-27 1997-09-22
 1997-08-11 1997-07-14 1997-03-03 1997-02-10 1996-08-26 1996-07-29
